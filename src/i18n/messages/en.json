@@ -1,0 +1,225 @@
+{
+  "brand": {
+    "name": "TROIE",
+    "domain": "troie.studio",
+    "tagline": "Like the horse. We get your brand into markets, algorithms and LLMs."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "works": "Works",
+    "formations": "AI Training",
+    "about": "About",
+    "contact": "Contact",
+    "letsTalk": "Let's talk"
+  },
+  "home": {
+    "heroEyebrow": "Communication, creative & AI training agency",
+    "heroTitle": "We get your brand\nwhere your customers actually look.",
+    "heroSubtitle": "Strategy, art direction, content, SEO/SEA/GEO, and hands-on training on AI tools. One team, two crafts, ten years of execution.",
+    "heroCtaPrimary": "Free 30-min audit",
+    "heroCtaSecondary": "See our work",
+    "manifestoEyebrow": "Manifesto",
+    "manifestoTitle": "The Trojan horse didn't take the city by force. It walked in as the obvious move.",
+    "manifestoBody": "Today the walls are algorithmic. Markets are won inside Instagram feeds, on the first Google page, in ChatGPT answers. TROIE builds your horse: a brand system that gets invited into the conversation. Image, copy, code, model. Production fast, clean, measurable.",
+    "statsClients": "brands worked with",
+    "statsTrained": "professionals trained",
+    "statsYears": "years of execution",
+    "servicesTitle": "Three crafts, one point of contact",
+    "servicesIntro": "We cover the full chain: strategy that thinks, creative that infiltrates, training that transmits.",
+    "clientsTitle": "They've already opened their gates",
+    "clientsIntro": "Luxury houses, industrials, sports and hospitality. Selection.",
+    "formationsTitle": "AI Training — for your teams",
+    "formationsIntro": "Three levels, in-house or open enrollment, in Paris or remote. Every session ends with a live, working deliverable.",
+    "ctaTitle": "It starts with a 30-minute audit.",
+    "ctaSubtitle": "You describe the terrain. We come back with a concrete infiltration plan in 48 hours.",
+    "ctaButton": "Book the audit"
+  },
+  "services": {
+    "pageTitle": "Services",
+    "pageSubtitle": "Strategy, creation, training. Three pillars, one system.",
+    "comm": {
+      "label": "Strategy & Communication",
+      "title": "We make your brand obvious.",
+      "items": [
+        "Brand strategy & positioning",
+        "Art direction & branding",
+        "Media plan & growth",
+        "SEO, SEA, GEO (Generative Engine Optimization)",
+        "Paid media — Meta, Google, LinkedIn, TikTok",
+        "E-commerce & conversion",
+        "Social media strategy & community",
+        "Measurement, dashboards, reporting"
+      ]
+    },
+    "creation": {
+      "label": "Creation & Art Direction",
+      "title": "We build everything, under one roof.",
+      "items": [
+        "Visual identity & logo",
+        "Graphic charter & brand guidelines",
+        "Photography — product, fashion, corporate",
+        "Video, reels, brand films",
+        "AI creation — image, video, voice",
+        "Editorial & print design",
+        "Websites, landing pages, e-shops",
+        "Animation, motion design"
+      ]
+    },
+    "training": {
+      "label": "AI Training",
+      "title": "We train your team to use AI that ships.",
+      "items": [
+        "ChatGPT, Claude, Gemini — advanced use",
+        "Make, n8n, Zapier — automation",
+        "AI Agents — build & deploy",
+        "Sora, Veo, Runway, Midjourney — visual creation",
+        "Custom in-house programs",
+        "AI audit & roadmap",
+        "Post-training support",
+        "Qualiopi certification possible (in progress)"
+      ]
+    }
+  },
+  "works": {
+    "pageTitle": "Works",
+    "pageSubtitle": "Selected projects. Each case tells a successful infiltration: the brand, the wall, the angle of attack, the result.",
+    "viewProject": "View case",
+    "items": {
+      "chanel": {
+        "title": "Chanel",
+        "scope": "Art direction, photography, content",
+        "year": "2015 — present"
+      },
+      "pantone": {
+        "title": "Pantone × X-Rite",
+        "scope": "Brand activation, video, eXact 2 launch",
+        "year": "2023"
+      },
+      "rutherford": {
+        "title": "Rutherford",
+        "scope": "Full brand identity, website, product demo",
+        "year": "2024"
+      },
+      "gsmonaco": {
+        "title": "GS Monaco",
+        "scope": "Art direction, video, reels, events",
+        "year": "2021 — present"
+      },
+      "sofitel": {
+        "title": "Sofitel Essaouira × Golf Mogador",
+        "scope": "Photography, hospitality content",
+        "year": "2019"
+      },
+      "veoria": {
+        "title": "Veoria",
+        "scope": "Corporate photography, social media",
+        "year": "2025"
+      },
+      "heidelberg": {
+        "title": "Heidelberg",
+        "scope": "Industrial photography, B2B content",
+        "year": "2020 — 2021"
+      },
+      "topakita": {
+        "title": "Top Akita Inu",
+        "scope": "Brand storytelling, interview, social",
+        "year": "2020"
+      },
+      "capefront": {
+        "title": "Capefront",
+        "scope": "Corporate photography, team building, profiles",
+        "year": "2025"
+      }
+    }
+  },
+  "formations": {
+    "pageTitle": "AI Training",
+    "pageSubtitle": "Three levels, working deliverables on day one. Paris on-site or remote.",
+    "level1": {
+      "label": "Level 1 — Foundations",
+      "duration": "3 hours",
+      "title": "ChatGPT, Claude & Gemini",
+      "deliverable": "By the end: 30 LinkedIn & Instagram posts in 20 minutes.",
+      "items": [
+        "Model comparison (strengths, weaknesses, pricing)",
+        "Advanced prompting (role, context, constraints, iteration)",
+        "Content creation — copy, posts, briefs, emails",
+        "Limits, hallucinations, business ethics"
+      ]
+    },
+    "level2": {
+      "label": "Level 2 — Intermediate",
+      "duration": "1 day (7h)",
+      "title": "Make, n8n & Zapier",
+      "deliverable": "By the end: an autonomous LinkedIn → email → CRM pipeline.",
+      "items": [
+        "Workflow architecture",
+        "Essential connectors (LinkedIn, Apollo, Shopify, CRMs)",
+        "Outbound prospecting automation",
+        "Triggers, scenarios, error handling"
+      ]
+    },
+    "level3": {
+      "label": "Level 3 — Advanced",
+      "duration": "1 day (7h)",
+      "title": "AI Agents — Build & Deploy",
+      "deliverable": "By the end: your agents run autonomously by evening.",
+      "items": [
+        "Agent architecture (LangChain, Relevance AI, n8n agents)",
+        "Prospecting agent, community agent, CMO agent",
+        "Memory, tools, guardrails",
+        "Deployment & monitoring"
+      ]
+    },
+    "custom": {
+      "label": "Custom",
+      "title": "In-house program",
+      "body": "Process audit, tool selection, transformation plan, team training, 3-month follow-up. Custom quote after free audit."
+    }
+  },
+  "about": {
+    "pageTitle": "About",
+    "pageSubtitle": "Boutique agency. One point of contact. Ten years of execution.",
+    "intro": "TROIE is Hugues Lourmières' agency. Photographer, art director, AI trainer. Since 2015 I've worked with luxury houses, industrials, sports and hospitality brands — Chanel, Pantone, X-Rite, Sofitel, Heidelberg, GS Monaco, Veoria. Since 2024, I also train teams to embed AI into their daily production. TROIE brings these two worlds together: creative that gets seen, and AI that ships.",
+    "valuesTitle": "How we work",
+    "values": [
+      {
+        "title": "One point of contact",
+        "body": "No layered account chain. You talk to the person who executes."
+      },
+      {
+        "title": "Fast production",
+        "body": "30-min audit, plan in 48h, deployment in days, not months."
+      },
+      {
+        "title": "Measurable",
+        "body": "Every action has a KPI. Every quarter has a dashboard. Every euro is traceable."
+      },
+      {
+        "title": "No bullshit",
+        "body": "No buzzwords. No 80-slide decks. Deliverables and results."
+      }
+    ]
+  },
+  "contact": {
+    "pageTitle": "Free 30-minute audit",
+    "pageSubtitle": "Describe the terrain. We come back with a concrete infiltration plan in 48 hours.",
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "subject": "Subject",
+    "message": "Describe your need",
+    "send": "Send",
+    "or": "or directly",
+    "emailDirect": "contact@troie.studio",
+    "callDirect": "Book a call",
+    "thanks": "Thanks. Reply within 24 business hours."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Legal",
+    "based": "Paris — fully remote everywhere"
+  }
+}

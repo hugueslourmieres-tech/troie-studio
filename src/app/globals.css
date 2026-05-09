@@ -1,26 +1,114 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────────────────────────
+   TROIE — brand tokens
+   ─────────────────────────────────────────────────────────────────
+   Palette references the Trojan Horse mythology:
+     ink     — night before the assault (almost-black)
+     bone    — ivory of the wooden horse, used as the fg
+     ember   — Troy in flames, the accent
+     gold    — oxidized antique gold for the secondary accent
+     mist    — soft contrast on the dark surface
+*/
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ink: #0b0b0c;
+  --color-ink-2: #131316;
+  --color-bone: #f4f0e6;
+  --color-bone-2: #ede7d8;
+  --color-ember: #e44827;
+  --color-gold: #b89254;
+  --color-mist: rgba(244, 240, 230, 0.12);
+  --color-mist-strong: rgba(244, 240, 230, 0.32);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: var(--color-ink);
+  --color-foreground: var(--color-bone);
+  --color-ink: var(--color-ink);
+  --color-ink-2: var(--color-ink-2);
+  --color-bone: var(--color-bone);
+  --color-bone-2: var(--color-bone-2);
+  --color-ember: var(--color-ember);
+  --color-gold: var(--color-gold);
+  --color-mist: var(--color-mist);
+  --color-mist-strong: var(--color-mist-strong);
+
+  --font-display: var(--font-fraunces, ui-serif, Georgia, "Times New Roman", serif);
+  --font-sans: var(--font-inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif);
+  --font-mono: var(--font-jetbrains, ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  letter-spacing: -0.005em;
+}
+
+::selection {
+  background: var(--color-ember);
+  color: var(--color-bone);
+}
+
+/* utility: a hairline divider in the brand palette */
+.t-rule {
+  height: 1px;
+  background: var(--color-mist);
+}
+
+/* utility: an editorial display heading */
+.t-display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+/* utility: marquee-like uppercase eyebrow */
+.t-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mist-strong);
+}
+
+/* the horse, in 1 keyframe (subtle entrance for hero) */
+@keyframes troie-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.t-rise {
+  animation: troie-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.t-rise-delay-1 {
+  animation-delay: 0.1s;
+}
+.t-rise-delay-2 {
+  animation-delay: 0.22s;
+}
+.t-rise-delay-3 {
+  animation-delay: 0.34s;
+}
+.t-rise-delay-4 {
+  animation-delay: 0.46s;
 }

@@ -1,0 +1,225 @@
+{
+  "brand": {
+    "name": "TROIE",
+    "domain": "troie.studio",
+    "tagline": "Comme le cheval. On infiltre votre marque dans les marchés, les algorithmes et les LLMs."
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "works": "Réalisations",
+    "formations": "Formations",
+    "about": "À propos",
+    "contact": "Contact",
+    "letsTalk": "Parlons-en"
+  },
+  "home": {
+    "heroEyebrow": "Agence de communication, création & formations IA",
+    "heroTitle": "Nous infiltrons votre marque\nlà où vos clients regardent.",
+    "heroSubtitle": "Stratégie, direction artistique, contenus, SEO/SEA/GEO et formations sur les outils IA. Une seule équipe, deux métiers, dix ans d'exécution.",
+    "heroCtaPrimary": "Audit gratuit (30 min)",
+    "heroCtaSecondary": "Voir nos réalisations",
+    "manifestoEyebrow": "Manifeste",
+    "manifestoTitle": "Le cheval de Troie n'a pas pris la ville par la force. Il y est entré par l'évidence.",
+    "manifestoBody": "Aujourd'hui les remparts sont algorithmiques. Les marchés se gagnent dans les flux Instagram, sur la première page Google, dans les réponses ChatGPT. TROIE construit votre cheval : un système de marque qui se fait inviter dans la conversation. Image, copy, code, modèle. Production rapide, propre, mesurable.",
+    "statsClients": "marques accompagnées",
+    "statsTrained": "professionnels formés",
+    "statsYears": "années d'exécution",
+    "servicesTitle": "Trois métiers, un seul interlocuteur",
+    "servicesIntro": "On couvre la chaîne complète : la stratégie qui pense, la création qui infiltre, la formation qui transmet.",
+    "clientsTitle": "Ils nous ont déjà ouvert les portes",
+    "clientsIntro": "Maisons de luxe, industriels, sport et hospitalité. Sélection.",
+    "formationsTitle": "Formations IA — pour vos équipes",
+    "formationsIntro": "Trois niveaux, format intra-entreprise ou inter, à Paris ou en remote. Chaque session se termine par un livrable opérationnel le jour même.",
+    "ctaTitle": "On commence par un audit de 30 minutes.",
+    "ctaSubtitle": "Vous nous décrivez le terrain. On revient avec un plan d'infiltration concret en 48 heures.",
+    "ctaButton": "Réserver l'audit"
+  },
+  "services": {
+    "pageTitle": "Services",
+    "pageSubtitle": "Stratégie, création, formation. Trois piliers, un seul système.",
+    "comm": {
+      "label": "Stratégie & Communication",
+      "title": "On rend votre marque évidente.",
+      "items": [
+        "Stratégie de marque & positionnement",
+        "Direction artistique & branding",
+        "Plan media & growth",
+        "SEO, SEA, GEO (Generative Engine Optimization)",
+        "Paid media — Meta, Google, LinkedIn, TikTok",
+        "E-commerce & conversion",
+        "Stratégie réseaux sociaux & community",
+        "Mesure, dashboards, reporting"
+      ]
+    },
+    "creation": {
+      "label": "Création & Direction Artistique",
+      "title": "On fabrique tout, sous le même toit.",
+      "items": [
+        "Identité visuelle & logo",
+        "Charte graphique & brand guidelines",
+        "Photographie produit, mode, corporate",
+        "Vidéo, reels, films de marque",
+        "Création IA — image, vidéo, voix",
+        "Design éditorial & print",
+        "Sites web, landing pages, e-shops",
+        "Animation, motion design"
+      ]
+    },
+    "training": {
+      "label": "Formations IA",
+      "title": "On forme vos équipes à l'IA qui produit.",
+      "items": [
+        "ChatGPT, Claude, Gemini — usage avancé",
+        "Make, n8n, Zapier — automatisation",
+        "Agents IA — création & déploiement",
+        "Sora, Veo, Runway, Midjourney — création visuelle",
+        "Formations sur-mesure intra-entreprise",
+        "Audit IA & feuille de route",
+        "Accompagnement post-formation",
+        "Certifications Qualiopi possibles (en cours)"
+      ]
+    }
+  },
+  "works": {
+    "pageTitle": "Réalisations",
+    "pageSubtitle": "Sélection de projets. Chaque cas raconte une infiltration réussie : la marque, le rempart, l'angle d'attaque, le résultat.",
+    "viewProject": "Voir le cas",
+    "items": {
+      "chanel": {
+        "title": "Chanel",
+        "scope": "Direction artistique, photographie, contenus",
+        "year": "2015 — aujourd'hui"
+      },
+      "pantone": {
+        "title": "Pantone × X-Rite",
+        "scope": "Brand activation, vidéo, lancement eXact 2",
+        "year": "2023"
+      },
+      "rutherford": {
+        "title": "Rutherford",
+        "scope": "Brand identity complète, site web, démo produit",
+        "year": "2024"
+      },
+      "gsmonaco": {
+        "title": "GS Monaco",
+        "scope": "Direction artistique, vidéo, reels, événementiel",
+        "year": "2021 — aujourd'hui"
+      },
+      "sofitel": {
+        "title": "Sofitel Essaouira × Golf Mogador",
+        "scope": "Photographie, contenus hospitalité",
+        "year": "2019"
+      },
+      "veoria": {
+        "title": "Veoria",
+        "scope": "Photographie corporate, social media",
+        "year": "2025"
+      },
+      "heidelberg": {
+        "title": "Heidelberg",
+        "scope": "Photographie industrielle, contenus B2B",
+        "year": "2020 — 2021"
+      },
+      "topakita": {
+        "title": "Top Akita Inu",
+        "scope": "Brand storytelling, interview, social",
+        "year": "2020"
+      },
+      "capefront": {
+        "title": "Capefront",
+        "scope": "Photographie corporate, team building, profils",
+        "year": "2025"
+      }
+    }
+  },
+  "formations": {
+    "pageTitle": "Formations IA",
+    "pageSubtitle": "Trois niveaux, livrables opérationnels le jour même. Paris en présentiel ou en remote.",
+    "level1": {
+      "label": "Niveau 1 — Initiation",
+      "duration": "3 heures",
+      "title": "ChatGPT, Claude & Gemini",
+      "deliverable": "À la fin : créez 30 posts LinkedIn & Instagram en 20 minutes.",
+      "items": [
+        "Comparaison des modèles (forces, faiblesses, tarifs)",
+        "Prompting avancé (rôle, contexte, contraintes, itérations)",
+        "Création de contenu — copy, posts, briefs, mails",
+        "Limites, hallucinations, éthique pro"
+      ]
+    },
+    "level2": {
+      "label": "Niveau 2 — Intermédiaire",
+      "duration": "1 jour (7h)",
+      "title": "Make, n8n & Zapier",
+      "deliverable": "À la fin : un pipeline LinkedIn → email → CRM autonome.",
+      "items": [
+        "Architecture de workflow",
+        "Connecteurs essentiels (LinkedIn, Apollo, Shopify, CRMs)",
+        "Automatisation prospection",
+        "Triggers, scénarios, gestion d'erreurs"
+      ]
+    },
+    "level3": {
+      "label": "Niveau 3 — Avancé",
+      "duration": "1 jour (7h)",
+      "title": "Agents IA — Créer & Déployer",
+      "deliverable": "À la fin : vos agents tournent en autonomie le soir même.",
+      "items": [
+        "Architecture d'agents (LangChain, Relevance AI, n8n agents)",
+        "Agent prospecteur, agent community manager, agent CMO",
+        "Mémoire, outils, garde-fous",
+        "Déploiement & monitoring"
+      ]
+    },
+    "custom": {
+      "label": "Sur-mesure",
+      "title": "Formation intra-entreprise",
+      "body": "Audit des process, sélection des outils pertinents, plan de transformation, formation des équipes, accompagnement 3 mois. Devis sur mesure après audit gratuit."
+    }
+  },
+  "about": {
+    "pageTitle": "À propos",
+    "pageSubtitle": "Une agence à taille humaine. Un seul interlocuteur. Dix ans de production.",
+    "intro": "TROIE est l'agence de Hugues Lourmières. Photographe, directeur artistique, formateur IA. Depuis 2015, j'accompagne des marques de luxe, des industriels, du sport et de l'hospitalité — Chanel, Pantone, X-Rite, Sofitel, Heidelberg, GS Monaco, Veoria. Depuis 2024, je forme aussi les équipes à intégrer l'IA dans leur production quotidienne. TROIE réunit ces deux mondes : la création qui se voit, et l'IA qui produit.",
+    "valuesTitle": "Comment on travaille",
+    "values": [
+      {
+        "title": "Un seul interlocuteur",
+        "body": "Pas de chaîne de comptes intermédiaires. Vous parlez à la personne qui exécute."
+      },
+      {
+        "title": "Production rapide",
+        "body": "Audit en 30 min, plan en 48h, déploiement en jours, pas en mois."
+      },
+      {
+        "title": "Mesurable",
+        "body": "Chaque action a un KPI. Chaque trimestre a un dashboard. Chaque euro est traçable."
+      },
+      {
+        "title": "Sans bullshit",
+        "body": "Pas de buzzwords. Pas de slides de 80 pages. Du livrable et des résultats."
+      }
+    ]
+  },
+  "contact": {
+    "pageTitle": "Audit gratuit — 30 minutes",
+    "pageSubtitle": "Décrivez votre terrain. On revient avec un plan d'infiltration concret en 48 heures.",
+    "name": "Nom",
+    "email": "Email",
+    "company": "Entreprise",
+    "subject": "Sujet",
+    "message": "Décrivez votre besoin",
+    "send": "Envoyer",
+    "or": "ou directement",
+    "emailDirect": "contact@troie.studio",
+    "callDirect": "Réserver un appel",
+    "thanks": "Merci. Réponse sous 24h ouvrées."
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "privacy": "Confidentialité",
+    "terms": "Mentions légales",
+    "based": "Paris — partout en remote"
+  }
+}
