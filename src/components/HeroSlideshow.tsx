@@ -1,53 +1,39 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 /**
- * HeroSlideshow — vidéo en plein cadre, auto-défilement infini.
+ * HeroSlideshow — photos plein cadre, auto-défilement infini.
  *
- * Chaque slide est une <video> qui joue en boucle, muet, plein écran cover.
- * Embla avance toutes les 6 s (assez pour laisser la vidéo respirer).
- * Drag/swipe possible + indicateurs en bas + compteur en haut.
+ * - Embla Carousel (loop infini, drag/swipe, easing 28 frames)
+ * - Autoplay 4.5 s par slide, pause au survol desktop
+ * - Indicateurs de progression en bas + compteur en haut
+ * - Photos en couleur (pas de filtre N&B)
  */
 
+// Sourced from /public/images/slideshow/, ordre du dossier respecté.
 const SLIDES = [
-  { src: "/images/videos-local/01.mp4", alt: "GS Monaco, vidéo de présentation" },
-  { src: "/images/videos-local/05.mp4", alt: "X-Rite eXact 2, Paris" },
-  { src: "/images/videos-local/02.mp4", alt: "Top Akita Inu, interview" },
-  { src: "/images/videos-local/06.mp4", alt: "eXact 2, unboxing" },
+  { src: "/images/slideshow/01-flower.webp", alt: "Création IA, fleur" },
+  { src: "/images/slideshow/02-chanel.jpg", alt: "Chanel, direction artistique" },
+  { src: "/images/slideshow/03-veoria-7.jpg", alt: "Veoria, équipe 2025" },
+  { src: "/images/slideshow/04-veoria-8.jpg", alt: "Veoria, équipe 2025" },
 ];
 
 export function HeroSlideshow() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, dragFree: false, align: "center", duration: 32 },
-    [Autoplay({ delay: 6000, stopOnInteraction: false, stopOnMouseEnter: true })],
+    { loop: true, dragFree: false, align: "center", duration: 28 },
+    [Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })],
   );
   const [selected, setSelected] = useState(0);
   const [count, setCount] = useState(SLIDES.length);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
     if (!emblaApi) return;
     setCount(emblaApi.scrollSnapList().length);
-    const onSelect = () => {
-      const idx = emblaApi.selectedScrollSnap();
-      setSelected(idx);
-
-      // Restart the new slide's video from the start, pause others for perf
-      videoRefs.current.forEach((v, i) => {
-        if (!v) return;
-        if (i === idx) {
-          v.currentTime = 0;
-          v.play().catch(() => {
-            /* iOS autoplay restriction, ignore */
-          });
-        } else {
-          v.pause();
-        }
-      });
-    };
+    const onSelect = () => setSelected(emblaApi.selectedScrollSnap());
     emblaApi.on("select", onSelect);
     onSelect();
     return () => {
@@ -65,7 +51,7 @@ export function HeroSlideshow() {
       <div
         ref={emblaRef}
         className="h-full overflow-hidden"
-        aria-label="TROIE, films"
+        aria-label="TROIE, slideshow"
       >
         <div className="flex h-full touch-pan-y">
           {SLIDES.map((s, i) => (
@@ -73,19 +59,13 @@ export function HeroSlideshow() {
               key={i}
               className="relative h-full min-w-0 flex-[0_0_100%] overflow-hidden bg-[var(--bg-2)]"
             >
-              <video
-                ref={(el) => {
-                  videoRefs.current[i] = el;
-                }}
+              <Image
                 src={s.src}
-                autoPlay={i === 0}
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label={s.alt}
-                className="absolute inset-0 h-full w-full object-cover"
-                style={{ filter: "grayscale(1) brightness(0.96) contrast(1.06)" }}
+                alt={s.alt}
+                fill
+                priority={i === 0}
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover"
               />
             </div>
           ))}
