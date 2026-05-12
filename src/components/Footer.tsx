@@ -102,7 +102,7 @@ export async function Footer({ locale }: { locale: string }) {
       <div className="border-t border-[var(--rule)]">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-3 px-6 py-6 text-[11px] text-[var(--fg-2)]/60 md:flex-row md:items-center md:justify-between md:px-12">
           <p className="font-mono uppercase tracking-[0.22em]">
-            © {year} TROIE.studio — {t("rights")}
+            © {year}TROIE.studio, {t("rights")}
           </p>
           <div className="flex gap-6 font-mono uppercase tracking-[0.22em]">
             <Link

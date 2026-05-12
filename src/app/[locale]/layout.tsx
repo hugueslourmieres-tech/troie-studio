@@ -42,7 +42,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "brand" });
   const isFr = locale === "fr";
 
-  const title = `${t("name")} — ${
+  const title = `${t("name")}. ${
     isFr
       ? "Communication, création & formations IA"
       : "Communication, creative & AI training"
@@ -53,7 +53,7 @@ export async function generateMetadata({
     metadataBase: new URL("https://troie.studio"),
     title: {
       default: title,
-      template: `%s — ${t("name")}`,
+      template: `%s · ${t("name")}`,
     },
     description,
     alternates: {
