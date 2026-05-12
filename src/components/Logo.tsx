@@ -79,7 +79,7 @@ export function Logo({
     return (
       <div
         className={`flex flex-col items-center ${className}`}
-        aria-label="TROIE — Studio Paris"
+        aria-label="TROIE — Studio France"
       >
         <Emblem className="h-20 w-auto" />
         <svg viewBox="0 0 200 50" className="mt-4 h-auto w-full" aria-hidden="true">

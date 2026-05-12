@@ -49,7 +49,7 @@
     ],
     "trainingEyebrow": "03 — Formation",
     "trainingTitle": "Maîtriser les outils IA.",
-    "trainingBody": "Nous formons vos équipes aux outils d'intelligence artificielle et à la création d'agents autonomes. Trois niveaux, format intra ou inter, à Paris ou en remote.",
+    "trainingBody": "Nous formons vos équipes aux outils d'intelligence artificielle et à la création d'agents autonomes. Trois niveaux, format intra ou inter, en France ou en remote.",
     "trainingItems": [
       "ChatGPT, Claude, Gemini — usage avancé et prompting",
       "Création visuelle IA — Midjourney, Sora, Veo, Runway",
@@ -68,12 +68,12 @@
     "clientsTitle": "Marques accompagnées",
     "aboutEyebrow": "Le studio",
     "aboutTitle": "Hugues Lourmières.",
-    "aboutBody": "Photographe et directeur artistique, j'accompagne les marques depuis dix ans en France et à l'international. Depuis 2024, je forme également les équipes à intégrer l'intelligence artificielle dans leur production quotidienne. TROIE rassemble ces deux mondes — la création qui se voit et l'IA qui produit — au service de marques exigeantes.",
+    "aboutBody": "Photographe, vidéaste et directeur artistique, j'accompagne les marques depuis dix ans en France et à l'international. Depuis 2024, je forme également les équipes à intégrer l'intelligence artificielle dans leur production quotidienne. TROIE rassemble ces deux mondes — la création qui se voit et l'IA qui produit — au service de marques exigeantes.",
     "aboutBullets": [
       "10 ans d'expérience auprès de marques internationales",
       "50 entreprises accompagnées",
       "200 professionnels formés à l'IA",
-      "Studio basé à Paris, missions partout dans le monde"
+      "Studio basé en France, missions partout dans le monde"
     ],
     "packsEyebrow": "Packs & tarifs",
     "packsTitle": "Des forfaits clairs.",
@@ -187,7 +187,7 @@
   },
   "about": {
     "pageTitle": "Studio",
-    "pageSubtitle": "Hugues Lourmières — photographe, directeur artistique, formateur."
+    "pageSubtitle": "Hugues Lourmières — photographe, vidéaste, directeur artistique, formateur."
   },
   "contact": {
     "pageTitle": "Contact",
@@ -207,6 +207,6 @@
     "rights": "Tous droits réservés.",
     "privacy": "Confidentialité",
     "terms": "Mentions légales",
-    "based": "Atelier Digital — Paris"
+    "based": "Atelier Digital — France"
   }
 }

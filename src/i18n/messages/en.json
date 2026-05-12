@@ -49,7 +49,7 @@
     ],
     "trainingEyebrow": "03 — Training",
     "trainingTitle": "Mastering AI tools.",
-    "trainingBody": "We train your teams on AI tools and on building autonomous agents. Three levels, in-house or open enrollment, in Paris or remote.",
+    "trainingBody": "We train your teams on AI tools and on building autonomous agents. Three levels, in-house or open enrollment, in France or remote.",
     "trainingItems": [
       "ChatGPT, Claude, Gemini — advanced use and prompting",
       "AI visual creation — Midjourney, Sora, Veo, Runway",
@@ -68,12 +68,12 @@
     "clientsTitle": "Brands we've worked with",
     "aboutEyebrow": "The studio",
     "aboutTitle": "Hugues Lourmières.",
-    "aboutBody": "Photographer and art director, I have worked with brands for ten years in France and internationally. Since 2024, I also train teams to embed AI into their daily production. TROIE brings these two worlds together — creative that gets seen and AI that ships — for demanding brands.",
+    "aboutBody": "Photographer, videographer and art director, I have worked with brands for ten years in France and internationally. Since 2024, I also train teams to embed AI into their daily production. TROIE brings these two worlds together — creative that gets seen and AI that ships — for demanding brands.",
     "aboutBullets": [
       "10 years working with international brands",
       "50 companies supported",
       "200 professionals trained on AI",
-      "Studio based in Paris, missions worldwide"
+      "Studio based in France, missions worldwide"
     ],
     "packsEyebrow": "Packages & pricing",
     "packsTitle": "Clear packages.",
@@ -187,7 +187,7 @@
   },
   "about": {
     "pageTitle": "Studio",
-    "pageSubtitle": "Hugues Lourmières — photographer, art director, trainer."
+    "pageSubtitle": "Hugues Lourmières — photographer, videographer, art director, trainer."
   },
   "contact": {
     "pageTitle": "Contact",
@@ -207,6 +207,6 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Legal",
-    "based": "Digital Atelier — Paris"
+    "based": "Digital Atelier — France"
   }
 }

@@ -42,7 +42,7 @@ export function Header({ locale }: { locale: string }) {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
         <Link
           href={`/${locale}`}
-          aria-label="TROIE — Studio Paris"
+          aria-label="TROIE — Studio France"
           className="block text-[var(--fg)] transition hover:text-[var(--accent)]"
         >
           <Logo variant="wordmark-emblem" className="h-8 md:h-10" />
