@@ -14,19 +14,18 @@ type Props = {
 };
 
 /**
- * MobileMenu — burger + plein écran cream, signature Hermès.
+ * MobileMenu — burger + plein écran liquid glass.
  *
- * - 3 fines lignes horizontales (pas un emoji burger) qui pivotent en X
- * - Panneau plein écran fade-in 600 ms easeOutExpo
- * - Liens en Bodoni Moda capitales, stagger 60 ms par item
- * - LangSwitch + contact en bas
- * - Body scroll lock pendant ouverture, fermeture sur Escape ou lien cliqué
+ * Liquid glass : fond translucide (var --bg à 55 %) + backdrop-blur fort,
+ * saturate boost. Le contenu derrière transparaît, on lit l'environnement.
+ *
+ * Chaque entrée de nav est séparée par une ligne hairline (cohérence avec
+ * le reste du site qui utilise --rule partout).
  */
 export function MobileMenu({ locale, links }: Props) {
   const [open, setOpen] = useState(false);
   const t = useTranslations("nav");
 
-  // Body scroll lock + Escape listener
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -53,14 +52,18 @@ export function MobileMenu({ locale, links }: Props) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="tone-light fixed inset-0 z-40 bg-[var(--bg)]"
+            className="tone-light fixed inset-0 z-40 bg-[var(--bg)]/55 backdrop-blur-2xl backdrop-saturate-150"
+            style={{
+              // Safari needs the WebKit prefix for backdrop-filter
+              WebkitBackdropFilter: "blur(28px) saturate(1.5)",
+            }}
           >
             <nav className="flex h-full flex-col px-6 pt-28 pb-12">
-              {/* Top border line (sits just below the header) */}
-              <div className="absolute inset-x-6 top-[88px] h-px bg-[var(--rule)]" />
+              {/* Top hairline (sits just under the header) */}
+              <div className="absolute inset-x-6 top-[88px] h-px bg-[var(--rule-strong)]" />
 
-              {/* Main links — generous serif */}
-              <ul className="flex-1 space-y-3 pt-12">
+              {/* Main links — each separated by a horizontal line */}
+              <ul className="flex-1 pt-2">
                 {links.map((l, i) => (
                   <motion.li
                     key={l.href}
@@ -72,11 +75,12 @@ export function MobileMenu({ locale, links }: Props) {
                       delay: 0.15 + i * 0.06,
                       ease: [0.16, 1, 0.3, 1],
                     }}
+                    className="border-b border-[var(--rule-strong)]"
                   >
                     <Link
                       href={l.href}
                       onClick={() => setOpen(false)}
-                      className="t-display block py-2 text-5xl text-[var(--fg)] transition hover:text-[var(--accent)] sm:text-6xl"
+                      className="t-display block py-5 text-5xl text-[var(--fg)] transition hover:text-[var(--accent)] sm:text-6xl"
                     >
                       {l.label}
                     </Link>
@@ -94,7 +98,7 @@ export function MobileMenu({ locale, links }: Props) {
                   delay: 0.15 + links.length * 0.06 + 0.05,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="mt-8 flex flex-col gap-6 border-t border-[var(--rule)] pt-8"
+                className="mt-8 flex flex-col gap-6 pt-8"
               >
                 <a
                   href="mailto:contact@troie.studio"
@@ -123,7 +127,6 @@ export function MobileMenu({ locale, links }: Props) {
 
 /**
  * BurgerButton — 3 fines lignes qui pivotent en croix.
- * Hauteur de ligne 1 px (luxe — pas 2-3 px du burger générique).
  */
 function BurgerButton({
   open,
@@ -140,7 +143,6 @@ function BurgerButton({
       onClick={onClick}
       className="group relative z-50 h-10 w-10 md:hidden"
     >
-      {/* 3 lines that morph into an X */}
       <span
         className="absolute left-1/2 top-1/2 block h-px w-7 -translate-x-1/2 -translate-y-[6px] bg-[var(--fg)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{

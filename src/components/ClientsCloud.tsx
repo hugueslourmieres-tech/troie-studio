@@ -2,10 +2,8 @@ import { useTranslations } from "next-intl";
 
 const CLIENTS = [
   "CHANEL",
-  "PANTONE",
   "X-RITE",
   "SOFITEL",
-  "HEIDELBERG",
   "GS MONACO",
   "VEORIA",
   "RUTHERFORD",
