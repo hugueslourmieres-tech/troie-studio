@@ -2,7 +2,7 @@
   "brand": {
     "name": "TROIE",
     "domain": "troie.studio",
-    "tagline": "Création, stratégie & formation."
+    "tagline": "Création, stratégie et formation digitale."
   },
   "nav": {
     "home": "Accueil",
@@ -16,7 +16,7 @@
   },
   "home": {
     "heroEyebrow": "Atelier Digital",
-    "heroTitle": "Création, stratégie\n& formation.",
+    "heroTitle": "Création, stratégie\net formation.",
     "heroSubtitle": "Photo, vidéo, design, marketing digital et formation aux outils d'intelligence artificielle. Une équipe à taille humaine, dix ans de production aux côtés des marques.",
     "heroCtaPrimary": "Démarrer un projet",
     "heroCtaSecondary": "Voir nos travaux",
@@ -24,39 +24,39 @@
     "introTitle": "Un studio. Trois métiers.",
     "introBody": "TROIE est l'agence de Hugues Lourmières. Depuis 2015, nous accompagnons des marques de luxe, des industriels et des entreprises de service en France et à l'international. Nous fabriquons leur image, conseillons leur stratégie, et formons leurs équipes aux outils numériques d'aujourd'hui.",
     "introMore": "Voir le détail",
-    "creationEyebrow": "01 — Création",
+    "creationEyebrow": "01 · Création",
     "creationTitle": "Image, vidéo, design.",
     "creationBody": "Nous fabriquons les contenus visuels qui incarnent vos marques. Photographie, vidéo, identité graphique et création générative.",
     "creationItems": [
       "Photographie produit, mode, corporate, événementiel",
       "Vidéo, films de marque, reels, motion design",
       "Identité visuelle, logo, charte graphique complète",
-      "Direction artistique & édition print",
+      "Direction artistique et édition print",
       "Création par intelligence artificielle (image, vidéo, voix)",
-      "Sites web, applications & landing pages",
-      "E-commerce, parcours d'achat & conversion"
+      "Sites web, applications et landing pages",
+      "E-commerce, parcours d'achat et conversion"
     ],
-    "strategyEyebrow": "02 — Stratégie",
-    "strategyTitle": "Communication & marketing digital.",
-    "strategyBody": "Nous accompagnons vos décisions de marque, de marché et d'acquisition. De la plateforme de marque au plan media, du SEO au paid.",
+    "strategyEyebrow": "02 · Stratégie",
+    "strategyTitle": "Communication et marketing digital.",
+    "strategyBody": "Nous accompagnons vos décisions de marque, de marché et d'acquisition : de la plateforme de marque au plan media, du SEO au paid.",
     "strategyItems": [
-      "Stratégie de marque & positionnement",
-      "Conseil en communication & direction artistique",
-      "Marketing digital & plan media",
+      "Stratégie de marque et positionnement",
+      "Conseil en communication et direction artistique",
+      "Marketing digital et plan media",
       "SEO, SEA, GEO (référencement sur les LLMs)",
-      "Paid media — Meta, Google, LinkedIn, TikTok",
+      "Paid media : Meta, Google, LinkedIn, TikTok",
       "Réseaux sociaux, e-commerce, conversion"
     ],
-    "trainingEyebrow": "03 — Formation",
+    "trainingEyebrow": "03 · Formation",
     "trainingTitle": "Maîtriser les outils IA.",
     "trainingBody": "Nous formons vos équipes aux outils d'intelligence artificielle et à la création d'agents autonomes. Trois niveaux, format intra ou inter, en France ou en remote.",
     "trainingItems": [
-      "ChatGPT, Claude, Gemini — usage avancé et prompting",
-      "Création visuelle IA — Midjourney, Sora, Veo, Runway",
-      "Automatisation — Make, n8n, Zapier",
-      "Agents IA — création, déploiement, supervision",
+      "ChatGPT, Claude, Gemini : usage avancé et prompting",
+      "Création visuelle IA : Midjourney, Sora, Veo, Runway",
+      "Automatisation : Make, n8n, Zapier",
+      "Agents IA : création, déploiement, supervision",
       "Formations sur-mesure intra-entreprise",
-      "Audit IA & feuille de route"
+      "Audit IA et feuille de route"
     ],
     "worksEyebrow": "Réalisations",
     "worksTitle": "Une sélection.",
@@ -68,14 +68,14 @@
     "clientsTitle": "Marques accompagnées",
     "aboutEyebrow": "Le studio",
     "aboutTitle": "Hugues Lourmières.",
-    "aboutBody": "Photographe, vidéaste et directeur artistique, j'accompagne les marques depuis dix ans en France et à l'international. Depuis 2024, je forme également les équipes à intégrer l'intelligence artificielle dans leur production quotidienne. TROIE rassemble ces deux mondes — la création qui se voit et l'IA qui produit — au service de marques exigeantes.",
+    "aboutBody": "Photographe, vidéaste et directeur artistique, j'accompagne les marques depuis dix ans en France et à l'international. Depuis 2024, je forme également les équipes à intégrer l'intelligence artificielle dans leur production quotidienne. TROIE réunit ces deux mondes, la création qui se voit et l'IA qui produit, au service de marques exigeantes.",
     "aboutBullets": [
       "10 ans d'expérience auprès de marques internationales",
       "50 entreprises accompagnées",
       "200 professionnels formés à l'IA",
       "Studio basé en France, missions partout dans le monde"
     ],
-    "packsEyebrow": "Packs & tarifs",
+    "packsEyebrow": "Packs et tarifs",
     "packsTitle": "Des forfaits clairs.",
     "packsIntro": "Des packs forfaitaires pour les besoins récurrents. Sur-mesure pour le reste, après un audit gratuit de trente minutes.",
     "packsTerms": "Tous les tarifs sont indiqués hors taxes. Règlement standard : 50 % à la commande, solde à la livraison. Devis détaillé établi sous 48 heures après brief.",
@@ -85,7 +85,7 @@
   },
   "works": {
     "pageTitle": "Réalisations",
-    "pageSubtitle": "Six métiers, six regards. Une sélection de projets photo & vidéo réalisés à travers les marques que nous accompagnons.",
+    "pageSubtitle": "Six métiers, six regards. Une sélection de projets photo et vidéo réalisés à travers les marques que nous accompagnons.",
     "viewProject": "Voir le projet",
     "items": {
       "event": {
@@ -104,7 +104,7 @@
         "title": "Vidéo",
         "subtitle": "Créer une atmosphère dans l'interview",
         "scope": "Films corporate, interviews, reels, motion design",
-        "description": "Diriger la vidéo avec émotion. L'interview demande à la fois précision et curiosité sincère — pour faire émerger le vrai, et la rendre intelligible."
+        "description": "Diriger la vidéo avec émotion. L'interview demande à la fois précision et curiosité sincère, pour faire émerger le vrai, et le rendre intelligible."
       },
       "social": {
         "title": "Social Media",
@@ -126,7 +126,7 @@
       },
       "veoria": {
         "title": "Veoria",
-        "subtitle": "Photographie d'équipe & culture corporate",
+        "subtitle": "Photographie d'équipe et culture corporate",
         "scope": "Photographie corporate, équipe, culture, social media",
         "description": "Une journée auprès des équipes de Veoria pour documenter la culture, l'engagement, et offrir au groupe une banque de visuels prête pour les réseaux sociaux et la communication interne."
       },
@@ -138,21 +138,21 @@
       },
       "montpellier": {
         "title": "Montpellier",
-        "subtitle": "Formation IA — janvier 2026",
+        "subtitle": "Formation IA, janvier 2026",
         "scope": "Formation intra-entreprise, accompagnement IA",
         "description": "Une journée de formation aux outils d'intelligence artificielle pour les équipes marketing et communication, à Montpellier. Créer 30 publications, déployer un agent prospecteur, automatiser les workflows."
       },
       "barcelona": {
-        "title": "Barcelona — Printing Industry",
+        "title": "Barcelona / Printing Industry",
         "subtitle": "Salon mondial de l'imprimerie",
         "scope": "Reportage industriel, presses offset, brand activation",
-        "description": "Reportage complet sur le salon mondial de l'imprimerie à Barcelone : presses en activité, démonstrations colorimétriques, témoignages clients. Photographie 35 mm noir & blanc et couleur, dans la veine documentaire."
+        "description": "Reportage complet sur le salon mondial de l'imprimerie à Barcelone : presses en activité, démonstrations colorimétriques, témoignages clients. Photographie 35 mm noir et blanc et couleur, dans la veine documentaire."
       }
     }
   },
   "creation": {
     "pageTitle": "Création",
-    "pageSubtitle": "Image, vidéo, design — sous un même toit."
+    "pageSubtitle": "Image, vidéo, design, sous un même toit."
   },
   "strategy": {
     "pageTitle": "Stratégie",
@@ -164,19 +164,19 @@
     "level1": {
       "label": "Niveau 1",
       "duration": "3 heures",
-      "title": "ChatGPT, Claude & Gemini",
+      "title": "ChatGPT, Claude et Gemini",
       "deliverable": "Création de 30 publications LinkedIn et Instagram en moins de vingt minutes."
     },
     "level2": {
       "label": "Niveau 2",
       "duration": "1 jour",
-      "title": "Make, n8n & Zapier",
-      "deliverable": "Mise en place d'un pipeline LinkedIn → email → CRM autonome."
+      "title": "Make, n8n et Zapier",
+      "deliverable": "Mise en place d'un pipeline LinkedIn vers email vers CRM autonome."
     },
     "level3": {
       "label": "Niveau 3",
       "duration": "1 jour",
-      "title": "Agents IA — création & déploiement",
+      "title": "Agents IA, création et déploiement",
       "deliverable": "Vos agents tournent en autonomie le soir même."
     },
     "custom": {
@@ -187,7 +187,7 @@
   },
   "about": {
     "pageTitle": "Studio",
-    "pageSubtitle": "Hugues Lourmières — photographe, vidéaste, directeur artistique, formateur."
+    "pageSubtitle": "Hugues Lourmières, photographe, vidéaste, directeur artistique et formateur."
   },
   "contact": {
     "pageTitle": "Contact",
@@ -207,6 +207,6 @@
     "rights": "Tous droits réservés.",
     "privacy": "Confidentialité",
     "terms": "Mentions légales",
-    "based": "Atelier Digital — France"
+    "based": "Atelier Digital, France"
   }
 }

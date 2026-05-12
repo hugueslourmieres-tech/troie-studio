@@ -21,11 +21,11 @@ import Autoplay from "embla-carousel-autoplay";
 
 // Sourced from /public/images/slideshow/, ordre du dossier respecté.
 const SLIDES = [
-  { src: "/images/slideshow/01-flower.webp", alt: "Création IA — fleur" },
-  { src: "/images/slideshow/02-chanel.jpg", alt: "Chanel — direction artistique" },
-  { src: "/images/slideshow/03-hugues.jpg", alt: "Portrait — Hugues" },
+  { src: "/images/slideshow/01-flower.webp", alt: "Création IA, fleur" },
+  { src: "/images/slideshow/02-chanel.jpg", alt: "Chanel, direction artistique" },
+  { src: "/images/slideshow/03-hugues.jpg", alt: "Portrait, Hugues" },
   { src: "/images/slideshow/04-event.jpg", alt: "Évènement Chanel" },
-  { src: "/images/slideshow/05-veoria.jpg", alt: "Veoria — équipe 2025" },
+  { src: "/images/slideshow/05-veoria.jpg", alt: "Veoria, équipe 2025" },
 ];
 
 export function HeroSlideshow() {
@@ -58,7 +58,7 @@ export function HeroSlideshow() {
       <div
         ref={emblaRef}
         className="h-full overflow-hidden"
-        aria-label="TROIE — slideshow"
+        aria-label="TROIE, slideshow"
       >
         <div className="flex h-full touch-pan-y">
           {SLIDES.map((s, i) => (

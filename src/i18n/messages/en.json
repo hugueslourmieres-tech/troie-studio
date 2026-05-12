@@ -2,7 +2,7 @@
   "brand": {
     "name": "TROIE",
     "domain": "troie.studio",
-    "tagline": "Creative, strategy & training."
+    "tagline": "Creative, strategy and training."
   },
   "nav": {
     "home": "Home",
@@ -16,7 +16,7 @@
   },
   "home": {
     "heroEyebrow": "Digital Atelier",
-    "heroTitle": "Creative, strategy\n& training.",
+    "heroTitle": "Creative, strategy\nand training.",
     "heroSubtitle": "Photography, video, design, digital marketing and training on the latest AI tools. A boutique team with ten years of work alongside brands.",
     "heroCtaPrimary": "Start a project",
     "heroCtaSecondary": "See our work",
@@ -24,39 +24,39 @@
     "introTitle": "One studio. Three crafts.",
     "introBody": "TROIE is the agency of Hugues Lourmières. Since 2015, we have worked with luxury houses, industrials and service companies in France and worldwide. We craft their imagery, advise their strategy, and train their teams on today's digital tools.",
     "introMore": "See the detail",
-    "creationEyebrow": "01 — Creative",
+    "creationEyebrow": "01 · Creative",
     "creationTitle": "Image, video, design.",
     "creationBody": "We craft the visual content that gives shape to your brand. Photography, video, graphic identity, and generative creation.",
     "creationItems": [
-      "Photography — product, fashion, corporate, events",
+      "Photography: product, fashion, corporate, events",
       "Video, brand films, reels, motion design",
       "Visual identity, logo, complete graphic charter",
-      "Art direction & print editorial",
+      "Art direction and print editorial",
       "AI-generated creation (image, video, voice)",
-      "Websites, web apps & landing pages",
-      "E-commerce, conversion & checkout flows"
+      "Websites, web apps and landing pages",
+      "E-commerce, conversion and checkout flows"
     ],
-    "strategyEyebrow": "02 — Strategy",
-    "strategyTitle": "Communication & digital marketing.",
-    "strategyBody": "We support your brand, market and acquisition decisions. From brand platform to media plan, from SEO to paid media.",
+    "strategyEyebrow": "02 · Strategy",
+    "strategyTitle": "Communication and digital marketing.",
+    "strategyBody": "We support your brand, market and acquisition decisions: from brand platform to media plan, from SEO to paid.",
     "strategyItems": [
-      "Brand strategy & positioning",
-      "Communication & art direction consulting",
-      "Digital marketing & media plan",
+      "Brand strategy and positioning",
+      "Communication and art direction consulting",
+      "Digital marketing and media plan",
       "SEO, SEA, GEO (Generative Engine Optimization)",
-      "Paid media — Meta, Google, LinkedIn, TikTok",
+      "Paid media: Meta, Google, LinkedIn, TikTok",
       "Social media, e-commerce, conversion"
     ],
-    "trainingEyebrow": "03 — Training",
+    "trainingEyebrow": "03 · Training",
     "trainingTitle": "Mastering AI tools.",
     "trainingBody": "We train your teams on AI tools and on building autonomous agents. Three levels, in-house or open enrollment, in France or remote.",
     "trainingItems": [
-      "ChatGPT, Claude, Gemini — advanced use and prompting",
-      "AI visual creation — Midjourney, Sora, Veo, Runway",
-      "Automation — Make, n8n, Zapier",
-      "AI agents — design, deployment, supervision",
+      "ChatGPT, Claude, Gemini: advanced use and prompting",
+      "AI visual creation: Midjourney, Sora, Veo, Runway",
+      "Automation: Make, n8n, Zapier",
+      "AI agents: design, deployment, supervision",
       "Custom in-house programs",
-      "AI audit & roadmap"
+      "AI audit and roadmap"
     ],
     "worksEyebrow": "Works",
     "worksTitle": "A selection.",
@@ -68,14 +68,14 @@
     "clientsTitle": "Brands we've worked with",
     "aboutEyebrow": "The studio",
     "aboutTitle": "Hugues Lourmières.",
-    "aboutBody": "Photographer, videographer and art director, I have worked with brands for ten years in France and internationally. Since 2024, I also train teams to embed AI into their daily production. TROIE brings these two worlds together — creative that gets seen and AI that ships — for demanding brands.",
+    "aboutBody": "Photographer, videographer and art director, I have worked with brands for ten years in France and internationally. Since 2024, I also train teams to embed AI into their daily production. TROIE brings these two worlds together, creative that gets seen and AI that ships, for demanding brands.",
     "aboutBullets": [
       "10 years working with international brands",
       "50 companies supported",
       "200 professionals trained on AI",
       "Studio based in France, missions worldwide"
     ],
-    "packsEyebrow": "Packages & pricing",
+    "packsEyebrow": "Packages and pricing",
     "packsTitle": "Clear packages.",
     "packsIntro": "Fixed-price packages for recurring needs. Custom quotes for everything else, after a free 30-minute audit.",
     "packsTerms": "All prices excluding VAT. Standard terms: 50 % on order, balance on delivery. Detailed quote within 48 hours of briefing.",
@@ -85,14 +85,14 @@
   },
   "works": {
     "pageTitle": "Works",
-    "pageSubtitle": "Six crafts, six lenses. A curated set of photo & video projects shot for the brands we work with.",
+    "pageSubtitle": "Six crafts, six lenses. A curated set of photo and video projects shot for the brands we work with.",
     "viewProject": "View project",
     "items": {
       "event": {
         "title": "Event",
         "subtitle": "Capture every moment with a vision",
         "scope": "Event photography, premières, parties, launches",
-        "description": "Creating unique moments on image — every place, every moment. Evoking genuine emotion, capturing authentic content, reflecting the true essence of each moment."
+        "description": "Creating unique moments on image, every place, every moment. Evoking genuine emotion, capturing authentic content, reflecting the true essence of each moment."
       },
       "shooting": {
         "title": "Shooting",
@@ -104,7 +104,7 @@
         "title": "Video",
         "subtitle": "Create vibes during interview",
         "scope": "Corporate films, interviews, reels, motion design",
-        "description": "Directing video with emotion. Interviewing takes both precision and genuine curiosity — to surface what's true, and make it land."
+        "description": "Directing video with emotion. Interviewing takes both precision and genuine curiosity, to surface what's true, and make it land."
       },
       "social": {
         "title": "Social Media",
@@ -115,7 +115,7 @@
       "nature": {
         "title": "Nature",
         "subtitle": "Nature that resonates in the Mercantour",
-        "scope": "Landscape, black & white photography, prints",
+        "scope": "Landscape, black and white photography, prints",
         "description": "Composing with landscape. Experiencing the truth of nature."
       },
       "wild-life": {
@@ -126,9 +126,9 @@
       },
       "veoria": {
         "title": "Veoria",
-        "subtitle": "Team photography & corporate culture",
+        "subtitle": "Team photography and corporate culture",
         "scope": "Corporate photography, team, culture, social media",
-        "description": "One day with the Veoria team — documenting culture and commitment, delivering a ready-to-use visual library for social media and internal comms."
+        "description": "One day with the Veoria team, documenting culture and commitment, delivering a ready-to-use visual library for social media and internal comms."
       },
       "mibi": {
         "title": "MIBI",
@@ -138,21 +138,21 @@
       },
       "montpellier": {
         "title": "Montpellier",
-        "subtitle": "AI training — January 2026",
+        "subtitle": "AI training, January 2026",
         "scope": "In-house training, AI implementation",
-        "description": "One day training marketing and communication teams on AI tools in Montpellier — creating 30 social posts, deploying a prospecting agent, automating workflows."
+        "description": "One day training marketing and communication teams on AI tools in Montpellier, creating 30 social posts, deploying a prospecting agent, automating workflows."
       },
       "barcelona": {
-        "title": "Barcelona — Printing Industry",
+        "title": "Barcelona / Printing Industry",
         "subtitle": "Global printing industry trade show",
         "scope": "Industrial reportage, offset presses, brand activation",
-        "description": "Full coverage of the global printing trade show in Barcelona: presses in action, color demos, client testimonials. 35 mm black & white and color photography in a documentary spirit."
+        "description": "Full coverage of the global printing trade show in Barcelona: presses in action, color demos, client testimonials. 35 mm black and white and color photography in a documentary spirit."
       }
     }
   },
   "creation": {
     "pageTitle": "Creative",
-    "pageSubtitle": "Image, video, design — under one roof."
+    "pageSubtitle": "Image, video, design, under one roof."
   },
   "strategy": {
     "pageTitle": "Strategy",
@@ -164,19 +164,19 @@
     "level1": {
       "label": "Level 1",
       "duration": "3 hours",
-      "title": "ChatGPT, Claude & Gemini",
+      "title": "ChatGPT, Claude and Gemini",
       "deliverable": "Create 30 LinkedIn and Instagram posts in under twenty minutes."
     },
     "level2": {
       "label": "Level 2",
       "duration": "1 day",
-      "title": "Make, n8n & Zapier",
-      "deliverable": "Set up an autonomous LinkedIn → email → CRM pipeline."
+      "title": "Make, n8n and Zapier",
+      "deliverable": "Set up an autonomous LinkedIn to email to CRM pipeline."
     },
     "level3": {
       "label": "Level 3",
       "duration": "1 day",
-      "title": "AI Agents — build & deploy",
+      "title": "AI Agents, build and deploy",
       "deliverable": "Your agents run autonomously by the end of the day."
     },
     "custom": {
@@ -187,7 +187,7 @@
   },
   "about": {
     "pageTitle": "Studio",
-    "pageSubtitle": "Hugues Lourmières — photographer, videographer, art director, trainer."
+    "pageSubtitle": "Hugues Lourmières, photographer, videographer, art director and trainer."
   },
   "contact": {
     "pageTitle": "Contact",
@@ -207,6 +207,6 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Legal",
-    "based": "Digital Atelier — France"
+    "based": "Digital Atelier, France"
   }
 }

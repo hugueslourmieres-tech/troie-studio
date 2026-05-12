@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Reveal } from "./Reveal";
 
 export type Photo = { src: string; alt: string };
+export type Tool = { src: string; label: string };
 
 type Props = {
   eyebrow: string;
@@ -9,6 +10,7 @@ type Props = {
   body: string;
   items: string[];
   photos: Photo[];
+  tools?: Tool[];
   reverse?: boolean;
   id?: string;
 };
@@ -26,6 +28,7 @@ export function ServiceSection({
   body,
   items,
   photos,
+  tools,
   reverse = false,
   id,
 }: Props) {
@@ -71,6 +74,12 @@ export function ServiceSection({
                 ))}
               </ul>
             </Reveal>
+
+            {tools && tools.length > 0 && (
+              <Reveal delay={0.4}>
+                <ToolsRow tools={tools} />
+              </Reveal>
+            )}
           </div>
 
           {/* Photo column */}
@@ -86,6 +95,38 @@ export function ServiceSection({
 }
 
 const isVideo = (src: string) => /\.(mov|mp4|webm)$/i.test(src);
+
+/**
+ * ToolsRow — rangée discrète de logos sous les bullets.
+ * Monochrome noir via filter brightness(0), opacité réduite.
+ * Texte caption au-dessus pour contextualiser ("Outils utilisés").
+ */
+function ToolsRow({ tools }: { tools: Tool[] }) {
+  return (
+    <div className="mt-10 border-t border-[var(--rule)] pt-8">
+      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+        Outils utilisés
+      </p>
+      <ul className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">
+        {tools.map((t) => (
+          <li
+            key={t.src}
+            title={t.label}
+            className="flex h-6 items-center opacity-55 transition-opacity duration-300 hover:opacity-95"
+          >
+            <img
+              src={t.src}
+              alt={t.label}
+              loading="lazy"
+              className="h-6 w-auto"
+              style={{ filter: "brightness(0)" }}
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 /**
  * Media — slot polymorphe photo ↔ vidéo. Conserve la mécanique t-photo

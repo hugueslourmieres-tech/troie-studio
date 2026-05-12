@@ -46,9 +46,16 @@ export default async function HomePage({
         body={t("creationBody")}
         items={creationItems}
         photos={[
-          { src: "/images/creation-section/01-black-horse.png", alt: "Création IA — portrait de cheval" },
-          { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création — photographie" },
-          { src: "/images/works/event/cover.jpg", alt: "Création — événement Chanel" },
+          { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
+          { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
+          { src: "/images/works/event/cover.jpg", alt: "Création, événement Chanel" },
+        ]}
+        tools={[
+          { src: "/images/logos/adobe.svg", label: "Adobe" },
+          { src: "/images/logos/figma.svg", label: "Figma" },
+          { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
+          { src: "/images/logos/midjourney.svg", label: "Midjourney" },
+          { src: "/images/logos/runway.svg", label: "Runway" },
         ]}
       />
 
@@ -62,9 +69,16 @@ export default async function HomePage({
           items={strategyItems}
           reverse
           photos={[
-            { src: "/images/strategy-section/01.jpg", alt: "Stratégie — équipe Veoria" },
-            { src: "/images/strategy-section/02.jpg", alt: "Stratégie — culture corporate" },
-            { src: "/images/strategy-section/03.jpg", alt: "Stratégie — communication" },
+            { src: "/images/strategy-section/01.jpg", alt: "Stratégie, équipe Veoria" },
+            { src: "/images/strategy-section/02.jpg", alt: "Stratégie, culture corporate" },
+            { src: "/images/strategy-section/03.jpg", alt: "Stratégie, communication" },
+          ]}
+          tools={[
+            { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
+            { src: "/images/logos/google-ads.svg", label: "Google Ads" },
+            { src: "/images/logos/meta.svg", label: "Meta" },
+            { src: "/images/logos/hubspot.svg", label: "HubSpot" },
+            { src: "/images/logos/semrush.svg", label: "Semrush" },
           ]}
         />
       </div>
@@ -76,9 +90,16 @@ export default async function HomePage({
         body={t("trainingBody")}
         items={trainingItems}
         photos={[
-          { src: "/images/training-section/01.jpg", alt: "Formation IA — atelier" },
-          { src: "/images/training-section/02.jpg", alt: "Formation IA — Montpellier" },
-          { src: "/images/training-section/03.jpg", alt: "Formation IA — workshop" },
+          { src: "/images/training-section/01.jpg", alt: "Formation IA, atelier" },
+          { src: "/images/training-section/02.jpg", alt: "Formation IA, Montpellier" },
+          { src: "/images/training-section/03.jpg", alt: "Formation IA, workshop" },
+        ]}
+        tools={[
+          { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+          { src: "/images/logos/claude.svg", label: "Claude" },
+          { src: "/images/logos/perplexity.svg", label: "Perplexity" },
+          { src: "/images/logos/make.svg", label: "Make" },
+          { src: "/images/logos/copilot.svg", label: "Copilot" },
         ]}
       />
 

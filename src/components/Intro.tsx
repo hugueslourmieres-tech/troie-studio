@@ -24,7 +24,7 @@ const METIERS: Metier[] = [
     index: "01",
     slug: "creation",
     video: "/images/videos/creation.mp4",
-    videoAlt: "Création — vidéo d'illustration",
+    videoAlt: "Création, vidéo d'illustration",
     hash: "#creation",
     tools: [
       { src: "/images/logos/adobe.svg", label: "Adobe" },
@@ -38,7 +38,7 @@ const METIERS: Metier[] = [
     index: "02",
     slug: "strategy",
     video: "/images/videos/strategy.mp4",
-    videoAlt: "Stratégie — vidéo d'illustration",
+    videoAlt: "Stratégie, vidéo d'illustration",
     hash: "#strategy",
     tools: [
       { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
@@ -52,7 +52,7 @@ const METIERS: Metier[] = [
     index: "03",
     slug: "training",
     video: "/images/videos/formation.mp4",
-    videoAlt: "Formation — vidéo d'illustration",
+    videoAlt: "Formation, vidéo d'illustration",
     hash: "#training",
     tools: [
       { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
@@ -118,10 +118,9 @@ function MetierBox({ metier, index }: { metier: Metier; index: number }) {
         href={metier.hash}
         className="group relative flex h-full flex-col bg-[var(--bg)] p-8 transition-colors hover:bg-[var(--bg-2)] md:p-10"
       >
-        {/* Index */}
+        {/* Index + label (re-using the eyebrow which already reads "01 · Création") */}
         <span className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)]/60">
-          {metier.index} —{" "}
-          {t(`${metier.slug}Eyebrow`).split("—")[1]?.trim() ?? metier.slug}
+          {t(`${metier.slug}Eyebrow`)}
         </span>
 
         {/* Video — autoplay loop muted, N&B */}
