@@ -1,0 +1,165 @@
+import Image from "next/image";
+import { Reveal } from "./Reveal";
+
+export type Photo = { src: string; alt: string };
+
+type Props = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  items: string[];
+  photos: Photo[];
+  reverse?: boolean;
+  id?: string;
+};
+
+/**
+ * Service section — un pilier (Création / Stratégie / Formation).
+ * Texte 5 colonnes / photos 7 colonnes, inversable.
+ * Le PhotoMosaic supporte automatiquement photo + vidéo : si le `src`
+ * se termine par .mov / .mp4 / .webm, on rend une `<video>` autoplay
+ * muted loop à la place de l'`Image`.
+ */
+export function ServiceSection({
+  eyebrow,
+  title,
+  body,
+  items,
+  photos,
+  reverse = false,
+  id,
+}: Props) {
+  return (
+    <section
+      id={id}
+      className="border-t border-[var(--rule)] scroll-mt-24"
+    >
+      <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
+        <div
+          className={`grid gap-16 md:grid-cols-12 md:gap-20 ${
+            reverse ? "md:[&>*:first-child]:order-2" : ""
+          }`}
+        >
+          {/* Text column */}
+          <div className="md:col-span-5">
+            <Reveal direction={reverse ? "right" : "left"}>
+              <p className="t-eyebrow">{eyebrow}</p>
+            </Reveal>
+            <Reveal delay={0.1} direction={reverse ? "right" : "left"}>
+              <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+                {title}
+              </h2>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="mt-10 max-w-md text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">
+                {body}
+              </p>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <ul className="mt-12 space-y-3 border-t border-[var(--rule)] pt-8">
+                {items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-baseline gap-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="inline-block h-px w-3 flex-shrink-0 bg-[var(--accent)]"
+                    />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+
+          {/* Photo column */}
+          <div className="md:col-span-7">
+            <Reveal delay={0.15} direction={reverse ? "left" : "right"}>
+              <PhotoMosaic photos={photos} />
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const isVideo = (src: string) => /\.(mov|mp4|webm)$/i.test(src);
+
+/**
+ * Media — slot polymorphe photo ↔ vidéo. Conserve la mécanique t-photo
+ * (filtre N&B → couleur au survol) pour les deux types.
+ */
+function Media({
+  photo,
+  sizes,
+}: {
+  photo: Photo;
+  sizes: string;
+}) {
+  if (isVideo(photo.src)) {
+    return (
+      <video
+        src={photo.src}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="metadata"
+        aria-label={photo.alt}
+        className="t-photo absolute inset-0 h-full w-full object-cover"
+      />
+    );
+  }
+  return (
+    <Image
+      src={photo.src}
+      alt={photo.alt}
+      fill
+      sizes={sizes}
+      className="t-photo object-cover"
+    />
+  );
+}
+
+function PhotoMosaic({ photos }: { photos: Photo[] }) {
+  if (photos.length === 1) {
+    return (
+      <div className="group relative aspect-[4/5] w-full overflow-hidden bg-[var(--bg-2)]">
+        <Media photo={photos[0]} sizes="(max-width: 768px) 100vw, 50vw" />
+      </div>
+    );
+  }
+
+  if (photos.length === 2) {
+    return (
+      <div className="grid grid-cols-2 gap-4">
+        {photos.map((p) => (
+          <div
+            key={p.src}
+            className="group relative aspect-[3/4] overflow-hidden bg-[var(--bg-2)]"
+          >
+            <Media photo={p} sizes="(max-width: 768px) 50vw, 25vw" />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-2 gap-4">
+      <div className="group relative aspect-[3/4] row-span-2 overflow-hidden bg-[var(--bg-2)]">
+        <Media photo={photos[0]} sizes="(max-width: 768px) 50vw, 30vw" />
+      </div>
+      <div className="group relative aspect-[4/3] overflow-hidden bg-[var(--bg-2)]">
+        <Media photo={photos[1]} sizes="(max-width: 768px) 50vw, 25vw" />
+      </div>
+      {photos[2] && (
+        <div className="group relative aspect-[4/3] overflow-hidden bg-[var(--bg-2)]">
+          <Media photo={photos[2]} sizes="(max-width: 768px) 50vw, 25vw" />
+        </div>
+      )}
+    </div>
+  );
+}

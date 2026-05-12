@@ -1,0 +1,197 @@
+"use client";
+
+import Link from "next/link";
+import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
+import { Reveal } from "./Reveal";
+
+type Tool = { src: string; label: string };
+
+type Metier = {
+  index: string;
+  slug: "creation" | "strategy" | "training";
+  video: string;
+  videoAlt: string;
+  hash: string;
+  tools: Tool[];
+};
+
+// Vidéos + outils sourcés depuis /public/images/{videos,logos}.
+// Les logos sont en SVG monochrome, posés avec un filtre brightness(0)
+// pour rester noirs en tout cas, et une opacité réduite pour rester discrets.
+const METIERS: Metier[] = [
+  {
+    index: "01",
+    slug: "creation",
+    video: "/images/videos/creation.mp4",
+    videoAlt: "Création — vidéo d'illustration",
+    hash: "#creation",
+    tools: [
+      { src: "/images/logos/adobe.svg", label: "Adobe" },
+      { src: "/images/logos/figma.svg", label: "Figma" },
+      { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
+      { src: "/images/logos/midjourney.svg", label: "Midjourney" },
+      { src: "/images/logos/runway.svg", label: "Runway" },
+    ],
+  },
+  {
+    index: "02",
+    slug: "strategy",
+    video: "/images/videos/strategy.mov",
+    videoAlt: "Stratégie — vidéo d'illustration",
+    hash: "#strategy",
+    tools: [
+      { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
+      { src: "/images/logos/google-ads.svg", label: "Google Ads" },
+      { src: "/images/logos/meta.svg", label: "Meta" },
+      { src: "/images/logos/hubspot.svg", label: "HubSpot" },
+      { src: "/images/logos/semrush.svg", label: "Semrush" },
+    ],
+  },
+  {
+    index: "03",
+    slug: "training",
+    video: "/images/videos/formation.mp4",
+    videoAlt: "Formation — vidéo d'illustration",
+    hash: "#training",
+    tools: [
+      { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+      { src: "/images/logos/claude.svg", label: "Claude" },
+      { src: "/images/logos/perplexity.svg", label: "Perplexity" },
+      { src: "/images/logos/make.svg", label: "Make" },
+      { src: "/images/logos/copilot.svg", label: "Copilot" },
+    ],
+  },
+];
+
+/**
+ * Intro — section "Un studio. Trois métiers."
+ * Fond orange Hermès, 3 boxes encadrant un guerrier illustrant chaque métier.
+ * Chaque box est cliquable et ancre vers la section détaillée plus bas.
+ */
+export function Intro() {
+  const t = useTranslations("home");
+
+  return (
+    <section className="relative">
+      <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
+        {/* Header centré, intro éditoriale */}
+        <Reveal>
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="t-eyebrow">{t("introEyebrow")}</p>
+            <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
+              {t("introTitle")}
+            </h2>
+            <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+              {t("introBody")}
+            </p>
+          </div>
+        </Reveal>
+
+        {/* 3 boxes — un guerrier par métier */}
+        <div className="mt-20 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-28 md:grid-cols-3">
+          {METIERS.map((m, i) => (
+            <MetierBox key={m.slug} metier={m} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function MetierBox({ metier, index }: { metier: Metier; index: number }) {
+  const t = useTranslations("home");
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{
+        duration: 0.8,
+        delay: index * 0.1,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className="relative"
+    >
+      <Link
+        href={metier.hash}
+        className="group relative flex h-full flex-col bg-[var(--bg)] p-8 transition-colors hover:bg-[var(--bg-2)] md:p-10"
+      >
+        {/* Index */}
+        <span className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)]/60">
+          {metier.index} —{" "}
+          {t(`${metier.slug}Eyebrow`).split("—")[1]?.trim() ?? metier.slug}
+        </span>
+
+        {/* Video — autoplay loop muted, N&B */}
+        <div className="relative mt-8 aspect-square w-full overflow-hidden bg-[var(--bg-2)]">
+          <video
+            src={metier.video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-label={metier.videoAlt}
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+            style={{ filter: "grayscale(1) brightness(0.96) contrast(1.06)" }}
+          />
+        </div>
+
+        {/* Text */}
+        <div className="mt-8 flex flex-1 flex-col">
+          <h3 className="t-display text-3xl text-[var(--fg)] md:text-4xl">
+            {t(`${metier.slug}Title`)}
+          </h3>
+          <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+            {t(`${metier.slug}Body`)}
+          </p>
+
+          {/* Tool logos — monochrome, discrete, evenly sized */}
+          <ToolsRow tools={metier.tools} />
+
+          <span className="mt-auto pt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition group-hover:text-[var(--accent)]">
+            <span className="border-b border-[var(--rule-strong)] pb-0.5 group-hover:border-[var(--accent)]">
+              {t("introMore")}
+            </span>{" "}
+            →
+          </span>
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
+
+/**
+ * ToolsRow — rangée discrète de logos sur fond orange.
+ * - Monochrome via filter brightness(0) (force noir pur même si le SVG
+ *   est multicolore)
+ * - Opacité 50 % par défaut, monte à 80 % au survol de la card
+ * - Hauteur homogène 20 px, gap responsive
+ * - Wrap si la rangée déborde sur mobile
+ */
+function ToolsRow({ tools }: { tools: Tool[] }) {
+  return (
+    <ul
+      aria-label="Outils utilisés"
+      className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-[var(--rule)] pt-6"
+    >
+      {tools.map((t) => (
+        <li
+          key={t.src}
+          title={t.label}
+          className="flex h-5 items-center opacity-50 transition-opacity duration-300 group-hover:opacity-80"
+        >
+          <img
+            src={t.src}
+            alt={t.label}
+            loading="lazy"
+            className="h-5 w-auto"
+            style={{ filter: "brightness(0)" }}
+          />
+        </li>
+      ))}
+    </ul>
+  );
+}

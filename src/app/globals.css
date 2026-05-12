@@ -1,40 +1,80 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────────
-   TROIE — brand tokens
+   TROIE — design tokens
    ─────────────────────────────────────────────────────────────────
-   Palette references the Trojan Horse mythology:
-     ink     — night before the assault (almost-black)
-     bone    — ivory of the wooden horse, used as the fg
-     ember   — Troy in flames, the accent
-     gold    — oxidized antique gold for the secondary accent
-     mist    — soft contrast on the dark surface
+   Palette inspirée Hermès : crème dominante, orange puissant comme
+   accent unique, ink (presque-noir) pour les sections de drame.
+
+   Modèle "tones" : .tone-light / .tone-dark / .tone-accent.
+   Chaque section de la home choisit son tone, les variables CSS
+   pivotent automatiquement (bg, fg, rule…), tout le reste s'adapte.
 */
 
-:root {
-  --color-ink: #0b0b0c;
-  --color-ink-2: #131316;
-  --color-bone: #f4f0e6;
-  --color-bone-2: #ede7d8;
-  --color-ember: #e44827;
-  --color-gold: #b89254;
-  --color-mist: rgba(244, 240, 230, 0.12);
-  --color-mist-strong: rgba(244, 240, 230, 0.32);
+:root,
+.tone-light {
+  --bg: #f5f0e6;          /* crème principale (papier Hermès) */
+  --bg-2: #fdfaf3;        /* crème claire (cards) */
+  --fg: #1a1714;          /* presque-noir */
+  --fg-2: #4a4239;        /* gris foncé patiné */
+  --fg-mute: rgba(26, 23, 20, 0.55);
+  --accent: #f37b22;      /* Orange Hermès */
+  --accent-2: #d96100;
+  --accent-soft: rgba(243, 123, 34, 0.08);
+  --rule: rgba(26, 23, 20, 0.12);
+  --rule-strong: rgba(26, 23, 20, 0.30);
+  --gold: #8a6f38;
+}
+
+.tone-dark {
+  --bg: #0a0807;
+  --bg-2: #14110d;
+  --fg: #f5f0e6;
+  --fg-2: #ddd1b0;
+  --fg-mute: rgba(245, 240, 230, 0.65);
+  --accent: #f37b22;
+  --accent-2: #ff8c33;
+  --accent-soft: rgba(243, 123, 34, 0.10);
+  --rule: rgba(245, 240, 230, 0.10);
+  --rule-strong: rgba(245, 240, 230, 0.30);
+  --gold: #c9a05a;
+}
+
+.tone-accent {
+  --bg: #f37b22;          /* full orange Hermès */
+  --bg-2: #d96100;
+  --fg: #1a1714;
+  --fg-2: #2a221a;
+  --fg-mute: rgba(26, 23, 20, 0.65);
+  --accent: #1a1714;
+  --accent-2: #000;
+  --accent-soft: rgba(26, 23, 20, 0.08);
+  --rule: rgba(26, 23, 20, 0.20);
+  --rule-strong: rgba(26, 23, 20, 0.40);
+  --gold: #ffefdc;
+}
+
+.tone-brown {
+  /* Marron café profond — accord chromatique chaud avec l'orange Hermès,
+     comme une céramique attique antique. Texte cream pour lisibilité. */
+  --bg: #2d2218;          /* coffee/sepia profond */
+  --bg-2: #3a2c1f;
+  --fg: #f4ead0;          /* cream */
+  --fg-2: #ddd1b0;
+  --fg-mute: rgba(244, 234, 208, 0.65);
+  --accent: #f37b22;      /* orange reste l'accent pour les liens */
+  --accent-2: #ff8c33;
+  --accent-soft: rgba(243, 123, 34, 0.12);
+  --rule: rgba(244, 234, 208, 0.10);
+  --rule-strong: rgba(244, 234, 208, 0.30);
+  --gold: #c9a05a;
 }
 
 @theme inline {
-  --color-background: var(--color-ink);
-  --color-foreground: var(--color-bone);
-  --color-ink: var(--color-ink);
-  --color-ink-2: var(--color-ink-2);
-  --color-bone: var(--color-bone);
-  --color-bone-2: var(--color-bone-2);
-  --color-ember: var(--color-ember);
-  --color-gold: var(--color-gold);
-  --color-mist: var(--color-mist);
-  --color-mist-strong: var(--color-mist-strong);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
 
-  --font-display: var(--font-fraunces, ui-serif, Georgia, "Times New Roman", serif);
+  --font-display: var(--font-bodoni, ui-serif, "Bodoni 72", Georgia, "Times New Roman", serif);
   --font-sans: var(--font-inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif);
   --font-mono: var(--font-jetbrains, ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace);
 }
@@ -49,66 +89,73 @@ html {
 }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-bone);
+  background: var(--bg);
+  color: var(--fg);
   font-family: var(--font-sans);
-  font-feature-settings: "ss01", "cv11";
   letter-spacing: -0.005em;
 }
 
 ::selection {
-  background: var(--color-ember);
-  color: var(--color-bone);
+  background: var(--accent);
+  color: var(--bg);
 }
 
-/* utility: a hairline divider in the brand palette */
-.t-rule {
-  height: 1px;
-  background: var(--color-mist);
-}
+/* ─────────────────────────────────────────────────────────────────
+   Typo helpers — display Bodoni
+   ───────────────────────────────────────────────────────────────── */
 
-/* utility: an editorial display heading */
 .t-display {
   font-family: var(--font-display);
-  font-weight: 300;
-  letter-spacing: -0.02em;
-  line-height: 0.95;
+  font-weight: 400;       /* Bodoni reads luxe en regular avec sa modulation forte */
+  letter-spacing: -0.025em;
+  line-height: 0.96;
 }
 
-/* utility: marquee-like uppercase eyebrow */
+.t-display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1;
+}
+
 .t-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--color-mist-strong);
+  color: var(--accent);
 }
 
-/* the horse, in 1 keyframe (subtle entrance for hero) */
+/* ─────────────────────────────────────────────────────────────────
+   t-photo — pur N&B + retour couleur au survol.
+   Aucun sépia, accord parfait avec l'orange comme seul ton chaud.
+   ───────────────────────────────────────────────────────────────── */
+
+.t-photo {
+  filter: grayscale(1) brightness(0.96) contrast(1.06);
+  transition: filter 700ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: filter, transform;
+}
+
+.t-photo:hover,
+.group:hover .t-photo,
+[data-photo-hover]:hover .t-photo {
+  filter: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Animations
+   ───────────────────────────────────────────────────────────────── */
+
 @keyframes troie-rise {
-  from {
-    opacity: 0;
-    transform: translateY(0.6rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(0.6rem); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.t-rise {
-  animation: troie-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.t-rise-delay-1 {
-  animation-delay: 0.1s;
-}
-.t-rise-delay-2 {
-  animation-delay: 0.22s;
-}
-.t-rise-delay-3 {
-  animation-delay: 0.34s;
-}
-.t-rise-delay-4 {
-  animation-delay: 0.46s;
-}
+.t-rise { animation: troie-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.t-rise-delay-1 { animation-delay: 0.1s; }
+.t-rise-delay-2 { animation-delay: 0.22s; }
+.t-rise-delay-3 { animation-delay: 0.34s; }
+.t-rise-delay-4 { animation-delay: 0.46s; }

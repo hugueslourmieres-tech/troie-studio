@@ -2,224 +2,211 @@
   "brand": {
     "name": "TROIE",
     "domain": "troie.studio",
-    "tagline": "Like the horse. We get your brand into markets, algorithms and LLMs."
+    "tagline": "Creative, strategy & training."
   },
   "nav": {
     "home": "Home",
-    "services": "Services",
+    "creation": "Creative",
+    "strategy": "Strategy",
+    "training": "Training",
     "works": "Works",
-    "formations": "AI Training",
-    "about": "About",
+    "about": "Studio",
     "contact": "Contact",
-    "letsTalk": "Let's talk"
+    "letsTalk": "Get in touch"
   },
   "home": {
-    "heroEyebrow": "Communication, creative & AI training agency",
-    "heroTitle": "We get your brand\nwhere your customers actually look.",
-    "heroSubtitle": "Strategy, art direction, content, SEO/SEA/GEO, and hands-on training on AI tools. One team, two crafts, ten years of execution.",
-    "heroCtaPrimary": "Free 30-min audit",
+    "heroEyebrow": "Digital Atelier",
+    "heroTitle": "Creative, strategy\n& training.",
+    "heroSubtitle": "Photography, video, design, digital marketing and training on the latest AI tools. A boutique team with ten years of work alongside brands.",
+    "heroCtaPrimary": "Start a project",
     "heroCtaSecondary": "See our work",
-    "manifestoEyebrow": "Manifesto",
-    "manifestoTitle": "The Trojan horse didn't take the city by force. It walked in as the obvious move.",
-    "manifestoBody": "Today the walls are algorithmic. Markets are won inside Instagram feeds, on the first Google page, in ChatGPT answers. TROIE builds your horse: a brand system that gets invited into the conversation. Image, copy, code, model. Production fast, clean, measurable.",
-    "statsClients": "brands worked with",
-    "statsTrained": "professionals trained",
-    "statsYears": "years of execution",
-    "servicesTitle": "Three crafts, one point of contact",
-    "servicesIntro": "We cover the full chain: strategy that thinks, creative that infiltrates, training that transmits.",
-    "clientsTitle": "They've already opened their gates",
-    "clientsIntro": "Luxury houses, industrials, sports and hospitality. Selection.",
-    "formationsTitle": "AI Training — for your teams",
-    "formationsIntro": "Three levels, in-house or open enrollment, in Paris or remote. Every session ends with a live, working deliverable.",
-    "ctaTitle": "It starts with a 30-minute audit.",
-    "ctaSubtitle": "You describe the terrain. We come back with a concrete infiltration plan in 48 hours.",
-    "ctaButton": "Book the audit"
-  },
-  "services": {
-    "pageTitle": "Services",
-    "pageSubtitle": "Strategy, creation, training. Three pillars, one system.",
-    "comm": {
-      "label": "Strategy & Communication",
-      "title": "We make your brand obvious.",
-      "items": [
-        "Brand strategy & positioning",
-        "Art direction & branding",
-        "Media plan & growth",
-        "SEO, SEA, GEO (Generative Engine Optimization)",
-        "Paid media — Meta, Google, LinkedIn, TikTok",
-        "E-commerce & conversion",
-        "Social media strategy & community",
-        "Measurement, dashboards, reporting"
-      ]
-    },
-    "creation": {
-      "label": "Creation & Art Direction",
-      "title": "We build everything, under one roof.",
-      "items": [
-        "Visual identity & logo",
-        "Graphic charter & brand guidelines",
-        "Photography — product, fashion, corporate",
-        "Video, reels, brand films",
-        "AI creation — image, video, voice",
-        "Editorial & print design",
-        "Websites, landing pages, e-shops",
-        "Animation, motion design"
-      ]
-    },
-    "training": {
-      "label": "AI Training",
-      "title": "We train your team to use AI that ships.",
-      "items": [
-        "ChatGPT, Claude, Gemini — advanced use",
-        "Make, n8n, Zapier — automation",
-        "AI Agents — build & deploy",
-        "Sora, Veo, Runway, Midjourney — visual creation",
-        "Custom in-house programs",
-        "AI audit & roadmap",
-        "Post-training support",
-        "Qualiopi certification possible (in progress)"
-      ]
-    }
+    "introEyebrow": "The studio",
+    "introTitle": "One studio. Three crafts.",
+    "introBody": "TROIE is the agency of Hugues Lourmières. Since 2015, we have worked with luxury houses, industrials and service companies in France and worldwide. We craft their imagery, advise their strategy, and train their teams on today's digital tools.",
+    "introMore": "See the detail",
+    "creationEyebrow": "01 — Creative",
+    "creationTitle": "Image, video, design.",
+    "creationBody": "We craft the visual content that gives shape to your brand. Photography, video, graphic identity, and generative creation.",
+    "creationItems": [
+      "Photography — product, fashion, corporate, events",
+      "Video, brand films, reels, motion design",
+      "Visual identity, logo, complete graphic charter",
+      "Art direction & print editorial",
+      "AI-generated creation (image, video, voice)",
+      "Websites, web apps & landing pages",
+      "E-commerce, conversion & checkout flows"
+    ],
+    "strategyEyebrow": "02 — Strategy",
+    "strategyTitle": "Communication & digital marketing.",
+    "strategyBody": "We support your brand, market and acquisition decisions. From brand platform to media plan, from SEO to paid media.",
+    "strategyItems": [
+      "Brand strategy & positioning",
+      "Communication & art direction consulting",
+      "Digital marketing & media plan",
+      "SEO, SEA, GEO (Generative Engine Optimization)",
+      "Paid media — Meta, Google, LinkedIn, TikTok",
+      "Social media, e-commerce, conversion"
+    ],
+    "trainingEyebrow": "03 — Training",
+    "trainingTitle": "Mastering AI tools.",
+    "trainingBody": "We train your teams on AI tools and on building autonomous agents. Three levels, in-house or open enrollment, in Paris or remote.",
+    "trainingItems": [
+      "ChatGPT, Claude, Gemini — advanced use and prompting",
+      "AI visual creation — Midjourney, Sora, Veo, Runway",
+      "Automation — Make, n8n, Zapier",
+      "AI agents — design, deployment, supervision",
+      "Custom in-house programs",
+      "AI audit & roadmap"
+    ],
+    "worksEyebrow": "Works",
+    "worksTitle": "A selection.",
+    "worksIntro": "Luxury houses, hospitality, sport, industry, technology. Project details available on request.",
+    "worksCta": "View all works",
+    "videosEyebrow": "Corporate films",
+    "videosTitle": "Films.",
+    "videosIntro": "Client testimonials, brand films and storytelling. A selection of video productions for Rutherford, GS Monaco × Forbes, Autajon, Avery Dennison and others.",
+    "clientsTitle": "Brands we've worked with",
+    "aboutEyebrow": "The studio",
+    "aboutTitle": "Hugues Lourmières.",
+    "aboutBody": "Photographer and art director, I have worked with brands for ten years in France and internationally. Since 2024, I also train teams to embed AI into their daily production. TROIE brings these two worlds together — creative that gets seen and AI that ships — for demanding brands.",
+    "aboutBullets": [
+      "10 years working with international brands",
+      "50 companies supported",
+      "200 professionals trained on AI",
+      "Studio based in Paris, missions worldwide"
+    ],
+    "packsEyebrow": "Packages & pricing",
+    "packsTitle": "Clear packages.",
+    "packsIntro": "Fixed-price packages for recurring needs. Custom quotes for everything else, after a free 30-minute audit.",
+    "packsTerms": "All prices excluding VAT. Standard terms: 50 % on order, balance on delivery. Detailed quote within 48 hours of briefing.",
+    "ctaTitle": "Let's talk about your project.",
+    "ctaSubtitle": "A thirty-minute call to understand your need and propose an approach.",
+    "ctaButton": "Book a call"
   },
   "works": {
     "pageTitle": "Works",
-    "pageSubtitle": "Selected projects. Each case tells a successful infiltration: the brand, the wall, the angle of attack, the result.",
-    "viewProject": "View case",
+    "pageSubtitle": "Six crafts, six lenses. A curated set of photo & video projects shot for the brands we work with.",
+    "viewProject": "View project",
     "items": {
-      "chanel": {
-        "title": "Chanel",
-        "scope": "Art direction, photography, content",
-        "year": "2015 — present"
+      "event": {
+        "title": "Event",
+        "subtitle": "Capture every moment with a vision",
+        "scope": "Event photography, premières, parties, launches",
+        "description": "Creating unique moments on image — every place, every moment. Evoking genuine emotion, capturing authentic content, reflecting the true essence of each moment."
       },
-      "pantone": {
-        "title": "Pantone × X-Rite",
-        "scope": "Brand activation, video, eXact 2 launch",
-        "year": "2023"
+      "shooting": {
+        "title": "Shooting",
+        "subtitle": "Your industry, elevated to cinematic level",
+        "scope": "B2B / B2C photography, fashion, corporate, lifestyle",
+        "description": "Turning industrial and business environments into refined visual content, with emotional depth and professional rigor."
       },
-      "rutherford": {
-        "title": "Rutherford",
-        "scope": "Full brand identity, website, product demo",
-        "year": "2024"
+      "video": {
+        "title": "Video",
+        "subtitle": "Create vibes during interview",
+        "scope": "Corporate films, interviews, reels, motion design",
+        "description": "Directing video with emotion. Interviewing takes both precision and genuine curiosity — to surface what's true, and make it land."
       },
-      "gsmonaco": {
-        "title": "GS Monaco",
-        "scope": "Art direction, video, reels, events",
-        "year": "2021 — present"
+      "social": {
+        "title": "Social Media",
+        "subtitle": "Generate unique designs to make your brand visible",
+        "scope": "Social media art direction, daily content, strategy",
+        "description": "A grounded brand aesthetic, and social-media content tailored to each platform."
       },
-      "sofitel": {
-        "title": "Sofitel Essaouira × Golf Mogador",
-        "scope": "Photography, hospitality content",
-        "year": "2019"
+      "nature": {
+        "title": "Nature",
+        "subtitle": "Nature that resonates in the Mercantour",
+        "scope": "Landscape, black & white photography, prints",
+        "description": "Composing with landscape. Experiencing the truth of nature."
+      },
+      "wild-life": {
+        "title": "Wild Life",
+        "subtitle": "Into the wild, in the Mercantour",
+        "scope": "Wildlife photography, fauna, prints",
+        "description": "Capturing emotions with wildlife. Showing the raw beauty of nature."
       },
       "veoria": {
         "title": "Veoria",
-        "scope": "Corporate photography, social media",
-        "year": "2025"
+        "subtitle": "Team photography & corporate culture",
+        "scope": "Corporate photography, team, culture, social media",
+        "description": "One day with the Veoria team — documenting culture and commitment, delivering a ready-to-use visual library for social media and internal comms."
       },
-      "heidelberg": {
-        "title": "Heidelberg",
-        "scope": "Industrial photography, B2B content",
-        "year": "2020 — 2021"
+      "mibi": {
+        "title": "MIBI",
+        "subtitle": "National convention 2026, event coverage",
+        "scope": "Event photography, convention, keynote, panels",
+        "description": "Full coverage of the MIBI 2026 convention: keynotes, workshops, off moments, portraits. Deliverables ready the same evening for post-event communication."
       },
-      "topakita": {
-        "title": "Top Akita Inu",
-        "scope": "Brand storytelling, interview, social",
-        "year": "2020"
+      "montpellier": {
+        "title": "Montpellier",
+        "subtitle": "AI training — January 2026",
+        "scope": "In-house training, AI implementation",
+        "description": "One day training marketing and communication teams on AI tools in Montpellier — creating 30 social posts, deploying a prospecting agent, automating workflows."
       },
-      "capefront": {
-        "title": "Capefront",
-        "scope": "Corporate photography, team building, profiles",
-        "year": "2025"
+      "barcelona": {
+        "title": "Barcelona — Printing Industry",
+        "subtitle": "Global printing industry trade show",
+        "scope": "Industrial reportage, offset presses, brand activation",
+        "description": "Full coverage of the global printing trade show in Barcelona: presses in action, color demos, client testimonials. 35 mm black & white and color photography in a documentary spirit."
       }
     }
   },
-  "formations": {
-    "pageTitle": "AI Training",
-    "pageSubtitle": "Three levels, working deliverables on day one. Paris on-site or remote.",
+  "creation": {
+    "pageTitle": "Creative",
+    "pageSubtitle": "Image, video, design — under one roof."
+  },
+  "strategy": {
+    "pageTitle": "Strategy",
+    "pageSubtitle": "Communication, digital marketing and consulting."
+  },
+  "training": {
+    "pageTitle": "Training",
+    "pageSubtitle": "AI tools, automation, agents.",
     "level1": {
-      "label": "Level 1 — Foundations",
+      "label": "Level 1",
       "duration": "3 hours",
       "title": "ChatGPT, Claude & Gemini",
-      "deliverable": "By the end: 30 LinkedIn & Instagram posts in 20 minutes.",
-      "items": [
-        "Model comparison (strengths, weaknesses, pricing)",
-        "Advanced prompting (role, context, constraints, iteration)",
-        "Content creation — copy, posts, briefs, emails",
-        "Limits, hallucinations, business ethics"
-      ]
+      "deliverable": "Create 30 LinkedIn and Instagram posts in under twenty minutes."
     },
     "level2": {
-      "label": "Level 2 — Intermediate",
-      "duration": "1 day (7h)",
+      "label": "Level 2",
+      "duration": "1 day",
       "title": "Make, n8n & Zapier",
-      "deliverable": "By the end: an autonomous LinkedIn → email → CRM pipeline.",
-      "items": [
-        "Workflow architecture",
-        "Essential connectors (LinkedIn, Apollo, Shopify, CRMs)",
-        "Outbound prospecting automation",
-        "Triggers, scenarios, error handling"
-      ]
+      "deliverable": "Set up an autonomous LinkedIn → email → CRM pipeline."
     },
     "level3": {
-      "label": "Level 3 — Advanced",
-      "duration": "1 day (7h)",
-      "title": "AI Agents — Build & Deploy",
-      "deliverable": "By the end: your agents run autonomously by evening.",
-      "items": [
-        "Agent architecture (LangChain, Relevance AI, n8n agents)",
-        "Prospecting agent, community agent, CMO agent",
-        "Memory, tools, guardrails",
-        "Deployment & monitoring"
-      ]
+      "label": "Level 3",
+      "duration": "1 day",
+      "title": "AI Agents — build & deploy",
+      "deliverable": "Your agents run autonomously by the end of the day."
     },
     "custom": {
       "label": "Custom",
       "title": "In-house program",
-      "body": "Process audit, tool selection, transformation plan, team training, 3-month follow-up. Custom quote after free audit."
+      "body": "Audit, tool selection, transformation plan, team training, three-month follow-up."
     }
   },
   "about": {
-    "pageTitle": "About",
-    "pageSubtitle": "Boutique agency. One point of contact. Ten years of execution.",
-    "intro": "TROIE is Hugues Lourmières' agency. Photographer, art director, AI trainer. Since 2015 I've worked with luxury houses, industrials, sports and hospitality brands — Chanel, Pantone, X-Rite, Sofitel, Heidelberg, GS Monaco, Veoria. Since 2024, I also train teams to embed AI into their daily production. TROIE brings these two worlds together: creative that gets seen, and AI that ships.",
-    "valuesTitle": "How we work",
-    "values": [
-      {
-        "title": "One point of contact",
-        "body": "No layered account chain. You talk to the person who executes."
-      },
-      {
-        "title": "Fast production",
-        "body": "30-min audit, plan in 48h, deployment in days, not months."
-      },
-      {
-        "title": "Measurable",
-        "body": "Every action has a KPI. Every quarter has a dashboard. Every euro is traceable."
-      },
-      {
-        "title": "No bullshit",
-        "body": "No buzzwords. No 80-slide decks. Deliverables and results."
-      }
-    ]
+    "pageTitle": "Studio",
+    "pageSubtitle": "Hugues Lourmières — photographer, art director, trainer."
   },
   "contact": {
-    "pageTitle": "Free 30-minute audit",
-    "pageSubtitle": "Describe the terrain. We come back with a concrete infiltration plan in 48 hours.",
+    "pageTitle": "Contact",
+    "pageSubtitle": "To discuss a project, request a quote or book a training session.",
     "name": "Name",
     "email": "Email",
     "company": "Company",
     "subject": "Subject",
-    "message": "Describe your need",
+    "message": "Your message",
     "send": "Send",
-    "or": "or directly",
+    "or": "Or directly",
     "emailDirect": "contact@troie.studio",
     "callDirect": "Book a call",
-    "thanks": "Thanks. Reply within 24 business hours."
+    "thanks": "Thanks. We'll get back to you within 24 business hours."
   },
   "footer": {
     "rights": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Legal",
-    "based": "Paris — fully remote everywhere"
+    "based": "Digital Atelier — Paris"
   }
 }

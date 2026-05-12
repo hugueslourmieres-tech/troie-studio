@@ -1,73 +1,138 @@
+import { Emblem } from "./Emblem";
+
 /**
- * TROIE — primary wordmark.
- * The "O" carries the brand: a closed circle (the gates of Troy)
- * with an inner ember dot (the horse, hidden inside).
+ * TROIE — wordmark dans la veine des maisons de luxe (Hermès, Cartier, Loewe).
+ * Pure typographie, capitales, généreusement lettré. L'emblème (guerrier
+ * grec) accompagne le wordmark dans certaines variantes pour en faire la
+ * signature visuelle de la marque.
+ *
+ * Variants:
+ *   - "wordmark"        : "TROIE" seul (header simple)
+ *   - "wordmark-emblem" : guerrier + "TROIE" inline (header default)
+ *   - "stack"           : guerrier au-dessus + "TROIE" + ligne + "STUDIO · PARIS" (footer / signature)
+ *   - "mark"            : juste "TR" texte (favicon, très petit usage)
  */
 export function Logo({
   variant = "wordmark",
   className = "",
 }: {
-  variant?: "wordmark" | "monogram";
+  variant?: "wordmark" | "stack" | "wordmark-emblem" | "mark";
   className?: string;
 }) {
-  if (variant === "monogram") {
+  if (variant === "mark") {
     return (
       <svg
-        viewBox="0 0 64 64"
+        viewBox="0 0 64 32"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
         aria-label="TROIE"
       >
-        <circle
-          cx="32"
-          cy="32"
-          r="26"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-        />
-        <circle cx="32" cy="32" r="6" fill="var(--color-ember, #e44827)" />
+        <text
+          x="32"
+          y="24"
+          textAnchor="middle"
+          fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
+          fontWeight="400"
+          fontSize="22"
+          letterSpacing="3"
+          fill="currentColor"
+        >
+          TR
+        </text>
       </svg>
     );
   }
 
+  if (variant === "wordmark-emblem") {
+    // L'emblème (guerrier vertical) prend 1.6× la hauteur du wordmark
+    // pour rester lisible. Le wordmark TROIE garde sa hauteur de référence.
+    return (
+      <span
+        className={`inline-flex items-center gap-3 ${className}`}
+        aria-label="TROIE"
+      >
+        <Emblem className="h-[160%] w-auto" />
+        <svg
+          viewBox="0 0 200 32"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-full w-auto"
+          aria-hidden="true"
+          preserveAspectRatio="xMinYMid meet"
+        >
+          <text
+            x="0"
+            y="24"
+            fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
+            fontWeight="400"
+            fontSize="26"
+            letterSpacing="9"
+            fill="currentColor"
+          >
+            TROIE
+          </text>
+        </svg>
+      </span>
+    );
+  }
+
+  if (variant === "stack") {
+    return (
+      <div
+        className={`flex flex-col items-center ${className}`}
+        aria-label="TROIE — Studio Paris"
+      >
+        <Emblem className="h-20 w-auto" />
+        <svg viewBox="0 0 200 50" className="mt-4 h-auto w-full" aria-hidden="true">
+          <text
+            x="100"
+            y="32"
+            textAnchor="middle"
+            fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
+            fontWeight="400"
+            fontSize="34"
+            letterSpacing="14"
+            fill="currentColor"
+          >
+            TROIE
+          </text>
+          <line
+            x1="40"
+            y1="44"
+            x2="160"
+            y2="44"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            opacity="0.5"
+          />
+        </svg>
+        <span
+          className="mt-2 font-mono text-[10px] uppercase tracking-[0.4em] opacity-70"
+          style={{ color: "currentColor" }}
+        >
+          Atelier Digital
+        </span>
+      </div>
+    );
+  }
+
+  // Default: horizontal wordmark, pure type
   return (
     <svg
-      viewBox="0 0 220 48"
+      viewBox="0 0 220 36"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-label="TROIE"
     >
       <text
         x="0"
-        y="36"
-        fontFamily="var(--font-fraunces, ui-serif, Georgia, serif)"
-        fontWeight="500"
-        fontSize="42"
-        letterSpacing="2"
+        y="26"
+        fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
+        fontWeight="400"
+        fontSize="28"
+        letterSpacing="10"
         fill="currentColor"
       >
-        TR
-      </text>
-      <circle
-        cx="78"
-        cy="22"
-        r="18"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.5"
-      />
-      <circle cx="78" cy="22" r="4.5" fill="var(--color-ember, #e44827)" />
-      <text
-        x="100"
-        y="36"
-        fontFamily="var(--font-fraunces, ui-serif, Georgia, serif)"
-        fontWeight="500"
-        fontSize="42"
-        letterSpacing="2"
-        fill="currentColor"
-      >
-        IE
+        TROIE
       </text>
     </svg>
   );

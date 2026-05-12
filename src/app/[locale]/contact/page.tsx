@@ -28,10 +28,10 @@ function ContactView() {
     <article className="mx-auto max-w-5xl px-6 py-24 md:px-10 md:py-36">
       <header>
         <p className="t-eyebrow">/ Contact</p>
-        <h1 className="t-display mt-6 text-5xl text-[var(--color-bone)] md:text-7xl">
+        <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
           {t("pageTitle")}
         </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--color-bone-2)]/80 md:text-xl">
+        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]/80 md:text-xl">
           {t("pageSubtitle")}
         </p>
       </header>
@@ -49,7 +49,7 @@ function ContactView() {
           <div className="space-y-2">
             <label
               htmlFor="message"
-              className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-bone-2)]/70"
+              className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg-2)]/70"
             >
               {t("message")}
             </label>
@@ -57,24 +57,24 @@ function ContactView() {
               id="message"
               name="message"
               rows={6}
-              className="w-full rounded-xl border border-[var(--color-mist)] bg-[var(--color-ink-2)] px-4 py-3 text-[var(--color-bone)] outline-none transition focus:border-[var(--color-ember)]"
+              className="w-full rounded-xl border border-[var(--rule)] bg-[var(--bg-2)] px-4 py-3 text-[var(--fg)] outline-none transition focus:border-[var(--accent)]"
               required
             />
           </div>
           <button
             type="submit"
-            className="inline-flex items-center gap-3 rounded-full bg-[var(--color-ember)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-bone)] transition hover:bg-[#c93d20]"
+            className="inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:bg-[#a85f2a]"
           >
             {t("send")} →
           </button>
         </form>
 
         <aside className="md:col-span-5">
-          <div className="rounded-2xl border border-[var(--color-mist)] bg-[var(--color-ink-2)] p-8">
+          <div className="rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-8">
             <p className="t-eyebrow">{t("or")}</p>
             <a
               href="mailto:contact@troie.studio"
-              className="t-display mt-6 block text-2xl text-[var(--color-bone)] md:text-3xl"
+              className="t-display mt-6 block text-2xl text-[var(--fg)] md:text-3xl"
             >
               contact@troie.studio
             </a>
@@ -82,9 +82,9 @@ function ContactView() {
               href="https://cal.com/hugueslourmieres"
               target="_blank"
               rel="noreferrer"
-              className="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-bone-2)] transition hover:text-[var(--color-ember)]"
+              className="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
             >
-              <span className="border-b border-[var(--color-mist-strong)] pb-0.5">
+              <span className="border-b border-[var(--rule-strong)] pb-0.5">
                 {t("callDirect")}
               </span>
               →
@@ -111,16 +111,16 @@ function Field({
     <div className="space-y-2">
       <label
         htmlFor={name}
-        className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-bone-2)]/70"
+        className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg-2)]/70"
       >
-        {label} {required && <span className="text-[var(--color-ember)]">*</span>}
+        {label} {required && <span className="text-[var(--accent)]">*</span>}
       </label>
       <input
         id={name}
         name={name}
         type={type}
         required={required}
-        className="w-full rounded-xl border border-[var(--color-mist)] bg-[var(--color-ink-2)] px-4 py-3 text-[var(--color-bone)] outline-none transition focus:border-[var(--color-ember)]"
+        className="w-full rounded-xl border border-[var(--rule)] bg-[var(--bg-2)] px-4 py-3 text-[var(--fg)] outline-none transition focus:border-[var(--accent)]"
       />
     </div>
   );

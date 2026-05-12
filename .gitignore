@@ -39,3 +39,23 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Source ingest folders — already copied to slug-friendly paths.
+# Kept on disk for re-import convenience, but excluded from git.
+/public/images/01slideshow hero /
+/public/images/02videos for /
+/public/images/03image video desing section/
+/public/images/04 Strategie communication/
+/public/images/05formations/
+/public/images/06about/
+/public/images/07video/
+/public/images/Photos Corpo Hugues/
+/public/images/dossier sans titre/
+
+# Legacy / unused folders
+/public/images/IA/
+/public/images/creation/
+/public/images/formations/
+/public/images/corpo/
+/public/images/clients/
+/public/images/backgrounds/

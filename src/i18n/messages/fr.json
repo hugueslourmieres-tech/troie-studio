@@ -2,224 +2,211 @@
   "brand": {
     "name": "TROIE",
     "domain": "troie.studio",
-    "tagline": "Comme le cheval. On infiltre votre marque dans les marchés, les algorithmes et les LLMs."
+    "tagline": "Création, stratégie & formation."
   },
   "nav": {
     "home": "Accueil",
-    "services": "Services",
+    "creation": "Création",
+    "strategy": "Stratégie",
+    "training": "Formation",
     "works": "Réalisations",
-    "formations": "Formations",
-    "about": "À propos",
+    "about": "Studio",
     "contact": "Contact",
-    "letsTalk": "Parlons-en"
+    "letsTalk": "Nous écrire"
   },
   "home": {
-    "heroEyebrow": "Agence de communication, création & formations IA",
-    "heroTitle": "Nous infiltrons votre marque\nlà où vos clients regardent.",
-    "heroSubtitle": "Stratégie, direction artistique, contenus, SEO/SEA/GEO et formations sur les outils IA. Une seule équipe, deux métiers, dix ans d'exécution.",
-    "heroCtaPrimary": "Audit gratuit (30 min)",
-    "heroCtaSecondary": "Voir nos réalisations",
-    "manifestoEyebrow": "Manifeste",
-    "manifestoTitle": "Le cheval de Troie n'a pas pris la ville par la force. Il y est entré par l'évidence.",
-    "manifestoBody": "Aujourd'hui les remparts sont algorithmiques. Les marchés se gagnent dans les flux Instagram, sur la première page Google, dans les réponses ChatGPT. TROIE construit votre cheval : un système de marque qui se fait inviter dans la conversation. Image, copy, code, modèle. Production rapide, propre, mesurable.",
-    "statsClients": "marques accompagnées",
-    "statsTrained": "professionnels formés",
-    "statsYears": "années d'exécution",
-    "servicesTitle": "Trois métiers, un seul interlocuteur",
-    "servicesIntro": "On couvre la chaîne complète : la stratégie qui pense, la création qui infiltre, la formation qui transmet.",
-    "clientsTitle": "Ils nous ont déjà ouvert les portes",
-    "clientsIntro": "Maisons de luxe, industriels, sport et hospitalité. Sélection.",
-    "formationsTitle": "Formations IA — pour vos équipes",
-    "formationsIntro": "Trois niveaux, format intra-entreprise ou inter, à Paris ou en remote. Chaque session se termine par un livrable opérationnel le jour même.",
-    "ctaTitle": "On commence par un audit de 30 minutes.",
-    "ctaSubtitle": "Vous nous décrivez le terrain. On revient avec un plan d'infiltration concret en 48 heures.",
-    "ctaButton": "Réserver l'audit"
-  },
-  "services": {
-    "pageTitle": "Services",
-    "pageSubtitle": "Stratégie, création, formation. Trois piliers, un seul système.",
-    "comm": {
-      "label": "Stratégie & Communication",
-      "title": "On rend votre marque évidente.",
-      "items": [
-        "Stratégie de marque & positionnement",
-        "Direction artistique & branding",
-        "Plan media & growth",
-        "SEO, SEA, GEO (Generative Engine Optimization)",
-        "Paid media — Meta, Google, LinkedIn, TikTok",
-        "E-commerce & conversion",
-        "Stratégie réseaux sociaux & community",
-        "Mesure, dashboards, reporting"
-      ]
-    },
-    "creation": {
-      "label": "Création & Direction Artistique",
-      "title": "On fabrique tout, sous le même toit.",
-      "items": [
-        "Identité visuelle & logo",
-        "Charte graphique & brand guidelines",
-        "Photographie produit, mode, corporate",
-        "Vidéo, reels, films de marque",
-        "Création IA — image, vidéo, voix",
-        "Design éditorial & print",
-        "Sites web, landing pages, e-shops",
-        "Animation, motion design"
-      ]
-    },
-    "training": {
-      "label": "Formations IA",
-      "title": "On forme vos équipes à l'IA qui produit.",
-      "items": [
-        "ChatGPT, Claude, Gemini — usage avancé",
-        "Make, n8n, Zapier — automatisation",
-        "Agents IA — création & déploiement",
-        "Sora, Veo, Runway, Midjourney — création visuelle",
-        "Formations sur-mesure intra-entreprise",
-        "Audit IA & feuille de route",
-        "Accompagnement post-formation",
-        "Certifications Qualiopi possibles (en cours)"
-      ]
-    }
+    "heroEyebrow": "Atelier Digital",
+    "heroTitle": "Création, stratégie\n& formation.",
+    "heroSubtitle": "Photo, vidéo, design, marketing digital et formation aux outils d'intelligence artificielle. Une équipe à taille humaine, dix ans de production aux côtés des marques.",
+    "heroCtaPrimary": "Démarrer un projet",
+    "heroCtaSecondary": "Voir nos travaux",
+    "introEyebrow": "Le studio",
+    "introTitle": "Un studio. Trois métiers.",
+    "introBody": "TROIE est l'agence de Hugues Lourmières. Depuis 2015, nous accompagnons des marques de luxe, des industriels et des entreprises de service en France et à l'international. Nous fabriquons leur image, conseillons leur stratégie, et formons leurs équipes aux outils numériques d'aujourd'hui.",
+    "introMore": "Voir le détail",
+    "creationEyebrow": "01 — Création",
+    "creationTitle": "Image, vidéo, design.",
+    "creationBody": "Nous fabriquons les contenus visuels qui incarnent vos marques. Photographie, vidéo, identité graphique et création générative.",
+    "creationItems": [
+      "Photographie produit, mode, corporate, événementiel",
+      "Vidéo, films de marque, reels, motion design",
+      "Identité visuelle, logo, charte graphique complète",
+      "Direction artistique & édition print",
+      "Création par intelligence artificielle (image, vidéo, voix)",
+      "Sites web, applications & landing pages",
+      "E-commerce, parcours d'achat & conversion"
+    ],
+    "strategyEyebrow": "02 — Stratégie",
+    "strategyTitle": "Communication & marketing digital.",
+    "strategyBody": "Nous accompagnons vos décisions de marque, de marché et d'acquisition. De la plateforme de marque au plan media, du SEO au paid.",
+    "strategyItems": [
+      "Stratégie de marque & positionnement",
+      "Conseil en communication & direction artistique",
+      "Marketing digital & plan media",
+      "SEO, SEA, GEO (référencement sur les LLMs)",
+      "Paid media — Meta, Google, LinkedIn, TikTok",
+      "Réseaux sociaux, e-commerce, conversion"
+    ],
+    "trainingEyebrow": "03 — Formation",
+    "trainingTitle": "Maîtriser les outils IA.",
+    "trainingBody": "Nous formons vos équipes aux outils d'intelligence artificielle et à la création d'agents autonomes. Trois niveaux, format intra ou inter, à Paris ou en remote.",
+    "trainingItems": [
+      "ChatGPT, Claude, Gemini — usage avancé et prompting",
+      "Création visuelle IA — Midjourney, Sora, Veo, Runway",
+      "Automatisation — Make, n8n, Zapier",
+      "Agents IA — création, déploiement, supervision",
+      "Formations sur-mesure intra-entreprise",
+      "Audit IA & feuille de route"
+    ],
+    "worksEyebrow": "Réalisations",
+    "worksTitle": "Une sélection.",
+    "worksIntro": "Maisons de luxe, hôtellerie, sport, industrie, technologie. Le détail des projets sur demande.",
+    "worksCta": "Voir toutes les réalisations",
+    "videosEyebrow": "Films corporate",
+    "videosTitle": "Vidéos.",
+    "videosIntro": "Témoignages clients, films de marque et brand storytelling. Une sélection de productions vidéo réalisées pour Rutherford, GS Monaco × Forbes, Autajon, Avery Dennison et d'autres.",
+    "clientsTitle": "Marques accompagnées",
+    "aboutEyebrow": "Le studio",
+    "aboutTitle": "Hugues Lourmières.",
+    "aboutBody": "Photographe et directeur artistique, j'accompagne les marques depuis dix ans en France et à l'international. Depuis 2024, je forme également les équipes à intégrer l'intelligence artificielle dans leur production quotidienne. TROIE rassemble ces deux mondes — la création qui se voit et l'IA qui produit — au service de marques exigeantes.",
+    "aboutBullets": [
+      "10 ans d'expérience auprès de marques internationales",
+      "50 entreprises accompagnées",
+      "200 professionnels formés à l'IA",
+      "Studio basé à Paris, missions partout dans le monde"
+    ],
+    "packsEyebrow": "Packs & tarifs",
+    "packsTitle": "Des forfaits clairs.",
+    "packsIntro": "Des packs forfaitaires pour les besoins récurrents. Sur-mesure pour le reste, après un audit gratuit de trente minutes.",
+    "packsTerms": "Tous les tarifs sont indiqués hors taxes. Règlement standard : 50 % à la commande, solde à la livraison. Devis détaillé établi sous 48 heures après brief.",
+    "ctaTitle": "Parlons de votre projet.",
+    "ctaSubtitle": "Un échange de trente minutes pour comprendre votre besoin et vous proposer une approche.",
+    "ctaButton": "Prendre rendez-vous"
   },
   "works": {
     "pageTitle": "Réalisations",
-    "pageSubtitle": "Sélection de projets. Chaque cas raconte une infiltration réussie : la marque, le rempart, l'angle d'attaque, le résultat.",
-    "viewProject": "Voir le cas",
+    "pageSubtitle": "Six métiers, six regards. Une sélection de projets photo & vidéo réalisés à travers les marques que nous accompagnons.",
+    "viewProject": "Voir le projet",
     "items": {
-      "chanel": {
-        "title": "Chanel",
-        "scope": "Direction artistique, photographie, contenus",
-        "year": "2015 — aujourd'hui"
+      "event": {
+        "title": "Évènements",
+        "subtitle": "Capturer chaque moment avec une vision",
+        "scope": "Photographie d'évènements, premières, soirées et lancements",
+        "description": "Créer des moments uniques en image, partout, tout le temps. Évoquer une émotion sincère, capter du contenu authentique et refléter l'essence vraie de chaque instant."
       },
-      "pantone": {
-        "title": "Pantone × X-Rite",
-        "scope": "Brand activation, vidéo, lancement eXact 2",
-        "year": "2023"
+      "shooting": {
+        "title": "Shooting",
+        "subtitle": "Votre univers, élevé au cinématographique",
+        "scope": "Photographie B2B / B2C, mode, corporate, lifestyle",
+        "description": "Transformer un environnement industriel ou business en un récit visuel raffiné, avec profondeur émotionnelle et exigence professionnelle."
       },
-      "rutherford": {
-        "title": "Rutherford",
-        "scope": "Brand identity complète, site web, démo produit",
-        "year": "2024"
+      "video": {
+        "title": "Vidéo",
+        "subtitle": "Créer une atmosphère dans l'interview",
+        "scope": "Films corporate, interviews, reels, motion design",
+        "description": "Diriger la vidéo avec émotion. L'interview demande à la fois précision et curiosité sincère — pour faire émerger le vrai, et la rendre intelligible."
       },
-      "gsmonaco": {
-        "title": "GS Monaco",
-        "scope": "Direction artistique, vidéo, reels, événementiel",
-        "year": "2021 — aujourd'hui"
+      "social": {
+        "title": "Social Media",
+        "subtitle": "Générer des designs uniques pour rendre la marque visible",
+        "scope": "Direction artistique social media, contenus quotidiens, stratégie",
+        "description": "Une esthétique de marque ancrée dans la simplicité, et des contenus social media taillés pour chaque plateforme."
       },
-      "sofitel": {
-        "title": "Sofitel Essaouira × Golf Mogador",
-        "scope": "Photographie, contenus hospitalité",
-        "year": "2019"
+      "nature": {
+        "title": "Nature",
+        "subtitle": "La nature qui résonne, dans le Mercantour",
+        "scope": "Paysage, photographie noir et blanc, impressions",
+        "description": "Composer avec le paysage. Faire l'expérience de la vérité de la nature."
+      },
+      "wild-life": {
+        "title": "Vie sauvage",
+        "subtitle": "Au cœur du sauvage, dans le Mercantour",
+        "scope": "Photographie animalière, faune sauvage, prints",
+        "description": "Capter l'émotion de la vie sauvage. Montrer la beauté brute de la nature."
       },
       "veoria": {
         "title": "Veoria",
-        "scope": "Photographie corporate, social media",
-        "year": "2025"
+        "subtitle": "Photographie d'équipe & culture corporate",
+        "scope": "Photographie corporate, équipe, culture, social media",
+        "description": "Une journée auprès des équipes de Veoria pour documenter la culture, l'engagement, et offrir au groupe une banque de visuels prête pour les réseaux sociaux et la communication interne."
       },
-      "heidelberg": {
-        "title": "Heidelberg",
-        "scope": "Photographie industrielle, contenus B2B",
-        "year": "2020 — 2021"
+      "mibi": {
+        "title": "MIBI",
+        "subtitle": "Convention nationale 2026, captation événementielle",
+        "scope": "Photographie événementielle, convention, prises de parole",
+        "description": "Captation complète de la convention MIBI 2026 : prises de parole, ateliers, moments off, portraits. Livrables exploitables le soir même pour la communication post-événement."
       },
-      "topakita": {
-        "title": "Top Akita Inu",
-        "scope": "Brand storytelling, interview, social",
-        "year": "2020"
+      "montpellier": {
+        "title": "Montpellier",
+        "subtitle": "Formation IA — janvier 2026",
+        "scope": "Formation intra-entreprise, accompagnement IA",
+        "description": "Une journée de formation aux outils d'intelligence artificielle pour les équipes marketing et communication, à Montpellier. Créer 30 publications, déployer un agent prospecteur, automatiser les workflows."
       },
-      "capefront": {
-        "title": "Capefront",
-        "scope": "Photographie corporate, team building, profils",
-        "year": "2025"
+      "barcelona": {
+        "title": "Barcelona — Printing Industry",
+        "subtitle": "Salon mondial de l'imprimerie",
+        "scope": "Reportage industriel, presses offset, brand activation",
+        "description": "Reportage complet sur le salon mondial de l'imprimerie à Barcelone : presses en activité, démonstrations colorimétriques, témoignages clients. Photographie 35 mm noir & blanc et couleur, dans la veine documentaire."
       }
     }
   },
-  "formations": {
-    "pageTitle": "Formations IA",
-    "pageSubtitle": "Trois niveaux, livrables opérationnels le jour même. Paris en présentiel ou en remote.",
+  "creation": {
+    "pageTitle": "Création",
+    "pageSubtitle": "Image, vidéo, design — sous un même toit."
+  },
+  "strategy": {
+    "pageTitle": "Stratégie",
+    "pageSubtitle": "Communication, marketing digital et conseil."
+  },
+  "training": {
+    "pageTitle": "Formation",
+    "pageSubtitle": "Outils IA, automatisation, agents.",
     "level1": {
-      "label": "Niveau 1 — Initiation",
+      "label": "Niveau 1",
       "duration": "3 heures",
       "title": "ChatGPT, Claude & Gemini",
-      "deliverable": "À la fin : créez 30 posts LinkedIn & Instagram en 20 minutes.",
-      "items": [
-        "Comparaison des modèles (forces, faiblesses, tarifs)",
-        "Prompting avancé (rôle, contexte, contraintes, itérations)",
-        "Création de contenu — copy, posts, briefs, mails",
-        "Limites, hallucinations, éthique pro"
-      ]
+      "deliverable": "Création de 30 publications LinkedIn et Instagram en moins de vingt minutes."
     },
     "level2": {
-      "label": "Niveau 2 — Intermédiaire",
-      "duration": "1 jour (7h)",
+      "label": "Niveau 2",
+      "duration": "1 jour",
       "title": "Make, n8n & Zapier",
-      "deliverable": "À la fin : un pipeline LinkedIn → email → CRM autonome.",
-      "items": [
-        "Architecture de workflow",
-        "Connecteurs essentiels (LinkedIn, Apollo, Shopify, CRMs)",
-        "Automatisation prospection",
-        "Triggers, scénarios, gestion d'erreurs"
-      ]
+      "deliverable": "Mise en place d'un pipeline LinkedIn → email → CRM autonome."
     },
     "level3": {
-      "label": "Niveau 3 — Avancé",
-      "duration": "1 jour (7h)",
-      "title": "Agents IA — Créer & Déployer",
-      "deliverable": "À la fin : vos agents tournent en autonomie le soir même.",
-      "items": [
-        "Architecture d'agents (LangChain, Relevance AI, n8n agents)",
-        "Agent prospecteur, agent community manager, agent CMO",
-        "Mémoire, outils, garde-fous",
-        "Déploiement & monitoring"
-      ]
+      "label": "Niveau 3",
+      "duration": "1 jour",
+      "title": "Agents IA — création & déploiement",
+      "deliverable": "Vos agents tournent en autonomie le soir même."
     },
     "custom": {
       "label": "Sur-mesure",
       "title": "Formation intra-entreprise",
-      "body": "Audit des process, sélection des outils pertinents, plan de transformation, formation des équipes, accompagnement 3 mois. Devis sur mesure après audit gratuit."
+      "body": "Audit, sélection des outils, plan de transformation, formation des équipes, accompagnement trois mois."
     }
   },
   "about": {
-    "pageTitle": "À propos",
-    "pageSubtitle": "Une agence à taille humaine. Un seul interlocuteur. Dix ans de production.",
-    "intro": "TROIE est l'agence de Hugues Lourmières. Photographe, directeur artistique, formateur IA. Depuis 2015, j'accompagne des marques de luxe, des industriels, du sport et de l'hospitalité — Chanel, Pantone, X-Rite, Sofitel, Heidelberg, GS Monaco, Veoria. Depuis 2024, je forme aussi les équipes à intégrer l'IA dans leur production quotidienne. TROIE réunit ces deux mondes : la création qui se voit, et l'IA qui produit.",
-    "valuesTitle": "Comment on travaille",
-    "values": [
-      {
-        "title": "Un seul interlocuteur",
-        "body": "Pas de chaîne de comptes intermédiaires. Vous parlez à la personne qui exécute."
-      },
-      {
-        "title": "Production rapide",
-        "body": "Audit en 30 min, plan en 48h, déploiement en jours, pas en mois."
-      },
-      {
-        "title": "Mesurable",
-        "body": "Chaque action a un KPI. Chaque trimestre a un dashboard. Chaque euro est traçable."
-      },
-      {
-        "title": "Sans bullshit",
-        "body": "Pas de buzzwords. Pas de slides de 80 pages. Du livrable et des résultats."
-      }
-    ]
+    "pageTitle": "Studio",
+    "pageSubtitle": "Hugues Lourmières — photographe, directeur artistique, formateur."
   },
   "contact": {
-    "pageTitle": "Audit gratuit — 30 minutes",
-    "pageSubtitle": "Décrivez votre terrain. On revient avec un plan d'infiltration concret en 48 heures.",
+    "pageTitle": "Contact",
+    "pageSubtitle": "Pour discuter d'un projet, demander un devis ou réserver une formation.",
     "name": "Nom",
     "email": "Email",
     "company": "Entreprise",
     "subject": "Sujet",
-    "message": "Décrivez votre besoin",
+    "message": "Votre message",
     "send": "Envoyer",
-    "or": "ou directement",
+    "or": "Ou directement",
     "emailDirect": "contact@troie.studio",
     "callDirect": "Réserver un appel",
-    "thanks": "Merci. Réponse sous 24h ouvrées."
+    "thanks": "Merci. Nous revenons vers vous sous 24 heures ouvrées."
   },
   "footer": {
     "rights": "Tous droits réservés.",
     "privacy": "Confidentialité",
     "terms": "Mentions légales",
-    "based": "Paris — partout en remote"
+    "based": "Atelier Digital — Paris"
   }
 }

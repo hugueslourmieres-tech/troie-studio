@@ -1,72 +1,97 @@
-import Link from "next/link";
-import { useTranslations } from "next-intl";
+"use client";
 
+import Link from "next/link";
+import { motion } from "motion/react";
+import { useTranslations } from "next-intl";
+import { HeroSlideshow } from "./HeroSlideshow";
+
+/**
+ * Hero — full cream, clean editorial type, single supporting B&W photo
+ * on the right. Hermès-style: very few elements, very generous space.
+ * Subtle parallax on the photo at scroll-down.
+ */
 export function Hero({ locale }: { locale: string }) {
   const t = useTranslations("home");
 
   return (
-    <section className="relative overflow-hidden">
-      {/* Decorative grain + ember glow background */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-10"
-        aria-hidden="true"
-      >
-        <div className="absolute -top-40 left-1/2 h-[60vh] w-[80vw] -translate-x-1/2 rounded-full bg-[var(--color-ember)] opacity-[0.07] blur-[140px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-20%,rgba(184,146,84,0.12),transparent_50%)]" />
-      </div>
+    <section className="relative isolate overflow-hidden bg-[var(--bg)]">
+      <div className="mx-auto grid min-h-[92vh] max-w-7xl grid-cols-1 gap-12 px-6 pt-36 pb-24 md:grid-cols-12 md:gap-16 md:px-12 md:pt-44 md:pb-32">
+        {/* Text column */}
+        <div className="flex flex-col justify-end md:col-span-7">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="t-eyebrow"
+          >
+            {t("heroEyebrow")}
+          </motion.p>
 
-      <div className="mx-auto max-w-7xl px-6 pt-28 pb-32 md:px-10 md:pt-40 md:pb-44">
-        <p className="t-eyebrow t-rise">{t("heroEyebrow")}</p>
-        <h1 className="t-display t-rise t-rise-delay-1 mt-8 max-w-5xl text-5xl text-[var(--color-bone)] md:text-7xl lg:text-[88px]">
-          {t("heroTitle")
-            .split("\n")
-            .map((line, i) => (
-              <span key={i} className="block">
-                {line}
+          <h1 className="t-display mt-10 text-5xl text-[var(--fg)] md:text-7xl lg:text-[104px]">
+            {t("heroTitle")
+              .split("\n")
+              .map((line, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 32 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.9,
+                    delay: 0.15 + i * 0.08,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="block"
+                >
+                  {line}
+                </motion.span>
+              ))}
+          </h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-12 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/85 md:text-lg"
+          >
+            {t("heroSubtitle")}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-12 flex flex-wrap items-center gap-8"
+          >
+            <Link
+              href={`/${locale}/contact`}
+              className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            >
+              {t("heroCtaPrimary")}
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">
+                →
               </span>
-            ))}
-        </h1>
-        <p className="t-rise t-rise-delay-2 mt-10 max-w-2xl text-lg leading-relaxed text-[var(--color-bone-2)]/80 md:text-xl">
-          {t("heroSubtitle")}
-        </p>
-        <div className="t-rise t-rise-delay-3 mt-12 flex flex-wrap items-center gap-4">
-          <Link
-            href={`/${locale}/contact`}
-            className="group inline-flex items-center gap-3 rounded-full bg-[var(--color-ember)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-bone)] transition hover:bg-[#c93d20]"
-          >
-            {t("heroCtaPrimary")}
-            <span aria-hidden="true" className="transition group-hover:translate-x-1">
-              →
-            </span>
-          </Link>
-          <Link
-            href={`/${locale}/works`}
-            className="inline-flex items-center gap-3 rounded-full border border-[var(--color-mist-strong)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-bone)] transition hover:border-[var(--color-bone)]"
-          >
-            {t("heroCtaSecondary")}
-          </Link>
+            </Link>
+            <Link
+              href="#works"
+              className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
+            >
+              {t("heroCtaSecondary")}
+            </Link>
+          </motion.div>
         </div>
 
-        {/* Stats strip */}
-        <div className="t-rise t-rise-delay-4 mt-24 grid grid-cols-3 gap-8 border-t border-[var(--color-mist)] pt-10 md:gap-16 md:pt-14">
-          <Stat n="50+" label={t("statsClients")} />
-          <Stat n="200+" label={t("statsTrained")} />
-          <Stat n="10" label={t("statsYears")} />
+        {/* Slideshow column — infinite, drag-friendly, B&W. */}
+        <div className="md:col-span-5">
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="relative h-[60vh] min-h-[420px] w-full overflow-hidden md:h-full md:min-h-[560px]"
+          >
+            <HeroSlideshow />
+          </motion.div>
         </div>
       </div>
     </section>
-  );
-}
-
-function Stat({ n, label }: { n: string; label: string }) {
-  return (
-    <div>
-      <p className="t-display text-5xl text-[var(--color-bone)] md:text-6xl">
-        {n}
-      </p>
-      <p className="mt-3 max-w-[16ch] text-xs leading-snug text-[var(--color-bone-2)]/70 md:text-sm">
-        {label}
-      </p>
-    </div>
   );
 }

@@ -1,18 +1,20 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Bodoni_Moda, Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale, getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
-const fraunces = Fraunces({
+const bodoni = Bodoni_Moda({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-bodoni",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 const inter = Inter({
@@ -100,9 +102,10 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}
+      className={`${bodoni.variable} ${inter.variable} ${jetbrains.variable}`}
     >
-      <body className="bg-[var(--color-ink)] text-[var(--color-bone)] antialiased">
+      <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
+        <SmoothScroll />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header locale={locale} />
           <main>{children}</main>

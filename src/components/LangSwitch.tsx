@@ -23,13 +23,13 @@ export function LangSwitch({ locale }: { locale: string }) {
 
   return (
     <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em]">
-      <span className="text-[var(--color-bone)]">{locale}</span>
+      <span className="text-[var(--fg)]">{locale}</span>
       {otherLocales.map((l) => (
         <span key={l} className="flex items-center gap-2">
-          <span className="text-[var(--color-mist-strong)]">/</span>
+          <span className="text-[var(--rule-strong)]">/</span>
           <Link
             href={swap(l)}
-            className="text-[var(--color-mist-strong)] transition hover:text-[var(--color-bone)]"
+            className="text-[var(--rule-strong)] transition hover:text-[var(--fg)]"
           >
             {l}
           </Link>

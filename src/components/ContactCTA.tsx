@@ -5,22 +5,23 @@ export function ContactCTA({ locale }: { locale: string }) {
   const t = useTranslations("home");
 
   return (
-    <section className="border-t border-[var(--color-mist)] bg-[var(--color-ember)] text-[var(--color-bone)]">
-      <div className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
-        <div className="grid gap-10 md:grid-cols-12 md:gap-16">
+    <section className="border-t border-[var(--rule)]">
+      <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
+        <div className="grid gap-16 md:grid-cols-12 md:gap-20">
           <div className="md:col-span-7">
-            <h2 className="t-display text-4xl md:text-6xl">{t("ctaTitle")}</h2>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed md:text-xl">
+            <h2 className="t-display text-4xl text-[var(--fg)] md:text-6xl">
+              {t("ctaTitle")}
+            </h2>
+            <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">
               {t("ctaSubtitle")}
             </p>
           </div>
           <div className="flex items-end md:col-span-5 md:justify-end">
             <Link
               href={`/${locale}/contact`}
-              className="inline-flex items-center gap-3 rounded-full bg-[var(--color-ink)] px-8 py-5 font-mono text-xs uppercase tracking-[0.18em] text-[var(--color-bone)] transition hover:bg-[var(--color-ink-2)]"
+              className="inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
-              {t("ctaButton")}
-              <span aria-hidden="true">→</span>
+              {t("ctaButton")} →
             </Link>
           </div>
         </div>
