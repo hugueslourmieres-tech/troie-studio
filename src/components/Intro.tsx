@@ -37,7 +37,7 @@ const METIERS: Metier[] = [
   {
     index: "02",
     slug: "strategy",
-    video: "/images/videos/strategy.mov",
+    video: "/images/videos/strategy.mp4",
     videoAlt: "Stratégie — vidéo d'illustration",
     hash: "#strategy",
     tools: [

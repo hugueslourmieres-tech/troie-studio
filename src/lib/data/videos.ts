@@ -1,6 +1,6 @@
 /**
  * Vidéos corporate hébergées localement (au lieu d'iframes YouTube).
- * Sources : public/images/videos-local/01.mov → 06.mov
+ * Sources : public/images/videos-local/01.mp4 → 06.mp4
  *
  * Pourquoi local plutôt que YouTube :
  *   - pas de tracking cookie tiers
@@ -17,7 +17,7 @@ export type VideoItem = {
 
 export const VIDEOS: VideoItem[] = [
   {
-    src: "/images/videos-local/01.mov",
+    src: "/images/videos-local/01.mp4",
     client: "GS Monaco",
     title: {
       fr: "GS Monaco — vidéo de présentation",
@@ -25,7 +25,7 @@ export const VIDEOS: VideoItem[] = [
     },
   },
   {
-    src: "/images/videos-local/02.mov",
+    src: "/images/videos-local/02.mp4",
     client: "Top Akita Inu",
     title: {
       fr: "Top Akita Inu — interview Mickaël Bedouet",
@@ -54,7 +54,7 @@ export const VIDEOS: VideoItem[] = [
     },
   },
   {
-    src: "/images/videos-local/06.mov",
+    src: "/images/videos-local/06.mp4",
     client: "X-Rite — eXact 2",
     title: { fr: "eXact 2 — unbox", en: "eXact 2 — unboxing" },
   },

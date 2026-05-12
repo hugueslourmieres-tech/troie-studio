@@ -20,7 +20,7 @@ export function AboutBlock() {
                 alt="Hugues Lourmières"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
-                className="t-photo object-cover"
+                className="object-cover"
               />
             </div>
           </div>
