@@ -57,6 +57,7 @@ const METIERS: Metier[] = [
     tools: [
       { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
       { src: "/images/logos/claude.svg", label: "Claude" },
+      { src: "/images/logos/gemini.svg", label: "Gemini" },
       { src: "/images/logos/perplexity.svg", label: "Perplexity" },
       { src: "/images/logos/make.svg", label: "Make" },
       { src: "/images/logos/copilot.svg", label: "Copilot" },
