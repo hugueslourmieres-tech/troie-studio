@@ -14,8 +14,6 @@ import Autoplay from "embla-carousel-autoplay";
 
 const SLIDES = [
   { src: "/images/videos-local/01.mp4", alt: "GS Monaco, vidéo de présentation" },
-  { src: "/images/videos-local/03.mp4", alt: "Reels GS Monaco" },
-  { src: "/images/videos-local/04.mp4", alt: "Ferrari Auctions, reels" },
   { src: "/images/videos-local/05.mp4", alt: "X-Rite eXact 2, Paris" },
   { src: "/images/videos-local/02.mp4", alt: "Top Akita Inu, interview" },
   { src: "/images/videos-local/06.mp4", alt: "eXact 2, unboxing" },
@@ -87,6 +85,7 @@ export function HeroSlideshow() {
                 preload="metadata"
                 aria-label={s.alt}
                 className="absolute inset-0 h-full w-full object-cover"
+                style={{ filter: "grayscale(1) brightness(0.96) contrast(1.06)" }}
               />
             </div>
           ))}
