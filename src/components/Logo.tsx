@@ -53,17 +53,18 @@ export function Logo({
         aria-label="TROIE — Studio"
       >
         <Emblem className="h-[160%] w-auto" />
-        <span className="flex h-full flex-col justify-center">
+        <span className="flex h-full flex-col items-center justify-center">
           <svg
             viewBox="0 0 200 32"
             xmlns="http://www.w3.org/2000/svg"
             className="h-[68%] w-auto"
             aria-hidden="true"
-            preserveAspectRatio="xMinYMid meet"
+            preserveAspectRatio="xMidYMid meet"
           >
             <text
-              x="0"
+              x="100"
               y="24"
+              textAnchor="middle"
               fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
               fontWeight="400"
               fontSize="26"
@@ -75,7 +76,7 @@ export function Logo({
           </svg>
           <span
             aria-hidden="true"
-            className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.32em] opacity-65"
+            className="mt-0.5 text-center font-mono text-[8px] uppercase tracking-[0.32em] opacity-65"
             style={{ color: "currentColor" }}
           >
             — Studio —
