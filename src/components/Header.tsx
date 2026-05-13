@@ -80,7 +80,7 @@ export function Header({ locale }: { locale: string }) {
             </a>
             <Link
               href={`/${locale}/contact`}
-              className="inline-flex items-center justify-center border border-[var(--fg)] px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+              className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
               {t("contact")}
             </Link>
