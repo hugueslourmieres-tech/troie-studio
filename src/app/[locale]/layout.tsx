@@ -1,6 +1,6 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { Bodoni_Moda, Inter, JetBrains_Mono } from "next/font/google";
+import { Bodoni_Moda, Fraunces, Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale, getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -14,6 +14,17 @@ const bodoni = Bodoni_Moda({
   variable: "--font-bodoni",
   display: "swap",
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+// Fraunces variable, with SOFT + WONK axes — magazine-grade display.
+// Used at extreme settings for the hero (.t-display-hero in globals.css).
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+  axes: ["SOFT", "WONK", "opsz"],
+  weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
 });
 
@@ -102,7 +113,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${bodoni.variable} ${inter.variable} ${jetbrains.variable}`}
+      className={`${bodoni.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}
     >
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
         <SmoothScroll />

@@ -119,6 +119,23 @@ body {
   line-height: 1;
 }
 
+/* ─────────────────────────────────────────────────────────────────
+   t-display-hero — typo SIGNATURE du hero. Fraunces variable axes
+   poussés : SOFT à 100 (terminaisons rondes/organiques),
+   WONK à 1 (alternates wonky), opsz à 144 (proportions display).
+   Italique léger, lecture éditoriale magazine premium.
+
+   Réservé au hero, on n'en abuse pas pour préserver l'effet.
+   ───────────────────────────────────────────────────────────────── */
+.t-display-hero {
+  font-family: var(--font-fraunces, ui-serif, Georgia, "Times New Roman", serif);
+  font-weight: 400;
+  font-style: italic;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 144;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+}
+
 .t-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;

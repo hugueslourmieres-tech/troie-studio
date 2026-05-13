@@ -27,7 +27,7 @@ export function Hero({ locale }: { locale: string }) {
             {t("heroEyebrow")}
           </motion.p>
 
-          <h1 className="t-display mt-10 text-5xl text-[var(--fg)] md:text-7xl lg:text-[104px]">
+          <h1 className="t-display-hero mt-10 text-6xl text-[var(--fg)] md:text-[88px] lg:text-[120px]">
             {t("heroTitle")
               .split("\n")
               .map((line, i) => (
