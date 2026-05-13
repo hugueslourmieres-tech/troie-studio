@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
@@ -79,6 +80,18 @@ export function Intro() {
         {/* Header centré, intro éditoriale */}
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
+            {/* Embossed Greek warrior relief — tone-on-tone seal at the top */}
+            <div className="mx-auto mb-12 flex w-full max-w-[220px] justify-center md:max-w-[260px]">
+              <Image
+                src="/images/brand/emboss.png"
+                alt=""
+                width={1140}
+                height={1370}
+                priority={false}
+                sizes="(max-width: 768px) 220px, 260px"
+                className="h-auto w-full"
+              />
+            </div>
             <p className="t-eyebrow">{t("introEyebrow")}</p>
             <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
               {t("introTitle")}
