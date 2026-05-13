@@ -76,10 +76,10 @@ export function Logo({
           </svg>
           <span
             aria-hidden="true"
-            className="mt-0.5 text-center font-mono text-[8px] uppercase tracking-[0.32em] opacity-65"
+            className="mt-0.5 text-center font-mono text-[9px] uppercase tracking-[0.4em] opacity-70"
             style={{ color: "currentColor" }}
           >
-            — Studio —
+            Atelier Digital
           </span>
         </span>
       </span>
