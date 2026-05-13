@@ -27,7 +27,6 @@ export function Header({ locale }: { locale: string }) {
     { href: `/${locale}#strategy`, label: t("strategy") },
     { href: `/${locale}#training`, label: t("training") },
     { href: `/${locale}/works`, label: t("works") },
-    { href: `/${locale}#about`, label: t("about") },
     { href: `/${locale}/contact`, label: t("contact") },
   ];
 
