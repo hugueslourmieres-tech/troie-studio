@@ -55,9 +55,9 @@ export function Logo({
         <Emblem className="h-[160%] w-auto" />
         <span className="flex h-full flex-col items-center justify-center">
           <svg
-            viewBox="0 0 200 32"
+            viewBox="0 0 200 40"
             xmlns="http://www.w3.org/2000/svg"
-            className="h-[68%] w-auto"
+            className="h-[78%] w-auto"
             aria-hidden="true"
             preserveAspectRatio="xMidYMid meet"
           >
@@ -73,6 +73,15 @@ export function Logo({
             >
               TROIE
             </text>
+            <line
+              x1="40"
+              y1="34"
+              x2="160"
+              y2="34"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              opacity="0.5"
+            />
           </svg>
           <span
             aria-hidden="true"
