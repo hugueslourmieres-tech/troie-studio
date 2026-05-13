@@ -30,7 +30,6 @@ export function Header({ locale }: { locale: string }) {
     { href: `/${locale}#strategy`, label: t("strategy") },
     { href: `/${locale}#training`, label: t("training") },
     { href: `/${locale}/works`, label: t("works") },
-    { href: `/${locale}/contact`, label: t("contact") },
   ];
 
   return (
@@ -67,7 +66,7 @@ export function Header({ locale }: { locale: string }) {
         </nav>
 
         <div className="flex items-center gap-5">
-          {/* Desktop right cluster: Instagram + langswitch */}
+          {/* Desktop right cluster: Instagram + langswitch + CTA button */}
           <div className="hidden items-center gap-5 md:flex">
             <a
               href="https://instagram.com/hugueslourmieres"
@@ -79,6 +78,12 @@ export function Header({ locale }: { locale: string }) {
               <InstagramIcon />
             </a>
             <LangSwitch locale={locale} />
+            <Link
+              href={`/${locale}/contact`}
+              className="inline-flex items-center justify-center border border-[var(--fg)] px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+            >
+              {t("letsTalk")}
+            </Link>
           </div>
 
           {/* Mobile : burger */}
