@@ -81,8 +81,8 @@ export function Logo({
         className={`flex flex-col items-center ${className}`}
         aria-label="TROIE, Studio France"
       >
-        <Emblem className="h-20 w-auto" />
-        <svg viewBox="0 0 200 50" className="mt-4 h-auto w-full" aria-hidden="true">
+        <Emblem className="h-14 w-auto" />
+        <svg viewBox="0 0 200 50" className="mt-3 h-auto w-full" aria-hidden="true">
           <text
             x="100"
             y="32"

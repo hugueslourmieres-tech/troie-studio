@@ -15,9 +15,9 @@ export async function Footer({ locale }: { locale: string }) {
           <div className="md:col-span-5">
             <Logo
               variant="stack"
-              className="h-16 w-auto text-[var(--fg)]"
+              className="w-44 text-[var(--fg)]"
             />
-            <p className="mt-10 max-w-md text-sm leading-relaxed text-[var(--fg-2)]/70">
+            <p className="mt-16 max-w-md text-sm leading-relaxed text-[var(--fg-2)]/70">
               {tBrand("tagline")}
             </p>
           </div>
