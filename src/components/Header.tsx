@@ -10,6 +10,9 @@ import { MobileMenu } from "./MobileMenu";
 /**
  * Header — fixed cream bar, signature Hermès. Reste toujours dans le tone
  * light, simplement glassy + bordure douce qui apparaît au scroll.
+ *
+ * Nav style : pagination éditoriale (01. — 02. — ...) façon revue,
+ * + lien Instagram externe sur la droite.
  */
 export function Header({ locale }: { locale: string }) {
   const t = useTranslations("nav");
@@ -47,28 +50,35 @@ export function Header({ locale }: { locale: string }) {
           <Logo variant="wordmark-emblem" className="h-8 md:h-10" />
         </Link>
 
-        <nav className="hidden items-center gap-9 md:flex">
-          {links.slice(0, 5).map((l) => (
+        {/* Editorial nav — 01. Creation, 02. Strategy, ... */}
+        <nav className="hidden items-center gap-8 md:flex">
+          {links.map((l, i) => (
             <Link
               key={l.href}
               href={l.href}
-              className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+              className="group inline-flex items-baseline gap-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
             >
-              {l.label}
+              <span className="text-[var(--fg-2)]/55 transition group-hover:text-[var(--accent)]">
+                {String(i + 1).padStart(2, "0")}.
+              </span>
+              <span>{l.label}</span>
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-6">
-          {/* Desktop : lang + Get in touch */}
-          <div className="hidden items-center gap-6 md:flex">
-            <LangSwitch locale={locale} />
-            <Link
-              href={`/${locale}/contact`}
-              className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+        <div className="flex items-center gap-5">
+          {/* Desktop right cluster: Instagram + langswitch */}
+          <div className="hidden items-center gap-5 md:flex">
+            <a
+              href="https://instagram.com/hugueslourmieres"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              className="flex h-9 w-9 items-center justify-center text-[var(--fg)] transition hover:text-[var(--accent)]"
             >
-              {t("letsTalk")}
-            </Link>
+              <InstagramIcon />
+            </a>
+            <LangSwitch locale={locale} />
           </div>
 
           {/* Mobile : burger */}
@@ -76,5 +86,27 @@ export function Header({ locale }: { locale: string }) {
         </div>
       </div>
     </header>
+  );
+}
+
+/**
+ * Simple Instagram glyph — single-color, scales with currentColor.
+ */
+function InstagramIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-[18px] w-[18px]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
   );
 }
