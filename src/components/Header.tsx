@@ -66,8 +66,9 @@ export function Header({ locale }: { locale: string }) {
         </nav>
 
         <div className="flex items-center gap-5">
-          {/* Desktop right cluster: Instagram + langswitch + CTA button */}
-          <div className="hidden items-center gap-5 md:flex">
+          {/* Desktop right cluster: langswitch dropdown + Instagram + CTA */}
+          <div className="hidden items-center gap-4 md:flex">
+            <LangSwitch locale={locale} />
             <a
               href="https://instagram.com/hugueslourmieres"
               target="_blank"
@@ -77,12 +78,11 @@ export function Header({ locale }: { locale: string }) {
             >
               <InstagramIcon />
             </a>
-            <LangSwitch locale={locale} />
             <Link
               href={`/${locale}/contact`}
               className="inline-flex items-center justify-center border border-[var(--fg)] px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
             >
-              {t("letsTalk")}
+              {t("contact")}
             </Link>
           </div>
 
