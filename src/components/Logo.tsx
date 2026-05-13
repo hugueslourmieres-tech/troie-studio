@@ -44,33 +44,43 @@ export function Logo({
   }
 
   if (variant === "wordmark-emblem") {
-    // L'emblème (guerrier vertical) prend 1.6× la hauteur du wordmark
-    // pour rester lisible. Le wordmark TROIE garde sa hauteur de référence.
+    // Emblème (guerrier) à 1.6× la hauteur du bloc, à gauche.
+    // À droite, TROIE en Bodoni + une ligne mono "— Studio —" en dessous,
+    // dans la même police que les onglets de la nav (JetBrains Mono).
     return (
       <span
         className={`inline-flex items-center gap-3 ${className}`}
-        aria-label="TROIE"
+        aria-label="TROIE — Studio"
       >
         <Emblem className="h-[160%] w-auto" />
-        <svg
-          viewBox="0 0 200 32"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-full w-auto"
-          aria-hidden="true"
-          preserveAspectRatio="xMinYMid meet"
-        >
-          <text
-            x="0"
-            y="24"
-            fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
-            fontWeight="400"
-            fontSize="26"
-            letterSpacing="9"
-            fill="currentColor"
+        <span className="flex h-full flex-col justify-center">
+          <svg
+            viewBox="0 0 200 32"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-[68%] w-auto"
+            aria-hidden="true"
+            preserveAspectRatio="xMinYMid meet"
           >
-            TROIE
-          </text>
-        </svg>
+            <text
+              x="0"
+              y="24"
+              fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
+              fontWeight="400"
+              fontSize="26"
+              letterSpacing="9"
+              fill="currentColor"
+            >
+              TROIE
+            </text>
+          </svg>
+          <span
+            aria-hidden="true"
+            className="mt-0.5 font-mono text-[8px] uppercase tracking-[0.32em] opacity-65"
+            style={{ color: "currentColor" }}
+          >
+            — Studio —
+          </span>
+        </span>
       </span>
     );
   }
