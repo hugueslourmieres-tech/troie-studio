@@ -17,14 +17,15 @@ const bodoni = Bodoni_Moda({
   style: ["normal", "italic"],
 });
 
-// Fraunces variable, with SOFT + WONK axes — magazine-grade display.
+// Fraunces variable, with SOFT + WONK axes for magazine-grade display.
 // Used at extreme settings for the hero (.t-display-hero in globals.css).
+// next/font requires weight: "variable" when axes are declared.
 const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
   display: "swap",
+  weight: "variable",
   axes: ["SOFT", "WONK", "opsz"],
-  weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
 });
 
