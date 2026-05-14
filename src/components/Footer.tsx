@@ -65,14 +65,6 @@ export async function Footer({ locale }: { locale: string }) {
             <ul className="mt-6 space-y-3 text-sm">
               <li>
                 <a
-                  href="mailto:contact@troie.studio"
-                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  contact@troie.studio
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://www.linkedin.com/in/hugueslourmieres/"
                   target="_blank"
                   rel="noreferrer"
