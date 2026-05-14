@@ -56,9 +56,23 @@ function CaseView({
 
   return (
     <article>
-      {/* Cover — full bleed, immersive */}
+      {/* Cover — mobile: full image, no crop; desktop: immersive 80vh */}
       <header className="group relative isolate">
-        <div className="relative h-[80vh] min-h-[560px] w-full overflow-hidden bg-[var(--bg-2)]">
+        {/* Mobile cover — natural aspect ratio, complete image */}
+        <div className="relative w-full overflow-hidden bg-[var(--bg-2)] md:hidden">
+          <Image
+            src={cover}
+            alt={t(`items.${slug}.title`)}
+            width={1600}
+            height={2000}
+            priority
+            sizes="100vw"
+            className="t-photo h-auto w-full"
+          />
+        </div>
+
+        {/* Desktop cover — full bleed 80vh with gradient overlay */}
+        <div className="relative hidden h-[80vh] min-h-[560px] w-full overflow-hidden bg-[var(--bg-2)] md:block">
           <Image
             src={cover}
             alt={t(`items.${slug}.title`)}
@@ -70,7 +84,7 @@ function CaseView({
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-[var(--bg)]/40 to-transparent" />
         </div>
 
-        <div className="mx-auto -mt-44 max-w-7xl px-6 pb-16 md:px-12 md:-mt-56">
+        <div className="mx-auto mt-10 max-w-7xl px-6 pb-16 md:-mt-56 md:px-12">
           <Link
             href={`/${locale}/works`}
             className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
@@ -78,11 +92,11 @@ function CaseView({
             ← {locale === "fr" ? "Retour" : "Back"}
           </Link>
 
-          <p className="t-eyebrow mt-12">{t(`items.${slug}.scope`)}</p>
-          <h1 className="t-display mt-6 max-w-5xl text-6xl text-[var(--fg)] md:text-8xl lg:text-9xl">
+          <p className="t-eyebrow mt-8 md:mt-12">{t(`items.${slug}.scope`)}</p>
+          <h1 className="t-display mt-6 max-w-5xl break-words text-5xl text-[var(--fg)] sm:text-6xl md:text-8xl lg:text-9xl">
             {t(`items.${slug}.title`)}
           </h1>
-          <p className="t-display-italic mt-6 max-w-3xl text-2xl text-[var(--fg-2)] md:text-3xl">
+          <p className="t-display-italic mt-6 max-w-3xl text-xl text-[var(--fg-2)] sm:text-2xl md:text-3xl">
             {t(`items.${slug}.subtitle`)}
           </p>
         </div>
@@ -139,18 +153,40 @@ function CaseView({
 function Mosaic({ photos, alt }: { photos: string[]; alt: string }) {
   if (photos.length === 0) return null;
 
-  // Découpe les photos en groupes de 6 (un cycle de la mosaic)
+  // Découpe les photos en groupes de 6 (un cycle de la mosaic desktop)
   const cycles: string[][] = [];
   for (let i = 0; i < photos.length; i += 6) {
     cycles.push(photos.slice(i, i + 6));
   }
 
   return (
-    <div className="space-y-6 md:space-y-8">
-      {cycles.map((cycle, idx) => (
-        <MosaicCycle key={idx} photos={cycle} alt={alt} />
-      ))}
-    </div>
+    <>
+      {/* Mobile — photos complètes en ratio natif, sans crop */}
+      <div className="space-y-6 md:hidden">
+        {photos.map((src) => (
+          <div
+            key={src}
+            className="relative w-full overflow-hidden bg-[var(--bg-2)]"
+          >
+            <Image
+              src={src}
+              alt={alt}
+              width={1600}
+              height={1067}
+              sizes="100vw"
+              className="t-photo h-auto w-full"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop — mosaïque éditoriale magazine */}
+      <div className="hidden space-y-6 md:block md:space-y-8">
+        {cycles.map((cycle, idx) => (
+          <MosaicCycle key={idx} photos={cycle} alt={alt} />
+        ))}
+      </div>
+    </>
   );
 }
 
