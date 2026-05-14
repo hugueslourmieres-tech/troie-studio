@@ -144,30 +144,6 @@ body {
   position: relative;
 }
 
-/* ─────────────────────────────────────────────────────────────────
-   Texture cuir — grain organique avec micro-veines, appliqué via
-   soft-light pour ne PAS assombrir les couleurs (mix de hautes et
-   basses lumières comme un cuir patiné). Les teintes d'origine
-   restent intactes, on ajoute juste la matière.
-   ───────────────────────────────────────────────────────────────── */
-:root {
-  --leather-grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='720' height='720'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.32' numOctaves='2' stitchTiles='stitch' seed='6'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23g)'/></svg>");
-}
-
-body,
-.tone-light,
-.tone-dark,
-.tone-accent,
-.tone-brown,
-.tone-stone,
-.tone-sepia,
-.tone-saffron {
-  background-image: var(--leather-grain);
-  background-size: 520px 520px;
-  background-repeat: repeat;
-  background-blend-mode: soft-light;
-}
-
 ::selection {
   background: var(--accent);
   color: var(--bg);

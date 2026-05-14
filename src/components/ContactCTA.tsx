@@ -18,7 +18,7 @@ export function ContactCTA({ locale }: { locale: string }) {
           width={1500}
           height={1180}
           sizes="(max-width: 1024px) 42vw, 640px"
-          className="h-auto w-full mix-blend-multiply"
+          className="h-auto w-full"
           priority={false}
         />
       </div>
