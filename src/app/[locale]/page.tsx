@@ -39,76 +39,67 @@ export default async function HomePage({
         <Intro />
       </div>
 
-      {/* CRÉATION — marron café profond (départ du dégradé) */}
-      <div className="tone-brown bg-[var(--bg)] text-[var(--fg)]">
-        <ServiceSection
-          id="creation"
-          eyebrow={t("creationEyebrow")}
-          title={t("creationTitle")}
-          body={t("creationBody")}
-          items={creationItems}
-          photos={[
-            { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
-            { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
-            { src: "/images/works/event/cover.jpg", alt: "Création, événement Chanel" },
-          ]}
-          tools={[
-            { src: "/images/logos/adobe.svg", label: "Adobe" },
-            { src: "/images/logos/figma.svg", label: "Figma" },
-            { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
-            { src: "/images/logos/midjourney.svg", label: "Midjourney" },
-            { src: "/images/logos/runway.svg", label: "Runway" },
-          ]}
-        />
-      </div>
+      <ServiceSection
+        id="creation"
+        eyebrow={t("creationEyebrow")}
+        title={t("creationTitle")}
+        body={t("creationBody")}
+        items={creationItems}
+        photos={[
+          { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
+          { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
+          { src: "/images/works/event/cover.jpg", alt: "Création, événement Chanel" },
+        ]}
+        tools={[
+          { src: "/images/logos/adobe.svg", label: "Adobe" },
+          { src: "/images/logos/figma.svg", label: "Figma" },
+          { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
+          { src: "/images/logos/midjourney.svg", label: "Midjourney" },
+          { src: "/images/logos/runway.svg", label: "Runway" },
+        ]}
+      />
 
-      {/* STRATÉGIE — sepia mi-marron (étape 2 du dégradé) */}
-      <div className="tone-sepia bg-[var(--bg)] text-[var(--fg)]">
-        <ServiceSection
-          id="strategy"
-          eyebrow={t("strategyEyebrow")}
-          title={t("strategyTitle")}
-          body={t("strategyBody")}
-          items={strategyItems}
-          reverse
-          photos={[
-            { src: "/images/strategy-section/01.jpg", alt: "Stratégie, communication marque" },
-            { src: "/images/strategy-section/02.jpg", alt: "Stratégie, direction artistique" },
-            { src: "/images/strategy-section/03.jpg", alt: "Stratégie, événement Yacht Show" },
-          ]}
-          tools={[
-            { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
-            { src: "/images/logos/google-ads.svg", label: "Google Ads" },
-            { src: "/images/logos/meta.svg", label: "Meta" },
-            { src: "/images/logos/hubspot.svg", label: "HubSpot" },
-            { src: "/images/logos/semrush.svg", label: "Semrush" },
-          ]}
-        />
-      </div>
+      <ServiceSection
+        id="strategy"
+        eyebrow={t("strategyEyebrow")}
+        title={t("strategyTitle")}
+        body={t("strategyBody")}
+        items={strategyItems}
+        reverse
+        photos={[
+          { src: "/images/strategy-section/01.jpg", alt: "Stratégie, communication marque" },
+          { src: "/images/strategy-section/02.jpg", alt: "Stratégie, direction artistique" },
+          { src: "/images/strategy-section/03.jpg", alt: "Stratégie, événement Yacht Show" },
+        ]}
+        tools={[
+          { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
+          { src: "/images/logos/google-ads.svg", label: "Google Ads" },
+          { src: "/images/logos/meta.svg", label: "Meta" },
+          { src: "/images/logos/hubspot.svg", label: "HubSpot" },
+          { src: "/images/logos/semrush.svg", label: "Semrush" },
+        ]}
+      />
 
-      {/* FORMATION — beige clair stone (fin du dégradé) */}
-      <div className="tone-stone bg-[var(--bg)] text-[var(--fg)]">
-        <ServiceSection
-          id="training"
-          eyebrow={t("trainingEyebrow")}
-          title={t("trainingTitle")}
-          body={t("trainingBody")}
-          items={trainingItems}
-          photos={[
-            { src: "/images/training-section/01.jpg", alt: "Formation IA, atelier" },
-            { src: "/images/training-section/02.jpg", alt: "Formation IA, Montpellier" },
-            { src: "/images/training-section/03.jpg", alt: "Formation IA, workshop" },
-          ]}
-          tools={[
-            { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
-            { src: "/images/logos/claude.svg", label: "Claude" },
-            { src: "/images/logos/gemini.svg", label: "Gemini" },
-            { src: "/images/logos/perplexity.svg", label: "Perplexity" },
-            { src: "/images/logos/make.svg", label: "Make" },
-            { src: "/images/logos/copilot.svg", label: "Copilot" },
-          ]}
-        />
-      </div>
+      <ServiceSection
+        id="training"
+        eyebrow={t("trainingEyebrow")}
+        title={t("trainingTitle")}
+        body={t("trainingBody")}
+        items={trainingItems}
+        photos={[
+          { src: "/images/training-section/01.jpg", alt: "Formation IA, atelier" },
+          { src: "/images/training-section/02.jpg", alt: "Formation IA, Montpellier" },
+          { src: "/images/training-section/03.jpg", alt: "Formation IA, workshop" },
+        ]}
+        tools={[
+          { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+          { src: "/images/logos/claude.svg", label: "Claude" },
+          { src: "/images/logos/gemini.svg", label: "Gemini" },
+          { src: "/images/logos/perplexity.svg", label: "Perplexity" },
+          { src: "/images/logos/make.svg", label: "Make" },
+          { src: "/images/logos/copilot.svg", label: "Copilot" },
+        ]}
+      />
 
       <EmblemBreak size="md" />
 
