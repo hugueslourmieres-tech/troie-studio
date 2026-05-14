@@ -10,6 +10,8 @@ const CLIENTS = [
   "RUTHERFORD",
   "TOP AKITA INU",
   "CAPEFRONT",
+  "STUDIO DE LA ROCHE",
+  "MEASURECOLOR",
 ];
 
 /**
