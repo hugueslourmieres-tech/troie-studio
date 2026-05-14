@@ -13,7 +13,7 @@ export function VideoSection({ locale }: { locale: string }) {
   return (
     <section
       id="videos"
-      className="relative border-t border-[var(--rule)] scroll-mt-24"
+      className="relative border-t-2 border-[var(--accent)] scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         <Reveal>

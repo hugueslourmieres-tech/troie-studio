@@ -5,7 +5,7 @@ export function ContactCTA({ locale }: { locale: string }) {
   const t = useTranslations("home");
 
   return (
-    <section className="border-t border-[var(--rule)]">
+    <section className="border-t-2 border-[var(--accent)]">
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         <div className="grid gap-16 md:grid-cols-12 md:gap-20">
           <div className="md:col-span-7">

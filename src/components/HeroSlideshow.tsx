@@ -62,6 +62,9 @@ export function HeroSlideshow() {
             priority={i === 0}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
+            style={{
+              filter: "grayscale(1) brightness(0.96) contrast(1.06)",
+            }}
           />
         </div>
       ))}

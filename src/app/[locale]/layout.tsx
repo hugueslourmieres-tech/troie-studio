@@ -100,9 +100,6 @@ export async function generateMetadata({
       index: true,
       follow: true,
     },
-    icons: {
-      icon: "/favicon.ico",
-    },
   };
 }
 
