@@ -65,19 +65,10 @@ export function Header({ locale }: { locale: string }) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-5">
-          {/* Desktop right cluster: langswitch dropdown + Instagram + CTA */}
+        <div className="flex items-center gap-4 md:gap-5">
+          {/* Desktop right cluster: langswitch dropdown + CTA */}
           <div className="hidden items-center gap-4 md:flex">
             <LangSwitch locale={locale} />
-            <a
-              href="https://instagram.com/hugueslourmieres"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-              className="flex h-9 w-9 items-center justify-center text-[var(--fg)] transition hover:text-[var(--accent)]"
-            >
-              <InstagramIcon />
-            </a>
             <Link
               href={`/${locale}/contact`}
               className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
@@ -85,6 +76,17 @@ export function Header({ locale }: { locale: string }) {
               {t("contact")}
             </Link>
           </div>
+
+          {/* Instagram — toujours visible (desktop + mobile/tablette) */}
+          <a
+            href="https://instagram.com/hugueslourmieres"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+            className="flex h-9 w-9 items-center justify-center text-[var(--fg)] transition hover:text-[var(--accent)]"
+          >
+            <InstagramIcon />
+          </a>
 
           {/* Mobile : burger */}
           <MobileMenu locale={locale} links={links} />
