@@ -141,6 +141,27 @@ body {
   color: var(--fg);
   font-family: var(--font-sans);
   letter-spacing: -0.005em;
+  position: relative;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Texture chinée — un grain papier / fibre organique appliqué via
+   une couche fixe en pseudo-élément. Couvre toutes les sections
+   (cream, orange, marron, safran, sepia…) automatiquement, sans
+   toucher aux composants. Multiply + opacité basse pour rester
+   subtile et inscrire la matière sans charger la lecture.
+   ───────────────────────────────────────────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch' seed='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 480px 480px;
+  background-repeat: repeat;
+  opacity: 0.085;
+  mix-blend-mode: multiply;
 }
 
 ::selection {
