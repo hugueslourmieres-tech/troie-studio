@@ -82,7 +82,10 @@ function CaseView({
           <h1 className="t-display mt-6 max-w-5xl text-6xl text-[var(--fg)] md:text-8xl lg:text-9xl">
             {t(`items.${slug}.title`)}
           </h1>
-          <p className="t-display-italic mt-6 max-w-3xl text-2xl text-[var(--fg-2)] md:text-3xl">
+          <p
+            className="t-display-italic mt-6 max-w-3xl text-2xl md:text-3xl"
+            style={{ color: "var(--vermillon)" }}
+          >
             {t(`items.${slug}.subtitle`)}
           </p>
         </div>

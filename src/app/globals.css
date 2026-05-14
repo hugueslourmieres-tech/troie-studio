@@ -18,9 +18,11 @@
   --fg: #1a1714;          /* presque-noir */
   --fg-2: #4a4239;        /* gris foncé patiné */
   --fg-mute: rgba(26, 23, 20, 0.55);
-  --accent: #f37b22;      /* Orange Hermès */
+  --accent: #f37b22;      /* Orange Hermès — accent dominant */
   --accent-2: #d96100;
   --accent-soft: rgba(243, 123, 34, 0.08);
+  --saffron: #f8b124;     /* jaune safran — accent secondaire chaud */
+  --vermillon: #e63214;   /* rouge vermillon — accent ponctuel céramique */
   --rule: rgba(26, 23, 20, 0.12);
   --rule-strong: rgba(26, 23, 20, 0.30);
   --gold: #8a6f38;
