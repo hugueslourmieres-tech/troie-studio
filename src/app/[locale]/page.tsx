@@ -59,29 +59,27 @@ export default async function HomePage({
         ]}
       />
 
-      {/* STRATÉGIE — ORANGE — middle-of-page punch */}
-      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <ServiceSection
-          id="strategy"
-          eyebrow={t("strategyEyebrow")}
-          title={t("strategyTitle")}
-          body={t("strategyBody")}
-          items={strategyItems}
-          reverse
-          photos={[
-            { src: "/images/strategy-section/01.jpg", alt: "Stratégie, équipe Veoria" },
-            { src: "/images/strategy-section/02.jpg", alt: "Stratégie, culture corporate" },
-            { src: "/images/strategy-section/03.jpg", alt: "Stratégie, communication" },
-          ]}
-          tools={[
-            { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
-            { src: "/images/logos/google-ads.svg", label: "Google Ads" },
-            { src: "/images/logos/meta.svg", label: "Meta" },
-            { src: "/images/logos/hubspot.svg", label: "HubSpot" },
-            { src: "/images/logos/semrush.svg", label: "Semrush" },
-          ]}
-        />
-      </div>
+      {/* STRATÉGIE — fond cream, pas de tone-accent */}
+      <ServiceSection
+        id="strategy"
+        eyebrow={t("strategyEyebrow")}
+        title={t("strategyTitle")}
+        body={t("strategyBody")}
+        items={strategyItems}
+        reverse
+        photos={[
+          { src: "/images/strategy-section/01.jpg", alt: "Stratégie, équipe Veoria" },
+          { src: "/images/strategy-section/02.jpg", alt: "Stratégie, culture corporate" },
+          { src: "/images/strategy-section/03.jpg", alt: "Stratégie, communication" },
+        ]}
+        tools={[
+          { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
+          { src: "/images/logos/google-ads.svg", label: "Google Ads" },
+          { src: "/images/logos/meta.svg", label: "Meta" },
+          { src: "/images/logos/hubspot.svg", label: "HubSpot" },
+          { src: "/images/logos/semrush.svg", label: "Semrush" },
+        ]}
+      />
 
       <ServiceSection
         id="training"
@@ -106,10 +104,8 @@ export default async function HomePage({
 
       <EmblemBreak size="md" />
 
-      {/* WORKS — fond orange Hermès, guerrier en accent à gauche */}
-      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <WorksGallery locale={locale} />
-      </div>
+      {/* WORKS — fond cream, plus de tone-accent */}
+      <WorksGallery locale={locale} />
 
       {/* VIDEOS — bibliothèque vidéo corporate, fond cream pour respirer */}
       <VideoSection locale={locale} />
