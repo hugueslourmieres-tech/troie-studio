@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { HeroSlideshow } from "./HeroSlideshow";
+import { HeroLines } from "./HeroLines";
 
 /**
  * Hero — full cream, clean editorial type, single supporting B&W photo
@@ -15,7 +16,10 @@ export function Hero({ locale }: { locale: string }) {
 
   return (
     <section className="relative isolate overflow-hidden bg-[var(--bg)]">
-      <div className="mx-auto grid min-h-[92vh] max-w-7xl grid-cols-1 gap-12 px-6 pt-36 pb-24 md:grid-cols-12 md:gap-16 md:px-12 md:pt-44 md:pb-32">
+      {/* Editorial grid + animated hairlines behind everything */}
+      <HeroLines />
+
+      <div className="relative mx-auto grid min-h-[92vh] max-w-7xl grid-cols-1 gap-12 px-6 pt-36 pb-24 md:grid-cols-12 md:gap-16 md:px-12 md:pt-44 md:pb-32">
         {/* Text column */}
         <div className="flex flex-col justify-end md:col-span-7">
           <motion.p
