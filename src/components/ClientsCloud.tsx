@@ -35,7 +35,9 @@ export function ClientsCloud() {
             className="h-auto w-full"
           />
         </div>
-        <p className="t-eyebrow text-center">{t("clientsTitle")}</p>
+        <h2 className="t-display mt-8 text-center text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
+          {t("clientsTitle")}
+        </h2>
         <ul className="mt-12 grid grid-cols-2 gap-x-10 gap-y-8 md:grid-cols-5">
           {CLIENTS.map((c) => (
             <li
