@@ -57,7 +57,7 @@ export function Header({ locale }: { locale: string }) {
               href={l.href}
               className="group inline-flex items-baseline gap-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
             >
-              <span className="text-[var(--fg-2)]/55 transition group-hover:text-[var(--accent)]">
+              <span className="text-[var(--accent)] transition group-hover:opacity-70">
                 {String(i + 1).padStart(2, "0")}.
               </span>
               <span>{l.label}</span>
