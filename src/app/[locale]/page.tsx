@@ -39,28 +39,31 @@ export default async function HomePage({
         <Intro />
       </div>
 
-      <ServiceSection
-        id="creation"
-        eyebrow={t("creationEyebrow")}
-        title={t("creationTitle")}
-        body={t("creationBody")}
-        items={creationItems}
-        photos={[
-          { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
-          { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
-          { src: "/images/works/event/cover.jpg", alt: "Création, événement Chanel" },
-        ]}
-        tools={[
-          { src: "/images/logos/adobe.svg", label: "Adobe" },
-          { src: "/images/logos/figma.svg", label: "Figma" },
-          { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
-          { src: "/images/logos/midjourney.svg", label: "Midjourney" },
-          { src: "/images/logos/runway.svg", label: "Runway" },
-        ]}
-      />
+      {/* CRÉATION — marron café profond (départ du dégradé) */}
+      <div className="tone-brown bg-[var(--bg)] text-[var(--fg)]">
+        <ServiceSection
+          id="creation"
+          eyebrow={t("creationEyebrow")}
+          title={t("creationTitle")}
+          body={t("creationBody")}
+          items={creationItems}
+          photos={[
+            { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
+            { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
+            { src: "/images/works/event/cover.jpg", alt: "Création, événement Chanel" },
+          ]}
+          tools={[
+            { src: "/images/logos/adobe.svg", label: "Adobe" },
+            { src: "/images/logos/figma.svg", label: "Figma" },
+            { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
+            { src: "/images/logos/midjourney.svg", label: "Midjourney" },
+            { src: "/images/logos/runway.svg", label: "Runway" },
+          ]}
+        />
+      </div>
 
-      {/* STRATÉGIE — beige foncé (stone) */}
-      <div className="tone-stone bg-[var(--bg)] text-[var(--fg)]">
+      {/* STRATÉGIE — sepia mi-marron (étape 2 du dégradé) */}
+      <div className="tone-sepia bg-[var(--bg)] text-[var(--fg)]">
         <ServiceSection
           id="strategy"
           eyebrow={t("strategyEyebrow")}
@@ -83,8 +86,8 @@ export default async function HomePage({
         />
       </div>
 
-      {/* FORMATION — marron café */}
-      <div className="tone-brown bg-[var(--bg)] text-[var(--fg)]">
+      {/* FORMATION — beige clair stone (fin du dégradé) */}
+      <div className="tone-stone bg-[var(--bg)] text-[var(--fg)]">
         <ServiceSection
           id="training"
           eyebrow={t("trainingEyebrow")}

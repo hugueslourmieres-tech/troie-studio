@@ -86,6 +86,22 @@
   --gold: #8a6f38;
 }
 
+.tone-sepia {
+  /* Sepia / marron mi-clair — étape intermédiaire dans le dégradé
+     brown → stone → cream. Texte cream pour lisibilité. */
+  --bg: #6b5640;          /* sepia chaud */
+  --bg-2: #7a6447;
+  --fg: #f4ead0;
+  --fg-2: #e6d9b8;
+  --fg-mute: rgba(244, 234, 208, 0.70);
+  --accent: #f37b22;
+  --accent-2: #ff8c33;
+  --accent-soft: rgba(243, 123, 34, 0.14);
+  --rule: rgba(244, 234, 208, 0.16);
+  --rule-strong: rgba(244, 234, 208, 0.36);
+  --gold: #d9b56e;
+}
+
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--fg);
