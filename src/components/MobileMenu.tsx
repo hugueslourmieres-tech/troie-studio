@@ -52,7 +52,8 @@ export function MobileMenu({ locale, links }: Props) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="tone-accent fixed inset-0 z-40 bg-[var(--bg)]"
+            className="tone-light fixed inset-0 z-40"
+            style={{ backgroundColor: "#f5f0e6" }}
           >
             <nav className="flex h-full flex-col px-6 pt-28 pb-12">
               {/* Top hairline (sits just under the header) */}
