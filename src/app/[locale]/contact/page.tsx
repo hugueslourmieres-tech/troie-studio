@@ -73,12 +73,6 @@ function ContactView() {
           <div className="rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-8">
             <p className="t-eyebrow">{t("or")}</p>
             <a
-              href="mailto:contact@troie.studio"
-              className="t-display mt-6 block text-2xl text-[var(--fg)] md:text-3xl"
-            >
-              contact@troie.studio
-            </a>
-            <a
               href="https://cal.com/hugueslourmieres"
               target="_blank"
               rel="noreferrer"
