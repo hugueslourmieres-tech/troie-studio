@@ -59,48 +59,53 @@ export default async function HomePage({
         ]}
       />
 
-      {/* STRATÉGIE — fond cream, pas de tone-accent */}
-      <ServiceSection
-        id="strategy"
-        eyebrow={t("strategyEyebrow")}
-        title={t("strategyTitle")}
-        body={t("strategyBody")}
-        items={strategyItems}
-        reverse
-        photos={[
-          { src: "/images/strategy-section/01.jpg", alt: "Stratégie, communication marque" },
-          { src: "/images/strategy-section/02.jpg", alt: "Stratégie, direction artistique" },
-          { src: "/images/strategy-section/03.jpg", alt: "Stratégie, événement Yacht Show" },
-        ]}
-        tools={[
-          { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
-          { src: "/images/logos/google-ads.svg", label: "Google Ads" },
-          { src: "/images/logos/meta.svg", label: "Meta" },
-          { src: "/images/logos/hubspot.svg", label: "HubSpot" },
-          { src: "/images/logos/semrush.svg", label: "Semrush" },
-        ]}
-      />
+      {/* STRATÉGIE — beige foncé (stone) */}
+      <div className="tone-stone bg-[var(--bg)] text-[var(--fg)]">
+        <ServiceSection
+          id="strategy"
+          eyebrow={t("strategyEyebrow")}
+          title={t("strategyTitle")}
+          body={t("strategyBody")}
+          items={strategyItems}
+          reverse
+          photos={[
+            { src: "/images/strategy-section/01.jpg", alt: "Stratégie, communication marque" },
+            { src: "/images/strategy-section/02.jpg", alt: "Stratégie, direction artistique" },
+            { src: "/images/strategy-section/03.jpg", alt: "Stratégie, événement Yacht Show" },
+          ]}
+          tools={[
+            { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
+            { src: "/images/logos/google-ads.svg", label: "Google Ads" },
+            { src: "/images/logos/meta.svg", label: "Meta" },
+            { src: "/images/logos/hubspot.svg", label: "HubSpot" },
+            { src: "/images/logos/semrush.svg", label: "Semrush" },
+          ]}
+        />
+      </div>
 
-      <ServiceSection
-        id="training"
-        eyebrow={t("trainingEyebrow")}
-        title={t("trainingTitle")}
-        body={t("trainingBody")}
-        items={trainingItems}
-        photos={[
-          { src: "/images/training-section/01.jpg", alt: "Formation IA, atelier" },
-          { src: "/images/training-section/02.jpg", alt: "Formation IA, Montpellier" },
-          { src: "/images/training-section/03.jpg", alt: "Formation IA, workshop" },
-        ]}
-        tools={[
-          { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
-          { src: "/images/logos/claude.svg", label: "Claude" },
-          { src: "/images/logos/gemini.svg", label: "Gemini" },
-          { src: "/images/logos/perplexity.svg", label: "Perplexity" },
-          { src: "/images/logos/make.svg", label: "Make" },
-          { src: "/images/logos/copilot.svg", label: "Copilot" },
-        ]}
-      />
+      {/* FORMATION — marron café */}
+      <div className="tone-brown bg-[var(--bg)] text-[var(--fg)]">
+        <ServiceSection
+          id="training"
+          eyebrow={t("trainingEyebrow")}
+          title={t("trainingTitle")}
+          body={t("trainingBody")}
+          items={trainingItems}
+          photos={[
+            { src: "/images/training-section/01.jpg", alt: "Formation IA, atelier" },
+            { src: "/images/training-section/02.jpg", alt: "Formation IA, Montpellier" },
+            { src: "/images/training-section/03.jpg", alt: "Formation IA, workshop" },
+          ]}
+          tools={[
+            { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+            { src: "/images/logos/claude.svg", label: "Claude" },
+            { src: "/images/logos/gemini.svg", label: "Gemini" },
+            { src: "/images/logos/perplexity.svg", label: "Perplexity" },
+            { src: "/images/logos/make.svg", label: "Make" },
+            { src: "/images/logos/copilot.svg", label: "Copilot" },
+          ]}
+        />
+      </div>
 
       <EmblemBreak size="md" />
 

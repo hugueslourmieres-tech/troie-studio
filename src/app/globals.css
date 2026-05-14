@@ -70,6 +70,22 @@
   --gold: #c9a05a;
 }
 
+.tone-stone {
+  /* Beige foncé / pierre chaude — entre cream et brown, donne une
+     respiration tonale sans aller jusqu'au marron café. Texte ink. */
+  --bg: #d8c9ad;          /* sand stone */
+  --bg-2: #c8b790;
+  --fg: #1a1714;
+  --fg-2: #3a3128;
+  --fg-mute: rgba(26, 23, 20, 0.60);
+  --accent: #c9501a;      /* orange plus sombre pour contraste sur stone */
+  --accent-2: #a83f10;
+  --accent-soft: rgba(201, 80, 26, 0.10);
+  --rule: rgba(26, 23, 20, 0.18);
+  --rule-strong: rgba(26, 23, 20, 0.36);
+  --gold: #8a6f38;
+}
+
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--fg);
