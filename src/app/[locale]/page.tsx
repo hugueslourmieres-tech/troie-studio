@@ -68,9 +68,9 @@ export default async function HomePage({
         items={strategyItems}
         reverse
         photos={[
-          { src: "/images/strategy-section/01.jpg", alt: "Stratégie, équipe Veoria" },
-          { src: "/images/strategy-section/02.jpg", alt: "Stratégie, culture corporate" },
-          { src: "/images/strategy-section/03.jpg", alt: "Stratégie, communication" },
+          { src: "/images/strategy-section/01.jpg", alt: "Stratégie, communication marque" },
+          { src: "/images/strategy-section/02.jpg", alt: "Stratégie, direction artistique" },
+          { src: "/images/strategy-section/03.jpg", alt: "Stratégie, événement Yacht Show" },
         ]}
         tools={[
           { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
