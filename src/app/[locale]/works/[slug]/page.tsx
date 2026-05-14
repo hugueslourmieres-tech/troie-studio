@@ -31,12 +31,19 @@ export default async function WorkCasePage({
   const work = findWork(slug);
   if (!work) notFound();
   setRequestLocale(locale);
+
+  // Project that comes next in the WORKS array (wraps around to first)
+  const index = WORKS.findIndex((w) => w.slug === work.slug);
+  const next = WORKS[(index + 1) % WORKS.length];
+
   return (
     <CaseView
       locale={locale}
       slug={work.slug}
       cover={work.cover}
       gallery={work.gallery}
+      nextSlug={next.slug}
+      nextCover={next.cover}
     />
   );
 }
@@ -46,11 +53,15 @@ function CaseView({
   slug,
   cover,
   gallery,
+  nextSlug,
+  nextCover,
 }: {
   locale: string;
   slug: string;
   cover: string;
   gallery: string[];
+  nextSlug: string;
+  nextCover: string;
 }) {
   const t = useTranslations("works");
 
@@ -118,26 +129,85 @@ function CaseView({
         </section>
       )}
 
-      {/* Closing CTA */}
+      {/* Next project — keeps visitors deep in the work */}
+      <NextProject locale={locale} nextSlug={nextSlug} nextCover={nextCover} />
+
+      {/* Closing CTA — Book a call */}
       <section className="border-t border-[var(--rule)]">
-        <div className="mx-auto max-w-4xl px-6 py-24 text-center md:px-12 md:py-32">
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center md:px-12 md:py-28">
           <p className="t-eyebrow">
             {locale === "fr" ? "Un projet similaire ?" : "Similar project?"}
           </p>
-          <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl">
+          <h2 className="t-display mt-6 text-3xl text-[var(--fg)] md:text-5xl">
             {locale === "fr"
               ? "Parlons-en pendant trente minutes."
               : "Let's talk for thirty minutes."}
           </h2>
           <Link
             href={`/${locale}/contact`}
-            className="mt-12 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
             {locale === "fr" ? "Prendre rendez-vous" : "Book a call"} →
           </Link>
         </div>
       </section>
     </article>
+  );
+}
+
+/**
+ * NextProject — invites the visitor to jump straight to the next case
+ * study. Shows the upcoming cover in a wide aspect ratio, label, title
+ * and italic subtitle pulled from the translations.
+ */
+function NextProject({
+  locale,
+  nextSlug,
+  nextCover,
+}: {
+  locale: string;
+  nextSlug: string;
+  nextCover: string;
+}) {
+  const t = useTranslations("works");
+  return (
+    <section className="border-t border-[var(--rule)]">
+      <Link href={`/${locale}/works/${nextSlug}`} className="group block">
+        <div className="mx-auto max-w-7xl px-6 pt-16 md:px-12 md:pt-24">
+          <div className="flex items-baseline justify-between">
+            <p className="t-eyebrow">
+              {locale === "fr" ? "Projet suivant" : "Next project"}
+            </p>
+            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60 transition group-hover:text-[var(--accent)]">
+              {locale === "fr" ? "Voir" : "View"} →
+            </span>
+          </div>
+        </div>
+
+        <div className="relative mt-10 aspect-[16/9] w-full overflow-hidden bg-[var(--bg-2)] md:mt-12 md:aspect-[21/9]">
+          <Image
+            src={nextCover}
+            alt={t(`items.${nextSlug}.title`)}
+            fill
+            sizes="100vw"
+            className="t-photo object-cover transition duration-700 group-hover:scale-[1.02]"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)]/55 via-transparent to-transparent" />
+
+          {/* Title overlay */}
+          <div className="absolute inset-x-0 bottom-0">
+            <div className="mx-auto max-w-7xl px-6 pb-10 md:px-12 md:pb-16">
+              <h3 className="t-display text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
+                {t(`items.${nextSlug}.title`)}
+              </h3>
+              <p className="t-display-italic mt-3 text-lg text-[var(--fg-2)] md:text-2xl">
+                {t(`items.${nextSlug}.subtitle`)}
+              </p>
+            </div>
+          </div>
+        </div>
+      </Link>
+    </section>
   );
 }
 

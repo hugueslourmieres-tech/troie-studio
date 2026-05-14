@@ -37,10 +37,25 @@ export const WORKS: Work[] = [
   // ─────────────────────────────────────────────────────────────
   // Cas client corporate & industrie — mis en avant en premier
   {
-    slug: "veoria",
-    cover: file("Veoria", "cover.jpg"),
-    gallery: Array.from({ length: 8 }, (_, i) =>
-      file("Veoria", `${String(i + 1).padStart(2, "0")}.jpg`),
+    slug: "capefront",
+    cover: file("Capefront", "cover.jpg"),
+    gallery: [
+      file("Capefront", "DSC_8104.jpg"),
+      file("Capefront", "DSC_8111.jpg"),
+      file("Capefront", "DSC_8137.jpg"),
+      file("Capefront", "DSC_8345.jpg"),
+      file("Capefront", "DSC_8504.jpg"),
+      file("Capefront", "DSC_8513.jpg"),
+      file("Capefront", "DSC_8526.jpg"),
+      file("Capefront", "DSC_8570.jpg"),
+      file("Capefront", "DSC_8610.jpg"),
+    ],
+  },
+  {
+    slug: "cartonajes-pans",
+    cover: file("Cartonajes Pans", "cover.jpg"),
+    gallery: Array.from({ length: 16 }, (_, i) =>
+      file("Cartonajes Pans", `${String(i + 1).padStart(2, "0")}.jpg`),
     ),
   },
   {
@@ -51,10 +66,10 @@ export const WORKS: Work[] = [
     ),
   },
   {
-    slug: "cartonajes-pans",
-    cover: file("Cartonajes Pans", "cover.jpg"),
-    gallery: Array.from({ length: 16 }, (_, i) =>
-      file("Cartonajes Pans", `${String(i + 1).padStart(2, "0")}.jpg`),
+    slug: "veoria",
+    cover: file("Veoria", "cover.jpg"),
+    gallery: Array.from({ length: 8 }, (_, i) =>
+      file("Veoria", `${String(i + 1).padStart(2, "0")}.jpg`),
     ),
   },
   {
@@ -68,21 +83,6 @@ export const WORKS: Work[] = [
       file("Wauters B'Pack", "People on console offset pressDSC_2889.jpg"),
       file("Wauters B'Pack", "Social Media Pictures Rutherford1604335028710-4.jpg"),
       file("Wauters B'Pack", "Social Media Pictures RutherfordDSC_2930-2.jpg"),
-    ],
-  },
-  {
-    slug: "capefront",
-    cover: file("Capefront", "cover.jpg"),
-    gallery: [
-      file("Capefront", "DSC_8104.jpg"),
-      file("Capefront", "DSC_8111.jpg"),
-      file("Capefront", "DSC_8137.jpg"),
-      file("Capefront", "DSC_8345.jpg"),
-      file("Capefront", "DSC_8504.jpg"),
-      file("Capefront", "DSC_8513.jpg"),
-      file("Capefront", "DSC_8526.jpg"),
-      file("Capefront", "DSC_8570.jpg"),
-      file("Capefront", "DSC_8610.jpg"),
     ],
   },
   // ─────────────────────────────────────────────────────────────
