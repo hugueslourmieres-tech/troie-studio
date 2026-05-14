@@ -77,17 +77,6 @@ export function Header({ locale }: { locale: string }) {
             </Link>
           </div>
 
-          {/* Instagram — toujours visible (desktop + mobile/tablette) */}
-          <a
-            href="https://instagram.com/hugueslourmieres"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            className="flex h-9 w-9 items-center justify-center text-[var(--fg)] transition hover:text-[var(--accent)]"
-          >
-            <InstagramIcon />
-          </a>
-
           {/* Mobile : burger */}
           <MobileMenu locale={locale} links={links} />
         </div>
