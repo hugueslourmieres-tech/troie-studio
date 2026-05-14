@@ -7,16 +7,16 @@ export function ContactCTA({ locale }: { locale: string }) {
 
   return (
     <section className="relative border-t border-[var(--rule)] overflow-hidden">
-      {/* Greek pottery scene — woman with fan & warrior, transparent PNG */}
+      {/* Greek pottery scene — 3 warriors under columns, transparent PNG */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute right-0 bottom-0 hidden w-[42%] max-w-[640px] opacity-90 md:block lg:w-[40%]"
       >
         <Image
-          src="/images/brand/troie femme eventail.png"
+          src="/images/brand/3 guys troie.png"
           alt=""
           width={1500}
-          height={1180}
+          height={1000}
           sizes="(max-width: 1024px) 42vw, 640px"
           className="h-auto w-full"
           priority={false}
