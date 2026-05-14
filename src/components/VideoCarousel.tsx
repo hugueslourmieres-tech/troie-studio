@@ -1,17 +1,23 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { VIDEOS, type VideoItem } from "@/lib/data/videos";
+import {
+  VIDEOS,
+  type VideoItem,
+  embedUrl,
+  thumbnailUrl,
+} from "@/lib/data/videos";
 
 /**
- * VideoCarousel — slideshow vidéo corporate.
+ * VideoCarousel — corporate testimonials embedded from YouTube.
  *
- * - 3 vidéos visibles à la fois (1 sur mobile), reste scrollable / draggable
- * - Preview muet en N&B (loop sur les 2 premières secondes)
- * - Au clic, la card passe en plein son couleur (le filtre s'efface)
- * - Une seule card peut être active à la fois
- * - Drag/swipe pour parcourir les 6 vidéos
+ * - Cards show a YouTube thumbnail in B&W by default.
+ * - Click → load the YouTube iframe with autoplay + sound, starting at
+ *   the configured timestamp (10s by default).
+ * - Only one card can be active; opening another collapses the previous.
+ * - Drag / swipe to browse the 8 films.
  */
 export function VideoCarousel({ locale }: { locale: string }) {
   const lang = (locale === "en" ? "en" : "fr") as "fr" | "en";
@@ -45,15 +51,14 @@ export function VideoCarousel({ locale }: { locale: string }) {
 
   return (
     <div className="relative">
-      {/* Carousel viewport */}
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex touch-pan-y gap-6">
           {VIDEOS.map((v, i) => (
             <div
-              key={v.src}
-              className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
+              key={v.youtubeId}
+              className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_60%] lg:flex-[0_0_45%]"
             >
-              <VideoCardLocal
+              <VideoCardYouTube
                 video={v}
                 index={i}
                 lang={lang}
@@ -66,7 +71,6 @@ export function VideoCarousel({ locale }: { locale: string }) {
         </div>
       </div>
 
-      {/* Arrows */}
       <div className="mt-10 flex items-center justify-end gap-3">
         <button
           type="button"
@@ -91,7 +95,7 @@ export function VideoCarousel({ locale }: { locale: string }) {
   );
 }
 
-function VideoCardLocal({
+function VideoCardYouTube({
   video,
   index,
   lang,
@@ -106,31 +110,10 @@ function VideoCardLocal({
   onActivate: () => void;
   onDeactivate: () => void;
 }) {
-  const ref = useRef<HTMLVideoElement>(null);
-
-  // When the card becomes active, switch to color + sound, otherwise back to muted B&W loop preview.
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (active) {
-      el.muted = false;
-      el.loop = false;
-      el.currentTime = 0;
-      el.play().catch(() => {
-        /* iOS autoplay rules — ignored */
-      });
-    } else {
-      el.muted = true;
-      el.loop = true;
-      if (!el.paused) el.pause();
-      // Don't reset currentTime — preview keeps looping from preview position
-    }
-  }, [active]);
-
   return (
     <article className="flex flex-col">
       <div
-        className="group relative aspect-[3/4] cursor-pointer overflow-hidden bg-[var(--bg-2)]"
+        className="group relative aspect-video cursor-pointer overflow-hidden bg-[var(--bg-2)]"
         onClick={() => (active ? onDeactivate() : onActivate())}
         role="button"
         tabIndex={0}
@@ -142,21 +125,42 @@ function VideoCardLocal({
           }
         }}
       >
-        <video
-          ref={ref}
-          src={video.src}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="metadata"
-          className="h-full w-full object-cover transition-[filter] duration-700"
-          style={{
-            filter: active
-              ? "none"
-              : "grayscale(1) brightness(0.96) contrast(1.06)",
-          }}
-        />
+        {active ? (
+          <iframe
+            src={embedUrl(video.youtubeId, video.start)}
+            title={video.title[lang]}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="h-full w-full"
+          />
+        ) : (
+          <>
+            <Image
+              src={thumbnailUrl(video.youtubeId)}
+              alt={video.title[lang]}
+              fill
+              sizes="(max-width: 768px) 85vw, (max-width: 1024px) 60vw, 45vw"
+              className="object-cover transition-[filter,transform] duration-700 group-hover:scale-[1.02]"
+              style={{
+                filter: "grayscale(1) brightness(0.96) contrast(1.06)",
+              }}
+            />
+            {/* Play button overlay */}
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full border border-[var(--bg)]/80 bg-[var(--bg)]/15 backdrop-blur-sm transition group-hover:scale-110 group-hover:bg-[var(--accent)] md:h-20 md:w-20">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="ml-1 h-6 w-6 text-[var(--bg)]"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
+            </div>
+          </>
+        )}
+
         {active && (
           <button
             type="button"
@@ -165,7 +169,7 @@ function VideoCardLocal({
               e.stopPropagation();
               onDeactivate();
             }}
-            className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center bg-[var(--bg)]/90 font-mono text-xs text-[var(--fg)] transition hover:bg-[var(--accent)] hover:text-[var(--bg)]"
+            className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center bg-[var(--bg)]/90 font-mono text-xs text-[var(--fg)] transition hover:bg-[var(--accent)] hover:text-[var(--bg)]"
           >
             ✕
           </button>
