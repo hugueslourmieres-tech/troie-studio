@@ -9,7 +9,7 @@ export function AboutBlock() {
   return (
     <section
       id="about"
-      className="border-t-2 border-[var(--accent)] bg-[var(--bg)] scroll-mt-24"
+      className="border-t border-[var(--accent)] bg-[var(--bg)] scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         <div className="grid gap-16 md:grid-cols-12 md:gap-20">

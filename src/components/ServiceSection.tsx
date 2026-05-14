@@ -35,7 +35,7 @@ export function ServiceSection({
   return (
     <section
       id={id}
-      className="border-t-2 border-[var(--accent)] scroll-mt-24"
+      className="border-t border-[var(--accent)] scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         <div

@@ -50,7 +50,7 @@ export function WorksGallery({ locale }: { locale: string }) {
   return (
     <section
       id="works"
-      className="relative border-t-2 border-[var(--accent)] scroll-mt-24"
+      className="relative border-t border-[var(--accent)] scroll-mt-24"
     >
       {/* Guerrier décoratif à gauche, posé en haut de la section */}
       <div
