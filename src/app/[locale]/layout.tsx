@@ -61,7 +61,7 @@ export async function generateMetadata({
   const description = t("tagline");
 
   return {
-    metadataBase: new URL("https://troie.studio"),
+    metadataBase: new URL("https://troiestudio.fr"),
     title: {
       default: title,
       template: `%s · ${t("name")}`,
@@ -76,20 +76,32 @@ export async function generateMetadata({
     },
     openGraph: {
       type: "website",
-      url: `https://troie.studio/${locale}`,
+      url: `https://troiestudio.fr/${locale}`,
       title,
       description,
       siteName: t("name"),
       locale: isFr ? "fr_FR" : "en_US",
+      images: [
+        {
+          url: "/images/brand/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: t("name"),
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: ["/images/brand/og-image.jpg"],
     },
     robots: {
       index: true,
       follow: true,
+    },
+    icons: {
+      icon: "/favicon.ico",
     },
   };
 }

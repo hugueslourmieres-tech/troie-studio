@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "TROIE",
-    "domain": "troie.studio",
+    "domain": "troiestudio.fr",
     "tagline": "Creative, strategy and training."
   },
   "nav": {
@@ -211,7 +211,7 @@
     "message": "Your message",
     "send": "Send",
     "or": "Or directly",
-    "emailDirect": "contact@troie.studio",
+    "emailDirect": "contact@troiestudio.fr",
     "callDirect": "Book a call",
     "thanks": "Thanks. We'll get back to you within 24 business hours."
   },
