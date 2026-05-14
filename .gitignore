@@ -58,3 +58,5 @@ next-env.d.ts
 /public/images/formations/
 /public/images/corpo/
 /public/images/backgrounds/
+
+.claude/
