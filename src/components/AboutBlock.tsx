@@ -17,7 +17,7 @@ export function AboutBlock() {
             <div className="relative aspect-[3/4] overflow-hidden bg-[var(--bg)]">
               <Image
                 src="/images/about/hugues-portrait.jpg"
-                alt="Hugues Lourmières"
+                alt="Hugues Lourmieres"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover"
