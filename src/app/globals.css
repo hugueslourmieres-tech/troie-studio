@@ -87,12 +87,12 @@
 }
 
 .tone-saffron {
-  /* Jaune safran — couleur ocre chaude, plus douce que l'orange Hermès,
-     pour marquer une section sans rivaliser avec l'accent. Texte ink. */
+  /* Jaune safran — couleur ocre chaude. Titres en rouge vermillon pour
+     un duo chromatique chaud safran/vermillon façon céramique grecque. */
   --bg: #f8b124;
   --bg-2: #e09e1c;
-  --fg: #1a1714;
-  --fg-2: #2a221a;
+  --fg: #e63214;          /* vermillon : utilisé pour les titres display */
+  --fg-2: #2a221a;        /* ink pour body et bullets */
   --fg-mute: rgba(26, 23, 20, 0.65);
   --accent: #1a1714;
   --accent-2: #000;
