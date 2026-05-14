@@ -2,88 +2,83 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
 
 /**
- * HeroSlideshow — photos plein cadre, auto-défilement infini.
+ * HeroSlideshow — cross-fade between full-frame photos.
  *
- * - Embla Carousel (loop infini, drag/swipe, easing 28 frames)
- * - Autoplay 4.5 s par slide, pause au survol desktop
- * - Indicateurs de progression en bas + compteur en haut
- * - Photos en couleur (pas de filtre N&B)
+ * - All slides are stacked absolute; only one is opacity-1 at a time.
+ * - 1100ms ease fade transition between slides.
+ * - 5s on screen per slide, paused on hover (desktop).
+ * - Progress dots + slide counter overlay.
  */
 
-// Sourced from /public/images/slideshow/, ordre du dossier respecté.
 const SLIDES = [
-  { src: "/images/slideshow/02-portrait.jpg", alt: "Portrait, direction artistique" },
-  { src: "/images/slideshow/03-veoria.jpeg", alt: "Veoria, équipe 2025" },
-  { src: "/images/slideshow/04-veoria.jpeg", alt: "Veoria, équipe 2025" },
+  { src: "/images/slideshow/01.jpg", alt: "TROIE — slide 1" },
+  { src: "/images/slideshow/02.jpg", alt: "TROIE — slide 2" },
+  { src: "/images/slideshow/03.jpg", alt: "TROIE — slide 3" },
+  { src: "/images/slideshow/04.jpg", alt: "TROIE — slide 4" },
+  { src: "/images/slideshow/05.jpg", alt: "TROIE — slide 5" },
+  { src: "/images/slideshow/06.jpg", alt: "TROIE — slide 6" },
+  { src: "/images/slideshow/07.jpg", alt: "TROIE — slide 7" },
 ];
 
+const SLIDE_MS = 5000;
+
 export function HeroSlideshow() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, dragFree: false, align: "center", duration: 28 },
-    [Autoplay({ delay: 4500, stopOnInteraction: false, stopOnMouseEnter: true })],
+  const [current, setCurrent] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const goTo = useCallback(
+    (i: number) => setCurrent(((i % SLIDES.length) + SLIDES.length) % SLIDES.length),
+    [],
   );
-  const [selected, setSelected] = useState(0);
-  const [count, setCount] = useState(SLIDES.length);
 
   useEffect(() => {
-    if (!emblaApi) return;
-    setCount(emblaApi.scrollSnapList().length);
-    const onSelect = () => setSelected(emblaApi.selectedScrollSnap());
-    emblaApi.on("select", onSelect);
-    onSelect();
-    return () => {
-      emblaApi.off("select", onSelect);
-    };
-  }, [emblaApi]);
-
-  const scrollTo = useCallback(
-    (i: number) => emblaApi?.scrollTo(i),
-    [emblaApi],
-  );
+    if (paused) return;
+    const id = window.setInterval(() => {
+      setCurrent((c) => (c + 1) % SLIDES.length);
+    }, SLIDE_MS);
+    return () => window.clearInterval(id);
+  }, [paused]);
 
   return (
-    <div className="relative h-full w-full">
-      <div
-        ref={emblaRef}
-        className="h-full overflow-hidden"
-        aria-label="TROIE, slideshow"
-      >
-        <div className="flex h-full touch-pan-y">
-          {SLIDES.map((s, i) => (
-            <div
-              key={i}
-              className="relative h-full min-w-0 flex-[0_0_100%] overflow-hidden bg-[var(--bg-2)]"
-            >
-              <Image
-                src={s.src}
-                alt={s.alt}
-                fill
-                priority={i === 0}
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-              />
-            </div>
-          ))}
+    <div
+      className="relative h-full w-full overflow-hidden bg-[var(--bg-2)]"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      aria-label="TROIE, slideshow"
+    >
+      {SLIDES.map((s, i) => (
+        <div
+          key={s.src}
+          aria-hidden={i !== current}
+          className="absolute inset-0 transition-opacity duration-[1100ms] ease-[cubic-bezier(0.4,0,0.2,1)]"
+          style={{ opacity: i === current ? 1 : 0 }}
+        >
+          <Image
+            src={s.src}
+            alt={s.alt}
+            fill
+            priority={i === 0}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
         </div>
-      </div>
+      ))}
 
       {/* Progress dots */}
       <div className="pointer-events-none absolute inset-x-0 bottom-4 flex items-center justify-center gap-1.5 md:bottom-6">
-        {Array.from({ length: count }).map((_, i) => (
+        {SLIDES.map((_, i) => (
           <button
             key={i}
             type="button"
             aria-label={`Slide ${i + 1}`}
-            onClick={() => scrollTo(i)}
+            onClick={() => goTo(i)}
             className="pointer-events-auto h-px transition-all duration-500"
             style={{
-              width: i === selected ? 28 : 12,
+              width: i === current ? 28 : 12,
               backgroundColor:
-                i === selected ? "var(--fg)" : "rgba(245,240,230,0.45)",
+                i === current ? "var(--fg)" : "rgba(245,240,230,0.45)",
             }}
           />
         ))}
@@ -91,7 +86,7 @@ export function HeroSlideshow() {
 
       {/* Slide counter */}
       <div className="pointer-events-none absolute right-4 top-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)]/70 md:right-6 md:top-6">
-        {String(selected + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
+        {String(current + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
       </div>
     </div>
   );
