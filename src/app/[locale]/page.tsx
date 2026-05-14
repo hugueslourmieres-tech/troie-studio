@@ -114,10 +114,7 @@ export default async function HomePage({
         <ClientsCloud />
       </div>
 
-      {/* ABOUT — orange Hermès */}
-      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <AboutBlock />
-      </div>
+      <AboutBlock />
 
       {/* CTA — only orange section of the entire site */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
