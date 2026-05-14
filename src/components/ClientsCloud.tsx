@@ -27,7 +27,7 @@ export function ClientsCloud() {
         {/* Wax seal — signature of the brands worked with */}
         <div className="mx-auto mb-10 flex w-full max-w-[180px] justify-center md:max-w-[220px]">
           <Image
-            src="/images/brand/Seal2.png"
+            src="/images/brand/emboss.png"
             alt=""
             width={2000}
             height={2000}
