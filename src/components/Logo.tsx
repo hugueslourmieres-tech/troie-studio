@@ -44,53 +44,60 @@ export function Logo({
   }
 
   if (variant === "wordmark-emblem") {
-    // Emblème (guerrier) à gauche, et à droite la SAME typo que le footer
-    // stack : Bodoni TROIE en grand (fontSize 34, letter-spacing 14),
-    // ligne hairline en dessous, "Atelier Digital" en mono tracking-[0.4em].
+    // Emblème (guerrier) à gauche, et à droite un SVG unique qui contient
+    // TROIE + la ligne hairline + ATELIER DIGITAL.
+    // En mettant le caption dans le même SVG (textLength="120"), il s'aligne
+    // exactement sur la largeur de la hairline (= ~la largeur visuelle de
+    // TROIE) à toutes les tailles d'écran.
     return (
       <span
         className={`inline-flex items-center gap-3 ${className}`}
         aria-label="TROIE — Atelier Digital"
       >
         <Emblem className="h-[160%] w-auto" />
-        <span className="flex h-full flex-col items-center justify-center">
-          <svg
-            viewBox="0 0 200 50"
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-[82%] w-auto"
-            aria-hidden="true"
-            preserveAspectRatio="xMidYMid meet"
+        <svg
+          viewBox="0 0 200 64"
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-full w-auto"
+          aria-hidden="true"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <text
+            x="100"
+            y="32"
+            textAnchor="middle"
+            fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
+            fontWeight="400"
+            fontSize="34"
+            letterSpacing="14"
+            fill="currentColor"
           >
-            <text
-              x="100"
-              y="32"
-              textAnchor="middle"
-              fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
-              fontWeight="400"
-              fontSize="34"
-              letterSpacing="14"
-              fill="currentColor"
-            >
-              TROIE
-            </text>
-            <line
-              x1="40"
-              y1="44"
-              x2="160"
-              y2="44"
-              stroke="currentColor"
-              strokeWidth="0.5"
-              opacity="0.5"
-            />
-          </svg>
-          <span
-            aria-hidden="true"
-            className="mt-1 text-center font-mono text-[10px] uppercase tracking-[0.4em] opacity-70"
-            style={{ color: "currentColor" }}
+            TROIE
+          </text>
+          <line
+            x1="40"
+            y1="44"
+            x2="160"
+            y2="44"
+            stroke="currentColor"
+            strokeWidth="0.5"
+            opacity="0.5"
+          />
+          <text
+            x="100"
+            y="58"
+            textAnchor="middle"
+            textLength="120"
+            lengthAdjust="spacingAndGlyphs"
+            fontFamily="var(--font-jetbrains, ui-monospace, monospace)"
+            fontWeight="400"
+            fontSize="9"
+            fill="currentColor"
+            opacity="0.7"
           >
-            Atelier Digital
-          </span>
-        </span>
+            ATELIER DIGITAL
+          </text>
+        </svg>
       </span>
     );
   }
