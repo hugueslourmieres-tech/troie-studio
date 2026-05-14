@@ -55,10 +55,7 @@ function WorksView({ locale }: { locale: string }) {
                 className="t-photo object-cover transition duration-700 group-hover:scale-[1.03]"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)]/60 via-transparent to-transparent" />
-              <span
-                className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.22em]"
-                style={{ color: "var(--saffron)" }}
-              >
+              <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)]/80">
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>
@@ -66,10 +63,7 @@ function WorksView({ locale }: { locale: string }) {
               <h2 className="t-display text-2xl text-[var(--fg)]">
                 {t(`items.${w.slug}.title`)}
               </h2>
-              <p
-                className="mt-2 text-sm italic"
-                style={{ color: "var(--vermillon)", opacity: 0.85 }}
-              >
+              <p className="mt-2 text-sm italic text-[var(--fg-2)]/70">
                 {t(`items.${w.slug}.subtitle`)}
               </p>
               <p className="mt-2 text-sm text-[var(--fg-2)]/60">
