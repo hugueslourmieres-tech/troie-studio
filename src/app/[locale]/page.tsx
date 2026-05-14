@@ -39,25 +39,28 @@ export default async function HomePage({
         <Intro />
       </div>
 
-      <ServiceSection
-        id="creation"
-        eyebrow={t("creationEyebrow")}
-        title={t("creationTitle")}
-        body={t("creationBody")}
-        items={creationItems}
-        photos={[
-          { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
-          { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
-          { src: "/images/creation-section/03-img-8524.jpg", alt: "Création, image" },
-        ]}
-        tools={[
-          { src: "/images/logos/adobe.svg", label: "Adobe" },
-          { src: "/images/logos/figma.svg", label: "Figma" },
-          { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
-          { src: "/images/logos/midjourney.svg", label: "Midjourney" },
-          { src: "/images/logos/runway.svg", label: "Runway" },
-        ]}
-      />
+      {/* CRÉATION — fond safran #f8b124 */}
+      <div className="tone-saffron bg-[var(--bg)] text-[var(--fg)]">
+        <ServiceSection
+          id="creation"
+          eyebrow={t("creationEyebrow")}
+          title={t("creationTitle")}
+          body={t("creationBody")}
+          items={creationItems}
+          photos={[
+            { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
+            { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
+            { src: "/images/creation-section/03-img-8524.jpg", alt: "Création, image" },
+          ]}
+          tools={[
+            { src: "/images/logos/adobe.svg", label: "Adobe" },
+            { src: "/images/logos/figma.svg", label: "Figma" },
+            { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
+            { src: "/images/logos/midjourney.svg", label: "Midjourney" },
+            { src: "/images/logos/runway.svg", label: "Runway" },
+          ]}
+        />
+      </div>
 
       <ServiceSection
         id="strategy"
