@@ -35,29 +35,7 @@ const file = (folder: string, name: string) =>
 
 export const WORKS: Work[] = [
   // ─────────────────────────────────────────────────────────────
-  // Clients — maisons de luxe & événementiel
-  {
-    slug: "chanel",
-    cover: file("CHANEL", "cover.jpg"),
-    gallery: [
-      file("CHANEL", "DSC_5552-5.jpg"),
-      file("CHANEL", "DSC_6477-5.jpg"),
-      file("CHANEL", "DSC_8647-2.jpg"),
-    ],
-  },
-  {
-    slug: "monaco",
-    cover: file("Monaco", "cover.jpg"),
-    gallery: [
-      file("Monaco", "01.jpg"),
-      file("Monaco", "02.jpg"),
-      file("Monaco", "03.jpg"),
-      file("Monaco", "04.jpg"),
-      file("Monaco", "IMG_8522.jpg"),
-    ],
-  },
-  // ─────────────────────────────────────────────────────────────
-  // Clients — corporate, industrie, culture d'entreprise
+  // Cas client corporate & industrie — mis en avant en premier
   {
     slug: "veoria",
     cover: file("Veoria", "cover.jpg"),
@@ -105,6 +83,28 @@ export const WORKS: Work[] = [
       file("Capefront", "DSC_8526.jpg"),
       file("Capefront", "DSC_8570.jpg"),
       file("Capefront", "DSC_8610.jpg"),
+    ],
+  },
+  // ─────────────────────────────────────────────────────────────
+  // Clients luxe & événementiel
+  {
+    slug: "chanel",
+    cover: file("CHANEL", "cover.jpg"),
+    gallery: [
+      file("CHANEL", "DSC_5552-5.jpg"),
+      file("CHANEL", "DSC_6477-5.jpg"),
+      file("CHANEL", "DSC_8647-2.jpg"),
+    ],
+  },
+  {
+    slug: "monaco",
+    cover: file("Monaco", "cover.jpg"),
+    gallery: [
+      file("Monaco", "01.jpg"),
+      file("Monaco", "02.jpg"),
+      file("Monaco", "03.jpg"),
+      file("Monaco", "04.jpg"),
+      file("Monaco", "IMG_8522.jpg"),
     ],
   },
   {
