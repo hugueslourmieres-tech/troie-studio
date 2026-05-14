@@ -16,9 +16,10 @@ import Autoplay from "embla-carousel-autoplay";
 
 // Sourced from /public/images/slideshow/, ordre du dossier respecté.
 const SLIDES = [
-  { src: "/images/slideshow/02-chanel.jpg", alt: "Chanel, direction artistique" },
-  { src: "/images/slideshow/03-veoria-7.jpg", alt: "Veoria, équipe 2025" },
-  { src: "/images/slideshow/04-veoria-8.jpg", alt: "Veoria, équipe 2025" },
+  { src: "/images/slideshow/01-flower.webp", alt: "Création IA, fleur" },
+  { src: "/images/slideshow/02-portrait.jpg", alt: "Portrait, direction artistique" },
+  { src: "/images/slideshow/03-veoria.jpeg", alt: "Veoria, équipe 2025" },
+  { src: "/images/slideshow/04-veoria.jpeg", alt: "Veoria, équipe 2025" },
 ];
 
 export function HeroSlideshow() {
