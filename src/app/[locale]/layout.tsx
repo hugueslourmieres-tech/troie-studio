@@ -83,7 +83,7 @@ export async function generateMetadata({
       locale: isFr ? "fr_FR" : "en_US",
       images: [
         {
-          url: "/images/brand/og-image.jpg",
+          url: "/images/brand/og-image.png",
           width: 1200,
           height: 630,
           alt: t("name"),
@@ -94,7 +94,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/brand/og-image.jpg"],
+      images: ["/images/brand/og-image.png"],
     },
     robots: {
       index: true,
