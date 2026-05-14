@@ -60,18 +60,28 @@ export function ServiceSection({
             </Reveal>
             <Reveal delay={0.3}>
               <ul className="mt-12 space-y-3 border-t border-[var(--rule)] pt-8">
-                {items.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-baseline gap-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base"
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="inline-block h-px w-3 flex-shrink-0 bg-[var(--accent)]"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
+                {items.map((item, i) => {
+                  // Bullet dashes rotate through orange → saffron → vermillon
+                  // so every metier list shows the three palette tones at once.
+                  const palette = [
+                    "var(--accent)",
+                    "var(--saffron)",
+                    "var(--vermillon)",
+                  ];
+                  return (
+                    <li
+                      key={item}
+                      className="flex items-baseline gap-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="inline-block h-px w-3 flex-shrink-0"
+                        style={{ backgroundColor: palette[i % palette.length] }}
+                      />
+                      <span>{item}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </Reveal>
 

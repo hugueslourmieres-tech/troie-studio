@@ -7,7 +7,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { SmoothScroll } from "@/components/SmoothScroll";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -117,7 +116,6 @@ export default async function LocaleLayout({
       className={`${bodoni.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}
     >
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
-        <SmoothScroll />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header locale={locale} />
           <main>{children}</main>
