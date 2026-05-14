@@ -85,68 +85,80 @@
   },
   "works": {
     "pageTitle": "Works",
-    "pageSubtitle": "Six crafts, six lenses. A curated set of photo and video projects shot for the brands we work with.",
+    "pageSubtitle": "A curated set of projects shot for the brands we work with: luxury houses, hospitality, industry, sport and nature.",
     "viewProject": "View project",
     "items": {
-      "event": {
-        "title": "Event",
-        "subtitle": "Capture every moment with a vision",
-        "scope": "Event photography, premières, parties, launches",
-        "description": "Creating unique moments on image, every place, every moment. Evoking genuine emotion, capturing authentic content, reflecting the true essence of each moment."
+      "chanel": {
+        "title": "CHANEL",
+        "subtitle": "Art direction and reportage",
+        "scope": "Couture photography, events",
+        "description": "A series shot for the House, around gesture, detail and craftsmanship. Event coverage, reportage and art direction in service of a couture iconography."
       },
-      "shooting": {
-        "title": "Shooting",
-        "subtitle": "Your industry, elevated to cinematic level",
-        "scope": "B2B / B2C photography, fashion, corporate, lifestyle",
-        "description": "Turning industrial and business environments into refined visual content, with emotional depth and professional rigor."
-      },
-      "video": {
-        "title": "Video",
-        "subtitle": "Create vibes during interview",
-        "scope": "Corporate films, interviews, reels, motion design",
-        "description": "Directing video with emotion. Interviewing takes both precision and genuine curiosity, to surface what's true, and make it land."
-      },
-      "social": {
-        "title": "Social Media",
-        "subtitle": "Generate unique designs to make your brand visible",
-        "scope": "Social media art direction, daily content, strategy",
-        "description": "A grounded brand aesthetic, and social-media content tailored to each platform."
-      },
-      "nature": {
-        "title": "Nature",
-        "subtitle": "Nature that resonates in the Mercantour",
-        "scope": "Landscape, black and white photography, prints",
-        "description": "Composing with landscape. Experiencing the truth of nature."
-      },
-      "wild-life": {
-        "title": "Wild Life",
-        "subtitle": "Into the wild, in the Mercantour",
-        "scope": "Wildlife photography, fauna, prints",
-        "description": "Capturing emotions with wildlife. Showing the raw beauty of nature."
+      "monaco": {
+        "title": "Monaco",
+        "subtitle": "Premium evenings and events on the Riviera",
+        "scope": "Event photography, hospitality, lifestyle",
+        "description": "Private event coverage in Monaco and on the French Riviera: galas, launches, exceptional evenings. Deliverables ready for communication and social the same night."
       },
       "veoria": {
         "title": "Veoria",
-        "subtitle": "Team photography and corporate culture",
-        "scope": "Corporate photography, team, culture, social media",
-        "description": "One day with the Veoria team, documenting culture and commitment, delivering a ready-to-use visual library for social media and internal comms."
+        "subtitle": "Corporate culture and team photography",
+        "scope": "Corporate photography, teams, culture, social media",
+        "description": "One day with the Veoria team, documenting culture and commitment, delivering a ready-to-use visual library for social media and internal communications."
       },
-      "mibi": {
-        "title": "MIBI",
-        "subtitle": "National convention 2026, event coverage",
-        "scope": "Event photography, convention, keynote, panels",
+      "mibi-2026": {
+        "title": "MIBI 2026",
+        "subtitle": "National convention, event coverage",
+        "scope": "Event photography, convention, keynotes",
         "description": "Full coverage of the MIBI 2026 convention: keynotes, workshops, off moments, portraits. Deliverables ready the same evening for post-event communication."
       },
-      "montpellier": {
-        "title": "Montpellier",
-        "subtitle": "AI training, January 2026",
-        "scope": "In-house training, AI implementation",
-        "description": "One day training marketing and communication teams on AI tools in Montpellier, creating 30 social posts, deploying a prospecting agent, automating workflows."
+      "cartonajes-pans": {
+        "title": "Cartonajes Pans",
+        "subtitle": "Industrial reportage in Barcelona",
+        "scope": "Industrial photography, offset presses, reportage",
+        "description": "Full reportage for Cartonajes Pans in Barcelona: workshops, presses in action, color demos and testimonials. Documentary photography in black and white and color."
       },
-      "barcelona": {
-        "title": "Barcelona / Printing Industry",
-        "subtitle": "Global printing industry trade show",
-        "scope": "Industrial reportage, offset presses, brand activation",
-        "description": "Full coverage of the global printing trade show in Barcelona: presses in action, color demos, client testimonials. 35 mm black and white and color photography in a documentary spirit."
+      "wauters-bpack": {
+        "title": "Wauters B'Pack",
+        "subtitle": "Printing, offset presses and content",
+        "scope": "Industrial reportage, social media, content",
+        "description": "Industrial reportage and social-media content production for Wauters B'Pack. Capturing presses in action and operators at work, a series usable across every channel."
+      },
+      "capefront": {
+        "title": "Capefront",
+        "subtitle": "Brand identity and photography",
+        "scope": "Corporate photography, lifestyle, identity",
+        "description": "Brand photography for Capefront. A series that balances corporate precision with natural lifestyle, embodying the brand across every touchpoint."
+      },
+      "eshuis": {
+        "title": "Eshuis",
+        "subtitle": "Reportage and art direction",
+        "scope": "Corporate photography, portraits, workshop scenes",
+        "description": "Reportage and art direction for Eshuis. A series of portraits and workshop scenes that tell the craft and the people behind it."
+      },
+      "social-media": {
+        "title": "Social Media",
+        "subtitle": "Art direction and content for the feeds",
+        "scope": "Social-media art direction, daily content",
+        "description": "A grounded brand aesthetic and social-media content tailored to each platform. Art direction, stories, posts, reels."
+      },
+      "formation-ia": {
+        "title": "AI Training",
+        "subtitle": "In-house sessions and workshops",
+        "scope": "AI training, prompting, autonomous agents",
+        "description": "Training sessions on AI tools for marketing and communication teams. Hands-on use cases, automation, agent deployment."
+      },
+      "valberg": {
+        "title": "Valberg",
+        "subtitle": "Mercantour landscapes",
+        "scope": "Landscape photography, black and white, prints",
+        "description": "A photographic series shot in the Mercantour, around Valberg. Composing with landscape, experiencing the truth of nature."
+      },
+      "animaux": {
+        "title": "Wildlife",
+        "subtitle": "Wildlife photography",
+        "scope": "Wildlife, nature photography, prints",
+        "description": "Capturing the emotion of wildlife. Showing the raw beauty of nature, at animal level."
       }
     }
   },

@@ -85,68 +85,80 @@
   },
   "works": {
     "pageTitle": "Réalisations",
-    "pageSubtitle": "Six métiers, six regards. Une sélection de projets photo et vidéo réalisés à travers les marques que nous accompagnons.",
+    "pageSubtitle": "Une sélection de projets réalisés auprès des marques que nous accompagnons : maisons de luxe, hôtellerie, industrie, sport et nature.",
     "viewProject": "Voir le projet",
     "items": {
-      "event": {
-        "title": "Évènements",
-        "subtitle": "Capturer chaque moment avec une vision",
-        "scope": "Photographie d'évènements, premières, soirées et lancements",
-        "description": "Créer des moments uniques en image, partout, tout le temps. Évoquer une émotion sincère, capter du contenu authentique et refléter l'essence vraie de chaque instant."
+      "chanel": {
+        "title": "CHANEL",
+        "subtitle": "Direction artistique et reportage",
+        "scope": "Photographie haute couture, événementiel",
+        "description": "Une série réalisée pour la Maison, autour du geste, du détail et de l'art du savoir-faire. Captation d'événements, reportage et direction artistique au service d'une iconographie haute couture."
       },
-      "shooting": {
-        "title": "Shooting",
-        "subtitle": "Votre univers, élevé au cinématographique",
-        "scope": "Photographie B2B / B2C, mode, corporate, lifestyle",
-        "description": "Transformer un environnement industriel ou business en un récit visuel raffiné, avec profondeur émotionnelle et exigence professionnelle."
-      },
-      "video": {
-        "title": "Vidéo",
-        "subtitle": "Créer une atmosphère dans l'interview",
-        "scope": "Films corporate, interviews, reels, motion design",
-        "description": "Diriger la vidéo avec émotion. L'interview demande à la fois précision et curiosité sincère, pour faire émerger le vrai, et le rendre intelligible."
-      },
-      "social": {
-        "title": "Social Media",
-        "subtitle": "Générer des designs uniques pour rendre la marque visible",
-        "scope": "Direction artistique social media, contenus quotidiens, stratégie",
-        "description": "Une esthétique de marque ancrée dans la simplicité, et des contenus social media taillés pour chaque plateforme."
-      },
-      "nature": {
-        "title": "Nature",
-        "subtitle": "La nature qui résonne, dans le Mercantour",
-        "scope": "Paysage, photographie noir et blanc, impressions",
-        "description": "Composer avec le paysage. Faire l'expérience de la vérité de la nature."
-      },
-      "wild-life": {
-        "title": "Vie sauvage",
-        "subtitle": "Au cœur du sauvage, dans le Mercantour",
-        "scope": "Photographie animalière, faune sauvage, prints",
-        "description": "Capter l'émotion de la vie sauvage. Montrer la beauté brute de la nature."
+      "monaco": {
+        "title": "Monaco",
+        "subtitle": "Soirées et événements premium sur la Riviera",
+        "scope": "Photographie événementielle, hospitalité, lifestyle",
+        "description": "Captation d'événements privés à Monaco et sur la Côte d'Azur : galas, lancements, soirées d'exception. Livrables prêts pour la communication et les réseaux le soir même."
       },
       "veoria": {
         "title": "Veoria",
-        "subtitle": "Photographie d'équipe et culture corporate",
-        "scope": "Photographie corporate, équipe, culture, social media",
-        "description": "Une journée auprès des équipes de Veoria pour documenter la culture, l'engagement, et offrir au groupe une banque de visuels prête pour les réseaux sociaux et la communication interne."
+        "subtitle": "Culture corporate et photographie d'équipe",
+        "scope": "Photographie corporate, équipes, culture, social media",
+        "description": "Une journée auprès des équipes de Veoria pour documenter la culture, l'engagement et offrir au groupe une banque de visuels prête pour les réseaux sociaux et la communication interne."
       },
-      "mibi": {
-        "title": "MIBI",
-        "subtitle": "Convention nationale 2026, captation événementielle",
+      "mibi-2026": {
+        "title": "MIBI 2026",
+        "subtitle": "Convention nationale, captation événementielle",
         "scope": "Photographie événementielle, convention, prises de parole",
         "description": "Captation complète de la convention MIBI 2026 : prises de parole, ateliers, moments off, portraits. Livrables exploitables le soir même pour la communication post-événement."
       },
-      "montpellier": {
-        "title": "Montpellier",
-        "subtitle": "Formation IA, janvier 2026",
-        "scope": "Formation intra-entreprise, accompagnement IA",
-        "description": "Une journée de formation aux outils d'intelligence artificielle pour les équipes marketing et communication, à Montpellier. Créer 30 publications, déployer un agent prospecteur, automatiser les workflows."
+      "cartonajes-pans": {
+        "title": "Cartonajes Pans",
+        "subtitle": "Reportage industriel à Barcelone",
+        "scope": "Photographie industrielle, presses offset, reportage",
+        "description": "Reportage complet pour Cartonajes Pans à Barcelone : ateliers, presses en activité, démonstrations colorimétriques, témoignages. Photographie documentaire noir et blanc et couleur."
       },
-      "barcelona": {
-        "title": "Barcelona / Printing Industry",
-        "subtitle": "Salon mondial de l'imprimerie",
-        "scope": "Reportage industriel, presses offset, brand activation",
-        "description": "Reportage complet sur le salon mondial de l'imprimerie à Barcelone : presses en activité, démonstrations colorimétriques, témoignages clients. Photographie 35 mm noir et blanc et couleur, dans la veine documentaire."
+      "wauters-bpack": {
+        "title": "Wauters B'Pack",
+        "subtitle": "Imprimerie, presses offset et contenus",
+        "scope": "Reportage industriel, social media, contenus",
+        "description": "Reportage industriel et création de contenus social media pour Wauters B'Pack. Captation des presses en activité et des opérateurs au travail, série exploitable sur tous les supports."
+      },
+      "capefront": {
+        "title": "Capefront",
+        "subtitle": "Identité de marque et photographie",
+        "scope": "Photographie corporate, lifestyle, identité",
+        "description": "Photographies de marque pour Capefront. Une série qui marie exigence corporate et lifestyle naturel, pour incarner la marque sur tous ses points de contact."
+      },
+      "eshuis": {
+        "title": "Eshuis",
+        "subtitle": "Reportage et direction artistique",
+        "scope": "Photographie corporate, portraits, scènes d'atelier",
+        "description": "Reportage et direction artistique pour Eshuis. Série de portraits et de scènes d'atelier qui raconte le métier et le savoir-faire de l'équipe."
+      },
+      "social-media": {
+        "title": "Social Media",
+        "subtitle": "Direction artistique et contenus pour les réseaux",
+        "scope": "Direction artistique social media, contenus quotidiens",
+        "description": "Une esthétique de marque ancrée dans la simplicité, et des contenus social media taillés pour chaque plateforme. Direction artistique, stories, posts, reels."
+      },
+      "formation-ia": {
+        "title": "Formation IA",
+        "subtitle": "Sessions intra-entreprise et workshops",
+        "scope": "Formation IA, prompting, agents autonomes",
+        "description": "Sessions de formation aux outils d'intelligence artificielle pour les équipes marketing et communication. Cas pratiques, automatisations, déploiement d'agents."
+      },
+      "valberg": {
+        "title": "Valberg",
+        "subtitle": "Paysages du Mercantour",
+        "scope": "Photographie paysage, noir et blanc, prints",
+        "description": "Une série photographique tournée dans le Mercantour, autour de Valberg. Composer avec le paysage, faire l'expérience de la vérité de la nature."
+      },
+      "animaux": {
+        "title": "Animaux",
+        "subtitle": "Photographie animalière, faune sauvage",
+        "scope": "Faune, photographie de nature, prints",
+        "description": "Capter l'émotion de la vie sauvage. Montrer la beauté brute de la nature, à hauteur d'animal."
       }
     }
   },

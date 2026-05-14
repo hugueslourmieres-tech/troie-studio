@@ -48,7 +48,7 @@ export default async function HomePage({
         photos={[
           { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
           { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
-          { src: "/images/works/event/cover.jpg", alt: "Création, événement Chanel" },
+          { src: "/images/works/CHANEL/cover.jpg", alt: "Création, événement Chanel" },
         ]}
         tools={[
           { src: "/images/logos/adobe.svg", label: "Adobe" },
