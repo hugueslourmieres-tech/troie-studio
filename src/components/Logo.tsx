@@ -44,40 +44,40 @@ export function Logo({
   }
 
   if (variant === "wordmark-emblem") {
-    // Emblème (guerrier) à 1.6× la hauteur du bloc, à gauche.
-    // À droite, TROIE en Bodoni + une ligne mono "— Studio —" en dessous,
-    // dans la même police que les onglets de la nav (JetBrains Mono).
+    // Emblème (guerrier) à gauche, et à droite la SAME typo que le footer
+    // stack : Bodoni TROIE en grand (fontSize 34, letter-spacing 14),
+    // ligne hairline en dessous, "Atelier Digital" en mono tracking-[0.4em].
     return (
       <span
         className={`inline-flex items-center gap-3 ${className}`}
-        aria-label="TROIE — Studio"
+        aria-label="TROIE — Atelier Digital"
       >
         <Emblem className="h-[160%] w-auto" />
         <span className="flex h-full flex-col items-center justify-center">
           <svg
-            viewBox="0 0 200 40"
+            viewBox="0 0 200 50"
             xmlns="http://www.w3.org/2000/svg"
-            className="h-[78%] w-auto"
+            className="h-[82%] w-auto"
             aria-hidden="true"
             preserveAspectRatio="xMidYMid meet"
           >
             <text
               x="100"
-              y="24"
+              y="32"
               textAnchor="middle"
               fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
               fontWeight="400"
-              fontSize="26"
-              letterSpacing="9"
+              fontSize="34"
+              letterSpacing="14"
               fill="currentColor"
             >
               TROIE
             </text>
             <line
               x1="40"
-              y1="34"
+              y1="44"
               x2="160"
-              y2="34"
+              y2="44"
               stroke="currentColor"
               strokeWidth="0.5"
               opacity="0.5"
@@ -85,7 +85,7 @@ export function Logo({
           </svg>
           <span
             aria-hidden="true"
-            className="mt-0.5 text-center font-mono text-[9px] uppercase tracking-[0.4em] opacity-70"
+            className="mt-1 text-center font-mono text-[10px] uppercase tracking-[0.4em] opacity-70"
             style={{ color: "currentColor" }}
           >
             Atelier Digital
