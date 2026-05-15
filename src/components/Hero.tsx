@@ -7,7 +7,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { HeroSlideshow } from "./HeroSlideshow";
-import { HeroLines } from "./HeroLines";
 import { SplitTextReveal } from "./SplitTextReveal";
 import { useMagnetic } from "@/lib/hooks/useMagnetic";
 
@@ -53,9 +52,6 @@ export function Hero({ locale }: { locale: string }) {
 
   return (
     <section className="relative isolate overflow-hidden bg-[var(--bg)]">
-      {/* Editorial grid + animated hairlines behind everything */}
-      <HeroLines />
-
       <div className="relative mx-auto grid min-h-[92vh] max-w-7xl grid-cols-1 gap-12 px-6 pt-36 pb-24 md:grid-cols-12 md:gap-16 md:px-12 md:pt-44 md:pb-32">
         {/* Text column */}
         <div className="flex flex-col justify-end md:col-span-7">
