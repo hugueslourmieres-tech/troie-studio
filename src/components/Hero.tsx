@@ -7,7 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { HeroSlideshow } from "./HeroSlideshow";
-import { SplitTextReveal } from "./SplitTextReveal";
+import { ScrambleText } from "./ScrambleText";
 import { useMagnetic } from "@/lib/hooks/useMagnetic";
 
 /**
@@ -66,13 +66,12 @@ export function Hero({ locale }: { locale: string }) {
 
           <h1 className="t-display mt-10 text-5xl text-[var(--fg)] md:text-7xl lg:text-[104px]">
             {lines.map((line, i) => (
-              <SplitTextReveal
+              <ScrambleText
                 key={i}
                 text={line}
                 className="block"
-                delay={0.15 + i * 0.18}
-                duration={1.1}
-                stagger={0.07}
+                delay={0.2 + i * 0.4}
+                duration={1.6}
               />
             ))}
           </h1>
