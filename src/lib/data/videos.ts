@@ -1,22 +1,87 @@
 /**
- * Corporate video library — embedded from YouTube.
- * Source playlist: https://youtube.com/playlist?list=PLr1x4-E5afOkvOVTLw5iidVcos_-MN7NB
+ * Corporate video library — mixes local mp4 reels and YouTube testimonials.
  *
- * Each entry holds the YouTube ID; the embed URL is built with
- * autoplay=1 and start=10 so playback skips the first 10s of each clip.
- * Thumbnails are pulled from i.ytimg.com directly (no lib needed).
+ * - Local clips (kind: "local") autoplay muted B&W as a preview and switch
+ *   to colour + sound on click. Files live in /public/images/videos-local.
+ * - YouTube clips (kind: "youtube") show the YouTube thumbnail in B&W and
+ *   load the youtube-nocookie iframe (autoplay + sound) on click, starting
+ *   at the configured timestamp (10s by default).
  */
 
-export type VideoItem = {
-  youtubeId: string;
-  /** Seconds to skip at the start of each video */
-  start?: number;
-  title: { fr: string; en: string };
+export type LocalVideo = {
+  kind: "local";
+  src: string;
   client: string;
+  title: { fr: string; en: string };
 };
 
+export type YouTubeVideo = {
+  kind: "youtube";
+  youtubeId: string;
+  start?: number;
+  client: string;
+  title: { fr: string; en: string };
+};
+
+export type VideoItem = LocalVideo | YouTubeVideo;
+
 export const VIDEOS: VideoItem[] = [
+  // ─────────────────────────────────────────────────────────────
+  // Reels / brand films — hosted locally, B&W muted preview loop
   {
+    kind: "local",
+    src: "/images/videos-local/01.mp4",
+    client: "GS Monaco",
+    title: {
+      fr: "GS Monaco, vidéo de présentation",
+      en: "GS Monaco, presentation film",
+    },
+  },
+  {
+    kind: "local",
+    src: "/images/videos-local/02.mp4",
+    client: "Top Akita Inu",
+    title: {
+      fr: "Top Akita Inu, interview Mickaël Bedouet",
+      en: "Top Akita Inu, Mickaël Bedouet interview",
+    },
+  },
+  {
+    kind: "local",
+    src: "/images/videos-local/03.mp4",
+    client: "GS Monaco",
+    title: { fr: "GS Monaco, reels", en: "GS Monaco, reels" },
+  },
+  {
+    kind: "local",
+    src: "/images/videos-local/04.mp4",
+    client: "Ferrari Auctions",
+    title: {
+      fr: "Ferrari Auctions, reels",
+      en: "Ferrari Auctions, reels",
+    },
+  },
+  {
+    kind: "local",
+    src: "/images/videos-local/05.mp4",
+    client: "X-Rite, eXact 2",
+    title: {
+      fr: "eXact 2, shorts reels Paris",
+      en: "eXact 2, Paris shorts reels",
+    },
+  },
+  {
+    kind: "local",
+    src: "/images/videos-local/06.mp4",
+    client: "X-Rite, eXact 2",
+    title: { fr: "eXact 2, unbox", en: "eXact 2, unboxing" },
+  },
+
+  // ─────────────────────────────────────────────────────────────
+  // YouTube testimonials — playlist PLr1x4-E5afOkvOVTLw5iidVcos_-MN7NB
+  // Titles aligned with the actual YouTube titles.
+  {
+    kind: "youtube",
     youtubeId: "78a006Kulok",
     client: "GS Monaco × Forbes",
     title: {
@@ -25,14 +90,16 @@ export const VIDEOS: VideoItem[] = [
     },
   },
   {
+    kind: "youtube",
     youtubeId: "yAZbtKzN_j0",
     client: "Wauters B'Pack",
     title: {
-      fr: "Témoignage — Wauters B'Pack, précision colorimétrique",
-      en: "Testimonial — Wauters B'Pack, color precision",
+      fr: "Wauters B'Pack — précision colorimétrique en imprimerie",
+      en: "Wauters B'Pack — advancing color precision in printing",
     },
   },
   {
+    kind: "youtube",
     youtubeId: "r7_4EdplcdE",
     client: "Autajon × Rutherford",
     title: {
@@ -41,22 +108,25 @@ export const VIDEOS: VideoItem[] = [
     },
   },
   {
+    kind: "youtube",
     youtubeId: "FTjkGK2K-wI",
     client: "LEFRANCQ Packaging",
     title: {
-      fr: "Témoignage — LEFRANCQ Packaging",
-      en: "Testimonial — LEFRANCQ Packaging",
+      fr: "LEFRANCQ Packaging — « We can't run the press without it »",
+      en: "LEFRANCQ Packaging — “We can't run the press without it”",
     },
   },
   {
+    kind: "youtube",
     youtubeId: "XjgKPUguTfw",
-    client: "Moderna Printing",
+    client: "Moderna Printing × Rutherford",
     title: {
-      fr: "Témoignage — Moderna Printing × Rutherford",
-      en: "Testimonial — Moderna Printing × Rutherford",
+      fr: "Moderna Printing — moins de gâche, mises en route plus rapides",
+      en: "Moderna Printing — reduced waste, smarter startups with Rutherford",
     },
   },
   {
+    kind: "youtube",
     youtubeId: "vYN1mjCK9VU",
     client: "ColorConsulting Italy",
     title: {
@@ -65,6 +135,7 @@ export const VIDEOS: VideoItem[] = [
     },
   },
   {
+    kind: "youtube",
     youtubeId: "w4sA1QzEvOs",
     client: "Printwell USA",
     title: {
@@ -73,8 +144,9 @@ export const VIDEOS: VideoItem[] = [
     },
   },
   {
+    kind: "youtube",
     youtubeId: "ut247z4ren8",
-    client: "Avery Dennison Queretaro",
+    client: "Avery Dennison Querétaro",
     title: {
       fr: "Témoignage — Avery Dennison, Querétaro",
       en: "Testimonial — Avery Dennison, Querétaro",

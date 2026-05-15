@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import {
   VIDEOS,
@@ -11,13 +11,14 @@ import {
 } from "@/lib/data/videos";
 
 /**
- * VideoCarousel — corporate testimonials embedded from YouTube.
+ * VideoCarousel — corporate films + YouTube testimonials.
  *
- * - Cards show a YouTube thumbnail in B&W by default.
- * - Click → load the YouTube iframe with autoplay + sound, starting at
- *   the configured timestamp (10s by default).
- * - Only one card can be active; opening another collapses the previous.
- * - Drag / swipe to browse the 8 films.
+ * - Local mp4 cards autoplay muted in B&W, click → colour + sound.
+ * - YouTube cards show the thumbnail in B&W, click → youtube-nocookie
+ *   iframe with autoplay + sound, starting at 10s by default.
+ * - Same 3:4 portrait crop for everything so the carousel stays
+ *   visually consistent.
+ * - Only one card can be active at a time.
  */
 export function VideoCarousel({ locale }: { locale: string }) {
   const lang = (locale === "en" ? "en" : "fr") as "fr" | "en";
@@ -55,10 +56,10 @@ export function VideoCarousel({ locale }: { locale: string }) {
         <div className="flex touch-pan-y gap-6">
           {VIDEOS.map((v, i) => (
             <div
-              key={v.youtubeId}
-              className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_60%] lg:flex-[0_0_45%]"
+              key={i}
+              className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
             >
-              <VideoCardYouTube
+              <VideoCard
                 video={v}
                 index={i}
                 lang={lang}
@@ -95,7 +96,7 @@ export function VideoCarousel({ locale }: { locale: string }) {
   );
 }
 
-function VideoCardYouTube({
+function VideoCard({
   video,
   index,
   lang,
@@ -113,7 +114,7 @@ function VideoCardYouTube({
   return (
     <article className="flex flex-col">
       <div
-        className="group relative aspect-video cursor-pointer overflow-hidden bg-[var(--bg-2)]"
+        className="group relative aspect-[3/4] cursor-pointer overflow-hidden bg-[var(--bg-2)]"
         onClick={() => (active ? onDeactivate() : onActivate())}
         role="button"
         tabIndex={0}
@@ -125,40 +126,10 @@ function VideoCardYouTube({
           }
         }}
       >
-        {active ? (
-          <iframe
-            src={embedUrl(video.youtubeId, video.start)}
-            title={video.title[lang]}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            className="h-full w-full"
-          />
+        {video.kind === "local" ? (
+          <LocalMedia video={video} active={active} />
         ) : (
-          <>
-            <Image
-              src={thumbnailUrl(video.youtubeId)}
-              alt={video.title[lang]}
-              fill
-              sizes="(max-width: 768px) 85vw, (max-width: 1024px) 60vw, 45vw"
-              className="object-cover transition-[filter,transform] duration-700 group-hover:scale-[1.02]"
-              style={{
-                filter: "grayscale(1) brightness(0.96) contrast(1.06)",
-              }}
-            />
-            {/* Play button overlay */}
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-              <span className="flex h-16 w-16 items-center justify-center rounded-full border border-[var(--bg)]/80 bg-[var(--bg)]/15 backdrop-blur-sm transition group-hover:scale-110 group-hover:bg-[var(--accent)] md:h-20 md:w-20">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="ml-1 h-6 w-6 text-[var(--bg)]"
-                  fill="currentColor"
-                  aria-hidden="true"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </span>
-            </div>
-          </>
+          <YouTubeMedia video={video} active={active} title={video.title[lang]} />
         )}
 
         {active && (
@@ -188,5 +159,105 @@ function VideoCardYouTube({
         {video.title[lang]}
       </p>
     </article>
+  );
+}
+
+/**
+ * LocalMedia — autoplay muted B&W loop preview; click toggles colour + sound.
+ */
+function LocalMedia({
+  video,
+  active,
+}: {
+  video: Extract<VideoItem, { kind: "local" }>;
+  active: boolean;
+}) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (active) {
+      el.muted = false;
+      el.loop = false;
+      el.currentTime = 0;
+      el.play().catch(() => {
+        /* autoplay rules — ignore */
+      });
+    } else {
+      el.muted = true;
+      el.loop = true;
+      if (!el.paused) el.pause();
+    }
+  }, [active]);
+
+  return (
+    <video
+      ref={ref}
+      src={video.src}
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="metadata"
+      className="h-full w-full object-cover transition-[filter] duration-700"
+      style={{
+        filter: active
+          ? "none"
+          : "grayscale(1) brightness(0.96) contrast(1.06)",
+      }}
+    />
+  );
+}
+
+/**
+ * YouTubeMedia — thumbnail B&W with a play overlay, swaps to a
+ * youtube-nocookie iframe when active.
+ */
+function YouTubeMedia({
+  video,
+  active,
+  title,
+}: {
+  video: Extract<VideoItem, { kind: "youtube" }>;
+  active: boolean;
+  title: string;
+}) {
+  if (active) {
+    return (
+      <iframe
+        src={embedUrl(video.youtubeId, video.start)}
+        title={title}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        className="h-full w-full"
+      />
+    );
+  }
+
+  return (
+    <>
+      <Image
+        src={thumbnailUrl(video.youtubeId)}
+        alt={title}
+        fill
+        sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover transition-[filter,transform] duration-700 group-hover:scale-[1.02]"
+        style={{ filter: "grayscale(1) brightness(0.96) contrast(1.06)" }}
+      />
+      {/* Play overlay */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+        <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[var(--bg)]/70 bg-[var(--bg)]/15 backdrop-blur-sm transition group-hover:scale-110 group-hover:bg-[var(--accent)] md:h-16 md:w-16">
+          <svg
+            viewBox="0 0 24 24"
+            className="ml-0.5 h-5 w-5 text-[var(--bg)]"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </span>
+      </div>
+    </>
   );
 }
