@@ -212,126 +212,35 @@ function NextProject({
 }
 
 /**
- * Mosaic — éditorial luxe, supporte N photos.
- * Pattern de 5 visuels qui se répète pour absorber n'importe quelle longueur :
- *   1. Wide landscape (16/9 plein écran)
- *   2-3. Split asymétrique 7/5 (deux portraits)
- *   4. Wide landscape (16/10)
- *   5-6. Two equal columns (4/5)
- * Au-delà de 6, on relance le cycle. Le rythme magazine est conservé.
+ * Mosaic — éditorial masonry : chaque photo s'affiche dans son ratio
+ * natif (paysage, portrait, carré) sans crop. CSS columns garantit le
+ * flux magazine — 1 colonne mobile, 2 colonnes desktop.
+ *
+ * `break-inside-avoid` empêche une photo d'être coupée entre 2 colonnes.
+ * `width/height` sur next/image permettent à Next de connaître le ratio
+ * avant de fetch — pas de saut de layout au chargement.
  */
 function Mosaic({ photos, alt }: { photos: string[]; alt: string }) {
   if (photos.length === 0) return null;
 
-  // Découpe les photos en groupes de 6 (un cycle de la mosaic desktop)
-  const cycles: string[][] = [];
-  for (let i = 0; i < photos.length; i += 6) {
-    cycles.push(photos.slice(i, i + 6));
-  }
-
   return (
-    <>
-      {/* Mobile — photos complètes en ratio natif, sans crop */}
-      <div className="space-y-6 md:hidden">
-        {photos.map((src) => (
-          <div
-            key={src}
-            className="relative w-full overflow-hidden bg-[var(--bg-2)]"
-          >
-            <Image
-              src={src}
-              alt={alt}
-              width={1600}
-              height={1067}
-              sizes="100vw"
-              className="t-photo h-auto w-full"
-            />
-          </div>
-        ))}
-      </div>
-
-      {/* Desktop — mosaïque éditoriale magazine */}
-      <div className="hidden space-y-6 md:block md:space-y-8">
-        {cycles.map((cycle, idx) => (
-          <MosaicCycle key={idx} photos={cycle} alt={alt} />
-        ))}
-      </div>
-    </>
-  );
-}
-
-function MosaicCycle({ photos, alt }: { photos: string[]; alt: string }) {
-  return (
-    <div className="grid gap-6 md:gap-8">
-      {photos[0] && (
-        <div className="group relative aspect-[16/9] overflow-hidden bg-[var(--bg-2)]">
+    <div className="columns-1 gap-6 md:columns-2 md:gap-8">
+      {photos.map((src) => (
+        <div
+          key={src}
+          className="mb-6 break-inside-avoid overflow-hidden bg-[var(--bg-2)] md:mb-8"
+        >
           <Image
-            src={photos[0]}
+            src={src}
             alt={alt}
-            fill
-            sizes="100vw"
-            className="t-photo object-cover"
+            width={1600}
+            height={1067}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="t-photo h-auto w-full"
           />
         </div>
-      )}
-
-      {(photos[1] || photos[2]) && (
-        <div className="grid gap-6 md:grid-cols-12 md:gap-8">
-          {photos[1] && (
-            <div className="group relative aspect-[3/4] overflow-hidden bg-[var(--bg-2)] md:col-span-7">
-              <Image
-                src={photos[1]}
-                alt={alt}
-                fill
-                sizes="(max-width: 768px) 100vw, 60vw"
-                className="t-photo object-cover"
-              />
-            </div>
-          )}
-          {photos[2] && (
-            <div className="group relative aspect-[3/4] self-end overflow-hidden bg-[var(--bg-2)] md:col-span-5">
-              <Image
-                src={photos[2]}
-                alt={alt}
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="t-photo object-cover"
-              />
-            </div>
-          )}
-        </div>
-      )}
-
-      {photos[3] && (
-        <div className="group relative aspect-[16/10] overflow-hidden bg-[var(--bg-2)]">
-          <Image
-            src={photos[3]}
-            alt={alt}
-            fill
-            sizes="100vw"
-            className="t-photo object-cover"
-          />
-        </div>
-      )}
-
-      {(photos[4] || photos[5]) && (
-        <div className="grid gap-6 md:grid-cols-2 md:gap-8">
-          {[photos[4], photos[5]].filter(Boolean).map((src, i) => (
-            <div
-              key={src ?? i}
-              className="group relative aspect-[4/5] overflow-hidden bg-[var(--bg-2)]"
-            >
-              <Image
-                src={src as string}
-                alt={alt}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="t-photo object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      )}
+      ))}
     </div>
   );
 }
+
