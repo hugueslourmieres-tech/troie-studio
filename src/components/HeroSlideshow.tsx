@@ -22,9 +22,9 @@ import {
  */
 
 const SLIDES = [
-  { src: "/images/slideshow/01.jpg", alt: "TROIE — slide 1" },
-  { src: "/images/slideshow/03.jpg", alt: "TROIE — slide 2" },
-  { src: "/images/slideshow/04.jpg", alt: "TROIE — slide 3" },
+  { src: "/images/slideshow/03.jpg", alt: "TROIE — slide 1" },
+  { src: "/images/slideshow/04.jpg", alt: "TROIE — slide 2" },
+  { src: "/images/slideshow/01.jpg", alt: "TROIE — slide 3" },
   { src: "/images/slideshow/06.jpg", alt: "TROIE — slide 4" },
   { src: "/images/slideshow/07.jpg", alt: "TROIE — slide 5" },
 ];
