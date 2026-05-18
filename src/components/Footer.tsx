@@ -87,7 +87,7 @@ export async function Footer({ locale }: { locale: string }) {
               </li>
               <li>
                 <a
-                  href="https://www.behance.net/hugueslourmieres"
+                  href="https://www.behance.net/hugueslourmie3"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Behance"

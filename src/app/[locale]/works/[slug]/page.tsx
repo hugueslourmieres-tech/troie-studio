@@ -67,7 +67,7 @@ function CaseView({
 
   return (
     <article>
-      {/* Cover — mobile: full image, no crop; desktop: immersive 80vh */}
+      {/* Cover — mobile: full image, title below; desktop: full bleed with title overlaid */}
       <header className="group relative isolate">
         {/* Mobile cover — natural aspect ratio, complete image */}
         <div className="relative w-full overflow-hidden bg-[var(--bg-2)] md:hidden">
@@ -82,8 +82,26 @@ function CaseView({
           />
         </div>
 
-        {/* Desktop cover — full bleed 80vh with gradient overlay */}
-        <div className="relative hidden h-[80vh] min-h-[560px] w-full overflow-hidden bg-[var(--bg-2)] md:block">
+        {/* Mobile text block */}
+        <div className="mx-auto mt-10 max-w-7xl px-6 pb-16 md:hidden">
+          <Link
+            href={`/${locale}/works`}
+            className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
+          >
+            ← {locale === "fr" ? "Retour" : "Back"}
+          </Link>
+
+          <p className="t-eyebrow mt-8">{t(`items.${slug}.scope`)}</p>
+          <h1 className="t-display mt-6 max-w-5xl break-words text-5xl text-[var(--fg)] sm:text-6xl">
+            {t(`items.${slug}.title`)}
+          </h1>
+          <p className="t-display-italic mt-6 max-w-3xl text-xl text-[var(--fg-2)] sm:text-2xl">
+            {t(`items.${slug}.subtitle`)}
+          </p>
+        </div>
+
+        {/* Desktop cover — full bleed 90vh with title overlaid IN FRONT */}
+        <div className="relative hidden h-[90vh] min-h-[640px] w-full overflow-hidden bg-[var(--bg-2)] md:block">
           <Image
             src={cover}
             alt={t(`items.${slug}.title`)}
@@ -92,24 +110,35 @@ function CaseView({
             sizes="100vw"
             className="t-photo object-cover"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-[var(--bg)]/40 to-transparent" />
-        </div>
+          {/* Strong gradient at the bottom for title readability */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
 
-        <div className="mx-auto mt-10 max-w-7xl px-6 pb-16 md:-mt-56 md:px-12">
-          <Link
-            href={`/${locale}/works`}
-            className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
-          >
-            ← {locale === "fr" ? "Retour" : "Back"}
-          </Link>
+          {/* Back link — top-left of the cover */}
+          <div className="absolute inset-x-0 top-0 z-10">
+            <div className="mx-auto max-w-7xl px-6 pt-32 md:px-12 md:pt-36">
+              <Link
+                href={`/${locale}/works`}
+                className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:text-[var(--accent)]"
+              >
+                ← {locale === "fr" ? "Retour" : "Back"}
+              </Link>
+            </div>
+          </div>
 
-          <p className="t-eyebrow mt-8 md:mt-12">{t(`items.${slug}.scope`)}</p>
-          <h1 className="t-display mt-6 max-w-5xl break-words text-5xl text-[var(--fg)] sm:text-6xl md:text-8xl lg:text-9xl">
-            {t(`items.${slug}.title`)}
-          </h1>
-          <p className="t-display-italic mt-6 max-w-3xl text-xl text-[var(--fg-2)] sm:text-2xl md:text-3xl">
-            {t(`items.${slug}.subtitle`)}
-          </p>
+          {/* Title block — bottom of the cover, overlaying the photo */}
+          <div className="absolute inset-x-0 bottom-0 z-10">
+            <div className="mx-auto max-w-7xl px-6 pb-16 md:px-12 md:pb-20">
+              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--accent)]">
+                {t(`items.${slug}.scope`)}
+              </p>
+              <h1 className="t-display mt-6 max-w-5xl break-words text-white md:text-8xl lg:text-9xl">
+                {t(`items.${slug}.title`)}
+              </h1>
+              <p className="t-display-italic mt-6 max-w-3xl text-white/85 md:text-3xl">
+                {t(`items.${slug}.subtitle`)}
+              </p>
+            </div>
+          </div>
         </div>
       </header>
 

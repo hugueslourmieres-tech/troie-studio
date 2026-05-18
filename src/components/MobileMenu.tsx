@@ -143,7 +143,7 @@ export function MobileMenu({ locale, links }: Props) {
                 </li>
                 <li>
                   <a
-                    href="https://www.behance.net/hugueslourmieres"
+                    href="https://www.behance.net/hugueslourmie3"
                     target="_blank"
                     rel="noreferrer"
                     aria-label="Behance"
