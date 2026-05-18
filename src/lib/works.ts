@@ -54,9 +54,12 @@ export const WORKS: Work[] = [
   {
     slug: "cartonajes-pans",
     cover: file("Cartonajes Pans", "cover.jpg"),
-    gallery: Array.from({ length: 16 }, (_, i) =>
-      file("Cartonajes Pans", `${String(i + 1).padStart(2, "0")}.jpg`),
-    ),
+    // 16 photos in the folder; skip 15.jpg
+    gallery: Array.from({ length: 16 }, (_, i) => i + 1)
+      .filter((n) => n !== 15)
+      .map((n) =>
+        file("Cartonajes Pans", `${String(n).padStart(2, "0")}.jpg`),
+      ),
   },
   {
     slug: "mibi-2026",
