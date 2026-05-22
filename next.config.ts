@@ -4,16 +4,22 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
-  // Brand metadata fallbacks for shared OG/twitter generation later
   poweredByHeader: false,
-  // YouTube thumbnails are served directly from i.ytimg.com — whitelist
-  // them for next/image so we don't pay the cost of duplicating thumbnails
-  // in our own /public folder.
+  // Trim runtime CSS / JS where Next allows it.
+  compress: true,
+  reactStrictMode: true,
+  // Optimise the image pipeline: prefer modern formats and cache aggressively.
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "i.ytimg.com" },
       { protocol: "https", hostname: "img.youtube.com" },
     ],
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days for optimised assets
+  },
+  // Pre-bundle motion + gsap so route-level chunks stay lean.
+  experimental: {
+    optimizePackageImports: ["motion", "gsap", "@gsap/react", "lucide-react"],
   },
 };
 

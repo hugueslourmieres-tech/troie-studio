@@ -46,7 +46,7 @@ export function Header({ locale }: { locale: string }) {
           aria-label="TROIE, Studio France"
           className="block text-[var(--fg)] transition hover:text-[var(--accent)]"
         >
-          <Logo variant="wordmark-emblem" className="h-10 md:h-12" />
+          <Logo variant="stack" className="w-24 text-[var(--fg)] md:w-28" />
         </Link>
 
         {/* Editorial nav — 01. Creation, 02. Strategy, ... */}
