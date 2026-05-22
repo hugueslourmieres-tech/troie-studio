@@ -34,10 +34,8 @@ export function Header({ locale }: { locale: string }) {
 
   return (
     <header
-      className={`tone-light fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
-        scrolled
-          ? "border-b border-[var(--rule)] bg-[var(--bg)]/95 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+      className={`tone-accent fixed inset-x-0 top-0 z-50 bg-[var(--bg)] transition-[border-color] duration-500 ${
+        scrolled ? "border-b border-[var(--rule)]" : "border-b border-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">

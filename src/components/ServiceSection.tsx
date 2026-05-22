@@ -91,7 +91,7 @@ export function ServiceSection({
               <Reveal delay={0.5}>
                 <Link
                   href={ctaHref}
-                  className="group mt-12 hidden items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:inline-flex"
+                  className="group mt-12 hidden items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:inline-flex"
                 >
                   {ctaLabel}
                   <span
@@ -116,7 +116,7 @@ export function ServiceSection({
               <Reveal delay={0.2}>
                 <Link
                   href={ctaHref}
-                  className="group mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:hidden"
+                  className="group mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:hidden"
                 >
                   {ctaLabel}
                   <span
