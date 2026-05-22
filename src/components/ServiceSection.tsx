@@ -86,11 +86,12 @@ export function ServiceSection({
               </Reveal>
             )}
 
+            {/* Desktop CTA — stays under the bullets / tools, in the text column */}
             {ctaLabel && ctaHref && (
               <Reveal delay={0.5}>
                 <Link
                   href={ctaHref}
-                  className="group mt-12 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                  className="group mt-12 hidden items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:inline-flex"
                 >
                   {ctaLabel}
                   <span
@@ -109,6 +110,24 @@ export function ServiceSection({
             <Reveal delay={0.15} direction={reverse ? "left" : "right"}>
               <PhotoMosaic photos={photos} />
             </Reveal>
+
+            {/* Mobile CTA — sits below the photos on mobile only */}
+            {ctaLabel && ctaHref && (
+              <Reveal delay={0.2}>
+                <Link
+                  href={ctaHref}
+                  className="group mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:hidden"
+                >
+                  {ctaLabel}
+                  <span
+                    aria-hidden="true"
+                    className="transition group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </Link>
+              </Reveal>
+            )}
           </div>
         </div>
       </div>
