@@ -12,10 +12,14 @@ export function ContactForm() {
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    // Capture the form ref BEFORE any await — React recycles the synthetic
+    // event and `event.currentTarget` becomes null after the await, which
+    // was making the success path throw and fall into the error branch.
+    const form = event.currentTarget;
     setStatus("sending");
     setErrorMsg(null);
 
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     const payload = {
       name: String(formData.get("name") ?? ""),
       email: String(formData.get("email") ?? ""),
@@ -38,9 +42,10 @@ export function ContactForm() {
         return;
       }
 
+      form.reset();
       setStatus("ok");
-      event.currentTarget.reset();
-    } catch {
+    } catch (err) {
+      console.error("Contact form fetch error:", err);
       setErrorMsg("Réseau indisponible. Réessayez.");
       setStatus("error");
     }
@@ -48,16 +53,43 @@ export function ContactForm() {
 
   if (status === "ok") {
     return (
-      <div className="md:col-span-7">
-        <div className="rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-10">
-          <p className="t-eyebrow">/ Merci</p>
-          <p className="mt-6 text-lg leading-relaxed text-[var(--fg)] md:text-xl">
+      <div
+        className="md:col-span-7"
+        role="status"
+        aria-live="polite"
+      >
+        <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--bg-2)] p-8 md:p-12">
+          <div className="flex items-center gap-3">
+            <span
+              aria-hidden="true"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--bg)]"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-5 w-5"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <p className="t-eyebrow !text-[var(--accent)]">/ Message envoyé</p>
+          </div>
+
+          <h2 className="t-display mt-8 text-3xl text-[var(--fg)] md:text-5xl">
+            Merci.
+          </h2>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             {t("thanks")}
           </p>
+
           <button
             type="button"
             onClick={() => setStatus("idle")}
-            className="mt-8 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-1 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
             ↺ Envoyer un autre message
           </button>
