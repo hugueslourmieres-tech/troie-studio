@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Reveal } from "./Reveal";
 
 export type Photo = { src: string; alt: string };
@@ -13,6 +14,8 @@ type Props = {
   tools?: Tool[];
   reverse?: boolean;
   id?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
 };
 
 /**
@@ -31,6 +34,8 @@ export function ServiceSection({
   tools,
   reverse = false,
   id,
+  ctaLabel,
+  ctaHref,
 }: Props) {
   return (
     <section
@@ -78,6 +83,23 @@ export function ServiceSection({
             {tools && tools.length > 0 && (
               <Reveal delay={0.4}>
                 <ToolsRow tools={tools} />
+              </Reveal>
+            )}
+
+            {ctaLabel && ctaHref && (
+              <Reveal delay={0.5}>
+                <Link
+                  href={ctaHref}
+                  className="group mt-12 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                >
+                  {ctaLabel}
+                  <span
+                    aria-hidden="true"
+                    className="transition group-hover:translate-x-1"
+                  >
+                    →
+                  </span>
+                </Link>
               </Reveal>
             )}
           </div>

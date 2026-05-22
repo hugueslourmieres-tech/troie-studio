@@ -45,6 +45,8 @@ export default async function HomePage({
         title={t("creationTitle")}
         body={t("creationBody")}
         items={creationItems}
+        ctaLabel={t("creationCta")}
+        ctaHref={`/${locale}/contact?subject=creation`}
         photos={[
           { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
           { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
@@ -65,6 +67,8 @@ export default async function HomePage({
         title={t("strategyTitle")}
         body={t("strategyBody")}
         items={strategyItems}
+        ctaLabel={t("strategyCta")}
+        ctaHref={`/${locale}/contact?subject=strategy`}
         reverse
         photos={[
           { src: "/images/strategy-section/01.jpg", alt: "Stratégie, communication marque" },
@@ -86,6 +90,8 @@ export default async function HomePage({
         title={t("trainingTitle")}
         body={t("trainingBody")}
         items={trainingItems}
+        ctaLabel={t("trainingCta")}
+        ctaHref={`/${locale}/contact?subject=training`}
         photos={[
           { src: "/images/training-section/01.jpg", alt: "Formation IA, atelier" },
           { src: "/images/training-section/02.jpg", alt: "Formation IA, Montpellier" },
