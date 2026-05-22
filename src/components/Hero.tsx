@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
-import { HeroSlideshow } from "./HeroSlideshow";
+import { HeroVideo } from "./HeroVideo";
 import { useMagnetic } from "@/lib/hooks/useMagnetic";
 
 /**
@@ -106,7 +106,7 @@ export function Hero({ locale }: { locale: string }) {
           </motion.div>
         </div>
 
-        {/* Slideshow column — infinite, drag-friendly, B&W. Parallax on scroll. */}
+        {/* Video column — looping B&W cover film. Parallax on scroll. */}
         <div className="md:col-span-5">
           <motion.div
             ref={slideshowRef}
@@ -115,7 +115,7 @@ export function Hero({ locale }: { locale: string }) {
             transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="relative h-[60vh] min-h-[420px] w-full overflow-hidden md:h-full md:min-h-[560px]"
           >
-            <HeroSlideshow />
+            <HeroVideo />
           </motion.div>
         </div>
       </div>
