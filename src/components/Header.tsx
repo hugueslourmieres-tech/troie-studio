@@ -66,15 +66,15 @@ export function Header({ locale }: { locale: string }) {
         </nav>
 
         <div className="flex items-center gap-4 md:gap-5">
-          {/* Desktop right cluster: Contact CTA + langswitch dropdown */}
+          {/* Desktop right cluster: langswitch dropdown + CTA */}
           <div className="hidden items-center gap-4 md:flex">
+            <LangSwitch locale={locale} />
             <Link
               href={`/${locale}/contact`}
               className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
               {t("contact")}
             </Link>
-            <LangSwitch locale={locale} />
           </div>
 
           {/* Mobile : burger */}
