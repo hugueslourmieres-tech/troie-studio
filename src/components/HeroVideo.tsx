@@ -3,11 +3,17 @@
 import { useEffect, useRef } from "react";
 
 /**
- * HeroVideo — fullbleed looping cover video, B&W. autoPlay + loop +
- * muted is enough for browsers; we also wire a JS fallback that calls
- * .play() once the metadata loads, in case a strict mobile browser
- * blocked the initial autoplay. ended handler nudges the loop back to
- * start if the native loop attribute was ignored (very old Safari).
+ * HeroVideo — fullbleed looping cover video, B&W.
+ *
+ * autoplay layered defence:
+ *   1. HTML attributes  : autoPlay loop muted playsInline preload="auto"
+ *   2. On mount         : force muted then call .play() immediately.
+ *   3. On loadeddata    : call .play() again (some browsers only allow it then).
+ *   4. On canplay       : same.
+ *   5. On document        first scroll / click / touch / keydown → play().
+ *      Catches strict-autoplay browsers (Safari Low Power, Chrome Data Saver).
+ *   6. On ended         : reset currentTime to 0 and play() (old Safari loop bug).
+ *   7. On visibilitychange: resume when tab becomes visible.
  */
 export function HeroVideo() {
   const ref = useRef<HTMLVideoElement>(null);
@@ -15,21 +21,53 @@ export function HeroVideo() {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const startLoop = () => {
+
+    const tryPlay = () => {
       el.muted = true;
-      el.play().catch(() => {
-        /* iOS strict autoplay rules — first interaction will start it */
-      });
+      const p = el.play();
+      if (p && typeof p.catch === "function") {
+        p.catch(() => {
+          /* Will retry on next interaction */
+        });
+      }
     };
-    const onEnded = () => {
+
+    // Immediate attempts
+    tryPlay();
+    el.addEventListener("loadeddata", tryPlay);
+    el.addEventListener("canplay", tryPlay);
+    el.addEventListener("ended", () => {
       el.currentTime = 0;
-      el.play().catch(() => {});
+      tryPlay();
+    });
+
+    // Fallback: first user gesture unlocks autoplay everywhere
+    const unlock = () => {
+      tryPlay();
+      window.removeEventListener("scroll", unlock);
+      window.removeEventListener("click", unlock);
+      window.removeEventListener("touchstart", unlock);
+      window.removeEventListener("keydown", unlock);
     };
-    el.addEventListener("loadeddata", startLoop);
-    el.addEventListener("ended", onEnded);
+    window.addEventListener("scroll", unlock, { once: true, passive: true });
+    window.addEventListener("click", unlock, { once: true });
+    window.addEventListener("touchstart", unlock, { once: true, passive: true });
+    window.addEventListener("keydown", unlock, { once: true });
+
+    // Resume when tab refocuses
+    const onVisibility = () => {
+      if (document.visibilityState === "visible" && el.paused) tryPlay();
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
     return () => {
-      el.removeEventListener("loadeddata", startLoop);
-      el.removeEventListener("ended", onEnded);
+      el.removeEventListener("loadeddata", tryPlay);
+      el.removeEventListener("canplay", tryPlay);
+      window.removeEventListener("scroll", unlock);
+      window.removeEventListener("click", unlock);
+      window.removeEventListener("touchstart", unlock);
+      window.removeEventListener("keydown", unlock);
+      document.removeEventListener("visibilitychange", onVisibility);
     };
   }, []);
 
@@ -41,8 +79,11 @@ export function HeroVideo() {
         autoPlay
         loop
         muted
+        defaultMuted
         playsInline
         preload="auto"
+        controls={false}
+        disablePictureInPicture
         aria-label="TROIE, film d'introduction"
         className="h-full w-full object-cover"
         style={{
