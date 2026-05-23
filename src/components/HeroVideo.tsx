@@ -79,11 +79,8 @@ export function HeroVideo() {
         autoPlay
         loop
         muted
-        defaultMuted
         playsInline
         preload="auto"
-        controls={false}
-        disablePictureInPicture
         aria-label="TROIE, film d'introduction"
         className="h-full w-full object-cover"
         style={{
