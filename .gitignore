@@ -52,10 +52,12 @@ next-env.d.ts
 /public/images/Photos Corpo Hugues/
 /public/images/dossier sans titre/
 
-# Legacy / unused folders
+# Legacy / unused folders (mais on garde le hero-bg du /formations
+# qui est un asset intentionnel et leger).
 /public/images/IA/
 /public/images/creation/
-/public/images/formations/
+/public/images/formations/*
+!/public/images/formations/hero-bg.jpg
 /public/images/corpo/
 /public/images/backgrounds/
 

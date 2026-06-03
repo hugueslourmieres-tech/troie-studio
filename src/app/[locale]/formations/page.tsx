@@ -126,9 +126,30 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero */}
-      <header className="border-t border-[var(--accent)] scroll-mt-24">
-        <div className="mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-24">
+      {/* Hero — fond gravure classique (Diane chasseresse + Cupidon)
+          + voile crème pour lisibilité, mêmes tokens que /agents pour
+          cohérence visuelle entre les deux pages d'offre. */}
+      <header className="relative isolate overflow-hidden border-t border-[var(--accent)] scroll-mt-24">
+        {/* Background engraving */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/formations/hero-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover"
+          style={{ filter: "grayscale(1) brightness(1.02) contrast(0.94)" }}
+        />
+        {/* Cream veil + left-to-right fade so the body copy stays readable */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[var(--bg)]/72"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 -z-10 w-2/3 bg-gradient-to-r from-[var(--bg)] via-[var(--bg)]/70 to-transparent"
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-24">
           <Reveal>
             <p className="t-eyebrow">{t("heroEyebrow")}</p>
           </Reveal>
