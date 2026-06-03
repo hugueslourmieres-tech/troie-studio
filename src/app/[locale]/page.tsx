@@ -2,6 +2,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Hero } from "@/components/Hero";
 import { Intro } from "@/components/Intro";
 import { ServiceSection } from "@/components/ServiceSection";
+import { AgentsTeaser } from "@/components/AgentsTeaser";
 import { WorksGallery } from "@/components/WorksGallery";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
@@ -91,7 +92,7 @@ export default async function HomePage({
         body={t("trainingBody")}
         items={trainingItems}
         ctaLabel={t("trainingCta")}
-        ctaHref={`/${locale}/contact?subject=training`}
+        ctaHref={`/${locale}/formations`}
         photos={[
           { src: "/images/training-section/01.jpg", alt: "Formation IA, atelier" },
           { src: "/images/training-section/02.jpg", alt: "Formation IA, Montpellier" },
@@ -106,6 +107,14 @@ export default async function HomePage({
           { src: "/images/logos/copilot.svg", label: "Copilot" },
         ]}
       />
+
+      {/* AGENTS — 04. Teaser orange Hermès, 3 figures de l'Antiquité vers /agents */}
+      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
+        <AgentsTeaser
+          locale={locale}
+          lang={locale === "en" ? "en" : "fr"}
+        />
+      </div>
 
       <EmblemBreak size="md" />
 

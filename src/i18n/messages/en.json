@@ -9,6 +9,7 @@
     "creation": "Creative",
     "strategy": "Strategy",
     "training": "Training",
+    "agents": "Agents",
     "works": "Works",
     "about": "Studio",
     "contact": "Contact",
@@ -20,6 +21,9 @@
     "heroSubtitle": "Creative studio, digital marketing strategy and training on AI tools. Photography, video, design, brand identity and AI rollout. A boutique team, ten years alongside brands.",
     "heroCtaPrimary": "Start a project",
     "heroCtaSecondary": "See our work",
+    "heroVideoCta": "See the atelier in motion",
+    "heroVideoMeta": "Atelier — 2026",
+    "heroToolsAriaLabel": "Tools used by TROIE",
     "introEyebrow": "The studio",
     "introTitle": "One studio. Three crafts.",
     "introBody": "TROIE is the agency of Hugues Lourmieres. Since 2015, we have worked with luxury houses, industrials and service companies in France and worldwide. We craft their imagery, advise their strategy, and train their teams on today's digital tools.",
@@ -84,7 +88,18 @@
     "packsTerms": "All prices excluding VAT. Standard terms: 50 % on order, balance on delivery. Detailed quote within 48 hours of briefing.",
     "ctaTitle": "Let's talk about your project.",
     "ctaSubtitle": "A thirty-minute call to understand your need and propose an approach.",
-    "ctaButton": "Book a call"
+    "ctaButton": "Book a call",
+    "agentsEyebrow": "04 · Agents",
+    "agentsTitle": "Three figures for your brand.",
+    "agentsIntro": "Hermes opens. Achilles conquers. Hestia tends. Three figures of antiquity at the service of your brand: one agent to win customers, one to produce without pause, one to tend your hearth.",
+    "agentsCta": "Discover the agents",
+    "agentsCard01Title": "The agent who opens doors.",
+    "agentsCard01Mission": "Outreach, qualification and booked meetings, in your brand voice.",
+    "agentsCard02Title": "The agent who never stops.",
+    "agentsCard02Mission": "Editorial and social content on brand, at the cadence you ask for, without pause.",
+    "agentsCard03Title": "The agent who tends the hearth.",
+    "agentsCard03Mission": "Customer care 24/7, multilingual, always present, never off-brand.",
+    "agentsCardCta": "Discover"
   },
   "works": {
     "pageTitle": "Works",
@@ -200,6 +215,92 @@
       "body": "Audit, tool selection, transformation plan, team training, three-month follow-up."
     }
   },
+  "formations": {
+    "metaTitle": "AI training for teams. TROIE Atelier Digital",
+    "metaDescription": "Short, hands-on training on AI tools. Three programs, in-house or open enrolment, in France or remote. Free 30-minute audit.",
+    "heroEyebrow": "03 · Training",
+    "heroTitle": "Mastering AI tools.",
+    "heroSubtitle": "Train your teams on a working level of AI, without losing the brand bar. Three programs, in-house or open enrolment, in France or remote.",
+    "ctaPrimary": "Request an in-house quote",
+    "ctaSecondary": "Join an open session",
+    "ctaAudit": "Free AI audit, 30 min",
+    "downloadProgramme": "Download the program (PDF)",
+    "stats": [
+      { "value": "200", "label": "Professionals trained on AI" },
+      { "value": "50", "label": "Companies supported" },
+      { "value": "10 years", "label": "Alongside brands" }
+    ],
+    "programmesEyebrow": "Three packs",
+    "programmesTitle": "Pick your level.",
+    "programmesIntro": "From getting comfortable with text tools to shipping agents in production. Each pack is built around real-world cases from your day-to-day.",
+    "packCtaPrimary": "Book this pack",
+    "packCtaSecondary": "Request a quote",
+    "packIncludes": "Included in this pack",
+    "packProgrammeLabel": "Program",
+    "packDeliverablesShort": "Deliverables",
+    "packPriceFromLabel": "From",
+    "packPriceQuoted": "On request",
+    "packPriceQuoteHint": "Priced on scope, team size and duration.",
+    "packToolsLabel": "Tools you'll master",
+    "packBadgePopular": "Most popular",
+    "audienceLabel": "Audience",
+    "objectiveLabel": "Objective",
+    "programmeLabel": "Program",
+    "deliverablesLabel": "Deliverables",
+    "prerequisitesLabel": "Prerequisites",
+    "formatsLabel": "Formats",
+    "sessionsEyebrow": "Upcoming sessions",
+    "sessionsEmpty": "No open session scheduled yet. To be notified about upcoming dates, get in touch.",
+    "spotsLeft": "seats",
+    "tableEyebrow": "Comparison",
+    "tableTitle": "Which format for which need.",
+    "tableHeaders": {
+      "programme": "Program",
+      "duration": "Duration",
+      "audience": "Audience",
+      "formats": "Formats",
+      "price": "Price"
+    },
+    "customEyebrow": "Custom",
+    "customTitle": "AI audit & roadmap.",
+    "customBody": "A scoping mission to map out what can be automated at your company, choose the right tools, and build a six-month transformation plan. Quoted after a first call.",
+    "customCta": "Request an audit",
+    "financementEyebrow": "Funding",
+    "financementBody": "We can review training funding with your French OPCO. For Qualiopi-certified bodies, we can partner with a certified provider.",
+    "financementQualiopiBody": "TROIE is Qualiopi-listed. Training is eligible for OPCO funding depending on your industry. We handle the agreement and admin paperwork.",
+    "auditBandEyebrow": "Free audit",
+    "auditBandTitle": "Thirty minutes to scope your need.",
+    "auditBandSubtitle": "A straight, no-strings conversation. Leave with a first read of what could be automated or taught at your company.",
+    "auditBandCta": "Book a slot",
+    "faqEyebrow": "FAQ",
+    "faqTitle": "Frequently asked questions.",
+    "faqItems": [
+      {
+        "q": "How soon can we start an in-house training?",
+        "a": "Plan two to three weeks between the first call and the session, enough time to align the program on your cases and to handle logistics."
+      },
+      {
+        "q": "Are remote sessions just as good?",
+        "a": "Yes. The remote format is built to stay hands-on: live workshops, screen sharing, breakout exercises, and access to the post-session prompt library."
+      },
+      {
+        "q": "Can you adapt the content to our industry?",
+        "a": "Always. Before the session we discuss your priority use cases and we build the exercises from your real material."
+      },
+      {
+        "q": "What about funding?",
+        "a": "We can review the funding with your OPCO and, if needed, route the agreement through a Qualiopi partner. The detail depends on your industry."
+      },
+      {
+        "q": "How many people per session?",
+        "a": "Six to twelve for Discovery and Practice. Four to eight for Agents & automation, where we keep close support."
+      }
+    ],
+    "finalCtaTitle": "Let's talk about your training need.",
+    "finalCtaSubtitle": "A session to plan, an audit to run, or just a first conversation. Thirty minutes is enough.",
+    "finalCtaPrimary": "Request an in-house quote",
+    "finalCtaSecondary": "Book the free audit"
+  },
   "about": {
     "pageTitle": "Studio",
     "pageSubtitle": "Hugues Lourmieres, photographer, videographer, art director and trainer."
@@ -217,6 +318,105 @@
     "emailDirect": "contact@troiestudio.fr",
     "callDirect": "Book a call",
     "thanks": "Thanks. We'll get back to you within 24 business hours."
+  },
+  "agents": {
+    "metaTitle": "AI Agents — TROIE Digital Atelier",
+    "metaDescription": "Three AI agents for demanding brands. Hermes prospects, Achilles produces, Hestia tends. Turnkey setup, human supervision, clean exit.",
+    "heroEyebrow": "AI Agents",
+    "heroTitle": "Three figures for your brand.",
+    "heroSubtitle": "Hermes opens. Achilles conquers. Hestia tends. Three figures of antiquity at the service of your brand. One agent to win customers, one to produce without pause, one to tend your hearth.",
+    "ctaPrimary": "Deploy an agent",
+    "ctaSecondary": "See details",
+    "ctaAudit": "Book a free audit",
+    "downloadBrief": "Download the brief",
+    "stats": [
+      { "value": "3 agents", "label": "Sell · Produce · Retain" },
+      { "value": "24 / 7", "label": "Always present" },
+      { "value": "30 days", "label": "TROIE human supervision" }
+    ],
+    "introEyebrow": "Olympus at work",
+    "introTitle": "Three agents born of Olympus.",
+    "introBody": "TROIE agents take the repetitive, measurable and time-eating workloads. They prospect, write, reply. Always in your brand voice. Always under human supervision. Always reversible: at the end of the contract, you keep the workflows and the prompts.",
+    "packCtaPrimary": "Deploy this agent",
+    "packIncludes": "Included",
+    "packMissionLabel": "Mission",
+    "packSkillsLabel": "Capabilities",
+    "packDeliverablesLabel": "Deliverables",
+    "packKpisLabel": "Metrics",
+    "packStackLabel": "Tech stack",
+    "packBestForLabel": "Best for",
+    "packSignatureLabel": "Signature",
+    "packMythLabel": "Mythology",
+    "packSetupLabel": "Setup",
+    "packMonthlyLabel": "Subscription",
+    "packBadgePopular": "Most universal",
+    "packPriceQuoted": "On request",
+    "packPriceQuoteHint": "Setup and subscription calibrated on your volume, stack and quality bar. Pricing shared after the 30-minute free audit.",
+    "tableEyebrow": "At a glance",
+    "tableTitle": "Three agents, three missions.",
+    "tableHeaders": {
+      "agent": "Agent",
+      "mission": "Mission",
+      "bestFor": "Best for",
+      "stack": "Stack",
+      "price": "Pricing"
+    },
+    "methodEyebrow": "The method",
+    "methodTitle": "Four steps, never more.",
+    "methodSteps": [
+      {
+        "title": "01 · Audit",
+        "body": "30 minutes on the phone to understand your volumes, your tools, your voice. No strings attached."
+      },
+      {
+        "title": "02 · Brief & setup",
+        "body": "We write your brand brief, wire your tools, calibrate the agent. Two to four weeks depending on the agent."
+      },
+      {
+        "title": "03 · Go-live",
+        "body": "The agent ships. TROIE human supervision for 30 days. Daily tuning."
+      },
+      {
+        "title": "04 · Autonomy",
+        "body": "You keep the keys, the workflow, the prompts. TROIE stays on subscription support, never lock-in."
+      }
+    ],
+    "customEyebrow": "Bespoke",
+    "customTitle": "An agent that isn't on the list?",
+    "customBody": "Application screening, financial ops, community moderation, market intelligence, multimodal agent on your patents: we design and ship made-to-order, same grammar — brief, workflow, supervision, clean exit.",
+    "customCta": "Describe your need",
+    "auditBandEyebrow": "Before you commit",
+    "auditBandTitle": "Thirty minutes to tell you if an agent pays off in your shop.",
+    "auditBandSubtitle": "Free audit. No strings. A clear, numbered, written answer. Even if the answer is no.",
+    "auditBandCta": "Book the audit",
+    "faqEyebrow": "Frequently asked",
+    "faqTitle": "What you often ask.",
+    "faqItems": [
+      {
+        "q": "Does my data leave the European Union?",
+        "a": "Not by default. All agents run on EU-hosted models (Mistral, Claude via European region) or via gateways with contractual guarantees. A fully sovereign variant is available on request."
+      },
+      {
+        "q": "What happens at the end of the contract?",
+        "a": "You keep your Make / n8n workflows, your prompt library, your accesses. No lock-in. No proprietary SaaS to abandon. You can carry on alone or with another partner."
+      },
+      {
+        "q": "How long before it actually helps?",
+        "a": "Hermes: 30 days for the first qualified meetings. Achilles: 14 days for the first publishable contents. Hestia: 21 days to push 60 % of tickets into autonomous mode."
+      },
+      {
+        "q": "Can an agent replace my team?",
+        "a": "No. An agent absorbs the repetitive, measurable load. It frees your team for what needs judgment, relationship, creation. On TROIE's side, it stays boutique — always."
+      },
+      {
+        "q": "What if the agent says something off-brand to a customer?",
+        "a": "Hestia runs strict guardrails: allowed topics, escalation topics, fenced brand voice. During the first 4 weeks, a TROIE human validates edge cases before send. Beyond that, error rate is tracked continuously."
+      }
+    ],
+    "finalCtaTitle": "Olympus is ready. Are you?",
+    "finalCtaSubtitle": "Pick your agent, or start with a free 30-minute audit. The answer will be clear either way.",
+    "finalCtaPrimary": "Deploy an agent",
+    "finalCtaSecondary": "Free 30-min audit"
   },
   "footer": {
     "rights": "All rights reserved.",

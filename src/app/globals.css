@@ -225,3 +225,18 @@ body {
 .t-rise-delay-2 { animation-delay: 0.22s; }
 .t-rise-delay-3 { animation-delay: 0.34s; }
 .t-rise-delay-4 { animation-delay: 0.46s; }
+
+/* Marquee infinie — duplique le contenu en JS et anime de 0 à -50%
+   pour boucler sans saut. Pause au hover. */
+@keyframes troie-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+.t-marquee {
+  animation: troie-marquee 60s linear infinite;
+  will-change: transform;
+}
+.t-marquee:hover { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .t-marquee { animation: none; }
+}

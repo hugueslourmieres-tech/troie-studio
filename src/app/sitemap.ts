@@ -7,7 +7,19 @@ const BASE = "https://troiestudio.fr";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const staticPaths = ["", "/works", "/contact", "/privacy", "/terms"];
+  const staticPaths = [
+    "",
+    "/formations",
+    "/agents",
+    "/works",
+    "/contact",
+    "/privacy",
+    "/terms",
+  ];
+
+  // Section-level pages (formations / agents / works) get higher priority
+  // and monthly refresh; legal pages stay yearly / 0.5.
+  const HIGH_PRIORITY = new Set(["/works", "/formations", "/agents"]);
 
   const entries: MetadataRoute.Sitemap = [];
 
@@ -17,8 +29,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${BASE}/${locale}${path}`,
         lastModified: now,
         changeFrequency:
-          path === "" ? "weekly" : path === "/works" ? "monthly" : "yearly",
-        priority: path === "" ? 1 : path === "/works" ? 0.9 : 0.5,
+          path === ""
+            ? "weekly"
+            : HIGH_PRIORITY.has(path)
+              ? "monthly"
+              : "yearly",
+        priority:
+          path === ""
+            ? 1
+            : HIGH_PRIORITY.has(path)
+              ? 0.9
+              : 0.5,
         alternates: {
           languages: Object.fromEntries(
             routing.locales.map((alt) => [alt, `${BASE}/${alt}${path}`]),

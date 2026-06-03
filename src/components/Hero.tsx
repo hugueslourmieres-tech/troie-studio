@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { HeroVideo } from "./HeroVideo";
+import { ToolsMarquee } from "./ToolsMarquee";
 import { useMagnetic } from "@/lib/hooks/useMagnetic";
 
 /**
@@ -106,19 +107,47 @@ export function Hero({ locale }: { locale: string }) {
           </motion.div>
         </div>
 
-        {/* Slideshow column — infinite, drag-friendly, B&W. Parallax on scroll. */}
-        <div className="md:col-span-5">
+        {/* Video column — single editorial frame: thin black hairline wraps
+            both the B&W film AND the CTA row. A horizontal divider separates
+            the two. No cream passe-partout, no drop shadow. Parallax on scroll
+            still lifts the whole frame as the visitor leaves the hero. */}
+        <div className="flex md:col-span-5">
           <motion.div
             ref={slideshowRef}
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative h-[60vh] min-h-[420px] w-full overflow-hidden md:h-full md:min-h-[560px]"
+            className="relative flex w-full flex-col border border-[var(--fg)]/25"
           >
-            <HeroVideo />
+            {/* Video — fills frame edge-to-edge, no padding */}
+            <div className="relative h-[58vh] min-h-[420px] w-full overflow-hidden md:h-[560px]">
+              <HeroVideo />
+            </div>
+
+            {/* CTA + meta inside the same frame, separated by a thin rule */}
+            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--fg)]/25 px-5 py-4 md:px-7 md:py-5">
+              <Link
+                href={`/${locale}#works`}
+                className="group inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:opacity-70"
+              >
+                {t("heroVideoCta")}
+                <span
+                  aria-hidden="true"
+                  className="transition-transform group-hover:translate-x-1"
+                >
+                  →
+                </span>
+              </Link>
+              <span className="font-mono text-[9px] uppercase tracking-[0.32em] text-[var(--fg)]/55">
+                {t("heroVideoMeta")}
+              </span>
+            </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Tools marquee — infinite ribbon of the apps & tools the atelier uses */}
+      <ToolsMarquee ariaLabel={t("heroToolsAriaLabel")} />
     </section>
   );
 }

@@ -9,6 +9,7 @@
     "creation": "Création",
     "strategy": "Stratégie",
     "training": "Formation",
+    "agents": "Agents",
     "works": "Réalisations",
     "about": "Studio",
     "contact": "Contact",
@@ -20,6 +21,9 @@
     "heroSubtitle": "Studio de création, stratégie marketing digital et formations aux outils d'intelligence artificielle. Photo, vidéo, design, identité de marque et accompagnement IA. À taille humaine, dix ans aux côtés des marques.",
     "heroCtaPrimary": "Démarrer un projet",
     "heroCtaSecondary": "Voir nos travaux",
+    "heroVideoCta": "Voir l'atelier en mouvement",
+    "heroVideoMeta": "Atelier — 2026",
+    "heroToolsAriaLabel": "Outils utilisés par TROIE",
     "introEyebrow": "Le studio",
     "introTitle": "Un studio. Trois métiers.",
     "introBody": "TROIE est l'agence de Hugues Lourmieres. Depuis 2015, nous accompagnons des marques de luxe, des industriels et des entreprises de service en France et à l'international. Nous fabriquons leur image, conseillons leur stratégie, et formons leurs équipes aux outils numériques d'aujourd'hui.",
@@ -84,7 +88,18 @@
     "packsTerms": "Tous les tarifs sont indiqués hors taxes. Règlement standard : 50 % à la commande, solde à la livraison. Devis détaillé établi sous 48 heures après brief.",
     "ctaTitle": "Parlons de votre projet.",
     "ctaSubtitle": "Un échange de trente minutes pour comprendre votre besoin et vous proposer une approche.",
-    "ctaButton": "Prendre rendez-vous"
+    "ctaButton": "Prendre rendez-vous",
+    "agentsEyebrow": "04 · Agents",
+    "agentsTitle": "Trois figures pour votre marque.",
+    "agentsIntro": "Hermès ouvre. Achille conquiert. Hestia veille. Trois figures de l'Antiquité au service de votre marque : un agent pour gagner des clients, un pour produire sans relâche, un pour veiller sur votre foyer.",
+    "agentsCta": "Découvrir les agents",
+    "agentsCard01Title": "L'agent qui ouvre les portes.",
+    "agentsCard01Mission": "Prospection, qualification et rendez-vous pris, dans le ton de votre marque.",
+    "agentsCard02Title": "L'agent qui ne s'arrête jamais.",
+    "agentsCard02Mission": "Contenus éditoriaux et social media on-brand, à la cadence demandée, sans relâche.",
+    "agentsCard03Title": "L'agent qui veille sur le foyer.",
+    "agentsCard03Mission": "Service client 24/7, multilingue, toujours présent, jamais hors de marque.",
+    "agentsCardCta": "Découvrir"
   },
   "works": {
     "pageTitle": "Réalisations",
@@ -200,6 +215,92 @@
       "body": "Audit, sélection des outils, plan de transformation, formation des équipes, accompagnement trois mois."
     }
   },
+  "formations": {
+    "metaTitle": "Formations IA pour entreprise. TROIE Atelier Digital",
+    "metaDescription": "Formations courtes et opérationnelles aux outils d'intelligence artificielle. Trois programmes, format intra ou inter, en France ou en remote. Audit gratuit 30 minutes.",
+    "heroEyebrow": "03 · Formation",
+    "heroTitle": "Maîtriser les outils IA.",
+    "heroSubtitle": "Former vos équipes à une intelligence artificielle opérationnelle, sans dégrader le niveau de marque. Trois programmes, format intra ou inter, en France ou en remote.",
+    "ctaPrimary": "Demander un devis intra",
+    "ctaSecondary": "S'inscrire à une session inter",
+    "ctaAudit": "Audit IA gratuit, 30 min",
+    "downloadProgramme": "Télécharger le programme (PDF)",
+    "stats": [
+      { "value": "200", "label": "Professionnels formés à l'IA" },
+      { "value": "50", "label": "Entreprises accompagnées" },
+      { "value": "10 ans", "label": "Aux côtés des marques" }
+    ],
+    "programmesEyebrow": "Trois packs",
+    "programmesTitle": "Choisissez votre niveau.",
+    "programmesIntro": "De la prise en main des outils texte au déploiement d'agents en production. Chaque pack se construit autour de cas pratiques issus de vos missions réelles.",
+    "packCtaPrimary": "Réserver ce pack",
+    "packCtaSecondary": "Demander un devis",
+    "packIncludes": "Inclus dans ce pack",
+    "packProgrammeLabel": "Au programme",
+    "packDeliverablesShort": "Livrables",
+    "packPriceFromLabel": "À partir de",
+    "packPriceQuoted": "Sur devis",
+    "packPriceQuoteHint": "Tarif construit selon votre périmètre, équipe et durée.",
+    "packToolsLabel": "Outils maîtrisés",
+    "packBadgePopular": "Le plus demandé",
+    "audienceLabel": "Public",
+    "objectiveLabel": "Objectif",
+    "programmeLabel": "Programme",
+    "deliverablesLabel": "Livrables",
+    "prerequisitesLabel": "Prérequis",
+    "formatsLabel": "Formats",
+    "sessionsEyebrow": "Prochaines sessions",
+    "sessionsEmpty": "Aucune session inter programmée pour l'instant. Pour être informé des prochaines dates, écrivez-nous.",
+    "spotsLeft": "places",
+    "tableEyebrow": "Comparatif",
+    "tableTitle": "Quel format pour quel besoin.",
+    "tableHeaders": {
+      "programme": "Programme",
+      "duration": "Durée",
+      "audience": "Public",
+      "formats": "Formats",
+      "price": "Tarif"
+    },
+    "customEyebrow": "Sur-mesure",
+    "customTitle": "Audit IA & feuille de route.",
+    "customBody": "Une mission de cadrage pour identifier ce qui peut être automatisé chez vous, sélectionner les bons outils, et bâtir un plan de transformation à six mois. Sur devis, après échange.",
+    "customCta": "Demander un audit",
+    "financementEyebrow": "Financement",
+    "financementBody": "Nous pouvons étudier les modalités de financement de la formation avec votre OPCO. Pour les organismes Qualiopi, possibilité de partenariat avec un organisme de formation certifié.",
+    "financementQualiopiBody": "TROIE est référencé Qualiopi. Les formations sont éligibles aux financements OPCO selon votre branche professionnelle. Nous établissons la convention et les documents administratifs.",
+    "auditBandEyebrow": "Audit gratuit",
+    "auditBandTitle": "Trente minutes pour cadrer votre besoin.",
+    "auditBandSubtitle": "Un échange direct, sans engagement. Repartez avec une première lecture de ce qui peut être automatisé ou enseigné chez vous.",
+    "auditBandCta": "Réserver un créneau",
+    "faqEyebrow": "FAQ",
+    "faqTitle": "Questions fréquentes.",
+    "faqItems": [
+      {
+        "q": "En combien de temps pouvons-nous démarrer une formation intra ?",
+        "a": "Comptez deux à trois semaines entre le premier échange et la session, le temps d'aligner le programme sur vos cas et de cadrer la logistique."
+      },
+      {
+        "q": "Les sessions à distance ont-elles la même valeur ?",
+        "a": "Oui. Le format remote est conçu pour rester pratique : ateliers en direct, partage d'écran, exercices en sous-groupes, accès à la bibliothèque de prompts post-session."
+      },
+      {
+        "q": "Pouvez-vous adapter le contenu à notre secteur ?",
+        "a": "Toujours. Avant la formation, nous échangeons sur vos cas d'usage prioritaires et nous construisons les exercices à partir de votre matière réelle."
+      },
+      {
+        "q": "Quelles sont les modalités de financement ?",
+        "a": "Nous pouvons étudier le financement avec votre OPCO et, le cas échéant, monter la convention via un partenaire Qualiopi. Le détail dépend de votre branche."
+      },
+      {
+        "q": "Combien de personnes par session ?",
+        "a": "Idéalement six à douze pour les programmes Découverte et Pratique. Quatre à huit pour Agents & automatisation, où l'accompagnement reste rapproché."
+      }
+    ],
+    "finalCtaTitle": "Parlons de votre besoin de formation.",
+    "finalCtaSubtitle": "Une session à organiser, un audit à mener, ou simplement une première discussion. Trente minutes suffisent.",
+    "finalCtaPrimary": "Demander un devis intra",
+    "finalCtaSecondary": "Réserver l'audit gratuit"
+  },
   "about": {
     "pageTitle": "Studio",
     "pageSubtitle": "Hugues Lourmieres, photographe, vidéaste, directeur artistique et formateur."
@@ -217,6 +318,105 @@
     "emailDirect": "contact@troiestudio.fr",
     "callDirect": "Réserver un appel",
     "thanks": "Merci. Nous revenons vers vous sous 24 heures ouvrées."
+  },
+  "agents": {
+    "metaTitle": "Agents IA — TROIE Atelier Digital",
+    "metaDescription": "Trois agents IA pour les marques exigeantes. Hermès prospecte, Achille produit, Hestia veille. Setup clé en main, supervision humaine, sortie propre.",
+    "heroEyebrow": "Agents IA",
+    "heroTitle": "Trois figures pour votre marque.",
+    "heroSubtitle": "Hermès ouvre. Achille conquiert. Hestia veille. Trois figures de l'Antiquité au service de votre marque. Un agent pour gagner des clients, un pour produire sans relâche, un pour veiller sur votre foyer.",
+    "ctaPrimary": "Démarrer un agent",
+    "ctaSecondary": "Voir le détail",
+    "ctaAudit": "Réserver un audit gratuit",
+    "downloadBrief": "Télécharger le brief",
+    "stats": [
+      { "value": "3 agents", "label": "Vendre · Produire · Fidéliser" },
+      { "value": "24 / 7", "label": "Présence sans rupture" },
+      { "value": "30 jours", "label": "Supervision humaine TROIE" }
+    ],
+    "introEyebrow": "L'Olympe au travail",
+    "introTitle": "Trois agents nés de l'Olympe.",
+    "introBody": "Les agents TROIE prennent les charges répétitives, mesurables et exigeantes en temps. Ils prospectent, écrivent, répondent. Toujours dans la voix de votre marque. Toujours supervisés par un humain. Toujours réversibles : à la fin du contrat, vous gardez les workflows et les prompts.",
+    "packCtaPrimary": "Déployer cet agent",
+    "packIncludes": "Inclus",
+    "packMissionLabel": "Mission",
+    "packSkillsLabel": "Capacités",
+    "packDeliverablesLabel": "Livrables",
+    "packKpisLabel": "Indicateurs",
+    "packStackLabel": "Stack technique",
+    "packBestForLabel": "Idéal pour",
+    "packSignatureLabel": "Signature",
+    "packMythLabel": "Mythologie",
+    "packSetupLabel": "Setup",
+    "packMonthlyLabel": "Abonnement",
+    "packBadgePopular": "Le plus universel",
+    "packPriceQuoted": "Sur devis",
+    "packPriceQuoteHint": "Setup et abonnement calibrés sur votre volume, votre stack et votre niveau d'exigence. Tarif communiqué après l'audit gratuit de 30 minutes.",
+    "tableEyebrow": "Comparatif",
+    "tableTitle": "Trois agents, trois missions.",
+    "tableHeaders": {
+      "agent": "Agent",
+      "mission": "Mission",
+      "bestFor": "Idéal pour",
+      "stack": "Stack",
+      "price": "Tarif"
+    },
+    "methodEyebrow": "La méthode",
+    "methodTitle": "Quatre étapes, jamais plus.",
+    "methodSteps": [
+      {
+        "title": "01 · Audit",
+        "body": "30 minutes au téléphone pour comprendre vos volumes, vos outils, votre ton. Sans engagement."
+      },
+      {
+        "title": "02 · Brief & setup",
+        "body": "On rédige votre brief de marque, on connecte vos outils, on calibre l'agent. Deux à quatre semaines selon l'agent."
+      },
+      {
+        "title": "03 · Mise en route",
+        "body": "L'agent passe en production. Supervision humaine TROIE pendant 30 jours. Ajustements quotidiens."
+      },
+      {
+        "title": "04 · Autonomie",
+        "body": "Vous gardez la main, le workflow, les prompts. TROIE reste en support sur abonnement, jamais en lock-in."
+      }
+    ],
+    "customEyebrow": "Sur-mesure",
+    "customTitle": "Un agent qui n'est pas dans la liste ?",
+    "customBody": "Tri de candidatures, ops financières, modération de communauté, veille marché, agent multimodal sur vos brevets : on conçoit et déploie à la carte, dans la même grammaire — brief, workflow, supervision, sortie propre.",
+    "customCta": "Décrivez votre besoin",
+    "auditBandEyebrow": "Avant de signer",
+    "auditBandTitle": "Trente minutes pour vous dire si un agent est rentable chez vous.",
+    "auditBandSubtitle": "Audit gratuit. Sans engagement. Une réponse claire, chiffrée, écrite. Y compris si la réponse est non.",
+    "auditBandCta": "Réserver l'audit",
+    "faqEyebrow": "Questions fréquentes",
+    "faqTitle": "Vous nous demandez souvent.",
+    "faqItems": [
+      {
+        "q": "Mes données sortent-elles de l'Union européenne ?",
+        "a": "Non par défaut. Tous les agents tournent sur des modèles hébergés UE (Mistral, modèles Claude via région européenne) ou sur des passerelles avec garanties contractuelles. Une variante 100 % souveraine est possible sur demande."
+      },
+      {
+        "q": "Que se passe-t-il à la fin du contrat ?",
+        "a": "Vous gardez vos workflows Make / n8n, votre bibliothèque de prompts, vos accès. Pas de lock-in. Pas de SaaS propriétaire à abandonner. Vous pouvez continuer seul ou avec un autre prestataire."
+      },
+      {
+        "q": "Combien de temps avant que ça serve vraiment ?",
+        "a": "Hermès : 30 jours pour les premiers RDV qualifiés. Achille : 14 jours pour les premiers contenus publiés. Hestia : 21 jours pour passer 60 % des tickets en mode autonome."
+      },
+      {
+        "q": "Un agent peut-il remplacer mon équipe ?",
+        "a": "Non. Un agent prend la charge répétitive et mesurable. Il libère votre équipe pour ce qui demande du jugement, de la relation et de la création. Côté TROIE, ça reste à taille humaine — toujours."
+      },
+      {
+        "q": "Si l'agent dit n'importe quoi à un client ?",
+        "a": "Hestia opère avec un garde-fou strict : sujets autorisés, sujets escaladés, ton de marque encadré. Sur les 4 premières semaines, un humain TROIE valide les cas limites avant envoi. Au-delà, le taux d'erreur est mesuré en continu."
+      }
+    ],
+    "finalCtaTitle": "L'Olympe est prêt. Et vous ?",
+    "finalCtaSubtitle": "Choisissez votre agent, ou démarrez par 30 minutes d'audit gratuit. La réponse sera claire dans tous les cas.",
+    "finalCtaPrimary": "Démarrer un agent",
+    "finalCtaSecondary": "Audit gratuit 30 min"
   },
   "footer": {
     "rights": "Tous droits réservés.",

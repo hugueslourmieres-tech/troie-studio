@@ -28,7 +28,8 @@ export function Header({ locale }: { locale: string }) {
   const links = [
     { href: `/${locale}#creation`, label: t("creation") },
     { href: `/${locale}#strategy`, label: t("strategy") },
-    { href: `/${locale}#training`, label: t("training") },
+    { href: `/${locale}/formations`, label: t("training") },
+    { href: `/${locale}/agents`, label: t("agents") },
     { href: `/${locale}/works`, label: t("works") },
   ];
 
