@@ -26,11 +26,11 @@ export function AgentsTeaser({
 }) {
   const t = useTranslations("home");
 
-  const tCardMission = (slug: "hermes" | "achille" | "hestia") => {
+  const tCardBullets = (slug: "hermes" | "achille" | "hestia"): string[] => {
     const map = {
-      hermes: t("agentsCard01Mission"),
-      achille: t("agentsCard02Mission"),
-      hestia: t("agentsCard03Mission"),
+      hermes: t.raw("agentsCard01Bullets") as string[],
+      achille: t.raw("agentsCard02Bullets") as string[],
+      hestia: t.raw("agentsCard03Bullets") as string[],
     };
     return map[slug];
   };
@@ -118,7 +118,7 @@ export function AgentsTeaser({
                   </div>
                 </div>
 
-                {/* Name + title + mission + inline CTA */}
+                {/* Name + italic title + bullets + tools row + inline CTA */}
                 <div className="mt-8 flex flex-1 flex-col">
                   <h3 className="t-display text-3xl text-[var(--fg)] md:text-4xl">
                     {a.name[lang]}
@@ -126,9 +126,49 @@ export function AgentsTeaser({
                   <p className="mt-3 text-base italic text-[var(--fg-2)]/85 md:text-lg">
                     {tCardTitle(a.slug)}
                   </p>
-                  <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                    {tCardMission(a.slug)}
-                  </p>
+
+                  {/* 4 short bullets — concrete capabilities */}
+                  <ul className="mt-6 space-y-2.5">
+                    {tCardBullets(a.slug).map((b) => (
+                      <li
+                        key={b}
+                        className="flex items-start gap-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-[15px]"
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[var(--accent)]"
+                        />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Tools logos row — monochrome SVG icons in small tiles */}
+                  {a.tools && a.tools.length > 0 && (
+                    <div className="mt-8">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
+                        {t("agentsToolsLabel")}
+                      </p>
+                      <ul className="mt-3 flex flex-wrap gap-2">
+                        {a.tools.map((tool) => (
+                          <li
+                            key={tool.src}
+                            title={tool.label}
+                            className="flex h-9 w-9 items-center justify-center bg-[var(--fg)]/8"
+                          >
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                              src={tool.src}
+                              alt={tool.label}
+                              loading="lazy"
+                              className="h-4 w-auto"
+                              style={{ filter: "brightness(0)" }}
+                            />
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
 
                   {/* CTA inline mono caps with underline — same as Le studio */}
                   <span className="mt-auto pt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition">

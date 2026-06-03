@@ -94,11 +94,27 @@
     "agentsIntro": "Hermès ouvre. Achille conquiert. Hestia veille. Trois figures de l'Antiquité au service de votre marque : un agent pour gagner des clients, un pour produire sans relâche, un pour veiller sur votre foyer.",
     "agentsCta": "Découvrir les agents",
     "agentsCard01Title": "L'agent qui ouvre les portes.",
-    "agentsCard01Mission": "Hermès identifie vos prospects idéaux, écrit des messages personnalisés dans la voix de votre marque et relance proprement. Il qualifie les leads entrants, prend les rendez-vous directement dans l'agenda de votre commercial et met à jour votre CRM en temps réel. Chaque lundi, vous recevez le rapport : volume contacté, taux de réponse, RDV pris, objections récurrentes. Votre équipe vente arrive le matin avec un agenda déjà rempli.",
+    "agentsCard01Bullets": [
+      "Prospects qualifiés et identifiés",
+      "Messages personnalisés dans votre voix",
+      "RDV pris dans votre agenda",
+      "CRM mis à jour en temps réel"
+    ],
     "agentsCard02Title": "L'agent qui ne s'arrête jamais.",
-    "agentsCard02Mission": "Achille produit vos articles SEO, posts LinkedIn, Instagram, newsletters et visuels IA à la cadence que demande votre marché. Il connaît votre charte, vos mots interdits, vos publics et vos canaux. Un sujet, cinq formats sortants, planifiés sur un calendrier vivant. Vous validez chaque publication avant la mise en ligne. Votre équipe marketing récupère 60 % de son temps pour la stratégie et le cas par cas.",
+    "agentsCard02Bullets": [
+      "Articles SEO, posts LinkedIn, Instagram",
+      "Newsletters et visuels IA on-brand",
+      "Un sujet, cinq formats sortants",
+      "Validation humaine avant publication"
+    ],
     "agentsCard03Title": "L'agent qui veille sur le foyer.",
-    "agentsCard03Mission": "Hestia répond à vos clients en moins de 60 secondes, 24h/24, en cinq langues. Suivi de commande temps réel, retours et remboursements, recommandations produit, qualification des réclamations. Elle escalade vers votre équipe dès qu'un cas mérite l'humain, avec tout le contexte du ticket. 60 à 85 % des demandes se règlent sans intervention, votre support se concentre sur ce qui compte vraiment.",
+    "agentsCard03Bullets": [
+      "Première réponse en moins de 60 secondes",
+      "Service client 24/7 en cinq langues",
+      "Suivi commande, retours, remboursements",
+      "Escalade humaine avec contexte complet"
+    ],
+    "agentsToolsLabel": "Outils",
     "agentsCardCta": "Choisir"
   },
   "works": {
