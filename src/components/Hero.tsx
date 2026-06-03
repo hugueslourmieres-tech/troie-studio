@@ -66,7 +66,7 @@ export function Hero({ locale }: { locale: string }) {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[var(--bg)]/80"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[var(--bg)]/40"
       />
 
       <div className="relative mx-auto grid min-h-[92vh] max-w-7xl grid-cols-1 gap-12 px-6 pt-36 pb-24 md:grid-cols-12 md:gap-16 md:px-12 md:pt-44 md:pb-32">
