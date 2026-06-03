@@ -107,17 +107,17 @@ export function Hero({ locale }: { locale: string }) {
           </motion.div>
         </div>
 
-        {/* Video column — single editorial frame: thin black hairline wraps
-            both the B&W film AND the CTA row. A horizontal divider separates
-            the two. No cream passe-partout, no drop shadow. Parallax on scroll
-            still lifts the whole frame as the visitor leaves the hero. */}
+        {/* Video column — single editorial frame in the same `--rule` ink
+            hairline as the "Le studio" boxes : border outside, horizontal
+            divider between the video and the CTA row, no fill. Parallax
+            on scroll still lifts the whole frame. */}
         <div className="flex md:col-span-5">
           <motion.div
             ref={slideshowRef}
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative flex w-full flex-col border border-[var(--fg)]/25"
+            className="relative flex w-full flex-col border border-[var(--rule)]"
           >
             {/* Video — fills frame edge-to-edge, no padding */}
             <div className="relative h-[58vh] min-h-[420px] w-full overflow-hidden md:h-[560px]">
@@ -125,7 +125,7 @@ export function Hero({ locale }: { locale: string }) {
             </div>
 
             {/* CTA + meta inside the same frame, separated by a thin rule */}
-            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--fg)]/25 px-5 py-4 md:px-7 md:py-5">
+            <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--rule)] px-5 py-4 md:px-7 md:py-5">
               <Link
                 href={`/${locale}#works`}
                 className="group inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:opacity-70"
