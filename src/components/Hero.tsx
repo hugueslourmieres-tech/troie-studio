@@ -52,6 +52,23 @@ export function Hero({ locale }: { locale: string }) {
 
   return (
     <section className="relative isolate overflow-hidden bg-[var(--bg)]">
+      {/* Classical engraving texture behind the orange — gives the hero
+          an editorial, manuscript-like depth without weakening the brand
+          colour. Visible mostly as a warm texture on the left and behind
+          the video frame on the right. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/formations/hero-bg.jpg"
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 h-full w-full object-cover"
+        style={{ filter: "grayscale(1) brightness(1.08) contrast(0.85)" }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[var(--bg)]/80"
+      />
+
       <div className="relative mx-auto grid min-h-[92vh] max-w-7xl grid-cols-1 gap-12 px-6 pt-36 pb-24 md:grid-cols-12 md:gap-16 md:px-12 md:pt-44 md:pb-32">
         {/* Text column */}
         <div className="flex flex-col justify-end md:col-span-7">
