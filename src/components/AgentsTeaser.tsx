@@ -92,7 +92,9 @@ export function AgentsTeaser({
                 aria-label={`${a.name[lang]}, ${a.title[lang]}`}
                 className="group relative flex h-full flex-col bg-[var(--bg)] p-8 transition-colors hover:bg-[var(--bg-2)] md:p-10"
               >
-                {/* Photo edge-to-edge inside the box */}
+                {/* Photo edge-to-edge inside the box, hover reveals
+                    an editorial "CHOISIR [NAME] →" overlay centred on
+                    the engraving. */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -105,6 +107,15 @@ export function AgentsTeaser({
                         "grayscale(1) brightness(0.97) contrast(1.04)",
                     }}
                   />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 flex items-center justify-center bg-[var(--fg)]/55 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  >
+                    <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] md:text-[12px]">
+                      {t("agentsCardCta")} {a.name[lang]}
+                      <span aria-hidden="true">→</span>
+                    </span>
+                  </div>
                 </div>
 
                 {/* Name + title + mission + inline CTA */}
