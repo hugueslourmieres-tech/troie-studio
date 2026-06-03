@@ -2,50 +2,41 @@
 
 /**
  * ToolsMarquee — infinite horizontal scroller of the apps & tools the
- * atelier uses. Editorial mono caps, faded dot separators, pauses on hover.
+ * atelier uses. Each item = logo (monochrome SVG) + name in mono caps,
+ * separated by an orange dot. Pauses on hover.
  *
  * Loop trick: the list is duplicated and the CSS animation translates the
  * track by -50%. Because the first half and second half are identical, the
  * jump back to 0% is invisible.
+ *
+ * Tools are filtered to the SVGs actually present in /public/images/logos.
+ * No name is displayed without its logo.
  */
 
-const TOOLS: string[] = [
+type Tool = { name: string; logo: string };
+
+const TOOLS: Tool[] = [
   // LLM & IA conversationnelle
-  "Claude",
-  "ChatGPT",
-  "Mistral",
-  "Gemini",
-  "Perplexity",
+  { name: "Claude", logo: "/images/logos/claude.svg" },
+  { name: "ChatGPT", logo: "/images/logos/chatgpt.svg" },
+  { name: "Gemini", logo: "/images/logos/gemini.svg" },
+  { name: "Perplexity", logo: "/images/logos/perplexity.svg" },
+  { name: "Copilot", logo: "/images/logos/copilot.svg" },
   // Image & vidéo IA
-  "Midjourney",
-  "Sora",
-  "Veo",
-  "Runway",
+  { name: "Midjourney", logo: "/images/logos/midjourney.svg" },
+  { name: "Runway", logo: "/images/logos/runway.svg" },
   // Création
-  "Adobe Photoshop",
-  "Adobe Premiere",
-  "Adobe Lightroom",
-  "DaVinci Resolve",
-  "Capture One",
-  "Figma",
-  // Automatisation & agents
-  "Make",
-  "n8n",
-  "Zapier",
+  { name: "Adobe", logo: "/images/logos/adobe.svg" },
+  { name: "DaVinci Resolve", logo: "/images/logos/davinci-resolve.svg" },
+  { name: "Figma", logo: "/images/logos/figma.svg" },
+  // Automatisation
+  { name: "Make", logo: "/images/logos/make.svg" },
   // Stratégie & marketing
-  "Google Analytics",
-  "Meta Business",
-  "HubSpot",
-  "Pipedrive",
-  "Semrush",
-  "Ahrefs",
-  // Production & ops
-  "Notion",
-  "Shopify",
-  "Stripe",
-  "Vercel",
-  "Resend",
-  "Cal.com",
+  { name: "Google Analytics", logo: "/images/logos/google-analytics.svg" },
+  { name: "Google Ads", logo: "/images/logos/google-ads.svg" },
+  { name: "Meta", logo: "/images/logos/meta.svg" },
+  { name: "HubSpot", logo: "/images/logos/hubspot.svg" },
+  { name: "Semrush", logo: "/images/logos/semrush.svg" },
 ];
 
 export function ToolsMarquee({ ariaLabel }: { ariaLabel: string }) {
@@ -68,14 +59,32 @@ export function ToolsMarquee({ ariaLabel }: { ariaLabel: string }) {
         className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[var(--bg)] to-transparent md:w-32"
       />
 
-      <div className="t-marquee flex w-max items-center gap-10 py-5 md:gap-14 md:py-6">
+      <div className="t-marquee flex w-max items-center gap-8 py-5 md:gap-12 md:py-6">
         {doubled.map((tool, i) => (
           <span
-            key={`${tool}-${i}`}
-            className="flex shrink-0 items-center gap-10 font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg-2)]/80 md:gap-14"
+            key={`${tool.name}-${i}`}
+            className="flex shrink-0 items-center gap-8 md:gap-12"
           >
-            <span>{tool}</span>
-            <span aria-hidden="true" className="text-[var(--accent)]/70">
+            {/* Logo + name pair */}
+            <span className="flex items-center gap-3 md:gap-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={tool.logo}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="h-4 w-auto opacity-80 md:h-5"
+                style={{ filter: "brightness(0)" }}
+              />
+              <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg-2)]/80 whitespace-nowrap">
+                {tool.name}
+              </span>
+            </span>
+            {/* Orange dot separator */}
+            <span
+              aria-hidden="true"
+              className="text-[var(--accent)]/70 select-none"
+            >
               ·
             </span>
           </span>
