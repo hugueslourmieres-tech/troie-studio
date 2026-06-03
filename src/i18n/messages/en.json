@@ -2,7 +2,7 @@
   "brand": {
     "name": "TROIE Studio",
     "domain": "troiestudio.fr",
-    "tagline": "Creative, strategy and training."
+    "tagline": "Web, design, photo, video and AI."
   },
   "nav": {
     "home": "Home",
@@ -17,8 +17,8 @@
   },
   "home": {
     "heroEyebrow": "Digital Atelier",
-    "heroTitle": "Creative, strategy\n& training.",
-    "heroSubtitle": "Creative studio, digital marketing strategy and training on AI tools. Photography, video, design, brand identity and AI rollout. A boutique team, ten years alongside brands.",
+    "heroTitle": "Web, design,\nphoto & video.",
+    "heroSubtitle": "Digital studio. Websites, e-commerce, applications, brand identity, photo, video and AI rollout. A boutique team, ten years alongside brands.",
     "heroCtaPrimary": "Start a project",
     "heroCtaSecondary": "See our work",
     "heroVideoCta": "See the atelier in motion",
@@ -75,7 +75,7 @@
     "clientsTitle": "Brands we've worked with",
     "aboutEyebrow": "The studio",
     "aboutTitle": "Hugues Lourmieres.",
-    "aboutBody": "Chief Marketing Officer in the industrial and graphic arts sector, I lead brand strategy and content production for demanding players. Photographer, videographer and art director, I have worked with brands for ten years in France and internationally. I also train teams to embed AI into their daily production. TROIE brings these two worlds together, creative that gets seen and AI that ships, for demanding brands.",
+    "aboutBody": "Chief Marketing Officer in the industrial and graphic arts sector, I lead brand strategy and content production for demanding players. Art director and web designer, photographer and videographer, I have worked with brands for ten years in France and internationally. I also train teams to embed AI into their daily production. TROIE brings these two worlds together, creative that gets seen and AI that ships, for demanding brands.",
     "aboutBullets": [
       "10 years working with international brands",
       "50 companies supported",
@@ -182,7 +182,7 @@
   },
   "creation": {
     "pageTitle": "Creative",
-    "pageSubtitle": "Image, video, design, under one roof."
+    "pageSubtitle": "Web, design, photo, video, under one roof."
   },
   "strategy": {
     "pageTitle": "Strategy",
@@ -303,7 +303,7 @@
   },
   "about": {
     "pageTitle": "Studio",
-    "pageSubtitle": "Hugues Lourmieres, photographer, videographer, art director and trainer."
+    "pageSubtitle": "Hugues Lourmieres, art director, web designer, photographer and videographer."
   },
   "contact": {
     "pageTitle": "Contact",
