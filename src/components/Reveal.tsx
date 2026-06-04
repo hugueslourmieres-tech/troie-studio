@@ -36,7 +36,7 @@ export function Reveal({
   direction = "up",
   className,
   once = true,
-  amount = 0.2,
+  amount = 0.05,
   ...rest
 }: Props) {
   const offset = distance[direction];
@@ -46,7 +46,11 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, x: offset.x, y: offset.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once, amount, margin: "-10% 0px -10% 0px" }}
+      // Margin pre-loads the trigger so the element starts revealing
+      // *before* it scrolls into view : -10% top/-5% bottom on the
+      // visible area means the observer fires up to ~10% of the screen
+      // before the element technically reaches the viewport edge.
+      viewport={{ once, amount, margin: "0px 0px -5% 0px" }}
       transition={{
         duration,
         delay,
