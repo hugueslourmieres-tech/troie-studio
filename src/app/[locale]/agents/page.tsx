@@ -235,18 +235,19 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
           gravures de la même série, vu de face. */}
       <section className="border-t border-[var(--accent)]">
         <div className="mx-auto max-w-7xl px-6 pb-20 md:px-12 md:pb-28">
-          <Reveal>
-            <div className="mt-10 grid items-stretch gap-6 md:mt-14 md:grid-cols-3 md:gap-8">
-              {AGENTS.map((a) => (
-                <AgentCard
-                  key={a.slug}
-                  a={a}
-                  lang={lang}
-                  locale={locale}
-                />
-              ))}
-            </div>
-          </Reveal>
+          {/* Pas de Reveal wrapper sur la grille — la grille mobile
+              est plus haute que le viewport et l'observer pouvait ne
+              jamais tirer, laissant les cards a opacity:0. */}
+          <div className="mt-10 grid items-stretch gap-6 md:mt-14 md:grid-cols-3 md:gap-8">
+            {AGENTS.map((a) => (
+              <AgentCard
+                key={a.slug}
+                a={a}
+                lang={lang}
+                locale={locale}
+              />
+            ))}
+          </div>
 
           <Reveal delay={0.2}>
             <p className="mt-10 text-center text-sm text-[var(--fg-2)]/70 md:text-base">

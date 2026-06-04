@@ -241,23 +241,25 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
         </div>
       </section>
 
-      {/* 3 packs cliquables, pricing cards colorées */}
+      {/* 3 packs cliquables, pricing cards colorées.
+          Pas de Reveal wrapper sur la grille : on garantit la
+          visibilite des packs sur mobile ou la grille est plus
+          haute que le viewport et l'IntersectionObserver pouvait
+          ne jamais tirer. */}
       <section className="border-t border-[var(--accent)]">
         <div className="mx-auto max-w-7xl px-6 pb-20 md:px-12 md:pb-28">
-          <Reveal>
-            <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-3 md:gap-8">
-              {PROGRAMMES.map((p, i) => (
-                <PackCard
-                  key={p.slug}
-                  p={p}
-                  lang={lang}
-                  locale={locale}
-                  variant={i === 1 ? "accent" : i === 2 ? "dark" : "cream"}
-                  featured={i === 1}
-                />
-              ))}
-            </div>
-          </Reveal>
+          <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-3 md:gap-8">
+            {PROGRAMMES.map((p, i) => (
+              <PackCard
+                key={p.slug}
+                p={p}
+                lang={lang}
+                locale={locale}
+                variant={i === 1 ? "accent" : i === 2 ? "dark" : "cream"}
+                featured={i === 1}
+              />
+            ))}
+          </div>
 
           <Reveal delay={0.2}>
             <p className="mt-10 text-center text-sm text-[var(--fg-2)]/70 md:text-base">

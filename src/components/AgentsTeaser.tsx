@@ -83,7 +83,11 @@ export function AgentsTeaser({
             section. The box bg matches the section bg so the boxes "disappear"
             into the orange — only the hairline dividers and the content
             structure remain. */}
-        <Reveal delay={0.4}>
+        {/* Boxes : pas de Reveal wrapper — on garantit la visibilite
+            sur tous les viewports (le IntersectionObserver pouvait ne
+            jamais tirer sur mobile pour les grilles plus hautes que
+            le viewport). */}
+        <div>
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-3">
             {AGENTS.map((a) => (
               <Link
@@ -181,7 +185,7 @@ export function AgentsTeaser({
               </Link>
             ))}
           </div>
-        </Reveal>
+        </div>
       </div>
     </section>
   );
