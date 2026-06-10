@@ -2,10 +2,10 @@
   "brand": {
     "name": "TROIE Studio",
     "domain": "troiestudio.fr",
-    "tagline": "Site web, design, photo, vidéo et IA.",
-    "metaDescription": "Studio digital à taille humaine. Site web, design, e-commerce, identité de marque, photo, vidéo et agents IA. Dix ans aux côtés des marques exigeantes.",
-    "organizationDescription": "TROIE Studio, atelier digital fondé par Hugues Lourmieres. Création de site web, design, e-commerce, photographie, vidéo, identité de marque, formations IA et déploiement d'agents IA. France et international, dix ans d'expérience auprès des marques exigeantes.",
-    "jobTitle": "Directeur artistique, web designer, photographe et vidéaste"
+    "tagline": "Site web, app, design, photo, vidéo et IA.",
+    "metaDescription": "Studio digital. Site web, application, web app, design, e-commerce, identité de marque, photo, vidéo et agents IA. Dix ans aux côtés des marques exigeantes.",
+    "organizationDescription": "TROIE Studio, atelier digital fondé par Hugues Lourmieres. Création de site web, application mobile, web app, design, e-commerce, photographie, vidéo, identité de marque, formations IA et déploiement d'agents IA. France et international, dix ans d'expérience auprès des marques exigeantes.",
+    "jobTitle": "Directeur artistique, web et app designer, photographe et vidéaste"
   },
   "nav": {
     "home": "Accueil",
@@ -21,7 +21,7 @@
   "home": {
     "heroEyebrow": "Atelier Digital",
     "heroTitle": "Création, stratégie\n& formation.",
-    "heroSubtitle": "Studio digital. Site web, e-commerce, applications, identité de marque, photo, vidéo et accompagnement IA. À taille humaine, dix ans aux côtés des marques.",
+    "heroSubtitle": "Studio digital. Site web, application, web app, e-commerce, identité de marque, photo, vidéo et accompagnement IA. À taille humaine, dix ans aux côtés des marques.",
     "heroCtaPrimary": "Démarrer un projet",
     "heroCtaSecondary": "Voir nos travaux",
     "heroVideoCta": "Voir l'atelier en mouvement",
@@ -32,16 +32,16 @@
     "introBody": "TROIE est l'agence de Hugues Lourmieres. Depuis 2015, nous accompagnons des marques de luxe, des industriels et des entreprises de service en France et à l'international. Nous fabriquons leur image, conseillons leur stratégie, et formons leurs équipes aux outils numériques d'aujourd'hui.",
     "introMore": "Voir le détail",
     "creationEyebrow": "01 · Création",
-    "creationTitle": "Image, vidéo, web design.",
-    "creationBody": "Nous fabriquons les contenus visuels qui incarnent vos marques. Photographie, vidéo, identité graphique, web design, e-commerce, applications et création générative.",
+    "creationTitle": "Web, app, image et vidéo.",
+    "creationBody": "Nous fabriquons les contenus et produits digitaux qui incarnent vos marques. Site web, application mobile, web app, identité graphique, photographie, vidéo, e-commerce et création générative.",
     "creationItems": [
+      "Site web, web app, landing pages, applications sur-mesure",
+      "Application mobile iOS et Android",
+      "E-commerce : Shopify, parcours d'achat et conversion",
       "Photographie produit, mode, corporate, événementiel",
       "Vidéo, films de marque, reels, motion design",
       "Identité visuelle, logo, charte graphique complète",
-      "Direction artistique et édition print",
-      "Création par intelligence artificielle (image, vidéo, voix)",
-      "Web design : sites web, landing pages, applications sur-mesure",
-      "E-commerce : Shopify, parcours d'achat et conversion"
+      "Création par intelligence artificielle (image, vidéo, voix)"
     ],
     "strategyEyebrow": "02 · Stratégie",
     "strategyTitle": "Communication et marketing digital.",
@@ -78,7 +78,7 @@
     "clientsTitle": "Marques accompagnées",
     "aboutEyebrow": "Le studio",
     "aboutTitle": "Hugues Lourmieres.",
-    "aboutBody": "Chief Marketing Officer dans l'industrie et les arts graphiques, je pilote la stratégie de marque et la production de contenus pour des acteurs exigeants. Directeur artistique et web designer, photographe et vidéaste, j'accompagne les marques depuis dix ans en France et à l'international. Je forme également les équipes à intégrer l'intelligence artificielle dans leur production quotidienne. TROIE réunit ces deux mondes, la création qui se voit et l'IA qui produit, au service de marques exigeantes.",
+    "aboutBody": "Chief Marketing Officer dans l'industrie et les arts graphiques, je pilote la stratégie de marque et la production de contenus pour des acteurs exigeants. Directeur artistique, web et app designer, photographe et vidéaste, j'accompagne les marques depuis dix ans en France et à l'international. Je forme également les équipes à intégrer l'intelligence artificielle dans leur production quotidienne. TROIE réunit ces deux mondes, la création qui se voit et l'IA qui produit, au service de marques exigeantes.",
     "aboutBullets": [
       "10 ans d'expérience auprès de marques internationales",
       "50 entreprises accompagnées",
@@ -201,7 +201,7 @@
   },
   "creation": {
     "pageTitle": "Création",
-    "pageSubtitle": "Site web, design, photo, vidéo, sous un même toit."
+    "pageSubtitle": "Site web, app, design, photo, vidéo, sous un même toit."
   },
   "strategy": {
     "pageTitle": "Stratégie",
@@ -322,7 +322,7 @@
   },
   "about": {
     "pageTitle": "Studio",
-    "pageSubtitle": "Hugues Lourmieres, directeur artistique, web designer, photographe et vidéaste."
+    "pageSubtitle": "Hugues Lourmieres, directeur artistique, web et app designer, photographe et vidéaste."
   },
   "contact": {
     "pageTitle": "Contact",

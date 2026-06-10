@@ -2,10 +2,10 @@
   "brand": {
     "name": "TROIE Studio",
     "domain": "troiestudio.fr",
-    "tagline": "Web, design, photo, video and AI.",
-    "metaDescription": "Boutique digital studio. Web design, e-commerce, brand identity, photography, video and AI agents. Ten years working alongside demanding brands.",
-    "organizationDescription": "TROIE Studio, digital atelier founded by Hugues Lourmieres. Web design, e-commerce, photography, video, brand identity, AI training and agent deployment. France and worldwide, ten years working with demanding brands.",
-    "jobTitle": "Art director, web designer, photographer and videographer"
+    "tagline": "Web, app, design, photo, video and AI.",
+    "metaDescription": "Digital studio. Websites, mobile apps, web apps, design, e-commerce, brand identity, photography, video and AI agents. Ten years working alongside demanding brands.",
+    "organizationDescription": "TROIE Studio, digital atelier founded by Hugues Lourmieres. Web design, mobile and web app development, e-commerce, photography, video, brand identity, AI training and agent deployment. France and worldwide, ten years working with demanding brands.",
+    "jobTitle": "Art director, web and app designer, photographer and videographer"
   },
   "nav": {
     "home": "Home",
@@ -21,7 +21,7 @@
   "home": {
     "heroEyebrow": "Digital Atelier",
     "heroTitle": "Creative, strategy\n& training.",
-    "heroSubtitle": "Digital studio. Websites, e-commerce, applications, brand identity, photo, video and AI rollout. A boutique team, ten years alongside brands.",
+    "heroSubtitle": "Digital studio. Websites, mobile apps, web apps, e-commerce, brand identity, photo, video and AI rollout. A boutique team, ten years alongside brands.",
     "heroCtaPrimary": "Start a project",
     "heroCtaSecondary": "See our work",
     "heroVideoCta": "See the atelier in motion",
@@ -32,16 +32,16 @@
     "introBody": "TROIE is the agency of Hugues Lourmieres. Since 2015, we have worked with luxury houses, industrials and service companies in France and worldwide. We craft their imagery, advise their strategy, and train their teams on today's digital tools.",
     "introMore": "See the detail",
     "creationEyebrow": "01 · Creative",
-    "creationTitle": "Image, video, web design.",
-    "creationBody": "We craft the visual content that gives shape to your brand. Photography, video, graphic identity, web design, e-commerce, applications and generative creation.",
+    "creationTitle": "Web, app, image and video.",
+    "creationBody": "We craft the digital products and visual content that give shape to your brand. Websites, mobile apps, web apps, graphic identity, photography, video, e-commerce and generative creation.",
     "creationItems": [
+      "Websites, web apps, landing pages, bespoke applications",
+      "Mobile applications (iOS and Android)",
+      "E-commerce: Shopify, checkout flows and conversion",
       "Photography: product, fashion, corporate, events",
       "Video, brand films, reels, motion design",
       "Visual identity, logo, complete graphic charter",
-      "Art direction and print editorial",
-      "AI-generated creation (image, video, voice)",
-      "Web design: websites, landing pages, bespoke applications",
-      "E-commerce: Shopify, checkout flows and conversion"
+      "AI-generated creation (image, video, voice)"
     ],
     "strategyEyebrow": "02 · Strategy",
     "strategyTitle": "Communication and digital marketing.",
@@ -78,7 +78,7 @@
     "clientsTitle": "Brands we've worked with",
     "aboutEyebrow": "The studio",
     "aboutTitle": "Hugues Lourmieres.",
-    "aboutBody": "Chief Marketing Officer in the industrial and graphic arts sector, I lead brand strategy and content production for demanding players. Art director and web designer, photographer and videographer, I have worked with brands for ten years in France and internationally. I also train teams to embed AI into their daily production. TROIE brings these two worlds together, creative that gets seen and AI that ships, for demanding brands.",
+    "aboutBody": "Chief Marketing Officer in the industrial and graphic arts sector, I lead brand strategy and content production for demanding players. Art director, web and app designer, photographer and videographer, I have worked with brands for ten years in France and internationally. I also train teams to embed AI into their daily production. TROIE brings these two worlds together, creative that gets seen and AI that ships, for demanding brands.",
     "aboutBullets": [
       "10 years working with international brands",
       "50 companies supported",
@@ -201,7 +201,7 @@
   },
   "creation": {
     "pageTitle": "Creative",
-    "pageSubtitle": "Web, design, photo, video, under one roof."
+    "pageSubtitle": "Web, app, design, photo, video, under one roof."
   },
   "strategy": {
     "pageTitle": "Strategy",
@@ -322,7 +322,7 @@
   },
   "about": {
     "pageTitle": "Studio",
-    "pageSubtitle": "Hugues Lourmieres, art director, web designer, photographer and videographer."
+    "pageSubtitle": "Hugues Lourmieres, art director, web and app designer, photographer and videographer."
   },
   "contact": {
     "pageTitle": "Contact",
