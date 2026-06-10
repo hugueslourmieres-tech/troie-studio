@@ -13,7 +13,16 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   if (!findWork(slug)) return {};
   const t = await getTranslations({ locale, namespace: "works" });
-  return { title: t(`items.${slug}.title`) };
+  return {
+    title: t(`items.${slug}.title`),
+    alternates: {
+      canonical: `/${locale}/works/${slug}`,
+      languages: {
+        fr: `/fr/works/${slug}`,
+        en: `/en/works/${slug}`,
+      },
+    },
+  };
 }
 
 export function generateStaticParams() {

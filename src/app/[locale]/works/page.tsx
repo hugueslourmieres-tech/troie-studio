@@ -11,7 +11,13 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "works" });
-  return { title: t("pageTitle") };
+  return {
+    title: t("pageTitle"),
+    alternates: {
+      canonical: `/${locale}/works`,
+      languages: { fr: "/fr/works", en: "/en/works" },
+    },
+  };
 }
 
 export default async function WorksPage({

@@ -8,6 +8,10 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title: locale === "fr" ? "Mentions légales" : "Legal notice",
+    alternates: {
+      canonical: `/${locale}/terms`,
+      languages: { fr: "/fr/terms", en: "/en/terms" },
+    },
   };
 }
 

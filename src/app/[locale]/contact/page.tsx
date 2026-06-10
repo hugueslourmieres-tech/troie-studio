@@ -9,7 +9,13 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "contact" });
-  return { title: t("pageTitle") };
+  return {
+    title: t("pageTitle"),
+    alternates: {
+      canonical: `/${locale}/contact`,
+      languages: { fr: "/fr/contact", en: "/en/contact" },
+    },
+  };
 }
 
 export default async function ContactPage({

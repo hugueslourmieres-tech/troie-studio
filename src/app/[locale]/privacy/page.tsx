@@ -8,6 +8,10 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title: locale === "fr" ? "Confidentialité" : "Privacy",
+    alternates: {
+      canonical: `/${locale}/privacy`,
+      languages: { fr: "/fr/privacy", en: "/en/privacy" },
+    },
   };
 }
 

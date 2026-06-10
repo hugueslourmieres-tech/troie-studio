@@ -44,11 +44,20 @@ export async function generateMetadata({
       title: t("metaTitle"),
       description: t("metaDescription"),
       locale: locale === "fr" ? "fr_FR" : "en_US",
+      images: [
+        {
+          url: "/images/brand/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: t("metaTitle"),
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: t("metaTitle"),
       description: t("metaDescription"),
+      images: ["/images/brand/og-image.png"],
     },
   };
 }
