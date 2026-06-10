@@ -58,7 +58,9 @@ export async function generateMetadata({
       ? "Communication, création & formations IA"
       : "Communication, creative & AI training"
   }`;
-  const description = t("tagline");
+  // SEO description (long form) — different from the in-page `tagline`
+  // which is kept short for visual use in the footer.
+  const description = t("metaDescription");
 
   return {
     metadataBase: new URL("https://troiestudio.fr"),
@@ -118,6 +120,64 @@ export default async function LocaleLayout({
 
   setRequestLocale(locale);
   const messages = await getMessages();
+  const tBrand = await getTranslations({ locale, namespace: "brand" });
+
+  // Global JSON-LD : Organization + Person (Hugues) — rendered on every
+  // page so Google attaches the brand entity to the whole site.
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://troiestudio.fr/#organization",
+        name: tBrand("name"),
+        alternateName: "TROIE Atelier Digital",
+        url: "https://troiestudio.fr",
+        logo: "https://troiestudio.fr/images/brand/og-image.png",
+        description: tBrand("organizationDescription"),
+        founder: { "@id": "https://troiestudio.fr/#hugues" },
+        founders: [{ "@id": "https://troiestudio.fr/#hugues" }],
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "FR",
+        },
+        areaServed: ["FR", "EU", "Worldwide"],
+        contactPoint: {
+          "@type": "ContactPoint",
+          email: "contact@troiestudio.fr",
+          contactType: "customer service",
+          availableLanguage: ["French", "English"],
+        },
+        sameAs: [
+          "https://www.linkedin.com/in/hugueslourmieres/",
+          "https://www.instagram.com/hugueslourmieres/",
+          "https://www.behance.net/hugueslourmie3",
+        ],
+      },
+      {
+        "@type": "Person",
+        "@id": "https://troiestudio.fr/#hugues",
+        name: "Hugues Lourmieres",
+        jobTitle: tBrand("jobTitle"),
+        worksFor: { "@id": "https://troiestudio.fr/#organization" },
+        url: "https://troiestudio.fr",
+        sameAs: [
+          "https://www.linkedin.com/in/hugueslourmieres/",
+          "https://www.instagram.com/hugueslourmieres/",
+          "https://www.behance.net/hugueslourmie3",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://troiestudio.fr/#website",
+        url: "https://troiestudio.fr",
+        name: tBrand("name"),
+        description: tBrand("metaDescription"),
+        publisher: { "@id": "https://troiestudio.fr/#organization" },
+        inLanguage: ["fr-FR", "en-US"],
+      },
+    ],
+  };
 
   return (
     <html
@@ -125,6 +185,11 @@ export default async function LocaleLayout({
       className={`${bodoni.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}
     >
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header locale={locale} />
           <main>{children}</main>

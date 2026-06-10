@@ -2,7 +2,10 @@
   "brand": {
     "name": "TROIE Studio",
     "domain": "troiestudio.fr",
-    "tagline": "Web, design, photo, video and AI."
+    "tagline": "Web, design, photo, video and AI.",
+    "metaDescription": "Boutique digital studio. Web design, e-commerce, brand identity, photography, video and AI agents. Ten years working alongside demanding brands.",
+    "organizationDescription": "TROIE Studio, digital atelier founded by Hugues Lourmieres. Web design, e-commerce, photography, video, brand identity, AI training and agent deployment. France and worldwide, ten years working with demanding brands.",
+    "jobTitle": "Art director, web designer, photographer and videographer"
   },
   "nav": {
     "home": "Home",

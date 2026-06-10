@@ -115,6 +115,18 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
           courseWorkload: p.duration[lang],
         },
       })),
+      // FAQPage — chance d'apparaitre en featured snippet / accordeon SERP
+      {
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((q) => ({
+          "@type": "Question",
+          name: q.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: q.a,
+          },
+        })),
+      },
     ],
   };
 

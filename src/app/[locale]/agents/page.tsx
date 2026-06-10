@@ -110,6 +110,18 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
           ...(a.setupFrom !== null && { price: String(a.setupFrom) }),
         },
       })),
+      // FAQPage — chance d'apparaitre en featured snippet / accordeon SERP
+      {
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((q) => ({
+          "@type": "Question",
+          name: q.q,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: q.a,
+          },
+        })),
+      },
     ],
   };
 
