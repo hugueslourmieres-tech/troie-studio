@@ -137,80 +137,93 @@ const PRO_PACKS = [
 
 const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
 
-/* Tâches du quotidien avec gains chiffres réels (sources etudes 2026). */
-/* Tasks avec pictogramme Lucide-style (SVG path tracé propre) */
+/* Les 12 travaux : tâches modernes adossées aux gravures Tempesta (1608, MET,
+   domaine public). Chaque carte porte le nom du travail mythologique en
+   sous-titre + la gravure en bandeau N&B. */
 const TASKS = [
   {
     title: "Vos emails",
     time: "26 min / jour",
     body: "Réponses pros calées dans votre voix. Première réponse en 3 secondes.",
-    icon: "M22 7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2m20 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7m20 0-10 7L2 7",
+    image: "/images/travaux/01_lion-nemee.jpg",
+    labor: "Le Lion de Némée",
   },
   {
     title: "Vos posts sociaux",
     time: "5 h / semaine",
     body: "LinkedIn, Instagram, TikTok. Un sujet, cinq formats sortants prêts à publier.",
-    icon: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13",
+    image: "/images/travaux/02_hydre-lerne.jpg",
+    labor: "L'Hydre de Lerne",
   },
   {
     title: "Vos devis et factures",
-    time: "3 a 5 h / semaine",
-    body: "Générés, envoyés, relances automatiques. Plus jamais oublies.",
-    icon: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8",
+    time: "3 à 5 h / semaine",
+    body: "Générés, envoyés, relances automatiques. Plus jamais oubliés.",
+    image: "/images/travaux/03_biche-cerynie.jpg",
+    labor: "La Biche de Cérynie",
   },
   {
     title: "Votre prospection",
-    time: "5 a 10 h / semaine",
+    time: "5 à 10 h / semaine",
     body: "Listes qualifiées, mails personnalisés ciblage par ciblage.",
-    icon: "M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z",
+    image: "/images/travaux/04_sanglier-erymanthe.jpg",
+    labor: "Le Sanglier d'Érymanthe",
   },
   {
     title: "Vos visuels et illustrations",
     time: "Quelques secondes",
     body: "Génération image on-brand, votre charte respectée.",
-    icon: "M3 3h18v18H3zM21 15l-5-5L5 21",
+    image: "/images/travaux/05_juments-diomede.jpg",
+    labor: "Les Juments de Diomède",
   },
   {
     title: "Votre service client",
     time: "40 % en autonomie",
     body: "Première réponse en moins d'une minute, 24/7, en cinq langues.",
-    icon: "M3 12a9 9 0 0 1 18 0M3 12v5a2 2 0 0 0 2 2h2v-7H3M21 12v5a2 2 0 0 1-2 2h-2v-7h4",
+    image: "/images/travaux/06_geryon.jpg",
+    labor: "Les Bœufs de Géryon",
   },
   {
     title: "Votre reporting",
     time: "Chaque lundi matin",
     body: "Synthèse automatique de vos chiffres, livrée sans intervention.",
-    icon: "M3 3v18h18M7 16V10M12 16V6M17 16v-4",
+    image: "/images/travaux/07_pommes-hesperides.jpg",
+    labor: "Les Pommes des Hespérides",
   },
   {
     title: "Votre veille marché",
-    time: "Sur demandé",
+    time: "Sur demande",
     body: "Concurrents, tendances, signaux faibles. Résumés pertinents en 30 sec.",
-    icon: "M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z",
+    image: "/images/travaux/08_cerbere.jpg",
+    labor: "Cerbère",
   },
   {
     title: "Vos sous-titrages vidéo",
     time: "Automatique",
-    body: "Réels et lives sous-titres et traduits en cinq langues.",
-    icon: "M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zM7 13h4M13 13h4M7 16h2M11 16h6",
+    body: "Réels et lives sous-titrés et traduits en cinq langues.",
+    image: "/images/travaux/09_serpents-berceau.jpg",
+    labor: "Les Serpents au berceau",
   },
   {
     title: "Vos briefs créatifs",
     time: "30 sec",
-    body: "Moodboards, références, scripts. Prêts a passer en prod.",
-    icon: "M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7zM9 21h6",
+    body: "Moodboards, références, scripts. Prêts à passer en prod.",
+    image: "/images/travaux/10_nessus.jpg",
+    labor: "Nessus",
   },
   {
     title: "Vos traductions",
-    time: "Instantanees",
-    body: "Voix de marque conservee dans 5 langues.",
-    icon: "M2 12a10 10 0 1 0 20 0 10 10 0 0 0-20 0zM2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10M12 2a15 15 0 0 0-4 10 15 15 0 0 0 4 10",
+    time: "Instantanées",
+    body: "Voix de marque conservée dans 5 langues.",
+    image: "/images/travaux/11_centaures.jpg",
+    labor: "Les Centaures",
   },
   {
     title: "Vos analyses de données",
     time: "Tableurs en minutes",
-    body: "Vos CSV, vos Excel. Lus, croises, expliqués en clair.",
-    icon: "M3 3v18h18M7 14l4-4 4 4 5-5",
+    body: "Vos CSV, vos Excel. Lus, croisés, expliqués en clair.",
+    image: "/images/travaux/12_achelous.jpg",
+    labor: "Achéloos",
   },
 ];
 
@@ -988,24 +1001,23 @@ export default function IaLandingPage() {
                 aria-label={`Prendre rendez-vous pour automatiser : ${task.title}`}
                 className="group relative block bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--accent)] md:p-8"
               >
-                <div className="flex items-start justify-between gap-4">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                    Travail {ROMAN[i]}
-                  </p>
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-10 w-10 flex-shrink-0 text-[var(--accent)] transition-transform duration-500 group-hover:scale-110 md:h-12 md:w-12"
-                    aria-hidden="true"
-                  >
-                    <path d={task.icon} />
-                  </svg>
+                {/* Gravure Tempesta 1608, MET, domaine public. N&B + sépia léger,
+                    bascule en pleine teinte au hover (cohérent avec les portraits). */}
+                <div className="relative -mx-6 -mt-6 mb-6 aspect-[3/2] overflow-hidden bg-[var(--fg)]/5 md:-mx-8 md:-mt-8 md:mb-8">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={task.image}
+                    alt={`${task.labor}, gravure d'Antonio Tempesta, 1608`}
+                    className="h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-[1.04]"
+                    style={{ filter: "grayscale(1) contrast(1.08) brightness(0.95) sepia(0.12)" }}
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[var(--bg)]/40" aria-hidden="true" />
                 </div>
-                <h3 className="t-display mt-6 text-2xl text-[var(--fg)] md:text-[28px]">
+                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                  Travail {ROMAN[i]} · {task.labor}
+                </p>
+                <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[28px]">
                   {task.title}
                 </h3>
                 <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
