@@ -5,11 +5,11 @@ import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
 
 /**
- * FormationsHeader — navbar dediee a la plateforme /formations/*.
+ * FormationsHeader — navbar dediee à la plateforme /formations/*.
  *
  * Reprend exactement le style de la Header principale du site
  * (troiestudio.fr) : fixed top, glass-on-scroll, logo wordmark-emblem,
- * nav editoriale "01. — 02. —", CTA contact a droite, mobile burger.
+ * nav éditoriale "01. — 02. —", CTA contact a droite, mobile burger.
  *
  * Mais avec ses propres links centres sur la plateforme cours en ligne :
  * Cours · Boutique · Mastermind · Module 0 gratuit.
@@ -62,7 +62,7 @@ export function FormationsHeader() {
             <Logo variant="wordmark-emblem" className="h-10 md:h-12" />
           </Link>
 
-          {/* Editorial nav — 01. Parcours, 02. Boutique, ... */}
+          {/* Éditorial nav — 01. Parcours, 02. Boutique, ... */}
           <nav className="hidden items-center gap-8 md:flex">
             {LINKS.map((l, i) => (
               <Link

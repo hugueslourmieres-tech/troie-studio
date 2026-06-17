@@ -125,7 +125,7 @@ export const PROGRAMMES: Programme[] = [
         "Midjourney, Sora, Veo, Runway: strengths and typical use",
         "Generating image and video that stay on brand",
         "Plugging into the creative workflow (brief, selection, retouch)",
-        "Rights, credits, limits and legal precautions",
+        "Rights, crédits, limits and legal precautions",
         "Building a repeatable workflow blueprint",
       ],
     },

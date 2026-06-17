@@ -109,7 +109,7 @@ export function SignInForm({ next }: { next: string }) {
       </button>
 
       <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-        Pas de mot de passe. Pas de spam. Vous êtes connecté en 1 clic.
+        Pas de mot de passé. Pas de spam. Vous êtes connecté en 1 clic.
       </p>
     </form>
   );

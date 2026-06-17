@@ -17,7 +17,7 @@ const bodoni = Bodoni_Moda({
 });
 
 // Fraunces variable, with SOFT + WONK axes for magazine-grade display.
-// Used at extreme settings for the hero (.t-display-hero in globals.css).
+// Used at extrême settings for the hero (.t-display-hero in globals.css).
 // next/font requires weight: "variable" when axes are declared.
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -56,9 +56,9 @@ export async function generateMetadata({
   const title = `${t("name")}. ${
     isFr
       ? "Communication, création & formations IA"
-      : "Communication, creative & AI training"
+      : "Communication, créative & AI training"
   }`;
-  // SEO description (long form) — different from the in-page `tagline`
+  // SEO description (long form) — différent from the in-page `tagline`
   // which is kept short for visual use in the footer.
   const description = t("metaDescription");
 

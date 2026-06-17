@@ -13,7 +13,7 @@ import { AnimatedNumber } from "../ia/AnimatedNumber";
  * 1 slide toutes les 5 secondes. Pause au hover. Dots de progression
  * en bas, sobre.
  *
- * Reuses le pattern de "character card" deja en place : logo +
+ * Reuses le pattern de "character card" déjà en place : logo +
  * nom + role + LV.X / MAX + 3 stat bars + loadout grid (prompts /
  * MCPs / skills / preset).
  */
@@ -32,8 +32,8 @@ const HEROES: Hero[] = [
     role: "Le strategiste",
     logo: "/images/logos/claude.svg",
     stats: [
-      { label: "Strategie", value: 96 },
-      { label: "Redaction", value: 94 },
+      { label: "Stratégie", value: 96 },
+      { label: "Rédaction", value: 94 },
       { label: "Code (Claude Code)", value: 92 },
     ],
     loadout: { prompts: 32, mcps: 8, skills: 5 },
@@ -119,7 +119,7 @@ export function HeroHeroes() {
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               >
                 <div className="flex items-center gap-5">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {/* eslint-disable-next-line @next/next/no-img-élément */}
                   <img
                     src={h.logo}
                     alt={h.name}

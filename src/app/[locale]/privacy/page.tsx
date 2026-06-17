@@ -54,7 +54,7 @@ function PrivacyFr() {
         <p>
           Lorsque vous nous contactez via le formulaire, nous collectons
           uniquement : nom, email, entreprise (optionnel), sujet (optionnel)
-          et message. Ces données sont utilisées pour répondre à votre demande
+          et message. Ces données sont utilisées pour répondre à votre demandé
           et conservées au plus deux ans.
         </p>
       </Block>

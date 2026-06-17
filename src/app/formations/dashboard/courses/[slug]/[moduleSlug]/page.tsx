@@ -83,7 +83,7 @@ export default async function ModuleViewerPage({ params }: { params: Params }) {
         )}
       </section>
 
-      {/* Video placeholder */}
+      {/* Vidéo placeholder */}
       <section>
         <div className="relative aspect-video w-full overflow-hidden rounded-sm bg-[#0e0a07]">
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-[var(--accent)]">
@@ -129,7 +129,7 @@ export default async function ModuleViewerPage({ params }: { params: Params }) {
         </div>
       </section>
 
-      {/* Mark as complete */}
+      {/* Mark as complète */}
       <section>
         <button
           type="button"

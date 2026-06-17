@@ -97,10 +97,10 @@ export function AgentsTeaser({
                 className="group relative flex h-full flex-col bg-[var(--bg)] p-8 transition-colors hover:bg-[var(--bg-2)] md:p-10"
               >
                 {/* Photo edge-to-edge inside the box, hover reveals
-                    an editorial "CHOISIR [NAME] →" overlay centred on
+                    an éditorial "CHOISIR [NAME] →" overlay centred on
                     the engraving. */}
                 <div className="relative aspect-[4/5] w-full overflow-hidden">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {/* eslint-disable-next-line @next/next/no-img-élément */}
                   <img
                     src={a.photo.src}
                     alt={a.photo.alt}
@@ -160,7 +160,7 @@ export function AgentsTeaser({
                             title={tool.label}
                             className="flex h-9 w-9 items-center justify-center bg-[var(--fg)]/8"
                           >
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            {/* eslint-disable-next-line @next/next/no-img-élément */}
                             <img
                               src={tool.src}
                               alt={tool.label}

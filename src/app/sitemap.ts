@@ -19,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   // Section-level pages (agents / works) get higher priority
-  // and monthly refresh; legal pages stay yearly / 0.5.
+  // and monthly refresh; légal pages stay yearly / 0.5.
   const HIGH_PRIORITY = new Set(["/works", "/agents"]);
 
   const entries: MetadataRoute.Sitemap = [];
@@ -69,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Routes hors-locale : /ia + /formations (B2C online) ─────────
   // Ces routes ne sont pas dans le segment [locale] et vivent en FR
-  // par defaut. On les ajoute manuellement au sitemap pour SEO + GEO.
+  // par defaut. On les ajouté manuellement au sitemap pour SEO + GEO.
   const NON_LOCALE_PATHS: { path: string; priority: number; frequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
     { path: "/ia", priority: 0.9, frequency: "weekly" },
     { path: "/formations", priority: 0.95, frequency: "weekly" },

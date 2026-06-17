@@ -13,15 +13,15 @@ const CAL_URL = "https://cal.com/hugueslourmieres";
 /* ─────────────────────────────────────────────────────────────────────
    Concept : votre IA est un personnage de RPG. De base, il est faible.
    Une fois "stuffe" (preset + prompts + MCPs + skills), il devient un
-   boss. Les formations vous apprennent a equiper et faire monter en
+   boss. Les formations vous apprennent a équiper et faire monter en
    puissance vos 4 heros : Claude, ChatGPT+Codex, Gemini, Copilot.
    ───────────────────────────────────────────────────────────────────── */
 
-/* Les 4 pieces d'equipement qui transforment un LLM brut en outil pro.
- * Chaque slot a un visuel item style MMORPG (genere via Runway) qui
- * apparait en bandeau au-dessus du contenu. `image` reste null tant
- * que la generation n'a pas ete livree — fallback sur l'icone SVG.
- * Prompts Runway utilises :
+/* Les 4 pièces d'équipement qui transforment un LLM brut en outil pro.
+ * Chaque slot à un visuel item style MMORPG (généré via Runway) qui
+ * apparaît en bandeau au-dessus du contenu. `image` reste null tant
+ * que la génération n'a pas été livrée — fallback sur l'icone SVG.
+ * Prompts Runway utilisés :
  *  - Preset : armor + shield (Greek hoplite bronze, golden engravings)
  *  - Prompts : wizard staff + glowing scrolls
  *  - MCPs : 3 mythical pets (phoenix, owl, dragon)
@@ -32,7 +32,7 @@ const EQUIPMENT = [
     slot: "01",
     label: "Preset",
     sub: "Armure de base",
-    body: "System prompt taille sur votre metier. L'IA arrive deja configuree : ton, contraintes, signatures, garde-fous. C'est elle, version vous.",
+    body: "System prompt taille sur votre métier. L'IA arrive déjà configurée : ton, contraintes, signatures, garde-fous. C'est elle, version vous.",
     icon: "M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4Z",
     image: "/images/equipment/preset.png" as string | null,
   },
@@ -40,7 +40,7 @@ const EQUIPMENT = [
     slot: "02",
     label: "Prompts",
     sub: "Sorts & abilities",
-    body: "Bibliotheque de 100+ prompts eprouves : redaction, analyse, vente, code, image, video. A coller, modifier, etendre. Chacun un sort precis.",
+    body: "Bibliothèque de 100+ prompts eprouves : rédaction, analyse, vente, code, image, vidéo. A coller, modifier, étendre. Chacun un sort précis.",
     icon: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h4M8 17h6M8 9h2",
     image: "/images/equipment/prompts.png" as string | null,
   },
@@ -56,7 +56,7 @@ const EQUIPMENT = [
     slot: "04",
     label: "Skills",
     sub: "Pouvoirs speciaux",
-    body: "Competences custom qui debloquent vos workflows repetitifs. Ecrites une fois, executees a vie. Le skill est votre arme legendaire.",
+    body: "Competences custom qui debloquent vos workflows repetitifs. Écrites une fois, executees à vie. Le skill est votre arme legendaire.",
     icon: "M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z",
     image: "/images/equipment/skills.png" as string | null,
   },
@@ -70,8 +70,8 @@ const TOOLS = [
     logo: "/images/logos/claude.svg",
     specialty: "Long-form, raisonnement, Claude Code",
     stats: [
-      { label: "Strategie", value: 96 },
-      { label: "Redaction", value: 94 },
+      { label: "Stratégie", value: 96 },
+      { label: "Rédaction", value: 94 },
       { label: "Code (Claude Code)", value: 92 },
     ],
     loadout: {
@@ -81,7 +81,7 @@ const TOOLS = [
       skills: 5,
     },
     cowork:
-      "Claude Code : pair-coding terminal-first. Vous decrivez, il execute, lit, ecrit, teste. Comme un dev senior toujours dispo.",
+      "Claude Code : pair-coding terminal-first. Vous decrivez, il exécuté, lit, écrit, testé. Comme un dev senior toujours dispo.",
   },
   {
     name: "ChatGPT + Codex",
@@ -100,7 +100,7 @@ const TOOLS = [
       skills: 4,
     },
     cowork:
-      "Codex (la couche dev d'OpenAI) prend votre brief produit et livre une feature. Le GPT custom devient votre operateur metier 24/7.",
+      "Codex (la couche dev d'OpenAI) prend votre brief produit et livre une feature. Le GPT custom devient votre opérateur métier 24/7.",
   },
   {
     name: "Gemini",
@@ -119,7 +119,7 @@ const TOOLS = [
       skills: 3,
     },
     cowork:
-      "Le seul qui vit dans Gmail / Docs / Sheets sans friction. Resume de reunion, redaction de mail, analyse de Sheet — tout en un clic.",
+      "Le seul qui vit dans Gmail / Docs / Sheets sans friction. Résumé de réunion, rédaction de mail, analyse de Sheet — tout en un clic.",
   },
   {
     name: "Copilot",
@@ -138,20 +138,20 @@ const TOOLS = [
       skills: 3,
     },
     cowork:
-      "Vit dans votre IDE. Ne quitte jamais le code. Il vous suggere, vous explique, vous refactore. Pour qui code tous les jours.",
+      "Vit dans votre IDE. Ne quitte jamais le code. Il vous suggéré, vous expliqué, vous refactore. Pour qui code tous les jours.",
   },
 ];
 
-/* Use cases debloques par chaque heros — vue agregee */
+/* Use cases débloqués par chaque heros — vue agregee */
 const USE_CASES = [
   { title: "SEO", body: "Audit, briefs, contenus structures, signaux", best: "Claude" },
   { title: "SEA", body: "Campagnes Meta Ads + Google Ads, A/B tests", best: "ChatGPT" },
-  { title: "GEO", body: "Apparaitre dans les LLM (Claude, GPT, Perplexity)", best: "Claude" },
+  { title: "GEO", body: "Apparaître dans les LLM (Claude, GPT, Perplexity)", best: "Claude" },
   { title: "Images on-brand", body: "Midjourney, Firefly, GPT Images, Veo", best: "Tous" },
-  { title: "Videos courtes", body: "Sora, Runway, Veo, sous-titrage auto", best: "Gemini" },
+  { title: "Vidéos courtes", body: "Sora, Runway, Veo, sous-titrage auto", best: "Gemini" },
   { title: "Code & landings", body: "Claude Code, Codex, Copilot. Du brief au prod.", best: "Claude Code" },
-  { title: "Veille marche", body: "Concurrents, signaux faibles, pricing", best: "ChatGPT" },
-  { title: "Service client", body: "Premiere reponse 24/7 en 5 langues", best: "Tous" },
+  { title: "Veille marché", body: "Concurrents, signaux faibles, pricing", best: "ChatGPT" },
+  { title: "Service client", body: "Première réponse 24/7 en 5 langues", best: "Tous" },
   { title: "Analytics", body: "GA4, Search Console, dashboards auto", best: "Gemini" },
 ];
 
@@ -159,61 +159,61 @@ const USE_CASES = [
 const PATHS = [
   {
     badge: "Parcours 01 · Solo",
-    title: "Equipez 1 IA jusqu'au niveau pro.",
-    duration: "4 modules · 90 min de video · 25 prompts livres",
+    title: "Équipez 1 IA jusqu'au niveau pro.",
+    duration: "4 modules · 90 min de vidéo · 25 prompts livres",
     price: "97 €",
-    priceNote: "Paiement unique · acces a vie",
-    body: "Vous choisissez votre heros (Claude OU ChatGPT). On le boost avec un preset, 25 prompts metier et les 3 MCPs essentiels. A la fin, vous le maitrisez comme un pro.",
+    priceNote: "Paiement unique · accès à vie",
+    body: "Vous choisissez votre heros (Claude OU ChatGPT). On le boost avec un preset, 25 prompts métier et les 3 MCPs essentiels. A la fin, vous le maîtrisez comme un pro.",
     bullets: [
-      "1 heros equipe niveau pro (Claude ou ChatGPT)",
-      "1 preset metier + 25 prompts",
-      "3 MCPs essentiels connectes",
-      "Module bonus : eviter hallucinations et sycophancy",
+      "1 heros équipe niveau pro (Claude ou ChatGPT)",
+      "1 preset métier + 25 prompts",
+      "3 MCPs essentiels connectés",
+      "Module bonus : éviter hallucinations et sycophancy",
     ],
     cta: { label: "Voir le cours", href: "/formations/cours-01" },
   },
   {
     badge: "Parcours 02 · Multi-class",
-    title: "Maitrisez 4 IA + MCPs + Skills.",
-    duration: "7 modules · 3 h de video · 100 prompts + 10 templates",
+    title: "Maîtrisez 4 IA + MCPs + Skills.",
+    duration: "7 modules · 3 h de vidéo · 100 prompts + 10 templates",
     price: "297 €",
-    priceNote: "Paiement unique · acces a vie",
-    body: "Les 4 heros actives : Claude, ChatGPT + Codex, Gemini, Copilot. 100 prompts metier, 8 MCPs strategiques, 5 skills custom. Vous choisissez le bon outil pour la bonne tache.",
+    priceNote: "Paiement unique · accès à vie",
+    body: "Les 4 heros actives : Claude, ChatGPT + Codex, Gemini, Copilot. 100 prompts métier, 8 MCPs stratégiques, 5 skills custom. Vous choisissez le bon outil pour la bonne tâche.",
     bullets: [
-      "4 heros equipes : Claude, ChatGPT+Codex, Gemini, Copilot",
-      "100 prompts metier multi-tools",
-      "8 MCPs strategiques (Slack, Notion, Gmail, GA4...)",
+      "4 heros équipes : Claude, ChatGPT+Codex, Gemini, Copilot",
+      "100 prompts métier multi-tools",
+      "8 MCPs stratégiques (Slack, Notion, Gmail, GA4...)",
       "5 skills custom + 10 templates Make / Zapier",
     ],
     cta: { label: "Voir le cours", href: "/formations/cours-02" },
   },
   {
     badge: "Parcours 03 · Mastermind",
-    title: "Restez equipe du dernier patch.",
+    title: "Restez équipe du dernier patch.",
     duration: "Abonnement mensuel · communaute Discord",
     price: "49 € / mois",
     priceNote: "ou 490 € / an (2 mois offerts)",
-    body: "La meta change vite. Nouveau preset des qu'un modele sort, prompts mis a jour mensuellement, office hours live, Discord prive. Vous restez top tier sans effort.",
+    body: "La meta change vite. Nouveau preset des qu'un modèle sort, prompts mis à jour mensuellement, office hours live, Discord prive. Vous restez top tier sans effort.",
     bullets: [
-      "Parcours 01 + 02 entierement inclus",
-      "Nouveaux prompts publies chaque mois",
+      "Parcours 01 + 02 entièrement inclus",
+      "Nouveaux prompts publiés chaque mois",
       "Office hours live 1x/mois",
-      "Discord prive + mises a jour de tous les heros",
+      "Discord prive + mises à jour de tous les heros",
     ],
     cta: { label: "Voir le Mastermind", href: "/formations/mastermind" },
   },
 ];
 
-/* Module 0 gratuit — la theorie LLM pour comprendre le reste */
+/* Module 0 gratuit — la théorie LLM pour comprendre le reste */
 const FREE_MODULE = {
   title: "Pourquoi un LLM hallucine et veut vous plaire.",
   duration: "15 min · gratuit · sans inscription",
-  body: "Avant d'equiper votre heros, comprenez son fonctionnement de base. Pourquoi il invente, pourquoi il vous donne raison meme quand vous avez tort, et les 3 reflexes pour ne plus jamais vous faire avoir.",
+  body: "Avant d'équiper votre heros, comprenez son fonctionnement de base. Pourquoi il inventé, pourquoi il vous donne raison même quand vous avez tort, et les 3 réflexes pour ne plus jamais vous faire avoir.",
   bullets: [
-    "Le pre-training : comment un modele apprend a predire",
+    "Le pre-training : comment un modèle apprend a predire",
     "Le RLHF : pourquoi il devient sycophant",
     "Les hallucinations : d'ou elles viennent",
-    "3 reflexes pour ne plus jamais vous faire avoir",
+    "3 réflexes pour ne plus jamais vous faire avoir",
   ],
 };
 
@@ -238,18 +238,18 @@ export default function FormationsPage() {
             >
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                  Pour vous · solo &amp; equipe
+                  Pour vous · solo &amp; équipe
                 </p>
                 <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                  Vous etes ici
+                  Vous êtes ici
                 </span>
               </div>
               <h2 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-3xl">
                 Cours en ligne &amp; system prompts
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                Acces immediat. Module 0 gratuit. Packs prompts a 29 €.
-                Cours a partir de 97 €. Mastermind 49 €/mois.
+                Accès immediat. Module 0 gratuit. Packs prompts a 29 €.
+                Cours à partir de 97 €. Mastermind 49 €/mois.
               </p>
               <span className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
                 Voir les parcours
@@ -271,11 +271,11 @@ export default function FormationsPage() {
                 </span>
               </div>
               <h2 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-3xl">
-                Agents IA &amp; formations equipe
+                Agents IA &amp; formations équipe
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                Deploiement d'agents (Hermes, Achille, Hestia) +
-                formations sur mesure pour vos equipes. Sur site ou
+                Déploiement d'agents (Hermes, Achille, Hestia) +
+                formations sur mesure pour vos équipes. Sur site ou
                 distanciel. Sur devis.
               </p>
               <span className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
@@ -305,7 +305,7 @@ export default function FormationsPage() {
               <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
                 <strong className="text-[var(--fg)]">Pensez RPG.</strong>{" "}
                 Votre Claude, votre ChatGPT, votre Gemini, votre Copilot :
-                ce sont des personnages. Equipez-les avec un preset,
+                ce sont des personnages. Équipez-les avec un preset,
                 des prompts, des MCPs, des skills. Et regardez-les
                 devenir massifs.
               </p>
@@ -334,7 +334,7 @@ export default function FormationsPage() {
         </div>
       </section>
 
-      {/* Marquee logos IA - meme que home troiestudio.fr */}
+      {/* Marquee logos IA - même que home troiestudio.fr */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg)] py-6 md:py-8">
         <ToolsMarquee ariaLabel="Outils IA enseignes dans les formations TROIE" />
       </section>
@@ -342,7 +342,7 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          PUNCHLINE · L'IA qui execute · Equipage IA
+          PUNCHLINE · L'IA qui exécuté · Équipage IA
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
@@ -352,25 +352,25 @@ export default function FormationsPage() {
                 La promesse
               </p>
               <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-                L'IA qui execute.{" "}
+                L'IA qui exécuté.{" "}
                 <span className="text-[var(--accent)]">Pas celle qui repond.</span>
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                <strong className="text-[var(--fg)]">Stop aux questions, place a l'action.</strong>{" "}
-                ChatGPT repond a vos questions. Votre equipage IA — Hermes,
+                <strong className="text-[var(--fg)]">Stop aux questions, place à l'action.</strong>{" "}
+                ChatGPT répond à vos questions. Votre équipage IA — Hermes,
                 Achille, Hestia — agit dans vos outils, 24/7, sans que vous
                 leviez le petit doigt. Pendant que vous dormez, votre stack
-                traite vos mails, draft vos posts, met a jour votre CRM.
-                Vous arrivez le matin, tout est pret a valider.
+                traité vos mails, draft vos posts, met à jour votre CRM.
+                Vous arrivez le matin, tout est prêt à valider.
               </p>
             </div>
             <div className="md:col-span-5">
               <ul className="grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)]">
                 {[
-                  { left: "L'IA qui repond", right: "L'IA qui execute" },
+                  { left: "L'IA qui répond", right: "L'IA qui exécuté" },
                   { left: "Vous posez 50 questions / jour", right: "Vous validez 50 actions / jour" },
-                  { left: "Vous oubliez tout entre 2 chats", right: "Memoire persistante des clients" },
-                  { left: "Aucun acces a vos outils", right: "Connectee Gmail, Notion, Slack, GA4" },
+                  { left: "Vous oubliez tout entre 2 chats", right: "Mémoire persistante des clients" },
+                  { left: "Aucun accès à vos outils", right: "Connectée Gmail, Notion, Slack, GA4" },
                   { left: "Reactive", right: "Proactive · brief matinal Slack 8h" },
                 ].map((row, i) => (
                   <li
@@ -387,7 +387,7 @@ export default function FormationsPage() {
                     </div>
                     <div className="bg-[var(--accent)]/8 p-3 md:p-4">
                       <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                        Apres
+                        Après
                       </p>
                       <p className="mt-1 text-xs leading-tight text-[var(--fg)] md:text-sm">
                         {row.right}
@@ -400,7 +400,7 @@ export default function FormationsPage() {
                 href="/ia"
                 className="group mt-6 inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:text-[var(--fg)]"
               >
-                Voir les 3 agents en detail
+                Voir les 3 agents en détail
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
             </div>
@@ -411,7 +411,7 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          ROI · GrowthCurve + FormationFitting personnalise
+          ROI · GrowthCurve + FormationFitting personnalisé
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -424,7 +424,7 @@ export default function FormationsPage() {
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             A gauche, la courbe : ce que vous changez en equipant vos
             outils IA. A droite, le fitting : 3 questions pour vous
-            recommander LE parcours qui colle a votre profil.
+            recommander LE parcours qui colle à votre profil.
           </p>
 
           <div className="mt-16 grid gap-8 md:mt-20 md:grid-cols-2">
@@ -437,15 +437,15 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          AVANT / APRES — la transformation
+          AVANT / APRÈS — la transformation
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Avant / Apres
+            Avant / Après
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Meme outil. Pas le meme heros.
+            Même outil. Pas le même heros.
           </h2>
 
           <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8">
@@ -466,23 +466,23 @@ export default function FormationsPage() {
                 Sans preset, sans prompts, sans MCPs
               </p>
               <div className="mt-8 space-y-4">
-                <LevelBar label="Strategie" value={32} delay={0.1} />
-                <LevelBar label="Redaction" value={45} delay={0.2} />
+                <LevelBar label="Stratégie" value={32} delay={0.1} />
+                <LevelBar label="Rédaction" value={45} delay={0.2} />
                 <LevelBar label="Code" value={28} delay={0.3} />
               </div>
               <p className="mt-10 text-sm leading-relaxed text-[var(--fg-2)]/85">
-                Reponses generiques. Ton aleatoire. Pas de contexte
-                metier. Hallucinations frequentes. Vous re-expliquez
-                tout, a chaque fois. Vous corrigez plus que vous ne
+                Réponses generiques. Ton aleatoire. Pas de contexte
+                métier. Hallucinations frequentes. Vous re-expliquez
+                tout, à chaque fois. Vous corrigez plus que vous ne
                 produisez.
               </p>
             </div>
 
-            {/* APRES — l'outil stuffe */}
+            {/* APRÈS — l'outil stuffe */}
             <div className="relative rounded-sm border border-[var(--accent)] bg-[#1a1714] p-8 text-[#f5f0e6] md:p-10">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                  Apres · stuffe
+                  Après · stuffe
                 </p>
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
                   LV. 96 / MAX
@@ -495,14 +495,14 @@ export default function FormationsPage() {
                 Preset · 32 prompts · 8 MCPs · 5 skills
               </p>
               <div className="mt-8 space-y-4">
-                <LevelBar label="Strategie" value={96} tone="dark" delay={0.4} />
-                <LevelBar label="Redaction" value={94} tone="dark" delay={0.55} />
+                <LevelBar label="Stratégie" value={96} tone="dark" delay={0.4} />
+                <LevelBar label="Rédaction" value={94} tone="dark" delay={0.55} />
                 <LevelBar label="Code" value={92} tone="dark" delay={0.7} />
               </div>
               <p className="mt-10 text-sm leading-relaxed text-[#f5f0e6]/85">
-                Reponses calees sur votre ton. Contexte metier
+                Réponses calées sur votre ton. Contexte métier
                 permanent. Actions dans Slack, Notion, Gmail, GA4.
-                Workflows automatiques. Vous decidez, il execute.
+                Workflows automatiques. Vous décidez, il exécuté.
               </p>
             </div>
           </div>
@@ -517,15 +517,15 @@ export default function FormationsPage() {
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            L'equipement complet
+            L'équipement complet
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             Quatre slots. Vos heros deviennent imbattables.
           </h2>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             Comme un personnage RPG : armure, sorts, allies, pouvoirs
-            speciaux. C'est ce qui transforme une IA generique en
-            outil pro qui sait votre metier.
+            speciaux. C'est ce qui transformé une IA generique en
+            outil pro qui sait votre métier.
           </p>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-4">
@@ -534,7 +534,7 @@ export default function FormationsPage() {
                 {/* Bandeau item MMORPG — pixel-art orange Hermes */}
                 {e.image ? (
                   <div className="relative aspect-square overflow-hidden bg-[var(--accent)]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img
                       src={e.image}
                       alt={e.label}
@@ -596,7 +596,7 @@ export default function FormationsPage() {
             Le bon outil pour la bonne quete.
           </h2>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            On ne joue pas que avec un. Chaque outil a sa specialite,
+            On ne joue pas que avec un. Chaque outil à sa specialite,
             ses MCPs natifs, ses skills. Le parcours Multi-class vous
             apprend a switcher.
           </p>
@@ -626,7 +626,7 @@ export default function FormationsPage() {
                     </span>
                   </div>
                   <div className="mt-6 flex items-center gap-4">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img
                       src={t.logo}
                       alt={t.name}
@@ -696,10 +696,10 @@ export default function FormationsPage() {
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Skills a debloquer
+            Skills a débloquer
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            9 competences. Niveau pro a chaque slot.
+            9 competences. Niveau pro à chaque slot.
           </h2>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-3">
@@ -728,7 +728,7 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          MODULE 0 GRATUIT — la theorie LLM
+          MODULE 0 GRATUIT — la théorie LLM
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="free" className="border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -794,7 +794,7 @@ export default function FormationsPage() {
             5 niveaux, du gratuit au mensuel.
           </h2>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Choisissez votre porte d'entree selon votre besoin et votre budget. Tous les niveaux sont compatibles, vous progressez a votre rythme.
+            Choisissez votre porté d'entree selon votre besoin et votre budget. Tous les niveaux sont compatibles, vous progressez à votre rythme.
           </p>
 
           <ol className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-5">
@@ -813,7 +813,7 @@ export default function FormationsPage() {
                 Sans inscription
               </p>
               <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)]">
-                Theorie LLM en 15 min + QCM 10 questions. Code promo offert si score ≥ 7/10.
+                Théorie LLM en 15 min + QCM 10 questions. Code promo offert si score ≥ 7/10.
               </p>
               <div className="flex-1" />
               <p className="mt-6 t-display text-2xl text-[var(--fg)] md:text-3xl">0 €</p>
@@ -837,7 +837,7 @@ export default function FormationsPage() {
                 5 packs · 25 prompts
               </p>
               <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)]">
-                System prompts metier prets a coller. Freelance, Marketing, E-com, Design, Coding.
+                System prompts métier prêts à coller. Freelance, Marketing, E-com, Design, Coding.
               </p>
               <div className="flex-1" />
               <p className="mt-6 t-display text-2xl text-[var(--fg)] md:text-3xl">
@@ -860,10 +860,10 @@ export default function FormationsPage() {
                 Cours 01
               </h3>
               <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/60">
-                4 modules · 90 min video
+                4 modules · 90 min vidéo
               </p>
               <p className="mt-4 text-sm leading-relaxed text-[#f5f0e6]/85">
-                Maitriser ChatGPT &amp; Claude. 5 patterns + 25 prompts + 5 templates System.
+                Maîtriser ChatGPT &amp; Claude. 5 patterns + 25 prompts + 5 templates System.
               </p>
               <div className="flex-1" />
               <p className="mt-6 t-display text-2xl md:text-3xl">97 €</p>
@@ -884,7 +884,7 @@ export default function FormationsPage() {
                 Cours 02
               </h3>
               <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/60">
-                7 modules · 3 h video
+                7 modules · 3 h vidéo
               </p>
               <p className="mt-4 text-sm leading-relaxed text-[#f5f0e6]/85">
                 Workflows IA. Make + MCPs + agents persistants + 100 prompts + 10 templates.
@@ -911,7 +911,7 @@ export default function FormationsPage() {
                 Abo mensuel · communaute
               </p>
               <p className="mt-4 text-sm leading-relaxed text-[#1a1714]/85">
-                Cours 01 + 02 inclus + bibliotheque vivante + office hours + Discord prive.
+                Cours 01 + 02 inclus + bibliothèque vivante + office hours + Discord prive.
               </p>
               <div className="flex-1" />
               <p className="mt-6 t-display text-2xl md:text-3xl">49 € / mois</p>
@@ -930,12 +930,12 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          DETAIL DES 3 PARCOURS — pour ceux qui veulent fouiller
+          DÉTAIL DES 3 PARCOURS — pour ceux qui veulent fouiller
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="paths" className="border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Detail des 3 parcours
+            Détail des 3 parcours
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
             Choisissez votre voie de leveling.
@@ -1043,8 +1043,8 @@ export default function FormationsPage() {
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
                 30 min en visio gratuit. On regarde votre activite,
-                vos outils, votre objectif. On vous dit honnetement
-                quel heros equiper en premier — ou si vous n'avez
+                vos outils, votre objectif. On vous dit honnêtement
+                quel heros équiper en premier — ou si vous n'avez
                 besoin d'aucun cours.
               </p>
               <a
@@ -1053,7 +1053,7 @@ export default function FormationsPage() {
                 rel="noreferrer"
                 className="group mt-12 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--bg)] hover:text-[var(--bg)] md:text-[12px]"
               >
-                Reserver 30 min d'orientation
+                Réserver 30 min d'orientation
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
             </div>
@@ -1068,7 +1068,7 @@ export default function FormationsPage() {
                 Voir TROIE IA Pro →
               </Link>
               <p className="mt-3 text-sm leading-relaxed text-[var(--fg)]/75">
-                Formations sur site, deploiement d'agents, accompagnement equipe.
+                Formations sur site, déploiement d'agents, accompagnement équipe.
               </p>
             </div>
           </div>

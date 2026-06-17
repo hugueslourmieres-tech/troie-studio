@@ -107,9 +107,9 @@ export function Hero({ locale }: { locale: string }) {
           </motion.div>
         </div>
 
-        {/* Video column — single editorial frame in the same `--rule` ink
+        {/* Vidéo column — single éditorial frame in the same `--rule` ink
             hairline as the "Le studio" boxes : border outside, horizontal
-            divider between the video and the CTA row, no fill. Parallax
+            divider between the vidéo and the CTA row, no fill. Parallax
             on scroll still lifts the whole frame. */}
         <div className="flex md:col-span-5">
           <motion.div
@@ -119,7 +119,7 @@ export function Hero({ locale }: { locale: string }) {
             transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="relative flex w-full flex-col border border-[var(--rule)]"
           >
-            {/* Video — fills frame edge-to-edge, no padding */}
+            {/* Vidéo — fills frame edge-to-edge, no padding */}
             <div className="relative h-[58vh] min-h-[420px] w-full overflow-hidden md:h-[560px]">
               <HeroVideo />
             </div>

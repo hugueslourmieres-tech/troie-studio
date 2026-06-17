@@ -46,7 +46,7 @@ export function Logo({
   if (variant === "wordmark-emblem") {
     // Emblème (guerrier) à gauche, et à droite un SVG unique qui contient
     // TROIE + la ligne hairline + ATELIER DIGITAL.
-    // En mettant le caption dans le même SVG (textLength="120"), il s'aligne
+    // En mettant le caption dans le même SVG (textLength="120"), il s'aligné
     // exactement sur la largeur de la hairline (= ~la largeur visuelle de
     // TROIE) à toutes les tailles d'écran.
     return (

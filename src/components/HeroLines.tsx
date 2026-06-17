@@ -3,15 +3,15 @@
 import { motion } from "motion/react";
 
 /**
- * HeroLines — editorial layer for the hero.
+ * HeroLines — éditorial layer for the hero.
  *
  * Three subtle ingredients on top of the cream/orange tone:
  *  1. A faint vertical column grid (5 hairlines) — evokes the underlying
  *     print grid of a magazine layout, makes the section feel "designed".
  *  2. Horizontal hairlines that draw themselves left-to-right or
  *     right-to-left, hold, then fade out. New lines appear continuously
- *     at different y-positions for slow, ambient motion.
- *  3. Two pulsing dot markers ("editorial pins") at fixed positions.
+ *     at différent y-positions for slow, ambient motion.
+ *  3. Two pulsing dot markers ("éditorial pins") at fixed positions.
  *
  * Everything is pointer-events: none, low opacity, sits behind the
  * text content. Pure motion/react, no third-party canvas lib.
@@ -24,7 +24,7 @@ type Line = {
   duration: number;
 };
 
-const COLUMNS = [12, 31, 50, 69, 88]; // editorial column rules (% from left)
+const COLUMNS = [12, 31, 50, 69, 88]; // éditorial column rules (% from left)
 
 const LINES: Line[] = [
   { y: "16%", from: "left",  width: 26, delay: 0,   duration: 7 },
@@ -79,7 +79,7 @@ export function HeroLines() {
         />
       ))}
 
-      {/* Editorial pins — soft pulsing dots */}
+      {/* Éditorial pins — soft pulsing dots */}
       {PINS.map((p, i) => (
         <motion.span
           key={`pin-${i}`}

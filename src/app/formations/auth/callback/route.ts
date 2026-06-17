@@ -3,7 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 
 /**
  * /formations/auth/callback?code=xxx&next=/somewhere
- * Echange le code Supabase OTP contre une session puis redirige.
+ * Échange le code Supabase OTP contre une session puis redirige.
  */
 export async function GET(request: Request) {
   const { searchParams, origin } = new URL(request.url);
@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     }
   }
 
-  // Echec d'auth — retour sign-in avec erreur
+  // Échec d'auth — retour sign-in avec erreur
   return NextResponse.redirect(
     `${origin}/formations/auth/sign-in?error=auth_failed`,
   );

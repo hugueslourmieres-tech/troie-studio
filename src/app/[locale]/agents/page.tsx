@@ -119,7 +119,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
           ...(a.setupFrom !== null && { price: String(a.setupFrom) }),
         },
       })),
-      // FAQPage — chance d'apparaitre en featured snippet / accordeon SERP
+      // FAQPage — chance d'apparaître en featured snippet / accordeon SERP
       {
         "@type": "FAQPage",
         mainEntity: faqItems.map((q) => ({
@@ -147,7 +147,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
           parfaitement par dessus. */}
       <header className="relative isolate overflow-hidden border-t border-[var(--accent)] scroll-mt-24">
         {/* Background engraving */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* eslint-disable-next-line @next/next/no-img-élément */}
         <img
           src="/images/agents/hero-bg.jpg"
           alt=""
@@ -351,10 +351,10 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
                       <td className="py-6 pr-6">
                         <div className="flex items-center gap-5">
                           {/* Orange close-up portrait — 80x100 frame in the
-                              brand passe-partout cream, gives the comparison
+                              brand passé-partout cream, gives the comparison
                               table the look of a museum catalogue. */}
                           <div className="relative h-20 w-16 flex-shrink-0 overflow-hidden bg-[#f5f0e6] md:h-24 md:w-20">
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            {/* eslint-disable-next-line @next/next/no-img-élément */}
                             <img
                               src={a.portrait.src}
                               alt={a.portrait.alt}
@@ -399,7 +399,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
                 >
                   <div className="flex items-center gap-4">
                     <div className="relative h-20 w-16 flex-shrink-0 overflow-hidden bg-[#f5f0e6]">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      {/* eslint-disable-next-line @next/next/no-img-élément */}
                       <img
                         src={a.portrait.src}
                         alt={a.portrait.alt}
@@ -597,7 +597,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
  * the top with the same aspect, identical paragraph order). The flex column
  * + `flex-1` spacer pushes the signature + price + CTA to a shared bottom
  * baseline regardless of variable text length above. `items-stretch` on
- * the parent grid forces equal column heights.
+ * the parent grid forcés equal column heights.
  */
 function AgentCard({
   a,
@@ -625,7 +625,7 @@ function AgentCard({
     >
       {/* Portrait — full 4/5 engraving, edge-to-edge, no frame, no overlay */}
       <div className="relative aspect-[4/5] w-full overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* eslint-disable-next-line @next/next/no-img-élément */}
         <img
           src={a.photo.src}
           alt={a.photo.alt}
@@ -679,7 +679,7 @@ function AgentCard({
                 title={tool.label}
                 className="flex h-10 w-10 items-center justify-center bg-[#1a17140a]"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {/* eslint-disable-next-line @next/next/no-img-élément */}
                 <img
                   src={tool.src}
                   alt={tool.label}

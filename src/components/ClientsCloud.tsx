@@ -32,7 +32,7 @@ export function ClientsCloud() {
     if (!el) return;
 
     // The track contains the list twice; we translate by -50% to loop
-    // seamlessly. Slow speed for editorial feel (~30s per cycle).
+    // seamlessly. Slow speed for éditorial feel (~30s per cycle).
     const ctx = gsap.context(() => {
       gsap.to(el, {
         xPercent: -50,

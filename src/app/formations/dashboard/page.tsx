@@ -23,7 +23,7 @@ export default async function DashboardOverview() {
     (t) => !MOCK_UNLOCKED_TROPHIES.has(t.slug),
   ).slice(0, 3);
 
-  // Continuer where left off : derniere module en started
+  // Continuer where left off : dernière module en started
   const inProgress = MOCK_MODULE_PROGRESS.find((p) => p.status === "started") ?? null;
   let continueModule = null;
   let continueCourse = null;

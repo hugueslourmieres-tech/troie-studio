@@ -8,25 +8,25 @@ import { Reveal } from "./Reveal";
 
 type Tool = { src: string; label: string };
 
-type Metier = {
+type Métier = {
   index: string;
   slug: "creation" | "strategy" | "training";
-  video: string;
+  vidéo: string;
   videoAlt: string;
   hash: string;
   tools: Tool[];
 };
 
-// Vidéos + outils sourcés depuis /public/images/{videos,logos}.
+// Vidéos + outils sourcés depuis /public/images/{vidéos,logos}.
 // Les logos sont en SVG monochrome, posés avec un filtre brightness(0)
 // pour rester noirs en tout cas, et une opacité réduite pour rester discrets.
-const METIERS: Metier[] = [
+const METIERS: Métier[] = [
   {
     index: "01",
     slug: "creation",
-    video: "/images/videos/creation.mp4",
+    vidéo: "/images/vidéos/création.mp4",
     videoAlt: "Création, vidéo d'illustration",
-    hash: "#creation",
+    hash: "#création",
     tools: [
       { src: "/images/logos/adobe.svg", label: "Adobe" },
       { src: "/images/logos/figma.svg", label: "Figma" },
@@ -38,7 +38,7 @@ const METIERS: Metier[] = [
   {
     index: "02",
     slug: "strategy",
-    video: "/images/videos/strategy.mp4",
+    vidéo: "/images/vidéos/strategy.mp4",
     videoAlt: "Stratégie, vidéo d'illustration",
     hash: "#strategy",
     tools: [
@@ -52,7 +52,7 @@ const METIERS: Metier[] = [
   {
     index: "03",
     slug: "training",
-    video: "/images/videos/formation.mp4",
+    vidéo: "/images/vidéos/formation.mp4",
     videoAlt: "Formation, vidéo d'illustration",
     hash: "#training",
     tools: [
@@ -105,7 +105,7 @@ export function Intro() {
         {/* 3 boxes — un guerrier par métier */}
         <div className="mt-20 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-28 md:grid-cols-3">
           {METIERS.map((m, i) => (
-            <MetierBox key={m.slug} metier={m} index={i} />
+            <MetierBox key={m.slug} métier={m} index={i} />
           ))}
         </div>
       </div>
@@ -113,7 +113,7 @@ export function Intro() {
   );
 }
 
-function MetierBox({ metier, index }: { metier: Metier; index: number }) {
+function MetierBox({ métier, index }: { métier: Métier; index: number }) {
   const t = useTranslations("home");
 
   return (
@@ -129,24 +129,24 @@ function MetierBox({ metier, index }: { metier: Metier; index: number }) {
       className="relative"
     >
       <Link
-        href={metier.hash}
+        href={métier.hash}
         className="group relative flex h-full flex-col bg-[var(--bg)] p-8 transition-colors hover:bg-[var(--bg-2)] md:p-10"
       >
         {/* Index + label (re-using the eyebrow which already reads "01 · Création") */}
         <span className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)]/60">
-          {t(`${metier.slug}Eyebrow`)}
+          {t(`${métier.slug}Eyebrow`)}
         </span>
 
-        {/* Video — autoplay loop muted, N&B */}
+        {/* Vidéo — autoplay loop muted, N&B */}
         <div className="relative mt-8 aspect-square w-full overflow-hidden bg-[var(--bg-2)]">
           <video
-            src={metier.video}
+            src={métier.vidéo}
             autoPlay
             loop
             muted
             playsInline
             preload="metadata"
-            aria-label={metier.videoAlt}
+            aria-label={métier.videoAlt}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
             style={{ filter: "grayscale(1) brightness(0.96) contrast(1.06)" }}
           />
@@ -155,14 +155,14 @@ function MetierBox({ metier, index }: { metier: Metier; index: number }) {
         {/* Text */}
         <div className="mt-8 flex flex-1 flex-col">
           <h3 className="t-display text-3xl text-[var(--fg)] md:text-4xl">
-            {t(`${metier.slug}Title`)}
+            {t(`${métier.slug}Title`)}
           </h3>
           <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-            {t(`${metier.slug}Body`)}
+            {t(`${métier.slug}Body`)}
           </p>
 
           {/* Tool logos — monochrome, discrete, evenly sized */}
-          <ToolsRow tools={metier.tools} />
+          <ToolsRow tools={métier.tools} />
 
           <span className="mt-auto pt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition group-hover:text-[var(--accent)]">
             <span className="border-b border-[var(--rule-strong)] pb-0.5 group-hover:border-[var(--accent)]">
@@ -178,7 +178,7 @@ function MetierBox({ metier, index }: { metier: Metier; index: number }) {
 
 /**
  * ToolsRow — rangée discrète de logos sur fond orange.
- * - Monochrome via filter brightness(0) (force noir pur même si le SVG
+ * - Monochrome via filter brightness(0) (forcé noir pur même si le SVG
  *   est multicolore)
  * - Opacité 50 % par défaut, monte à 80 % au survol de la card
  * - Hauteur homogène 20 px, gap responsive

@@ -3,17 +3,17 @@
 import { useEffect, useRef } from "react";
 
 /**
- * HeroVideo — fullbleed looping cover video, B&W.
+ * HeroVideo — fullbleed looping cover vidéo, B&W.
  *
  * autoplay layered defence:
  *   1. HTML attributes  : autoPlay loop muted playsInline preload="auto"
- *   2. On mount         : force muted then call .play() immediately.
+ *   2. On mount         : forcé muted then call .play() immediately.
  *   3. On loadeddata    : call .play() again (some browsers only allow it then).
  *   4. On canplay       : same.
  *   5. On document        first scroll / click / touch / keydown → play().
  *      Catches strict-autoplay browsers (Safari Low Power, Chrome Data Saver).
  *   6. On ended         : reset currentTime to 0 and play() (old Safari loop bug).
- *   7. On visibilitychange: resume when tab becomes visible.
+ *   7. On visibilitychange: résumé when tab becomes visible.
  */
 export function HeroVideo() {
   const ref = useRef<HTMLVideoElement>(null);
@@ -54,7 +54,7 @@ export function HeroVideo() {
     window.addEventListener("touchstart", unlock, { once: true, passive: true });
     window.addEventListener("keydown", unlock, { once: true });
 
-    // Resume when tab refocuses
+    // Résumé when tab refocuses
     const onVisibility = () => {
       if (document.visibilityState === "visible" && el.paused) tryPlay();
     };

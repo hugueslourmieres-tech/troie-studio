@@ -8,14 +8,14 @@ const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
 
 /* ─────────────────────────────────────────────────────────────────────
-   Sources verifiees (juin 2026) — gains de productivite reels marketing
+   Sources vérifiées (juin 2026) — gains de productivite réels marketing
    - Etudes marketing solopreneurs 2026 (Mirra, AgentMinds, Enrich Labs) :
-     mediane 15 a 27 h/sem recuperees sur la com + ads + reporting
+     médiane 15 a 27 h/sem récupérées sur la com + ads + reporting
    - Nielsen Norman Group : -60 a -70 % sur le temps de production
-     creatif avec IA (design, copies, landings)
-   - AgencyAnalytics 2026 : reporting GA4 hebdo passe de 5 h a 30 min
-   - Datagrid 2026 : veille concurrentielle automatisee = 30 a 60 h/mois
-   - Unicorn Platform 2026 : landing complete en 5 a 30 min vs 2 jours
+     créatif avec IA (design, copies, landings)
+   - AgencyAnalytics 2026 : reporting GA4 hebdo passé de 5 h a 30 min
+   - Datagrid 2026 : veille concurrentielle automatisée = 30 a 60 h/mois
+   - Unicorn Platform 2026 : landing complète en 5 a 30 min vs 2 jours
    - Adoption freelance 2026 : 84 % utilisent l'IA (vs 41 % en 2023)
    ───────────────────────────────────────────────────────────────────── */
 
@@ -24,54 +24,54 @@ const STATS = [
     value: 2,
     prefix: "× ",
     suffix: "",
-    label: "Impact par collaborateur sur les taches automatisables",
-    detail: "Mediane etudes marketing solopreneurs 2026",
+    label: "Impact par collaborateur sur les tâches automatisables",
+    détail: "Médiane etudes marketing solopreneurs 2026",
   },
   {
     value: 60,
     prefix: "+",
     suffix: " %",
-    label: "De capacite equipe sans recruter un seul poste",
-    detail: "3 jours par semaine gagnes par membre",
+    label: "De capacite équipe sans recruter un seul poste",
+    détail: "3 jours par semaine gagnes par membre",
   },
   {
     value: 21,
     suffix: " h",
-    label: "Liberees par semaine, par poste",
-    detail: "Pour la strategie, la creation, la decision",
+    label: "Libérées par semaine, par poste",
+    détail: "Pour la stratégie, la création, la décision",
   },
   {
     value: -70,
     suffix: " %",
-    label: "Sur le temps de production des creatifs",
-    detail: "Nielsen Norman Group, design assiste IA",
+    label: "Sur le temps de production des créatifs",
+    détail: "Nielsen Norman Group, design assiste IA",
   },
 ];
 
 const SOLO_PACKS = [
   {
     badge: "Pack 01",
-    title: "Decouverte solo.",
-    duration: "1/2 journee · 4 h",
-    price: "A partir de 290 €",
+    title: "Découverte solo.",
+    duration: "1/2 journée · 4 h",
+    price: "À partir de 290 €",
     body:
-      "Vous partez de zero. On installe les bons outils, on apprend la methode, on construit ensemble votre premiere bibliotheque de prompts adaptee a votre activite.",
+      "Vous partez de zero. On installé les bons outils, on apprend la méthode, on construit ensemble votre première bibliothèque de prompts adaptée à votre activite.",
     bullets: [
-      "Bibliotheque de 25 prompts pour votre metier",
-      "ChatGPT, Claude, Gemini : usage avance",
-      "Methode de prompting structuree",
+      "Bibliothèque de 25 prompts pour votre métier",
+      "ChatGPT, Claude, Gemini : usage avancé",
+      "Méthode de prompting structurée",
     ],
   },
   {
     badge: "Pack 02",
     title: "Atelier perso.",
-    duration: "1 journee · 7 h",
-    price: "A partir de 590 €",
+    duration: "1 journée · 7 h",
+    price: "À partir de 590 €",
     body:
-      "Un workflow IA construit avec vous, sur votre activite reelle. Vous repartez avec votre boite a outils, pas une presentation generique.",
+      "Un workflow IA construit avec vous, sur votre activite réelle. Vous repartez avec votre boite a outils, pas une présentation generique.",
     bullets: [
-      "Audit de vos taches a forte valeur a deleguer",
-      "Workflow IA documente, calque sur votre metier",
+      "Audit de vos tâches a forte valeur a déléguer",
+      "Workflow IA documenté, calque sur votre métier",
       "Templates : devis, emails, posts, visuels",
     ],
   },
@@ -79,13 +79,13 @@ const SOLO_PACKS = [
     badge: "Pack 03",
     title: "Suivi 30 jours.",
     duration: "1 mois · 8 h de coaching",
-    price: "A partir de 1 290 €",
+    price: "À partir de 1 290 €",
     body:
-      "Un agent IA dedie sur votre cas + 2 sessions de 1 h par semaine pour ajuster. Vous passez de l'experimentation a la maitrise sereine.",
+      "Un agent IA dedie sur votre cas + 2 sessions de 1 h par semaine pour ajuster. Vous passez de l'experimentation à la maîtrise sereine.",
     bullets: [
-      "Agent IA configure sur votre activite reelle",
+      "Agent IA configuré sur votre activite réelle",
       "2 sessions de coaching par semaine",
-      "Joignable a tout moment pendant 30 jours",
+      "Joignable à tout moment pendant 30 jours",
     ],
   },
 ];
@@ -93,28 +93,28 @@ const SOLO_PACKS = [
 const PRO_PACKS = [
   {
     badge: "Formation 01",
-    title: "Decouverte equipe.",
-    duration: "1/2 journee · jusqu'a 10 pers.",
+    title: "Découverte équipe.",
+    duration: "1/2 journée · jusqu'à 10 pers.",
     price: "Sur devis",
     body:
-      "Fondamentaux IA pour toute l'equipe. ChatGPT, Claude, Gemini. Methode de prompting, hygiene des donnees, bibliotheque de prompts partagee.",
+      "Fondamentaux IA pour toute l'équipe. ChatGPT, Claude, Gemini. Méthode de prompting, hygiene des données, bibliothèque de prompts partagée.",
     bullets: [
-      "Methode de prompting structuree",
-      "Bibliotheque de prompts collective",
-      "Plan d'usage par metier (commercial, marketing, support)",
+      "Méthode de prompting structurée",
+      "Bibliothèque de prompts collective",
+      "Plan d'usage par métier (commercial, marketing, support)",
     ],
     cta: { label: "Voir le programme", href: `${MAIN_SITE}/fr/formations` },
   },
   {
     badge: "Formation 02",
-    title: "Pratique creative.",
-    duration: "1 journee · jusqu'a 8 pers.",
+    title: "Pratique créative.",
+    duration: "1 journée · jusqu'à 8 pers.",
     price: "Sur devis",
     body:
-      "Production & creation IA pour les equipes marketing, com', creation. Midjourney, Sora, Veo, Runway. Vous repartez avec un workflow reproductible.",
+      "Production & création IA pour les équipes marketing, com', création. Midjourney, Sora, Veo, Runway. Vous repartez avec un workflow reproductible.",
     bullets: [
-      "Generation image et video on-brand",
-      "Integration au workflow creatif existant",
+      "Génération image et vidéo on-brand",
+      "Intégration au workflow créatif existant",
       "Droits, mentions, limites juridiques",
     ],
     cta: { label: "Voir le programme", href: `${MAIN_SITE}/fr/formations` },
@@ -122,12 +122,12 @@ const PRO_PACKS = [
   {
     badge: "Formation 03",
     title: "Agents IA & automatisation.",
-    duration: "2 journees · jusqu'a 6 pers.",
+    duration: "2 journées · jusqu'à 6 pers.",
     price: "Sur devis",
     body:
-      "Make, n8n, Zapier. Conception et deploiement d'agents IA sur vos cas reels. 1 a 2 automatisations en production a la sortie de la formation.",
+      "Make, n8n, Zapier. Conception et déploiement d'agents IA sur vos cas réels. 1 a 2 automatisations en production à la sortie de la formation.",
     bullets: [
-      "Conception d'agents IA : memoire, garde-fous",
+      "Conception d'agents IA : mémoire, garde-fous",
       "1 a 2 automatisations en production",
       "Gouvernance et privacy-by-design",
     ],
@@ -135,67 +135,67 @@ const PRO_PACKS = [
   },
 ];
 
-/* Taches du quotidien avec gains chiffres reels (sources etudes 2026). */
+/* Tâches du quotidien avec gains chiffres réels (sources etudes 2026). */
 /* Tasks avec pictogramme Lucide-style (SVG path tracé propre) */
 const TASKS = [
   {
     title: "Vos emails",
     time: "26 min / jour",
-    body: "Reponses pros calees dans votre voix. Premiere reponse en 3 secondes.",
+    body: "Réponses pros calées dans votre voix. Première réponse en 3 secondes.",
     icon: "M22 7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2m20 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7m20 0-10 7L2 7",
   },
   {
     title: "Vos posts sociaux",
     time: "5 h / semaine",
-    body: "LinkedIn, Instagram, TikTok. Un sujet, cinq formats sortants prets a publier.",
+    body: "LinkedIn, Instagram, TikTok. Un sujet, cinq formats sortants prêts à publier.",
     icon: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13",
   },
   {
     title: "Vos devis et factures",
     time: "3 a 5 h / semaine",
-    body: "Generes, envoyes, relances automatiques. Plus jamais oublies.",
+    body: "Générés, envoyés, relances automatiques. Plus jamais oublies.",
     icon: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8",
   },
   {
     title: "Votre prospection",
     time: "5 a 10 h / semaine",
-    body: "Listes qualifiees, mails personnalises ciblage par ciblage.",
+    body: "Listes qualifiées, mails personnalisés ciblage par ciblage.",
     icon: "M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z",
   },
   {
     title: "Vos visuels et illustrations",
     time: "Quelques secondes",
-    body: "Generation image on-brand, votre charte respectee.",
+    body: "Génération image on-brand, votre charte respectée.",
     icon: "M3 3h18v18H3zM21 15l-5-5L5 21",
   },
   {
     title: "Votre service client",
     time: "40 % en autonomie",
-    body: "Premiere reponse en moins d'une minute, 24/7, en cinq langues.",
+    body: "Première réponse en moins d'une minute, 24/7, en cinq langues.",
     icon: "M3 12a9 9 0 0 1 18 0M3 12v5a2 2 0 0 0 2 2h2v-7H3M21 12v5a2 2 0 0 1-2 2h-2v-7h4",
   },
   {
     title: "Votre reporting",
     time: "Chaque lundi matin",
-    body: "Synthese automatique de vos chiffres, livree sans intervention.",
+    body: "Synthèse automatique de vos chiffres, livrée sans intervention.",
     icon: "M3 3v18h18M7 16V10M12 16V6M17 16v-4",
   },
   {
-    title: "Votre veille marche",
-    time: "Sur demande",
-    body: "Concurrents, tendances, signaux faibles. Resumes pertinents en 30 sec.",
+    title: "Votre veille marché",
+    time: "Sur demandé",
+    body: "Concurrents, tendances, signaux faibles. Résumés pertinents en 30 sec.",
     icon: "M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z",
   },
   {
-    title: "Vos sous-titrages video",
+    title: "Vos sous-titrages vidéo",
     time: "Automatique",
-    body: "Reels et lives sous-titres et traduits en cinq langues.",
+    body: "Réels et lives sous-titres et traduits en cinq langues.",
     icon: "M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zM7 13h4M13 13h4M7 16h2M11 16h6",
   },
   {
-    title: "Vos briefs creatifs",
+    title: "Vos briefs créatifs",
     time: "30 sec",
-    body: "Moodboards, references, scripts. Prets a passer en prod.",
+    body: "Moodboards, références, scripts. Prêts a passer en prod.",
     icon: "M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7zM9 21h6",
   },
   {
@@ -205,9 +205,9 @@ const TASKS = [
     icon: "M2 12a10 10 0 1 0 20 0 10 10 0 0 0-20 0zM2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10M12 2a15 15 0 0 0-4 10 15 15 0 0 0 4 10",
   },
   {
-    title: "Vos analyses de donnees",
+    title: "Vos analyses de données",
     time: "Tableurs en minutes",
-    body: "Vos CSV, vos Excel. Lus, croises, expliques en clair.",
+    body: "Vos CSV, vos Excel. Lus, croises, expliqués en clair.",
     icon: "M3 3v18h18M7 14l4-4 4 4 5-5",
   },
 ];
@@ -215,22 +215,22 @@ const TASKS = [
 const STEPS = [
   {
     title: "Audit gratuit · 30 min.",
-    body: "On regarde vos taches reelles. Reponse claire, chiffree, ecrite, sous 48 h.",
-    img: "/images/corpo/strategie/DSC_5552-4.jpg",
+    body: "On regarde vos tâches reelles. Réponse claire, chiffree, écrite, sous 48 h.",
+    img: "/images/corpo/stratégie/DSC_5552-4.jpg",
   },
   {
     title: "Setup & formation.",
-    body: "On configure les outils sur vos cas concrets. On forme votre equipe avec vos donnees, votre voix.",
+    body: "On configuré les outils sur vos cas concrets. On formé votre équipe avec vos données, votre voix.",
     img: "/images/corpo/montpellier/DSC_7573.jpg",
   },
   {
     title: "Production supervisee.",
-    body: "Pendant 30 jours, on accompagne les premieres semaines. Ajustements continus, transfert progressif.",
+    body: "Pendant 30 jours, on accompagne les premières semaines. Ajustements continus, transfert progressif.",
     img: "/images/corpo/mibi/DSC_7665.jpg",
   },
   {
-    title: "Autonomie complete.",
-    body: "Vos workflows, vos prompts, vos acces. Tout vous appartient. Sortie propre, sans lock-in.",
+    title: "Autonomie complète.",
+    body: "Vos workflows, vos prompts, vos accès. Tout vous appartient. Sortie propre, sans lock-in.",
     img: "/images/corpo/barcelona/13Hugues-Nikon-35mm.jpg",
   },
 ];
@@ -238,26 +238,26 @@ const STEPS = [
 const FAQ = [
   {
     q: "C'est quoi la difference micro-entreprise et SAS ?",
-    a: "Micro-entreprise (anciennement auto-entrepreneur) : le statut le plus simple pour demarrer. Plafond 77 700 € en services, comptabilite allegee. Ideal pour freelances et consultants qui commencent. SAS / SASU : forme societe, plus structuree, pour ceux qui veulent grandir, embaucher, s'associer ou lever des fonds. Si vous hesitez, on en parle pendant l'audit gratuit.",
+    a: "Micro-entreprise (anciennement auto-entrepreneur) : le statut le plus simple pour démarrer. Plafond 77 700 € en services, comptabilite allegee. Idéal pour freelances et consultants qui commencent. SAS / SASU : formé societe, plus structurée, pour ceux qui veulent grandir, embaucher, s'associer ou lever des fonds. Si vous hésitez, on en parle pendant l'audit gratuit.",
   },
   {
     q: "Concretement, je gagne combien de temps ?",
-    a: "Les chiffres officiels 2026 : 8 heures par semaine en moyenne pour les freelances actifs avec l'IA, jusqu'a 10-15 heures pour les marketers en equipe. Sur les emails, 26 minutes par jour recuperees rien que la. Sur la prospection ciblee, 5 a 10 heures par semaine. Le 5x s'applique aux taches automatisables (drafts, premiere reponse, posts, prospection) — pas a votre metier de fond.",
+    a: "Les chiffres officiels 2026 : 8 heures par semaine en moyenne pour les freelances actifs avec l'IA, jusqu'à 10-15 heures pour les marketers en équipe. Sur les emails, 26 minutes par jour récupérées rien que la. Sur la prospection ciblée, 5 a 10 heures par semaine. Le 5x s'applique aux tâches automatisables (drafts, première réponse, posts, prospection) — pas à votre métier de fond.",
   },
   {
-    q: "Combien de temps avant que ca serve vraiment ?",
-    a: "Pour les solos : utilisable des le soir meme de la formation. Resultats mesurables sous 2 semaines. Pour les equipes : 14 jours pour les premiers contenus publies via Achille, 21 jours pour passer 60 % des tickets en mode autonome via Hestia, 30 jours pour les premiers RDV qualifies via Hermes.",
+    q: "Combien de temps avant que ça serve vraiment ?",
+    a: "Pour les solos : utilisable des le soir même de la formation. Résultats mesurables sous 2 semaines. Pour les équipes : 14 jours pour les premiers contenus publiés via Achille, 21 jours pour passer 60 % des tickets en mode autonome via Hestia, 30 jours pour les premiers RDV qualifiés via Hermes.",
   },
   {
-    q: "Mes donnees restent en Union europeenne ?",
-    a: "Oui par defaut. Tous les agents et outils tournent sur des modeles hebergees Europe (Mistral, Claude region UE) ou via passerelles a garanties contractuelles. Variante 100 % souveraine sur demande pour les secteurs reglementes.",
+    q: "Mes données restent en Union europeenne ?",
+    a: "Oui par defaut. Tous les agents et outils tournent sur des modèles hebergees Europe (Mistral, Claude region UE) ou via passerelles a garanties contractuelles. Variante 100 % souveraine sur demandé pour les secteurs reglementes.",
   },
   {
     q: "Un agent peut-il vraiment remplacer une personne ?",
-    a: "Non, et c'est volontaire. Un agent prend la charge repetitive et mesurable (suivi, premiere reponse, prospection, contenu). Il libere votre equipe pour ce qui demande du jugement, de la relation, de la creation. La promesse, c'est ca : moins de taches a la chaine, plus de temps pour ce qui compte.",
+    a: "Non, et c'est volontaire. Un agent prend la charge répétitive et mesurable (suivi, première réponse, prospection, contenu). Il libéré votre équipe pour ce qui demandé du jugement, de la relation, de la création. La promesse, c'est ça : moins de tâches à la chaine, plus de temps pour ce qui compte.",
   },
   {
-    q: "Vous etes pris en charge par les OPCO ?",
+    q: "Vous êtes pris en charge par les OPCO ?",
     a: "Pas en direct chez TROIE — nous travaillons avec un organisme certifie Qualiopi pour les sessions intra. Sur devis, nous indiquons le format eligible et le partenaire OF qui prend la prise en charge en main.",
   },
 ];
@@ -286,7 +286,7 @@ export default function IaLandingPage() {
         </div>
       </header>
 
-      {/* Hero — video bg + cream veil. Pas de sceau : pitch direct, equipe boostee. */}
+      {/* Hero — vidéo bg + cream veil. Pas de sceau : pitch direct, équipe boostee. */}
       <section className="relative isolate overflow-hidden border-b border-[var(--rule)]">
         <HeroVideoBg />
         <div
@@ -303,17 +303,17 @@ export default function IaLandingPage() {
             {/* Col gauche : punchline */}
             <div className="md:col-span-6">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Pour solo · equipes · entreprises
+                Pour solo · équipes · entreprises
               </p>
               <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px] xl:text-[92px]">
-                Multipliez vos benefices,{" "}
-                <span className="text-[var(--accent)]">grace a l'IA.</span>
+                Multipliez vos bénéfices,{" "}
+                <span className="text-[var(--accent)]">grâce à l'IA.</span>
               </h1>
               <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
                 <strong className="text-[var(--fg)]">Vos equipes deviennent des super-heros.</strong>{" "}
-                Solo, freelance, equipe ou entreprise : trois jours par semaine
-                recuperes, capacite doublee sans embaucher. Formations courtes
-                et agents IA prets a l'emploi. Sans changer de metier, sans
+                Solo, freelance, équipe ou entreprise : trois jours par semaine
+                récupérés, capacite doublee sans embaucher. Formations courtes
+                et agents IA prêts à l'emploi. Sans changer de métier, sans
                 grosse facture.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -323,7 +323,7 @@ export default function IaLandingPage() {
                   rel="noreferrer"
                   className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
                 >
-                  Reserver 30 min d'audit gratuit
+                  Réserver 30 min d'audit gratuit
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <a
@@ -336,7 +336,7 @@ export default function IaLandingPage() {
                   href="#pro"
                   className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
                 >
-                  Marques / equipes →
+                  Marques / équipes →
                 </a>
               </div>
             </div>
@@ -349,8 +349,8 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* Stat band supprimee — les chiffres verifies sont desormais
-          dans la GrowthCurve du hero, pour eviter la redondance. */}
+      {/* Stat band supprimee — les chiffres vérifiés sont desormais
+          dans la GrowthCurve du hero, pour éviter la redondance. */}
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           SOLO / MICRO / AUTO-ENTREPRENEUR
@@ -368,16 +368,16 @@ export default function IaLandingPage() {
             </div>
             <div className="md:col-span-7">
               <p className="text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                Vous etes seul a tout porter : prospection, production, devis,
-                SAV, compta, reseaux. L'IA bien configuree avec vous, n'enleve
+                Vous êtes seul à tout porter : prospection, production, devis,
+                SAV, compta, reseaux. L'IA bien configurée avec vous, n'enleve
                 pas votre signature. Elle vous rend les heures qu'on n'a plus
                 quand on est solo.
               </p>
               <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
                 <strong className="text-[var(--fg)]">8 heures par semaine
-                recuperees</strong> en moyenne sur les freelances actifs avec
-                l'IA en 2026. Une journee complete par semaine pour respirer,
-                creer, vivre.
+                récupérées</strong> en moyenne sur les freelances actifs avec
+                l'IA en 2026. Une journée complète par semaine pour respirer,
+                créer, vivre.
               </p>
 
               {/* Mini-glossaire statuts avec pictogrammes Lucide */}
@@ -404,7 +404,7 @@ export default function IaLandingPage() {
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
                     Anciennement auto-entrepreneur. Le statut le plus simple
-                    pour demarrer. Plafond 77 700 € en services. Ideal solo.
+                    pour démarrer. Plafond 77 700 € en services. Idéal solo.
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] p-6 md:p-8">
@@ -433,7 +433,7 @@ export default function IaLandingPage() {
                     </p>
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                    Forme societe. Plus structuree, pour ceux qui veulent
+                    Formé societe. Plus structurée, pour ceux qui veulent
                     grandir, embaucher, s'associer ou lever des fonds.
                   </p>
                 </div>
@@ -441,7 +441,7 @@ export default function IaLandingPage() {
             </div>
           </div>
 
-          {/* 3 packs solo — chaque pack un fond different (Pack 04 below) */}
+          {/* 3 packs solo — chaque pack un fond différent (Pack 04 below) */}
           <div className="mt-20 grid gap-6 md:mt-28 md:grid-cols-3 md:gap-8">
             {SOLO_PACKS.map((p, i) => {
               // Palette : Pack 01 sable doux, Pack 02 brun terre, Pack 03 noir nuit
@@ -486,7 +486,7 @@ export default function IaLandingPage() {
                 >
                   {/* Bandeau 16:9 N&B */}
                   <div className="relative aspect-video overflow-hidden bg-[var(--fg)]/10">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img
                       src={banner}
                       alt=""
@@ -529,7 +529,7 @@ export default function IaLandingPage() {
                         rel="noreferrer"
                         className={`group mt-6 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
                       >
-                        Reserver
+                        Réserver
                         <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                       </a>
                     </div>
@@ -544,7 +544,7 @@ export default function IaLandingPage() {
             <div className="grid gap-0 md:grid-cols-12">
               <div className="md:col-span-5">
                 <div className="relative h-64 md:h-full">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {/* eslint-disable-next-line @next/next/no-img-élément */}
                   <img
                     src="/images/corpo/montpellier/DSC_7616.jpg"
                     alt=""
@@ -564,13 +564,13 @@ export default function IaLandingPage() {
                   1 mois · 12 h de coaching · agent inclus
                 </p>
                 <p className="mt-6 text-base leading-relaxed text-[#1a1714]/85 md:text-lg">
-                  La formule la plus complete : audit, formation, bibliotheque de 100 prompts, un agent IA configure sur votre cas reel, et 12 h de coaching reparties sur 30 jours.
+                  La formule la plus complète : audit, formation, bibliothèque de 100 prompts, un agent IA configuré sur votre cas réel, et 12 h de coaching reparties sur 30 jours.
                 </p>
                 <ul className="mt-6 grid gap-2.5 md:grid-cols-2">
                   {[
-                    "Audit + plan de deploiement 360°",
-                    "Bibliotheque 100 prompts metier",
-                    "1 agent IA configure + supervise",
+                    "Audit + plan de déploiement 360°",
+                    "Bibliothèque 100 prompts métier",
+                    "1 agent IA configuré + supervisé",
                     "12 h de coaching sur 30 jours",
                     "Hotline directe pendant 30 jours",
                     "Workflows Make / Zapier livres",
@@ -582,14 +582,14 @@ export default function IaLandingPage() {
                   ))}
                 </ul>
                 <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#1a1714]/20 pt-6">
-                  <p className="t-display text-3xl md:text-4xl">A partir de 2 490 €</p>
+                  <p className="t-display text-3xl md:text-4xl">À partir de 2 490 €</p>
                   <a
                     href={CAL_URL}
                     target="_blank"
                     rel="noreferrer"
                     className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                   >
-                    Reserver
+                    Réserver
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                   </a>
                 </div>
@@ -607,24 +607,24 @@ export default function IaLandingPage() {
           <div className="grid gap-12 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Pour les marques · equipes · entreprises
+                Pour les marques · équipes · entreprises
               </p>
               <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
-                Multipliez votre precision.
+                Multipliez votre précision.
               </h2>
             </div>
             <div className="md:col-span-7">
               <p className="text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                Vos equipes ont accumule des annees de contenus, de clients, de
-                tickets, de prospects. C'est le carburant ideal pour des agents
-                IA bien configures.{" "}
+                Vos équipes ont accumule des années de contenus, de clients, de
+                tickets, de prospects. C'est le carburant idéal pour des agents
+                IA bien configurés.{" "}
                 <strong className="text-[var(--fg)]">Plus vous avez de
-                donnees, plus le resultat est precis.</strong>
+                données, plus le résultat est précis.</strong>
               </p>
               <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                On forme vos equipes a maitriser les outils, on deploie des
+                On formé vos équipes a maîtriser les outils, on déploie des
                 agents qui prennent les charges mesurables. Reste pour vous : la
-                strategie, la relation, le geste qui fait la difference.
+                stratégie, la relation, le geste qui fait la difference.
               </p>
 
               {/* SEO / SEA / GEO avec logos + chiffres animes */}
@@ -647,13 +647,13 @@ export default function IaLandingPage() {
                   </p>
                   {/* Logos */}
                   <div className="mt-5 flex items-center gap-4">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img src="/images/logos/google-analytics.svg" alt="Google Analytics" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img src="/images/logos/semrush.svg" alt="Semrush" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
                   </div>
                   <p className="mt-5 text-sm leading-relaxed text-[var(--fg-2)]">
-                    Referencement Google organique, contenus optimises a grande
+                    Référencement Google organique, contenus optimisés a grande
                     echelle.
                   </p>
                 </div>
@@ -675,9 +675,9 @@ export default function IaLandingPage() {
                     ROAS sur 90 jours
                   </p>
                   <div className="mt-5 flex items-center gap-4">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img src="/images/logos/google-ads.svg" alt="Google Ads" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img src="/images/logos/meta.svg" alt="Meta" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
                   </div>
                   <p className="mt-5 text-sm leading-relaxed text-[var(--fg-2)]">
@@ -703,16 +703,16 @@ export default function IaLandingPage() {
                     Visibilite dans les LLM
                   </p>
                   <div className="mt-5 flex items-center gap-4">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img src="/images/logos/chatgpt.svg" alt="ChatGPT" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img src="/images/logos/claude.svg" alt="Claude" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img src="/images/logos/perplexity.svg" alt="Perplexity" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
                   </div>
                   <p className="mt-5 text-sm leading-relaxed text-[var(--fg-2)]">
-                    Apparaitre dans ChatGPT, Claude, Perplexity. La nouvelle
-                    porte d'entree.
+                    Apparaître dans ChatGPT, Claude, Perplexity. La nouvelle
+                    porté d'entree.
                   </p>
                 </div>
               </div>
@@ -724,7 +724,7 @@ export default function IaLandingPage() {
             <div className="grid gap-0 md:grid-cols-12">
               <div className="md:col-span-5">
                 <div className="relative h-64 md:h-full">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {/* eslint-disable-next-line @next/next/no-img-élément */}
                   <img
                     src="/images/corpo/mibi/_DSC7503.jpg"
                     alt=""
@@ -738,22 +738,22 @@ export default function IaLandingPage() {
                   Formation 04 · Le complet
                 </p>
                 <h3 className="t-display mt-4 text-4xl md:text-5xl lg:text-6xl">
-                  Deploiement IA equipe & agents.
+                  Déploiement IA équipe & agents.
                 </h3>
                 <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6]/60">
-                  3 jours · jusqu'a 15 pers. · 3 agents inclus
+                  3 jours · jusqu'à 15 pers. · 3 agents inclus
                 </p>
                 <p className="mt-6 text-base leading-relaxed text-[#f5f0e6]/85 md:text-lg">
-                  Le programme complet pour une equipe : formation collective, audit de vos processus, deploiement de 3 agents IA (Hermes, Achille, Hestia ou personnalises), workflows et gouvernance.
+                  Le programme complet pour une équipe : formation collective, audit de vos processus, déploiement de 3 agents IA (Hermes, Achille, Hestia ou personnalisés), workflows et gouvernance.
                 </p>
                 <ul className="mt-6 grid gap-2.5 md:grid-cols-2">
                   {[
                     "Formation 3 j · 15 personnes max",
                     "Audit complet de vos processus",
-                    "3 agents IA configures et livres",
+                    "3 agents IA configurés et livres",
                     "Workflows Make / Zapier / n8n",
-                    "Gouvernance, securite, RGPD",
-                    "Suivi 90 jours post-deploiement",
+                    "Gouvernance, sécurité, RGPD",
+                    "Suivi 90 jours post-déploiement",
                   ].map((b) => (
                     <li key={b} className="flex items-start gap-3 text-sm leading-relaxed text-[#f5f0e6]/85 md:text-[15px]">
                       <span aria-hidden="true" className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[var(--accent)]" />
@@ -775,7 +775,7 @@ export default function IaLandingPage() {
             </div>
           </div>
 
-          {/* 3 formations pro — chaque box un fond different */}
+          {/* 3 formations pro — chaque box un fond différent */}
           <div className="mt-10 grid gap-6 md:mt-12 md:grid-cols-3 md:gap-8">
             {PRO_PACKS.map((p, i) => {
               // Palette pro : Form 01 lin clair, Form 02 taupe, Form 03 orange Hermes
@@ -851,17 +851,17 @@ export default function IaLandingPage() {
             })}
           </div>
 
-          {/* Agents IA cross-link — votre equipage IA · L'IA qui execute */}
+          {/* Agents IA cross-link — votre équipage IA · L'IA qui exécuté */}
           <div className="mt-20 border-t border-[var(--rule)] pt-16 md:mt-28 md:pt-20">
             <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-              Votre equipage IA · 3 agents cle en main
+              Votre équipage IA · 3 agents clé en main
             </p>
             <h3 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl lg:text-6xl">
               Hermes. Achille. Hestia.
             </h3>
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
               <strong className="text-[var(--fg)]">L'IA qui execute. Pas celle qui repond.</strong>{" "}
-              Vous donnez le cap, votre equipage opere : Hermes prospecte,
+              Vous donnez le cap, votre équipage opère : Hermes prospecte,
               Achille produit, Hestia accueille. 24/7, dans votre voix, sans
               que vous leviez le petit doigt.
             </p>
@@ -873,19 +873,19 @@ export default function IaLandingPage() {
                   name: "Hermes",
                   role: "Prospection & qualification",
                   img: "/images/agents/hermes.jpg",
-                  body: "Listes ciblees, premiers messages personnalises, relances. Toujours dans votre voix.",
+                  body: "Listes ciblées, premiers messages personnalisés, relances. Toujours dans votre voix.",
                 },
                 {
                   name: "Achille",
                   role: "Production de contenus",
                   img: "/images/agents/achille.jpg",
-                  body: "Posts, articles, visuels, scripts. Cale sur votre charte, sortie quotidienne.",
+                  body: "Posts, articles, visuels, scripts. Calé sur votre charte, sortie quotidienne.",
                 },
                 {
                   name: "Hestia",
                   role: "Service client 24/7",
                   img: "/images/agents/hestia.jpg",
-                  body: "Premiere reponse en moins d'une minute, 5 langues, escalade humaine sur ce qui compte.",
+                  body: "Première réponse en moins d'une minute, 5 langues, escalade humaine sur ce qui compte.",
                 },
               ].map((a) => (
                 <div
@@ -893,7 +893,7 @@ export default function IaLandingPage() {
                   className="flex w-[78%] flex-shrink-0 snap-center flex-col md:w-auto"
                 >
                   <div className="relative aspect-[4/5] overflow-hidden bg-[var(--fg)]/5">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img
                       src={a.img}
                       alt={a.name}
@@ -918,7 +918,7 @@ export default function IaLandingPage() {
               href={`${MAIN_SITE}/fr/agents`}
               className="group mt-12 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
-              Decouvrir les 3 agents
+              Découvrir les 3 agents
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </Link>
           </div>
@@ -926,7 +926,7 @@ export default function IaLandingPage() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          TASKS GRID — ce que l'IA fait pour vous, chiffres reels
+          TASKS GRID — ce que l'IA fait pour vous, chiffres réels
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -934,12 +934,12 @@ export default function IaLandingPage() {
             Tous les jours, automatiquement
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
-            12 taches que l'IA prend en charge.
+            12 tâches que l'IA prend en charge.
           </h2>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Une heure recuperee ici, deux la, trois par jour. Au bout d'un mois,
-            vous avez retrouve la moitie de votre temps. C'est ca, la
-            promesse — concrete, mesurable, par tache, sources verifiables.
+            Une heure récupérée ici, deux la, trois par jour. Au bout d'un mois,
+            vous avez retrouve la moitié de votre temps. C'est ça, la
+            promesse — concrete, mesurable, par tâche, sources vérifiables.
           </p>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-3">
@@ -979,15 +979,15 @@ export default function IaLandingPage() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          COMMENT CA MARCHE — 4 etapes
+          COMMENT CA MARCHE — 4 étapes
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            La methode
+            La méthode
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Quatre etapes, jamais plus.
+            Quatre étapes, jamais plus.
           </h2>
 
           <ol className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-x-10 md:gap-y-14 lg:grid-cols-4 lg:gap-x-8">
@@ -995,7 +995,7 @@ export default function IaLandingPage() {
               <li key={step.title} className="flex flex-col">
                 {/* Bandeau 16:9 N&B */}
                 <div className="relative aspect-video overflow-hidden bg-[var(--fg)]/5">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  {/* eslint-disable-next-line @next/next/no-img-élément */}
                   <img
                     src={step.img}
                     alt=""
@@ -1068,7 +1068,7 @@ export default function IaLandingPage() {
               </h2>
               <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
                 Sans engagement. On regarde ensemble si l'IA est rentable chez
-                vous, on chiffre, on ecrit. Y compris si la reponse est non.
+                vous, on chiffre, on écrit. Y compris si la réponse est non.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-8">
                 <a
@@ -1077,7 +1077,7 @@ export default function IaLandingPage() {
                   rel="noreferrer"
                   className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:opacity-70"
                 >
-                  Reserver l'audit gratuit
+                  Réserver l'audit gratuit
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <a
@@ -1092,7 +1092,7 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* Footer — wordmark TROIE, lien vers studio creatif, sources */}
+      {/* Footer — wordmark TROIE, lien vers studio créatif, sources */}
       <footer className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16">
           <div className="grid gap-8 md:grid-cols-12">
@@ -1114,7 +1114,7 @@ export default function IaLandingPage() {
                   href={MAIN_SITE}
                   className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition-colors hover:text-[var(--accent)] md:text-[11px]"
                 >
-                  Studio creatif → troiestudio.fr
+                  Studio créatif → troiestudio.fr
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">

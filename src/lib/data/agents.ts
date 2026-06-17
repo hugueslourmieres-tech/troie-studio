@@ -79,7 +79,7 @@ export const AGENTS: Agent[] = [
       en: "Outreach. Qualification. Booked meetings.",
     },
     myth: {
-      fr: "Messager des dieux, dieu du commerce et de l'éloquence. Hermès porte le caducée et franchit les seuils. Dans l'Antiquité, on l'invoquait avant un voyage d'affaires ou une transaction importante.",
+      fr: "Messager des dieux, dieu du commerce et de l'éloquence. Hermès porté le caducée et franchit les seuils. Dans l'Antiquité, on l'invoquait avant un voyage d'affaires ou une transaction importante.",
       en: "Messenger of the gods, god of commerce and eloquence. Hermes carries the caduceus and crosses every threshold. In antiquity, he was invoked before any journey or business deal.",
     },
     mission: {
@@ -237,14 +237,14 @@ export const AGENTS: Agent[] = [
     },
     subtitle: {
       fr: "Service client 24/7. Multilingue. Toujours présent.",
-      en: "Customer care 24/7. Multilingual. Always present.",
+      en: "Customer care 24/7. Multilingual. Always présent.",
     },
     myth: {
       fr: "Déesse du foyer, de l'hospitalité et de la flamme sacrée qui ne s'éteint jamais. Première servie dans les sacrifices, dernière à quitter l'Olympe. Dans la Grèce antique, on n'allumait pas un nouveau foyer sans emporter une braise du sien.",
       en: "Goddess of the hearth, of hospitality and of the sacred flame that never dies. First honoured in offerings, last to leave Olympus. In ancient Greece, no new home was kindled without a coal from hers.",
     },
     mission: {
-      fr: "Hestia répond aux clients (avant-vente, SAV, suivi commande, retours), en multilingue, 24/7, dans le ton de la marque. Elle escalade vers un humain dès qu'un cas l'exige, avec le contexte complet du ticket.",
+      fr: "Hestia répond aux clients (avant-vente, SAV, suivi commande, retours), en multilingue, 24/7, dans le ton de la marque. Elle escalade vers un humain dès qu'un cas l'exigé, avec le contexte complet du ticket.",
       en: "Hestia answers customers (pre-sale, support, order tracking, returns), multilingual, 24/7, in brand voice. She escalates to a human the moment a case requires it, full context attached.",
     },
     bestFor: ["ecom", "b2c", "saas", "luxury", "service"],

@@ -4,9 +4,9 @@ import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 
 /**
- * LevelBar — barre de progression "RPG" animee a l'entree du viewport.
+ * LevelBar — barre de progression "RPG" animee à l'entree du viewport.
  *
- * Utilisee pour les stats des "personnages IA" sur la page formations :
+ * Utilisée pour les stats des "personnages IA" sur la page formations :
  *  - Label a gauche
  *  - Track gris faible en background
  *  - Fill orange Hermes anime de 0 % a `value`

@@ -8,14 +8,14 @@ import { AnimatedNumber } from "./AnimatedNumber";
  * GrowthCurve — visual "before vs after" pour le hero.
  *
  * Compose quatre couches sur fond TRANSPARENT pour laisser respirer
- * la video du hero :
+ * la vidéo du hero :
  *  1. Une ligne d'outils IA (logos SVG du repo)
- *  2. Un mini-graphique SVG avec deux courbes animees a l'apparition :
+ *  2. Un mini-graphique SVG avec deux courbes animees à l'apparition :
  *     - "Sans IA" : ligne plate pointillee, beige fonce
  *     - "Avec IA" : courbe exponentielle orange Hermes
- *  3. Une ligne compacte "Chiffres verifies, etudes 2026" qui consolide
- *     les 4 stats macro (x2 impact, +60 % capacite, 21 h liberees, -70 %
- *     production creatifs).
+ *  3. Une ligne compacte "Chiffres vérifiés, etudes 2026" qui consolide
+ *     les 4 stats macro (x2 impact, +60 % capacite, 21 h libérées, -70 %
+ *     production créatifs).
  */
 
 const TOOLS = [
@@ -31,9 +31,9 @@ const TOOLS = [
 
 const VERIFIED = [
   { value: 2, prefix: "× ", suffix: "", label: "Impact / collaborateur" },
-  { value: 60, prefix: "+", suffix: " %", label: "Capacite equipe" },
-  { value: 21, prefix: "", suffix: " h", label: "Liberees / sem / poste" },
-  { value: -70, prefix: "", suffix: " %", label: "Production creatifs" },
+  { value: 60, prefix: "+", suffix: " %", label: "Capacite équipe" },
+  { value: 21, prefix: "", suffix: " h", label: "Libérées / sem / poste" },
+  { value: -70, prefix: "", suffix: " %", label: "Production créatifs" },
 ];
 
 export function GrowthCurve() {
@@ -60,7 +60,7 @@ export function GrowthCurve() {
             transition={{ duration: 0.5, delay: 0.05 * i, ease: [0.16, 1, 0.3, 1] }}
             className="flex items-center justify-center"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+            {/* eslint-disable-next-line @next/next/no-img-élément */}
             <img
               src={tool.src}
               alt={tool.alt}
@@ -75,7 +75,7 @@ export function GrowthCurve() {
       <div className="mt-8 border-t border-[var(--fg)]/15 pt-6">
         <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80">
           <span>Sans IA / Avec IA · 12 mois</span>
-          <span className="text-[var(--accent)]">+ 156 % benefices</span>
+          <span className="text-[var(--accent)]">+ 156 % bénéfices</span>
         </div>
 
         <svg
@@ -164,7 +164,7 @@ export function GrowthCurve() {
       {/* Verified study stats — consolides */}
       <div className="mt-6 border-t border-[var(--fg)]/15 pt-6">
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Chiffres verifies · etudes 2026
+          Chiffres vérifiés · etudes 2026
         </p>
         <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 md:grid-cols-4">
           {VERIFIED.map((v) => (

@@ -11,9 +11,9 @@ type Status = "idle" | "sending" | "ok" | "error";
  * (campaign tags, programme slugs, etc.) without touching this file.
  */
 const SUBJECT_PRESETS: Record<string, { fr: string; en: string }> = {
-  creation: {
+  création: {
     fr: "Projet de création",
-    en: "Creative project",
+    en: "Créative project",
   },
   strategy: {
     fr: "Audit stratégique",
@@ -24,20 +24,20 @@ const SUBJECT_PRESETS: Record<string, { fr: string; en: string }> = {
     en: "AI training",
   },
   "formation-intra": {
-    fr: "Demande de devis — formation intra",
+    fr: "Demandé de devis — formation intra",
     en: "Quote request — in-house training",
   },
   "formation-inter": {
     fr: "Inscription session inter",
     en: "Open session registration",
   },
-  "formation-decouverte": {
+  "formation-découverte": {
     fr: "Formation Découverte — Fondamentaux IA",
     en: "Discovery training — AI fundamentals",
   },
   "formation-pratique": {
     fr: "Formation Pratique — Production & création IA",
-    en: "Practice training — AI production & creation",
+    en: "Practice training — AI production & création",
   },
   "formation-agents": {
     fr: "Formation Agents & automatisation",

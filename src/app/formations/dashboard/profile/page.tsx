@@ -90,7 +90,7 @@ export default async function ProfilePage() {
         </button>
       </section>
 
-      {/* Preferences / privacy */}
+      {/* Préférences / privacy */}
       <section>
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
           Préférences & confidentialité
@@ -109,7 +109,7 @@ export default async function ProfilePage() {
               Export RGPD
             </p>
             <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)]">
-              Téléchargez vos données personnelles. Disponible sur demande
+              Téléchargez vos données personnelles. Disponible sur demandé
               à <a href="mailto:contact@troiestudio.fr" className="text-[var(--accent)] hover:underline">contact@troiestudio.fr</a>.
             </p>
           </li>

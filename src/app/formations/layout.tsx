@@ -10,13 +10,13 @@ import "../globals.css";
  * (potentiellement futur sous-domaine formations.troiestudio.fr).
  *
  * Pas de Header / Footer principal : on construit notre propre
- * navigation legere dans la page elle-meme.
+ * navigation légère dans la page elle-même.
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://troiestudio.fr"),
-  title: "TROIE · Formations IA. Maitrisez ChatGPT, Claude et les agents.",
+  title: "TROIE · Formations IA. Maîtrisez ChatGPT, Claude et les agents.",
   description:
-    "Formations IA en ligne, pratiques et immediatement applicables. Maitriser ChatGPT et Claude, workflows automatises, agents personnels. Module 0 gratuit.",
+    "Formations IA en ligne, pratiques et immediatement applicables. Maîtriser ChatGPT et Claude, workflows automatisés, agents personnels. Module 0 gratuit.",
   alternates: {
     canonical: "https://troiestudio.fr/formations",
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     url: "https://troiestudio.fr/formations",
     title: "TROIE · Formations IA",
     description:
-      "Formations IA en ligne. Module 0 gratuit, cours premium a partir de 97 €.",
+      "Formations IA en ligne. Module 0 gratuit, cours premium à partir de 97 €.",
     siteName: "TROIE · Formations",
     locale: "fr_FR",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "TROIE · Formations IA",
-    description: "Maitrisez l'IA en pratique. Module 0 gratuit.",
+    description: "Maîtrisez l'IA en pratique. Module 0 gratuit.",
     images: ["/images/brand/og-image.png"],
   },
   robots: { index: true, follow: true },

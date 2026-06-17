@@ -6,14 +6,14 @@ import { motion, AnimatePresence } from "motion/react";
 /**
  * QuizPlayer — moteur de QCM pour les Modules de formation TROIE.
  *
- * Affiche les questions une par une, capture la reponse, montre le
- * feedback (correct / incorrect + explication), puis passe a la
+ * Affiche les questions une par une, capture la réponse, montre le
+ * feedback (correct / incorrect + explication), puis passé à la
  * suivante. Score affiche au scroll final + CTA conditionnelle :
  *  - Score >= 70 % : bravo + code promo Cours 01
  *  - Score < 70 %  : invitation a refaire OU a passer au Cours 01
  *
  * Le moteur reste agnostique du contenu : il rend n'importe quelle
- * liste de QuizQuestion. Module 0 gratuit en passe une, les modules
+ * liste de QuizQuestion. Module 0 gratuit en passé une, les modules
  * payants en passeront leurs propres.
  */
 
@@ -34,7 +34,7 @@ export function QuizPlayer({
   questions: QuizQuestion[];
   passThreshold?: number;
   unlockCode?: string;
-  /** Si vrai, demande l'email avant de devoiler le code promo / contenu suivant. */
+  /** Si vrai, demandé l'email avant de devoiler le code promo / contenu suivant. */
   captureEmail?: boolean;
 }) {
   const [index, setIndex] = useState(0);
@@ -71,20 +71,20 @@ export function QuizPlayer({
     setFinished(false);
   };
 
-  // ── Ecran final ──────────────────────────────────────────────────
+  // ── Écran final ──────────────────────────────────────────────────
   if (finished) {
     const pct = score / total;
     const passed = pct >= passThreshold;
     return (
       <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-8 md:p-12">
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Resultat
+          Résultat
         </p>
         <h3 className="t-display mt-4 text-4xl text-[var(--fg)] md:text-6xl">
           {score} / {total}
         </h3>
         <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
-          {Math.round(pct * 100)} % de bonnes reponses
+          {Math.round(pct * 100)} % de bonnes réponses
         </p>
 
         {passed ? (
@@ -92,7 +92,7 @@ export function QuizPlayer({
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
               <strong className="text-[var(--fg)]">Bien joue.</strong>{" "}
               Vous comprenez les fondations. C'est le bon moment pour
-              passer au Cours 01 et apprendre a equiper votre premier
+              passer au Cours 01 et apprendre a équiper votre premier
               heros IA.
             </p>
 
@@ -110,7 +110,7 @@ export function QuizPlayer({
                   onSubmit={(e) => {
                     e.preventDefault();
                     if (!email.trim() || !email.includes("@")) return;
-                    // TODO: POST email vers /api/leads quand backend pret
+                    // TODO: POST email vers /api/leads quand backend prêt
                     setEmailSubmitted(true);
                   }}
                   className="mt-5 flex flex-col gap-3 md:flex-row"
@@ -132,7 +132,7 @@ export function QuizPlayer({
                   </button>
                 </form>
                 <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                  RGPD · pas de revente · desinscription en 1 clic
+                  RGPD · pas de revente · désinscription en 1 clic
                 </p>
               </div>
             ) : (
@@ -145,11 +145,11 @@ export function QuizPlayer({
                 </p>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)]">
                   <strong className="text-[var(--fg)]">-15 %</strong> sur le
-                  Cours 01 "Maitriser ChatGPT &amp; Claude". Valable 7 jours.
+                  Cours 01 "Maîtriser ChatGPT &amp; Claude". Valable 7 jours.
                 </p>
                 {emailSubmitted && (
                   <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                    Egalement envoye a {email}
+                    Egalement envoyé a {email}
                   </p>
                 )}
               </div>
@@ -158,8 +158,8 @@ export function QuizPlayer({
         ) : (
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             <strong className="text-[var(--fg)]">Proche.</strong>{" "}
-            La theorie LLM merite une seconde lecture. Refaites le
-            quiz ou demarrez direct le Cours 01 : on revoit chaque
+            La théorie LLM mérite une seconde lecture. Refaites le
+            quiz ou démarrez direct le Cours 01 : on revoit chaque
             notion en profondeur, avec exemples concrets.
           </p>
         )}
@@ -185,7 +185,7 @@ export function QuizPlayer({
     );
   }
 
-  // ── Ecran question ──────────────────────────────────────────────
+  // ── Écran question ──────────────────────────────────────────────
   return (
     <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg)] p-8 md:p-12">
       <div className="flex items-center justify-between">
@@ -275,7 +275,7 @@ export function QuizPlayer({
                 onClick={next}
                 className="group mt-8 inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
               >
-                {index + 1 < total ? "Question suivante" : "Voir le resultat"}
+                {index + 1 < total ? "Question suivante" : "Voir le résultat"}
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </button>
             </motion.div>

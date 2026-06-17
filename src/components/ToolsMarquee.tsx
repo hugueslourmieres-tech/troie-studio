@@ -9,7 +9,7 @@
  * track by -50%. Because the first half and second half are identical, the
  * jump back to 0% is invisible.
  *
- * Tools are filtered to the SVGs actually present in /public/images/logos.
+ * Tools are filtered to the SVGs actually présent in /public/images/logos.
  * No name is displayed without its logo.
  */
 
@@ -67,7 +67,7 @@ export function ToolsMarquee({ ariaLabel }: { ariaLabel: string }) {
           >
             {/* Logo + name pair */}
             <span className="flex items-center gap-3 md:gap-4">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
+              {/* eslint-disable-next-line @next/next/no-img-élément */}
               <img
                 src={tool.logo}
                 alt=""

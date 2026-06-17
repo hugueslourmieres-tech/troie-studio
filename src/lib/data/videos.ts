@@ -34,7 +34,7 @@ export const VIDEOS: VideoItem[] = [
     client: "GS Monaco",
     title: {
       fr: "GS Monaco, vidéo de présentation",
-      en: "GS Monaco, presentation film",
+      en: "GS Monaco, présentation film",
     },
   },
   {
@@ -95,7 +95,7 @@ export const VIDEOS: VideoItem[] = [
     client: "Wauters B'Pack",
     title: {
       fr: "Wauters B'Pack — précision colorimétrique en imprimerie",
-      en: "Wauters B'Pack — advancing color precision in printing",
+      en: "Wauters B'Pack — advancing color précision in printing",
     },
   },
   {

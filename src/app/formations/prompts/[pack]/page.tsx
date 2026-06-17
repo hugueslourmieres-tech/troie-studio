@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   };
 }
 
-/* Theme map - reuse the palette utilises sur la catalogue */
+/* Theme map - reuse the palette utilisés sur la catalogue */
 const THEMES = {
   light: {
     card: "bg-[#ede3d0] text-[#1a1714]",
@@ -98,7 +98,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
           <div className="grid gap-16 md:grid-cols-12 md:gap-12 lg:gap-20">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                {pack.badge} · {pack.sub} · acces a vie
+                {pack.badge} · {pack.sub} · accès à vie
               </p>
               <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px]">
                 {pack.title}
@@ -123,7 +123,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
               </div>
             </div>
 
-            {/* Recap card */}
+            {/* Récap card */}
             <div className="md:col-span-5 md:pt-8">
               <div className={`overflow-hidden rounded-sm border ${t.border} ${t.card}`}>
                 <div className="relative flex aspect-square items-center justify-center bg-[#0e0a07] text-[var(--accent)]">
@@ -171,7 +171,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                   <div className={`mt-6 flex items-end justify-between border-t pt-5 ${t.rule}`}>
                     <p className="t-display text-3xl md:text-4xl">29 €</p>
                     <p className={`font-mono text-[10px] uppercase tracking-[0.22em] ${t.meta}`}>
-                      Acces a vie · MAJ libres
+                      Accès à vie · MAJ libres
                     </p>
                   </div>
                   <a
@@ -201,8 +201,8 @@ export default async function PackDetailPage({ params }: { params: Params }) {
           </h2>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             Cliquez n'importe lequel pour voir son scope. Le premier
-            est integralement visible : un cadeau pour juger la
-            qualite. Le reste se debloque avec l'achat.
+            est intégralement visible : un cadeau pour juger la
+            qualité. Le reste se débloqué avec l'achat.
           </p>
 
           <div className="mt-16 space-y-6 md:mt-20">
@@ -288,7 +288,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                             Debloquez ce prompt + 4 autres
                           </p>
                           <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">
-                            29 € le pack complet (5 prompts). Acces a vie, MAJ
+                            29 € le pack complet (5 prompts). Accès à vie, MAJ
                             libres, garantie 14 jours.
                           </p>
                           <a
@@ -376,15 +376,15 @@ export default async function PackDetailPage({ params }: { params: Params }) {
           <div className="grid gap-16 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-8">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg)]/80">
-                Pret a equiper votre IA ?
+                Prêt a équiper votre IA ?
               </p>
               <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-7xl">
                 29 € le pack. Garantie 14 jours.
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
                 Si les prompts ne tiennent pas leur promesse pour
-                vous, vous m'ecrivez et je vous rembourse le jour
-                meme. Aucune question.
+                vous, vous m'écrivez et je vous rembourse le jour
+                même. Aucune question.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <a
@@ -404,7 +404,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
             </div>
             <div className="md:col-span-4 md:border-l md:border-[var(--fg)]/20 md:pl-12">
               <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)]/70">
-                Vous hesitez ?
+                Vous hésitez ?
               </p>
               <a
                 href={CAL_URL}

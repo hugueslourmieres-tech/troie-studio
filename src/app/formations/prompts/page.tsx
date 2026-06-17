@@ -11,9 +11,9 @@ const checkoutForPack = (pack: string) =>
   `mailto:contact@troiestudio.fr?subject=TROIE+Prompts+%E2%80%94+Pack+${encodeURIComponent(pack)}+29`;
 
 export const metadata = {
-  title: "System Prompts · La boutique TROIE — 5 packs metier, prets a coller",
+  title: "System Prompts · La boutique TROIE — 5 packs métier, prêts à coller",
   description:
-    "25 system prompts metier prets a coller dans ChatGPT, Claude, Gemini. 5 packs de 5 prompts. 29 € le pack, 99 € le bundle complet.",
+    "25 system prompts métier prêts à coller dans ChatGPT, Claude, Gemini. 5 packs de 5 prompts. 29 € le pack, 99 € le bundle complet.",
   alternates: {
     canonical: "https://troiestudio.fr/formations/prompts",
   },
@@ -29,11 +29,11 @@ const PACKS = [
   {
     slug: "freelance",
     badge: "Pack 01",
-    title: "Freelance Independant.",
+    title: "Freelance Indépendant.",
     sub: "Sales · admin · com'",
     body: "Le strict minimum pour ne plus perdre de temps sur la paperasse + la prospection + la com'. Tout dans votre voix.",
     prompts: [
-      "Devis personnalise — genere a partir d'un brief client + votre grille",
+      "Devis personnalisé — généré à partir d'un brief client + votre grille",
       "Prospection LinkedIn — DMs cibles, sans spammer",
       "Posts LinkedIn — 10 angles dans votre voix sur 1 sujet",
       "Brief client — cadrage initial complet en 5 min",
@@ -47,12 +47,12 @@ const PACKS = [
     badge: "Pack 02",
     title: "Marketing & Growth.",
     sub: "Ads · contenu · perf",
-    body: "Pour ceux qui font tourner les campagnes, les briefs et le reporting. Reduisez de 70 % le temps de prod creative.",
+    body: "Pour ceux qui font tourner les campagnes, les briefs et le reporting. Reduisez de 70 % le temps de prod créative.",
     prompts: [
       "Campagne Meta Ads — angle, audience, copy, 3 variantes A/B",
       "Brief crea — visuel + texte + Midjourney prompts inclus",
       "Analyse perf hebdo — GA4/Meta Ads en 3 insights actionnables",
-      "Plan editorial 30 jours — themes pillars + calendrier",
+      "Plan éditorial 30 jours — themes pillars + calendrier",
       "Brief influence — pour micro/macro influenceurs",
     ],
     icon: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h4M8 17h6M8 9h2",
@@ -65,7 +65,7 @@ const PACKS = [
     sub: "Support · sales · produit",
     body: "Pour les boites qui scalent. Support tier-1 automatique, notes de sales call structurees, briefs produit propres.",
     prompts: [
-      "Support client tier-1 — 5 langues, premiere reponse propre",
+      "Support client tier-1 — 5 langues, première réponse propre",
       "Notes sales call — extraction + update CRM automatique",
       "Product brief — de feedback brut a specs claires",
       "Onboarding email serie — 7 mails sur 14 jours",
@@ -77,15 +77,15 @@ const PACKS = [
   {
     slug: "design",
     badge: "Pack 04",
-    title: "Design & Creatif.",
+    title: "Design & Créatif.",
     sub: "Brief · feedback · scope",
-    body: "Pour ceux qui creent. Cadrer le brief, gerer les retours, eviter le scope creep — sans y passer la nuit.",
+    body: "Pour ceux qui créent. Cadrer le brief, gérer les retours, éviter le scope creep — sans y passer la nuit.",
     prompts: [
-      "Brief creatif structure — du dump client a un brief signable",
-      "Moodboard generator — references + direction artistique",
-      "Presentation deck — structure narrative + Midjourney visuels",
+      "Brief créatif structure — du dump client à un brief signable",
+      "Moodboard generator — références + direction artistique",
+      "Présentation deck — structure narrative + Midjourney visuels",
       "Feedback handling — reformulation pro des retours client",
-      "Scope creep tracking — detection auto des hors-cadre",
+      "Scope creep tracking — détection auto des hors-cadre",
     ],
     icon: "M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z",
     image: null as string | null,
@@ -95,7 +95,7 @@ const PACKS = [
     badge: "Pack 05",
     title: "Coding & Tech.",
     sub: "Code review · architecture · docs",
-    body: "Pour les devs solo ou en equipe. Code review pertinents, architecture documentee, PRs propres.",
+    body: "Pour les devs solo ou en équipe. Code review pertinents, architecture documentée, PRs propres.",
     prompts: [
       "Code review TROIE — vrai feedback, pas du 'lgtm'",
       "Architecture proposal — option A vs B avec tradeoffs",
@@ -111,15 +111,15 @@ const PACKS = [
 const WHY = [
   {
     title: "Capital pour commencer.",
-    body: "Sans system prompt, ChatGPT/Claude est un genie generique. Avec, il devient VOTRE assistant qui connait votre metier, votre voix, vos contraintes.",
+    body: "Sans system prompt, ChatGPT/Claude est un genie generique. Avec, il devient VOTRE assistant qui connaît votre métier, votre voix, vos contraintes.",
   },
   {
-    title: "Pret a coller.",
+    title: "Prêt a coller.",
     body: "Vous ouvrez Custom GPT ou Projet Claude, vous collez. C'est tout. Pas de configuration cryptique, pas de code.",
   },
   {
-    title: "Calibres sur du reel.",
-    body: "Pas du theorique. Chaque prompt est calibre sur 50+ cas reels. Iteration au fil du temps, mises a jour gratuites.",
+    title: "Calibres sur du réel.",
+    body: "Pas du théorique. Chaque prompt est calibre sur 50+ cas réels. Iteration au fil du temps, mises à jour gratuites.",
   },
   {
     title: "Pas de lock-in.",
@@ -131,7 +131,7 @@ const HOW = [
   {
     n: "01",
     title: "Vous achetez le pack.",
-    body: "Acces immediat : un PDF + un fichier .md propre, pour chaque prompt.",
+    body: "Accès immediat : un PDF + un fichier .md propre, pour chaque prompt.",
   },
   {
     n: "02",
@@ -146,34 +146,34 @@ const HOW = [
   {
     n: "04",
     title: "Vous utilisez.",
-    body: "Plus jamais besoin de re-expliquer le contexte. Vous demandez, ca livre — calibre.",
+    body: "Plus jamais besoin de re-expliquer le contexte. Vous demandez, ça livre — calibre.",
   },
 ];
 
 const FAQ = [
   {
     q: "C'est quoi un 'system prompt' exactement ?",
-    a: "Le system prompt, c'est la constitution invisible de votre assistant IA. Persistant sur toute la conversation, il definit qui il est, ce qu'il sait, comment il parle, ce qu'il refuse. Sans : vous re-expliquez tout, a chaque fois. Avec : votre IA arrive deja configuree.",
+    a: "Le system prompt, c'est la constitution invisible de votre assistant IA. Persistant sur toute la conversation, il definit qui il est, ce qu'il sait, comment il parle, ce qu'il refuse. Sans : vous re-expliquez tout, à chaque fois. Avec : votre IA arrive déjà configurée.",
   },
   {
     q: "Compatible avec quels outils ?",
-    a: "Tous les LLM majeurs : ChatGPT (via Custom GPT), Claude (via Projets), Gemini (via Gem), Copilot (via workspace instructions). Les prompts sont ecrits en francais, optimises pour fonctionner partout sans modification.",
+    a: "Tous les LLM majeurs : ChatGPT (via Custom GPT), Claude (via Projets), Gemini (via Gem), Copilot (via workspace instructions). Les prompts sont écrits en francais, optimisés pour fonctionner partout sans modification.",
   },
   {
     q: "Pourquoi pas un seul prompt geant ?",
-    a: "Parce qu'un assistant qui fait tout fait tout moyen. 5 prompts specialises (un pour les devis, un pour la prospection, un pour les posts...) donnent 5 outils chirurgicaux qui battent un Swiss-knife generique. Vous switchez selon la tache.",
+    a: "Parce qu'un assistant qui fait tout fait tout moyen. 5 prompts specialises (un pour les devis, un pour la prospection, un pour les posts...) donnent 5 outils chirurgicaux qui battent un Swiss-knife generique. Vous switchez selon la tâche.",
   },
   {
-    q: "Les mises a jour ?",
-    a: "Gratuites a vie. Quand un modele evolue significativement (release majeure GPT, Claude, Gemini) et qu'un prompt peut etre ameliore, vous recevez la v2 par email. Le pack est un produit vivant.",
+    q: "Les mises à jour ?",
+    a: "Gratuites à vie. Quand un modèle évolué significativement (release majeure GPT, Claude, Gemini) et qu'un prompt peut être amélioré, vous recevez la v2 par email. Le pack est un produit vivant.",
   },
   {
     q: "Garantie ?",
-    a: "14 jours satisfait ou rembourse, sans question. Si les prompts ne tiennent pas leur promesse pour vous, vous m'ecrivez et je vous rembourse le jour meme.",
+    a: "14 jours satisfait ou rembourse, sans question. Si les prompts ne tiennent pas leur promesse pour vous, vous m'écrivez et je vous rembourse le jour même.",
   },
   {
     q: "Inclus dans les Cours / Mastermind ?",
-    a: "Oui. Cours 01 inclut 25 prompts (sa propre selection). Cours 02 inclut 100 prompts plus avances + 10 templates Make. Mastermind inclut TOUT + bibliotheque vivante. Les packs prompts sont l'entry sec pour commencer sans engagement.",
+    a: "Oui. Cours 01 inclut 25 prompts (sa propre selection). Cours 02 inclut 100 prompts plus avancés + 10 templates Make. Mastermind inclut TOUT + bibliothèque vivante. Les packs prompts sont l'entry sec pour commencer sans engagement.",
   },
 ];
 
@@ -185,7 +185,7 @@ export default function PromptsPage() {
       <section className="relative border-b border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 pt-24 pb-24 md:px-12 md:pt-32 md:pb-32">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            La boutique · system prompts · capital pour demarrer
+            La boutique · system prompts · capital pour démarrer
           </p>
           <h1 className="t-display mt-8 max-w-5xl text-5xl text-[var(--fg)] md:text-7xl lg:text-[88px]">
             Le system prompt. Le{" "}
@@ -193,8 +193,8 @@ export default function PromptsPage() {
           </h1>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
             Sans system prompt, votre IA est un genie generique. Avec, elle
-            devient VOTRE assistant qui connait votre metier, votre voix,
-            vos contraintes. 5 packs de 5 system prompts, par metier. Pret
+            devient VOTRE assistant qui connaît votre métier, votre voix,
+            vos contraintes. 5 packs de 5 system prompts, par métier. Prêt
             a coller dans ChatGPT, Claude, Gemini.
           </p>
           <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -251,14 +251,14 @@ export default function PromptsPage() {
       <section id="packs" className="border-t border-[var(--rule)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Catalogue · 5 packs metier
+            Catalogue · 5 packs métier
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Cinq packs. Une mission par metier.
+            Cinq packs. Une mission par métier.
           </h2>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            29 € le pack. 5 system prompts dedans, prets a coller.
-            Acces immediat. Mises a jour a vie. Garantie 14 jours.
+            29 € le pack. 5 system prompts dedans, prêts à coller.
+            Accès immediat. Mises à jour à vie. Garantie 14 jours.
           </p>
 
           <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
@@ -325,7 +325,7 @@ export default function PromptsPage() {
                   {/* Bandeau item — visuel item MMORPG (image-ready) */}
                   {p.image ? (
                     <div className="relative aspect-square overflow-hidden bg-[#0e0a07]">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      {/* eslint-disable-next-line @next/next/no-img-élément */}
                       <img
                         src={p.image}
                         alt={p.title}
@@ -387,14 +387,14 @@ export default function PromptsPage() {
                       <div className="flex items-end justify-between">
                         <p className="t-display text-2xl md:text-3xl">29 €</p>
                         <p className={`font-mono text-[9px] uppercase tracking-[0.22em] ${t.meta}`}>
-                          Acces a vie · MAJ libres
+                          Accès à vie · MAJ libres
                         </p>
                       </div>
                       <Link
                         href={`/formations/prompts/${p.slug}`}
                         className={`group mt-5 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
                       >
-                        Voir le detail · 29 €
+                        Voir le détail · 29 €
                         <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                       </Link>
                     </div>
@@ -434,7 +434,7 @@ export default function PromptsPage() {
                   Bundle complet · 5 packs
                 </p>
                 <h3 className="t-display mt-4 text-4xl md:text-5xl lg:text-6xl">
-                  Toute la bibliotheque. 25 prompts. 1 prix.
+                  Toute la bibliothèque. 25 prompts. 1 prix.
                 </h3>
                 <div className="mt-6 flex items-baseline gap-4">
                   <p className="t-display text-5xl md:text-6xl">99 €</p>
@@ -443,12 +443,12 @@ export default function PromptsPage() {
                   </p>
                 </div>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/70">
-                  Economie de 46 € · acces a vie · MAJ libres
+                  Économie de 46 € · accès à vie · MAJ libres
                 </p>
                 <p className="mt-6 text-base leading-relaxed text-[#1a1714]/85 md:text-lg">
                   Les 5 packs ensemble. 25 system prompts couvrant
                   Freelance, Marketing, E-commerce, Design, Coding. Pour
-                  ceux qui veulent demarrer avec une bibliotheque complete
+                  ceux qui veulent démarrer avec une bibliothèque complète
                   des le premier soir.
                 </p>
                 <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#1a1714]/20 pt-6">
@@ -486,7 +486,7 @@ export default function PromptsPage() {
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Comment ca marche
+            Comment ça marché
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             Achat, copie, perso, prod.
@@ -519,7 +519,7 @@ export default function PromptsPage() {
             Questions
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Tout ce qu'on nous demande avant d'acheter.
+            Tout ce qu'on nous demandé avant d'acheter.
           </h2>
 
           <div className="mt-16 space-y-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20">
@@ -553,14 +553,14 @@ export default function PromptsPage() {
           <div className="grid gap-16 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-8">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg)]/80">
-                Pret a equiper votre IA ?
+                Prêt a équiper votre IA ?
               </p>
               <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-7xl">
                 29 € le pack. 99 € le bundle.
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
                 Le point de depart le moins risque pour passer de
-                'ChatGPT moyen' a 'assistant qui sait votre metier'.
+                'ChatGPT moyen' a 'assistant qui sait votre métier'.
                 14 jours satisfait ou rembourse.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -581,7 +581,7 @@ export default function PromptsPage() {
             </div>
             <div className="md:col-span-4 md:border-l md:border-[var(--fg)]/20 md:pl-12">
               <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)]/70">
-                Vous hesitez ?
+                Vous hésitez ?
               </p>
               <a
                 href={CAL_URL}

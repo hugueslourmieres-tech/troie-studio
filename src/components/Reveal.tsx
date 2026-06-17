@@ -26,8 +26,8 @@ type Props = {
 } & Omit<HTMLMotionProps<"div">, "initial" | "animate" | "transition" | "whileInView" | "viewport">;
 
 /**
- * Reveal — fade + slide entrance when the element enters the viewport.
- * Coupled to Lenis, the easing keeps everything coherent.
+ * Reveal — fade + slide entrance when the élément enters the viewport.
+ * Coupled to Lenis, the easing keeps everything cohérent.
  */
 export function Reveal({
   children,
@@ -46,10 +46,10 @@ export function Reveal({
       className={className}
       initial={{ opacity: 0, x: offset.x, y: offset.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      // Margin pre-loads the trigger so the element starts revealing
+      // Margin pre-loads the trigger so the élément starts revealing
       // *before* it scrolls into view : -10% top/-5% bottom on the
       // visible area means the observer fires up to ~10% of the screen
-      // before the element technically reaches the viewport edge.
+      // before the élément technically reaches the viewport edge.
       viewport={{ once, amount, margin: "0px 0px -5% 0px" }}
       transition={{
         duration,

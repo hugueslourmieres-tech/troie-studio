@@ -3,11 +3,11 @@ import { createClient } from "@/lib/supabase/server";
 import { MOCK_PROFILE, MOCK_UNLOCKED_TROPHIES, isSupabaseConfigured } from "@/lib/mock-data";
 
 /**
- * Layout dashboard avec sidebar fixe a gauche (desktop) et menu bottom
+ * Layout dashboard avec sidebar fixé a gauche (desktop) et menu bottom
  * (mobile). Affiche le profil + XP + niveau en sticky top de la sidebar.
  *
- * Charge le profil cote serveur :
- *  - Supabase si configure et user connecte
+ * Charge le profil côté serveur :
+ *  - Supabase si configuré et user connecté
  *  - Mock data en fallback (demo mode)
  */
 export default async function DashboardLayout({

@@ -78,7 +78,7 @@ function CaseView({
     <article>
       {/* Cover — mobile: full image, title below; desktop: full bleed with title overlaid */}
       <header className="group relative isolate">
-        {/* Mobile cover — natural aspect ratio, complete image */}
+        {/* Mobile cover — natural aspect ratio, complète image */}
         <div className="relative w-full overflow-hidden bg-[var(--bg-2)] md:hidden">
           <Image
             src={cover}
@@ -151,7 +151,7 @@ function CaseView({
         </div>
       </header>
 
-      {/* Editorial intro paragraph */}
+      {/* Éditorial intro paragraph */}
       <section className="border-y border-[var(--rule)]">
         <div className="mx-auto max-w-4xl px-6 py-20 md:px-12 md:py-28">
           <p className="text-xl leading-relaxed text-[var(--fg)] md:text-2xl">
@@ -160,7 +160,7 @@ function CaseView({
         </div>
       </section>
 
-      {/* Gallery — editorial mosaic, varied aspect ratios */}
+      {/* Gallery — éditorial mosaic, varied aspect ratios */}
       {gallery.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-32">
           <Mosaic photos={gallery} alt={t(`items.${slug}.title`)} />

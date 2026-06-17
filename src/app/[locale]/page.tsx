@@ -41,17 +41,17 @@ export default async function HomePage({
       </div>
 
       <ServiceSection
-        id="creation"
+        id="création"
         eyebrow={t("creationEyebrow")}
         title={t("creationTitle")}
         body={t("creationBody")}
         items={creationItems}
         ctaLabel={t("creationCta")}
-        ctaHref={`/${locale}/contact?subject=creation`}
+        ctaHref={`/${locale}/contact?subject=création`}
         photos={[
-          { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
-          { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
-          { src: "/images/creation-section/03-img-8524.jpg", alt: "Création, image" },
+          { src: "/images/création-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
+          { src: "/images/création-section/02-dsc-0908.jpg", alt: "Création, photographie" },
+          { src: "/images/création-section/03-img-8524.jpg", alt: "Création, image" },
         ]}
         tools={[
           { src: "/images/logos/adobe.svg", label: "Adobe" },

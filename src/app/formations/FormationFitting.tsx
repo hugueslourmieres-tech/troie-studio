@@ -9,14 +9,14 @@ import { motion, AnimatePresence } from "motion/react";
  * parcours TROIE selon le profil de l'utilisateur en 3 questions.
  *
  * 3 questions binaires / a choix :
- *   1. Profil : Solo / Equipe / Entreprise
- *   2. Niveau IA actuel : Debutant / Intermediaire / Avance
+ *   1. Profil : Solo / Équipe / Entreprise
+ *   2. Niveau IA actuel : Débutant / Intermediaire / Avancé
  *   3. Objectif : Apprendre / Workflows / Tout
  *
  * Sortie : carte de recommandation avec :
  *  - Le parcours conseille (avec lien)
  *  - 1 ou 2 alternatives
- *  - Le temps gagne estime / mois
+ *  - Le temps gagne estimé / mois
  */
 
 type Profile = "solo" | "team" | "enterprise";
@@ -42,16 +42,16 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
   if (profile === "enterprise") {
     return {
       primary: {
-        label: "Agents IA & formations equipe",
-        sub: "Deploiement sur mesure, sur devis",
+        label: "Agents IA & formations équipe",
+        sub: "Déploiement sur mesure, sur devis",
         href: "/fr/agents",
         price: "Sur devis",
       },
-      timeGain: "Variable selon la taille de l'equipe",
+      timeGain: "Variable selon la taille de l'équipe",
     };
   }
 
-  // Equipe
+  // Équipe
   if (profile === "team") {
     if (goal === "everything") {
       return {
@@ -61,8 +61,8 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
           href: "/formations/mastermind",
           price: "49 € / mois",
         },
-        secondary: { label: "Ou Cours 02 a l'unite (297 €)", href: "/formations/cours-02" },
-        timeGain: "~ 25-40 h/mois pour l'equipe",
+        secondary: { label: "Ou Cours 02 à l'unite (297 €)", href: "/formations/cours-02" },
+        timeGain: "~ 25-40 h/mois pour l'équipe",
       };
     }
     return {
@@ -73,7 +73,7 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
         price: "297 €",
       },
       secondary: { label: "Avec Cours 01 (97 €) si nouveau", href: "/formations/cours-01" },
-      timeGain: "~ 15-25 h/mois pour l'equipe",
+      timeGain: "~ 15-25 h/mois pour l'équipe",
     };
   }
 
@@ -83,7 +83,7 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
       return {
         primary: {
           label: "Module 0 (gratuit)",
-          sub: "Theorie LLM 15 min + QCM",
+          sub: "Théorie LLM 15 min + QCM",
           href: "/formations/module-0",
           price: "0 €",
         },
@@ -93,13 +93,13 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
     }
     return {
       primary: {
-        label: "Cours 01 · Maitriser ChatGPT & Claude",
+        label: "Cours 01 · Maîtriser ChatGPT & Claude",
         sub: "4 modules + 25 prompts + 5 templates",
         href: "/formations/cours-01",
         price: "97 €",
       },
       secondary: { label: "Ou Pack Freelance (29 €)", href: "/formations/prompts/freelance" },
-      timeGain: "~ 8-12 h/semaine recuperees",
+      timeGain: "~ 8-12 h/semaine récupérées",
     };
   }
 
@@ -113,61 +113,61 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
           price: "297 €",
         },
         secondary: { label: "Avec Pack Marketing (29 €)", href: "/formations/prompts/marketing" },
-        timeGain: "~ 12-18 h/semaine recuperees",
+        timeGain: "~ 12-18 h/semaine récupérées",
       };
     }
     return {
       primary: {
-        label: "Cours 01 + Pack metier (Bundle)",
+        label: "Cours 01 + Pack métier (Bundle)",
         sub: "Cours 01 (97 €) + 1 pack prompts (29 €)",
         href: "/formations/cours-01",
         price: "Des 97 €",
       },
       secondary: { label: "Ou Boutique prompts seule (29-99 €)", href: "/formations/prompts" },
-      timeGain: "~ 10-15 h/semaine recuperees",
+      timeGain: "~ 10-15 h/semaine récupérées",
     };
   }
 
-  // Solo + Avance
+  // Solo + Avancé
   if (goal === "everything") {
     return {
       primary: {
         label: "Mastermind TROIE",
-        sub: "Tous les cours + bibliotheque vivante + communaute",
+        sub: "Tous les cours + bibliothèque vivante + communaute",
         href: "/formations/mastermind",
         price: "49 € / mois",
       },
       secondary: { label: "Ou Annuel (490 €, 2 mois offerts)", href: "/formations/mastermind" },
-      timeGain: "~ 15-25 h/semaine recuperees",
+      timeGain: "~ 15-25 h/semaine récupérées",
     };
   }
   return {
     primary: {
       label: "Cours 02 · Workflows IA",
-      sub: "Si vous maitrisez deja les prompts pro",
+      sub: "Si vous maîtrisez déjà les prompts pro",
       href: "/formations/cours-02",
       price: "297 €",
     },
-    secondary: { label: "Pour rester a jour : Mastermind", href: "/formations/mastermind" },
-    timeGain: "~ 12-20 h/semaine recuperees",
+    secondary: { label: "Pour rester à jour : Mastermind", href: "/formations/mastermind" },
+    timeGain: "~ 12-20 h/semaine récupérées",
   };
 }
 
 const PROFILE_OPTS: { key: Profile; label: string; sub: string }[] = [
   { key: "solo", label: "Solo", sub: "Freelance, micro, indep" },
-  { key: "team", label: "Equipe", sub: "2 a 15 personnes" },
+  { key: "team", label: "Équipe", sub: "2 a 15 personnes" },
   { key: "enterprise", label: "Entreprise", sub: "15+ ou besoin sur mesure" },
 ];
 
 const LEVEL_OPTS: { key: Level; label: string; sub: string }[] = [
-  { key: "beginner", label: "Debutant", sub: "Jamais ou peu utilise" },
-  { key: "intermediate", label: "Intermediaire", sub: "Utilise au quotidien" },
-  { key: "advanced", label: "Avance", sub: "Connais prompts, agents" },
+  { key: "beginner", label: "Débutant", sub: "Jamais ou peu utilisé" },
+  { key: "intermediate", label: "Intermediaire", sub: "Utilisé au quotidien" },
+  { key: "advanced", label: "Avancé", sub: "Connais prompts, agents" },
 ];
 
 const GOAL_OPTS: { key: Goal; label: string; sub: string }[] = [
-  { key: "learn", label: "Apprendre", sub: "Comprendre & demarrer" },
-  { key: "workflow", label: "Workflows", sub: "Automatiser des taches" },
+  { key: "learn", label: "Apprendre", sub: "Comprendre & démarrer" },
+  { key: "workflow", label: "Workflows", sub: "Automatiser des tâches" },
   { key: "everything", label: "Tout", sub: "Cours + communaute" },
 ];
 
@@ -189,7 +189,7 @@ export function FormationFitting() {
     <div className="relative rounded-sm border border-[var(--fg)]/15 bg-[var(--bg)]/40 p-6 md:p-8">
       <div className="flex items-center justify-between">
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Fitting personnalise · 3 questions
+          Fitting personnalisé · 3 questions
         </p>
         {allAnswered && (
           <button
@@ -296,7 +296,7 @@ export function FormationFitting() {
             </div>
 
             <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-              Reponse instantanee. Pas d'inscription.
+              Réponse instantanee. Pas d'inscription.
             </p>
           </motion.div>
         ) : (
@@ -325,7 +325,7 @@ export function FormationFitting() {
               href={reco.primary.href}
               className="group mt-6 inline-flex items-center gap-3 bg-[var(--fg)] px-6 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
             >
-              Decouvrir
+              Découvrir
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </Link>
 

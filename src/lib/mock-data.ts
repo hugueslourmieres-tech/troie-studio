@@ -7,9 +7,9 @@ import type {
 } from "./types";
 
 /**
- * Donnees mock pour la demo / le dev avant que Supabase soit configure.
- * Une fois SUPABASE_URL et SUPABASE_ANON_KEY definis, les pages preferent
- * les vraies donnees Supabase et tombent sur ces mocks en fallback.
+ * Données mock pour la demo / le dev avant que Supabase soit configuré.
+ * Une fois SUPABASE_URL et SUPABASE_ANON_KEY définis, les pages preferent
+ * les vraies données Supabase et tombent sur ces mocks en fallback.
  */
 
 export const MOCK_PROFILE: Profile = {
@@ -40,9 +40,9 @@ export const MOCK_COURSES: Course[] = [
     id: "course-01",
     slug: "cours-01",
     title: "Cours 01 — Maîtriser ChatGPT & Claude",
-    subtitle: "4 modules · 90 min de video · 25 prompts livres",
+    subtitle: "4 modules · 90 min de vidéo · 25 prompts livres",
     description:
-      "Les 5 patterns de prompts, les system prompts, 10 cas d'usage solo, securite RGPD.",
+      "Les 5 patterns de prompts, les system prompts, 10 cas d'usage solo, sécurité RGPD.",
     price_cents: 9700,
     modules_count: 4,
     duration_min: 90,
@@ -141,7 +141,7 @@ export const MOCK_MODULES: Record<string, Module[]> = {
       slug: "make-zapier",
       title: "Make & Zapier, les bases qui suffisent",
       subtitle: "Triggers, modules, debugging",
-      description: "30 min · 5 scenarios livres",
+      description: "30 min · 5 scénarios livres",
       order_index: 1,
       video_url: null,
       content_md: null,
@@ -153,7 +153,7 @@ export const MOCK_MODULES: Record<string, Module[]> = {
       course_id: "course-02",
       slug: "agents-persistants",
       title: "Agents persistants : mémoire, contexte, garde-fous",
-      subtitle: "ReAct, plan-then-execute, HITL",
+      subtitle: "ReAct, plan-then-exécuté, HITL",
       description: "40 min · 3 agents templates",
       order_index: 2,
       video_url: null,

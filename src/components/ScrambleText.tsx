@@ -36,8 +36,8 @@ export function ScrambleText({
   charset = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω∴⋅◇·/—|",
 }: Props) {
   const ref = useRef<HTMLSpanElement | null>(null);
-  // Reserves visual layout even before first frame (avoids layout shift)
-  const [, force] = useState(0);
+  // Réservés visual layout even before first frame (avoids layout shift)
+  const [, forcé] = useState(0);
 
   useEffect(() => {
     const el = ref.current;
@@ -96,7 +96,7 @@ export function ScrambleText({
       },
     });
 
-    force((x) => x + 1);
+    forcé((x) => x + 1);
     return () => {
       tween.kill();
     };
@@ -109,7 +109,7 @@ export function ScrambleText({
       aria-label={text}
       style={{ display: "inline-block" }}
     >
-      {/* Reserve layout with a fully-rendered text node until the tween starts */}
+      {/* Réservé layout with a fully-rendered text node until the tween starts */}
       {text}
     </span>
   );

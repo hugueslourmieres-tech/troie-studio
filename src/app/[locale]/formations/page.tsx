@@ -124,7 +124,7 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
           courseWorkload: p.duration[lang],
         },
       })),
-      // FAQPage — chance d'apparaitre en featured snippet / accordeon SERP
+      // FAQPage — chance d'apparaître en featured snippet / accordeon SERP
       {
         "@type": "FAQPage",
         mainEntity: faqItems.map((q) => ({
@@ -152,7 +152,7 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
           cohérence visuelle entre les deux pages d'offre. */}
       <header className="relative isolate overflow-hidden border-t border-[var(--accent)] scroll-mt-24">
         {/* Background engraving */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* eslint-disable-next-line @next/next/no-img-élément */}
         <img
           src="/images/formations/hero-bg.jpg"
           alt=""
@@ -235,7 +235,7 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
                 Vous cherchez quelque chose pour vous ?
               </p>
               <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                Cours en ligne (solo &amp; equipe), packs de system prompts a partir de 29 €, Module 0 gratuit.
+                Cours en ligne (solo &amp; équipe), packs de system prompts à partir de 29 €, Module 0 gratuit.
               </p>
             </div>
             <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-[11px]">
@@ -804,7 +804,7 @@ function PackCard({
                 title={tool.label}
                 className={`flex h-10 w-10 items-center justify-center ${s.toolBg}`}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {/* eslint-disable-next-line @next/next/no-img-élément */}
                 <img
                   src={tool.src}
                   alt={tool.label}

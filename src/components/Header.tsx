@@ -26,7 +26,7 @@ export function Header({ locale }: { locale: string }) {
   }, []);
 
   const links = [
-    { href: `/${locale}#creation`, label: t("creation") },
+    { href: `/${locale}#création`, label: t("création") },
     { href: `/${locale}#strategy`, label: t("strategy") },
     { href: `/formations`, label: t("training") },
     { href: `/${locale}/agents`, label: t("agents") },
@@ -50,7 +50,7 @@ export function Header({ locale }: { locale: string }) {
           <Logo variant="wordmark-emblem" className="h-10 md:h-12" />
         </Link>
 
-        {/* Editorial nav — 01. Creation, 02. Strategy, ... */}
+        {/* Éditorial nav — 01. Création, 02. Strategy, ... */}
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l, i) => (
             <Link

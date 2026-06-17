@@ -18,7 +18,7 @@ import {
  *   iframe with autoplay + sound, starting at 10s by default.
  * - Same 3:4 portrait crop for everything so the carousel stays
  *   visually consistent.
- * - Only one card can be active at a time.
+ * - Only one card can be activé at a time.
  */
 export function VideoCarousel({ locale }: { locale: string }) {
   const lang = (locale === "en" ? "en" : "fr") as "fr" | "en";
@@ -60,10 +60,10 @@ export function VideoCarousel({ locale }: { locale: string }) {
               className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
             >
               <VideoCard
-                video={v}
+                vidéo={v}
                 index={i}
                 lang={lang}
-                active={activeIdx === i}
+                activé={activeIdx === i}
                 onActivate={() => setActiveIdx(i)}
                 onDeactivate={() => setActiveIdx(null)}
               />
@@ -97,17 +97,17 @@ export function VideoCarousel({ locale }: { locale: string }) {
 }
 
 function VideoCard({
-  video,
+  vidéo,
   index,
   lang,
-  active,
+  activé,
   onActivate,
   onDeactivate,
 }: {
-  video: VideoItem;
+  vidéo: VideoItem;
   index: number;
   lang: "fr" | "en";
-  active: boolean;
+  activé: boolean;
   onActivate: () => void;
   onDeactivate: () => void;
 }) {
@@ -115,24 +115,24 @@ function VideoCard({
     <article className="flex flex-col">
       <div
         className="group relative aspect-[3/4] cursor-pointer overflow-hidden bg-[var(--bg-2)]"
-        onClick={() => (active ? onDeactivate() : onActivate())}
+        onClick={() => (activé ? onDeactivate() : onActivate())}
         role="button"
         tabIndex={0}
-        aria-label={video.title[lang]}
+        aria-label={vidéo.title[lang]}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
-            active ? onDeactivate() : onActivate();
+            activé ? onDeactivate() : onActivate();
           }
         }}
       >
-        {video.kind === "local" ? (
-          <LocalMedia video={video} active={active} />
+        {vidéo.kind === "local" ? (
+          <LocalMedia vidéo={vidéo} activé={activé} />
         ) : (
-          <YouTubeMedia video={video} active={active} title={video.title[lang]} />
+          <YouTubeMedia vidéo={vidéo} activé={activé} title={vidéo.title[lang]} />
         )}
 
-        {active && (
+        {activé && (
           <button
             type="button"
             aria-label="Close"
@@ -149,14 +149,14 @@ function VideoCard({
 
       <div className="mt-5 flex items-baseline justify-between gap-4">
         <h3 className="t-display text-xl text-[var(--fg)] md:text-2xl">
-          {video.client}
+          {vidéo.client}
         </h3>
         <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
       <p className="mt-2 max-w-md text-sm text-[var(--fg-2)]/70">
-        {video.title[lang]}
+        {vidéo.title[lang]}
       </p>
     </article>
   );
@@ -166,18 +166,18 @@ function VideoCard({
  * LocalMedia — autoplay muted B&W loop preview; click toggles colour + sound.
  */
 function LocalMedia({
-  video,
-  active,
+  vidéo,
+  activé,
 }: {
-  video: Extract<VideoItem, { kind: "local" }>;
-  active: boolean;
+  vidéo: Extract<VideoItem, { kind: "local" }>;
+  activé: boolean;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (active) {
+    if (activé) {
       el.muted = false;
       el.loop = false;
       el.currentTime = 0;
@@ -189,12 +189,12 @@ function LocalMedia({
       el.loop = true;
       if (!el.paused) el.pause();
     }
-  }, [active]);
+  }, [activé]);
 
   return (
     <video
       ref={ref}
-      src={video.src}
+      src={vidéo.src}
       autoPlay
       loop
       muted
@@ -202,7 +202,7 @@ function LocalMedia({
       preload="metadata"
       className="h-full w-full object-cover transition-[filter] duration-700"
       style={{
-        filter: active
+        filter: activé
           ? "none"
           : "grayscale(1) brightness(0.96) contrast(1.06)",
       }}
@@ -212,23 +212,23 @@ function LocalMedia({
 
 /**
  * YouTubeMedia — thumbnail B&W with a play overlay, swaps to a
- * youtube-nocookie iframe when active.
+ * youtube-nocookie iframe when activé.
  */
 function YouTubeMedia({
-  video,
-  active,
+  vidéo,
+  activé,
   title,
 }: {
-  video: Extract<VideoItem, { kind: "youtube" }>;
-  active: boolean;
+  vidéo: Extract<VideoItem, { kind: "youtube" }>;
+  activé: boolean;
   title: string;
 }) {
-  if (active) {
+  if (activé) {
     return (
       <iframe
-        src={embedUrl(video.youtubeId, video.start)}
+        src={embedUrl(vidéo.youtubeId, vidéo.start)}
         title={title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-média; gyroscope; picture-in-picture; web-share"
         allowFullScreen
         className="h-full w-full"
       />
@@ -238,7 +238,7 @@ function YouTubeMedia({
   return (
     <>
       <Image
-        src={thumbnailUrl(video.youtubeId)}
+        src={thumbnailUrl(vidéo.youtubeId)}
         alt={title}
         fill
         sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"

@@ -7,7 +7,7 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   return {
-    title: locale === "fr" ? "Mentions légales" : "Legal notice",
+    title: locale === "fr" ? "Mentions légales" : "Légal notice",
     alternates: {
       canonical: `/${locale}/terms`,
       languages: { fr: "/fr/terms", en: "/en/terms" },
@@ -133,8 +133,8 @@ function TermsEn() {
       </Block>
       <Block title="Intellectual property">
         <p>
-          All content on this site (text, images, videos, logos, graphic
-          identity) is protected by copyright. Any reproduction, representation
+          All content on this site (text, images, vidéos, logos, graphic
+          identity) is protected by copyright. Any reproduction, représentation
           or exploitation without prior authorisation is forbidden.
         </p>
       </Block>

@@ -22,7 +22,7 @@ type Props = {
  * Service section — un pilier (Création / Stratégie / Formation).
  * Texte 5 colonnes / photos 7 colonnes, inversable.
  * Le PhotoMosaic supporte automatiquement photo + vidéo : si le `src`
- * se termine par .mov / .mp4 / .webm, on rend une `<video>` autoplay
+ * se terminé par .mov / .mp4 / .webm, on rend une `<video>` autoplay
  * muted loop à la place de l'`Image`.
  */
 export function ServiceSection({
@@ -170,10 +170,10 @@ function ToolsRow({ tools }: { tools: Tool[] }) {
 }
 
 /**
- * Media — slot polymorphe photo ↔ vidéo. Conserve la mécanique t-photo
+ * Média — slot polymorphe photo ↔ vidéo. Conserve la mécanique t-photo
  * (filtre N&B → couleur au survol) pour les deux types.
  */
-function Media({
+function Média({
   photo,
   sizes,
 }: {
@@ -209,7 +209,7 @@ function PhotoMosaic({ photos }: { photos: Photo[] }) {
   if (photos.length === 1) {
     return (
       <div className="group relative aspect-[4/5] w-full overflow-hidden bg-[var(--bg-2)]">
-        <Media photo={photos[0]} sizes="(max-width: 768px) 100vw, 50vw" />
+        <Média photo={photos[0]} sizes="(max-width: 768px) 100vw, 50vw" />
       </div>
     );
   }
@@ -222,7 +222,7 @@ function PhotoMosaic({ photos }: { photos: Photo[] }) {
             key={p.src}
             className="group relative aspect-[3/4] overflow-hidden bg-[var(--bg-2)]"
           >
-            <Media photo={p} sizes="(max-width: 768px) 50vw, 25vw" />
+            <Média photo={p} sizes="(max-width: 768px) 50vw, 25vw" />
           </div>
         ))}
       </div>
@@ -232,14 +232,14 @@ function PhotoMosaic({ photos }: { photos: Photo[] }) {
   return (
     <div className="grid grid-cols-2 gap-4">
       <div className="group relative aspect-[3/4] row-span-2 overflow-hidden bg-[var(--bg-2)]">
-        <Media photo={photos[0]} sizes="(max-width: 768px) 50vw, 30vw" />
+        <Média photo={photos[0]} sizes="(max-width: 768px) 50vw, 30vw" />
       </div>
       <div className="group relative aspect-[4/3] overflow-hidden bg-[var(--bg-2)]">
-        <Media photo={photos[1]} sizes="(max-width: 768px) 50vw, 25vw" />
+        <Média photo={photos[1]} sizes="(max-width: 768px) 50vw, 25vw" />
       </div>
       {photos[2] && (
         <div className="group relative aspect-[4/3] overflow-hidden bg-[var(--bg-2)]">
-          <Media photo={photos[2]} sizes="(max-width: 768px) 50vw, 25vw" />
+          <Média photo={photos[2]} sizes="(max-width: 768px) 50vw, 25vw" />
         </div>
       )}
     </div>
