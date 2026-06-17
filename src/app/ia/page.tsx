@@ -217,22 +217,22 @@ const STEPS = [
   {
     title: "Audit gratuit · 30 min.",
     body: "On regarde vos taches reelles. Reponse claire, chiffree, ecrite, sous 48 h.",
-    img: "/images/04%20Strategie%20communication/DSC_5552-4.jpg",
+    img: "/images/corpo/strategie/DSC_5552-4.jpg",
   },
   {
     title: "Setup & formation.",
     body: "On configure les outils sur vos cas concrets. On forme votre equipe avec vos donnees, votre voix.",
-    img: "/images/Photos%20Corpo%20Hugues/Montpellier%20Formation%202026/DSC_7573.jpg",
+    img: "/images/corpo/montpellier/DSC_7573.jpg",
   },
   {
     title: "Production supervisee.",
     body: "Pendant 30 jours, on accompagne les premieres semaines. Ajustements continus, transfert progressif.",
-    img: "/images/Photos%20Corpo%20Hugues/MIBI%202026/DSC_7665.jpg",
+    img: "/images/corpo/mibi/DSC_7665.jpg",
   },
   {
     title: "Autonomie complete.",
     body: "Vos workflows, vos prompts, vos acces. Tout vous appartient. Sortie propre, sans lock-in.",
-    img: "/images/Photos%20Corpo%20Hugues/Printing%20industry%20Barcelona/13Hugues%20Nikon%2035mm.jpg",
+    img: "/images/corpo/barcelona/13Hugues-Nikon-35mm.jpg",
   },
 ];
 
@@ -452,7 +452,7 @@ export default function IaLandingPage() {
                 <div className="relative h-64 md:h-full">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/Photos%20Corpo%20Hugues/Montpellier%20Formation%202026/DSC_7616.jpg"
+                    src="/images/corpo/montpellier/DSC_7616.jpg"
                     alt=""
                     className="h-full w-full object-cover"
                     style={{ filter: "grayscale(1) contrast(1.05)" }}
@@ -536,9 +536,9 @@ export default function IaLandingPage() {
               const t = themes[i % themes.length];
               // 1 bandeau 16:9 N&B par pack
               const banners = [
-                "/images/Photos%20Corpo%20Hugues/MIBI%202026/DSC_7665.jpg",
-                "/images/Photos%20Corpo%20Hugues/Montpellier%20Formation%202026/DSC_7603.jpg",
-                "/images/Photos%20Corpo%20Hugues/Montpellier%20Formation%202026/DSC_7604.jpg",
+                "/images/corpo/mibi/DSC_7665.jpg",
+                "/images/corpo/montpellier/DSC_7603.jpg",
+                "/images/corpo/montpellier/DSC_7604.jpg",
               ];
               const banner = banners[i % banners.length];
               return (
@@ -732,7 +732,7 @@ export default function IaLandingPage() {
                 <div className="relative h-64 md:h-full">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="/images/Photos%20Corpo%20Hugues/MIBI%202026/_DSC7503.jpg"
+                    src="/images/corpo/mibi/_DSC7503.jpg"
                     alt=""
                     className="h-full w-full object-cover"
                     style={{ filter: "grayscale(1) contrast(1.05)" }}
