@@ -158,6 +158,9 @@ body {
   font-weight: 400;       /* Bodoni reads luxe en regular avec sa modulation forte */
   letter-spacing: -0.025em;
   line-height: 0.96;
+  /* Balance les longues lignes pour eviter les veuves/orphelins en titre
+     (text-wrap: balance arrive partout en 2024+). */
+  text-wrap: balance;
 }
 
 .t-display-italic {

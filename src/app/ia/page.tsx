@@ -441,66 +441,8 @@ export default function IaLandingPage() {
             </div>
           </div>
 
-          {/* Pack Complet Solo — featured full-width orange Hermes */}
-          <div className="mt-20 overflow-hidden rounded-sm bg-[var(--accent)] text-[#1a1714] md:mt-28">
-            <div className="grid gap-0 md:grid-cols-12">
-              <div className="md:col-span-5">
-                <div className="relative h-64 md:h-full">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/corpo/montpellier/DSC_7616.jpg"
-                    alt=""
-                    className="h-full w-full object-cover"
-                    style={{ filter: "grayscale(1) contrast(1.05)" }}
-                  />
-                </div>
-              </div>
-              <div className="flex flex-col p-8 md:col-span-7 md:p-12">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/85">
-                  Pack 04 · Le complet
-                </p>
-                <h3 className="t-display mt-4 text-4xl md:text-5xl lg:text-6xl">
-                  Tout en un. Solo, formation & agent.
-                </h3>
-                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/65">
-                  1 mois · 12 h de coaching · agent inclus
-                </p>
-                <p className="mt-6 text-base leading-relaxed text-[#1a1714]/85 md:text-lg">
-                  La formule la plus completee : audit, formation, bibliotheque de 100 prompts, un agent IA configure sur votre cas reel, et 12 h de coaching reparties sur 30 jours.
-                </p>
-                <ul className="mt-6 grid gap-2.5 md:grid-cols-2">
-                  {[
-                    "Audit + plan de deploiement 360°",
-                    "Bibliotheque 100 prompts metier",
-                    "1 agent IA configure + supervise",
-                    "12 h de coaching sur 30 jours",
-                    "Hotline directe pendant 30 jours",
-                    "Workflows Make / Zapier livres",
-                  ].map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-sm leading-relaxed text-[#1a1714]/85 md:text-[15px]">
-                      <span aria-hidden="true" className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[#1a1714]" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#1a1714]/20 pt-6">
-                  <p className="t-display text-3xl md:text-4xl">A partir de 2 490 €</p>
-                  <a
-                    href={CAL_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
-                  >
-                    Reserver
-                    <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* 3 packs solo — chaque pack un fond different */}
-          <div className="mt-10 grid gap-6 md:mt-12 md:grid-cols-3 md:gap-8">
+          {/* 3 packs solo — chaque pack un fond different (Pack 04 below) */}
+          <div className="mt-20 grid gap-6 md:mt-28 md:grid-cols-3 md:gap-8">
             {SOLO_PACKS.map((p, i) => {
               // Palette : Pack 01 sable doux, Pack 02 brun terre, Pack 03 noir nuit
               const themes = [
@@ -595,6 +537,64 @@ export default function IaLandingPage() {
                 </div>
               );
             })}
+          </div>
+
+          {/* Pack Complet Solo — featured full-width orange Hermes, after 3 packs */}
+          <div className="mt-16 overflow-hidden rounded-sm bg-[var(--accent)] text-[#1a1714] md:mt-20">
+            <div className="grid gap-0 md:grid-cols-12">
+              <div className="md:col-span-5">
+                <div className="relative h-64 md:h-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/corpo/montpellier/DSC_7616.jpg"
+                    alt=""
+                    className="h-full w-full object-cover"
+                    style={{ filter: "grayscale(1) contrast(1.05)" }}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col p-8 md:col-span-7 md:p-12">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/85">
+                  Pack 04 · Le complet
+                </p>
+                <h3 className="t-display mt-4 text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
+                  Tout en un. Solo, formation &amp; agent.
+                </h3>
+                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/65">
+                  1 mois · 12 h de coaching · agent inclus
+                </p>
+                <p className="mt-6 text-base leading-relaxed text-[#1a1714]/85 md:text-lg">
+                  La formule la plus complete : audit, formation, bibliotheque de 100 prompts, un agent IA configure sur votre cas reel, et 12 h de coaching reparties sur 30 jours.
+                </p>
+                <ul className="mt-6 grid gap-2.5 md:grid-cols-2">
+                  {[
+                    "Audit + plan de deploiement 360°",
+                    "Bibliotheque 100 prompts metier",
+                    "1 agent IA configure + supervise",
+                    "12 h de coaching sur 30 jours",
+                    "Hotline directe pendant 30 jours",
+                    "Workflows Make / Zapier livres",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-3 text-sm leading-relaxed text-[#1a1714]/85 md:text-[15px]">
+                      <span aria-hidden="true" className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[#1a1714]" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#1a1714]/20 pt-6">
+                  <p className="t-display text-3xl md:text-4xl">A partir de 2 490 €</p>
+                  <a
+                    href={CAL_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  >
+                    Reserver
+                    <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
