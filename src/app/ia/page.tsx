@@ -3,7 +3,6 @@ import { AnimatedNumber } from "./AnimatedNumber";
 import { HeroVideoBg } from "./HeroVideoBg";
 import { GrowthCurve } from "./GrowthCurve";
 import { Logo } from "@/components/Logo";
-import { EmblemBreak } from "@/components/EmblemBreak";
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -353,9 +352,6 @@ export default function IaLandingPage() {
       {/* Stat band supprimee — les chiffres verifies sont desormais
           dans la GrowthCurve du hero, pour eviter la redondance. */}
 
-      {/* EmblemBreak signature TROIE */}
-      <EmblemBreak size="md" />
-
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           SOLO / MICRO / AUTO-ENTREPRENEUR
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
@@ -602,8 +598,6 @@ export default function IaLandingPage() {
           </div>
         </div>
       </section>
-
-      <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           PRO / MARQUES / BOITES
@@ -931,8 +925,6 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      <EmblemBreak size="md" />
-
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           TASKS GRID — ce que l'IA fait pour vous, chiffres reels
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
@@ -985,8 +977,6 @@ export default function IaLandingPage() {
           </div>
         </div>
       </section>
-
-      <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           COMMENT CA MARCHE — 4 etapes
