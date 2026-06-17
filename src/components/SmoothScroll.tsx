@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 
 /**
- * SmoothScroll — initialise Lenis pour un scroll buttery / luxe.
+ * SmoothScroll, initialise Lenis pour un scroll buttery / luxe.
  * Attaché à <html> via la lib, RAF coordonné par Lenis lui-même.
  *
  * Désactivé automatiquement si l'utilisateur préfère prefers-reduced-motion.

@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 /**
  * Supabase client for server components, server actions, and API routes.
- * Reads/writes cookies via Next.js cookies() — keeps the session in sync.
+ * Reads/writes cookies via Next.js cookies(), keeps the session in sync.
  */
 export async function createClient() {
   const cookieStore = await cookies();
@@ -12,7 +12,7 @@ export async function createClient() {
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||
     !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
   ) {
-    throw new Error("Supabase not configured — running in demo mode");
+    throw new Error("Supabase not configured, running in demo mode");
   }
 
   return createServerClient(

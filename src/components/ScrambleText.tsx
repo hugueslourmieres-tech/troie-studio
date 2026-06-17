@@ -16,7 +16,7 @@ type Props = {
 };
 
 /**
- * ScrambleText — TROIE-themed scramble effect (no SplitText plugin).
+ * ScrambleText, TROIE-themed scramble effect (no SplitText plugin).
  *
  * On mount, each non-space character of `text` is initially replaced by a
  * random glyph from `charset`. GSAP drives a progress value from 0 to 1;
@@ -24,7 +24,7 @@ type Props = {
  * hasn't arrived, it keeps swapping to a new random glyph every few ms;
  * after that, it locks to the real character.
  *
- * Default charset uses Greek letters + a sprinkle of glyphs — fits the
+ * Default charset uses Greek letters + a sprinkle of glyphs, fits the
  * Trojan theme of the brand and reads as a slow type-on / decoding effect.
  */
 export function ScrambleText({
@@ -33,7 +33,7 @@ export function ScrambleText({
   delay = 0,
   duration = 1.6,
   revealWindow = 0.35,
-  charset = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω∴⋅◇·/—|",
+  charset = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω∴⋅◇·/,|",
 }: Props) {
   const ref = useRef<HTMLSpanElement | null>(null);
   // Réservés visual layout even before first frame (avoids layout shift)

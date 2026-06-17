@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import type { Profile } from "@/lib/types";
 
 /**
- * DashboardSidebar — nav verticale + carte profil avec XP / level.
+ * DashboardSidebar, nav verticale + carte profil avec XP / level.
  * Sticky en desktop, compact en mobile (haut de page).
  *
  * Le formulaire de signout est un POST vers /formations/auth/sign-out

@@ -11,7 +11,7 @@ type Props = {
 };
 
 /**
- * Counter — animation count-up qui se déclenche une fois
+ * Counter, animation count-up qui se déclenche une fois
  * quand l'élément entre dans le viewport. Eased.
  */
 export function Counter({ to, suffix = "", duration = 1.6, className }: Props) {

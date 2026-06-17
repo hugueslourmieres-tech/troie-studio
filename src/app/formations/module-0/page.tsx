@@ -7,7 +7,7 @@ const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
 
 export const metadata = {
-  title: "Module 0 · La théorie LLM en 15 minutes — TROIE Formations",
+  title: "Module 0 · La théorie LLM en 15 minutes, TROIE Formations",
   description:
     "QCM gratuit · 10 questions pour comprendre comment fonctionne un LLM, pourquoi il hallucine, et comment lui parler. Sans inscription.",
   alternates: {
@@ -16,7 +16,7 @@ export const metadata = {
 };
 
 /* ─────────────────────────────────────────────────────────────────────
-   /formations/module-0 — Module 0 gratuit
+   /formations/module-0, Module 0 gratuit
    - Théorie LLM en 15 min
    - QCM interactif 10 questions (QuizPlayer)
    - Section locked : preview Cours 01 + Cours 02 (teaser payant)
@@ -121,7 +121,7 @@ export default function Module0Page() {
         </div>
       </section>
 
-      {/* PREVIEW LOCKED — Cours 01 + Cours 02 */}
+      {/* PREVIEW LOCKED, Cours 01 + Cours 02 */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">

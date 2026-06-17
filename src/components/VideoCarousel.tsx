@@ -11,7 +11,7 @@ import {
 } from "@/lib/data/videos";
 
 /**
- * VideoCarousel — corporate films + YouTube testimonials.
+ * VideoCarousel, corporate films + YouTube testimonials.
  *
  * - Local mp4 cards autoplay muted in B&W, click → colour + sound.
  * - YouTube cards show the thumbnail in B&W, click → youtube-nocookie
@@ -163,7 +163,7 @@ function VideoCard({
 }
 
 /**
- * LocalMedia — autoplay muted B&W loop preview; click toggles colour + sound.
+ * LocalMedia, autoplay muted B&W loop preview; click toggles colour + sound.
  */
 function LocalMedia({
   vidéo,
@@ -182,7 +182,7 @@ function LocalMedia({
       el.loop = false;
       el.currentTime = 0;
       el.play().catch(() => {
-        /* autoplay rules — ignore */
+        /* autoplay rules, ignore */
       });
     } else {
       el.muted = true;
@@ -211,7 +211,7 @@ function LocalMedia({
 }
 
 /**
- * YouTubeMedia — thumbnail B&W with a play overlay, swaps to a
+ * YouTubeMedia, thumbnail B&W with a play overlay, swaps to a
  * youtube-nocookie iframe when activé.
  */
 function YouTubeMedia({

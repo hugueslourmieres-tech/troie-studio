@@ -8,7 +8,7 @@ import { LevelBar } from "./LevelBar";
 import { AnimatedNumber } from "../ia/AnimatedNumber";
 
 /**
- * HeroHeroes — slideshow Embla autoplay des 4 personnages IA du hero
+ * HeroHeroes, slideshow Embla autoplay des 4 personnages IA du hero
  * de /formations. Cycle Claude > ChatGPT+Codex > Gemini > Copilot,
  * 1 slide toutes les 5 secondes. Pause au hover. Dots de progression
  * en bas, sobre.

@@ -20,7 +20,7 @@ const CAL_URL = "https://cal.com/hugueslourmieres";
 /* Les 4 pièces d'équipement qui transforment un LLM brut en outil pro.
  * Chaque slot à un visuel item style MMORPG (généré via Runway) qui
  * apparaît en bandeau au-dessus du contenu. `image` reste null tant
- * que la génération n'a pas été livrée — fallback sur l'icone SVG.
+ * que la génération n'a pas été livrée, fallback sur l'icone SVG.
  * Prompts Runway utilisés :
  *  - Preset : armor + shield (Greek hoplite bronze, golden engravings)
  *  - Prompts : wizard staff + glowing scrolls
@@ -119,7 +119,7 @@ const TOOLS = [
       skills: 3,
     },
     cowork:
-      "Le seul qui vit dans Gmail / Docs / Sheets sans friction. Résumé de réunion, rédaction de mail, analyse de Sheet — tout en un clic.",
+      "Le seul qui vit dans Gmail / Docs / Sheets sans friction. Résumé de réunion, rédaction de mail, analyse de Sheet, tout en un clic.",
   },
   {
     name: "Copilot",
@@ -142,7 +142,7 @@ const TOOLS = [
   },
 ];
 
-/* Use cases débloqués par chaque heros — vue agregee */
+/* Use cases débloqués par chaque heros, vue agregee */
 const USE_CASES = [
   { title: "SEO", body: "Audit, briefs, contenus structures, signaux", best: "Claude" },
   { title: "SEA", body: "Campagnes Meta Ads + Google Ads, A/B tests", best: "ChatGPT" },
@@ -155,7 +155,7 @@ const USE_CASES = [
   { title: "Analytics", body: "GA4, Search Console, dashboards auto", best: "Gemini" },
 ];
 
-/* Les 3 parcours de progression — leveling paths */
+/* Les 3 parcours de progression, leveling paths */
 const PATHS = [
   {
     badge: "Parcours 01 · Solo",
@@ -204,7 +204,7 @@ const PATHS = [
   },
 ];
 
-/* Module 0 gratuit — la théorie LLM pour comprendre le reste */
+/* Module 0 gratuit, la théorie LLM pour comprendre le reste */
 const FREE_MODULE = {
   title: "Pourquoi un LLM hallucine et veut vous plaire.",
   duration: "15 min · gratuit · sans inscription",
@@ -223,7 +223,7 @@ export default function FormationsPage() {
       {/* FormationsHeader est rendu globalement via /formations/layout.tsx */}
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          POUR QUI ? — switcher B2C / B2B en tout premier
+          POUR QUI ?, switcher B2C / B2B en tout premier
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-b border-[var(--rule)] bg-[var(--bg-2)] pt-20 md:pt-24">
         <div className="mx-auto max-w-7xl px-6 py-10 md:px-12 md:py-14">
@@ -231,7 +231,7 @@ export default function FormationsPage() {
             Pour qui ?
           </p>
           <div className="mt-6 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:grid-cols-2">
-            {/* B2C — cours en ligne (page courante) */}
+            {/* B2C, cours en ligne (page courante) */}
             <a
               href="#start"
               className="group bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent)]/8 md:p-8"
@@ -257,7 +257,7 @@ export default function FormationsPage() {
               </span>
             </a>
 
-            {/* B2B — entreprise sur site (legacy /fr/formations) */}
+            {/* B2B, entreprise sur site (legacy /fr/formations) */}
             <Link
               href="/fr/agents"
               className="group bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent)]/8 md:p-8"
@@ -288,7 +288,7 @@ export default function FormationsPage() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          HERO — votre IA, de base a boss niveau
+          HERO, votre IA, de base a boss niveau
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="relative border-b border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 pt-24 pb-24 md:px-12 md:pt-32 md:pb-32">
@@ -357,8 +357,8 @@ export default function FormationsPage() {
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
                 <strong className="text-[var(--fg)]">Stop aux questions, place à l'action.</strong>{" "}
-                ChatGPT répond à vos questions. Votre équipage IA — Hermes,
-                Achille, Hestia — agit dans vos outils, 24/7, sans que vous
+                ChatGPT répond à vos questions. Votre équipage IA, Hermes,
+                Achille, Hestia, agit dans vos outils, 24/7, sans que vous
                 leviez le petit doigt. Pendant que vous dormez, votre stack
                 traité vos mails, draft vos posts, met à jour votre CRM.
                 Vous arrivez le matin, tout est prêt à valider.
@@ -437,7 +437,7 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          AVANT / APRÈS — la transformation
+          AVANT / APRÈS, la transformation
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -449,7 +449,7 @@ export default function FormationsPage() {
           </h2>
 
           <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8">
-            {/* AVANT — l'outil de base */}
+            {/* AVANT, l'outil de base */}
             <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg)] p-8 md:p-10">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-2)]/65">
@@ -478,7 +478,7 @@ export default function FormationsPage() {
               </p>
             </div>
 
-            {/* APRÈS — l'outil stuffe */}
+            {/* APRÈS, l'outil stuffe */}
             <div className="relative rounded-sm border border-[var(--accent)] bg-[#1a1714] p-8 text-[#f5f0e6] md:p-10">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
@@ -512,7 +512,7 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          L'EQUIPEMENT — 4 slots
+          L'EQUIPEMENT, 4 slots
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -531,7 +531,7 @@ export default function FormationsPage() {
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-4">
             {EQUIPMENT.map((e) => (
               <div key={e.slot} className="flex flex-col bg-[var(--bg)]">
-                {/* Bandeau item MMORPG — pixel-art orange Hermes */}
+                {/* Bandeau item MMORPG, pixel-art orange Hermes */}
                 {e.image ? (
                   <div className="relative aspect-square overflow-hidden bg-[var(--accent)]">
                     {/* eslint-disable-next-line @next/next/no-img-élément */}
@@ -585,7 +585,7 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          VOS 4 HEROS IA — character cards
+          VOS 4 HEROS IA, character cards
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -691,7 +691,7 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          SKILLS A DEBLOQUER — use cases
+          SKILLS A DEBLOQUER, use cases
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -728,7 +728,7 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          MODULE 0 GRATUIT — la théorie LLM
+          MODULE 0 GRATUIT, la théorie LLM
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="free" className="border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -780,10 +780,10 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          LES 3 PARCOURS — leveling paths
+          LES 3 PARCOURS, leveling paths
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          PAR OU COMMENCER — tunnel a 5 niveaux
+          PAR OU COMMENCER, tunnel a 5 niveaux
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="start" className="border-t border-[var(--rule)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -798,7 +798,7 @@ export default function FormationsPage() {
           </p>
 
           <ol className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-5">
-            {/* Niveau 01 — Module 0 gratuit */}
+            {/* Niveau 01, Module 0 gratuit */}
             <Link
               href="/formations/module-0"
               className="group flex flex-col bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--bg-2)] md:p-8"
@@ -822,7 +822,7 @@ export default function FormationsPage() {
               </span>
             </Link>
 
-            {/* Niveau 02 — Boutique Prompts */}
+            {/* Niveau 02, Boutique Prompts */}
             <Link
               href="/formations/prompts"
               className="group flex flex-col bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--bg-2)] md:p-8"
@@ -848,7 +848,7 @@ export default function FormationsPage() {
               </span>
             </Link>
 
-            {/* Niveau 03 — Cours 01 */}
+            {/* Niveau 03, Cours 01 */}
             <Link
               href="/formations/cours-01"
               className="group flex flex-col bg-[#5a4a3a] p-6 text-[#f5f0e6] transition-transform hover:-translate-y-1 md:p-8"
@@ -872,7 +872,7 @@ export default function FormationsPage() {
               </span>
             </Link>
 
-            {/* Niveau 04 — Cours 02 */}
+            {/* Niveau 04, Cours 02 */}
             <Link
               href="/formations/cours-02"
               className="group flex flex-col bg-[#1a1714] p-6 text-[#f5f0e6] transition-transform hover:-translate-y-1 md:p-8"
@@ -896,7 +896,7 @@ export default function FormationsPage() {
               </span>
             </Link>
 
-            {/* Niveau 05 — Mastermind */}
+            {/* Niveau 05, Mastermind */}
             <Link
               href="/formations/mastermind"
               className="group flex flex-col bg-[var(--accent)] p-6 text-[#1a1714] transition-transform hover:-translate-y-1 md:p-8"
@@ -930,7 +930,7 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          DÉTAIL DES 3 PARCOURS — pour ceux qui veulent fouiller
+          DÉTAIL DES 3 PARCOURS, pour ceux qui veulent fouiller
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="paths" className="border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -1044,7 +1044,7 @@ export default function FormationsPage() {
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
                 30 min en visio gratuit. On regarde votre activite,
                 vos outils, votre objectif. On vous dit honnêtement
-                quel heros équiper en premier — ou si vous n'avez
+                quel heros équiper en premier, ou si vous n'avez
                 besoin d'aucun cours.
               </p>
               <a

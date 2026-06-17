@@ -10,7 +10,7 @@ import {
 } from "react";
 
 /**
- * HeroSlideshow — infinite cross-fade carousel.
+ * HeroSlideshow, infinite cross-fade carousel.
  *
  * - 7 slides stacked absolute, only one opacity-1 at a time.
  * - 2000ms ease cross-fade between slides.
@@ -22,11 +22,11 @@ import {
  */
 
 const SLIDES = [
-  { src: "/images/slideshow/03.jpg", alt: "TROIE — slide 1" },
-  { src: "/images/slideshow/04.jpg", alt: "TROIE — slide 2" },
-  { src: "/images/slideshow/01.jpg", alt: "TROIE — slide 3" },
-  { src: "/images/slideshow/06.jpg", alt: "TROIE — slide 4" },
-  { src: "/images/slideshow/07.jpg", alt: "TROIE — slide 5" },
+  { src: "/images/slideshow/03.jpg", alt: "TROIE, slide 1" },
+  { src: "/images/slideshow/04.jpg", alt: "TROIE, slide 2" },
+  { src: "/images/slideshow/01.jpg", alt: "TROIE, slide 3" },
+  { src: "/images/slideshow/06.jpg", alt: "TROIE, slide 4" },
+  { src: "/images/slideshow/07.jpg", alt: "TROIE, slide 5" },
 ];
 
 const SLIDE_MS = 6000;

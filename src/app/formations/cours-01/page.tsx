@@ -8,7 +8,7 @@ const CAL_URL = "https://cal.com/hugueslourmieres";
 const CHECKOUT_URL = "mailto:contact@troiestudio.fr?subject=Cours+01+%E2%80%94+TROIE-START";
 
 export const metadata = {
-  title: "Cours 01 · Maîtriser ChatGPT & Claude — TROIE Formations",
+  title: "Cours 01 · Maîtriser ChatGPT & Claude, TROIE Formations",
   description:
     "4 modules · 90 min de vidéo · 25 prompts livres · accès à vie. Équipez votre premier heros IA en 1 soiree. 97 €.",
   alternates: {
@@ -216,7 +216,7 @@ export default function Cours01Page() {
 
       <EmblemBreak size="md" />
 
-      {/* AVANT / APRÈS — la transformation */}
+      {/* AVANT / APRÈS, la transformation */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
@@ -348,7 +348,7 @@ export default function Cours01Page() {
 
       <EmblemBreak size="md" />
 
-      {/* DELIVERABLES — ce que vous recevez */}
+      {/* DELIVERABLES, ce que vous recevez */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">

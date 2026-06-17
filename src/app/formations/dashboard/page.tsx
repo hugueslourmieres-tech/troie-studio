@@ -139,7 +139,7 @@ export default async function DashboardOverview() {
         </div>
       </section>
 
-      {/* Trophies — récents + à débloquer */}
+      {/* Trophies, récents + à débloquer */}
       <section>
         <div className="flex items-baseline justify-between">
           <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">

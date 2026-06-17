@@ -26,7 +26,7 @@ type Props = {
 } & Omit<HTMLMotionProps<"div">, "initial" | "animate" | "transition" | "whileInView" | "viewport">;
 
 /**
- * Reveal — fade + slide entrance when the élément enters the viewport.
+ * Reveal, fade + slide entrance when the élément enters the viewport.
  * Coupled to Lenis, the easing keeps everything cohérent.
  */
 export function Reveal({

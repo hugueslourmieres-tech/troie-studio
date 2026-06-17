@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   TROIE Prompts Vault — données structurees.
+   TROIE Prompts Vault, données structurees.
    5 packs métier, 5 system prompts par pack. Le premier prompt de
    chaque pack est marque `freePreview: true` (visible non payé).
    Les 4 autres sont locked (blur + acheter).
@@ -688,7 +688,7 @@ Si la définition du churn n'est pas précise (downgrade ou cancel ou inactivite
     badge: "Pack 04",
     title: "Design & Créatif.",
     sub: "Brief · feedback · scope",
-    body: "Pour ceux qui créent. Cadrer le brief, gérer les retours, éviter le scope creep — sans y passer la nuit.",
+    body: "Pour ceux qui créent. Cadrer le brief, gérer les retours, éviter le scope creep, sans y passer la nuit.",
     theme: "linen",
     prompts: [
       {

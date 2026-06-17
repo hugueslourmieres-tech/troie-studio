@@ -12,7 +12,7 @@ type Props = {
 };
 
 /**
- * SplitTextReveal — DIY word-by-word reveal (no SplitText plugin).
+ * SplitTextReveal, DIY word-by-word reveal (no SplitText plugin).
  *
  * Wraps each word in an overflow-hidden span, then animates the inner
  * span from translateY(110%) to 0 with a stagger. Drives the SAME

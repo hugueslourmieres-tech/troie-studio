@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * ToolsMarquee — infinite horizontal scroller of the apps & tools the
+ * ToolsMarquee, infinite horizontal scroller of the apps & tools the
  * atelier uses. Each item = logo (monochrome SVG) + name in mono caps,
  * separated by an orange dot. Pauses on hover.
  *
@@ -49,7 +49,7 @@ export function ToolsMarquee({ ariaLabel }: { ariaLabel: string }) {
       aria-label={ariaLabel}
       className="relative w-full overflow-hidden border-t border-b border-[var(--fg)]/15 bg-[var(--bg)]"
     >
-      {/* Edge fades — keep the marquee feeling boundless */}
+      {/* Edge fades, keep the marquee feeling boundless */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[var(--bg)] to-transparent md:w-32"

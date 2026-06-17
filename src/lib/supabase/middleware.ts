@@ -12,7 +12,7 @@ import { NextResponse, type NextRequest } from "next/server";
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
-  // Demo mode : env vars manquantes — on laisse passer sans auth.
+  // Demo mode : env vars manquantes, on laisse passer sans auth.
   // Le dashboard tournera sur les mock data.
   if (
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||

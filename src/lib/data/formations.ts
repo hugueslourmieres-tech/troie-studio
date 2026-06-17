@@ -1,5 +1,5 @@
 /**
- * Programmes de formation TROIE — source de vérité unique.
+ * Programmes de formation TROIE, source de vérité unique.
  *
  * ─────────────────────────────────────────────────────────────────────
  * À éditer ici quand les valeurs réelles sont décidées :

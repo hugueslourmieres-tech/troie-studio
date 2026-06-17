@@ -1,11 +1,11 @@
 /**
- * Agents IA TROIE — source de vérité unique.
+ * Agents IA TROIE, source de vérité unique.
  * ─────────────────────────────────────────────────────────────────────
  * Trois figures de l'Antiquité au service des marques :
  *
- *   01 · HERMÈS   — messager / commerce / éloquence  →  agent commercial
- *   02 · ACHILLE  — héros invincible de l'Iliade     →  agent éditorial
- *   03 · HESTIA   — déesse du foyer et de la flamme  →  agent SAV
+ *   01 · HERMÈS  , messager / commerce / éloquence  →  agent commercial
+ *   02 · ACHILLE , héros invincible de l'Iliade     →  agent éditorial
+ *   03 · HESTIA  , déesse du foyer et de la flamme  →  agent SAV
  *
  * À éditer ici quand les valeurs réelles sont décidées :
  *
@@ -43,7 +43,7 @@ export type Agent = {
   mission: { fr: string; en: string };
   /** Secteurs cible. Sert le filtre + la table comparative. */
   bestFor: Sector[];
-  /** Capacités concrètes (skills) — 6 à 9 puces. */
+  /** Capacités concrètes (skills), 6 à 9 puces. */
   skills: { fr: string[]; en: string[] };
   /** Outils sous-jacents (chips). */
   stack: string[];
@@ -55,9 +55,9 @@ export type Agent = {
   setupFrom: number | null;
   /** Abonnement mensuel HT EUR. null = sur devis. */
   monthlyFrom: number | null;
-  /** Portrait pleine page (N&B) — utilisé sur /agents et home. */
+  /** Portrait pleine page (N&B), utilisé sur /agents et home. */
   photo: { src: string; alt: string };
-  /** Portrait close-up orange/sépia — vignette du tableau comparatif. */
+  /** Portrait close-up orange/sépia, vignette du tableau comparatif. */
   portrait: { src: string; alt: string };
   /** Logos d'outils principaux (icônes existantes /images/logos/*). */
   tools?: Array<{ src: string; label: string }>;
@@ -312,7 +312,7 @@ export const AGENTS: Agent[] = [
 /** Chemin du PDF brief à fournir. null = bouton "Télécharger" masqué. */
 export const PDF_BRIEF: string | null = null;
 
-/** Helpers — alignés sur formatPrice() de formations.ts pour cohérence. */
+/** Helpers, alignés sur formatPrice() de formations.ts pour cohérence. */
 export const formatSetup = (
   setupFrom: number | null,
   locale: "fr" | "en",

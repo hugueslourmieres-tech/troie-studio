@@ -76,9 +76,9 @@ function CaseView({
 
   return (
     <article>
-      {/* Cover — mobile: full image, title below; desktop: full bleed with title overlaid */}
+      {/* Cover, mobile: full image, title below; desktop: full bleed with title overlaid */}
       <header className="group relative isolate">
-        {/* Mobile cover — natural aspect ratio, complète image */}
+        {/* Mobile cover, natural aspect ratio, complète image */}
         <div className="relative w-full overflow-hidden bg-[var(--bg-2)] md:hidden">
           <Image
             src={cover}
@@ -109,7 +109,7 @@ function CaseView({
           </p>
         </div>
 
-        {/* Desktop cover — full bleed 90vh with title overlaid IN FRONT */}
+        {/* Desktop cover, full bleed 90vh with title overlaid IN FRONT */}
         <div className="relative hidden h-[90vh] min-h-[640px] w-full overflow-hidden bg-[var(--bg-2)] md:block">
           <Image
             src={cover}
@@ -122,7 +122,7 @@ function CaseView({
           {/* Strong gradient at the bottom for title readability */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
 
-          {/* Back link — top-left of the cover */}
+          {/* Back link, top-left of the cover */}
           <div className="absolute inset-x-0 top-0 z-10">
             <div className="mx-auto max-w-7xl px-6 pt-32 md:px-12 md:pt-36">
               <Link
@@ -134,7 +134,7 @@ function CaseView({
             </div>
           </div>
 
-          {/* Title block — bottom of the cover, overlaying the photo */}
+          {/* Title block, bottom of the cover, overlaying the photo */}
           <div className="absolute inset-x-0 bottom-0 z-10">
             <div className="mx-auto max-w-7xl px-6 pb-16 md:px-12 md:pb-20">
               <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--accent)]">
@@ -160,17 +160,17 @@ function CaseView({
         </div>
       </section>
 
-      {/* Gallery — éditorial mosaic, varied aspect ratios */}
+      {/* Gallery, éditorial mosaic, varied aspect ratios */}
       {gallery.length > 0 && (
         <section className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-32">
           <Mosaic photos={gallery} alt={t(`items.${slug}.title`)} />
         </section>
       )}
 
-      {/* Next project — keeps visitors deep in the work */}
+      {/* Next project, keeps visitors deep in the work */}
       <NextProject locale={locale} nextSlug={nextSlug} nextCover={nextCover} />
 
-      {/* Closing CTA — Book a call */}
+      {/* Closing CTA, Book a call */}
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center md:px-12 md:py-28">
           <p className="t-eyebrow">
@@ -194,7 +194,7 @@ function CaseView({
 }
 
 /**
- * NextProject — invites the visitor to jump straight to the next case
+ * NextProject, invites the visitor to jump straight to the next case
  * study. Shows the upcoming cover in a wide aspect ratio, label, title
  * and italic subtitle pulled from the translations.
  */
@@ -250,13 +250,13 @@ function NextProject({
 }
 
 /**
- * Mosaic — éditorial masonry : chaque photo s'affiche dans son ratio
+ * Mosaic, éditorial masonry : chaque photo s'affiche dans son ratio
  * natif (paysage, portrait, carré) sans crop. CSS columns garantit le
- * flux magazine — 1 colonne mobile, 2 colonnes desktop.
+ * flux magazine, 1 colonne mobile, 2 colonnes desktop.
  *
  * `break-inside-avoid` empêche une photo d'être coupée entre 2 colonnes.
  * `width/height` sur next/image permettent à Next de connaître le ratio
- * avant de fetch — pas de saut de layout au chargement.
+ * avant de fetch, pas de saut de layout au chargement.
  */
 function Mosaic({ photos, alt }: { photos: string[]; alt: string }) {
   if (photos.length === 0) return null;

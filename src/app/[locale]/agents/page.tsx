@@ -103,7 +103,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
       },
       ...AGENTS.map((a) => ({
         "@type": "Product",
-        name: `${a.name[lang]} — ${a.title[lang]}`,
+        name: `${a.name[lang]}, ${a.title[lang]}`,
         description: a.mission[lang],
         brand: {
           "@type": "Organization",
@@ -119,7 +119,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
           ...(a.setupFrom !== null && { price: String(a.setupFrom) }),
         },
       })),
-      // FAQPage — chance d'apparaître en featured snippet / accordeon SERP
+      // FAQPage, chance d'apparaître en featured snippet / accordeon SERP
       {
         "@type": "FAQPage",
         mainEntity: faqItems.map((q) => ({
@@ -142,7 +142,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero — fond gravure classique + voile cream pour lisibilité.
+      {/* Hero, fond gravure classique + voile cream pour lisibilité.
           L'image est fixée en cover, semi-fanée, le texte ink se lit
           parfaitement par dessus. */}
       <header className="relative isolate overflow-hidden border-t border-[var(--accent)] scroll-mt-24">
@@ -251,12 +251,12 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
         </div>
       </section>
 
-      {/* 3 packs — uniform cream tone, perfectly aligned columns.
+      {/* 3 packs, uniform cream tone, perfectly aligned columns.
           No featured scale, no variant swap : c'est la galerie de trois
           gravures de la même série, vu de face. */}
       <section className="border-t border-[var(--accent)]">
         <div className="mx-auto max-w-7xl px-6 pb-20 md:px-12 md:pb-28">
-          {/* Pas de Reveal wrapper sur la grille — la grille mobile
+          {/* Pas de Reveal wrapper sur la grille, la grille mobile
               est plus haute que le viewport et l'observer pouvait ne
               jamais tirer, laissant les cards a opacity:0. */}
           <div className="mt-10 grid items-stretch gap-6 md:mt-14 md:grid-cols-3 md:gap-8">
@@ -278,7 +278,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
         </div>
       </section>
 
-      {/* Méthode — 4 étapes */}
+      {/* Méthode, 4 étapes */}
       <section className="border-t border-[var(--accent)]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
           <Reveal>
@@ -350,7 +350,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
                     >
                       <td className="py-6 pr-6">
                         <div className="flex items-center gap-5">
-                          {/* Orange close-up portrait — 80x100 frame in the
+                          {/* Orange close-up portrait, 80x100 frame in the
                               brand passé-partout cream, gives the comparison
                               table the look of a museum catalogue. */}
                           <div className="relative h-20 w-16 flex-shrink-0 overflow-hidden bg-[#f5f0e6] md:h-24 md:w-20">
@@ -591,7 +591,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
 }
 
 /**
- * AgentCard — single beige tone for all 3 columns, perfectly aligned.
+ * AgentCard, single beige tone for all 3 columns, perfectly aligned.
  *
  * Alignment trick: every block uses a fixed-baseline structure (portrait at
  * the top with the same aspect, identical paragraph order). The flex column
@@ -614,7 +614,7 @@ function AgentCard({
   const monthlyMain =
     a.monthlyFrom !== null ? formatMonthly(a.monthlyFrom, lang) : null;
 
-  // No card background — the cards sit directly on the section cream tone.
+  // No card background, the cards sit directly on the section cream tone.
   // Visual rhythm comes from internal rules, typography and aligned baselines.
   return (
     <Link
@@ -623,7 +623,7 @@ function AgentCard({
       aria-label={`${a.name[lang]}, ${a.title[lang]}`}
       className="group relative flex h-full scroll-mt-24 flex-col transition-all duration-500 hover:-translate-y-1"
     >
-      {/* Portrait — full 4/5 engraving, edge-to-edge, no frame, no overlay */}
+      {/* Portrait, full 4/5 engraving, edge-to-edge, no frame, no overlay */}
       <div className="relative aspect-[4/5] w-full overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-élément */}
         <img

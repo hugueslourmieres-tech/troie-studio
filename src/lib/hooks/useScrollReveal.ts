@@ -5,11 +5,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /**
- * useScrollReveal — applies a polished scroll-triggered reveal on a
+ * useScrollReveal, applies a polished scroll-triggered reveal on a
  * container's children. Each direct child fades + slides up with a
  * stagger when the container scrolls into view.
  *
- * Free GSAP only — no SplitText, no DrawSVG required.
+ * Free GSAP only, no SplitText, no DrawSVG required.
  */
 type Options = {
   selector?: string; // CSS selector for children to animate, default :scope > *

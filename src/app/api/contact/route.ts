@@ -92,7 +92,7 @@ export async function POST(request: Request) {
   ].filter(Boolean);
 
   const subjectLine = subject
-    ? `[TROIE] ${subject} — ${name}`
+    ? `[TROIE] ${subject}, ${name}`
     : `[TROIE] Nouveau message de ${name}`;
 
   try {

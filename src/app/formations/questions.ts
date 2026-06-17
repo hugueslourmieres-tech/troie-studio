@@ -35,7 +35,7 @@ export const MODULE_0_FREE: QuizQuestion[] = [
     ],
     correctIndex: 2,
     explanation:
-      "Le RLHF est une étape post-training ou des humains notent les réponses du modèle. Le modèle apprend a privilégier les réponses qui leur plaisent. C'est ce qui le rend utile au quotidien — mais c'est aussi la racine de la sycophancy : il apprend a vouloir plaire, parfois au detriment de la verite.",
+      "Le RLHF est une étape post-training ou des humains notent les réponses du modèle. Le modèle apprend a privilégier les réponses qui leur plaisent. C'est ce qui le rend utile au quotidien, mais c'est aussi la racine de la sycophancy : il apprend a vouloir plaire, parfois au detriment de la verite.",
   },
   {
     id: "q3",
@@ -103,7 +103,7 @@ export const MODULE_0_FREE: QuizQuestion[] = [
     ],
     correctIndex: 1,
     explanation:
-      "Par defaut, un LLM essaiera de toujours répondre (effet sycophancy + predicteur de tokens). Lui donner explicitement la 'sortie de secours' — 'réponds : je ne sais pas, si tu n'es pas sur' — réduit massivement les hallucinations. C'est une instruction a intégrer dans tous vos system prompts pro.",
+      "Par defaut, un LLM essaiera de toujours répondre (effet sycophancy + predicteur de tokens). Lui donner explicitement la 'sortie de secours', 'réponds : je ne sais pas, si tu n'es pas sur', réduit massivement les hallucinations. C'est une instruction a intégrer dans tous vos system prompts pro.",
   },
   {
     id: "q8",
@@ -139,7 +139,7 @@ export const MODULE_0_FREE: QuizQuestion[] = [
       "Quel réflexe adopter face à un chiffre ou une citation donnée par un LLM ?",
     options: [
       "Le copier-coller tel quel.",
-      "Le vérifier à la source — le LLM peut hallucinier des chiffres précis qui sonnent juste mais sont faux.",
+      "Le vérifier à la source, le LLM peut hallucinier des chiffres précis qui sonnent juste mais sont faux.",
       "Lui faire confiance s'il sonne bien.",
       "Demander au modèle s'il est sur, et accepter sa réponse.",
     ],
@@ -150,7 +150,7 @@ export const MODULE_0_FREE: QuizQuestion[] = [
 ];
 
 /* ─────────────────────────────────────────────────────────────────────
-   Cours 01 (payant 97 €) — preview locked.
+   Cours 01 (payant 97 €), preview locked.
    ───────────────────────────────────────────────────────────────────── */
 
 /* COURSE_01_PREVIEW = 2 questions teaser, visibles non payées.
@@ -188,7 +188,7 @@ export const COURSE_01_PREVIEW: QuizQuestion[] = [
 ];
 
 /* ─────────────────────────────────────────────────────────────────────
-   COURSE_01_FULL — 30 questions payantes du Cours 01
+   COURSE_01_FULL, 30 questions payantes du Cours 01
    "Maîtriser ChatGPT & Claude" (97 €)
    Couvre les 5 patterns de prompts, les system prompts, les 10 cas
    d'usage solo, les limites + sécurité des données, et la pratique.
@@ -305,7 +305,7 @@ export const COURSE_01_FULL: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      "Interdire seul ne suffit pas — le modèle cherchera quand même a répondre par defaut (effet predicteur). Lui donner explicitement la sortie de secours autorisee ('réponds : je n'ai pas l'info') réduit massivement les hallucinations.",
+      "Interdire seul ne suffit pas, le modèle cherchera quand même a répondre par defaut (effet predicteur). Lui donner explicitement la sortie de secours autorisee ('réponds : je n'ai pas l'info') réduit massivement les hallucinations.",
   },
   {
     id: "c01-m2-q4",
@@ -366,9 +366,9 @@ export const COURSE_01_FULL: QuizQuestion[] = [
     prompt:
       "Quel reglage de température pour un assistant qui doit produire du contenu marketing varie ?",
     options: [
-      "0.7 a 0.9 — equilibre creativite et cohérence.",
-      "0 — toujours, partout.",
-      "2 — au maximum.",
+      "0.7 a 0.9, equilibre creativite et cohérence.",
+      "0, toujours, partout.",
+      "2, au maximum.",
       "Aucune importance.",
     ],
     correctIndex: 0,
@@ -648,7 +648,7 @@ export const COURSE_02_PREVIEW: QuizQuestion[] = [
 ];
 
 /* ─────────────────────────────────────────────────────────────────────
-   COURSE_02_FULL — 70 questions payantes du Cours 02
+   COURSE_02_FULL, 70 questions payantes du Cours 02
    "Workflows IA pour solo & équipe" (297 €)
    Couvre Make/n8n, agents persistants, MCPs essentiels, pipelines
    business, monitoring & sécurité, pratique.
@@ -999,7 +999,7 @@ export const COURSE_02_FULL: QuizQuestion[] = [
     id: "c02-m7-q4",
     prompt: "Pour personnaliser massivement sans tomber dans le spam :",
     options: [
-      "Personnaliser le sujet, le premier paragraphe et l'exemple — pas juste 'Bonjour {{prenom}}'.",
+      "Personnaliser le sujet, le premier paragraphe et l'exemple, pas juste 'Bonjour {{prenom}}'.",
       "Ne rien personnaliser.",
       "Mettre 30 placeholders.",
       "Copier-coller le même mail.",
@@ -1143,7 +1143,7 @@ export const COURSE_02_FULL: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      "Le volume x 10 sans qualité = reputation domaine cassee en 30 jours + bouche-a-oreille négatif. Investissez dans la base, le contenu, le timing — pas dans le 'envoyer plus'.",
+      "Le volume x 10 sans qualité = reputation domaine cassee en 30 jours + bouche-a-oreille négatif. Investissez dans la base, le contenu, le timing, pas dans le 'envoyer plus'.",
   },
   {
     id: "c02-m7-q15",
@@ -1197,7 +1197,7 @@ export const COURSE_02_FULL: QuizQuestion[] = [
     ],
     correctIndex: 0,
     explanation:
-      "MCP Notion = accès complet à vos workspaces (selon scope du token). Claude peut maintenir un changelog, écrire des notes de réunion, mettre à jour vos databases de leads — tout dans Notion.",
+      "MCP Notion = accès complet à vos workspaces (selon scope du token). Claude peut maintenir un changelog, écrire des notes de réunion, mettre à jour vos databases de leads, tout dans Notion.",
   },
   {
     id: "c02-m8-q4",
@@ -1560,7 +1560,7 @@ export const COURSE_02_FULL: QuizQuestion[] = [
     id: "c02-m10-q4",
     prompt: "Pour stocker la clé API d'un agent en prod :",
     options: [
-      "Variables d'environnement chiffrees (Vault, Doppler, AWS Secrets) — JAMAIS dans le code source.",
+      "Variables d'environnement chiffrees (Vault, Doppler, AWS Secrets), JAMAIS dans le code source.",
       "Dans le code.",
       "Dans un mail.",
       "Sur un post-it.",

@@ -1,5 +1,5 @@
 /**
- * Works data — single source of truth for case study covers, galleries
+ * Works data, single source of truth for case study covers, galleries
  * and metadata used by both the /works index and /works/[slug] pages.
  *
  * 12 projets, regroupés en marques clients + séries personnelles :
@@ -35,7 +35,7 @@ const file = (folder: string, name: string) =>
 
 export const WORKS: Work[] = [
   // ─────────────────────────────────────────────────────────────
-  // Cas client corporate & industrie — mis en avant en premier
+  // Cas client corporate & industrie, mis en avant en premier
   {
     slug: "capefront",
     cover: file("Capefront", "cover.jpg"),
@@ -163,7 +163,7 @@ export const WORKS: Work[] = [
     ],
   },
   // ─────────────────────────────────────────────────────────────
-  // Séries personnelles — nature
+  // Séries personnelles, nature
   {
     slug: "valberg",
     cover: file("Valberg", "cover.jpg"),

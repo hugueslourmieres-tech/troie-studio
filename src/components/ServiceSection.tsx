@@ -19,7 +19,7 @@ type Props = {
 };
 
 /**
- * Service section — un pilier (Création / Stratégie / Formation).
+ * Service section, un pilier (Création / Stratégie / Formation).
  * Texte 5 colonnes / photos 7 colonnes, inversable.
  * Le PhotoMosaic supporte automatiquement photo + vidéo : si le `src`
  * se terminé par .mov / .mp4 / .webm, on rend une `<video>` autoplay
@@ -86,7 +86,7 @@ export function ServiceSection({
               </Reveal>
             )}
 
-            {/* Desktop CTA — stays under the bullets / tools, in the text column */}
+            {/* Desktop CTA, stays under the bullets / tools, in the text column */}
             {ctaLabel && ctaHref && (
               <Reveal delay={0.5}>
                 <Link
@@ -111,7 +111,7 @@ export function ServiceSection({
               <PhotoMosaic photos={photos} />
             </Reveal>
 
-            {/* Mobile CTA — sits below the photos on mobile only */}
+            {/* Mobile CTA, sits below the photos on mobile only */}
             {ctaLabel && ctaHref && (
               <Reveal delay={0.2}>
                 <Link
@@ -138,7 +138,7 @@ export function ServiceSection({
 const isVideo = (src: string) => /\.(mov|mp4|webm)$/i.test(src);
 
 /**
- * ToolsRow — rangée discrète de logos sous les bullets.
+ * ToolsRow, rangée discrète de logos sous les bullets.
  * Monochrome noir via filter brightness(0), opacité réduite.
  * Texte caption au-dessus pour contextualiser ("Outils utilisés").
  */
@@ -170,7 +170,7 @@ function ToolsRow({ tools }: { tools: Tool[] }) {
 }
 
 /**
- * Média — slot polymorphe photo ↔ vidéo. Conserve la mécanique t-photo
+ * Média, slot polymorphe photo ↔ vidéo. Conserve la mécanique t-photo
  * (filtre N&B → couleur au survol) pour les deux types.
  */
 function Média({

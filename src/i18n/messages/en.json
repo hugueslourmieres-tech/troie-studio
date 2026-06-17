@@ -25,7 +25,7 @@
     "heroCtaPrimary": "Start a project",
     "heroCtaSecondary": "See our work",
     "heroVideoCta": "See the atelier in motion",
-    "heroVideoMeta": "Atelier — 2026",
+    "heroVideoMeta": "Atelier, 2026",
     "heroToolsAriaLabel": "Tools used by TROIE",
     "introEyebrow": "The studio",
     "introTitle": "One studio. Three crafts.",
@@ -127,9 +127,9 @@
     "items": {
       "chanel": {
         "title": "CHANEL",
-        "subtitle": "Southern boutiques — teams, atmosphere and craft",
+        "subtitle": "Southern boutiques, teams, atmosphere and craft",
         "scope": "Corporate reportage, boutiques, teams, product showcase",
-        "description": "An in-house series for the House, focused on the boutiques of the South. Photographing the teams in their daily life — gestures, glances, the light of the sales floor — serving internal well-being as much as elevating the products themselves. An intimate reportage that reveals the brand's DNA through the people who embody it day after day."
+        "description": "An in-house series for the House, focused on the boutiques of the South. Photographing the teams in their daily life, gestures, glances, the light of the sales floor, serving internal well-being as much as elevating the products themselves. An intimate reportage that reveals the brand's DNA through the people who embody it day after day."
       },
       "monaco": {
         "title": "Monaco",
@@ -339,7 +339,7 @@
     "thanks": "Thanks. We'll get back to you within 24 business hours."
   },
   "agents": {
-    "metaTitle": "AI Agents — TROIE Digital Atelier",
+    "metaTitle": "AI Agents, TROIE Digital Atelier",
     "metaDescription": "Three AI agents for demanding brands. Hermes prospects, Achilles produces, Hestia tends. Turnkey setup, human supervision, clean exit.",
     "heroEyebrow": "AI Agents",
     "heroTitle": "Three figures for your brand.",
@@ -402,7 +402,7 @@
     ],
     "customEyebrow": "Bespoke",
     "customTitle": "An agent that isn't on the list?",
-    "customBody": "Application screening, financial ops, community moderation, market intelligence, multimodal agent on your patents: we design and ship made-to-order, same grammar — brief, workflow, supervision, clean exit.",
+    "customBody": "Application screening, financial ops, community moderation, market intelligence, multimodal agent on your patents: we design and ship made-to-order, same grammar, brief, workflow, supervision, clean exit.",
     "customCta": "Describe your need",
     "auditBandEyebrow": "Before you commit",
     "auditBandTitle": "Thirty minutes to tell you if an agent pays off in your shop.",
@@ -425,7 +425,7 @@
       },
       {
         "q": "Can an agent replace my team?",
-        "a": "No. An agent absorbs the repetitive, measurable load. It frees your team for what needs judgment, relationship, creation. On TROIE's side, it stays boutique — always."
+        "a": "No. An agent absorbs the repetitive, measurable load. It frees your team for what needs judgment, relationship, creation. On TROIE's side, it stays boutique, always."
       },
       {
         "q": "What if the agent says something off-brand to a customer?",

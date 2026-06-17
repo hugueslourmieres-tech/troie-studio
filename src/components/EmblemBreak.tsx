@@ -1,7 +1,7 @@
 import { Emblem } from "./Emblem";
 
 /**
- * EmblemBreak — séparateur graphique entre deux sections.
+ * EmblemBreak, séparateur graphique entre deux sections.
  * Le guerrier centré au milieu de deux fines lignes (façon Hermès)
  * comme ponctuation visuelle qui ré-affirme la signature de la marque.
  *

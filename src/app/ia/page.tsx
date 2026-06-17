@@ -8,7 +8,7 @@ const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
 
 /* ─────────────────────────────────────────────────────────────────────
-   Sources vérifiées (juin 2026) — gains de productivite réels marketing
+   Sources vérifiées (juin 2026), gains de productivite réels marketing
    - Etudes marketing solopreneurs 2026 (Mirra, AgentMinds, Enrich Labs) :
      médiane 15 a 27 h/sem récupérées sur la com + ads + reporting
    - Nielsen Norman Group : -60 a -70 % sur le temps de production
@@ -244,7 +244,7 @@ const FAQ = [
   },
   {
     q: "Concretement, je gagne combien de temps ?",
-    a: "Les chiffres officiels 2026 : 8 heures par semaine en moyenne pour les freelances actifs avec l'IA, jusqu'à 10-15 heures pour les marketers en équipe. Sur les emails, 26 minutes par jour récupérées rien que la. Sur la prospection ciblée, 5 a 10 heures par semaine. Le 5x s'applique aux tâches automatisables (drafts, première réponse, posts, prospection) — pas à votre métier de fond.",
+    a: "Les chiffres officiels 2026 : 8 heures par semaine en moyenne pour les freelances actifs avec l'IA, jusqu'à 10-15 heures pour les marketers en équipe. Sur les emails, 26 minutes par jour récupérées rien que la. Sur la prospection ciblée, 5 a 10 heures par semaine. Le 5x s'applique aux tâches automatisables (drafts, première réponse, posts, prospection), pas à votre métier de fond.",
   },
   {
     q: "Combien de temps avant que ça serve vraiment ?",
@@ -260,14 +260,14 @@ const FAQ = [
   },
   {
     q: "Vous êtes pris en charge par les OPCO ?",
-    a: "Pas en direct chez TROIE — nous travaillons avec un organisme certifie Qualiopi pour les sessions intra. Sur devis, nous indiquons le format eligible et le partenaire OF qui prend la prise en charge en main.",
+    a: "Pas en direct chez TROIE, nous travaillons avec un organisme certifie Qualiopi pour les sessions intra. Sur devis, nous indiquons le format eligible et le partenaire OF qui prend la prise en charge en main.",
   },
 ];
 
 export default function IaLandingPage() {
   return (
     <article className="min-h-screen bg-[var(--bg)]">
-      {/* Top bar — wordmark TROIE complet (emblem + lettres) */}
+      {/* Top bar, wordmark TROIE complet (emblem + lettres) */}
       <header className="relative z-20 border-b border-[var(--rule)] bg-[var(--bg)]/85 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-12">
           <div className="flex items-center gap-4">
@@ -288,7 +288,7 @@ export default function IaLandingPage() {
         </div>
       </header>
 
-      {/* Hero — vidéo bg + cream veil. Pas de sceau : pitch direct, équipe boostee. */}
+      {/* Hero, vidéo bg + cream veil. Pas de sceau : pitch direct, équipe boostee. */}
       <section className="relative isolate overflow-hidden border-b border-[var(--rule)]">
         <HeroVideoBg />
         <div
@@ -351,7 +351,7 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* Stat band supprimee — les chiffres vérifiés sont desormais
+      {/* Stat band supprimee, les chiffres vérifiés sont desormais
           dans la GrowthCurve du hero, pour éviter la redondance. */}
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -443,7 +443,7 @@ export default function IaLandingPage() {
             </div>
           </div>
 
-          {/* 3 packs solo — chaque pack un fond différent (Pack 04 below) */}
+          {/* 3 packs solo, chaque pack un fond différent (Pack 04 below) */}
           <div className="mt-20 grid gap-6 md:mt-28 md:grid-cols-3 md:gap-8">
             {SOLO_PACKS.map((p, i) => {
               // Palette : Pack 01 sable doux, Pack 02 brun terre, Pack 03 noir nuit
@@ -541,7 +541,7 @@ export default function IaLandingPage() {
             })}
           </div>
 
-          {/* Pack Complet Solo — featured full-width orange Hermes, after 3 packs */}
+          {/* Pack Complet Solo, featured full-width orange Hermes, after 3 packs */}
           <div className="mt-16 overflow-hidden rounded-sm bg-[var(--accent)] text-[#1a1714] md:mt-20">
             <div className="grid gap-0 md:grid-cols-12">
               <div className="md:col-span-5">
@@ -721,7 +721,7 @@ export default function IaLandingPage() {
             </div>
           </div>
 
-          {/* Pack Complet Pro — featured noir/orange */}
+          {/* Pack Complet Pro, featured noir/orange */}
           <div className="mt-20 overflow-hidden rounded-sm bg-[#1a1714] text-[#f5f0e6] md:mt-28">
             <div className="grid gap-0 md:grid-cols-12">
               <div className="md:col-span-5">
@@ -777,7 +777,7 @@ export default function IaLandingPage() {
             </div>
           </div>
 
-          {/* 3 formations pro — chaque box un fond différent */}
+          {/* 3 formations pro, chaque box un fond différent */}
           <div className="mt-10 grid gap-6 md:mt-12 md:grid-cols-3 md:gap-8">
             {PRO_PACKS.map((p, i) => {
               // Palette pro : Form 01 lin clair, Form 02 taupe, Form 03 orange Hermes
@@ -857,7 +857,7 @@ export default function IaLandingPage() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          ÉQUIPAGE IA — Hermès / Achille / Hestia (orange Hermès)
+          ÉQUIPAGE IA, Hermès / Achille / Hestia (orange Hermès)
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="tone-accent border-t border-[var(--rule)] bg-[var(--bg)] text-[var(--fg)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -875,7 +875,7 @@ export default function IaLandingPage() {
               que vous leviez le petit doigt.
             </p>
 
-            {/* 3 portraits N&B — slider horizontal mobile, grid 3-col desktop */}
+            {/* 3 portraits N&B, slider horizontal mobile, grid 3-col desktop */}
             <div className="mt-12 -mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:mt-16 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 md:pb-0">
               {[
                 {
@@ -935,7 +935,7 @@ export default function IaLandingPage() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          LES 12 TRAVAUX D'HERCULE — TASKS GRID (noir)
+          LES 12 TRAVAUX D'HERCULE, TASKS GRID (noir)
           Reframe éditorial : 12 travaux modernes que votre IA accomplit
           pour vous, comme Hercule pour Eurysthée. Numérotation romaine
           I → XII pour ancrer la référence mythologique.
@@ -943,13 +943,13 @@ export default function IaLandingPage() {
       <section className="tone-dark border-t border-[var(--rule)] bg-[var(--bg)] text-[var(--fg)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <div className="grid gap-12 md:grid-cols-12 md:gap-16">
-            {/* Portrait Hercule — engravure N&B, même registre que Hermès/Achille/Hestia */}
+            {/* Portrait Hercule, engravure N&B, même registre que Hermès/Achille/Hestia */}
             <div className="md:col-span-4">
               <div className="relative aspect-[4/5] overflow-hidden bg-[var(--fg)]/5">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/agents/hercule.jpg"
-                  alt="Hercule — engravure classique, le héros aux douze travaux"
+                  alt="Hercule, engravure classique, le héros aux douze travaux"
                   className="h-full w-full object-cover"
                   style={{ filter: "grayscale(1) contrast(1.05)" }}
                 />
@@ -969,10 +969,10 @@ export default function IaLandingPage() {
               </h2>
               <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
                 Hercule accomplit douze travaux impossibles pour racheter sa
-                dette. Vous, vous avez les vôtres — les tâches qui rongent vos
+                dette. Vous, vous avez les vôtres, les tâches qui rongent vos
                 semaines, qui repoussent l'essentiel. Votre équipage IA les
                 prend en charge. Une heure récupérée ici, deux là, trois par
-                jour. Au bout d'un mois, la moitié de votre temps retrouvée —
+                jour. Au bout d'un mois, la moitié de votre temps retrouvée,
                 concrète, mesurable, par tâche, sources vérifiables.
               </p>
             </div>
@@ -1025,7 +1025,7 @@ export default function IaLandingPage() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          COMMENT CA MARCHE — 4 étapes
+          COMMENT CA MARCHE, 4 étapes
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -1104,7 +1104,7 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* Final CTA — full orange Hermes, pitch direct */}
+      {/* Final CTA, full orange Hermes, pitch direct */}
       <section className="tone-accent relative isolate overflow-hidden bg-[var(--bg)] text-[var(--fg)]">
         <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
           <div className="grid gap-16 md:grid-cols-12 md:gap-20">
@@ -1138,7 +1138,7 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* Footer — wordmark TROIE, lien vers studio créatif, sources */}
+      {/* Footer, wordmark TROIE, lien vers studio créatif, sources */}
       <footer className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16">
           <div className="grid gap-8 md:grid-cols-12">

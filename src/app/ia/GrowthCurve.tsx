@@ -5,7 +5,7 @@ import { motion, useInView } from "motion/react";
 import { AnimatedNumber } from "./AnimatedNumber";
 
 /**
- * GrowthCurve — visual "before vs after" pour le hero.
+ * GrowthCurve, visual "before vs after" pour le hero.
  *
  * Compose quatre couches sur fond TRANSPARENT pour laisser respirer
  * la vidéo du hero :
@@ -92,7 +92,7 @@ export function GrowthCurve() {
             <line x1="20" y1="40" x2="380" y2="40" strokeDasharray="2 4" opacity="0.6" />
           </g>
 
-          {/* Sans IA — flat dashed */}
+          {/* Sans IA, flat dashed */}
           <motion.path
             d="M 20 145 Q 100 142 200 138 T 380 130"
             fill="none"
@@ -105,7 +105,7 @@ export function GrowthCurve() {
             transition={{ duration: 1.4, ease: "easeOut" }}
           />
 
-          {/* Avec IA — exponential orange */}
+          {/* Avec IA, exponential orange */}
           <motion.path
             d="M 20 145 C 80 140 140 110 200 75 S 320 30 380 18"
             fill="none"
@@ -161,7 +161,7 @@ export function GrowthCurve() {
         </svg>
       </div>
 
-      {/* Verified study stats — consolides */}
+      {/* Verified study stats, consolides */}
       <div className="mt-6 border-t border-[var(--fg)]/15 pt-6">
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
           Chiffres vérifiés · etudes 2026

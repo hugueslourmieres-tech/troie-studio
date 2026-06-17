@@ -15,15 +15,15 @@ type Props = {
 };
 
 /**
- * MobileMenu — burger + full-screen overlay.
+ * MobileMenu, burger + full-screen overlay.
  *
  * The overlay is rendered via createPortal directly to document.body so it
  * escapes the Header's z-50 fixed stacking context. Without the portal the
  * overlay was trapped inside Header and the scrolled header (95% opaque +
  * backdrop blur) bled through, making the menu look transparent.
  *
- * z-[60] sits above the header. Background is hard-coded cream — no
- * variable, no opacity — so it cannot ever be tinted by parent tones.
+ * z-[60] sits above the header. Background is hard-coded cream, no
+ * variable, no opacity, so it cannot ever be tinted by parent tones.
  */
 export function MobileMenu({ locale, links }: Props) {
   const [open, setOpen] = useState(false);
@@ -60,7 +60,7 @@ export function MobileMenu({ locale, links }: Props) {
           className="tone-light fixed inset-0 z-[60] md:hidden"
           style={{ backgroundColor: "#f5f0e6" }}
         >
-          {/* Close button — overlays burger, same position, X icon */}
+          {/* Close button, overlays burger, same position, X icon */}
           <button
             type="button"
             aria-label="Fermer le menu"
@@ -100,7 +100,7 @@ export function MobileMenu({ locale, links }: Props) {
               ))}
             </ul>
 
-            {/* Footer of menu — social icons + lang + CTA */}
+            {/* Footer of menu, social icons + lang + CTA */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -180,7 +180,7 @@ export function MobileMenu({ locale, links }: Props) {
 }
 
 /**
- * BurgerButton — 3 thin lines that fold into a cross.
+ * BurgerButton, 3 thin lines that fold into a cross.
  */
 function BurgerButton({
   open,

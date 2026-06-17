@@ -11,7 +11,7 @@ import { Emblem } from "./Emblem";
 import { WORKS } from "@/lib/works";
 
 /**
- * WorksGallery — section "Réalisations" sur la home.
+ * WorksGallery, section "Réalisations" sur la home.
  * Carrousel 3-visibles (desktop), drag/swipe + flèches.
  * Les 3 premiers projets sont mis en avant par défaut ;
  * les 7 suivants sont accessibles en faisant défiler.

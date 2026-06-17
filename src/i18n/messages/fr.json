@@ -25,7 +25,7 @@
     "heroCtaPrimary": "Démarrer un projet",
     "heroCtaSecondary": "Voir nos travaux",
     "heroVideoCta": "Voir l'atelier en mouvement",
-    "heroVideoMeta": "Atelier — 2026",
+    "heroVideoMeta": "Atelier, 2026",
     "heroToolsAriaLabel": "Outils utilisés par TROIE",
     "introEyebrow": "Le studio",
     "introTitle": "Un studio. Trois métiers.",
@@ -127,9 +127,9 @@
     "items": {
       "chanel": {
         "title": "CHANEL",
-        "subtitle": "Boutiques du Sud — équipes, ambiance et savoir-faire",
+        "subtitle": "Boutiques du Sud, équipes, ambiance et savoir-faire",
         "scope": "Reportage corporate, boutiques, équipes, mise en avant produits",
-        "description": "Une série réalisée en interne pour la Maison, autour des boutiques du Sud. Photographier les équipes dans leur quotidien — gestes, regards, lumière des espaces de vente — au service du bien-être interne autant que de la mise en valeur des produits. Un reportage intimiste qui révèle l'ADN de la marque à travers celles et ceux qui l'incarnent au jour le jour."
+        "description": "Une série réalisée en interne pour la Maison, autour des boutiques du Sud. Photographier les équipes dans leur quotidien, gestes, regards, lumière des espaces de vente, au service du bien-être interne autant que de la mise en valeur des produits. Un reportage intimiste qui révèle l'ADN de la marque à travers celles et ceux qui l'incarnent au jour le jour."
       },
       "monaco": {
         "title": "Monaco",
@@ -339,7 +339,7 @@
     "thanks": "Merci. Nous revenons vers vous sous 24 heures ouvrées."
   },
   "agents": {
-    "metaTitle": "Agents IA — TROIE Atelier Digital",
+    "metaTitle": "Agents IA, TROIE Atelier Digital",
     "metaDescription": "Trois agents IA pour les marques exigeantes. Hermès prospecte, Achille produit, Hestia veille. Setup clé en main, supervision humaine, sortie propre.",
     "heroEyebrow": "Agents IA",
     "heroTitle": "Trois figures pour votre marque.",
@@ -402,7 +402,7 @@
     ],
     "customEyebrow": "Sur-mesure",
     "customTitle": "Un agent qui n'est pas dans la liste ?",
-    "customBody": "Tri de candidatures, ops financières, modération de communauté, veille marché, agent multimodal sur vos brevets : on conçoit et déploie à la carte, dans la même grammaire — brief, workflow, supervision, sortie propre.",
+    "customBody": "Tri de candidatures, ops financières, modération de communauté, veille marché, agent multimodal sur vos brevets : on conçoit et déploie à la carte, dans la même grammaire, brief, workflow, supervision, sortie propre.",
     "customCta": "Décrivez votre besoin",
     "auditBandEyebrow": "Avant de signer",
     "auditBandTitle": "Trente minutes pour vous dire si un agent est rentable chez vous.",
@@ -425,7 +425,7 @@
       },
       {
         "q": "Un agent peut-il remplacer mon équipe ?",
-        "a": "Non. Un agent prend la charge répétitive et mesurable. Il libère votre équipe pour ce qui demande du jugement, de la relation et de la création. Côté TROIE, ça reste à taille humaine — toujours."
+        "a": "Non. Un agent prend la charge répétitive et mesurable. Il libère votre équipe pour ce qui demande du jugement, de la relation et de la création. Côté TROIE, ça reste à taille humaine, toujours."
       },
       {
         "q": "Si l'agent dit n'importe quoi à un client ?",

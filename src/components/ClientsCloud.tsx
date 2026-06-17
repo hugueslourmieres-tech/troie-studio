@@ -19,7 +19,7 @@ const CLIENTS = [
 ];
 
 /**
- * ClientsCloud — wordmarks de marques accompagnées dans un marquee
+ * ClientsCloud, wordmarks de marques accompagnées dans un marquee
  * infini horizontal piloté par GSAP. Inspiration luxe / Hermès :
  * un seul "ruban" qui défile lentement sans coupure.
  */
@@ -50,7 +50,7 @@ export function ClientsCloud() {
   return (
     <section className="border-t border-[var(--rule)]">
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-        {/* Wax seal — signature of the brands worked with */}
+        {/* Wax seal, signature of the brands worked with */}
         <div className="mx-auto mb-10 flex w-full max-w-[180px] justify-center md:max-w-[220px]">
           <Image
             src="/images/brand/emboss.png"
@@ -64,7 +64,7 @@ export function ClientsCloud() {
         <p className="t-eyebrow text-center">{t("clientsTitle")}</p>
       </div>
 
-      {/* Marquee — defiles infiniment, full width */}
+      {/* Marquee, defiles infiniment, full width */}
       <div className="relative mt-2 overflow-hidden pb-20 md:pb-28">
         {/* Soft fade on the edges so the loop seam is invisible */}
         <div

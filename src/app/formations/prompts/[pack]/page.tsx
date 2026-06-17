@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   const pack = PACKS.find((p) => p.slug === slug);
   if (!pack) return {};
   return {
-    title: `${pack.badge} · ${pack.title} — TROIE Prompts Vault`,
+    title: `${pack.badge} · ${pack.title}, TROIE Prompts Vault`,
     description: pack.body,
     alternates: {
       canonical: `https://troiestudio.fr/formations/prompts/${pack.slug}`,

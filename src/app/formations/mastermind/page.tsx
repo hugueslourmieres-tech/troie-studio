@@ -8,7 +8,7 @@ const SUBSCRIBE_MONTHLY = "mailto:contact@troiestudio.fr?subject=Mastermind+TROI
 const SUBSCRIBE_ANNUAL = "mailto:contact@troiestudio.fr?subject=Mastermind+TROIE+%E2%80%94+Annuel+490";
 
 export const metadata = {
-  title: "Mastermind TROIE · L'abo qui garde votre stack IA à jour — TROIE",
+  title: "Mastermind TROIE · L'abo qui garde votre stack IA à jour, TROIE",
   description:
     "49 €/mois ou 490 €/an. Cours 01 + Cours 02 inclus. Nouveaux prompts mensuels, office hours live, communaute Discord. Restez top tier.",
   alternates: {

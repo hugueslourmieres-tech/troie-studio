@@ -11,7 +11,7 @@ import { EmblemBreak } from "@/components/EmblemBreak";
 import { VideoSection } from "@/components/VideoSection";
 
 /**
- * Home — uniform cream tone everywhere (papier Hermès), one final
+ * Home, uniform cream tone everywhere (papier Hermès), one final
  * orange accent on the CTA. No dark sections; the rhythm comes from
  * typography, white space and B&W imagery instead of tonal contrast.
  */
@@ -30,12 +30,12 @@ export default async function HomePage({
 
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
-      {/* HERO — full orange Hermès, opening statement */}
+      {/* HERO, full orange Hermès, opening statement */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <Hero locale={locale} />
       </div>
 
-      {/* INTRO — fond orange Hermès, 3 boxes / 3 métiers / 3 guerriers */}
+      {/* INTRO, fond orange Hermès, 3 boxes / 3 métiers / 3 guerriers */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <Intro />
       </div>
@@ -108,7 +108,7 @@ export default async function HomePage({
         ]}
       />
 
-      {/* AGENTS — 04. Teaser orange Hermès, 3 figures de l'Antiquité vers /agents */}
+      {/* AGENTS, 04. Teaser orange Hermès, 3 figures de l'Antiquité vers /agents */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <AgentsTeaser
           locale={locale}
@@ -118,20 +118,20 @@ export default async function HomePage({
 
       <EmblemBreak size="md" />
 
-      {/* WORKS — fond cream, plus de tone-accent */}
+      {/* WORKS, fond cream, plus de tone-accent */}
       <WorksGallery locale={locale} />
 
-      {/* VIDEOS — bibliothèque vidéo corporate, fond cream pour respirer */}
+      {/* VIDEOS, bibliothèque vidéo corporate, fond cream pour respirer */}
       <VideoSection locale={locale} />
 
-      {/* CLIENTS — ORANGE — wordmark grid on the iconic Hermès orange */}
+      {/* CLIENTS, ORANGE, wordmark grid on the iconic Hermès orange */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <ClientsCloud />
       </div>
 
       <AboutBlock />
 
-      {/* CTA — only orange section of the entire site */}
+      {/* CTA, only orange section of the entire site */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <ContactCTA locale={locale} />
       </div>

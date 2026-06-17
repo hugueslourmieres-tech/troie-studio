@@ -67,7 +67,7 @@ const METIERS: Métier[] = [
 ];
 
 /**
- * Intro — section "Un studio. Trois métiers."
+ * Intro, section "Un studio. Trois métiers."
  * Fond orange Hermès, 3 boxes encadrant un guerrier illustrant chaque metier.
  * Chaque box est cliquable et ancre vers la section détaillée plus bas.
  */
@@ -80,7 +80,7 @@ export function Intro() {
         {/* Header centré, intro éditoriale */}
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            {/* Embossed Greek warrior relief — tone-on-tone seal at the top */}
+            {/* Embossed Greek warrior relief, tone-on-tone seal at the top */}
             <div className="mx-auto mb-12 flex w-full max-w-[220px] justify-center md:max-w-[260px]">
               <Image
                 src="/images/brand/emboss.png"
@@ -102,7 +102,7 @@ export function Intro() {
           </div>
         </Reveal>
 
-        {/* 3 boxes — un guerrier par metier */}
+        {/* 3 boxes, un guerrier par metier */}
         <div className="mt-20 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-28 md:grid-cols-3">
           {METIERS.map((m, i) => (
             <MetierBox key={m.slug} metier={m} index={i} />
@@ -137,7 +137,7 @@ function MetierBox({ metier, index }: { metier: Métier; index: number }) {
           {t(`${metier.slug}Eyebrow`)}
         </span>
 
-        {/* Vidéo — autoplay loop muted, N&B */}
+        {/* Vidéo, autoplay loop muted, N&B */}
         <div className="relative mt-8 aspect-square w-full overflow-hidden bg-[var(--bg-2)]">
           <video
             src={metier.video}
@@ -161,7 +161,7 @@ function MetierBox({ metier, index }: { metier: Métier; index: number }) {
             {t(`${metier.slug}Body`)}
           </p>
 
-          {/* Tool logos — monochrome, discrete, evenly sized */}
+          {/* Tool logos, monochrome, discrete, evenly sized */}
           <ToolsRow tools={metier.tools} />
 
           <span className="mt-auto pt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition group-hover:text-[var(--accent)]">
@@ -177,7 +177,7 @@ function MetierBox({ metier, index }: { metier: Métier; index: number }) {
 }
 
 /**
- * ToolsRow — rangée discrète de logos sur fond orange.
+ * ToolsRow, rangée discrète de logos sur fond orange.
  * - Monochrome via filter brightness(0) (forcé noir pur même si le SVG
  *   est multicolore)
  * - Opacité 50 % par défaut, monte à 80 % au survol de la card

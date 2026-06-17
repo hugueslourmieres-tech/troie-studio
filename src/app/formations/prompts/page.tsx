@@ -11,7 +11,7 @@ const checkoutForPack = (pack: string) =>
   `mailto:contact@troiestudio.fr?subject=TROIE+Prompts+%E2%80%94+Pack+${encodeURIComponent(pack)}+29`;
 
 export const metadata = {
-  title: "System Prompts · La boutique TROIE — 5 packs métier, prêts à coller",
+  title: "System Prompts · La boutique TROIE, 5 packs métier, prêts à coller",
   description:
     "25 system prompts métier prêts à coller dans ChatGPT, Claude, Gemini. 5 packs de 5 prompts. 29 € le pack, 99 € le bundle complet.",
   alternates: {
@@ -33,11 +33,11 @@ const PACKS = [
     sub: "Sales · admin · com'",
     body: "Le strict minimum pour ne plus perdre de temps sur la paperasse + la prospection + la com'. Tout dans votre voix.",
     prompts: [
-      "Devis personnalisé — généré à partir d'un brief client + votre grille",
-      "Prospection LinkedIn — DMs cibles, sans spammer",
-      "Posts LinkedIn — 10 angles dans votre voix sur 1 sujet",
-      "Brief client — cadrage initial complet en 5 min",
-      "Suivi & relance — sequence 3 mails J0/J7/J21",
+      "Devis personnalisé, généré à partir d'un brief client + votre grille",
+      "Prospection LinkedIn, DMs cibles, sans spammer",
+      "Posts LinkedIn, 10 angles dans votre voix sur 1 sujet",
+      "Brief client, cadrage initial complet en 5 min",
+      "Suivi & relance, sequence 3 mails J0/J7/J21",
     ],
     icon: "M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4Z",
     image: null as string | null,
@@ -49,11 +49,11 @@ const PACKS = [
     sub: "Ads · contenu · perf",
     body: "Pour ceux qui font tourner les campagnes, les briefs et le reporting. Reduisez de 70 % le temps de prod créative.",
     prompts: [
-      "Campagne Meta Ads — angle, audience, copy, 3 variantes A/B",
-      "Brief crea — visuel + texte + Midjourney prompts inclus",
-      "Analyse perf hebdo — GA4/Meta Ads en 3 insights actionnables",
-      "Plan éditorial 30 jours — themes pillars + calendrier",
-      "Brief influence — pour micro/macro influenceurs",
+      "Campagne Meta Ads, angle, audience, copy, 3 variantes A/B",
+      "Brief crea, visuel + texte + Midjourney prompts inclus",
+      "Analyse perf hebdo, GA4/Meta Ads en 3 insights actionnables",
+      "Plan éditorial 30 jours, themes pillars + calendrier",
+      "Brief influence, pour micro/macro influenceurs",
     ],
     icon: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h4M8 17h6M8 9h2",
     image: null as string | null,
@@ -65,11 +65,11 @@ const PACKS = [
     sub: "Support · sales · produit",
     body: "Pour les boites qui scalent. Support tier-1 automatique, notes de sales call structurees, briefs produit propres.",
     prompts: [
-      "Support client tier-1 — 5 langues, première réponse propre",
-      "Notes sales call — extraction + update CRM automatique",
-      "Product brief — de feedback brut a specs claires",
-      "Onboarding email serie — 7 mails sur 14 jours",
-      "Churn analysis — extraction des signaux faibles",
+      "Support client tier-1, 5 langues, première réponse propre",
+      "Notes sales call, extraction + update CRM automatique",
+      "Product brief, de feedback brut a specs claires",
+      "Onboarding email serie, 7 mails sur 14 jours",
+      "Churn analysis, extraction des signaux faibles",
     ],
     icon: "M9 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM9 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM12 9h6M12 15h6M9 9v3",
     image: null as string | null,
@@ -79,13 +79,13 @@ const PACKS = [
     badge: "Pack 04",
     title: "Design & Créatif.",
     sub: "Brief · feedback · scope",
-    body: "Pour ceux qui créent. Cadrer le brief, gérer les retours, éviter le scope creep — sans y passer la nuit.",
+    body: "Pour ceux qui créent. Cadrer le brief, gérer les retours, éviter le scope creep, sans y passer la nuit.",
     prompts: [
-      "Brief créatif structure — du dump client à un brief signable",
-      "Moodboard generator — références + direction artistique",
-      "Présentation deck — structure narrative + Midjourney visuels",
-      "Feedback handling — reformulation pro des retours client",
-      "Scope creep tracking — détection auto des hors-cadre",
+      "Brief créatif structure, du dump client à un brief signable",
+      "Moodboard generator, références + direction artistique",
+      "Présentation deck, structure narrative + Midjourney visuels",
+      "Feedback handling, reformulation pro des retours client",
+      "Scope creep tracking, détection auto des hors-cadre",
     ],
     icon: "M12 2l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z",
     image: null as string | null,
@@ -97,11 +97,11 @@ const PACKS = [
     sub: "Code review · architecture · docs",
     body: "Pour les devs solo ou en équipe. Code review pertinents, architecture documentée, PRs propres.",
     prompts: [
-      "Code review TROIE — vrai feedback, pas du 'lgtm'",
-      "Architecture proposal — option A vs B avec tradeoffs",
-      "Bug triage — root cause + priorisation",
-      "PR description — what / why / how to test",
-      "Tech doc writer — README, ADR, API specs",
+      "Code review TROIE, vrai feedback, pas du 'lgtm'",
+      "Architecture proposal, option A vs B avec tradeoffs",
+      "Bug triage, root cause + priorisation",
+      "PR description, what / why / how to test",
+      "Tech doc writer, README, ADR, API specs",
     ],
     icon: "M16 18l6-6-6-6M8 6l-6 6 6 6",
     image: null as string | null,
@@ -141,12 +141,12 @@ const HOW = [
   {
     n: "03",
     title: "Vous personnalisez 3 lignes.",
-    body: "Votre nom, votre marque, votre ton — les emplacements sont marques. 5 min suffisent.",
+    body: "Votre nom, votre marque, votre ton, les emplacements sont marques. 5 min suffisent.",
   },
   {
     n: "04",
     title: "Vous utilisez.",
-    body: "Plus jamais besoin de re-expliquer le contexte. Vous demandez, ça livre — calibre.",
+    body: "Plus jamais besoin de re-expliquer le contexte. Vous demandez, ça livre, calibre.",
   },
 ];
 
@@ -247,7 +247,7 @@ export default function PromptsPage() {
 
       <EmblemBreak size="md" />
 
-      {/* PACKS — 5 packs cards */}
+      {/* PACKS, 5 packs cards */}
       <section id="packs" className="border-t border-[var(--rule)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
@@ -322,7 +322,7 @@ export default function PromptsPage() {
                   key={p.title}
                   className={`flex h-full flex-col overflow-hidden rounded-sm border ${t.border} ${t.card} transition-transform hover:-translate-y-1`}
                 >
-                  {/* Bandeau item — visuel item MMORPG (image-ready) */}
+                  {/* Bandeau item, visuel item MMORPG (image-ready) */}
                   {p.image ? (
                     <div className="relative aspect-square overflow-hidden bg-[#0e0a07]">
                       {/* eslint-disable-next-line @next/next/no-img-élément */}

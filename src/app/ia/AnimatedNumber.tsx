@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "motion/react";
 
 /**
- * AnimatedNumber — counts up from 0 to `value` when the élément enters
+ * AnimatedNumber, counts up from 0 to `value` when the élément enters
  * the viewport. Designed for the IA landing stat band (5x, 60 %, 30 days…).
  *
  * Renders a single number with optional prefix / suffix. Uses

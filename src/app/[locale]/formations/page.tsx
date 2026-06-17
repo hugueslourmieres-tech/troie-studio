@@ -124,7 +124,7 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
           courseWorkload: p.duration[lang],
         },
       })),
-      // FAQPage — chance d'apparaître en featured snippet / accordeon SERP
+      // FAQPage, chance d'apparaître en featured snippet / accordeon SERP
       {
         "@type": "FAQPage",
         mainEntity: faqItems.map((q) => ({
@@ -147,7 +147,7 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Hero — fond gravure classique (Diane chasseresse + Cupidon)
+      {/* Hero, fond gravure classique (Diane chasseresse + Cupidon)
           + voile crème pour lisibilité, mêmes tokens que /agents pour
           cohérence visuelle entre les deux pages d'offre. */}
       <header className="relative isolate overflow-hidden border-t border-[var(--accent)] scroll-mt-24">
@@ -727,7 +727,7 @@ const VARIANT_STYLES: Record<
 };
 
 /**
- * PackCard — pricing-card style cliquable.
+ * PackCard, pricing-card style cliquable.
  * Toute la carte est un Link vers le formulaire de devis pré-rempli ; un
  * CTA bouton fillé en bas renforce l'invitation à passer à l'action.
  * Variant `accent` met en avant le pack le plus demandé (badge).
@@ -830,7 +830,7 @@ function PackCard({
         </p>
       </div>
 
-      {/* Bullets — "au programme" */}
+      {/* Bullets, "au programme" */}
       <div className={`mt-6 space-y-3 border-t pt-6 ${s.rule}`}>
         <p
           className={`font-mono text-[10px] uppercase tracking-[0.22em] ${s.label}`}

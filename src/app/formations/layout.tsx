@@ -5,7 +5,7 @@ import "../globals.css";
 /**
  * Layout pour la section /formations.
  *
- * Sous-section dediee aux formations IA en ligne — separee du
+ * Sous-section dediee aux formations IA en ligne, separee du
  * site principal pour positionner clairement l'offre de cours
  * (potentiellement futur sous-domaine formations.troiestudio.fr).
  *

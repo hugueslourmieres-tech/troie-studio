@@ -1,7 +1,7 @@
 import { Emblem } from "./Emblem";
 
 /**
- * TROIE — wordmark dans la veine des maisons de luxe (Hermès, Cartier, Loewe).
+ * TROIE, wordmark dans la veine des maisons de luxe (Hermès, Cartier, Loewe).
  * Pure typographie, capitales, généreusement lettré. L'emblème (guerrier
  * grec) accompagne le wordmark dans certaines variantes pour en faire la
  * signature visuelle de la marque.
@@ -52,7 +52,7 @@ export function Logo({
     return (
       <span
         className={`inline-flex items-center gap-3 ${className}`}
-        aria-label="TROIE — Atelier Digital"
+        aria-label="TROIE, Atelier Digital"
       >
         <Emblem className="h-[160%] w-auto" />
         <svg

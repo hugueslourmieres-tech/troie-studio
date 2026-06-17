@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 
 /**
- * FormationFitting — composant interactif qui recommande le bon
+ * FormationFitting, composant interactif qui recommande le bon
  * parcours TROIE selon le profil de l'utilisateur en 3 questions.
  *
  * 3 questions binaires / a choix :
@@ -211,7 +211,7 @@ export function FormationFitting() {
             exit={{ opacity: 0 }}
             className="mt-6 space-y-8"
           >
-            {/* Q1 — Profil */}
+            {/* Q1, Profil */}
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-2)]/70">
                 01 · Votre profil
@@ -239,7 +239,7 @@ export function FormationFitting() {
               </div>
             </div>
 
-            {/* Q2 — Niveau */}
+            {/* Q2, Niveau */}
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-2)]/70">
                 02 · Votre niveau IA
@@ -267,7 +267,7 @@ export function FormationFitting() {
               </div>
             </div>
 
-            {/* Q3 — Objectif */}
+            {/* Q3, Objectif */}
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-2)]/70">
                 03 · Votre objectif

@@ -58,7 +58,7 @@ export async function generateMetadata({
       ? "Communication, création & formations IA"
       : "Communication, créative & AI training"
   }`;
-  // SEO description (long form) — différent from the in-page `tagline`
+  // SEO description (long form), différent from the in-page `tagline`
   // which is kept short for visual use in the footer.
   const description = t("metaDescription");
 
@@ -122,7 +122,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const tBrand = await getTranslations({ locale, namespace: "brand" });
 
-  // Global JSON-LD : Organization + Person (Hugues) — rendered on every
+  // Global JSON-LD : Organization + Person (Hugues), rendered on every
   // page so Google attaches the brand entity to the whole site.
   const orgJsonLd = {
     "@context": "https://schema.org",

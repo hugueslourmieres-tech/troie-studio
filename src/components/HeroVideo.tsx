@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * HeroVideo — fullbleed looping cover vidéo, B&W.
+ * HeroVideo, fullbleed looping cover vidéo, B&W.
  *
  * autoplay layered defence:
  *   1. HTML attributes  : autoPlay loop muted playsInline preload="auto"

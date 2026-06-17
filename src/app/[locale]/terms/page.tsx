@@ -46,7 +46,7 @@ function TermsFr() {
     <>
       <Block title="Éditeur du site">
         <p>
-          TROIE — atelier digital
+          TROIE, atelier digital
           <br />
           Exploité par Hugues Lourmieres, entrepreneur individuel établi en
           France.
@@ -107,7 +107,7 @@ function TermsEn() {
     <>
       <Block title="Site publisher">
         <p>
-          TROIE — digital studio
+          TROIE, digital studio
           <br />
           Operated by Hugues Lourmieres, sole proprietor based in France.
           <br />

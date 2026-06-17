@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     }
   }
 
-  // Échec d'auth — retour sign-in avec erreur
+  // Échec d'auth, retour sign-in avec erreur
   return NextResponse.redirect(
     `${origin}/formations/auth/sign-in?error=auth_failed`,
   );

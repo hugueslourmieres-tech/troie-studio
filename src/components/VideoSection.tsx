@@ -3,7 +3,7 @@ import { Reveal } from "./Reveal";
 import { VideoCarousel } from "./VideoCarousel";
 
 /**
- * VideoSection — bibliothèque vidéo corporate.
+ * VideoSection, bibliothèque vidéo corporate.
  * Carrousel 3-visibles (1 sur mobile), 6 films à parcourir.
  * Preview muet en N&B, click pour passer en couleur + son.
  */

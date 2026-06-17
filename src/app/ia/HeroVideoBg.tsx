@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 /**
- * HeroVideoBg — fullbleed looping cover vidéo used as ambient hero
+ * HeroVideoBg, fullbleed looping cover vidéo used as ambient hero
  * background on the IA landing. Filtered to B&W and softened so the
  * éditorial title above stays the reading focus.
  *

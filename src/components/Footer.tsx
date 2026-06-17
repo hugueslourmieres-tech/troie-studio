@@ -142,7 +142,7 @@ export async function Footer({ locale }: { locale: string }) {
   );
 }
 
-/** LinkedIn — square with "in" mark, single-color. */
+/** LinkedIn, square with "in" mark, single-color. */
 function LinkedInIcon() {
   return (
     <svg
@@ -156,7 +156,7 @@ function LinkedInIcon() {
   );
 }
 
-/** Instagram — rounded square + lens. */
+/** Instagram, rounded square + lens. */
 function InstagramIcon() {
   return (
     <svg

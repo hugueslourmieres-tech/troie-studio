@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 /**
- * useMagnetic — attaches a subtle "magnetic" pull to an element so it
+ * useMagnetic, attaches a subtle "magnetic" pull to an element so it
  * tracks the cursor when hovered, then releases back on leave. Used on
  * the hero CTAs to give them that boutique-quality micro-interaction.
  *

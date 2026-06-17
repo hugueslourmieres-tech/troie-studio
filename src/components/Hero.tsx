@@ -11,7 +11,7 @@ import { ToolsMarquee } from "./ToolsMarquee";
 import { useMagnetic } from "@/lib/hooks/useMagnetic";
 
 /**
- * Hero — cream / orange tone, single supporting slideshow on the right.
+ * Hero, cream / orange tone, single supporting slideshow on the right.
  * GSAP signature work: title reveal (word-by-word from below), magnetic
  * CTAs, and a soft scroll-driven parallax that lifts the slideshow up
  * as the visitor leaves the hero.
@@ -107,7 +107,7 @@ export function Hero({ locale }: { locale: string }) {
           </motion.div>
         </div>
 
-        {/* Vidéo column — single éditorial frame in the same `--rule` ink
+        {/* Vidéo column, single éditorial frame in the same `--rule` ink
             hairline as the "Le studio" boxes : border outside, horizontal
             divider between the vidéo and the CTA row, no fill. Parallax
             on scroll still lifts the whole frame. */}
@@ -119,7 +119,7 @@ export function Hero({ locale }: { locale: string }) {
             transition={{ duration: 1.1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="relative flex w-full flex-col border border-[var(--rule)]"
           >
-            {/* Vidéo — fills frame edge-to-edge, no padding */}
+            {/* Vidéo, fills frame edge-to-edge, no padding */}
             <div className="relative h-[58vh] min-h-[420px] w-full overflow-hidden md:h-[560px]">
               <HeroVideo />
             </div>
@@ -146,7 +146,7 @@ export function Hero({ locale }: { locale: string }) {
         </div>
       </div>
 
-      {/* Tools marquee — infinite ribbon of the apps & tools the atelier uses */}
+      {/* Tools marquee, infinite ribbon of the apps & tools the atelier uses */}
       <ToolsMarquee ariaLabel={t("heroToolsAriaLabel")} />
     </section>
   );

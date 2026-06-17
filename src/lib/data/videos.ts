@@ -1,5 +1,5 @@
 /**
- * Corporate video library — mixes local mp4 reels and YouTube testimonials.
+ * Corporate video library, mixes local mp4 reels and YouTube testimonials.
  *
  * - Local clips (kind: "local") autoplay muted B&W as a preview and switch
  *   to colour + sound on click. Files live in /public/images/videos-local.
@@ -27,7 +27,7 @@ export type VideoItem = LocalVideo | YouTubeVideo;
 
 export const VIDEOS: VideoItem[] = [
   // ─────────────────────────────────────────────────────────────
-  // Reels / brand films — hosted locally, B&W muted preview loop
+  // Reels / brand films, hosted locally, B&W muted preview loop
   {
     kind: "local",
     src: "/images/videos-local/01.mp4",
@@ -78,15 +78,15 @@ export const VIDEOS: VideoItem[] = [
   },
 
   // ─────────────────────────────────────────────────────────────
-  // YouTube testimonials — playlist PLr1x4-E5afOkvOVTLw5iidVcos_-MN7NB
+  // YouTube testimonials, playlist PLr1x4-E5afOkvOVTLw5iidVcos_-MN7NB
   // Titles aligned with the actual YouTube titles.
   {
     kind: "youtube",
     youtubeId: "78a006Kulok",
     client: "GS Monaco × Forbes",
     title: {
-      fr: "Témoignage — GS Monaco & Forbes Monaco",
-      en: "Testimonial — GS Monaco & Forbes Monaco",
+      fr: "Témoignage, GS Monaco & Forbes Monaco",
+      en: "Testimonial, GS Monaco & Forbes Monaco",
     },
   },
   {
@@ -94,8 +94,8 @@ export const VIDEOS: VideoItem[] = [
     youtubeId: "yAZbtKzN_j0",
     client: "Wauters B'Pack",
     title: {
-      fr: "Wauters B'Pack — précision colorimétrique en imprimerie",
-      en: "Wauters B'Pack — advancing color précision in printing",
+      fr: "Wauters B'Pack, précision colorimétrique en imprimerie",
+      en: "Wauters B'Pack, advancing color précision in printing",
     },
   },
   {
@@ -112,8 +112,8 @@ export const VIDEOS: VideoItem[] = [
     youtubeId: "FTjkGK2K-wI",
     client: "LEFRANCQ Packaging",
     title: {
-      fr: "LEFRANCQ Packaging — « We can't run the press without it »",
-      en: "LEFRANCQ Packaging — “We can't run the press without it”",
+      fr: "LEFRANCQ Packaging, « We can't run the press without it »",
+      en: "LEFRANCQ Packaging, “We can't run the press without it”",
     },
   },
   {
@@ -121,8 +121,8 @@ export const VIDEOS: VideoItem[] = [
     youtubeId: "XjgKPUguTfw",
     client: "Moderna Printing × Rutherford",
     title: {
-      fr: "Moderna Printing — moins de gâche, mises en route plus rapides",
-      en: "Moderna Printing — reduced waste, smarter startups with Rutherford",
+      fr: "Moderna Printing, moins de gâche, mises en route plus rapides",
+      en: "Moderna Printing, reduced waste, smarter startups with Rutherford",
     },
   },
   {
@@ -130,8 +130,8 @@ export const VIDEOS: VideoItem[] = [
     youtubeId: "vYN1mjCK9VU",
     client: "ColorConsulting Italy",
     title: {
-      fr: "Témoignage — ColorConsulting Italy",
-      en: "Testimonial — ColorConsulting Italy",
+      fr: "Témoignage, ColorConsulting Italy",
+      en: "Testimonial, ColorConsulting Italy",
     },
   },
   {
@@ -139,8 +139,8 @@ export const VIDEOS: VideoItem[] = [
     youtubeId: "w4sA1QzEvOs",
     client: "Printwell USA",
     title: {
-      fr: "Témoignage — Printwell USA",
-      en: "Testimonial — Printwell USA",
+      fr: "Témoignage, Printwell USA",
+      en: "Testimonial, Printwell USA",
     },
   },
   {
@@ -148,8 +148,8 @@ export const VIDEOS: VideoItem[] = [
     youtubeId: "ut247z4ren8",
     client: "Avery Dennison Querétaro",
     title: {
-      fr: "Témoignage — Avery Dennison, Querétaro",
-      en: "Testimonial — Avery Dennison, Querétaro",
+      fr: "Témoignage, Avery Dennison, Querétaro",
+      en: "Testimonial, Avery Dennison, Querétaro",
     },
   },
 ];

@@ -4,12 +4,12 @@ import { Reveal } from "@/components/Reveal";
 import { AGENTS } from "@/lib/data/agents";
 
 /**
- * AgentsTeaser — home block introducing the 3 agents of antiquity.
+ * AgentsTeaser, home block introducing the 3 agents of antiquity.
  *
  * Layout mirrors the /agents hero exactly : eyebrow → big Bodoni title →
  * description paragraph → secondary link. Below that a 3-column grid of
  * cream boxes (each = one agent : portrait, name, title, mission, filled
- * CTA). The whole section sits on orange Hermès — the cream cards pop
+ * CTA). The whole section sits on orange Hermès, the cream cards pop
  * against it like a Hermès gift box on a paper bag.
  *
  * The wrapping <div tone-accent /> in app/[locale]/page.tsx flips
@@ -49,7 +49,7 @@ export function AgentsTeaser({
       className="border-t border-[var(--accent)] scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-        {/* Header — single column, same baseline as /agents hero */}
+        {/* Header, single column, same baseline as /agents hero */}
         <Reveal>
           <p className="t-eyebrow">{t("agentsEyebrow")}</p>
         </Reveal>
@@ -81,9 +81,9 @@ export function AgentsTeaser({
         {/* 3 transparent boxes, séparées par des filets ink 1px (gap-px sur
             fond rule-color), exactly the same grammar as the "Le studio"
             section. The box bg matches the section bg so the boxes "disappear"
-            into the orange — only the hairline dividers and the content
+            into the orange, only the hairline dividers and the content
             structure remain. */}
-        {/* Boxes : pas de Reveal wrapper — on garantit la visibilite
+        {/* Boxes : pas de Reveal wrapper, on garantit la visibilite
             sur tous les viewports (le IntersectionObserver pouvait ne
             jamais tirer sur mobile pour les grilles plus hautes que
             le viewport). */}
@@ -131,7 +131,7 @@ export function AgentsTeaser({
                     {tCardTitle(a.slug)}
                   </p>
 
-                  {/* 4 short bullets — concrete capabilities */}
+                  {/* 4 short bullets, concrete capabilities */}
                   <ul className="mt-6 space-y-2.5">
                     {tCardBullets(a.slug).map((b) => (
                       <li
@@ -147,7 +147,7 @@ export function AgentsTeaser({
                     ))}
                   </ul>
 
-                  {/* Tools logos row — monochrome SVG icons in small tiles */}
+                  {/* Tools logos row, monochrome SVG icons in small tiles */}
                   {a.tools && a.tools.length > 0 && (
                     <div className="mt-8">
                       <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
@@ -174,7 +174,7 @@ export function AgentsTeaser({
                     </div>
                   )}
 
-                  {/* CTA inline mono caps with underline — same as Le studio */}
+                  {/* CTA inline mono caps with underline, same as Le studio */}
                   <span className="mt-auto pt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition">
                     <span className="border-b border-[var(--rule-strong)] pb-0.5">
                       {t("agentsCardCta")} {a.name[lang]}

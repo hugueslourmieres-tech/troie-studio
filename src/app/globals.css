@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ─────────────────────────────────────────────────────────────────
-   TROIE — design tokens
+   TROIE, design tokens
    ─────────────────────────────────────────────────────────────────
    Palette inspirée Hermès : crème dominante, orange puissant comme
    accent unique, ink (presque-noir) pour les sections de drame.
@@ -18,7 +18,7 @@
   --fg: #1a1714;          /* presque-noir */
   --fg-2: #4a4239;        /* gris foncé patiné */
   --fg-mute: rgba(26, 23, 20, 0.55);
-  --accent: #f37b22;      /* Orange Hermès — accent unique */
+  --accent: #f37b22;      /* Orange Hermès, accent unique */
   --accent-2: #d96100;
   --accent-soft: rgba(243, 123, 34, 0.08);
   --rule: rgba(26, 23, 20, 0.12);
@@ -55,7 +55,7 @@
 }
 
 .tone-brown {
-  /* Marron café profond — accord chromatique chaud avec l'orange Hermès,
+  /* Marron café profond, accord chromatique chaud avec l'orange Hermès,
      comme une céramique attique antique. Texte cream pour lisibilité. */
   --bg: #2d2218;          /* coffee/sepia profond */
   --bg-2: #3a2c1f;
@@ -71,7 +71,7 @@
 }
 
 .tone-stone {
-  /* Beige foncé / pierre chaude — entre cream et brown, donne une
+  /* Beige foncé / pierre chaude, entre cream et brown, donne une
      respiration tonale sans aller jusqu'au marron café. Texte ink. */
   --bg: #d8c9ad;          /* sand stone */
   --bg-2: #c8b790;
@@ -87,7 +87,7 @@
 }
 
 .tone-saffron {
-  /* Jaune safran — couleur ocre chaude. Titres en rouge vermillon pour
+  /* Jaune safran, couleur ocre chaude. Titres en rouge vermillon pour
      un duo chromatique chaud safran/vermillon façon céramique grecque. */
   --bg: #f8b124;
   --bg-2: #e09e1c;
@@ -103,7 +103,7 @@
 }
 
 .tone-sepia {
-  /* Sepia / marron mi-clair — étape intermédiaire dans le dégradé
+  /* Sepia / marron mi-clair, étape intermédiaire dans le dégradé
      brown → stone → cream. Texte cream pour lisibilité. */
   --bg: #6b5640;          /* sepia chaud */
   --bg-2: #7a6447;
@@ -150,7 +150,7 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   Typo helpers — display Bodoni
+   Typo helpers, display Bodoni
    ───────────────────────────────────────────────────────────────── */
 
 .t-display {
@@ -172,7 +172,7 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   t-display-hero — typo SIGNATURE du hero. Fraunces variable axes
+   t-display-hero, typo SIGNATURE du hero. Fraunces variable axes
    poussés : SOFT à 100 (terminaisons rondes/organiques),
    WONK à 1 (alternates wonky), opsz à 144 (proportions display).
    Italique léger, lecture éditoriale magazine premium.
@@ -197,7 +197,7 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   t-photo — pur N&B + retour couleur au survol.
+   t-photo, pur N&B + retour couleur au survol.
    Aucun sépia, accord parfait avec l'orange comme seul ton chaud.
    ───────────────────────────────────────────────────────────────── */
 
@@ -229,7 +229,7 @@ body {
 .t-rise-delay-3 { animation-delay: 0.34s; }
 .t-rise-delay-4 { animation-delay: 0.46s; }
 
-/* Marquee infinie — duplique le contenu en JS et anime de 0 à -50%
+/* Marquee infinie, duplique le contenu en JS et anime de 0 à -50%
    pour boucler sans saut. Pause au hover. */
 @keyframes troie-marquee {
   from { transform: translate3d(0, 0, 0); }

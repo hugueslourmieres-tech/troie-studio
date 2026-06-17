@@ -8,10 +8,10 @@ import { LangSwitch } from "./LangSwitch";
 import { MobileMenu } from "./MobileMenu";
 
 /**
- * Header — fixed cream bar, signature Hermès. Reste toujours dans le tone
+ * Header, fixed cream bar, signature Hermès. Reste toujours dans le tone
  * light, simplement glassy + bordure douce qui apparaît au scroll.
  *
- * Nav style : pagination éditoriale (01. — 02. — ...) façon revue,
+ * Nav style : pagination éditoriale (01., 02., ...) façon revue,
  * + lien Instagram externe sur la droite.
  */
 export function Header({ locale }: { locale: string }) {
@@ -50,7 +50,7 @@ export function Header({ locale }: { locale: string }) {
           <Logo variant="wordmark-emblem" className="h-10 md:h-12" />
         </Link>
 
-        {/* Éditorial nav — 01. Création, 02. Strategy, ... */}
+        {/* Éditorial nav, 01. Création, 02. Strategy, ... */}
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l, i) => (
             <Link
@@ -87,7 +87,7 @@ export function Header({ locale }: { locale: string }) {
 }
 
 /**
- * Simple Instagram glyph — single-color, scales with currentColor.
+ * Simple Instagram glyph, single-color, scales with currentColor.
  */
 function InstagramIcon() {
   return (

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://troiestudio.fr"),
   title: "TROIE · IA Pro. Formations & agents IA pour vos équipes.",
   description:
-    "Formations courtes, agents IA clés en main, audit gratuit. L'atelier qui formé et déploie l'IA dans vos équipes — France & international.",
+    "Formations courtes, agents IA clés en main, audit gratuit. L'atelier qui formé et déploie l'IA dans vos équipes, France & international.",
   alternates: {
     canonical: "https://ia.troiestudio.fr",
   },

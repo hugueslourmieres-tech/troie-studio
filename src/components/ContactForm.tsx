@@ -24,40 +24,40 @@ const SUBJECT_PRESETS: Record<string, { fr: string; en: string }> = {
     en: "AI training",
   },
   "formation-intra": {
-    fr: "Demandé de devis — formation intra",
-    en: "Quote request — in-house training",
+    fr: "Demandé de devis, formation intra",
+    en: "Quote request, in-house training",
   },
   "formation-inter": {
     fr: "Inscription session inter",
     en: "Open session registration",
   },
   "formation-découverte": {
-    fr: "Formation Découverte — Fondamentaux IA",
-    en: "Discovery training — AI fundamentals",
+    fr: "Formation Découverte, Fondamentaux IA",
+    en: "Discovery training, AI fundamentals",
   },
   "formation-pratique": {
-    fr: "Formation Pratique — Production & création IA",
-    en: "Practice training — AI production & création",
+    fr: "Formation Pratique, Production & création IA",
+    en: "Practice training, AI production & création",
   },
   "formation-agents": {
     fr: "Formation Agents & automatisation",
-    en: "Training — Agents & automation",
+    en: "Training, Agents & automation",
   },
   "audit-ia": {
     fr: "Audit IA & feuille de route",
     en: "AI audit & roadmap",
   },
   "agent-hermes": {
-    fr: "Agent Hermès — prospection & RDV",
-    en: "Hermes agent — outreach & meetings",
+    fr: "Agent Hermès, prospection & RDV",
+    en: "Hermes agent, outreach & meetings",
   },
   "agent-achille": {
-    fr: "Agent Achille — contenus & social",
-    en: "Achilles agent — content & social",
+    fr: "Agent Achille, contenus & social",
+    en: "Achilles agent, content & social",
   },
   "agent-hestia": {
-    fr: "Agent Hestia — service client 24/7",
-    en: "Hestia agent — 24/7 customer care",
+    fr: "Agent Hestia, service client 24/7",
+    en: "Hestia agent, 24/7 customer care",
   },
   "agent-custom": {
     fr: "Agent sur-mesure",
@@ -88,7 +88,7 @@ export function ContactForm() {
 
   async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    // Capture the form ref BEFORE any await — React recycles the synthetic
+    // Capture the form ref BEFORE any await, React recycles the synthetic
     // event and `event.currentTarget` becomes null after the await, which
     // was making the success path throw and fall into the error branch.
     const form = event.currentTarget;

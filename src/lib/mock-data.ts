@@ -26,7 +26,7 @@ export const MOCK_COURSES: Course[] = [
   {
     id: "course-module-0",
     slug: "module-0",
-    title: "Module 0 — Théorie LLM",
+    title: "Module 0, Théorie LLM",
     subtitle: "Pourquoi un LLM hallucine et veut vous plaire",
     description:
       "Théorie LLM en 15 min + QCM 10 questions. Comprendre pre-training, RLHF, hallucinations, sycophancy.",
@@ -39,7 +39,7 @@ export const MOCK_COURSES: Course[] = [
   {
     id: "course-01",
     slug: "cours-01",
-    title: "Cours 01 — Maîtriser ChatGPT & Claude",
+    title: "Cours 01, Maîtriser ChatGPT & Claude",
     subtitle: "4 modules · 90 min de vidéo · 25 prompts livres",
     description:
       "Les 5 patterns de prompts, les system prompts, 10 cas d'usage solo, sécurité RGPD.",
@@ -52,7 +52,7 @@ export const MOCK_COURSES: Course[] = [
   {
     id: "course-02",
     slug: "cours-02",
-    title: "Cours 02 — Workflows IA",
+    title: "Cours 02, Workflows IA",
     subtitle: "7 modules · 3 h · MCPs · agents persistants",
     description:
       "Make/Zapier, agents persistants, MCPs, 10 workflows business, production & monitoring.",

@@ -49,7 +49,7 @@ export default async function ProfilePage() {
               Nom
             </p>
             <p className="mt-2 text-base text-[var(--fg)] md:text-lg">
-              {profile.full_name || "—"}
+              {profile.full_name || ","}
             </p>
           </div>
           <div>

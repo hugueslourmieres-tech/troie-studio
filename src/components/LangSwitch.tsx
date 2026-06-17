@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { routing } from "@/i18n/routing";
 
 /**
- * LangSwitch — compact dropdown (e.g. "FR ▾") that opens a small menu
+ * LangSwitch, compact dropdown (e.g. "FR ▾") that opens a small menu
  * with the alternate locales. Saves space vs the inline "FR / EN" version.
  *
  * Swaps the leading /fr or /en in the current path without losing the

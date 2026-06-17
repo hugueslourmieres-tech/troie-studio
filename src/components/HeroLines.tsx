@@ -3,10 +3,10 @@
 import { motion } from "motion/react";
 
 /**
- * HeroLines — éditorial layer for the hero.
+ * HeroLines, éditorial layer for the hero.
  *
  * Three subtle ingredients on top of the cream/orange tone:
- *  1. A faint vertical column grid (5 hairlines) — evokes the underlying
+ *  1. A faint vertical column grid (5 hairlines), evokes the underlying
  *     print grid of a magazine layout, makes the section feel "designed".
  *  2. Horizontal hairlines that draw themselves left-to-right or
  *     right-to-left, hold, then fade out. New lines appear continuously
@@ -46,7 +46,7 @@ export function HeroLines() {
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 overflow-hidden"
     >
-      {/* Vertical column grid — static, almost invisible */}
+      {/* Vertical column grid, static, almost invisible */}
       {COLUMNS.map((x, i) => (
         <div
           key={`col-${i}`}
@@ -55,7 +55,7 @@ export function HeroLines() {
         />
       ))}
 
-      {/* Horizontal animated hairlines — drawing themselves */}
+      {/* Horizontal animated hairlines, drawing themselves */}
       {LINES.map((l, i) => (
         <motion.div
           key={`line-${i}`}
@@ -79,7 +79,7 @@ export function HeroLines() {
         />
       ))}
 
-      {/* Éditorial pins — soft pulsing dots */}
+      {/* Éditorial pins, soft pulsing dots */}
       {PINS.map((p, i) => (
         <motion.span
           key={`pin-${i}`}

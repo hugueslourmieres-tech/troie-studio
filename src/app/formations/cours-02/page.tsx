@@ -7,7 +7,7 @@ const CAL_URL = "https://cal.com/hugueslourmieres";
 const CHECKOUT_URL = "mailto:contact@troiestudio.fr?subject=Cours+02+%E2%80%94+TROIE-MULTI";
 
 export const metadata = {
-  title: "Cours 02 · Workflows IA pour solo & équipe — TROIE Formations",
+  title: "Cours 02 · Workflows IA pour solo & équipe, TROIE Formations",
   description:
     "7 modules · 3 h de vidéo · 100 prompts · 10 templates Make · accès à vie. Connectez vos IA à vos outils, construisez des agents persistants. 297 €.",
   alternates: {
@@ -341,7 +341,7 @@ export default function Cours02Page() {
             Ce que vous repartez avec
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Templates, scénarios, agents — tout livre.
+            Templates, scénarios, agents, tout livre.
           </h2>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-2 lg:grid-cols-3">

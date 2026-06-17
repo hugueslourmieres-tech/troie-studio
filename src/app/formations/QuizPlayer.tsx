@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 /**
- * QuizPlayer — moteur de QCM pour les Modules de formation TROIE.
+ * QuizPlayer, moteur de QCM pour les Modules de formation TROIE.
  *
  * Affiche les questions une par une, capture la réponse, montre le
  * feedback (correct / incorrect + explication), puis passé à la

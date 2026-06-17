@@ -1,6 +1,6 @@
 /**
- * Packs — forfaits proposés sur le site.
- * Le tarif d'ancrage "Audit Marketing/IA — 2 500€ HT" provient du devis
+ * Packs, forfaits proposés sur le site.
+ * Le tarif d'ancrage "Audit Marketing/IA, 2 500€ HT" provient du devis
  * réel signé pour LOIR Paris (Réf. DEV-2026-03-30-02). Les autres packs
  * sont calibrés autour pour cohérence commerciale.
  *
@@ -48,7 +48,7 @@ export const PACKS: Pack[] = [
         "Audit of marketing & AI tools",
         "Mapping of friction points",
         "Prioritised action plan",
-        "Final report — written and presented",
+        "Final report, written and presented",
       ],
     },
     price: 2500,

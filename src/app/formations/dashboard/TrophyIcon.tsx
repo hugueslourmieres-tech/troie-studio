@@ -1,5 +1,5 @@
 /**
- * Icones trophees — reutilisent les 4 pixel-art TROIE + variantes.
+ * Icones trophees, reutilisent les 4 pixel-art TROIE + variantes.
  * Rend des SVG simples pour les tier badges.
  */
 export function TrophyIcon({

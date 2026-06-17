@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 /**
- * Emblem — guerrier grec en pose d'attaque (épée levée), inspiré des
+ * Emblem, guerrier grec en pose d'attaque (épée levée), inspiré des
  * céramiques attiques. Source : illustration noir + détails or fournie
  * par le studio. À utiliser comme signe distinctif en pendant du wordmark,
  * ou comme accent décoratif sur les sections clés du site.
