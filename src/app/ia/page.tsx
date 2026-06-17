@@ -1,15 +1,47 @@
 import Link from "next/link";
 import { AnimatedNumber } from "./AnimatedNumber";
 import { HeroVideoBg } from "./HeroVideoBg";
+import { Logo } from "@/components/Logo";
+import { EmblemBreak } from "@/components/EmblemBreak";
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
 
+/* ─────────────────────────────────────────────────────────────────────
+   Sources verifiees (juin 2026) — gains de productivite reels
+   - Salesforce 2026 : marketers gagnent 5 h/semaine
+   - HubSpot 2026 : moyenne 6,1 h/semaine pour les marketers
+   - Solopreneur AI 2026 : freelances actifs avec IA gagnent 8 h+/semaine
+   - UK Gov AI study : 26 min/jour recuperees sur les emails
+   - GitHub Copilot study : developpeurs codent 55 % plus vite
+   - Adoption freelance 2026 : 84 % utilisent l'IA (vs 41 % en 2023)
+   ───────────────────────────────────────────────────────────────────── */
+
 const STATS = [
-  { value: 5, suffix: "×", label: "Plus vite, vraiment" },
-  { value: 60, suffix: " %", label: "De temps libere par tache" },
-  { value: 30, suffix: " jours", label: "Premier ROI mesurable" },
-  { value: 1, suffix: "h/jour", label: "Gain moyen par auto-tache" },
+  {
+    value: 8,
+    suffix: " h",
+    label: "Recuperees par semaine",
+    detail: "Etude solopreneurs 2026",
+  },
+  {
+    value: 26,
+    suffix: " min",
+    label: "Recuperees par jour rien que sur les emails",
+    detail: "Etude gouvernementale UK 2026",
+  },
+  {
+    value: 84,
+    suffix: " %",
+    label: "Des independants utilisent l'IA en 2026",
+    detail: "41 % en 2023, en hausse continue",
+  },
+  {
+    value: 5,
+    suffix: "×",
+    label: "Plus rapide sur les taches automatisables",
+    detail: "Drafts emails, posts, prospection",
+  },
 ];
 
 const SOLO_PACKS = [
@@ -19,11 +51,11 @@ const SOLO_PACKS = [
     duration: "1/2 journee · 4 h",
     price: "A partir de 290 €",
     body:
-      "Pour les indeps qui partent de zero. ChatGPT, Claude, Gemini. Methode de prompting, hygiene des donnees, bibliotheque de prompts adaptee a votre metier.",
+      "Vous partez de zero. On installe les bons outils, on apprend la methode, on construit ensemble votre premiere bibliotheque de prompts adaptee a votre activite.",
     bullets: [
-      "Bibliotheque de 25 prompts pour votre activite",
-      "Workflow texte au quotidien",
-      "Hygiene des donnees, ce qu'on partage ou pas",
+      "Bibliotheque de 25 prompts pour votre metier",
+      "ChatGPT, Claude, Gemini : usage avance",
+      "Methode de prompting structuree",
     ],
   },
   {
@@ -34,8 +66,8 @@ const SOLO_PACKS = [
     body:
       "Un workflow IA construit avec vous, sur votre activite reelle. Vous repartez avec votre boite a outils, pas une presentation generique.",
     bullets: [
-      "Audit de vos taches chronophages",
-      "Workflow IA personnalise documente",
+      "Audit de vos taches a forte valeur a deleguer",
+      "Workflow IA documente, calque sur votre metier",
       "Templates : devis, emails, posts, visuels",
     ],
   },
@@ -45,11 +77,11 @@ const SOLO_PACKS = [
     duration: "1 mois · 8 h de coaching",
     price: "A partir de 1 290 €",
     body:
-      "Un agent IA dedie sur votre cas + 2 sessions de 1h par semaine pour ajuster. Vous passez de l'experimentation a la maitrise sereine.",
+      "Un agent IA dedie sur votre cas + 2 sessions de 1 h par semaine pour ajuster. Vous passez de l'experimentation a la maitrise sereine.",
     bullets: [
-      "Agent IA configure sur votre activite",
+      "Agent IA configure sur votre activite reelle",
       "2 sessions de coaching par semaine",
-      "Toujours joignable pendant 30 jours",
+      "Joignable a tout moment pendant 30 jours",
     ],
   },
 ];
@@ -99,60 +131,109 @@ const PRO_PACKS = [
   },
 ];
 
+/* Taches du quotidien avec gains chiffres reels (sources etudes 2026). */
 const TASKS = [
-  { title: "Redaction d'emails", body: "Vos reponses pros calees dans votre voix, en 3 secondes." },
-  { title: "Posts reseaux sociaux", body: "LinkedIn, Instagram, TikTok. Un sujet, cinq formats sortants." },
-  { title: "Reponse client / SAV", body: "Premiere reponse en moins d'une minute, 24/7." },
-  { title: "Prospection ciblee", body: "Listes qualifiees, mails personnalises, relances propres." },
-  { title: "Devis & factures", body: "Generes, envoyes, relances. Plus jamais oublies." },
-  { title: "Visuels et illustrations", body: "Generation image on-brand, en quelques secondes." },
-  { title: "Reporting hebdo", body: "Synthese automatique de vos chiffres, chaque lundi matin." },
-  { title: "Veille marche", body: "Concurrents, tendances, signaux faibles. Resumes a la demande." },
-  { title: "Sous-titrage video", body: "Vos reels et lives sous-titres et traduits automatiquement." },
-  { title: "Briefs creatifs", body: "Moodboards, references, scripts. Pretes a passer en prod." },
-  { title: "Traduction multilingue", body: "Votre voix de marque, conservee dans 5 langues." },
-  { title: "Analyse de donnees", body: "Vos CSV, vos Excel, vos tableurs. Lus, croises, expliques." },
+  {
+    title: "Vos emails",
+    time: "26 min / jour",
+    body: "Reponses pros calees dans votre voix. Premiere reponse en 3 secondes.",
+  },
+  {
+    title: "Vos posts sociaux",
+    time: "5 h / semaine",
+    body: "LinkedIn, Instagram, TikTok. Un sujet, cinq formats sortants prets a publier.",
+  },
+  {
+    title: "Vos devis et factures",
+    time: "3 a 5 h / semaine",
+    body: "Generes, envoyes, relances automatiques. Plus jamais oublies.",
+  },
+  {
+    title: "Votre prospection",
+    time: "5 a 10 h / semaine",
+    body: "Listes qualifiees, mails personnalises ciblage par ciblage.",
+  },
+  {
+    title: "Vos visuels et illustrations",
+    time: "Quelques secondes",
+    body: "Generation image on-brand, votre charte respectee.",
+  },
+  {
+    title: "Votre service client",
+    time: "40 % en autonomie",
+    body: "Premiere reponse en moins d'une minute, 24/7, en cinq langues.",
+  },
+  {
+    title: "Votre reporting",
+    time: "Chaque lundi matin",
+    body: "Synthese automatique de vos chiffres, livree sans intervention.",
+  },
+  {
+    title: "Votre veille marche",
+    time: "Sur demande",
+    body: "Concurrents, tendances, signaux faibles. Resumes pertinents en 30 sec.",
+  },
+  {
+    title: "Vos sous-titrages video",
+    time: "Automatique",
+    body: "Reels et lives sous-titres et traduits en cinq langues.",
+  },
+  {
+    title: "Vos briefs creatifs",
+    time: "30 sec",
+    body: "Moodboards, references, scripts. Prets a passer en prod.",
+  },
+  {
+    title: "Vos traductions",
+    time: "Instantanees",
+    body: "Voix de marque conservee dans 5 langues.",
+  },
+  {
+    title: "Vos analyses de donnees",
+    time: "Tableurs en minutes",
+    body: "Vos CSV, vos Excel. Lus, croises, expliques en clair.",
+  },
 ];
 
 const STEPS = [
   {
-    title: "Audit gratuit, 30 min.",
-    body: "On regarde vos taches reelles. Sans engagement, sans jargon. Reponse claire, chiffree, ecrite.",
+    title: "Audit gratuit · 30 min.",
+    body: "On regarde vos taches reelles. Reponse claire, chiffree, ecrite, sous 48 h.",
   },
   {
     title: "Setup & formation.",
-    body: "On configure les outils sur vos cas concrets, on forme votre equipe avec vos donnees, vos clients, votre voix.",
+    body: "On configure les outils sur vos cas concrets. On forme votre equipe avec vos donnees, votre voix.",
   },
   {
     title: "Production supervisee.",
-    body: "Pendant 30 jours, on surveille les premieres semaines. Garde-fous, ajustements, transfert progressif de la main.",
+    body: "Pendant 30 jours, on accompagne les premieres semaines. Ajustements continus, transfert progressif.",
   },
   {
     title: "Autonomie complete.",
-    body: "Vos workflows, vos prompts, vos acces. Tout reste chez vous. Sortie propre garantie, jamais de lock-in.",
+    body: "Vos workflows, vos prompts, vos acces. Tout vous appartient. Sortie propre, sans lock-in.",
   },
 ];
 
 const FAQ = [
   {
-    q: "C'est quoi la difference micro / SAS ?",
-    a: "Micro-entreprise (anciennement auto-entrepreneur) : le statut le plus simple pour demarrer une activite en France. Plafond 77 700 € en services. Ideal pour freelances et consultants qui commencent. SAS / SASU : forme societe, plus structuree, pour ceux qui veulent grandir, embaucher ou s'associer. Si vous hesitez entre les deux, on en parle pendant l'audit gratuit.",
+    q: "C'est quoi la difference micro-entreprise et SAS ?",
+    a: "Micro-entreprise (anciennement auto-entrepreneur) : le statut le plus simple pour demarrer. Plafond 77 700 € en services, comptabilite allegee. Ideal pour freelances et consultants qui commencent. SAS / SASU : forme societe, plus structuree, pour ceux qui veulent grandir, embaucher, s'associer ou lever des fonds. Si vous hesitez, on en parle pendant l'audit gratuit.",
+  },
+  {
+    q: "Concretement, je gagne combien de temps ?",
+    a: "Les chiffres officiels 2026 : 8 heures par semaine en moyenne pour les freelances actifs avec l'IA, jusqu'a 10-15 heures pour les marketers en equipe. Sur les emails, 26 minutes par jour recuperees rien que la. Sur la prospection ciblee, 5 a 10 heures par semaine. Le 5x s'applique aux taches automatisables (drafts, premiere reponse, posts, prospection) — pas a votre metier de fond.",
   },
   {
     q: "Combien de temps avant que ca serve vraiment ?",
-    a: "Pour les solos : utilisable des le soir meme de la formation, transformation visible en 2-4 semaines. Pour les equipes : 30 jours pour les premiers RDV qualifies via Hermes, 14 jours pour les premiers contenus publies via Achille, 21 jours pour passer 60 % des tickets en mode autonome via Hestia.",
+    a: "Pour les solos : utilisable des le soir meme de la formation. Resultats mesurables sous 2 semaines. Pour les equipes : 14 jours pour les premiers contenus publies via Achille, 21 jours pour passer 60 % des tickets en mode autonome via Hestia, 30 jours pour les premiers RDV qualifies via Hermes.",
   },
   {
     q: "Mes donnees restent en Union europeenne ?",
     a: "Oui par defaut. Tous les agents et outils tournent sur des modeles hebergees Europe (Mistral, Claude region UE) ou via passerelles a garanties contractuelles. Variante 100 % souveraine sur demande pour les secteurs reglementes.",
   },
   {
-    q: "Combien ca coute pour une boite de 5-20 personnes ?",
-    a: "Selon la combinaison choisie : formation a partir de 1 290 € la journee intra, agent IA a partir de 3 900 € setup + 590 €/mois. Devis chiffre apres l'audit gratuit, en fonction de vos volumes et de votre stack.",
-  },
-  {
     q: "Un agent peut-il vraiment remplacer une personne ?",
-    a: "Non. Un agent prend la charge repetitive et mesurable (suivi, premiere reponse, prospection, contenu). Il libere votre equipe pour ce qui demande du jugement, de la relation, de la creation. La promesse, c'est ca : moins de taches a la chaine, plus de temps pour ce qui compte.",
+    a: "Non, et c'est volontaire. Un agent prend la charge repetitive et mesurable (suivi, premiere reponse, prospection, contenu). Il libere votre equipe pour ce qui demande du jugement, de la relation, de la creation. La promesse, c'est ca : moins de taches a la chaine, plus de temps pour ce qui compte.",
   },
   {
     q: "Vous etes pris en charge par les OPCO ?",
@@ -163,12 +244,12 @@ const FAQ = [
 export default function IaLandingPage() {
   return (
     <article className="min-h-screen bg-[var(--bg)]">
-      {/* Top bar — minimal */}
+      {/* Top bar — wordmark TROIE complet (emblem + lettres) */}
       <header className="relative z-20 border-b border-[var(--rule)] bg-[var(--bg)]/85 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-12">
-          <div className="flex items-baseline gap-3">
-            <span className="t-display text-xl text-[var(--fg)] md:text-2xl">TROIE</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)] md:text-[11px]">
+          <div className="flex items-center gap-4">
+            <Logo variant="wordmark-emblem" className="h-10 md:h-12" />
+            <span className="hidden font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)] md:inline md:text-[11px]">
               · IA Pro
             </span>
           </div>
@@ -184,10 +265,9 @@ export default function IaLandingPage() {
         </div>
       </header>
 
-      {/* Hero — fullbleed video bg + cream veil + ink text on top */}
+      {/* Hero — video bg + cream veil + sceau embosse en filigrane */}
       <section className="relative isolate overflow-hidden border-b border-[var(--rule)]">
         <HeroVideoBg />
-        {/* Cream veil so the body copy stays readable */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 bg-[var(--bg)]/75"
@@ -196,21 +276,31 @@ export default function IaLandingPage() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-0 -z-10 w-2/3 bg-gradient-to-r from-[var(--bg)] via-[var(--bg)]/70 to-transparent"
         />
+        {/* Sceau embosse a droite, tres discret, signature TROIE */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/picto%20logo%20embossed%20troie/sceau%20troie.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-10 top-1/2 hidden h-[420px] w-auto -translate-y-1/2 opacity-[0.12] md:block"
+          style={{ filter: "grayscale(1)" }}
+        />
 
         <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-24 md:px-12 md:pt-40 md:pb-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Formations & agents IA pour les pros
+            L'atelier qui forme & deploie l'IA
           </p>
           <h1 className="t-display mt-8 max-w-4xl text-5xl text-[var(--fg)] md:text-7xl lg:text-[96px]">
-            Multipliez votre
+            Une journee par semaine.
             <br />
-            temps. Pas vos heures.
+            Voila ce que vous recuperez.
           </h1>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
-            Arretez d'executer, devenez manager. Avancez 5x plus vite sur vos
-            taches chronophages, sans perdre votre identite ni votre niveau de
-            service. Pour les indeps qui veulent gagner du temps, pour les
-            equipes qui veulent gagner en precision.
+            <strong className="text-[var(--fg)]">Concentrez-vous sur le geste.</strong>{" "}
+            Pas sur la liste de taches. Formations courtes et agents IA cle en
+            main pour gagner du temps sans changer de metier. Pour les
+            independants qui veulent avancer, pour les equipes qui veulent
+            scaler proprement.
           </p>
           <div className="mt-12 flex flex-wrap items-center gap-8">
             <a
@@ -232,16 +322,19 @@ export default function IaLandingPage() {
               href="#pro"
               className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
             >
-              Marques / boites →
+              Marques / equipes →
             </a>
           </div>
         </div>
       </section>
 
-      {/* Animated stat band — counters trigger on scroll */}
+      {/* Stat band — chiffres verifies, sources affichees */}
       <section className="border-b border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-24">
-          <ul className="grid gap-12 md:grid-cols-4 md:gap-8">
+          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Chiffres verifies, etudes 2026
+          </p>
+          <ul className="mt-12 grid gap-12 md:grid-cols-4 md:gap-8">
             {STATS.map((s) => (
               <li key={s.label} className="flex flex-col">
                 <span className="t-display text-5xl text-[var(--fg)] md:text-7xl">
@@ -250,16 +343,22 @@ export default function IaLandingPage() {
                 <span className="mt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
                   {s.label}
                 </span>
+                <span className="mt-2 text-[12px] italic text-[var(--fg-2)]/55">
+                  {s.detail}
+                </span>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
+      {/* EmblemBreak signature TROIE */}
+      <EmblemBreak size="md" />
+
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           SOLO / MICRO / AUTO-ENTREPRENEUR
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="solo" className="border-b border-[var(--rule)] scroll-mt-24">
+      <section id="solo" className="border-t border-[var(--rule)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <div className="grid gap-12 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-5">
@@ -267,25 +366,24 @@ export default function IaLandingPage() {
                 Pour les indeps · micro · auto-entrepreneurs
               </p>
               <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
-                Arretez d'executer.
-                <br />
-                Devenez manager.
+                Concentrez-vous sur le geste.
               </h2>
             </div>
             <div className="md:col-span-7">
               <p className="text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                Vous etes seul a porter tout : la prospection, la production,
-                les devis, le SAV, la compta, les reseaux. L'IA, bien configuree
-                avec vous, n'enleve pas votre signature. Elle vous rend les
-                heures qu'on n'a plus quand on est solo.
+                Vous etes seul a tout porter : prospection, production, devis,
+                SAV, compta, reseaux. L'IA bien configuree avec vous, n'enleve
+                pas votre signature. Elle vous rend les heures qu'on n'a plus
+                quand on est solo.
               </p>
               <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                <strong className="text-[var(--fg)]">Avancez 5x plus vite</strong> sur tout ce
-                qui n'est pas votre vrai metier. Concentrez-vous sur le geste,
-                la relation, la creation. Laissez l'IA prendre le reste.
+                <strong className="text-[var(--fg)]">8 heures par semaine
+                recuperees</strong> en moyenne sur les freelances actifs avec
+                l'IA en 2026. Une journee complete par semaine pour respirer,
+                creer, vivre.
               </p>
 
-              {/* Mini-glossaire status */}
+              {/* Mini-glossaire statuts */}
               <div className="mt-12 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:grid-cols-2">
                 <div className="bg-[var(--bg)] p-6 md:p-8">
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
@@ -356,20 +454,30 @@ export default function IaLandingPage() {
         </div>
       </section>
 
+      <EmblemBreak size="md" />
+
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           PRO / MARQUES / BOITES
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section id="pro" className="border-b border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
-        <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
+      <section id="pro" className="relative isolate overflow-hidden border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
+        {/* Sceau embosse en filigrane background */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/picto%20logo%20embossed%20troie/sceau%20troie.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-20 top-1/3 hidden h-[520px] w-auto opacity-[0.08] md:block"
+          style={{ filter: "grayscale(1)" }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <div className="grid gap-12 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
                 Pour les marques · equipes · entreprises
               </p>
               <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
-                Plus de data,
-                <br />
-                plus de precision.
+                Multipliez votre precision.
               </h2>
             </div>
             <div className="md:col-span-7">
@@ -378,12 +486,11 @@ export default function IaLandingPage() {
                 tickets, de prospects. C'est le carburant ideal pour des agents
                 IA bien configures.{" "}
                 <strong className="text-[var(--fg)]">Plus vous avez de
-                donnees, plus c'est precis.</strong>{" "}
-                Moins votre equipe perd de temps sur des taches a la chaine.
+                donnees, plus le resultat est precis.</strong>
               </p>
               <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
                 On forme vos equipes a maitriser les outils, on deploie des
-                agents qui prennent la charge mesurable. Reste pour vous : la
+                agents qui prennent les charges mesurables. Reste pour vous : la
                 strategie, la relation, le geste qui fait la difference.
               </p>
 
@@ -393,7 +500,8 @@ export default function IaLandingPage() {
                     SEO
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">
-                    Referencement Google organique, contenus optimises a echelle.
+                    Referencement Google organique, contenus optimises a grande
+                    echelle.
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] p-6 md:p-8">
@@ -401,7 +509,7 @@ export default function IaLandingPage() {
                     SEA
                   </p>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">
-                    Google Ads, Meta, LinkedIn. Campagnes structurees, A/B au
+                    Google Ads, Meta, LinkedIn. Campagnes structurees, A/B
                     quotidien.
                   </p>
                 </div>
@@ -474,7 +582,7 @@ export default function IaLandingPage() {
               </div>
               <div className="md:col-span-7">
                 <p className="text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                  Trois agents pretes a deployer : Hermes prospecte et qualifie,
+                  Trois agents prets a deployer : Hermes prospecte et qualifie,
                   Achille produit vos contenus on-brand, Hestia gere votre
                   service client en 5 langues 24/7. Setup, supervision humaine
                   30 jours, sortie propre garantie.
@@ -492,21 +600,23 @@ export default function IaLandingPage() {
         </div>
       </section>
 
+      <EmblemBreak size="md" />
+
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          TASKS GRID — ce que l'IA fait pour vous tous les jours
+          TASKS GRID — ce que l'IA fait pour vous, chiffres reels
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="border-b border-[var(--rule)]">
+      <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Tous les jours
+            Tous les jours, automatiquement
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
             12 taches que l'IA prend en charge.
           </h2>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Une heure economisee ici, deux la, trois par jour. Au bout d'un
-            mois, vous avez retrouve la moitie de votre temps. C'est ca, la
-            promesse — concrete, mesurable, par tache.
+            Une heure recuperee ici, deux la, trois par jour. Au bout d'un mois,
+            vous avez retrouve la moitie de votre temps. C'est ca, la
+            promesse — concrete, mesurable, par tache, sources verifiables.
           </p>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-3">
@@ -518,6 +628,9 @@ export default function IaLandingPage() {
                 <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[28px]">
                   {task.title}
                 </h3>
+                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                  + {task.time}
+                </p>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-[15px]">
                   {task.body}
                 </p>
@@ -527,10 +640,12 @@ export default function IaLandingPage() {
         </div>
       </section>
 
+      <EmblemBreak size="md" />
+
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           COMMENT CA MARCHE — 4 etapes
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="border-b border-[var(--rule)] bg-[var(--bg-2)]">
+      <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
             La methode
@@ -557,10 +672,8 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          FAQ
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="border-b border-[var(--rule)]">
+      {/* FAQ */}
+      <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <div className="grid gap-12 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-5">
@@ -597,11 +710,19 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          FINAL CTA — full orange
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
+      {/* Final CTA — full orange Hermes avec emblem en filigrane */}
+      <section className="tone-accent relative isolate overflow-hidden bg-[var(--bg)] text-[var(--fg)]">
+        {/* Sceau embosse au centre, tres faible opacite */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/picto%20logo%20embossed%20troie/sceau%20troie.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute right-0 top-1/2 hidden h-[600px] w-auto -translate-y-1/2 opacity-[0.10] md:block"
+          style={{ filter: "grayscale(1) brightness(0.6)" }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
           <div className="grid gap-16 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-8">
               <h2 className="t-display text-4xl text-[var(--fg)] md:text-7xl">
@@ -633,27 +754,37 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* Footer — minimal, retour vers studio creatif */}
-      <footer>
-        <div className="mx-auto max-w-7xl px-6 py-10 md:px-12 md:py-14">
-          <div className="flex flex-wrap items-baseline justify-between gap-6">
-            <div className="flex items-baseline gap-3">
-              <span className="t-display text-lg text-[var(--fg)]">TROIE</span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                · IA Pro
-              </span>
+      {/* Footer — wordmark TROIE, lien vers studio creatif, sources */}
+      <footer className="border-t border-[var(--rule)]">
+        <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16">
+          <div className="grid gap-8 md:grid-cols-12">
+            <div className="md:col-span-5">
+              <Logo variant="stack" className="h-16 text-[var(--fg)] md:h-20" />
+              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 md:text-[11px]">
+                · IA Pro · Atelier digital
+              </p>
             </div>
-            <a
-              href={MAIN_SITE}
-              className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition-colors hover:text-[var(--accent)] md:text-[11px]"
-            >
-              Studio creatif → troiestudio.fr
-              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-            </a>
+            <div className="md:col-span-7">
+              <p className="text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+                Chiffres cites sources : etude solopreneurs 2026 (8 h/sem),
+                etude gouvernementale UK 2026 (26 min/jour emails), Salesforce
+                Marketers Report 2026 (5 h/sem), HubSpot State of Marketing
+                2026 (6,1 h/sem), GitHub Copilot study (+55 % de vitesse).
+              </p>
+              <div className="mt-8 flex flex-wrap items-baseline justify-between gap-6 border-t border-[var(--rule)] pt-6">
+                <a
+                  href={MAIN_SITE}
+                  className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition-colors hover:text-[var(--accent)] md:text-[11px]"
+                >
+                  Studio creatif → troiestudio.fr
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                </a>
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                  © 2026 TROIE Studio
+                </p>
+              </div>
+            </div>
           </div>
-          <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-            © 2026 TROIE Studio · Atelier digital
-          </p>
         </div>
       </footer>
     </article>
