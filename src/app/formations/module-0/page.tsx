@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
-import { EmblemBreak } from "@/components/EmblemBreak";
 import { QuizPlayer } from "../QuizPlayer";
 import { MODULE_0_FREE, COURSE_01_PREVIEW, COURSE_02_PREVIEW } from "../questions";
 
@@ -70,8 +69,6 @@ export default function Module0Page() {
         </div>
       </section>
 
-      <EmblemBreak size="md" />
-
       {/* 4 LECONS */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -100,8 +97,6 @@ export default function Module0Page() {
         </div>
       </section>
 
-      <EmblemBreak size="md" />
-
       {/* QCM */}
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-4xl px-6 py-24 md:px-12 md:py-36">
@@ -125,8 +120,6 @@ export default function Module0Page() {
           </div>
         </div>
       </section>
-
-      <EmblemBreak size="md" />
 
       {/* PREVIEW LOCKED — Cours 01 + Cours 02 */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
