@@ -31,11 +31,14 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  // ── Main domain, `/ia*` path : bypass next-intl too ───────────────
-  // The IA landing must work at troiestudio.fr/ia as well — without
-  // this guard, next-intl would 308-redirect to /fr/ia which doesn't
-  // exist as a localized route.
-  if (request.nextUrl.pathname.startsWith("/ia")) {
+  // ── Main domain, `/ia*` and `/formations*` paths : bypass next-intl
+  // Ces sections vivent hors du segment [locale] et doivent etre servies
+  // telles quelles sans redirection vers /fr ou /en (qui n'existent pas
+  // pour ces routes).
+  if (
+    request.nextUrl.pathname.startsWith("/ia") ||
+    request.nextUrl.pathname.startsWith("/formations")
+  ) {
     return NextResponse.next();
   }
 

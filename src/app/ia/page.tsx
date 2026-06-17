@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AnimatedNumber } from "./AnimatedNumber";
 import { HeroVideoBg } from "./HeroVideoBg";
+import { GrowthCurve } from "./GrowthCurve";
 import { Logo } from "@/components/Logo";
 import { EmblemBreak } from "@/components/EmblemBreak";
 
@@ -8,39 +9,43 @@ const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
 
 /* ─────────────────────────────────────────────────────────────────────
-   Sources verifiees (juin 2026) — gains de productivite reels
-   - Salesforce 2026 : marketers gagnent 5 h/semaine
-   - HubSpot 2026 : moyenne 6,1 h/semaine pour les marketers
-   - Solopreneur AI 2026 : freelances actifs avec IA gagnent 8 h+/semaine
-   - UK Gov AI study : 26 min/jour recuperees sur les emails
-   - GitHub Copilot study : developpeurs codent 55 % plus vite
+   Sources verifiees (juin 2026) — gains de productivite reels marketing
+   - Etudes marketing solopreneurs 2026 (Mirra, AgentMinds, Enrich Labs) :
+     mediane 15 a 27 h/sem recuperees sur la com + ads + reporting
+   - Nielsen Norman Group : -60 a -70 % sur le temps de production
+     creatif avec IA (design, copies, landings)
+   - AgencyAnalytics 2026 : reporting GA4 hebdo passe de 5 h a 30 min
+   - Datagrid 2026 : veille concurrentielle automatisee = 30 a 60 h/mois
+   - Unicorn Platform 2026 : landing complete en 5 a 30 min vs 2 jours
    - Adoption freelance 2026 : 84 % utilisent l'IA (vs 41 % en 2023)
    ───────────────────────────────────────────────────────────────────── */
 
 const STATS = [
   {
-    value: 8,
-    suffix: " h",
-    label: "Recuperees par semaine",
-    detail: "Etude solopreneurs 2026",
+    value: 2,
+    prefix: "× ",
+    suffix: "",
+    label: "Impact par collaborateur sur les taches automatisables",
+    detail: "Mediane etudes marketing solopreneurs 2026",
   },
   {
-    value: 26,
-    suffix: " min",
-    label: "Recuperees par jour rien que sur les emails",
-    detail: "Etude gouvernementale UK 2026",
-  },
-  {
-    value: 84,
+    value: 60,
+    prefix: "+",
     suffix: " %",
-    label: "Des independants utilisent l'IA en 2026",
-    detail: "41 % en 2023, en hausse continue",
+    label: "De capacite equipe sans recruter un seul poste",
+    detail: "3 jours par semaine gagnes par membre",
   },
   {
-    value: 5,
-    suffix: "×",
-    label: "Plus rapide sur les taches automatisables",
-    detail: "Drafts emails, posts, prospection",
+    value: 21,
+    suffix: " h",
+    label: "Liberees par semaine, par poste",
+    detail: "Pour la strategie, la creation, la decision",
+  },
+  {
+    value: -70,
+    suffix: " %",
+    label: "Sur le temps de production des creatifs",
+    detail: "Nielsen Norman Group, design assiste IA",
   },
 ];
 
@@ -132,66 +137,79 @@ const PRO_PACKS = [
 ];
 
 /* Taches du quotidien avec gains chiffres reels (sources etudes 2026). */
+/* Tasks avec pictogramme Lucide-style (SVG path tracé propre) */
 const TASKS = [
   {
     title: "Vos emails",
     time: "26 min / jour",
     body: "Reponses pros calees dans votre voix. Premiere reponse en 3 secondes.",
+    icon: "M22 7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2m20 0v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7m20 0-10 7L2 7",
   },
   {
     title: "Vos posts sociaux",
     time: "5 h / semaine",
     body: "LinkedIn, Instagram, TikTok. Un sujet, cinq formats sortants prets a publier.",
+    icon: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13",
   },
   {
     title: "Vos devis et factures",
     time: "3 a 5 h / semaine",
     body: "Generes, envoyes, relances automatiques. Plus jamais oublies.",
+    icon: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8",
   },
   {
     title: "Votre prospection",
     time: "5 a 10 h / semaine",
     body: "Listes qualifiees, mails personnalises ciblage par ciblage.",
+    icon: "M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z",
   },
   {
     title: "Vos visuels et illustrations",
     time: "Quelques secondes",
     body: "Generation image on-brand, votre charte respectee.",
+    icon: "M3 3h18v18H3zM21 15l-5-5L5 21",
   },
   {
     title: "Votre service client",
     time: "40 % en autonomie",
     body: "Premiere reponse en moins d'une minute, 24/7, en cinq langues.",
+    icon: "M3 12a9 9 0 0 1 18 0M3 12v5a2 2 0 0 0 2 2h2v-7H3M21 12v5a2 2 0 0 1-2 2h-2v-7h4",
   },
   {
     title: "Votre reporting",
     time: "Chaque lundi matin",
     body: "Synthese automatique de vos chiffres, livree sans intervention.",
+    icon: "M3 3v18h18M7 16V10M12 16V6M17 16v-4",
   },
   {
     title: "Votre veille marche",
     time: "Sur demande",
     body: "Concurrents, tendances, signaux faibles. Resumes pertinents en 30 sec.",
+    icon: "M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z",
   },
   {
     title: "Vos sous-titrages video",
     time: "Automatique",
     body: "Reels et lives sous-titres et traduits en cinq langues.",
+    icon: "M2 6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zM7 13h4M13 13h4M7 16h2M11 16h6",
   },
   {
     title: "Vos briefs creatifs",
     time: "30 sec",
     body: "Moodboards, references, scripts. Prets a passer en prod.",
+    icon: "M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6v4a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-4c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7zM9 21h6",
   },
   {
     title: "Vos traductions",
     time: "Instantanees",
     body: "Voix de marque conservee dans 5 langues.",
+    icon: "M2 12a10 10 0 1 0 20 0 10 10 0 0 0-20 0zM2 12h20M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10M12 2a15 15 0 0 0-4 10 15 15 0 0 0 4 10",
   },
   {
     title: "Vos analyses de donnees",
     time: "Tableurs en minutes",
     body: "Vos CSV, vos Excel. Lus, croises, expliques en clair.",
+    icon: "M3 3v18h18M7 14l4-4 4 4 5-5",
   },
 ];
 
@@ -199,18 +217,22 @@ const STEPS = [
   {
     title: "Audit gratuit · 30 min.",
     body: "On regarde vos taches reelles. Reponse claire, chiffree, ecrite, sous 48 h.",
+    img: "/images/04%20Strategie%20communication/DSC_5552-4.jpg",
   },
   {
     title: "Setup & formation.",
     body: "On configure les outils sur vos cas concrets. On forme votre equipe avec vos donnees, votre voix.",
+    img: "/images/Photos%20Corpo%20Hugues/Montpellier%20Formation%202026/DSC_7573.jpg",
   },
   {
     title: "Production supervisee.",
     body: "Pendant 30 jours, on accompagne les premieres semaines. Ajustements continus, transfert progressif.",
+    img: "/images/Photos%20Corpo%20Hugues/MIBI%202026/DSC_7665.jpg",
   },
   {
     title: "Autonomie complete.",
     body: "Vos workflows, vos prompts, vos acces. Tout vous appartient. Sortie propre, sans lock-in.",
+    img: "/images/Photos%20Corpo%20Hugues/Printing%20industry%20Barcelona/13Hugues%20Nikon%2035mm.jpg",
   },
 ];
 
@@ -265,7 +287,7 @@ export default function IaLandingPage() {
         </div>
       </header>
 
-      {/* Hero — video bg + cream veil + sceau embosse en filigrane */}
+      {/* Hero — video bg + cream veil. Pas de sceau : pitch direct, equipe boostee. */}
       <section className="relative isolate overflow-hidden border-b border-[var(--rule)]">
         <HeroVideoBg />
         <div
@@ -276,81 +298,60 @@ export default function IaLandingPage() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-0 -z-10 w-2/3 bg-gradient-to-r from-[var(--bg)] via-[var(--bg)]/70 to-transparent"
         />
-        {/* Sceau embosse a droite, tres discret, signature TROIE */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/picto%20logo%20embossed%20troie/sceau%20troie.png"
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-10 top-1/2 hidden h-[420px] w-auto -translate-y-1/2 opacity-[0.12] md:block"
-          style={{ filter: "grayscale(1)" }}
-        />
 
         <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-24 md:px-12 md:pt-40 md:pb-36">
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            L'atelier qui forme & deploie l'IA
-          </p>
-          <h1 className="t-display mt-8 max-w-4xl text-5xl text-[var(--fg)] md:text-7xl lg:text-[96px]">
-            Une journee par semaine.
-            <br />
-            Voila ce que vous recuperez.
-          </h1>
-          <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
-            <strong className="text-[var(--fg)]">Concentrez-vous sur le geste.</strong>{" "}
-            Pas sur la liste de taches. Formations courtes et agents IA cle en
-            main pour gagner du temps sans changer de metier. Pour les
-            independants qui veulent avancer, pour les equipes qui veulent
-            scaler proprement.
-          </p>
-          <div className="mt-12 flex flex-wrap items-center gap-8">
-            <a
-              href={CAL_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-            >
-              Reserver 30 min d'audit gratuit
-              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-            </a>
-            <a
-              href="#solo"
-              className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
-            >
-              Indep / micro →
-            </a>
-            <a
-              href="#pro"
-              className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
-            >
-              Marques / equipes →
-            </a>
+          <div className="grid gap-16 md:grid-cols-12 md:gap-12 lg:gap-20">
+            {/* Col gauche : punchline */}
+            <div className="md:col-span-6">
+              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                Pour solo · equipes · entreprises
+              </p>
+              <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px] xl:text-[92px]">
+                Multipliez vos benefices,{" "}
+                <span className="text-[var(--accent)]">grace a l'IA.</span>
+              </h1>
+              <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
+                <strong className="text-[var(--fg)]">Vos equipes deviennent des super-heros.</strong>{" "}
+                Solo, freelance, equipe ou entreprise : trois jours par semaine
+                recuperes, capacite doublee sans embaucher. Formations courtes
+                et agents IA prets a l'emploi. Sans changer de metier, sans
+                grosse facture.
+              </p>
+              <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
+                <a
+                  href={CAL_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                >
+                  Reserver 30 min d'audit gratuit
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                </a>
+                <a
+                  href="#solo"
+                  className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
+                >
+                  Indep / micro →
+                </a>
+                <a
+                  href="#pro"
+                  className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
+                >
+                  Marques / equipes →
+                </a>
+              </div>
+            </div>
+
+            {/* Col droite : courbe + logos + metriques */}
+            <div className="md:col-span-6 md:pt-8">
+              <GrowthCurve />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Stat band — chiffres verifies, sources affichees */}
-      <section className="border-b border-[var(--rule)] bg-[var(--bg-2)]">
-        <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-24">
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Chiffres verifies, etudes 2026
-          </p>
-          <ul className="mt-12 grid gap-12 md:grid-cols-4 md:gap-8">
-            {STATS.map((s) => (
-              <li key={s.label} className="flex flex-col">
-                <span className="t-display text-5xl text-[var(--fg)] md:text-7xl">
-                  <AnimatedNumber value={s.value} suffix={s.suffix} />
-                </span>
-                <span className="mt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
-                  {s.label}
-                </span>
-                <span className="mt-2 text-[12px] italic text-[var(--fg-2)]/55">
-                  {s.detail}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {/* Stat band supprimee — les chiffres verifies sont desormais
+          dans la GrowthCurve du hero, pour eviter la redondance. */}
 
       {/* EmblemBreak signature TROIE */}
       <EmblemBreak size="md" />
@@ -383,21 +384,58 @@ export default function IaLandingPage() {
                 creer, vivre.
               </p>
 
-              {/* Mini-glossaire statuts */}
+              {/* Mini-glossaire statuts avec pictogrammes Lucide */}
               <div className="mt-12 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:grid-cols-2">
                 <div className="bg-[var(--bg)] p-6 md:p-8">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                    Micro-entreprise
-                  </p>
+                  <div className="flex items-center gap-3">
+                    {/* Pictogramme : personne seule (auto-entrepreneur) */}
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5 text-[var(--accent)]"
+                      aria-hidden="true"
+                    >
+                      <circle cx="12" cy="8" r="4" />
+                      <path d="M4 21v-1a8 8 0 0 1 16 0v1" />
+                    </svg>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                      Micro-entreprise
+                    </p>
+                  </div>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
                     Anciennement auto-entrepreneur. Le statut le plus simple
                     pour demarrer. Plafond 77 700 € en services. Ideal solo.
                   </p>
                 </div>
                 <div className="bg-[var(--bg)] p-6 md:p-8">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                    SAS · SASU
-                  </p>
+                  <div className="flex items-center gap-3">
+                    {/* Pictogramme : building / societe */}
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="h-5 w-5 text-[var(--accent)]"
+                      aria-hidden="true"
+                    >
+                      <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                      <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
+                      <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
+                      <path d="M10 6h4" />
+                      <path d="M10 10h4" />
+                      <path d="M10 14h4" />
+                      <path d="M10 18h4" />
+                    </svg>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                      SAS · SASU
+                    </p>
+                  </div>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
                     Forme societe. Plus structuree, pour ceux qui veulent
                     grandir, embaucher, s'associer ou lever des fonds.
@@ -407,49 +445,160 @@ export default function IaLandingPage() {
             </div>
           </div>
 
-          {/* 3 packs solo */}
-          <div className="mt-20 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-28 md:grid-cols-3">
-            {SOLO_PACKS.map((p) => (
-              <div key={p.title} className="flex h-full flex-col bg-[var(--bg)] p-8 md:p-10">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  {p.badge}
+          {/* Pack Complet Solo — featured full-width orange Hermes */}
+          <div className="mt-20 overflow-hidden rounded-sm bg-[var(--accent)] text-[#1a1714] md:mt-28">
+            <div className="grid gap-0 md:grid-cols-12">
+              <div className="md:col-span-5">
+                <div className="relative h-64 md:h-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/Photos%20Corpo%20Hugues/Montpellier%20Formation%202026/DSC_7616.jpg"
+                    alt=""
+                    className="h-full w-full object-cover"
+                    style={{ filter: "grayscale(1) contrast(1.05)" }}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col p-8 md:col-span-7 md:p-12">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/85">
+                  Pack 04 · Le complet
                 </p>
-                <h3 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">{p.title}</h3>
-                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
-                  {p.duration}
+                <h3 className="t-display mt-4 text-4xl md:text-5xl lg:text-6xl">
+                  Tout en un. Solo, formation & agent.
+                </h3>
+                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/65">
+                  1 mois · 12 h de coaching · agent inclus
                 </p>
-                <p className="mt-6 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                  {p.body}
+                <p className="mt-6 text-base leading-relaxed text-[#1a1714]/85 md:text-lg">
+                  La formule la plus completee : audit, formation, bibliotheque de 100 prompts, un agent IA configure sur votre cas reel, et 12 h de coaching reparties sur 30 jours.
                 </p>
-                <ul className="mt-6 space-y-2.5">
-                  {p.bullets.map((b) => (
-                    <li
-                      key={b}
-                      className="flex items-start gap-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-[15px]"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[var(--accent)]"
-                      />
+                <ul className="mt-6 grid gap-2.5 md:grid-cols-2">
+                  {[
+                    "Audit + plan de deploiement 360°",
+                    "Bibliotheque 100 prompts metier",
+                    "1 agent IA configure + supervise",
+                    "12 h de coaching sur 30 jours",
+                    "Hotline directe pendant 30 jours",
+                    "Workflows Make / Zapier livres",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-3 text-sm leading-relaxed text-[#1a1714]/85 md:text-[15px]">
+                      <span aria-hidden="true" className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[#1a1714]" />
                       <span>{b}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="flex-1" />
-                <div className="mt-10 border-t border-[var(--rule)] pt-6">
-                  <p className="t-display text-2xl text-[var(--fg)] md:text-3xl">{p.price}</p>
+                <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#1a1714]/20 pt-6">
+                  <p className="t-display text-3xl md:text-4xl">A partir de 2 490 €</p>
                   <a
                     href={CAL_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="group mt-6 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                    className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                   >
                     Reserver
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                   </a>
                 </div>
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* 3 packs solo — chaque pack un fond different */}
+          <div className="mt-10 grid gap-6 md:mt-12 md:grid-cols-3 md:gap-8">
+            {SOLO_PACKS.map((p, i) => {
+              // Palette : Pack 01 sable doux, Pack 02 brun terre, Pack 03 noir nuit
+              const themes = [
+                {
+                  card: "bg-[#ede3d0] text-[#1a1714]",
+                  border: "border-[#1a1714]/10",
+                  rule: "border-[#1a1714]/15",
+                  body: "text-[#1a1714]/75",
+                  meta: "text-[#1a1714]/55",
+                  cta: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[var(--accent)]",
+                },
+                {
+                  card: "bg-[#5a4a3a] text-[#f5f0e6]",
+                  border: "border-[#f5f0e6]/10",
+                  rule: "border-[#f5f0e6]/15",
+                  body: "text-[#f5f0e6]/80",
+                  meta: "text-[#f5f0e6]/55",
+                  cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+                },
+                {
+                  card: "bg-[#1a1714] text-[#f5f0e6]",
+                  border: "border-[#f5f0e6]/15",
+                  rule: "border-[#f5f0e6]/15",
+                  body: "text-[#f5f0e6]/80",
+                  meta: "text-[#f5f0e6]/55",
+                  cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+                },
+              ];
+              const t = themes[i % themes.length];
+              // 1 bandeau 16:9 N&B par pack
+              const banners = [
+                "/images/Photos%20Corpo%20Hugues/MIBI%202026/DSC_7665.jpg",
+                "/images/Photos%20Corpo%20Hugues/Montpellier%20Formation%202026/DSC_7603.jpg",
+                "/images/Photos%20Corpo%20Hugues/Montpellier%20Formation%202026/DSC_7604.jpg",
+              ];
+              const banner = banners[i % banners.length];
+              return (
+                <div
+                  key={p.title}
+                  className={`flex h-full flex-col overflow-hidden rounded-sm border ${t.border} ${t.card} transition-transform hover:-translate-y-1`}
+                >
+                  {/* Bandeau 16:9 N&B */}
+                  <div className="relative aspect-video overflow-hidden bg-[var(--fg)]/10">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={banner}
+                      alt=""
+                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                      style={{ filter: "grayscale(1) contrast(1.05)" }}
+                    />
+                  </div>
+
+                  <div className="flex h-full flex-col p-8 md:p-10">
+                    <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                      {p.badge}
+                    </p>
+                    <h3 className="t-display mt-4 text-3xl md:text-4xl">{p.title}</h3>
+                    <p className={`mt-3 font-mono text-[11px] uppercase tracking-[0.22em] ${t.meta}`}>
+                      {p.duration}
+                    </p>
+                    <p className={`mt-6 text-sm leading-relaxed md:text-base ${t.body}`}>
+                      {p.body}
+                    </p>
+                    <ul className="mt-6 space-y-2.5">
+                      {p.bullets.map((b) => (
+                        <li
+                          key={b}
+                          className={`flex items-start gap-3 text-sm leading-relaxed md:text-[15px] ${t.body}`}
+                        >
+                          <span
+                            aria-hidden="true"
+                            className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[var(--accent)]"
+                          />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="flex-1" />
+                    <div className={`mt-10 border-t pt-6 ${t.rule}`}>
+                      <p className="t-display text-2xl md:text-3xl">{p.price}</p>
+                      <a
+                        href={CAL_URL}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`group mt-6 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
+                      >
+                        Reserver
+                        <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -460,16 +609,6 @@ export default function IaLandingPage() {
           PRO / MARQUES / BOITES
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="pro" className="relative isolate overflow-hidden border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
-        {/* Sceau embosse en filigrane background */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/picto%20logo%20embossed%20troie/sceau%20troie.png"
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-20 top-1/3 hidden h-[520px] w-auto opacity-[0.08] md:block"
-          style={{ filter: "grayscale(1)" }}
-        />
-
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <div className="grid gap-12 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-5">
@@ -494,30 +633,90 @@ export default function IaLandingPage() {
                 strategie, la relation, le geste qui fait la difference.
               </p>
 
+              {/* SEO / SEA / GEO avec logos + chiffres animes */}
               <div className="mt-12 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:grid-cols-3">
+                {/* SEO */}
                 <div className="bg-[var(--bg)] p-6 md:p-8">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                    SEO
+                  <div className="flex items-center justify-between">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                      SEO
+                    </p>
+                    <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--fg-2)]/55">
+                      Organique
+                    </span>
+                  </div>
+                  <p className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">
+                    <AnimatedNumber value={180} prefix="+" suffix=" %" duration={1500} />
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
+                    Trafic en 6 mois
+                  </p>
+                  {/* Logos */}
+                  <div className="mt-5 flex items-center gap-4">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/logos/google-analytics.svg" alt="Google Analytics" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/logos/semrush.svg" alt="Semrush" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
+                  </div>
+                  <p className="mt-5 text-sm leading-relaxed text-[var(--fg-2)]">
                     Referencement Google organique, contenus optimises a grande
                     echelle.
                   </p>
                 </div>
+
+                {/* SEA */}
                 <div className="bg-[var(--bg)] p-6 md:p-8">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                    SEA
+                  <div className="flex items-center justify-between">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                      SEA
+                    </p>
+                    <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--fg-2)]/55">
+                      Payant
+                    </span>
+                  </div>
+                  <p className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">
+                    <AnimatedNumber value={3} prefix="× " duration={1500} />
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
+                    ROAS sur 90 jours
+                  </p>
+                  <div className="mt-5 flex items-center gap-4">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/logos/google-ads.svg" alt="Google Ads" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/logos/meta.svg" alt="Meta" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
+                  </div>
+                  <p className="mt-5 text-sm leading-relaxed text-[var(--fg-2)]">
                     Google Ads, Meta, LinkedIn. Campagnes structurees, A/B
                     quotidien.
                   </p>
                 </div>
+
+                {/* GEO */}
                 <div className="bg-[var(--bg)] p-6 md:p-8">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                    GEO
+                  <div className="flex items-center justify-between">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                      GEO
+                    </p>
+                    <span className="font-mono text-[9px] uppercase tracking-[0.18em] text-[var(--fg-2)]/55">
+                      LLM
+                    </span>
+                  </div>
+                  <p className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">
+                    <AnimatedNumber value={42} prefix="+" suffix=" %" duration={1500} />
                   </p>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">
+                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
+                    Visibilite dans les LLM
+                  </p>
+                  <div className="mt-5 flex items-center gap-4">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/logos/chatgpt.svg" alt="ChatGPT" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/logos/claude.svg" alt="Claude" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src="/images/logos/perplexity.svg" alt="Perplexity" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
+                  </div>
+                  <p className="mt-5 text-sm leading-relaxed text-[var(--fg-2)]">
                     Apparaitre dans ChatGPT, Claude, Perplexity. La nouvelle
                     porte d'entree.
                   </p>
@@ -526,76 +725,202 @@ export default function IaLandingPage() {
             </div>
           </div>
 
-          {/* 3 packs entreprises */}
-          <div className="mt-20 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-28 md:grid-cols-3">
-            {PRO_PACKS.map((p) => (
-              <div key={p.title} className="flex h-full flex-col bg-[var(--bg)] p-8 md:p-10">
+          {/* Pack Complet Pro — featured noir/orange */}
+          <div className="mt-20 overflow-hidden rounded-sm bg-[#1a1714] text-[#f5f0e6] md:mt-28">
+            <div className="grid gap-0 md:grid-cols-12">
+              <div className="md:col-span-5">
+                <div className="relative h-64 md:h-full">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/Photos%20Corpo%20Hugues/MIBI%202026/_DSC7503.jpg"
+                    alt=""
+                    className="h-full w-full object-cover"
+                    style={{ filter: "grayscale(1) contrast(1.05)" }}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col p-8 md:col-span-7 md:p-12">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  {p.badge}
+                  Formation 04 · Le complet
                 </p>
-                <h3 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">{p.title}</h3>
-                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
-                  {p.duration}
+                <h3 className="t-display mt-4 text-4xl md:text-5xl lg:text-6xl">
+                  Deploiement IA equipe & agents.
+                </h3>
+                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6]/60">
+                  3 jours · jusqu'a 15 pers. · 3 agents inclus
                 </p>
-                <p className="mt-6 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                  {p.body}
+                <p className="mt-6 text-base leading-relaxed text-[#f5f0e6]/85 md:text-lg">
+                  Le programme complet pour une equipe : formation collective, audit de vos processus, deploiement de 3 agents IA (Hermes, Achille, Hestia ou personnalises), workflows et gouvernance.
                 </p>
-                <ul className="mt-6 space-y-2.5">
-                  {p.bullets.map((b) => (
-                    <li
-                      key={b}
-                      className="flex items-start gap-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-[15px]"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[var(--accent)]"
-                      />
+                <ul className="mt-6 grid gap-2.5 md:grid-cols-2">
+                  {[
+                    "Formation 3 j · 15 personnes max",
+                    "Audit complet de vos processus",
+                    "3 agents IA configures et livres",
+                    "Workflows Make / Zapier / n8n",
+                    "Gouvernance, securite, RGPD",
+                    "Suivi 90 jours post-deploiement",
+                  ].map((b) => (
+                    <li key={b} className="flex items-start gap-3 text-sm leading-relaxed text-[#f5f0e6]/85 md:text-[15px]">
+                      <span aria-hidden="true" className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[var(--accent)]" />
                       <span>{b}</span>
                     </li>
                   ))}
                 </ul>
-                <div className="flex-1" />
-                <div className="mt-10 border-t border-[var(--rule)] pt-6">
-                  <p className="t-display text-2xl text-[var(--fg)] md:text-3xl">{p.price}</p>
+                <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#f5f0e6]/15 pt-6">
+                  <p className="t-display text-3xl md:text-4xl">Sur devis</p>
                   <Link
-                    href={p.cta.href}
-                    className="group mt-6 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                    href={`${MAIN_SITE}/fr/contact`}
+                    className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                   >
-                    {p.cta.label}
+                    Demander un devis
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                   </Link>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
 
-          {/* Agents IA cross-link */}
-          <div className="mt-20 border-t border-[var(--rule)] pt-16 md:mt-28 md:pt-20">
-            <div className="grid gap-12 md:grid-cols-12 md:gap-20">
-              <div className="md:col-span-5">
-                <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                  Et 3 agents IA cle en main
-                </p>
-                <h3 className="t-display mt-6 text-3xl text-[var(--fg)] md:text-5xl">
-                  Hermes. Achille. Hestia.
-                </h3>
-              </div>
-              <div className="md:col-span-7">
-                <p className="text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                  Trois agents prets a deployer : Hermes prospecte et qualifie,
-                  Achille produit vos contenus on-brand, Hestia gere votre
-                  service client en 5 langues 24/7. Setup, supervision humaine
-                  30 jours, sortie propre garantie.
-                </p>
-                <Link
-                  href={`${MAIN_SITE}/fr/agents`}
-                  className="group mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+          {/* 3 formations pro — chaque box un fond different */}
+          <div className="mt-10 grid gap-6 md:mt-12 md:grid-cols-3 md:gap-8">
+            {PRO_PACKS.map((p, i) => {
+              // Palette pro : Form 01 lin clair, Form 02 taupe, Form 03 orange Hermes
+              const themes = [
+                {
+                  card: "bg-[#ebe2cf] text-[#1a1714]",
+                  border: "border-[#1a1714]/10",
+                  rule: "border-[#1a1714]/15",
+                  body: "text-[#1a1714]/75",
+                  meta: "text-[#1a1714]/55",
+                  cta: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[var(--accent)]",
+                },
+                {
+                  card: "bg-[#7a6753] text-[#f5f0e6]",
+                  border: "border-[#f5f0e6]/10",
+                  rule: "border-[#f5f0e6]/15",
+                  body: "text-[#f5f0e6]/85",
+                  meta: "text-[#f5f0e6]/60",
+                  cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+                },
+                {
+                  card: "bg-[var(--accent)] text-[#1a1714]",
+                  border: "border-[#1a1714]/15",
+                  rule: "border-[#1a1714]/20",
+                  body: "text-[#1a1714]/85",
+                  meta: "text-[#1a1714]/60",
+                  cta: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[#f5f0e6] hover:text-[#1a1714]",
+                },
+              ];
+              const t = themes[i % themes.length];
+              return (
+                <div
+                  key={p.title}
+                  className={`flex h-full flex-col rounded-sm border ${t.border} ${t.card} p-8 transition-transform hover:-translate-y-1 md:p-10`}
                 >
-                  Decouvrir les 3 agents
-                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </Link>
-              </div>
+                  <p className={`font-mono text-[11px] uppercase tracking-[0.22em] ${i === 2 ? "text-[#1a1714]" : "text-[var(--accent)]"}`}>
+                    {p.badge}
+                  </p>
+                  <h3 className="t-display mt-4 text-3xl md:text-4xl">{p.title}</h3>
+                  <p className={`mt-3 font-mono text-[11px] uppercase tracking-[0.22em] ${t.meta}`}>
+                    {p.duration}
+                  </p>
+                  <p className={`mt-6 text-sm leading-relaxed md:text-base ${t.body}`}>
+                    {p.body}
+                  </p>
+                  <ul className="mt-6 space-y-2.5">
+                    {p.bullets.map((b) => (
+                      <li
+                        key={b}
+                        className={`flex items-start gap-3 text-sm leading-relaxed md:text-[15px] ${t.body}`}
+                      >
+                        <span
+                          aria-hidden="true"
+                          className={`mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 ${i === 2 ? "bg-[#1a1714]" : "bg-[var(--accent)]"}`}
+                        />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex-1" />
+                  <div className={`mt-10 border-t pt-6 ${t.rule}`}>
+                    <p className="t-display text-2xl md:text-3xl">{p.price}</p>
+                    <Link
+                      href={p.cta.href}
+                      className={`group mt-6 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
+                    >
+                      {p.cta.label}
+                      <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Agents IA cross-link — avec portraits */}
+          <div className="mt-20 border-t border-[var(--rule)] pt-16 md:mt-28 md:pt-20">
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+              Et 3 agents IA cle en main
+            </p>
+            <h3 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+              Hermes. Achille. Hestia.
+            </h3>
+
+            {/* 3 portraits N&B — slider horizontal mobile, grid 3-col desktop */}
+            <div className="mt-12 -mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:mt-16 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 md:pb-0">
+              {[
+                {
+                  name: "Hermes",
+                  role: "Prospection & qualification",
+                  img: "/images/agents/hermes.jpg",
+                  body: "Listes ciblees, premiers messages personnalises, relances. Toujours dans votre voix.",
+                },
+                {
+                  name: "Achille",
+                  role: "Production de contenus",
+                  img: "/images/agents/achille.jpg",
+                  body: "Posts, articles, visuels, scripts. Cale sur votre charte, sortie quotidienne.",
+                },
+                {
+                  name: "Hestia",
+                  role: "Service client 24/7",
+                  img: "/images/agents/hestia.jpg",
+                  body: "Premiere reponse en moins d'une minute, 5 langues, escalade humaine sur ce qui compte.",
+                },
+              ].map((a) => (
+                <div
+                  key={a.name}
+                  className="flex w-[78%] flex-shrink-0 snap-center flex-col md:w-auto"
+                >
+                  <div className="relative aspect-[4/5] overflow-hidden bg-[var(--fg)]/5">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={a.img}
+                      alt={a.name}
+                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                      style={{ filter: "grayscale(1) contrast(1.05)" }}
+                    />
+                  </div>
+                  <h4 className="t-display mt-6 text-3xl text-[var(--fg)] md:text-4xl">
+                    {a.name}
+                  </h4>
+                  <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                    {a.role}
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+                    {a.body}
+                  </p>
+                </div>
+              ))}
             </div>
+
+            <Link
+              href={`${MAIN_SITE}/fr/agents`}
+              className="group mt-12 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            >
+              Decouvrir les 3 agents
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -622,9 +947,24 @@ export default function IaLandingPage() {
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-3">
             {TASKS.map((task, i) => (
               <div key={task.title} className="bg-[var(--bg)] p-6 md:p-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                  {String(i + 1).padStart(2, "0")}
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  {/* Pictogramme Lucide-style */}
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-5 w-5 text-[var(--fg-2)]/70"
+                    aria-hidden="true"
+                  >
+                    <path d={task.icon} />
+                  </svg>
+                </div>
                 <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[28px]">
                   {task.title}
                 </h3>
@@ -654,18 +994,30 @@ export default function IaLandingPage() {
             Quatre etapes, jamais plus.
           </h2>
 
-          <ol className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-x-16 md:gap-y-14 lg:grid-cols-4">
+          <ol className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-x-10 md:gap-y-14 lg:grid-cols-4 lg:gap-x-8">
             {STEPS.map((step, i) => (
-              <li key={step.title} className="border-t border-[var(--rule)] pt-6">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  {String(i + 1).padStart(2, "0")} ·
-                </p>
-                <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[28px]">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                  {step.body}
-                </p>
+              <li key={step.title} className="flex flex-col">
+                {/* Bandeau 16:9 N&B */}
+                <div className="relative aspect-video overflow-hidden bg-[var(--fg)]/5">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={step.img}
+                    alt=""
+                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                    style={{ filter: "grayscale(1) contrast(1.05)" }}
+                  />
+                </div>
+                <div className="mt-6 border-t border-[var(--rule)] pt-6">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                    {String(i + 1).padStart(2, "0")} ·
+                  </p>
+                  <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[28px]">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+                    {step.body}
+                  </p>
+                </div>
               </li>
             ))}
           </ol>
@@ -710,18 +1062,8 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* Final CTA — full orange Hermes avec emblem en filigrane */}
+      {/* Final CTA — full orange Hermes, pitch direct */}
       <section className="tone-accent relative isolate overflow-hidden bg-[var(--bg)] text-[var(--fg)]">
-        {/* Sceau embosse au centre, tres faible opacite */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/picto%20logo%20embossed%20troie/sceau%20troie.png"
-          alt=""
-          aria-hidden="true"
-          className="pointer-events-none absolute right-0 top-1/2 hidden h-[600px] w-auto -translate-y-1/2 opacity-[0.10] md:block"
-          style={{ filter: "grayscale(1) brightness(0.6)" }}
-        />
-
         <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
           <div className="grid gap-16 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-8">
