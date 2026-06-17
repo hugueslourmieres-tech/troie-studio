@@ -1,6 +1,7 @@
 import createMiddleware from "next-intl/middleware";
 import { NextResponse, type NextRequest } from "next/server";
 import { routing } from "./i18n/routing";
+import { updateSession } from "./lib/supabase/middleware";
 
 const intlHandle = createMiddleware(routing);
 
@@ -16,8 +17,14 @@ const intlHandle = createMiddleware(routing);
  *      and pick up the Open Graph tags. WhatsApp specifically refuses
  *      to follow 307.
  */
-export function proxy(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const host = (request.headers.get("host") ?? "").toLowerCase();
+
+  // ── Auth Supabase : refresh session + protect /formations/dashboard
+  // Tourne sur tous les paths /formations* (auth, dashboard, public).
+  if (request.nextUrl.pathname.startsWith("/formations")) {
+    return updateSession(request);
+  }
 
   // ── IA subdomain ──────────────────────────────────────────────────
   // `ia.troiestudio.fr` (and previews like `ia.troiestudio-xxx.vercel.app`
@@ -31,14 +38,9 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
-  // ── Main domain, `/ia*` and `/formations*` paths : bypass next-intl
-  // Ces sections vivent hors du segment [locale] et doivent etre servies
-  // telles quelles sans redirection vers /fr ou /en (qui n'existent pas
-  // pour ces routes).
-  if (
-    request.nextUrl.pathname.startsWith("/ia") ||
-    request.nextUrl.pathname.startsWith("/formations")
-  ) {
+  // ── Main domain, `/ia*` path : bypass next-intl
+  // (le bypass /formations* est deja gere en haut par updateSession)
+  if (request.nextUrl.pathname.startsWith("/ia")) {
     return NextResponse.next();
   }
 

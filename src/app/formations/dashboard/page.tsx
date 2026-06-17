@@ -1,233 +1,196 @@
 import Link from "next/link";
-import { Logo } from "@/components/Logo";
-
-const MAIN_SITE = "https://troiestudio.fr";
+import {
+  MOCK_COURSES,
+  MOCK_TROPHIES,
+  MOCK_UNLOCKED_TROPHIES,
+  MOCK_COURSE_ACCESS,
+  MOCK_MODULE_PROGRESS,
+  MOCK_MODULES,
+} from "@/lib/mock-data";
+import { TrophyIcon } from "./TrophyIcon";
 
 export const metadata = {
-  title: "Espace membre · TROIE Formations",
-  description:
-    "Vos cours, votre progression, vos prompts. Espace membre TROIE.",
+  title: "Vue d'ensemble · Espace membre TROIE",
   robots: { index: false, follow: false },
 };
 
-/* ─────────────────────────────────────────────────────────────────────
-   /formations/dashboard — placeholder espace membre.
-   Sera relie a Supabase + Lemon Squeezy au moment du go-live.
-   Pour l'instant : maquette statique avec etats logged-out + logged-in
-   pour montrer la cible d'experience.
-   ───────────────────────────────────────────────────────────────────── */
+export default async function DashboardOverview() {
+  const accessible = MOCK_COURSES.filter((c) => MOCK_COURSE_ACCESS.has(c.slug));
+  const recentTrophies = MOCK_TROPHIES.filter((t) =>
+    MOCK_UNLOCKED_TROPHIES.has(t.slug),
+  ).slice(0, 3);
+  const lockedTrophies = MOCK_TROPHIES.filter(
+    (t) => !MOCK_UNLOCKED_TROPHIES.has(t.slug),
+  ).slice(0, 3);
 
-const COURSES_LOCKED = [
-  {
-    badge: "Cours 01 · Entry",
-    title: "Maitriser ChatGPT & Claude",
-    href: "/formations/cours-01",
-    progress: 0,
-    bought: false,
-    price: "97 €",
-  },
-  {
-    badge: "Cours 02 · Advanced",
-    title: "Workflows IA solo & equipe",
-    href: "/formations/cours-02",
-    progress: 0,
-    bought: false,
-    price: "297 €",
-  },
-  {
-    badge: "Mastermind",
-    title: "Abo : tous cours + community",
-    href: "/formations/mastermind",
-    progress: 0,
-    bought: false,
-    price: "49 € / mois",
-  },
-];
+  // Continuer where left off : derniere module en started
+  const inProgress = MOCK_MODULE_PROGRESS.find((p) => p.status === "started") ?? null;
+  let continueModule = null;
+  let continueCourse = null;
+  if (inProgress) {
+    for (const courseSlug of Object.keys(MOCK_MODULES)) {
+      const m = MOCK_MODULES[courseSlug].find((m) => m.id === inProgress.module_id);
+      if (m) {
+        continueModule = m;
+        continueCourse = MOCK_COURSES.find((c) => c.slug === courseSlug);
+        break;
+      }
+    }
+  }
 
-export default function DashboardPage() {
   return (
-    <article className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
-      {/* Global FormationsHeader rendered via layout */}
-      {/* HERO LOGIN-LIKE */}
-      <section className="border-b border-[var(--rule)]">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Espace membre · acces a vos cours
-          </p>
-          <h1 className="t-display mt-6 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Bienvenue. Vos parcours vous attendent.
-          </h1>
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Cet espace sera actif des l'activation du systeme de paiement.
-            Pour l'instant, tous les cours sont accessibles en preview :
-            vous voyez le plan, les modules, les livrables. Le contenu
-            video et les ressources telechargeables se debloquent apres
-            achat.
-          </p>
-
-          {/* Login form placeholder */}
-          <div className="mt-12 max-w-md rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 md:p-8">
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-              Connexion
-            </p>
-            <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">
-              Disponible bientot. Pour l'instant, contactez{" "}
-              <a
-                href="mailto:contact@troiestudio.fr"
-                className="font-mono text-[12px] uppercase tracking-[0.22em] text-[var(--accent)] hover:underline"
-              >
-                contact@troiestudio.fr
-              </a>
-              .
-            </p>
-            <div className="mt-6 flex flex-col gap-3">
-              <input
-                type="email"
-                placeholder="votre@email.fr"
-                disabled
-                aria-label="Email (bientot dispo)"
-                className="border border-[var(--rule)] bg-[var(--bg)] px-4 py-3 text-base text-[var(--fg)] placeholder:text-[var(--fg-2)]/55 disabled:opacity-65"
-              />
-              <button
-                type="button"
-                disabled
-                className="inline-flex items-center justify-center gap-3 bg-[var(--fg)] px-6 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] disabled:opacity-65"
-              >
-                Recevoir un lien magique (bientot)
-              </button>
-            </div>
-          </div>
-        </div>
+    <div className="space-y-12 md:space-y-16">
+      {/* Hero greeting */}
+      <section>
+        <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+          Espace membre · vue d'ensemble
+        </p>
+        <h1 className="t-display mt-4 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+          Bon retour.
+        </h1>
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+          Voici où vous en êtes. Reprenez là où vous vous êtes
+          arrêté ou explorez les trophées à débloquer.
+        </p>
       </section>
 
-      {/* Liste des cours (etat locked / unlocked) */}
-      <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Vos cours
+      {/* Continue where left off */}
+      {continueModule && continueCourse && inProgress && (
+        <section>
+          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Reprendre
           </p>
-          <h2 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-4xl lg:text-5xl">
-            Etat : non connecte
-          </h2>
-
-          <div className="mt-12 grid gap-6 md:mt-16 md:grid-cols-3 md:gap-8">
-            {COURSES_LOCKED.map((c) => (
-              <div
-                key={c.title}
-                className="flex h-full flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg)] p-6 md:p-8"
-              >
-                <div className="flex items-center justify-between">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                    {c.badge}
-                  </p>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                    {c.bought ? "Achete" : "Locked"}
-                  </span>
-                </div>
-                <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[26px]">
-                  {c.title}
-                </h3>
-
-                <div className="mt-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                    Progression
-                  </p>
-                  <div className="mt-2 h-[3px] w-full overflow-hidden bg-[var(--fg)]/12">
-                    <div
-                      className="h-full bg-[var(--accent)]"
-                      style={{ width: `${c.progress}%` }}
-                    />
-                  </div>
-                  <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                    {c.progress} %
-                  </p>
-                </div>
-
-                <div className="flex-1" />
-                <div className="mt-8 border-t border-[var(--rule)] pt-6">
-                  <p className="t-display text-2xl text-[var(--fg)] md:text-3xl">
-                    {c.price}
-                  </p>
-                  <Link
-                    href={c.href}
-                    className="group mt-4 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
-                  >
-                    Voir la page
-                    <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                  </Link>
-                </div>
+          <Link
+            href={`/formations/dashboard/courses/${continueCourse.slug}/${continueModule.slug}`}
+            className="group mt-4 block rounded-sm border border-[var(--accent)] bg-[var(--bg-2)] p-6 transition-colors hover:bg-[var(--accent)]/8 md:p-8"
+          >
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="min-w-0 flex-1">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
+                  {continueCourse.title}
+                </p>
+                <h2 className="t-display mt-3 text-2xl text-[var(--fg)] md:text-3xl">
+                  {continueModule.title}
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+                  {continueModule.subtitle}
+                </p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+              <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                Reprendre
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </span>
+            </div>
+            <div className="mt-6">
+              <div className="flex items-baseline justify-between">
+                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
+                  Progression
+                </span>
+                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                  {inProgress.progress_pct} %
+                </span>
+              </div>
+              <div className="mt-2 h-[3px] w-full overflow-hidden bg-[var(--fg)]/12">
+                <div
+                  className="h-full bg-[var(--accent)]"
+                  style={{ width: `${inProgress.progress_pct}%` }}
+                />
+              </div>
+            </div>
+          </Link>
+        </section>
+      )}
 
-      {/* Roadmap espace membre */}
-      <section className="border-t border-[var(--rule)]">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Ce qui arrive
+      {/* My courses */}
+      <section>
+        <div className="flex items-baseline justify-between">
+          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Mes cours · {accessible.length} actifs
           </p>
-          <h2 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-4xl lg:text-5xl">
-            Roadmap espace membre.
-          </h2>
-
-          <ol className="mt-12 grid gap-10 md:mt-16 md:grid-cols-2 md:gap-x-16 md:gap-y-14 lg:grid-cols-4">
-            {[
-              {
-                title: "Auth magic link",
-                body: "Connexion par email (Supabase Auth). Pas de mot de passe.",
-              },
-              {
-                title: "Paiement Lemon Squeezy",
-                body: "Checkout securise (CB, Apple/Google Pay, virement SEPA). TVA EU gere.",
-              },
-              {
-                title: "Hosting video",
-                body: "Mux ou Cloudflare Stream. HLS adaptatif, pas de downloads.",
-              },
-              {
-                title: "Bibliotheque prompts",
-                body: "Recherche, tags, copie en 1 clic, MAJ mensuelles automatiques.",
-              },
-            ].map((s, i) => (
-              <li key={s.title} className="border-t border-[var(--rule)] pt-6">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  {String(i + 1).padStart(2, "0")} ·
-                </p>
-                <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[26px]">
-                  {s.title}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                  {s.body}
-                </p>
-              </li>
-            ))}
-          </ol>
+          <Link
+            href="/formations/dashboard/courses"
+            className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 hover:text-[var(--accent)]"
+          >
+            Voir tout →
+          </Link>
+        </div>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 md:gap-6">
+          {accessible.map((c) => (
+            <Link
+              key={c.id}
+              href={`/formations/dashboard/courses/${c.slug}`}
+              className="group flex flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 transition-colors hover:border-[var(--accent)] md:p-7"
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                {c.level === "free" ? "Gratuit" : c.level}
+              </p>
+              <h3 className="t-display mt-3 text-xl text-[var(--fg)] md:text-2xl">
+                {c.title}
+              </h3>
+              <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--fg-2)]">
+                {c.subtitle}
+              </p>
+              <div className="mt-5 flex items-baseline justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
+                <span>{c.modules_count} modules · {c.duration_min} min</span>
+                <span className="text-[var(--accent)] transition-transform group-hover:translate-x-1">→</span>
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
-        <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16">
-          <div className="grid gap-8 md:grid-cols-2 md:gap-12">
-            <div>
-              <Logo variant="wordmark-emblem" className="h-10 text-[var(--fg)] md:h-12" />
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                Atelier digital · Paris · Formations IA en ligne
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 md:items-end md:justify-end">
-              <Link href={MAIN_SITE} className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]">
-                Retour au site principal →
-              </Link>
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                © 2026 TROIE Studio
-              </p>
-            </div>
-          </div>
+      {/* Trophies — récents + à débloquer */}
+      <section>
+        <div className="flex items-baseline justify-between">
+          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Trophées · {recentTrophies.length} / 10 débloqués
+          </p>
+          <Link
+            href="/formations/dashboard/trophies"
+            className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 hover:text-[var(--accent)]"
+          >
+            Voir tout →
+          </Link>
         </div>
-      </footer>
-    </article>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-3 md:gap-6">
+          {recentTrophies.map((t) => (
+            <TrophyCardInline key={t.id} trophy={t} unlocked />
+          ))}
+          {lockedTrophies.slice(0, 3 - recentTrophies.length).map((t) => (
+            <TrophyCardInline key={t.id} trophy={t} unlocked={false} />
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function TrophyCardInline({
+  trophy,
+  unlocked,
+}: {
+  trophy: { slug: string; title: string; description: string | null; icon_slug: string; tier: string; xp_reward: number };
+  unlocked: boolean;
+}) {
+  return (
+    <div
+      className={`rounded-sm border p-5 transition-colors md:p-6 ${
+        unlocked
+          ? "border-[var(--accent)] bg-[var(--accent)]/8"
+          : "border-[var(--rule)] bg-[var(--bg-2)] opacity-70"
+      }`}
+    >
+      <TrophyIcon name={trophy.icon_slug} className="h-10 w-10 text-[var(--accent)]" />
+      <h3 className={`t-display mt-4 text-lg text-[var(--fg)] md:text-xl ${unlocked ? "" : "opacity-60"}`}>
+        {trophy.title}
+      </h3>
+      <p className="mt-2 text-xs leading-relaxed text-[var(--fg-2)] md:text-sm">
+        {trophy.description}
+      </p>
+      <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
+        {trophy.tier} · {trophy.xp_reward} XP {unlocked ? "✓ obtenu" : ""}
+      </p>
+    </div>
   );
 }

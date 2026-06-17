@@ -1,0 +1,26 @@
+import { NextResponse } from "next/server";
+import { createClient } from "@/lib/supabase/server";
+
+/**
+ * /formations/auth/callback?code=xxx&next=/somewhere
+ * Echange le code Supabase OTP contre une session puis redirige.
+ */
+export async function GET(request: Request) {
+  const { searchParams, origin } = new URL(request.url);
+  const code = searchParams.get("code");
+  const next = searchParams.get("next") ?? "/formations/dashboard";
+
+  if (code) {
+    const supabase = await createClient();
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+
+    if (!error) {
+      return NextResponse.redirect(`${origin}${next}`);
+    }
+  }
+
+  // Echec d'auth — retour sign-in avec erreur
+  return NextResponse.redirect(
+    `${origin}/formations/auth/sign-in?error=auth_failed`,
+  );
+}
