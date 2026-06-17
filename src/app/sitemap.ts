@@ -7,9 +7,10 @@ const BASE = "https://troiestudio.fr";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
+  // /fr|/en/formations est desormais redirige (301) vers /agents.
+  // On ne le sort plus du sitemap pour ne pas duer le signal SEO.
   const staticPaths = [
     "",
-    "/formations",
     "/agents",
     "/works",
     "/contact",
@@ -17,9 +18,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/terms",
   ];
 
-  // Section-level pages (formations / agents / works) get higher priority
+  // Section-level pages (agents / works) get higher priority
   // and monthly refresh; legal pages stay yearly / 0.5.
-  const HIGH_PRIORITY = new Set(["/works", "/formations", "/agents"]);
+  const HIGH_PRIORITY = new Set(["/works", "/agents"]);
 
   const entries: MetadataRoute.Sitemap = [];
 

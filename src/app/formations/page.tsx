@@ -218,41 +218,12 @@ const FREE_MODULE = {
 export default function FormationsPage() {
   return (
     <article className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          HEADER
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <header className="relative border-b border-[var(--rule)]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-12">
-          <div className="flex items-center gap-4">
-            <Link href="/" aria-label="Retour au site TROIE">
-              <Logo variant="wordmark-emblem" className="h-10 text-[var(--fg)] md:h-12" />
-            </Link>
-            <span className="hidden font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)] md:inline-block">
-              · Formations IA
-            </span>
-          </div>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/ia"
-              className="hidden font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)] md:inline-block"
-            >
-              IA Pro →
-            </Link>
-            <a
-              href="#free"
-              className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:text-[11px]"
-            >
-              Module 0 gratuit
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </div>
-      </header>
+      {/* FormationsHeader est rendu globalement via /formations/layout.tsx */}
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           POUR QUI ? — switcher B2C / B2B en tout premier
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="border-b border-[var(--rule)] bg-[var(--bg-2)]">
+      <section className="border-b border-[var(--rule)] bg-[var(--bg-2)] pt-20 md:pt-24">
         <div className="mx-auto max-w-7xl px-6 py-10 md:px-12 md:py-14">
           <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
             Pour qui ?
@@ -286,7 +257,7 @@ export default function FormationsPage() {
 
             {/* B2B — entreprise sur site (legacy /fr/formations) */}
             <Link
-              href="/fr/formations"
+              href="/fr/agents"
               className="group bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent)]/8 md:p-8"
             >
               <div className="flex items-center justify-between">
@@ -294,18 +265,19 @@ export default function FormationsPage() {
                   Pour votre entreprise · sur site
                 </p>
                 <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                  Qualiopi · CPF
+                  Sur devis
                 </span>
               </div>
               <h2 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-3xl">
-                Formations equipe sur site
+                Agents IA &amp; formations equipe
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                Programmes sur mesure pour vos equipes. Sur site ou
-                distanciel. Qualiopi en cours, finançable CPF / OPCO. Sur devis.
+                Deploiement d'agents (Hermes, Achille, Hestia) +
+                formations sur mesure pour vos equipes. Sur site ou
+                distanciel. Sur devis.
               </p>
               <span className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
-                Voir le programme entreprise
+                Voir les agents &amp; formations
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </span>
             </Link>

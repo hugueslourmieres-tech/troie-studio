@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FormationsHeader } from "@/components/FormationsHeader";
 import "../globals.css";
 
 /**
@@ -53,6 +54,7 @@ export default function FormationsLayout({
   return (
     <html lang="fr">
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
+        <FormationsHeader />
         {children}
       </body>
     </html>

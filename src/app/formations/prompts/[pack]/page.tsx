@@ -91,27 +91,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
 
   return (
     <article className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
-      {/* HEADER */}
-      <header className="relative border-b border-[var(--rule)]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-12">
-          <div className="flex items-center gap-4">
-            <Link href="/" aria-label="Retour au site TROIE">
-              <Logo variant="wordmark-emblem" className="h-10 text-[var(--fg)] md:h-12" />
-            </Link>
-            <span className="hidden font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)] md:inline-block">
-              · {pack.badge}
-            </span>
-          </div>
-          <Link
-            href="/formations/prompts"
-            className="group inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)] md:text-[11px]"
-          >
-            <span aria-hidden="true">←</span>
-            Tous les packs
-          </Link>
-        </div>
-      </header>
-
+      {/* Global FormationsHeader rendered via layout */}
       {/* HERO */}
       <section className="relative border-b border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 pt-24 pb-24 md:px-12 md:pt-32 md:pb-32">
