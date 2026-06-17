@@ -336,7 +336,7 @@ export default function FormationsPage() {
 
       {/* Marquee logos IA - meme que home troiestudio.fr */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg)] py-6 md:py-8">
-        <ToolsMarquee />
+        <ToolsMarquee ariaLabel="Outils IA enseignes dans les formations TROIE" />
       </section>
 
       <EmblemBreak size="md" />
