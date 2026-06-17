@@ -135,6 +135,8 @@ const PRO_PACKS = [
   },
 ];
 
+const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
+
 /* Tâches du quotidien avec gains chiffres réels (sources etudes 2026). */
 /* Tasks avec pictogramme Lucide-style (SVG path tracé propre) */
 const TASKS = [
@@ -933,28 +935,55 @@ export default function IaLandingPage() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          TASKS GRID — ce que l'IA fait pour vous, chiffres réels (noir)
+          LES 12 TRAVAUX D'HERCULE — TASKS GRID (noir)
+          Reframe éditorial : 12 travaux modernes que votre IA accomplit
+          pour vous, comme Hercule pour Eurysthée. Numérotation romaine
+          I → XII pour ancrer la référence mythologique.
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="tone-dark border-t border-[var(--rule)] bg-[var(--bg)] text-[var(--fg)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Tous les jours, automatiquement
-          </p>
-          <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
-            12 tâches que l'IA prend en charge.
-          </h2>
-          <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Une heure récupérée ici, deux la, trois par jour. Au bout d'un mois,
-            vous avez retrouve la moitié de votre temps. C'est ça, la
-            promesse — concrete, mesurable, par tâche, sources vérifiables.
-          </p>
+          <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+            {/* Portrait Hercule — engravure N&B, même registre que Hermès/Achille/Hestia */}
+            <div className="md:col-span-4">
+              <div className="relative aspect-[4/5] overflow-hidden bg-[var(--fg)]/5">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/agents/hercule.jpg"
+                  alt="Hercule — engravure classique, le héros aux douze travaux"
+                  className="h-full w-full object-cover"
+                  style={{ filter: "grayscale(1) contrast(1.05)" }}
+                />
+              </div>
+              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-mute)]">
+                Hercule · Le héros aux douze travaux
+              </p>
+            </div>
+
+            {/* Titre + intro */}
+            <div className="md:col-span-8 md:pt-4">
+              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                Vos douze travaux · automatiques
+              </p>
+              <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
+                Les 12 travaux d'Hercule.
+              </h2>
+              <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+                Hercule accomplit douze travaux impossibles pour racheter sa
+                dette. Vous, vous avez les vôtres — les tâches qui rongent vos
+                semaines, qui repoussent l'essentiel. Votre équipage IA les
+                prend en charge. Une heure récupérée ici, deux là, trois par
+                jour. Au bout d'un mois, la moitié de votre temps retrouvée —
+                concrète, mesurable, par tâche, sources vérifiables.
+              </p>
+            </div>
+          </div>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-3">
             {TASKS.map((task, i) => (
               <div key={task.title} className="bg-[var(--bg)] p-6 md:p-8">
                 <div className="flex items-center justify-between">
                   <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                    {String(i + 1).padStart(2, "0")}
+                    Travail {ROMAN[i]}
                   </p>
                   {/* Pictogramme Lucide-style */}
                   <svg
