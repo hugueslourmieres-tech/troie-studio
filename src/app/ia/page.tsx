@@ -980,26 +980,32 @@ export default function IaLandingPage() {
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-3">
             {TASKS.map((task, i) => (
-              <div key={task.title} className="bg-[var(--bg)] p-6 md:p-8">
-                <div className="flex items-center justify-between">
+              <Link
+                key={task.title}
+                href={CAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Prendre rendez-vous pour automatiser : ${task.title}`}
+                className="group relative block bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--accent)] md:p-8"
+              >
+                <div className="flex items-start justify-between gap-4">
                   <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
                     Travail {ROMAN[i]}
                   </p>
-                  {/* Pictogramme Lucide-style */}
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1.5"
+                    strokeWidth="1.4"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="h-5 w-5 text-[var(--fg-2)]/70"
+                    className="h-10 w-10 flex-shrink-0 text-[var(--accent)] transition-transform duration-500 group-hover:scale-110 md:h-12 md:w-12"
                     aria-hidden="true"
                   >
                     <path d={task.icon} />
                   </svg>
                 </div>
-                <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[28px]">
+                <h3 className="t-display mt-6 text-2xl text-[var(--fg)] md:text-[28px]">
                   {task.title}
                 </h3>
                 <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
@@ -1008,7 +1014,11 @@ export default function IaLandingPage() {
                 <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-[15px]">
                   {task.body}
                 </p>
-              </div>
+                <p className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-mute)] transition-colors group-hover:text-[var(--accent)]">
+                  Prendre RDV
+                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                </p>
+              </Link>
             ))}
           </div>
         </div>
