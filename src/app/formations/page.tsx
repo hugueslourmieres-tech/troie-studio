@@ -342,6 +342,75 @@ export default function FormationsPage() {
       <EmblemBreak size="md" />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          PUNCHLINE · L'IA qui execute · Equipage IA
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+            <div className="md:col-span-7">
+              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                La promesse
+              </p>
+              <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+                L'IA qui execute.{" "}
+                <span className="text-[var(--accent)]">Pas celle qui repond.</span>
+              </h2>
+              <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+                <strong className="text-[var(--fg)]">Stop aux questions, place a l'action.</strong>{" "}
+                ChatGPT repond a vos questions. Votre equipage IA — Hermes,
+                Achille, Hestia — agit dans vos outils, 24/7, sans que vous
+                leviez le petit doigt. Pendant que vous dormez, votre stack
+                traite vos mails, draft vos posts, met a jour votre CRM.
+                Vous arrivez le matin, tout est pret a valider.
+              </p>
+            </div>
+            <div className="md:col-span-5">
+              <ul className="grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)]">
+                {[
+                  { left: "L'IA qui repond", right: "L'IA qui execute" },
+                  { left: "Vous posez 50 questions / jour", right: "Vous validez 50 actions / jour" },
+                  { left: "Vous oubliez tout entre 2 chats", right: "Memoire persistante des clients" },
+                  { left: "Aucun acces a vos outils", right: "Connectee Gmail, Notion, Slack, GA4" },
+                  { left: "Reactive", right: "Proactive · brief matinal Slack 8h" },
+                ].map((row, i) => (
+                  <li
+                    key={i}
+                    className="grid grid-cols-2 gap-px bg-[var(--rule)]"
+                  >
+                    <div className="bg-[var(--bg)] p-3 md:p-4">
+                      <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
+                        Avant
+                      </p>
+                      <p className="mt-1 text-xs leading-tight text-[var(--fg-2)] line-through opacity-70 md:text-sm">
+                        {row.left}
+                      </p>
+                    </div>
+                    <div className="bg-[var(--accent)]/8 p-3 md:p-4">
+                      <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                        Apres
+                      </p>
+                      <p className="mt-1 text-xs leading-tight text-[var(--fg)] md:text-sm">
+                        {row.right}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="/ia"
+                className="group mt-6 inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:text-[var(--fg)]"
+              >
+                Voir les 3 agents en detail
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <EmblemBreak size="md" />
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           ROI · GrowthCurve + FormationFitting personnalise
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="border-t border-[var(--rule)]">

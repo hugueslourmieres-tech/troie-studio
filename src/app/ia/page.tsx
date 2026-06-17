@@ -857,14 +857,20 @@ export default function IaLandingPage() {
             })}
           </div>
 
-          {/* Agents IA cross-link — avec portraits */}
+          {/* Agents IA cross-link — votre equipage IA · L'IA qui execute */}
           <div className="mt-20 border-t border-[var(--rule)] pt-16 md:mt-28 md:pt-20">
             <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-              Et 3 agents IA cle en main
+              Votre equipage IA · 3 agents cle en main
             </p>
             <h3 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl lg:text-6xl">
               Hermes. Achille. Hestia.
             </h3>
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+              <strong className="text-[var(--fg)]">L'IA qui execute. Pas celle qui repond.</strong>{" "}
+              Vous donnez le cap, votre equipage opere : Hermes prospecte,
+              Achille produit, Hestia accueille. 24/7, dans votre voix, sans
+              que vous leviez le petit doigt.
+            </p>
 
             {/* 3 portraits N&B — slider horizontal mobile, grid 3-col desktop */}
             <div className="mt-12 -mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:mt-16 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 md:pb-0">
