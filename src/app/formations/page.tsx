@@ -4,6 +4,8 @@ import { EmblemBreak } from "@/components/EmblemBreak";
 import { ToolsMarquee } from "@/components/ToolsMarquee";
 import { LevelBar } from "./LevelBar";
 import { HeroHeroes } from "./HeroHeroes";
+import { FormationFitting } from "./FormationFitting";
+import { GrowthCurve } from "../ia/GrowthCurve";
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -335,6 +337,32 @@ export default function FormationsPage() {
       {/* Marquee logos IA - meme que home troiestudio.fr */}
       <section className="border-t border-[var(--rule)] bg-[var(--bg)] py-6 md:py-8">
         <ToolsMarquee />
+      </section>
+
+      <EmblemBreak size="md" />
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          ROI · GrowthCurve + FormationFitting personnalise
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section className="border-t border-[var(--rule)]">
+        <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
+          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Combien vous allez gagner ?
+          </p>
+          <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+            Calculez votre ROI. Trouvez votre parcours.
+          </h2>
+          <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+            A gauche, la courbe : ce que vous changez en equipant vos
+            outils IA. A droite, le fitting : 3 questions pour vous
+            recommander LE parcours qui colle a votre profil.
+          </p>
+
+          <div className="mt-16 grid gap-8 md:mt-20 md:grid-cols-2">
+            <GrowthCurve />
+            <FormationFitting />
+          </div>
+        </div>
       </section>
 
       <EmblemBreak size="md" />
