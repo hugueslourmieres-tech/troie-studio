@@ -250,6 +250,70 @@ export default function FormationsPage() {
       </header>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          POUR QUI ? — switcher B2C / B2B en tout premier
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section className="border-b border-[var(--rule)] bg-[var(--bg-2)]">
+        <div className="mx-auto max-w-7xl px-6 py-10 md:px-12 md:py-14">
+          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Pour qui ?
+          </p>
+          <div className="mt-6 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:grid-cols-2">
+            {/* B2C — cours en ligne (page courante) */}
+            <a
+              href="#start"
+              className="group bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent)]/8 md:p-8"
+            >
+              <div className="flex items-center justify-between">
+                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                  Pour vous · solo &amp; equipe
+                </p>
+                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                  Vous etes ici
+                </span>
+              </div>
+              <h2 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-3xl">
+                Cours en ligne &amp; system prompts
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+                Acces immediat. Module 0 gratuit. Packs prompts a 29 €.
+                Cours a partir de 97 €. Mastermind 49 €/mois.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
+                Voir les parcours
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">↓</span>
+              </span>
+            </a>
+
+            {/* B2B — entreprise sur site (legacy /fr/formations) */}
+            <Link
+              href="/fr/formations"
+              className="group bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent)]/8 md:p-8"
+            >
+              <div className="flex items-center justify-between">
+                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                  Pour votre entreprise · sur site
+                </p>
+                <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                  Qualiopi · CPF
+                </span>
+              </div>
+              <h2 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-3xl">
+                Formations equipe sur site
+              </h2>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+                Programmes sur mesure pour vos equipes. Sur site ou
+                distanciel. Qualiopi en cours, finançable CPF / OPCO. Sur devis.
+              </p>
+              <span className="mt-4 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
+                Voir le programme entreprise
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           HERO — votre IA, de base a boss niveau
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="relative border-b border-[var(--rule)]">

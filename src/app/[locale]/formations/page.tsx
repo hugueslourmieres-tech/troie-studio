@@ -223,6 +223,29 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
         </div>
       </header>
 
+      {/* Banner B2C cross-link · vers les cours en ligne (/formations) */}
+      <section className="border-t border-[var(--accent)] bg-[var(--bg-2)]">
+        <div className="mx-auto max-w-7xl px-6 py-6 md:px-12 md:py-7">
+          <a
+            href="/formations"
+            className="group flex flex-wrap items-end justify-between gap-4"
+          >
+            <div className="max-w-xl">
+              <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                Vous cherchez quelque chose pour vous ?
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+                Cours en ligne (solo &amp; equipe), packs de system prompts a partir de 29 €, Module 0 gratuit.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-[11px]">
+              Voir les cours en ligne
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        </div>
+      </section>
+
       {/* Stat band */}
       <section className="border-t border-[var(--accent)]">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-24">
