@@ -216,7 +216,7 @@ const STEPS = [
   {
     title: "Audit gratuit · 30 min.",
     body: "On regarde vos tâches reelles. Réponse claire, chiffree, écrite, sous 48 h.",
-    img: "/images/corpo/stratégie/DSC_5552-4.jpg",
+    img: "/images/corpo/strategie/DSC_5552-4.jpg",
   },
   {
     title: "Setup & formation.",
@@ -851,8 +851,15 @@ export default function IaLandingPage() {
             })}
           </div>
 
-          {/* Agents IA cross-link — votre équipage IA · L'IA qui exécuté */}
-          <div className="mt-20 border-t border-[var(--rule)] pt-16 md:mt-28 md:pt-20">
+        </div>
+      </section>
+
+      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+          ÉQUIPAGE IA — Hermès / Achille / Hestia (orange Hermès)
+          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+      <section className="tone-accent border-t border-[var(--rule)] bg-[var(--bg)] text-[var(--fg)]">
+        <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
+          <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
               Votre équipage IA · 3 agents clé en main
             </p>
@@ -860,7 +867,7 @@ export default function IaLandingPage() {
               Hermes. Achille. Hestia.
             </h3>
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-              <strong className="text-[var(--fg)]">L'IA qui execute. Pas celle qui repond.</strong>{" "}
+              <strong className="text-[var(--fg)]">L'IA qui exécute. Pas celle qui répond.</strong>{" "}
               Vous donnez le cap, votre équipage opère : Hermes prospecte,
               Achille produit, Hestia accueille. 24/7, dans votre voix, sans
               que vous leviez le petit doigt.
@@ -926,9 +933,9 @@ export default function IaLandingPage() {
       </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          TASKS GRID — ce que l'IA fait pour vous, chiffres réels
+          TASKS GRID — ce que l'IA fait pour vous, chiffres réels (noir)
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="border-t border-[var(--rule)]">
+      <section className="tone-dark border-t border-[var(--rule)] bg-[var(--bg)] text-[var(--fg)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
             Tous les jours, automatiquement

@@ -353,7 +353,7 @@ export default function FormationsPage() {
               </p>
               <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
                 L'IA qui exécuté.{" "}
-                <span className="text-[var(--accent)]">Pas celle qui repond.</span>
+                <span className="text-[var(--accent)]">Pas celle qui répond.</span>
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
                 <strong className="text-[var(--fg)]">Stop aux questions, place à l'action.</strong>{" "}

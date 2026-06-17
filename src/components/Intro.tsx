@@ -11,7 +11,7 @@ type Tool = { src: string; label: string };
 type Métier = {
   index: string;
   slug: "creation" | "strategy" | "training";
-  vidéo: string;
+  video: string;
   videoAlt: string;
   hash: string;
   tools: Tool[];
@@ -24,8 +24,8 @@ const METIERS: Métier[] = [
   {
     index: "01",
     slug: "creation",
-    vidéo: "/images/vidéos/création.mp4",
-    videoAlt: "Création, vidéo d'illustration",
+    video: "/images/videos/création.mp4",
+    videoAlt: "Création, video d'illustration",
     hash: "#création",
     tools: [
       { src: "/images/logos/adobe.svg", label: "Adobe" },
@@ -38,8 +38,8 @@ const METIERS: Métier[] = [
   {
     index: "02",
     slug: "strategy",
-    vidéo: "/images/vidéos/strategy.mp4",
-    videoAlt: "Stratégie, vidéo d'illustration",
+    video: "/images/videos/strategy.mp4",
+    videoAlt: "Stratégie, video d'illustration",
     hash: "#strategy",
     tools: [
       { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
@@ -52,8 +52,8 @@ const METIERS: Métier[] = [
   {
     index: "03",
     slug: "training",
-    vidéo: "/images/vidéos/formation.mp4",
-    videoAlt: "Formation, vidéo d'illustration",
+    video: "/images/videos/formation.mp4",
+    videoAlt: "Formation, video d'illustration",
     hash: "#training",
     tools: [
       { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
@@ -68,7 +68,7 @@ const METIERS: Métier[] = [
 
 /**
  * Intro — section "Un studio. Trois métiers."
- * Fond orange Hermès, 3 boxes encadrant un guerrier illustrant chaque métier.
+ * Fond orange Hermès, 3 boxes encadrant un guerrier illustrant chaque metier.
  * Chaque box est cliquable et ancre vers la section détaillée plus bas.
  */
 export function Intro() {
@@ -102,10 +102,10 @@ export function Intro() {
           </div>
         </Reveal>
 
-        {/* 3 boxes — un guerrier par métier */}
+        {/* 3 boxes — un guerrier par metier */}
         <div className="mt-20 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-28 md:grid-cols-3">
           {METIERS.map((m, i) => (
-            <MetierBox key={m.slug} métier={m} index={i} />
+            <MetierBox key={m.slug} metier={m} index={i} />
           ))}
         </div>
       </div>
@@ -113,7 +113,7 @@ export function Intro() {
   );
 }
 
-function MetierBox({ métier, index }: { métier: Métier; index: number }) {
+function MetierBox({ metier, index }: { metier: Métier; index: number }) {
   const t = useTranslations("home");
 
   return (
@@ -129,24 +129,24 @@ function MetierBox({ métier, index }: { métier: Métier; index: number }) {
       className="relative"
     >
       <Link
-        href={métier.hash}
+        href={metier.hash}
         className="group relative flex h-full flex-col bg-[var(--bg)] p-8 transition-colors hover:bg-[var(--bg-2)] md:p-10"
       >
         {/* Index + label (re-using the eyebrow which already reads "01 · Création") */}
         <span className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)]/60">
-          {t(`${métier.slug}Eyebrow`)}
+          {t(`${metier.slug}Eyebrow`)}
         </span>
 
         {/* Vidéo — autoplay loop muted, N&B */}
         <div className="relative mt-8 aspect-square w-full overflow-hidden bg-[var(--bg-2)]">
           <video
-            src={métier.vidéo}
+            src={metier.video}
             autoPlay
             loop
             muted
             playsInline
             preload="metadata"
-            aria-label={métier.videoAlt}
+            aria-label={metier.videoAlt}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
             style={{ filter: "grayscale(1) brightness(0.96) contrast(1.06)" }}
           />
@@ -155,14 +155,14 @@ function MetierBox({ métier, index }: { métier: Métier; index: number }) {
         {/* Text */}
         <div className="mt-8 flex flex-1 flex-col">
           <h3 className="t-display text-3xl text-[var(--fg)] md:text-4xl">
-            {t(`${métier.slug}Title`)}
+            {t(`${metier.slug}Title`)}
           </h3>
           <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-            {t(`${métier.slug}Body`)}
+            {t(`${metier.slug}Body`)}
           </p>
 
           {/* Tool logos — monochrome, discrete, evenly sized */}
-          <ToolsRow tools={métier.tools} />
+          <ToolsRow tools={metier.tools} />
 
           <span className="mt-auto pt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition group-hover:text-[var(--accent)]">
             <span className="border-b border-[var(--rule-strong)] pb-0.5 group-hover:border-[var(--accent)]">
