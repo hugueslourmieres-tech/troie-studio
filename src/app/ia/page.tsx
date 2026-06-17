@@ -974,13 +974,13 @@ export default function IaLandingPage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/agents/hercule.jpg"
-                  alt="Hercule, engravure classique, le héros aux douze travaux"
-                  className="h-full w-full object-cover"
-                  style={{ filter: "grayscale(1) contrast(1.05)" }}
+                  alt="Le Grand Hercule, gravure de Hendrick Goltzius, 1589"
+                  className="h-full w-full object-cover object-top"
+                  style={{ filter: "grayscale(1) contrast(1.05) brightness(0.98)" }}
                 />
               </div>
               <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-mute)]">
-                Hercule · Le héros aux douze travaux
+                Hercule · Goltzius, 1589
               </p>
             </div>
 
