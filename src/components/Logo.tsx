@@ -44,59 +44,31 @@ export function Logo({
   }
 
   if (variant === "wordmark-emblem") {
-    // Lockup wordmark seul : TROIE + hairline + ATELIER DIGITAL, sans le
-    // guerrier. L'emblème a été retiré des navbars pour un logo plus net et
-    // direct (demande client). Le SVG aligne le caption sur la hairline
-    // (textLength="120") à toutes les tailles.
+    // Wordmark "TROIE" seul, sans emblème ni caption (demande client).
+    // textLength + lengthAdjust="spacing" justifie TROIE exactement sur la
+    // largeur du viewBox : le lettrage remplit la box, parfaitement aligné,
+    // à toutes les tailles. y centré verticalement dans le viewBox.
     return (
-      <span
-        className={`inline-flex items-center ${className}`}
-        aria-label="TROIE, Atelier Digital"
+      <svg
+        viewBox="0 0 170 34"
+        xmlns="http://www.w3.org/2000/svg"
+        className={`w-auto ${className}`}
+        aria-label="TROIE"
+        preserveAspectRatio="xMidYMid meet"
       >
-        <svg
-          viewBox="0 0 200 64"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-full w-auto"
-          aria-hidden="true"
-          preserveAspectRatio="xMidYMid meet"
+        <text
+          x="0"
+          y="26"
+          textLength="170"
+          lengthAdjust="spacing"
+          fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
+          fontWeight="400"
+          fontSize="30"
+          fill="currentColor"
         >
-          <text
-            x="100"
-            y="32"
-            textAnchor="middle"
-            fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
-            fontWeight="400"
-            fontSize="34"
-            letterSpacing="14"
-            fill="currentColor"
-          >
-            TROIE
-          </text>
-          <line
-            x1="40"
-            y1="44"
-            x2="160"
-            y2="44"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            opacity="0.5"
-          />
-          <text
-            x="100"
-            y="58"
-            textAnchor="middle"
-            textLength="120"
-            lengthAdjust="spacingAndGlyphs"
-            fontFamily="var(--font-jetbrains, ui-monospace, monospace)"
-            fontWeight="400"
-            fontSize="9"
-            fill="currentColor"
-            opacity="0.7"
-          >
-            ATELIER DIGITAL
-          </text>
-        </svg>
-      </span>
+          TROIE
+        </text>
+      </svg>
     );
   }
 

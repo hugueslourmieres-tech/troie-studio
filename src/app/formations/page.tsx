@@ -15,6 +15,7 @@ const PRO_PATHS = [
     priceNote: "Paiement unique · accès à vie",
     body: "Claude ou ChatGPT, configuré pour votre métier : un preset, 25 prompts, les 3 connexions essentielles. À la fin, vous l'utilisez comme un pro.",
     href: "/formations/cours-01",
+    icon: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M16 7a4 4 0 1 0-8 0 4 4 0 0 0 8 0",
   },
   {
     badge: "Parcours 02 · Avancé",
@@ -25,6 +26,7 @@ const PRO_PATHS = [
     body: "Claude, ChatGPT, Gemini, Copilot. 100 prompts métier, agents, automatisations Make. Le bon outil pour la bonne tâche, à chaque fois.",
     href: "/formations/cours-02",
     featured: true,
+    icon: "m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83zM2 12.18a1 1 0 0 0 .6.91l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.92M2 17.18a1 1 0 0 0 .6.91l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.92",
   },
   {
     badge: "Parcours 03 · Mastermind",
@@ -34,6 +36,7 @@ const PRO_PATHS = [
     priceNote: "ou 490 € / an",
     body: "L'IA bouge vite. Nouveaux prompts chaque mois, office hours en direct, communauté privée. Vous restez au niveau sans effort.",
     href: "/formations/mastermind",
+    icon: "m17 2 4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v1a4 4 0 0 1-4 4H3",
   },
 ];
 
@@ -124,7 +127,19 @@ export default function FormationsPage() {
                   href={`/formations/quiz/${q.slug}`}
                   className="group flex h-full flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 transition-colors hover:border-[var(--accent)]"
                 >
-                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-8 w-8 text-[var(--accent)] transition-transform duration-500 group-hover:scale-110"
+                    aria-hidden="true"
+                  >
+                    <path d={q.icon} />
+                  </svg>
+                  <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
                     {q.tagline}
                   </p>
                   <h3 className="t-display mt-4 text-2xl text-[var(--fg)]">
@@ -191,9 +206,23 @@ export default function FormationsPage() {
                     : "border-[var(--rule)] bg-[var(--bg)]"
                 }`}
               >
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  {p.badge}
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                    {p.badge}
+                  </p>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-7 w-7 text-[var(--accent)]"
+                    aria-hidden="true"
+                  >
+                    <path d={p.icon} />
+                  </svg>
+                </div>
                 <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-3xl">
                   {p.title}
                 </h3>
