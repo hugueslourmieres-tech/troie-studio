@@ -2,7 +2,8 @@ import Link from "next/link";
 import { AnimatedNumber } from "./AnimatedNumber";
 import { HeroVideoBg } from "./HeroVideoBg";
 import { GrowthCurve } from "./GrowthCurve";
-import { Logo } from "@/components/Logo";
+import { Header } from "@/components/Header";
+import { FormationsFooter } from "@/components/FormationsFooter";
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -93,6 +94,7 @@ const SOLO_PACKS = [
 const PRO_PACKS = [
   {
     badge: "Formation 01",
+    icon: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M13 7a4 4 0 1 0-8 0 4 4 0 0 0 8 0M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75",
     title: "Découverte équipe.",
     duration: "1/2 journée · jusqu'à 10 pers.",
     price: "Sur devis",
@@ -107,6 +109,7 @@ const PRO_PACKS = [
   },
   {
     badge: "Formation 02",
+    icon: "m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z",
     title: "Pratique créative.",
     duration: "1 journée · jusqu'à 8 pers.",
     price: "Sur devis",
@@ -121,6 +124,7 @@ const PRO_PACKS = [
   },
   {
     badge: "Formation 03",
+    icon: "M12 8V4H8M4 8h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2zM2 14h2M20 14h2M15 13v2M9 13v2",
     title: "Agents IA & automatisation.",
     duration: "2 journées · jusqu'à 6 pers.",
     price: "Sur devis",
@@ -292,26 +296,8 @@ const FAQ = [
 export default function IaLandingPage() {
   return (
     <article className="min-h-screen bg-[var(--bg)]">
-      {/* Top bar, wordmark TROIE complet (emblem + lettres) */}
-      <header className="relative z-20 border-b border-[var(--rule)] bg-[var(--bg)]/85 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-12">
-          <div className="flex items-center gap-4">
-            <Logo variant="wordmark-emblem" className="h-10 md:h-12" />
-            <span className="hidden font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)] md:inline md:text-[11px]">
-              · IA Pro
-            </span>
-          </div>
-          <a
-            href={CAL_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:text-[11px]"
-          >
-            Audit gratuit
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </header>
+      {/* Navbar standard du site : navigation + connexion */}
+      <Header locale="fr" />
 
       {/* Hero, vidéo bg + cream veil. Pas de sceau : pitch direct, équipe boostee. */}
       <section className="relative isolate overflow-hidden border-b border-[var(--rule)]">
@@ -501,7 +487,8 @@ export default function IaLandingPage() {
               const t = themes[i % themes.length];
               // 1 bandeau 16:9 N&B par pack
               const banners = [
-                "/images/corpo/mibi/DSC_7665.jpg",
+                // Pack 01 Découverte solo : une personne seule
+                "/images/corpo/mibi/04.jpg",
                 "/images/corpo/montpellier/DSC_7603.jpg",
                 "/images/corpo/montpellier/DSC_7604.jpg",
               ];
@@ -573,7 +560,7 @@ export default function IaLandingPage() {
                 <div className="relative h-64 md:h-full">
                   {/* eslint-disable-next-line @next/next/no-img-élément */}
                   <img
-                    src="/images/corpo/montpellier/DSC_7616.jpg"
+                    src="/images/corpo/barcelona/13Hugues-Nikon-35mm.jpg"
                     alt=""
                     className="h-full w-full object-cover"
                     style={{ filter: "grayscale(1) contrast(1.05)" }}
@@ -838,9 +825,23 @@ export default function IaLandingPage() {
                   key={p.title}
                   className={`flex h-full flex-col rounded-sm border ${t.border} ${t.card} p-8 transition-transform hover:-translate-y-1 md:p-10`}
                 >
-                  <p className={`font-mono text-[11px] uppercase tracking-[0.22em] ${i === 2 ? "text-[#1a1714]" : "text-[var(--accent)]"}`}>
-                    {p.badge}
-                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className={`font-mono text-[11px] uppercase tracking-[0.22em] ${i === 2 ? "text-[#1a1714]" : "text-[var(--accent)]"}`}>
+                      {p.badge}
+                    </p>
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className={`h-7 w-7 ${i === 2 ? "text-[#1a1714]" : "text-[var(--accent)]"}`}
+                      aria-hidden="true"
+                    >
+                      <path d={p.icon} />
+                    </svg>
+                  </div>
                   <h3 className="t-display mt-4 text-3xl md:text-4xl">{p.title}</h3>
                   <p className={`mt-3 font-mono text-[11px] uppercase tracking-[0.22em] ${t.meta}`}>
                     {p.duration}
@@ -1014,32 +1015,24 @@ export default function IaLandingPage() {
                 className="group relative block bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--accent)] md:p-8"
               >
                 {/* Gravure Tempesta 1608, MET, domaine public.
-                    Voile noir/marron très léger pour laisser respirer la gravure
-                    + picto orange centré avec halo sombre derrière pour la lisibilité. */}
-                <div className="relative -mx-6 -mt-6 mb-6 aspect-[3/2] overflow-hidden bg-[#15100b] md:-mx-8 md:-mt-8 md:mb-8">
+                    Zoom 15 % pour recadrer les bords blancs de la gravure,
+                    filtre marron foncé uniforme, picto orange centré. */}
+                <div className="relative -mx-6 -mt-6 mb-6 aspect-[3/2] overflow-hidden bg-[#1a0e05] md:-mx-8 md:-mt-8 md:mb-8">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={task.image}
                     alt={`${task.labor}, gravure d'Antonio Tempesta, 1608`}
-                    className="h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-[1.05]"
+                    className="h-full w-full scale-[1.15] object-cover object-center transition-transform duration-700 group-hover:scale-[1.22]"
                     style={{
-                      filter: "grayscale(1) contrast(1.05) brightness(0.92) sepia(0.18)",
+                      filter: "grayscale(1) sepia(0.55) brightness(0.5) contrast(1.05)",
                     }}
                     loading="lazy"
                   />
-                  {/* Voile très subtil noir → brun (la gravure reste lisible) */}
+                  {/* Filtre marron foncé uniforme */}
                   <div
-                    className="absolute inset-0 bg-gradient-to-br from-[#0a0807]/25 via-[#2d1a0d]/10 to-[#1a0a05]/30 transition-opacity duration-500"
+                    className="absolute inset-0 bg-[#2d1a0d] opacity-50 mix-blend-multiply"
                     aria-hidden="true"
                   />
-                  {/* Halo sombre radial centré derrière le picto pour qu'il reste lisible
-                      même sur les zones claires de la gravure */}
-                  <div
-                    className="pointer-events-none absolute inset-0 flex items-center justify-center"
-                    aria-hidden="true"
-                  >
-                    <div className="h-32 w-32 rounded-full bg-radial-gradient bg-[radial-gradient(circle,_rgba(10,8,7,0.62)_0%,_rgba(10,8,7,0.35)_45%,_transparent_75%)] md:h-36 md:w-36" />
-                  </div>
                   {/* Picto orange centré */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <svg
@@ -1049,7 +1042,7 @@ export default function IaLandingPage() {
                       strokeWidth="1.3"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="h-14 w-14 text-[var(--accent)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] transition-transform duration-500 group-hover:scale-110 md:h-16 md:w-16"
+                      className="h-14 w-14 text-[var(--accent)] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover:scale-110 md:h-16 md:w-16"
                       aria-hidden="true"
                     >
                       <path d={task.icon} />
@@ -1064,13 +1057,6 @@ export default function IaLandingPage() {
                 </h3>
                 <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
                   + {task.time}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-[15px]">
-                  {task.body}
-                </p>
-                <p className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-mute)] transition-colors group-hover:text-[var(--accent)]">
-                  Prendre RDV
-                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
                 </p>
               </Link>
             ))}
@@ -1161,70 +1147,65 @@ export default function IaLandingPage() {
       {/* Final CTA, full orange Hermes, pitch direct */}
       <section className="tone-accent relative isolate overflow-hidden bg-[var(--bg)] text-[var(--fg)]">
         <div className="relative mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
-          <div className="grid gap-16 md:grid-cols-12 md:gap-20">
-            <div className="md:col-span-8">
-              <h2 className="t-display text-4xl text-[var(--fg)] md:text-7xl">
+          <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
+            <div className="md:col-span-7">
+              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg)]/70">
+                Audit gratuit · sans engagement
+              </p>
+              <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
                 Trente minutes pour parler de votre cas.
               </h2>
-              <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
-                Sans engagement. On regarde ensemble si l'IA est rentable chez
-                vous, on chiffre, on écrit. Y compris si la réponse est non.
+              <p className="mt-8 max-w-xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
+                On regarde ensemble si l'IA est rentable chez vous, on chiffre,
+                on écrit. Y compris si la réponse est non.
               </p>
-              <div className="mt-12 flex flex-wrap items-center gap-8">
+              <div className="mt-10 flex flex-wrap items-center gap-8">
                 <a
                   href={CAL_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:opacity-70"
+                  className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Réserver l'audit gratuit
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <a
                   href="mailto:contact@troiestudio.fr"
-                  className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--fg)]"
+                  className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)]/75 transition-colors hover:text-[var(--fg)]"
                 >
                   contact@troiestudio.fr →
                 </a>
+              </div>
+            </div>
+
+            {/* Énorme "30" sur une image */}
+            <div className="md:col-span-5">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-[#1a1714]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/corpo/montpellier/DSC_7573.jpg"
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover opacity-70"
+                  style={{ filter: "grayscale(1) contrast(1.05) brightness(0.85)" }}
+                />
+                <div aria-hidden="true" className="absolute inset-0 bg-[var(--accent)] opacity-30 mix-blend-multiply" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-[#f5f0e6]">
+                  <span className="t-display text-[140px] leading-[0.8] drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)] md:text-[200px]">
+                    30
+                  </span>
+                  <span className="mt-2 font-mono text-[12px] uppercase tracking-[0.5em]">
+                    Minutes
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer, wordmark TROIE, lien vers studio créatif, sources */}
-      <footer className="border-t border-[var(--rule)]">
-        <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16">
-          <div className="grid gap-8 md:grid-cols-12">
-            <div className="md:col-span-5">
-              <Logo variant="stack" className="h-16 text-[var(--fg)] md:h-20" />
-              <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 md:text-[11px]">
-                · IA Pro · Atelier digital
-              </p>
-            </div>
-            <div className="md:col-span-7">
-              <p className="text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                Chiffres cites sources : etude solopreneurs 2026 (8 h/sem),
-                etude gouvernementale UK 2026 (26 min/jour emails), Salesforce
-                Marketers Report 2026 (5 h/sem), HubSpot State of Marketing
-                2026 (6,1 h/sem), GitHub Copilot study (+55 % de vitesse).
-              </p>
-              <div className="mt-8 flex flex-wrap items-baseline justify-between gap-6 border-t border-[var(--rule)] pt-6">
-                <a
-                  href={MAIN_SITE}
-                  className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition-colors hover:text-[var(--accent)] md:text-[11px]"
-                >
-                  Studio créatif → troiestudio.fr
-                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                  © 2026 TROIE Studio
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Footer commun aux pages de formation */}
+      <FormationsFooter />
     </article>
   );
 }
