@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Logo } from "@/components/Logo";
 import { EmblemBreak } from "@/components/EmblemBreak";
+import { FormationsFooter } from "@/components/FormationsFooter";
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -465,27 +465,7 @@ export default function Cours01Page() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
-        <div className="mx-auto max-w-7xl px-6 py-12 md:px-12 md:py-16">
-          <div className="grid gap-8 md:grid-cols-2 md:gap-12">
-            <div>
-              <Logo variant="wordmark-emblem" className="h-10 text-[var(--fg)] md:h-12" />
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                Atelier digital · Paris · Formations IA en ligne
-              </p>
-            </div>
-            <div className="flex flex-col gap-2 md:items-end md:justify-end">
-              <Link href={MAIN_SITE} className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]">
-                Retour au site principal →
-              </Link>
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                © 2026 TROIE Studio
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <FormationsFooter />
     </article>
   );
 }
