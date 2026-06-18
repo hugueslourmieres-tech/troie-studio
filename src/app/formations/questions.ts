@@ -1636,6 +1636,7 @@ export const COURSE_02_FULL: QuizQuestion[] = [
 export const COMPRENDRE_IA: QuizQuestion[] = [
   {
     id: "ci-1",
+    image: "/images/quiz/ci-1.jpg",
     prompt:
       "En une phrase, comment fonctionne un outil comme ChatGPT, Claude ou Gemini ?",
     options: [
@@ -1650,6 +1651,7 @@ export const COMPRENDRE_IA: QuizQuestion[] = [
   },
   {
     id: "ci-2",
+    image: "/images/quiz/ci-2.jpg",
     prompt: "À partir de quoi une IA a-t-elle appris ?",
     options: [
       "De textes, livres et sites web publiés jusqu'à une certaine date.",
@@ -1663,6 +1665,7 @@ export const COMPRENDRE_IA: QuizQuestion[] = [
   },
   {
     id: "ci-3",
+    image: "/images/quiz/ci-3.jpg",
     prompt: "Une IA peut-elle se tromper tout en ayant l'air sûre d'elle ?",
     options: [
       "Non, si elle répond avec assurance, c'est forcément vrai.",
@@ -1676,6 +1679,7 @@ export const COMPRENDRE_IA: QuizQuestion[] = [
   },
   {
     id: "ci-4",
+    image: "/images/quiz/ci-4.jpg",
     prompt: "Par défaut, un chatbot IA a-t-il accès à Internet en direct ?",
     options: [
       "Oui, toujours, il est connecté en permanence.",
@@ -1689,6 +1693,7 @@ export const COMPRENDRE_IA: QuizQuestion[] = [
   },
   {
     id: "ci-5",
+    image: "/images/quiz/ci-5.jpg",
     prompt: "Pourquoi deux réponses à la même question peuvent-elles différer ?",
     options: [
       "Parce que l'IA change d'avis comme un humain.",
@@ -1702,6 +1707,7 @@ export const COMPRENDRE_IA: QuizQuestion[] = [
   },
   {
     id: "ci-6",
+    image: "/images/quiz/ci-6.jpg",
     prompt: "Une IA ressent-elle des émotions ou a-t-elle une conscience ?",
     options: [
       "Oui, elle est triste quand on est méchant avec elle.",
@@ -1715,6 +1721,7 @@ export const COMPRENDRE_IA: QuizQuestion[] = [
   },
   {
     id: "ci-7",
+    image: "/images/quiz/ci-7.jpg",
     prompt: "Pour quel type de tâche l'IA est-elle la plus fiable ?",
     options: [
       "Donner l'heure exacte ou la météo de demain.",
@@ -1728,6 +1735,7 @@ export const COMPRENDRE_IA: QuizQuestion[] = [
   },
   {
     id: "ci-8",
+    image: "/images/quiz/ci-8.jpg",
     prompt: "Que veut dire la 'date de coupure' (knowledge cutoff) d'un modèle ?",
     options: [
       "L'heure à laquelle il s'éteint.",
@@ -1741,6 +1749,7 @@ export const COMPRENDRE_IA: QuizQuestion[] = [
   },
   {
     id: "ci-9",
+    image: "/images/quiz/ci-9.jpg",
     prompt: "Plus on donne de contexte clair à l'IA, plus la réponse est...",
     options: [
       "Lente et inutile.",
@@ -1754,6 +1763,7 @@ export const COMPRENDRE_IA: QuizQuestion[] = [
   },
   {
     id: "ci-10",
+    image: "/images/quiz/ci-10.jpg",
     prompt:
       "Faut-il croire un chiffre, une date ou une citation donnés par l'IA sans vérifier ?",
     options: [
@@ -1771,6 +1781,7 @@ export const COMPRENDRE_IA: QuizQuestion[] = [
 export const IA_EN_FAMILLE: QuizQuestion[] = [
   {
     id: "fam-1",
+    image: "/images/quiz/fam-1.jpg",
     prompt:
       "À partir de quel âge peut-on en général créer un compte sur les principaux outils IA ?",
     options: [
@@ -1785,6 +1796,7 @@ export const IA_EN_FAMILLE: QuizQuestion[] = [
   },
   {
     id: "fam-2",
+    image: "/images/quiz/fam-2.jpg",
     prompt: "Quelle information ne faut-il jamais donner à un chatbot ?",
     options: [
       "Sa couleur préférée.",
@@ -1798,6 +1810,7 @@ export const IA_EN_FAMILLE: QuizQuestion[] = [
   },
   {
     id: "fam-3",
+    image: "/images/quiz/fam-3.jpg",
     prompt: "Un enfant peut-il considérer un chatbot comme un véritable ami ou un psy ?",
     options: [
       "Oui, c'est un ami fidèle.",
@@ -1811,6 +1824,7 @@ export const IA_EN_FAMILLE: QuizQuestion[] = [
   },
   {
     id: "fam-4",
+    image: "/images/quiz/fam-4.jpg",
     prompt: "L'IA peut-elle inventer une réponse fausse à un devoir ?",
     options: [
       "Non, elle a toujours raison pour l'école.",
@@ -1824,6 +1838,7 @@ export const IA_EN_FAMILLE: QuizQuestion[] = [
   },
   {
     id: "fam-5",
+    image: "/images/quiz/fam-5.jpg",
     prompt: "Quelle est la bonne façon d'utiliser l'IA pour un devoir ?",
     options: [
       "Copier-coller sa réponse et la rendre telle quelle.",
@@ -1837,6 +1852,7 @@ export const IA_EN_FAMILLE: QuizQuestion[] = [
   },
   {
     id: "fam-6",
+    image: "/images/quiz/fam-6.jpg",
     prompt: "Qu'est-ce qu'un 'deepfake' ?",
     options: [
       "Un jeu vidéo.",
@@ -1850,6 +1866,7 @@ export const IA_EN_FAMILLE: QuizQuestion[] = [
   },
   {
     id: "fam-7",
+    image: "/images/quiz/fam-7.jpg",
     prompt: "Un chatbot peut-il parfois produire un contenu choquant ou inadapté ?",
     options: [
       "Non, c'est impossible.",
@@ -1863,6 +1880,7 @@ export const IA_EN_FAMILLE: QuizQuestion[] = [
   },
   {
     id: "fam-8",
+    image: "/images/quiz/fam-8.jpg",
     prompt: "Les conversations avec une IA sont-elles totalement privées ?",
     options: [
       "Oui, personne ne les voit jamais.",
@@ -1876,6 +1894,7 @@ export const IA_EN_FAMILLE: QuizQuestion[] = [
   },
   {
     id: "fam-9",
+    image: "/images/quiz/fam-9.jpg",
     prompt: "Que faire si l'IA dit quelque chose de bizarre, faux ou dérangeant ?",
     options: [
       "Le croire et le partager vite.",
@@ -1889,6 +1908,7 @@ export const IA_EN_FAMILLE: QuizQuestion[] = [
   },
   {
     id: "fam-10",
+    image: "/images/quiz/fam-10.jpg",
     prompt: "Quelle est la meilleure règle 'famille' pour utiliser l'IA sereinement ?",
     options: [
       "Chacun dans son coin, sans en parler.",
@@ -1905,6 +1925,7 @@ export const IA_EN_FAMILLE: QuizQuestion[] = [
 export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
   {
     id: "out-1",
+    image: "/images/quiz/out-1.jpg",
     prompt: "Pour traduire un email ou résumer un long texte, l'IA est...",
     options: [
       "Inutile.",
@@ -1918,6 +1939,7 @@ export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
   },
   {
     id: "out-2",
+    image: "/images/quiz/out-2.jpg",
     prompt: "Quelle demande donnera la meilleure réponse ?",
     options: [
       "'Écris un texte.'",
@@ -1931,6 +1953,7 @@ export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
   },
   {
     id: "out-3",
+    image: "/images/quiz/out-3.jpg",
     prompt: "Si la première réponse ne convient pas, que faire ?",
     options: [
       "Abandonner.",
@@ -1944,6 +1967,7 @@ export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
   },
   {
     id: "out-4",
+    image: "/images/quiz/out-4.jpg",
     prompt:
       "Pour une décision médicale, juridique ou financière importante, l'IA doit servir à...",
     options: [
@@ -1958,6 +1982,7 @@ export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
   },
   {
     id: "out-5",
+    image: "/images/quiz/out-5.jpg",
     prompt: "Donner un exemple de ce que l'on attend à l'IA, ça sert à quoi ?",
     options: [
       "À rien.",
@@ -1971,6 +1996,7 @@ export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
   },
   {
     id: "out-6",
+    image: "/images/quiz/out-6.jpg",
     prompt: "Les versions gratuites des outils IA suffisent-elles pour débuter ?",
     options: [
       "Non, il faut payer tout de suite.",
@@ -1984,6 +2010,7 @@ export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
   },
   {
     id: "out-7",
+    image: "/images/quiz/out-7.jpg",
     prompt: "Beaucoup d'outils acceptent aujourd'hui...",
     options: [
       "Uniquement du texte tapé.",
@@ -1997,6 +2024,7 @@ export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
   },
   {
     id: "out-8",
+    image: "/images/quiz/out-8.jpg",
     prompt: "Quel est un bon réflexe avant d'utiliser une réponse importante de l'IA ?",
     options: [
       "La publier sans la lire.",
@@ -2010,6 +2038,7 @@ export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
   },
   {
     id: "out-9",
+    image: "/images/quiz/out-9.jpg",
     prompt: "Pour organiser une semaine ou un repas, l'IA peut...",
     options: [
       "Ne rien faire d'utile.",
@@ -2023,6 +2052,7 @@ export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
   },
   {
     id: "out-10",
+    image: "/images/quiz/out-10.jpg",
     prompt: "Quel outil choisir entre ChatGPT, Claude et Gemini ?",
     options: [
       "Un seul est autorisé.",
@@ -2039,6 +2069,7 @@ export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
 export const SECURITE_LIMITES: QuizQuestion[] = [
   {
     id: "sec-1",
+    image: "/images/quiz/sec-1.jpg",
     prompt: "Qu'est-ce qu'une 'hallucination' d'IA ?",
     options: [
       "Un bug d'affichage.",
@@ -2052,6 +2083,7 @@ export const SECURITE_LIMITES: QuizQuestion[] = [
   },
   {
     id: "sec-2",
+    image: "/images/quiz/sec-2.jpg",
     prompt:
       "Faut-il copier un mot de passe, un numéro de carte ou une pièce d'identité dans un chatbot ?",
     options: [
@@ -2066,6 +2098,7 @@ export const SECURITE_LIMITES: QuizQuestion[] = [
   },
   {
     id: "sec-3",
+    image: "/images/quiz/sec-3.jpg",
     prompt: "Les informations que vous tapez peuvent-elles servir à entraîner le modèle ?",
     options: [
       "Non, jamais.",
@@ -2079,6 +2112,7 @@ export const SECURITE_LIMITES: QuizQuestion[] = [
   },
   {
     id: "sec-4",
+    image: "/images/quiz/sec-4.jpg",
     prompt:
       "Au travail, peut-on coller des documents confidentiels dans une IA grand public ?",
     options: [
@@ -2093,6 +2127,7 @@ export const SECURITE_LIMITES: QuizQuestion[] = [
   },
   {
     id: "sec-5",
+    image: "/images/quiz/sec-5.jpg",
     prompt: "L'IA peut-elle être biaisée ?",
     options: [
       "Non, une machine est neutre.",
@@ -2106,6 +2141,7 @@ export const SECURITE_LIMITES: QuizQuestion[] = [
   },
   {
     id: "sec-6",
+    image: "/images/quiz/sec-6.jpg",
     prompt: "Des escrocs peuvent-ils utiliser l'IA pour des arnaques ?",
     options: [
       "Non, l'IA empêche les arnaques.",
@@ -2119,6 +2155,7 @@ export const SECURITE_LIMITES: QuizQuestion[] = [
   },
   {
     id: "sec-7",
+    image: "/images/quiz/sec-7.jpg",
     prompt: "Si l'IA cite une source ou un lien, faut-il le vérifier ?",
     options: [
       "Non, une source citée est forcément vraie.",
@@ -2132,6 +2169,7 @@ export const SECURITE_LIMITES: QuizQuestion[] = [
   },
   {
     id: "sec-8",
+    image: "/images/quiz/sec-8.jpg",
     prompt: "Quel est le risque de trop se reposer sur l'IA ?",
     options: [
       "Aucun risque.",
@@ -2145,6 +2183,7 @@ export const SECURITE_LIMITES: QuizQuestion[] = [
   },
   {
     id: "sec-9",
+    image: "/images/quiz/sec-9.jpg",
     prompt: "Une réponse longue et bien écrite de l'IA est-elle forcément exacte ?",
     options: [
       "Oui, la longueur prouve la qualité.",
@@ -2158,6 +2197,7 @@ export const SECURITE_LIMITES: QuizQuestion[] = [
   },
   {
     id: "sec-10",
+    image: "/images/quiz/sec-10.jpg",
     prompt: "Quelle est la bonne posture générale face à l'IA ?",
     options: [
       "Confiance aveugle.",

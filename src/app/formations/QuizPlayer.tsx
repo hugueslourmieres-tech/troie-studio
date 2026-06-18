@@ -23,6 +23,8 @@ export type QuizQuestion = {
   options: string[];
   correctIndex: number;
   explanation: string;
+  /** Visuel illustrant la question (photo CC duotone, ou logo d'app). */
+  image?: string;
 };
 
 export function QuizPlayer({
@@ -237,7 +239,29 @@ export function QuizPlayer({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h3 className="t-display mt-10 text-2xl text-[var(--fg)] md:text-4xl">
+          {current.image && (
+            <div className="relative mt-8 aspect-[16/6] overflow-hidden rounded-sm bg-[#1a0f08]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={current.image}
+                alt=""
+                aria-hidden="true"
+                className="h-full w-full object-cover"
+                style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
+                loading="lazy"
+              />
+              {/* Duotone orange : multiply de l'accent sur le N&B */}
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-[var(--accent)] opacity-55 mix-blend-multiply"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-[#1a0f08]/55 to-transparent"
+              />
+            </div>
+          )}
+          <h3 className="t-display mt-8 text-2xl text-[var(--fg)] md:text-4xl">
             {current.prompt}
           </h3>
 
