@@ -8,6 +8,7 @@ import {
   MOCK_MODULES,
 } from "@/lib/mock-data";
 import { TrophyIcon } from "./TrophyIcon";
+import { STARTER_QUIZZES } from "../quizzes";
 
 export const metadata = {
   title: "Vue d'ensemble · Espace membre TROIE",
@@ -52,6 +53,59 @@ export default async function DashboardOverview() {
           Voici où vous en êtes. Reprenez là où vous vous êtes
           arrêté ou explorez les trophées à débloquer.
         </p>
+      </section>
+
+      {/* Vos QCM gratuits, image duotone + picto, cliquables */}
+      <section>
+        <div className="flex items-baseline justify-between">
+          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Vos QCM · débloqués
+          </p>
+          <Link
+            href="/formations/quiz"
+            className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 hover:text-[var(--accent)]"
+          >
+            Voir tout →
+          </Link>
+        </div>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
+          {STARTER_QUIZZES.map((q) => (
+            <Link
+              key={q.slug}
+              href={`/formations/quiz/${q.slug}`}
+              className="group flex flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
+            >
+              <div className="relative aspect-[16/9] overflow-hidden bg-[#1a0f08]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={q.cover}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
+                  loading="lazy"
+                />
+                <div aria-hidden="true" className="absolute inset-0 bg-[var(--accent)] opacity-55 mix-blend-multiply" />
+                <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#1a0f08]/70">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-[#f6ead4]" aria-hidden="true">
+                    <path d={q.icon} />
+                  </svg>
+                </div>
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="t-display text-lg text-[var(--fg)] md:text-xl">
+                  {q.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-[var(--fg-2)] md:text-sm">
+                  {q.tagline}
+                </p>
+                <span className="mt-auto pt-4 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                  Lancer →
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* Continue where left off */}

@@ -40,6 +40,8 @@ export type Quiz = {
   questions: QuizQuestion[];
   /** Pictogramme (path SVG Lucide-style, viewBox 0 0 24 24). */
   icon: string;
+  /** Image de couverture (photo CC, rendue en duotone orange). */
+  cover: string;
   /** Aperçu d'un parcours payant : le QCM est un teaser. */
   locked?: boolean;
   /** CTA de fin de quiz (sinon, défaut générique). */
@@ -51,6 +53,7 @@ export const QUIZZES: Quiz[] = [
   /* ── 4 QCM STARTER (perso, gratuits, dès l'inscription) ── */
   {
     slug: "comprendre-ia",
+    cover: "/images/quiz/ci-3.jpg",
     icon: "M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6M10 22h4",
     title: "Comprendre l'IA",
     tagline: "Les bases, sans jargon",
@@ -66,6 +69,7 @@ export const QUIZZES: Quiz[] = [
   },
   {
     slug: "ia-en-famille",
+    cover: "/images/quiz/fam-1.jpg",
     icon: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M13 7a4 4 0 1 0-8 0 4 4 0 0 0 8 0M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75",
     title: "L'IA en famille",
     tagline: "Parents & enfants",
@@ -81,6 +85,7 @@ export const QUIZZES: Quiz[] = [
   },
   {
     slug: "outils-au-quotidien",
+    cover: "/images/quiz/out-2.jpg",
     icon: "m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z",
     title: "Bien utiliser les outils",
     tagline: "ChatGPT, Claude, Gemini",
@@ -96,6 +101,7 @@ export const QUIZZES: Quiz[] = [
   },
   {
     slug: "limites-securite",
+    cover: "/images/quiz/sec-1.jpg",
     icon: "M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4",
     title: "Limites & sécurité",
     tagline: "Vérifier, protéger, garder l'esprit critique",
@@ -113,6 +119,7 @@ export const QUIZZES: Quiz[] = [
   /* ── Pour aller plus loin (perso) ── */
   {
     slug: "theorie-llm",
+    cover: "/images/quiz/ci-1.jpg",
     icon: "M12 2a4.5 4.5 0 0 0-4.5 4.5v.5A3.5 3.5 0 0 0 5 10.5 3.5 3.5 0 0 0 7 14a3.5 3.5 0 0 0 .5 5 3.5 3.5 0 0 0 4.5 1.5M12 2a4.5 4.5 0 0 1 4.5 4.5v.5A3.5 3.5 0 0 1 19 10.5 3.5 3.5 0 0 1 17 14a3.5 3.5 0 0 1-.5 5 3.5 3.5 0 0 1-4.5 1.5M12 2v18.5",
     title: "Théorie des LLM",
     tagline: "Sous le capot",
@@ -130,6 +137,7 @@ export const QUIZZES: Quiz[] = [
   /* ── PRO : aperçus des parcours payants ── */
   {
     slug: "prompting-pro",
+    cover: "/images/quiz/ci-7.jpg",
     icon: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M16 7a4 4 0 1 0-8 0 4 4 0 0 0 8 0",
     title: "Prompting pro",
     tagline: "Parcours 01 · aperçu",
@@ -148,6 +156,7 @@ export const QUIZZES: Quiz[] = [
   },
   {
     slug: "agents-automatisation",
+    cover: "/images/quiz/sec-3.jpg",
     icon: "m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83zM2 12.18a1 1 0 0 0 .6.91l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.92M2 17.18a1 1 0 0 0 .6.91l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.92",
     title: "Agents & automatisation",
     tagline: "Parcours 02 · aperçu",
