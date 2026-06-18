@@ -1014,24 +1014,32 @@ export default function IaLandingPage() {
                 className="group relative block bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--accent)] md:p-8"
               >
                 {/* Gravure Tempesta 1608, MET, domaine public.
-                    Voile sombre noir/marron + picto orange centré au-dessus. */}
-                <div className="relative -mx-6 -mt-6 mb-6 aspect-[3/2] overflow-hidden bg-[#1a0f08] md:-mx-8 md:-mt-8 md:mb-8">
+                    Voile noir/marron très léger pour laisser respirer la gravure
+                    + picto orange centré avec halo sombre derrière pour la lisibilité. */}
+                <div className="relative -mx-6 -mt-6 mb-6 aspect-[3/2] overflow-hidden bg-[#15100b] md:-mx-8 md:-mt-8 md:mb-8">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={task.image}
                     alt={`${task.labor}, gravure d'Antonio Tempesta, 1608`}
                     className="h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-[1.05]"
                     style={{
-                      filter: "grayscale(1) contrast(1.15) brightness(0.55) sepia(0.35)",
-                      mixBlendMode: "multiply",
+                      filter: "grayscale(1) contrast(1.05) brightness(0.92) sepia(0.18)",
                     }}
                     loading="lazy"
                   />
-                  {/* Voile sombre noir → marron pour ancrer le picto orange */}
+                  {/* Voile très subtil noir → brun (la gravure reste lisible) */}
                   <div
-                    className="absolute inset-0 bg-gradient-to-br from-[#0a0807]/70 via-[#2d1a0d]/55 to-[#1a0a05]/75 transition-opacity duration-500 group-hover:opacity-80"
+                    className="absolute inset-0 bg-gradient-to-br from-[#0a0807]/25 via-[#2d1a0d]/10 to-[#1a0a05]/30 transition-opacity duration-500"
                     aria-hidden="true"
                   />
+                  {/* Halo sombre radial centré derrière le picto pour qu'il reste lisible
+                      même sur les zones claires de la gravure */}
+                  <div
+                    className="pointer-events-none absolute inset-0 flex items-center justify-center"
+                    aria-hidden="true"
+                  >
+                    <div className="h-32 w-32 rounded-full bg-radial-gradient bg-[radial-gradient(circle,_rgba(10,8,7,0.62)_0%,_rgba(10,8,7,0.35)_45%,_transparent_75%)] md:h-36 md:w-36" />
+                  </div>
                   {/* Picto orange centré */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <svg
@@ -1041,7 +1049,7 @@ export default function IaLandingPage() {
                       strokeWidth="1.3"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="h-14 w-14 text-[var(--accent)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:scale-110 md:h-16 md:w-16"
+                      className="h-14 w-14 text-[var(--accent)] drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] transition-transform duration-500 group-hover:scale-110 md:h-16 md:w-16"
                       aria-hidden="true"
                     >
                       <path d={task.icon} />
