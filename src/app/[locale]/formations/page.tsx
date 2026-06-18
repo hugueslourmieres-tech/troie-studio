@@ -93,11 +93,7 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
         "@type": "Service",
         name: t("metaTitle"),
         description: t("metaDescription"),
-        provider: {
-          "@type": "Organization",
-          name: "TROIE Atelier Digital",
-          url: SITE,
-        },
+        provider: { "@id": "https://troiestudio.fr/#organization" },
         areaServed: "FR",
         serviceType: "AI training",
       },
@@ -105,11 +101,7 @@ function FormationsView({ locale, lang }: { locale: string; lang: "fr" | "en" })
         "@type": "Course",
         name: p.title[lang],
         description: p.objective[lang],
-        provider: {
-          "@type": "Organization",
-          name: "TROIE Atelier Digital",
-          url: SITE,
-        },
+        provider: { "@id": "https://troiestudio.fr/#organization" },
         timeRequired: p.duration[lang],
         educationalLevel:
           p.slug === "decouverte"

@@ -93,11 +93,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
         "@type": "Service",
         name: t("metaTitle"),
         description: t("metaDescription"),
-        provider: {
-          "@type": "Organization",
-          name: "TROIE Atelier Digital",
-          url: SITE,
-        },
+        provider: { "@id": "https://troiestudio.fr/#organization" },
         areaServed: "FR",
         serviceType: "AI agent deployment",
       },
@@ -105,11 +101,7 @@ function AgentsView({ locale, lang }: { locale: string; lang: "fr" | "en" }) {
         "@type": "Product",
         name: `${a.name[lang]}, ${a.title[lang]}`,
         description: a.mission[lang],
-        brand: {
-          "@type": "Organization",
-          name: "TROIE Atelier Digital",
-          url: SITE,
-        },
+        brand: { "@id": "https://troiestudio.fr/#organization" },
         url: `${SITE}/${locale}/agents#${a.slug}`,
         category: "AI Agent",
         offers: {
