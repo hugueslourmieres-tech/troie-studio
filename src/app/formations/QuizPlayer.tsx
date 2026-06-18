@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
 /**
  * QuizPlayer, moteur de QCM pour les Modules de formation TROIE.
@@ -30,12 +30,26 @@ export function QuizPlayer({
   passThreshold = 0.7,
   unlockCode = "TROIE-START",
   captureEmail = true,
+  showPromo = true,
+  passTitle = "Bien joué.",
+  passBody = "Vous comprenez les fondations. C'est le bon moment pour passer au Cours 01 et apprendre à équiper votre premier héros IA.",
+  failBody = "Proche. La notion mérite une seconde lecture. Refaites le quiz ou démarrez direct le Cours 01 : on revoit chaque point en profondeur, avec des exemples concrets.",
+  ctaHref = "/formations/cours-01",
+  ctaLabel = "Voir le Cours 01",
 }: {
   questions: QuizQuestion[];
   passThreshold?: number;
   unlockCode?: string;
   /** Si vrai, demandé l'email avant de devoiler le code promo / contenu suivant. */
   captureEmail?: boolean;
+  /** Si vrai, propose le bloc code promo / email (cas Module 0). Sinon écran de résultat simple. */
+  showPromo?: boolean;
+  /** Copie de l'écran final, personnalisable par QCM. */
+  passTitle?: string;
+  passBody?: string;
+  failBody?: string;
+  ctaHref?: string;
+  ctaLabel?: string;
 }) {
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -71,6 +85,12 @@ export function QuizPlayer({
     setFinished(false);
   };
 
+  // Filet de sécurité : si l'index dépasse la dernière question (double-clic
+  // ultra-rapide), on bascule sur l'écran de résultat au lieu de rendre du vide.
+  useEffect(() => {
+    if (!finished && index >= total) setFinished(true);
+  }, [index, total, finished]);
+
   // ── Écran final ──────────────────────────────────────────────────
   if (finished) {
     const pct = score / total;
@@ -90,13 +110,11 @@ export function QuizPlayer({
         {passed ? (
           <>
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-              <strong className="text-[var(--fg)]">Bien joue.</strong>{" "}
-              Vous comprenez les fondations. C'est le bon moment pour
-              passer au Cours 01 et apprendre a équiper votre premier
-              heros IA.
+              <strong className="text-[var(--fg)]">{passTitle}</strong>{" "}
+              {passBody}
             </p>
 
-            {captureEmail && !emailSubmitted ? (
+            {showPromo && (captureEmail && !emailSubmitted ? (
               <div className="mt-8 rounded-sm border border-[var(--accent)] bg-[var(--bg)] p-6 md:p-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
                   Recevez votre code promo
@@ -153,23 +171,21 @@ export function QuizPlayer({
                   </p>
                 )}
               </div>
-            )}
+            ))}
           </>
         ) : (
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            <strong className="text-[var(--fg)]">Proche.</strong>{" "}
-            La théorie LLM mérite une seconde lecture. Refaites le
-            quiz ou démarrez direct le Cours 01 : on revoit chaque
-            notion en profondeur, avec exemples concrets.
+            <strong className="text-[var(--fg)]">Presque.</strong>{" "}
+            {failBody}
           </p>
         )}
 
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
           <a
-            href="/formations/cours-01"
+            href={ctaHref}
             className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
           >
-            Voir le Cours 01
+            {ctaLabel}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </a>
           <button
@@ -186,6 +202,10 @@ export function QuizPlayer({
   }
 
   // ── Écran question ──────────────────────────────────────────────
+  // Garde-fou : si l'index sort des bornes (double-clic rapide), on ne
+  // rend rien pour cette frame plutôt que de crasher sur current.prompt.
+  if (!current) return null;
+
   return (
     <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg)] p-8 md:p-12">
       <div className="flex items-center justify-between">
@@ -207,12 +227,14 @@ export function QuizPlayer({
         />
       </div>
 
-      <AnimatePresence mode="wait">
+      {/* motion.div keyé (entrée seule). Pas d'AnimatePresence mode="wait" :
+          avec cette version de motion + React 19, l'animation de sortie pouvait
+          rester bloquée et figer le contenu sur la question précédente. */}
+      <div>
         <motion.div
           key={current.id}
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
           <h3 className="t-display mt-10 text-2xl text-[var(--fg)] md:text-4xl">
@@ -281,7 +303,7 @@ export function QuizPlayer({
             </motion.div>
           )}
         </motion.div>
-      </AnimatePresence>
+      </div>
     </div>
   );
 }

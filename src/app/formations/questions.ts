@@ -1623,3 +1623,550 @@ export const COURSE_02_FULL: QuizQuestion[] = [
       "Discipline ops : un kill switch dispo à tout moment (toggle dans votre admin), rollback vers la dernière version qui marchait, lecture des logs pour trouver la cause, post-mortem documenté pour éviter la rechute.",
   },
 ];
+
+/* ─────────────────────────────────────────────────────────────────────
+   QCM STARTERS, disponibles dès la création de compte (gratuits).
+   Côté PERSO, accessibles à tout public. ~10 questions chacun.
+   - COMPRENDRE_IA : c'est quoi, comment ça marche, ce que ça sait faire.
+   - IA_EN_FAMILLE : parents & enfants, limites, sécurité, esprit critique.
+   - OUTILS_QUOTIDIEN : bien utiliser ChatGPT / Claude / Gemini au quotidien.
+   - SECURITE_LIMITES : hallucinations, données perso, arnaques, vérification.
+   ───────────────────────────────────────────────────────────────────── */
+
+export const COMPRENDRE_IA: QuizQuestion[] = [
+  {
+    id: "ci-1",
+    prompt:
+      "En une phrase, comment fonctionne un outil comme ChatGPT, Claude ou Gemini ?",
+    options: [
+      "Il cherche la réponse sur Google en temps réel.",
+      "Il prédit, mot après mot, la suite la plus probable à partir de tout ce qu'il a lu.",
+      "Il réfléchit exactement comme un cerveau humain.",
+      "Il copie-colle une réponse stockée dans une base de données.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Ces outils sont des modèles de langage : ils génèrent du texte en prédisant le mot suivant le plus probable, appris sur d'énormes quantités de textes. Ils ne 'savent' pas, ils calculent des probabilités.",
+  },
+  {
+    id: "ci-2",
+    prompt: "À partir de quoi une IA a-t-elle appris ?",
+    options: [
+      "De textes, livres et sites web publiés jusqu'à une certaine date.",
+      "De la pensée de ses créateurs uniquement.",
+      "De vos conversations privées en direct.",
+      "De rien : elle invente tout au hasard.",
+    ],
+    correctIndex: 0,
+    explanation:
+      "Un modèle est entraîné sur d'immenses corpus de textes existants jusqu'à une date donnée, sa date de coupure. Il ne connaît donc pas, par défaut, les événements postérieurs.",
+  },
+  {
+    id: "ci-3",
+    prompt: "Une IA peut-elle se tromper tout en ayant l'air sûre d'elle ?",
+    options: [
+      "Non, si elle répond avec assurance, c'est forcément vrai.",
+      "Oui : elle peut inventer une réponse fausse avec un ton parfaitement confiant.",
+      "Seulement si on lui pose une question piège.",
+      "Non, elle dit toujours quand elle ne sait pas.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "C'est ce qu'on appelle une hallucination : le modèle produit une réponse plausible mais fausse, sans le signaler. Le ton assuré n'est jamais une preuve d'exactitude.",
+  },
+  {
+    id: "ci-4",
+    prompt: "Par défaut, un chatbot IA a-t-il accès à Internet en direct ?",
+    options: [
+      "Oui, toujours, il est connecté en permanence.",
+      "Pas forcément : beaucoup répondent de mémoire, sauf si une option de recherche web est activée.",
+      "Non, aucun outil ne peut chercher sur le web.",
+      "Seulement la nuit.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Certains outils peuvent chercher sur le web quand l'option est activée, mais par défaut beaucoup répondent à partir de leur entraînement. D'où des réponses parfois datées.",
+  },
+  {
+    id: "ci-5",
+    prompt: "Pourquoi deux réponses à la même question peuvent-elles différer ?",
+    options: [
+      "Parce que l'IA change d'avis comme un humain.",
+      "Parce que la génération a une part d'aléatoire : le modèle pioche parmi des suites probables.",
+      "Parce qu'elle se trompe exprès.",
+      "C'est impossible, la réponse est toujours identique.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "La génération inclut une part de hasard (la température). Deux essais peuvent donc produire des formulations différentes, voire des contenus différents.",
+  },
+  {
+    id: "ci-6",
+    prompt: "Une IA ressent-elle des émotions ou a-t-elle une conscience ?",
+    options: [
+      "Oui, elle est triste quand on est méchant avec elle.",
+      "Non : elle simule le langage des émotions sans rien ressentir.",
+      "Oui, comme un animal de compagnie.",
+      "Elle dort la nuit pour récupérer.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Une IA n'a ni conscience ni émotions. Elle peut écrire 'je comprends ce que vous ressentez', mais c'est une imitation statistique du langage, pas un vécu.",
+  },
+  {
+    id: "ci-7",
+    prompt: "Pour quel type de tâche l'IA est-elle la plus fiable ?",
+    options: [
+      "Donner l'heure exacte ou la météo de demain.",
+      "Reformuler, résumer, traduire ou brainstormer à partir d'un texte que vous fournissez.",
+      "Prédire les numéros du loto.",
+      "Remplacer un avis médical.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "L'IA excelle sur le langage : reformulation, résumé, traduction, idéation. Pour les faits précis, les chiffres ou les décisions sensibles, il faut toujours vérifier.",
+  },
+  {
+    id: "ci-8",
+    prompt: "Que veut dire la 'date de coupure' (knowledge cutoff) d'un modèle ?",
+    options: [
+      "L'heure à laquelle il s'éteint.",
+      "La date après laquelle il n'a plus appris d'informations nouvelles.",
+      "La date d'expiration de votre abonnement.",
+      "La durée maximum d'une conversation.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Le modèle a été entraîné jusqu'à une certaine date. Sans recherche web, il ignore ce qui s'est passé après, et peut l'inventer si on insiste.",
+  },
+  {
+    id: "ci-9",
+    prompt: "Plus on donne de contexte clair à l'IA, plus la réponse est...",
+    options: [
+      "Lente et inutile.",
+      "Précise et utile.",
+      "Aléatoire.",
+      "Chère.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "L'IA n'a que ce que vous lui donnez. Un objectif clair, le contexte, le format attendu et un exemple améliorent énormément la qualité de la réponse.",
+  },
+  {
+    id: "ci-10",
+    prompt:
+      "Faut-il croire un chiffre, une date ou une citation donnés par l'IA sans vérifier ?",
+    options: [
+      "Oui, c'est une machine, donc c'est exact.",
+      "Non : il faut vérifier les faits précis à une source fiable.",
+      "Seulement si la réponse est longue.",
+      "Oui, sauf le week-end.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Les faits précis (chiffres, dates, citations, références) sont justement ce que l'IA invente le plus facilement. On vérifie toujours à une source fiable.",
+  },
+];
+
+export const IA_EN_FAMILLE: QuizQuestion[] = [
+  {
+    id: "fam-1",
+    prompt:
+      "À partir de quel âge peut-on en général créer un compte sur les principaux outils IA ?",
+    options: [
+      "Dès la naissance.",
+      "Souvent 13 ans minimum, et avec l'accord d'un parent avant 18 ans.",
+      "Aucune limite, c'est pour tout le monde.",
+      "Seulement à 21 ans.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "La plupart des services fixent un âge minimum (souvent 13 ans) et demandent l'accord d'un parent pour les mineurs. On vérifie les conditions de chaque outil en famille.",
+  },
+  {
+    id: "fam-2",
+    prompt: "Quelle information ne faut-il jamais donner à un chatbot ?",
+    options: [
+      "Sa couleur préférée.",
+      "Son nom complet, son adresse, son école, son numéro ou ses photos.",
+      "Le sujet d'un exposé.",
+      "Une question de maths.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "On ne partage jamais d'informations personnelles identifiantes (nom, adresse, école, téléphone, photos) avec une IA. Ces données peuvent être conservées et ne sont pas privées.",
+  },
+  {
+    id: "fam-3",
+    prompt: "Un enfant peut-il considérer un chatbot comme un véritable ami ou un psy ?",
+    options: [
+      "Oui, c'est un ami fidèle.",
+      "Non : c'est un programme qui imite la conversation, pas un ami ni un professionnel de santé.",
+      "Oui, il connaît tous nos secrets.",
+      "Seulement s'il est gentil.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Un chatbot imite l'empathie mais ne ressent rien et n'est pas qualifié. Pour un souci personnel ou de santé, on parle à un adulte de confiance ou à un professionnel.",
+  },
+  {
+    id: "fam-4",
+    prompt: "L'IA peut-elle inventer une réponse fausse à un devoir ?",
+    options: [
+      "Non, elle a toujours raison pour l'école.",
+      "Oui : elle peut donner une date, une formule ou un fait inexacts avec assurance.",
+      "Seulement en histoire.",
+      "Jamais en sciences.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "L'IA se trompe régulièrement, y compris sur des devoirs. On vérifie avec son cours, un manuel ou un adulte. C'est un assistant, pas une source de vérité.",
+  },
+  {
+    id: "fam-5",
+    prompt: "Quelle est la bonne façon d'utiliser l'IA pour un devoir ?",
+    options: [
+      "Copier-coller sa réponse et la rendre telle quelle.",
+      "S'en servir pour comprendre, s'entraîner et se faire expliquer, puis écrire soi-même.",
+      "Lui faire passer les examens à sa place.",
+      "Ne jamais relire.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Bien utilisée, l'IA aide à comprendre et à s'entraîner (exemples, explications, quiz). Rendre une réponse copiée n'apprend rien et est souvent considéré comme de la triche.",
+  },
+  {
+    id: "fam-6",
+    prompt: "Qu'est-ce qu'un 'deepfake' ?",
+    options: [
+      "Un jeu vidéo.",
+      "Une image, une voix ou une vidéo truquée par IA pour faire croire à quelque chose de faux.",
+      "Un nouveau réseau social.",
+      "Un type de mot de passe.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Les IA peuvent fabriquer de fausses photos, voix ou vidéos très réalistes. On apprend à douter d'un contenu surprenant et à vérifier la source avant de le croire ou de le partager.",
+  },
+  {
+    id: "fam-7",
+    prompt: "Un chatbot peut-il parfois produire un contenu choquant ou inadapté ?",
+    options: [
+      "Non, c'est impossible.",
+      "Oui, cela peut arriver : la supervision d'un parent et les modes adaptés sont importants.",
+      "Seulement si on le demande poliment.",
+      "Jamais sur Internet.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Malgré les filtres, un contenu inadapté peut passer. Mieux vaut un usage accompagné, des comptes adaptés à l'âge, et un dialogue ouvert pour signaler ce qui met mal à l'aise.",
+  },
+  {
+    id: "fam-8",
+    prompt: "Les conversations avec une IA sont-elles totalement privées ?",
+    options: [
+      "Oui, personne ne les voit jamais.",
+      "Pas forcément : elles peuvent être conservées et parfois utilisées pour améliorer le service.",
+      "Elles s'effacent toutes seules en 10 secondes.",
+      "Elles sont chiffrées dans votre cerveau.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Selon les réglages, les conversations peuvent être stockées et servir à entraîner les modèles. On évite d'y mettre des informations sensibles et on règle la confidentialité ensemble.",
+  },
+  {
+    id: "fam-9",
+    prompt: "Que faire si l'IA dit quelque chose de bizarre, faux ou dérangeant ?",
+    options: [
+      "Le croire et le partager vite.",
+      "En parler à un adulte de confiance et vérifier l'information.",
+      "Refaire exactement la même chose.",
+      "Le garder secret.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Comme sur tout Internet, on garde son esprit critique. Face à un contenu faux ou dérangeant, on en parle à un adulte de confiance et on vérifie avant de croire ou de diffuser.",
+  },
+  {
+    id: "fam-10",
+    prompt: "Quelle est la meilleure règle 'famille' pour utiliser l'IA sereinement ?",
+    options: [
+      "Chacun dans son coin, sans en parler.",
+      "En parler ensemble : ce qu'on partage, ce qu'on vérifie, et le temps d'écran.",
+      "Tout interdire sans explication.",
+      "Tout autoriser sans aucune limite.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Le meilleur garde-fou n'est ni l'interdiction ni le tout permis, mais le dialogue : des règles claires sur les données partagées, la vérification et le temps d'usage.",
+  },
+];
+
+export const OUTILS_QUOTIDIEN: QuizQuestion[] = [
+  {
+    id: "out-1",
+    prompt: "Pour traduire un email ou résumer un long texte, l'IA est...",
+    options: [
+      "Inutile.",
+      "Très adaptée, c'est exactement son point fort.",
+      "Interdite.",
+      "Réservée aux experts.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Traduction, résumé, reformulation, correction : ce sont des tâches de langage où l'IA est rapide et fiable, à condition de relire le résultat.",
+  },
+  {
+    id: "out-2",
+    prompt: "Quelle demande donnera la meilleure réponse ?",
+    options: [
+      "'Écris un texte.'",
+      "'Rédige un email poli de 5 lignes pour décaler un rendez-vous à jeudi, ton amical.'",
+      "'Fais un truc bien.'",
+      "'Réponds.'",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Plus la demande est précise (objectif, longueur, ton, contexte), meilleure est la réponse. On indique qui, quoi, pour qui et sous quel format.",
+  },
+  {
+    id: "out-3",
+    prompt: "Si la première réponse ne convient pas, que faire ?",
+    options: [
+      "Abandonner.",
+      "Affiner : demander plus court, plus simple, un autre ton ou un exemple.",
+      "Recommencer un nouveau compte.",
+      "S'énerver contre l'IA.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "L'IA est itérative : on dialogue. 'Plus court', 'plus formel', 'donne 3 variantes', 'ajoute un exemple'. C'est en affinant qu'on obtient le bon résultat.",
+  },
+  {
+    id: "out-4",
+    prompt:
+      "Pour une décision médicale, juridique ou financière importante, l'IA doit servir à...",
+    options: [
+      "Décider à votre place.",
+      "Dégrossir le sujet et préparer vos questions, puis consulter un professionnel.",
+      "Remplacer le médecin ou l'avocat.",
+      "Signer les documents.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "L'IA peut expliquer et aider à préparer, mais ne remplace pas un professionnel. Pour une décision sensible, on valide toujours avec une personne qualifiée.",
+  },
+  {
+    id: "out-5",
+    prompt: "Donner un exemple de ce que l'on attend à l'IA, ça sert à quoi ?",
+    options: [
+      "À rien.",
+      "À la guider : un bon exemple vaut mieux qu'une longue explication.",
+      "À la ralentir.",
+      "À la dérégler.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Montrer un exemple du résultat voulu (un mail type, un format) oriente l'IA bien plus efficacement qu'une consigne abstraite. C'est l'astuce la plus rentable.",
+  },
+  {
+    id: "out-6",
+    prompt: "Les versions gratuites des outils IA suffisent-elles pour débuter ?",
+    options: [
+      "Non, il faut payer tout de suite.",
+      "Oui, pour découvrir et pour l'usage courant, elles suffisent souvent.",
+      "Elles ne marchent pas.",
+      "Elles sont réservées aux entreprises.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Les offres gratuites permettent déjà beaucoup. Les versions payantes apportent des modèles plus puissants et des options avancées, utiles quand le besoin grandit.",
+  },
+  {
+    id: "out-7",
+    prompt: "Beaucoup d'outils acceptent aujourd'hui...",
+    options: [
+      "Uniquement du texte tapé.",
+      "Aussi des images, des fichiers (PDF) et parfois la voix.",
+      "Seulement des emojis.",
+      "Rien du tout.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Les outils modernes sont multimodaux : on peut leur soumettre une photo, un PDF, parfois parler à l'oral. Cela élargit beaucoup les usages du quotidien.",
+  },
+  {
+    id: "out-8",
+    prompt: "Quel est un bon réflexe avant d'utiliser une réponse importante de l'IA ?",
+    options: [
+      "La publier sans la lire.",
+      "La relire et vérifier les faits clés.",
+      "La traduire 5 fois.",
+      "L'imprimer en double.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "On relit toujours : ton, exactitude, faits. L'IA propose un brouillon de qualité, mais la responsabilité du contenu final reste la vôtre.",
+  },
+  {
+    id: "out-9",
+    prompt: "Pour organiser une semaine ou un repas, l'IA peut...",
+    options: [
+      "Ne rien faire d'utile.",
+      "Proposer un planning, une liste de courses, des idées de menus à ajuster.",
+      "Cuisiner à votre place.",
+      "Faire les courses elle-même.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Planning, listes, idées de menus, organisation : l'IA est un excellent assistant du quotidien pour structurer et gagner du temps, à vous d'ajuster.",
+  },
+  {
+    id: "out-10",
+    prompt: "Quel outil choisir entre ChatGPT, Claude et Gemini ?",
+    options: [
+      "Un seul est autorisé.",
+      "Celui qui vous convient : tous savent rédiger, résumer et expliquer ; on teste et on compare.",
+      "Aucun n'est utile.",
+      "Le plus cher, forcément.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Ces outils se ressemblent dans les usages courants. Le mieux est d'en tester quelques-uns sur vos tâches réelles et de garder celui dont le style vous convient.",
+  },
+];
+
+export const SECURITE_LIMITES: QuizQuestion[] = [
+  {
+    id: "sec-1",
+    prompt: "Qu'est-ce qu'une 'hallucination' d'IA ?",
+    options: [
+      "Un bug d'affichage.",
+      "Une réponse inventée mais présentée comme vraie.",
+      "Un virus informatique.",
+      "Une option payante.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Une hallucination, c'est quand l'IA produit une information fausse (fait, source, chiffre) avec assurance. C'est sa limite la plus importante à connaître.",
+  },
+  {
+    id: "sec-2",
+    prompt:
+      "Faut-il copier un mot de passe, un numéro de carte ou une pièce d'identité dans un chatbot ?",
+    options: [
+      "Oui, c'est pratique.",
+      "Non, jamais : ce sont des données sensibles à ne pas confier à une IA.",
+      "Seulement le code de carte.",
+      "Oui si la conversation est longue.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "On ne saisit jamais d'identifiants, de coordonnées bancaires ou de pièces d'identité. Ces données peuvent être conservées et exposées. Aucune saisie sensible, jamais.",
+  },
+  {
+    id: "sec-3",
+    prompt: "Les informations que vous tapez peuvent-elles servir à entraîner le modèle ?",
+    options: [
+      "Non, jamais.",
+      "Oui, selon les réglages : il existe souvent une option pour le désactiver.",
+      "Seulement les questions de maths.",
+      "Uniquement en entreprise.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Par défaut, certains services peuvent utiliser vos échanges pour s'améliorer. On vérifie les paramètres de confidentialité et on active l'option de non-utilisation si besoin.",
+  },
+  {
+    id: "sec-4",
+    prompt:
+      "Au travail, peut-on coller des documents confidentiels dans une IA grand public ?",
+    options: [
+      "Oui, sans souci.",
+      "Non, sauf outil validé : on protège les données clients et internes.",
+      "Seulement le vendredi.",
+      "Oui si c'est urgent.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Coller des données confidentielles dans un outil grand public peut violer la confidentialité et le RGPD. On utilise les outils validés par l'entreprise et on anonymise si besoin.",
+  },
+  {
+    id: "sec-5",
+    prompt: "L'IA peut-elle être biaisée ?",
+    options: [
+      "Non, une machine est neutre.",
+      "Oui : elle reflète les biais présents dans ses données d'entraînement.",
+      "Seulement si on le demande.",
+      "Jamais en français.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Apprise sur des textes humains, l'IA peut reproduire des stéréotypes ou des biais. On garde un regard critique, surtout sur des sujets sensibles ou concernant des personnes.",
+  },
+  {
+    id: "sec-6",
+    prompt: "Des escrocs peuvent-ils utiliser l'IA pour des arnaques ?",
+    options: [
+      "Non, l'IA empêche les arnaques.",
+      "Oui : faux emails crédibles, imitation de voix, faux sites. La vigilance reste essentielle.",
+      "Seulement par courrier postal.",
+      "Jamais.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "L'IA rend les arnaques plus crédibles (phishing, voix clonée). On vérifie l'expéditeur, on ne clique pas sur les liens douteux et on recontacte par un canal officiel en cas de doute.",
+  },
+  {
+    id: "sec-7",
+    prompt: "Si l'IA cite une source ou un lien, faut-il le vérifier ?",
+    options: [
+      "Non, une source citée est forcément vraie.",
+      "Oui : l'IA peut inventer des références ou des liens qui n'existent pas.",
+      "Seulement les liens en anglais.",
+      "Jamais les dates.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Les fausses références (livres, articles, URL inexistants) sont un grand classique des hallucinations. On ouvre et on vérifie chaque source avant de s'y fier.",
+  },
+  {
+    id: "sec-8",
+    prompt: "Quel est le risque de trop se reposer sur l'IA ?",
+    options: [
+      "Aucun risque.",
+      "Perdre son esprit critique et accepter des erreurs sans les voir.",
+      "Devenir trop intelligent.",
+      "Économiser trop de temps.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "La sur-confiance est un piège : on valide sans réfléchir. L'IA est un assistant, la décision et la vérification restent humaines. On garde la main.",
+  },
+  {
+    id: "sec-9",
+    prompt: "Une réponse longue et bien écrite de l'IA est-elle forcément exacte ?",
+    options: [
+      "Oui, la longueur prouve la qualité.",
+      "Non : une réponse fluide peut être totalement fausse.",
+      "Oui si elle a des titres.",
+      "Oui si elle est polie.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "La forme n'est pas le fond. L'IA écrit toujours bien, même quand elle se trompe. On juge l'exactitude par la vérification, pas par le style.",
+  },
+  {
+    id: "sec-10",
+    prompt: "Quelle est la bonne posture générale face à l'IA ?",
+    options: [
+      "Confiance aveugle.",
+      "Confiance utile mais vérifiée : on profite de l'outil tout en contrôlant les faits.",
+      "Rejet total.",
+      "Peur permanente.",
+    ],
+    correctIndex: 1,
+    explanation:
+      "Ni rejet, ni confiance aveugle. La bonne posture est une confiance vérifiée : exploiter la puissance de l'IA tout en gardant la vérification et le jugement de son côté.",
+  },
+];
