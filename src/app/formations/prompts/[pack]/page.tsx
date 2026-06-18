@@ -3,6 +3,7 @@ import Link from "next/link";
 import { EmblemBreak } from "@/components/EmblemBreak";
 import { PACKS } from "../data";
 import { FormationsFooter } from "@/components/FormationsFooter";
+import { JsonLd, ORG_ID } from "@/components/JsonLd";
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -89,8 +90,40 @@ export default async function PackDetailPage({ params }: { params: Params }) {
 
   const t = THEMES[pack.theme];
 
+  const url = `https://troiestudio.fr/formations/prompts/${pack.slug}`;
+  const productJsonLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "@id": `${url}#product`,
+        name: `${pack.title.replace(/\.$/, "")} — System Prompts`,
+        description: pack.body,
+        url,
+        category: "System prompts IA",
+        brand: { "@id": ORG_ID },
+        offers: {
+          "@type": "Offer",
+          price: "29",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+          url,
+          seller: { "@id": ORG_ID },
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Boutique de prompts", item: "https://troiestudio.fr/formations/prompts" },
+          { "@type": "ListItem", position: 2, name: pack.title, item: url },
+        ],
+      },
+    ],
+  };
+
   return (
     <article className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+      <JsonLd data={productJsonLd} />
       {/* Global FormationsHeader rendered via layout */}
       {/* HERO */}
       <section className="relative border-b border-[var(--rule)]">
