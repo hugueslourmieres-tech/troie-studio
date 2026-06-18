@@ -30,7 +30,7 @@ export async function Footer({ locale }: { locale: string }) {
                   href={`/${locale}#création`}
                   className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
-                  {tNav("création")}
+                  {tNav("creation")}
                 </Link>
               </li>
               <li>

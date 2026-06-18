@@ -4,14 +4,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
-import { useTranslations } from "next-intl";
 import { LangSwitch } from "./LangSwitch";
-
-type LinkItem = { href: string; label: string };
+import type { NavGroup } from "./Header";
 
 type Props = {
   locale: string;
-  links: LinkItem[];
+  groups: NavGroup[];
 };
 
 /**
@@ -25,10 +23,9 @@ type Props = {
  * z-[60] sits above the header. Background is hard-coded cream, no
  * variable, no opacity, so it cannot ever be tinted by parent tones.
  */
-export function MobileMenu({ locale, links }: Props) {
+export function MobileMenu({ locale, groups }: Props) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const t = useTranslations("nav");
 
   useEffect(() => {
     setMounted(true);
@@ -75,27 +72,39 @@ export function MobileMenu({ locale, links }: Props) {
             {/* Top hairline */}
             <div className="absolute inset-x-6 top-[88px] h-px bg-[var(--rule-strong)]" />
 
-            <ul className="flex-1 pt-2">
-              {links.map((l, i) => (
+            <ul className="flex-1 overflow-y-auto pt-2">
+              {groups.map((group, i) => (
                 <motion.li
-                  key={l.href}
+                  key={group.label}
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 12 }}
                   transition={{
                     duration: 0.5,
-                    delay: 0.12 + i * 0.05,
+                    delay: 0.12 + i * 0.06,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="border-b border-[var(--rule-strong)]"
+                  className="border-b border-[var(--rule-strong)] py-5"
                 >
-                  <Link
-                    href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="t-display block py-5 text-5xl text-[var(--fg)] transition hover:text-[var(--accent)] sm:text-6xl"
-                  >
-                    {l.label}
-                  </Link>
+                  <p className="t-display text-4xl text-[var(--fg)] sm:text-5xl">
+                    {group.label}
+                  </p>
+                  <ul className="mt-3 flex flex-col gap-2.5">
+                    {group.items.map((item) => (
+                      <li key={item.label}>
+                        <Link
+                          href={item.href}
+                          onClick={() => setOpen(false)}
+                          className="inline-flex items-baseline gap-2.5 font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                        >
+                          {item.meta && (
+                            <span className="text-[10px] text-[var(--accent)]">{item.meta}</span>
+                          )}
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
                 </motion.li>
               ))}
             </ul>
@@ -107,7 +116,7 @@ export function MobileMenu({ locale, links }: Props) {
               exit={{ opacity: 0 }}
               transition={{
                 duration: 0.45,
-                delay: 0.12 + links.length * 0.05 + 0.05,
+                delay: 0.12 + groups.length * 0.06 + 0.05,
                 ease: [0.16, 1, 0.3, 1],
               }}
               className="mt-8 flex flex-col gap-6 pt-8"
@@ -157,11 +166,15 @@ export function MobileMenu({ locale, links }: Props) {
               <div className="flex items-center justify-between border-t border-[var(--rule-strong)] pt-6">
                 <LangSwitch locale={locale} />
                 <Link
-                  href={`/${locale}/contact`}
+                  href="/formations/auth/sign-in"
                   onClick={() => setOpen(false)}
-                  className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:opacity-70"
+                  className="inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:opacity-70"
                 >
-                  {t("letsTalk")}
+                  <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="8" r="4" />
+                    <path d="M4 21c0-4 3.5-6 8-6s8 2 8 6" />
+                  </svg>
+                  Se connecter
                 </Link>
               </div>
             </motion.div>
