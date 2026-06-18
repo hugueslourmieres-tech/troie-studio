@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { playSound, setMuted, isMuted } from "./sounds";
 
 /**
  * QuizPlayer, moteur de QCM pour les Modules de formation TROIE.
@@ -59,23 +60,37 @@ export function QuizPlayer({
   const [finished, setFinished] = useState(false);
   const [email, setEmail] = useState("");
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  const [sound, setSound] = useState(true);
 
   const total = questions.length;
   const current = questions[index];
   const isAnswered = selected !== null;
   const isCorrect = selected === current?.correctIndex;
 
+  const toggleSound = () => {
+    const nextOn = isMuted();
+    setMuted(!nextOn);
+    setSound(nextOn);
+    if (nextOn) playSound("tick");
+  };
+
   const pick = (i: number) => {
     if (isAnswered) return;
+    playSound("select");
     setSelected(i);
-    if (i === current.correctIndex) setScore((s) => s + 1);
+    const correct = i === current.correctIndex;
+    if (correct) setScore((s) => s + 1);
+    // Petit délai pour que le son de résultat suive le clic.
+    window.setTimeout(() => playSound(correct ? "correct" : "wrong"), 110);
   };
 
   const next = () => {
     if (index + 1 < total) {
+      playSound("tick");
       setIndex((i) => i + 1);
       setSelected(null);
     } else {
+      playSound("finish");
       setFinished(true);
     }
   };
@@ -214,9 +229,29 @@ export function QuizPlayer({
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
           Question {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
         </p>
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-          Score : {score}
-        </span>
+        <div className="flex items-center gap-4">
+          <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
+            Score : {score}
+          </span>
+          <button
+            type="button"
+            onClick={toggleSound}
+            aria-label={sound ? "Couper le son" : "Activer le son"}
+            className="flex h-6 w-6 items-center justify-center text-[var(--fg-2)]/60 transition hover:text-[var(--accent)]"
+          >
+            {sound ? (
+              <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M11 5 6 9H2v6h4l5 4z" />
+                <path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M11 5 6 9H2v6h4l5 4z" />
+                <path d="m23 9-6 6M17 9l6 6" />
+              </svg>
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Progression */}
@@ -265,31 +300,18 @@ export function QuizPlayer({
             {current.prompt}
           </h3>
 
-          <ul className="mt-8 space-y-3">
-            {current.options.map((opt, i) => {
-              const isThis = selected === i;
-              const isThisCorrect = isAnswered && i === current.correctIndex;
-              const isThisWrong = isAnswered && isThis && !isCorrect;
-
-              let cls =
-                "w-full border border-[var(--rule)] bg-[var(--bg)] px-6 py-5 text-left text-[var(--fg)] transition-colors";
-              if (!isAnswered) {
-                cls += " hover:border-[var(--accent)] hover:text-[var(--accent)] cursor-pointer";
-              } else if (isThisCorrect) {
-                cls = "w-full border border-[var(--accent)] bg-[var(--accent)]/10 px-6 py-5 text-left text-[var(--fg)]";
-              } else if (isThisWrong) {
-                cls = "w-full border border-[var(--fg)]/40 bg-[var(--fg)]/5 px-6 py-5 text-left text-[var(--fg)]/65 line-through";
-              } else {
-                cls += " opacity-50";
-              }
-
-              return (
+          {/* Avant réponse : les 4 options. Après réponse : on réduit à la
+              bonne réponse (+ le choix erroné si besoin), pour ne pas avoir à
+              scroller chercher le bouton suivant. */}
+          {!isAnswered ? (
+            <ul className="mt-8 space-y-3">
+              {current.options.map((opt, i) => (
                 <li key={i}>
                   <button
                     type="button"
                     onClick={() => pick(i)}
-                    disabled={isAnswered}
-                    className={cls}
+                    onMouseEnter={() => playSound("hover")}
+                    className="w-full cursor-pointer border border-[var(--rule)] bg-[var(--bg)] px-6 py-5 text-left text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
                   >
                     <div className="flex items-start gap-4">
                       <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
@@ -299,31 +321,68 @@ export function QuizPlayer({
                     </div>
                   </button>
                 </li>
-              );
-            })}
-          </ul>
-
-          {isAnswered && (
+              ))}
+            </ul>
+          ) : (
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-8 border-t border-[var(--rule)] pt-6"
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 space-y-4"
             >
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                {isCorrect ? "Correct" : "Pas tout a fait"}
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                {current.explanation}
-              </p>
-              <button
-                type="button"
-                onClick={next}
-                className="group mt-8 inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+              {/* Choix erroné de l'utilisateur, rappelé en petit */}
+              {!isCorrect && selected !== null && (
+                <div className="flex items-center gap-4 border border-[var(--fg)]/25 bg-[var(--fg)]/5 px-6 py-4">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                    {String.fromCharCode(65 + selected)}
+                  </span>
+                  <span className="text-sm leading-relaxed text-[var(--fg-2)]/65 line-through md:text-base">
+                    {current.options[selected]}
+                  </span>
+                </div>
+              )}
+
+              {/* La bonne réponse, mise en avant + check animé */}
+              <motion.div
+                initial={{ scale: 0.97 }}
+                animate={{ scale: 1 }}
+                transition={{ type: "spring", stiffness: 320, damping: 18 }}
+                className="flex items-center gap-4 border border-[var(--accent)] bg-[var(--accent)]/10 px-6 py-5"
               >
-                {index + 1 < total ? "Question suivante" : "Voir le résultat"}
-                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-              </button>
+                <motion.span
+                  initial={{ scale: 0, rotate: -30 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ type: "spring", stiffness: 420, damping: 14, delay: 0.05 }}
+                  className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[var(--bg)]"
+                  aria-hidden="true"
+                >
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </motion.span>
+                <span className="text-sm leading-relaxed text-[var(--fg)] md:text-base">
+                  {current.options[current.correctIndex]}
+                </span>
+              </motion.div>
+
+              {/* Feedback + explication */}
+              <div className="border-t border-[var(--rule)] pt-5">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                  {isCorrect ? "Correct" : "Pas tout à fait"}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+                  {current.explanation}
+                </p>
+                <button
+                  type="button"
+                  onClick={next}
+                  onMouseEnter={() => playSound("hover")}
+                  className="group mt-6 inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                >
+                  {index + 1 < total ? "Question suivante" : "Voir le résultat"}
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                </button>
+              </div>
             </motion.div>
           )}
         </motion.div>
