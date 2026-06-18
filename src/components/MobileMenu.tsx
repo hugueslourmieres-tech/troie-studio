@@ -135,32 +135,6 @@ export function MobileMenu({ locale, groups }: Props) {
                     </svg>
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/hugueslourmieres/"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Instagram"
-                    className="flex h-9 w-9 items-center justify-center text-[var(--fg)] transition hover:text-[var(--accent)]"
-                  >
-                    <svg viewBox="0 0 24 24" className="h-[20px] w-[20px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <rect x="3" y="3" width="18" height="18" rx="5" />
-                      <circle cx="12" cy="12" r="4" />
-                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.behance.net/hugueslourmie3"
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Behance"
-                    className="flex h-9 w-9 items-center justify-center transition hover:opacity-70"
-                  >
-                    <img src="/images/brand/behance.png" alt="" className="h-[20px] w-auto" />
-                  </a>
-                </li>
               </ul>
 
               <div className="flex items-center justify-between border-t border-[var(--rule-strong)] pt-6">
