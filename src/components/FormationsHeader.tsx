@@ -19,10 +19,10 @@ import { Logo } from "./Logo";
  */
 
 const LINKS = [
-  { href: "/formations#start", label: "Parcours" },
+  { href: "/formations/quiz", label: "QCM gratuits" },
+  { href: "/formations#pro", label: "Parcours pro" },
   { href: "/formations/prompts", label: "Boutique" },
   { href: "/formations/mastermind", label: "Mastermind" },
-  { href: "/formations/module-0", label: "Module 0 · gratuit" },
 ];
 
 export function FormationsHeader() {
@@ -47,10 +47,10 @@ export function FormationsHeader() {
   return (
     <>
       <header
-        className={`tone-light fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
+        className={`tone-light fixed inset-x-0 top-0 z-50 border-b bg-[var(--bg)]/95 backdrop-blur-xl transition-[border-color,box-shadow] duration-500 ${
           scrolled
-            ? "border-b border-[var(--rule)] bg-[var(--bg)]/95 backdrop-blur-xl"
-            : "border-b border-transparent bg-transparent"
+            ? "border-[var(--rule)] shadow-[0_8px_30px_-12px_rgba(26,23,20,0.18)]"
+            : "border-transparent"
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
@@ -62,13 +62,13 @@ export function FormationsHeader() {
             <Logo variant="wordmark-emblem" className="h-10 md:h-12" />
           </Link>
 
-          {/* Éditorial nav, 01. Parcours, 02. Boutique, ... */}
-          <nav className="hidden items-center gap-8 md:flex">
+          {/* Éditorial nav, 01. QCM, 02. Parcours, ... */}
+          <nav className="hidden items-center gap-6 md:flex lg:gap-7">
             {LINKS.map((l, i) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="group inline-flex items-baseline gap-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+                className="group inline-flex items-baseline gap-1.5 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg)] transition hover:text-[var(--accent)]"
               >
                 <span className="text-[var(--accent)] transition group-hover:opacity-70">
                   {String(i + 1).padStart(2, "0")}.
@@ -79,19 +79,27 @@ export function FormationsHeader() {
           </nav>
 
           <div className="flex items-center gap-4 md:gap-5">
-            {/* Desktop right cluster : Espace membre + CTA Contact */}
-            <div className="hidden items-center gap-4 md:flex">
+            {/* Desktop right cluster : picto login + "Se connecter" */}
+            <div className="hidden items-center md:flex">
               <Link
-                href="/formations/dashboard"
-                className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition hover:text-[var(--accent)]"
+                href="/formations/auth/sign-in"
+                aria-label="Se connecter"
+                className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
               >
-                Espace membre
-              </Link>
-              <Link
-                href="/fr/contact"
-                className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              >
-                Contact
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-[19px] w-[19px]"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M4 21c0-4 3.5-6 8-6s8 2 8 6" />
+                </svg>
+                Se connecter
               </Link>
             </div>
 
@@ -148,18 +156,15 @@ export function FormationsHeader() {
               </Link>
             ))}
             <Link
-              href="/formations/dashboard"
+              href="/formations/auth/sign-in"
               onClick={() => setMenuOpen(false)}
-              className="mt-8 border-b border-[var(--rule)] py-5 font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg-2)]"
+              className="mt-8 inline-flex items-center gap-3 border-b border-[var(--rule)] py-5 font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg-2)]"
             >
-              Espace membre →
-            </Link>
-            <Link
-              href="/fr/contact"
-              onClick={() => setMenuOpen(false)}
-              className="border-b border-[var(--rule)] py-5 font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg-2)]"
-            >
-              Contact →
+              <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21c0-4 3.5-6 8-6s8 2 8 6" />
+              </svg>
+              Se connecter →
             </Link>
             <Link
               href="/"

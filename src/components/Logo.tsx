@@ -44,17 +44,15 @@ export function Logo({
   }
 
   if (variant === "wordmark-emblem") {
-    // Emblème (guerrier) à gauche, et à droite un SVG unique qui contient
-    // TROIE + la ligne hairline + ATELIER DIGITAL.
-    // En mettant le caption dans le même SVG (textLength="120"), il s'aligné
-    // exactement sur la largeur de la hairline (= ~la largeur visuelle de
-    // TROIE) à toutes les tailles d'écran.
+    // Lockup wordmark seul : TROIE + hairline + ATELIER DIGITAL, sans le
+    // guerrier. L'emblème a été retiré des navbars pour un logo plus net et
+    // direct (demande client). Le SVG aligne le caption sur la hairline
+    // (textLength="120") à toutes les tailles.
     return (
       <span
-        className={`inline-flex items-center gap-3 ${className}`}
+        className={`inline-flex items-center ${className}`}
         aria-label="TROIE, Atelier Digital"
       >
-        <Emblem className="h-[160%] w-auto" />
         <svg
           viewBox="0 0 200 64"
           xmlns="http://www.w3.org/2000/svg"
