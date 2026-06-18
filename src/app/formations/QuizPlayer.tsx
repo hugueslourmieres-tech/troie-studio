@@ -224,7 +224,7 @@ export function QuizPlayer({
   if (!current) return null;
 
   return (
-    <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg)] p-8 md:p-12">
+    <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg)] p-5 md:p-12">
       <div className="flex items-center justify-between">
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
           Question {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
@@ -275,7 +275,7 @@ export function QuizPlayer({
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
           {current.image && (
-            <div className="relative mt-8 aspect-[16/6] overflow-hidden rounded-sm bg-[#1a0f08]">
+            <div className="relative mt-6 aspect-[16/7] overflow-hidden rounded-sm bg-[#1a0f08] md:mt-8 md:aspect-[16/6]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={current.image}
@@ -296,7 +296,7 @@ export function QuizPlayer({
               />
             </div>
           )}
-          <h3 className="t-display mt-8 text-2xl text-[var(--fg)] md:text-4xl">
+          <h3 className="t-display mt-5 text-xl text-[var(--fg)] md:mt-8 md:text-4xl">
             {current.prompt}
           </h3>
 
@@ -304,16 +304,16 @@ export function QuizPlayer({
               bonne réponse (+ le choix erroné si besoin), pour ne pas avoir à
               scroller chercher le bouton suivant. */}
           {!isAnswered ? (
-            <ul className="mt-8 space-y-3">
+            <ul className="mt-5 space-y-2.5 md:mt-8 md:space-y-3">
               {current.options.map((opt, i) => (
                 <li key={i}>
                   <button
                     type="button"
                     onClick={() => pick(i)}
                     onMouseEnter={() => playSound("hover")}
-                    className="w-full cursor-pointer border border-[var(--rule)] bg-[var(--bg)] px-6 py-5 text-left text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                    className="w-full cursor-pointer border border-[var(--rule)] bg-[var(--bg)] px-5 py-3.5 text-left text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:px-6 md:py-5"
                   >
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-3 md:gap-4">
                       <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
                         {String.fromCharCode(65 + i)}
                       </span>

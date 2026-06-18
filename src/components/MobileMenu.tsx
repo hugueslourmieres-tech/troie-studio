@@ -68,37 +68,37 @@ export function MobileMenu({ locale, groups }: Props) {
             <span className="absolute block h-px w-7 -rotate-45 bg-[var(--fg)]" />
           </button>
 
-          <nav className="flex h-full flex-col px-6 pt-28 pb-12">
+          <nav className="flex h-full flex-col px-6 pt-20 pb-8">
             {/* Top hairline */}
-            <div className="absolute inset-x-6 top-[88px] h-px bg-[var(--rule-strong)]" />
+            <div className="absolute inset-x-6 top-[68px] h-px bg-[var(--rule-strong)]" />
 
-            <ul className="flex-1 overflow-y-auto pt-2">
+            <ul className="flex flex-1 flex-col justify-center gap-1">
               {groups.map((group, i) => (
                 <motion.li
                   key={group.label}
-                  initial={{ opacity: 0, y: 24 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 12 }}
+                  exit={{ opacity: 0, y: 8 }}
                   transition={{
-                    duration: 0.5,
-                    delay: 0.12 + i * 0.06,
+                    duration: 0.45,
+                    delay: 0.1 + i * 0.05,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="border-b border-[var(--rule-strong)] py-5"
+                  className="border-b border-[var(--rule-strong)] py-3.5"
                 >
-                  <p className="t-display text-4xl text-[var(--fg)] sm:text-5xl">
+                  <p className="t-display text-[26px] leading-tight text-[var(--fg)]">
                     {group.label}
                   </p>
-                  <ul className="mt-3 flex flex-col gap-2.5">
+                  <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1.5">
                     {group.items.map((item) => (
                       <li key={item.label}>
                         <Link
                           href={item.href}
                           onClick={() => setOpen(false)}
-                          className="inline-flex items-baseline gap-2.5 font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                          className="inline-flex items-baseline gap-2 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                         >
                           {item.meta && (
-                            <span className="text-[10px] text-[var(--accent)]">{item.meta}</span>
+                            <span className="text-[9px] text-[var(--accent)]">{item.meta}</span>
                           )}
                           {item.label}
                         </Link>
@@ -115,11 +115,11 @@ export function MobileMenu({ locale, groups }: Props) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{
-                duration: 0.45,
-                delay: 0.12 + groups.length * 0.06 + 0.05,
+                duration: 0.4,
+                delay: 0.1 + groups.length * 0.05 + 0.05,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-8 flex flex-col gap-6 pt-8"
+              className="mt-5 flex flex-col gap-4 pt-5"
             >
               <ul className="flex items-center gap-5">
                 <li>

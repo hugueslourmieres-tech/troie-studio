@@ -34,7 +34,7 @@ export default async function QuizPage({ params }: { params: Params }) {
     : "Quelques points méritent une seconde lecture. Refaites le QCM tranquillement : l'explication apparaît après chaque réponse.";
 
   return (
-    <main className="mx-auto min-h-screen max-w-3xl px-6 pt-28 pb-24 md:px-8 md:pt-36 md:pb-32">
+    <main className="mx-auto min-h-screen max-w-3xl px-5 pt-24 pb-20 md:px-8 md:pt-36 md:pb-32">
       {/* Fil d'ariane */}
       <Link
         href="/formations/quiz"
@@ -44,8 +44,8 @@ export default async function QuizPage({ params }: { params: Params }) {
         Tous les QCM
       </Link>
 
-      {/* En-tête */}
-      <header className="mt-8">
+      {/* En-tête, minimal (pas de meta superflu : temps, nb de questions...) */}
+      <header className="mt-6">
         <div className="flex flex-wrap items-center gap-3">
           <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
             {quiz.category === "perso" ? "Perso" : "Pro"} · {quiz.tagline}
@@ -56,25 +56,16 @@ export default async function QuizPage({ params }: { params: Params }) {
             </span>
           )}
         </div>
-        <h1 className="t-display mt-5 text-4xl text-[var(--fg)] md:text-6xl">
+        <h1 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-6xl">
           {quiz.title}
         </h1>
-        <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+        <p className="mt-4 hidden max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:block md:text-lg">
           {quiz.description}
         </p>
-        <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
-          <span>{quiz.audience}</span>
-          <span aria-hidden="true">·</span>
-          <span>{quiz.level}</span>
-          <span aria-hidden="true">·</span>
-          <span>{quiz.questions.length} questions</span>
-          <span aria-hidden="true">·</span>
-          <span>~ {quiz.minutes} min</span>
-        </div>
       </header>
 
       {/* QCM */}
-      <div className="mt-12 md:mt-16">
+      <div className="mt-7 md:mt-12">
         <QuizPlayer
           questions={quiz.questions}
           captureEmail={false}
