@@ -968,39 +968,22 @@ export default function IaLandingPage() {
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section className="tone-dark border-t border-[var(--rule)] bg-[var(--bg)] text-[var(--fg)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
-          <div className="grid gap-12 md:grid-cols-12 md:gap-16">
-            {/* Portrait Héraclès : céramique attique à figures noires (domaine public) */}
-            <div className="md:col-span-4">
-              <div className="relative aspect-[4/5] overflow-hidden bg-[#1a0e05]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/agents/hercule-vase.jpg"
-                  alt="Héraclès terrassant le lion de Némée, céramique attique à figures noires"
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-              <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-mute)]">
-                Héraclès & le lion de Némée · céramique attique
-              </p>
-            </div>
-
-            {/* Titre + intro */}
-            <div className="md:col-span-8 md:pt-4">
-              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Vos douze travaux · automatiques
-              </p>
-              <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
-                Les 12 travaux d'Hercule.
-              </h2>
-              <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                Hercule accomplit douze travaux impossibles pour racheter sa
-                dette. Vous, vous avez les vôtres, les tâches qui rongent vos
-                semaines, qui repoussent l'essentiel. Votre équipage IA les
-                prend en charge. Une heure récupérée ici, deux là, trois par
-                jour. Au bout d'un mois, la moitié de votre temps retrouvée,
-                concrète, mesurable, par tâche, sources vérifiables.
-              </p>
-            </div>
+          {/* Titre + intro (photo portrait retirée) */}
+          <div className="max-w-3xl">
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+              Vos douze travaux · automatiques
+            </p>
+            <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
+              Les 12 travaux d'Hercule.
+            </h2>
+            <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+              Hercule accomplit douze travaux impossibles pour racheter sa
+              dette. Vous, vous avez les vôtres, les tâches qui rongent vos
+              semaines, qui repoussent l'essentiel. Votre équipage IA les
+              prend en charge. Une heure récupérée ici, deux là, trois par
+              jour. Au bout d'un mois, la moitié de votre temps retrouvée,
+              concrète, mesurable, par tâche, sources vérifiables.
+            </p>
           </div>
 
           <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-3 md:gap-8">

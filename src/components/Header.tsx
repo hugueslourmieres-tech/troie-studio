@@ -52,7 +52,7 @@ export function Header({ locale }: { locale: string }) {
       ],
     },
     {
-      label: "Formations",
+      label: "Formation IA",
       href: `/formations`,
       items: [
         { href: `/ia`, label: "Formation entreprise", meta: "01" },
