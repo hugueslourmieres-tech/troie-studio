@@ -12,27 +12,47 @@ function QuizCard({ quiz }: { quiz: Quiz }) {
     <li>
       <Link
         href={`/formations/quiz/${quiz.slug}`}
-        className="group flex h-full flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 transition-colors hover:border-[var(--accent)] md:p-8"
+        className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
       >
-        <div className="flex items-baseline justify-between gap-3">
-          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            {quiz.tagline}
-          </p>
-          <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
-            {quiz.locked ? "Aperçu" : "Gratuit"}
-          </span>
+        {/* Bandeau image duotone orange + picto */}
+        <div className="relative aspect-[16/7] overflow-hidden bg-[#1a0f08]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={quiz.cover}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
+            loading="lazy"
+          />
+          <div aria-hidden="true" className="absolute inset-0 bg-[var(--accent)] opacity-55 mix-blend-multiply" />
+          <div className="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#1a0f08]/70 backdrop-blur-[1px]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-[#f6ead4]" aria-hidden="true">
+              <path d={quiz.icon} />
+            </svg>
+          </div>
         </div>
-        <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-3xl">
-          {quiz.title}
-        </h3>
-        <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-          {quiz.description}
-        </p>
-        <div className="mt-auto flex items-baseline justify-between pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-          <span>{quiz.audience} · {quiz.questions.length} questions</span>
-          <span className="text-[var(--accent)] transition-transform group-hover:translate-x-1">
-            Lancer →
-          </span>
+        <div className="flex flex-1 flex-col p-6 md:p-7">
+          <div className="flex items-baseline justify-between gap-3">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
+              {quiz.tagline}
+            </p>
+            <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
+              {quiz.locked ? "Aperçu" : "Gratuit"}
+            </span>
+          </div>
+          <h3 className="t-display mt-3 text-2xl text-[var(--fg)] md:text-3xl">
+            {quiz.title}
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+            {quiz.description}
+          </p>
+          <div className="mt-auto flex items-baseline justify-between pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
+            <span>{quiz.audience} · {quiz.questions.length} questions</span>
+            <span className="text-[var(--accent)] transition-transform group-hover:translate-x-1">
+              Lancer →
+            </span>
+          </div>
         </div>
       </Link>
     </li>

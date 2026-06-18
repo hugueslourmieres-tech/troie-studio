@@ -4,6 +4,17 @@ import { HeroVideoBg } from "./HeroVideoBg";
 import { GrowthCurve } from "./GrowthCurve";
 import { Header } from "@/components/Header";
 import { FormationsFooter } from "@/components/FormationsFooter";
+import { Slideshow } from "@/components/Slideshow";
+
+/* Images de formation pour le slideshow du Pack 04. */
+const FORMATION_SLIDES = [
+  "/images/training-section/01.jpg",
+  "/images/corpo/barcelona/13Hugues-Nikon-35mm.jpg",
+  "/images/training-section/02.jpg",
+  "/images/corpo/montpellier/DSC_7573.jpg",
+  "/images/training-section/03.jpg",
+  "/images/corpo/strategie/DSC_5552-4.jpg",
+];
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -557,15 +568,11 @@ export default function IaLandingPage() {
           <div className="mt-16 overflow-hidden rounded-sm bg-[var(--accent)] text-[#1a1714] md:mt-20">
             <div className="grid gap-0 md:grid-cols-12">
               <div className="md:col-span-5">
-                <div className="relative h-64 md:h-full">
-                  {/* eslint-disable-next-line @next/next/no-img-élément */}
-                  <img
-                    src="/images/corpo/barcelona/13Hugues-Nikon-35mm.jpg"
-                    alt=""
-                    className="h-full w-full object-cover"
-                    style={{ filter: "grayscale(1) contrast(1.05)" }}
-                  />
-                </div>
+                <Slideshow
+                  images={FORMATION_SLIDES}
+                  className="h-64 md:h-full"
+                  imgStyle={{ filter: "grayscale(1) contrast(1.05)" }}
+                />
               </div>
               <div className="flex flex-col p-8 md:col-span-7 md:p-12">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/85">
@@ -1146,7 +1153,7 @@ export default function IaLandingPage() {
                   href={CAL_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f37b22] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Réserver l'audit gratuit
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

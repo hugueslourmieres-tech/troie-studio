@@ -125,33 +125,41 @@ export default function FormationsPage() {
               <li key={q.slug}>
                 <Link
                   href={`/formations/quiz/${q.slug}`}
-                  className="group flex h-full flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 transition-colors hover:border-[var(--accent)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-8 w-8 text-[var(--accent)] transition-transform duration-500 group-hover:scale-110"
-                    aria-hidden="true"
-                  >
-                    <path d={q.icon} />
-                  </svg>
-                  <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
-                    {q.tagline}
-                  </p>
-                  <h3 className="t-display mt-4 text-2xl text-[var(--fg)]">
-                    {q.title}
-                  </h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[var(--fg-2)]">
-                    {q.description}
-                  </p>
-                  <span className="mt-6 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 transition-colors group-hover:text-[var(--accent)]">
-                    Lancer le QCM
-                    <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                  </span>
+                  {/* Bandeau image duotone orange + picto */}
+                  <div className="relative aspect-[16/9] overflow-hidden bg-[#1a0f08]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={q.cover}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
+                      loading="lazy"
+                    />
+                    <div aria-hidden="true" className="absolute inset-0 bg-[var(--accent)] opacity-55 mix-blend-multiply" />
+                    <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#1a0f08]/70">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-[#f6ead4]" aria-hidden="true">
+                        <path d={q.icon} />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col p-5">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
+                      {q.tagline}
+                    </p>
+                    <h3 className="t-display mt-3 text-xl text-[var(--fg)]">
+                      {q.title}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--fg-2)]">
+                      {q.description}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 transition-colors group-hover:text-[var(--accent)]">
+                      Lancer le QCM
+                      <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                    </span>
+                  </div>
                 </Link>
               </li>
             ))}

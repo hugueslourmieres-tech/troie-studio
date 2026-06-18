@@ -24,7 +24,7 @@ const METIERS: Métier[] = [
   {
     index: "01",
     slug: "creation",
-    video: "/images/videos/création.mp4",
+    video: "/images/videos/creation.mp4",
     videoAlt: "Création, video d'illustration",
     hash: "#création",
     tools: [
