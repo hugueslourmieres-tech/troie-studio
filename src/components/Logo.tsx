@@ -50,7 +50,7 @@ export function Logo({
     // à toutes les tailles. y centré verticalement dans le viewBox.
     return (
       <svg
-        viewBox="0 0 170 34"
+        viewBox="0 0 190 30"
         xmlns="http://www.w3.org/2000/svg"
         className={`w-auto ${className}`}
         aria-label="TROIE"
@@ -58,12 +58,12 @@ export function Logo({
       >
         <text
           x="0"
-          y="26"
-          textLength="170"
+          y="22"
+          textLength="190"
           lengthAdjust="spacing"
           fontFamily="var(--font-bodoni, ui-serif, Georgia, serif)"
           fontWeight="400"
-          fontSize="30"
+          fontSize="23"
           fill="currentColor"
         >
           TROIE
