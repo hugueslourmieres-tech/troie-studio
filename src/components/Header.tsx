@@ -39,7 +39,8 @@ export function Header({ locale }: { locale: string }) {
       href: `/${locale}#création`,
       items: [
         { href: `/${locale}#création`, label: "Création", meta: "01" },
-        { href: `/${locale}/works`, label: "Réalisation · Film & Vidéo", meta: "02" },
+        { href: `/${locale}/works`, label: "Réalisation", meta: "02" },
+        { href: `/${locale}#vidéos`, label: "Vidéos", meta: "03" },
       ],
     },
     {
@@ -47,17 +48,16 @@ export function Header({ locale }: { locale: string }) {
       href: `/${locale}#strategy`,
       items: [
         { href: `/${locale}#strategy`, label: "Stratégie marketing", meta: "01" },
-        { href: `/${locale}#strategy`, label: "Stratégie IA", meta: "02" },
-        { href: `/${locale}#strategy`, label: "Communication", meta: "03" },
+        { href: `/ia`, label: "Stratégie IA", meta: "02" },
       ],
     },
     {
       label: "Formations",
       href: `/formations`,
       items: [
-        { href: `/${locale}/agents`, label: "Agents IA", meta: "01" },
+        { href: `/ia`, label: "Formation entreprise", meta: "01" },
         { href: `/formations`, label: "Formation perso", meta: "02" },
-        { href: `/ia`, label: "Formation entreprise", meta: "03" },
+        { href: `/${locale}/agents`, label: "Agents IA", meta: "03" },
       ],
     },
   ];
