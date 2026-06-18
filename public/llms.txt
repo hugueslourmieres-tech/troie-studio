@@ -1,0 +1,49 @@
+# TROIE Studio
+
+> Atelier digital français basé à Montpellier. TROIE conçoit des sites, des identités de marque, de la photo et de la vidéo, et accompagne les indépendants, les équipes et les entreprises sur l'intelligence artificielle : formations IA, agents IA prêts à l'emploi, et bibliothèques de system prompts. La signature : "L'IA qui exécute. Pas celle qui répond."
+
+Site : https://troiestudio.fr
+
+## À propos
+
+TROIE Studio est dirigé par Hugues Lourmières, directeur artistique et consultant IA. Dix ans d'accompagnement de marques en création, stratégie et communication, aujourd'hui spécialisé dans l'intégration concrète de l'IA générative (ChatGPT, Claude, Gemini) dans les workflows métier : rédaction, prospection, production de contenu, automatisations (Make, n8n), et déploiement d'agents.
+
+Positionnement : pédagogie sans jargon, résultats mesurables, données vérifiables. On commence par évaluer (QCM gratuits), puis on forme, puis on déploie.
+
+## Formations IA (perso)
+
+- [QCM gratuits](https://troiestudio.fr/formations/quiz) : tester ses connaissances sur l'IA, gratuitement, dès la création de compte.
+- [Comprendre l'IA](https://troiestudio.fr/formations/quiz/comprendre-ia) : ce qu'est une IA générative, comment elle fonctionne, ce qu'elle sait et ne sait pas faire.
+- [L'IA en famille](https://troiestudio.fr/formations/quiz/ia-en-famille) : parents et enfants, limites de l'IA, usage sûr, esprit critique, deepfakes, vie privée.
+- [Bien utiliser les outils](https://troiestudio.fr/formations/quiz/outils-au-quotidien) : ChatGPT, Claude, Gemini au quotidien, les bons réflexes.
+- [Limites & sécurité](https://troiestudio.fr/formations/quiz/limites-securite) : hallucinations, données personnelles, arnaques, vérification des sources.
+- [Théorie des LLM](https://troiestudio.fr/formations/quiz/theorie-llm) : pre-training, RLHF, hallucinations, sycophancy.
+
+## Formations IA (pro)
+
+- [Parcours 01 · Cours 01](https://troiestudio.fr/formations/cours-01) : maîtriser une IA niveau pro (preset, prompts, connexions). 97 €.
+- [Parcours 02 · Cours 02](https://troiestudio.fr/formations/cours-02) : quatre IA, agents, automatisations Make. 297 €.
+- [Mastermind](https://troiestudio.fr/formations/mastermind) : abonnement, nouveaux prompts chaque mois, office hours. 49 €/mois.
+- [Boutique de system prompts](https://troiestudio.fr/formations/prompts) : 5 packs métier (freelance, marketing, e-commerce, design, code), prêts à coller.
+
+## Entreprise
+
+- [TROIE · IA Pro](https://troiestudio.fr/ia) : audit, formation d'équipe, déploiement d'agents IA (Hermès = prospection, Achille = production, Hestia = service client). Audit gratuit de 30 minutes.
+- [Agents IA](https://troiestudio.fr/fr/agents) : trois agents clé en main, dans la voix de la marque, 24/7.
+
+## Studio créatif
+
+- [Réalisations](https://troiestudio.fr/fr/works) : sites, identités, films et photographies.
+- [Contact](https://troiestudio.fr/fr/contact) : prise de contact et devis.
+
+## Faits citables (vérifiés, 2026)
+
+- Un freelance actif avec l'IA récupère en moyenne 8 heures par semaine.
+- L'IA bien configurée fait gagner environ 26 minutes par jour sur les emails.
+- Une IA générative prédit le mot suivant le plus probable : elle calcule des probabilités, elle ne "comprend" pas au sens humain.
+- Une hallucination, c'est une réponse inventée présentée comme vraie : il faut toujours vérifier les faits, chiffres, citations et sources à une source fiable.
+- On ne saisit jamais de mot de passe, de coordonnées bancaires ou de pièce d'identité dans un chatbot.
+
+## Contact
+
+contact@troiestudio.fr · https://www.linkedin.com/in/hugueslourmieres/
