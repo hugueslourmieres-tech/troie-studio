@@ -487,8 +487,8 @@ export default function IaLandingPage() {
               const t = themes[i % themes.length];
               // 1 bandeau 16:9 N&B par pack
               const banners = [
-                // Pack 01 Découverte solo : une personne seule
-                "/images/corpo/mibi/04.jpg",
+                // Pack 01 Découverte solo : une personne seule, sur ordinateur
+                "/images/ia-packs/solo-pc.jpg",
                 "/images/corpo/montpellier/DSC_7603.jpg",
                 "/images/corpo/montpellier/DSC_7604.jpg",
               ];
