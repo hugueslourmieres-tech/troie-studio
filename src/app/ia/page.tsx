@@ -1015,38 +1015,41 @@ export default function IaLandingPage() {
                 className="group relative block bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--accent)] md:p-8"
               >
                 {/* Gravure Tempesta 1608, MET, domaine public.
-                    Zoom 15 % pour recadrer les bords blancs de la gravure,
-                    filtre marron foncé uniforme, picto orange centré. */}
-                <div className="relative -mx-6 -mt-6 mb-6 aspect-[3/2] overflow-hidden bg-[#1a0e05] md:-mx-8 md:-mt-8 md:mb-8">
+                    Knockout : le fond papier est rendu transparent (invert +
+                    screen sur le noir), les traits passent en orange (multiply
+                    accent). Reste un trait d'orange sur fond noir. */}
+                <div className="relative -mx-6 -mt-6 mb-6 aspect-[3/2] overflow-hidden bg-[#120a03] md:-mx-8 md:-mt-8 md:mb-8">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={task.image}
                     alt={`${task.labor}, gravure d'Antonio Tempesta, 1608`}
-                    className="h-full w-full scale-[1.15] object-cover object-center transition-transform duration-700 group-hover:scale-[1.22]"
+                    className="h-full w-full scale-[1.15] object-cover object-center mix-blend-screen transition-transform duration-700 group-hover:scale-[1.22]"
                     style={{
-                      filter: "grayscale(1) sepia(0.55) brightness(0.5) contrast(1.05)",
+                      filter: "grayscale(1) invert(1) contrast(1.4) brightness(1.05)",
                     }}
                     loading="lazy"
                   />
-                  {/* Filtre marron foncé uniforme */}
+                  {/* Recolore les traits (blancs) en orange */}
                   <div
-                    className="absolute inset-0 bg-[#2d1a0d] opacity-50 mix-blend-multiply"
+                    className="absolute inset-0 bg-[var(--accent)] mix-blend-multiply"
                     aria-hidden="true"
                   />
-                  {/* Picto orange centré */}
+                  {/* Picto orange centré, sur une pastille sombre pour rester lisible */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <svg
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="h-14 w-14 text-[var(--accent)] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] transition-transform duration-500 group-hover:scale-110 md:h-16 md:w-16"
-                      aria-hidden="true"
-                    >
-                      <path d={task.icon} />
-                    </svg>
+                    <span className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-[#120a03]/75 backdrop-blur-[1px] md:h-20 md:w-20">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-12 w-12 text-[var(--accent)] transition-transform duration-500 group-hover:scale-110 md:h-14 md:w-14"
+                        aria-hidden="true"
+                      >
+                        <path d={task.icon} />
+                      </svg>
+                    </span>
                   </div>
                 </div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
