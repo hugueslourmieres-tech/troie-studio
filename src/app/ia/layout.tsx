@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://troiestudio.fr"),
   title: "TROIE · IA Pro. Formations & agents IA pour vos équipes.",
   description:
-    "Formations courtes, agents IA clés en main, audit gratuit. L'atelier qui formé et déploie l'IA dans vos équipes, France & international.",
+    "Formations courtes, agents IA clés en main, audit gratuit de 30 minutes. L'atelier qui forme et déploie l'IA dans vos équipes, en France et à l'international.",
   alternates: {
-    canonical: "https://ia.troiestudio.fr",
+    canonical: "https://troiestudio.fr/ia",
   },
   openGraph: {
     type: "website",
-    url: "https://ia.troiestudio.fr",
+    url: "https://troiestudio.fr/ia",
     title: "TROIE · IA Pro",
     description:
       "Formations courtes et agents IA clés en main pour vos équipes.",

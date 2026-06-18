@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { QuizPlayer } from "../../QuizPlayer";
 import { QUIZZES, getQuiz } from "../../quizzes";
+import { JsonLd, ORG_ID } from "@/components/JsonLd";
 
 type Params = Promise<{ slug: string }>;
 
@@ -17,6 +18,9 @@ export async function generateMetadata({ params }: { params: Params }) {
       ? `${quiz.title} · QCM gratuit · TROIE`
       : "QCM · TROIE Formations",
     description: quiz?.description,
+    alternates: {
+      canonical: `https://troiestudio.fr/formations/quiz/${slug}`,
+    },
   };
 }
 
@@ -33,8 +37,43 @@ export default async function QuizPage({ params }: { params: Params }) {
     ? "Quelques points méritent une révision. La version complète reprend tout en profondeur, avec des exemples concrets."
     : "Quelques points méritent une seconde lecture. Refaites le QCM tranquillement : l'explication apparaît après chaque réponse.";
 
+  const url = `https://troiestudio.fr/formations/quiz/${slug}`;
+  const quizJsonLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Quiz",
+        "@id": `${url}#quiz`,
+        name: quiz.title,
+        description: quiz.description,
+        url,
+        inLanguage: "fr",
+        educationalLevel: quiz.level,
+        about: { "@type": "Thing", name: "Intelligence artificielle" },
+        provider: { "@id": ORG_ID },
+        hasPart: quiz.questions.map((q) => ({
+          "@type": "Question",
+          name: q.prompt,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: q.options[q.correctIndex],
+          },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Formations", item: "https://troiestudio.fr/formations" },
+          { "@type": "ListItem", position: 2, name: "QCM gratuits", item: "https://troiestudio.fr/formations/quiz" },
+          { "@type": "ListItem", position: 3, name: quiz.title, item: url },
+        ],
+      },
+    ],
+  };
+
   return (
     <main className="mx-auto min-h-screen max-w-3xl px-5 pt-24 pb-20 md:px-8 md:pt-36 md:pb-32">
+      <JsonLd data={quizJsonLd} />
       {/* Fil d'ariane */}
       <Link
         href="/formations/quiz"

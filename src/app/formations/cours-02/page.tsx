@@ -1,6 +1,33 @@
 import Link from "next/link";
 import { EmblemBreak } from "@/components/EmblemBreak";
 import { FormationsFooter } from "@/components/FormationsFooter";
+import { JsonLd, ORG_ID } from "@/components/JsonLd";
+
+const COURSE_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": "https://troiestudio.fr/formations/cours-02#course",
+  name: "Cours 02 · Workflows IA pour solo & équipe",
+  description:
+    "7 modules, 3 h de vidéo, 100 prompts, 10 templates Make, accès à vie. Connectez vos IA à vos outils et construisez des agents persistants.",
+  url: "https://troiestudio.fr/formations/cours-02",
+  inLanguage: "fr",
+  provider: { "@id": ORG_ID },
+  educationalLevel: "Intermédiaire",
+  timeRequired: "PT3H",
+  offers: {
+    "@type": "Offer",
+    price: "297",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    url: "https://troiestudio.fr/formations/cours-02",
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: "Online",
+    courseWorkload: "PT3H",
+  },
+};
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -149,6 +176,7 @@ const FAQ = [
 export default function Cours02Page() {
   return (
     <article className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+      <JsonLd data={COURSE_JSONLD} />
       {/* Global FormationsHeader rendered via layout */}
       {/* HERO */}
       <section className="relative border-b border-[var(--rule)]">

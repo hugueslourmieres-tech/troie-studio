@@ -1,6 +1,33 @@
 import Link from "next/link";
 import { EmblemBreak } from "@/components/EmblemBreak";
 import { FormationsFooter } from "@/components/FormationsFooter";
+import { JsonLd, ORG_ID } from "@/components/JsonLd";
+
+const COURSE_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": "https://troiestudio.fr/formations/cours-01#course",
+  name: "Cours 01 · Maîtriser ChatGPT & Claude",
+  description:
+    "4 modules, 90 minutes de vidéo, 25 prompts livrés, accès à vie. Équipez votre premier héros IA en une soirée.",
+  url: "https://troiestudio.fr/formations/cours-01",
+  inLanguage: "fr",
+  provider: { "@id": ORG_ID },
+  educationalLevel: "Débutant",
+  timeRequired: "PT90M",
+  offers: {
+    "@type": "Offer",
+    price: "97",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    url: "https://troiestudio.fr/formations/cours-01",
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: "Online",
+    courseWorkload: "PT90M",
+  },
+};
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -129,6 +156,7 @@ const FAQ = [
 export default function Cours01Page() {
   return (
     <article className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+      <JsonLd data={COURSE_JSONLD} />
       {/* Global FormationsHeader rendered via layout */}
       {/* HERO */}
       <section className="relative border-b border-[var(--rule)]">

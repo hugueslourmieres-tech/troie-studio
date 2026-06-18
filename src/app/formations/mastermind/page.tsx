@@ -1,6 +1,32 @@
 import Link from "next/link";
 import { EmblemBreak } from "@/components/EmblemBreak";
 import { FormationsFooter } from "@/components/FormationsFooter";
+import { JsonLd, ORG_ID } from "@/components/JsonLd";
+
+const MASTERMIND_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "@id": "https://troiestudio.fr/formations/mastermind#course",
+  name: "Mastermind TROIE",
+  description:
+    "Abonnement : Cours 01 et Cours 02 inclus, nouveaux prompts chaque mois, office hours en direct, communauté privée. Restez au niveau sans effort.",
+  url: "https://troiestudio.fr/formations/mastermind",
+  inLanguage: "fr",
+  provider: { "@id": ORG_ID },
+  educationalLevel: "Avancé",
+  offers: {
+    "@type": "Offer",
+    price: "49",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+    url: "https://troiestudio.fr/formations/mastermind",
+    eligibleDuration: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" },
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: "Online",
+  },
+};
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -88,6 +114,7 @@ const FAQ = [
 export default function MastermindPage() {
   return (
     <article className="min-h-screen bg-[var(--bg)] text-[var(--fg)]">
+      <JsonLd data={MASTERMIND_JSONLD} />
       {/* Global FormationsHeader rendered via layout */}
       {/* HERO */}
       <section className="relative border-b border-[var(--rule)]">

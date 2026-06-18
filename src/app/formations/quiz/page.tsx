@@ -5,6 +5,7 @@ export const metadata = {
   title: "QCM gratuits · Comprendre et utiliser l'IA · TROIE",
   description:
     "Des QCM gratuits pour comprendre l'IA, l'utiliser au quotidien et en famille sans danger, puis aller plus loin côté pro. Dès la création de compte.",
+  alternates: { canonical: "https://troiestudio.fr/formations/quiz" },
 };
 
 function QuizCard({ quiz }: { quiz: Quiz }) {

@@ -304,9 +304,39 @@ const FAQ = [
   },
 ];
 
+const IA_JSONLD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://troiestudio.fr/ia#service",
+      name: "TROIE · IA Pro",
+      serviceType: "Formation IA et déploiement d'agents IA en entreprise",
+      url: "https://troiestudio.fr/ia",
+      areaServed: "FR",
+      provider: { "@id": "https://troiestudio.fr/#organization" },
+      description:
+        "Audit, formation d'équipe et déploiement d'agents IA (prospection, production de contenu, service client 24/7). Audit gratuit de 30 minutes, données hébergées en Union européenne.",
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://troiestudio.fr/ia#faq",
+      mainEntity: FAQ.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
+};
+
 export default function IaLandingPage() {
   return (
     <article className="min-h-screen bg-[var(--bg)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(IA_JSONLD) }}
+      />
       {/* Navbar standard du site : navigation + connexion */}
       <Header locale="fr" />
 
