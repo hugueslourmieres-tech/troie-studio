@@ -1003,7 +1003,7 @@ export default function IaLandingPage() {
             </div>
           </div>
 
-          <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-3">
+          <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-3 md:gap-8">
             {TASKS.map((task, i) => (
               <Link
                 key={task.title}
@@ -1011,13 +1011,12 @@ export default function IaLandingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Prendre rendez-vous pour automatiser : ${task.title}`}
-                className="group relative block bg-[var(--bg)] p-6 transition-colors hover:bg-[var(--accent-soft)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-[var(--accent)] md:p-8"
+                className="group relative block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
               >
                 {/* Gravure Tempesta 1608, MET, domaine public.
-                    Knockout : le fond papier est rendu transparent (invert +
-                    screen sur le noir), les traits passent en orange (multiply
-                    accent). Reste un trait d'orange sur fond noir. */}
-                <div className="relative -mx-6 -mt-6 mb-6 aspect-[3/2] overflow-hidden bg-[#120a03] md:-mx-8 md:-mt-8 md:mb-8">
+                    Knockout : fond papier rendu transparent (invert + screen),
+                    traits passés en orange (multiply accent). Sans picto. */}
+                <div className="relative mb-6 aspect-[3/2] overflow-hidden bg-[#120a03]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={task.image}
@@ -1033,30 +1032,28 @@ export default function IaLandingPage() {
                     className="absolute inset-0 bg-[var(--accent)] mix-blend-multiply"
                     aria-hidden="true"
                   />
-                  {/* Picto orange centré, sur une pastille sombre pour rester lisible */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="flex h-[72px] w-[72px] items-center justify-center rounded-full bg-[#120a03]/75 backdrop-blur-[1px] md:h-20 md:w-20">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-12 w-12 text-[var(--accent)] transition-transform duration-500 group-hover:scale-110 md:h-14 md:w-14"
-                        aria-hidden="true"
-                      >
-                        <path d={task.icon} />
-                      </svg>
-                    </span>
-                  </div>
                 </div>
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
                   Travail {ROMAN[i]} · {task.labor}
                 </p>
-                <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[28px]">
-                  {task.title}
-                </h3>
+                {/* Picto à côté du titre */}
+                <div className="mt-4 flex items-center gap-3">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="h-7 w-7 flex-shrink-0 text-[var(--accent)] transition-transform duration-500 group-hover:scale-110"
+                    aria-hidden="true"
+                  >
+                    <path d={task.icon} />
+                  </svg>
+                  <h3 className="t-display text-2xl text-[var(--fg)] md:text-[28px]">
+                    {task.title}
+                  </h3>
+                </div>
                 <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
                   + {task.time}
                 </p>
