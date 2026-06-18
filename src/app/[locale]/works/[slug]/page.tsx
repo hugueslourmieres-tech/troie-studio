@@ -15,6 +15,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "works" });
   return {
     title: t(`items.${slug}.title`),
+    description: t(`items.${slug}.description`),
     alternates: {
       canonical: `/${locale}/works/${slug}`,
       languages: {

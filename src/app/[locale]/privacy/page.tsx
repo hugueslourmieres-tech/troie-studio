@@ -8,10 +8,15 @@ export async function generateMetadata({
   const { locale } = await params;
   return {
     title: locale === "fr" ? "Confidentialité" : "Privacy",
+    description:
+      locale === "fr"
+        ? "Politique de confidentialité et traitement des données personnelles chez TROIE Studio."
+        : "Privacy policy and personal data handling at TROIE Studio.",
     alternates: {
       canonical: `/${locale}/privacy`,
       languages: { fr: "/fr/privacy", en: "/en/privacy" },
     },
+    robots: { index: false, follow: true },
   };
 }
 

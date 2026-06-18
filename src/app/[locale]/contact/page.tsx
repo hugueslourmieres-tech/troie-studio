@@ -11,6 +11,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "contact" });
   return {
     title: t("pageTitle"),
+    description: t("pageSubtitle"),
     alternates: {
       canonical: `/${locale}/contact`,
       languages: { fr: "/fr/contact", en: "/en/contact" },

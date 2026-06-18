@@ -128,7 +128,7 @@ export default async function LocaleLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "EducationalOrganization"],
         "@id": "https://troiestudio.fr/#organization",
         name: tBrand("name"),
         alternateName: "TROIE Atelier Digital",
@@ -137,6 +137,18 @@ export default async function LocaleLayout({
         description: tBrand("organizationDescription"),
         founder: { "@id": "https://troiestudio.fr/#hugues" },
         founders: [{ "@id": "https://troiestudio.fr/#hugues" }],
+        knowsAbout: [
+          "Intelligence artificielle générative",
+          "ChatGPT",
+          "Claude",
+          "Gemini",
+          "Prompt engineering",
+          "Agents IA",
+          "Automatisation (Make, n8n)",
+          "Formation IA",
+          "Direction artistique",
+          "Identité de marque",
+        ],
         address: {
           "@type": "PostalAddress",
           addressCountry: "FR",
@@ -148,11 +160,7 @@ export default async function LocaleLayout({
           contactType: "customer service",
           availableLanguage: ["French", "English"],
         },
-        sameAs: [
-          "https://www.linkedin.com/in/hugueslourmieres/",
-          "https://www.instagram.com/hugueslourmieres/",
-          "https://www.behance.net/hugueslourmie3",
-        ],
+        sameAs: ["https://www.linkedin.com/in/hugueslourmieres/"],
       },
       {
         "@type": "Person",
@@ -161,11 +169,15 @@ export default async function LocaleLayout({
         jobTitle: tBrand("jobTitle"),
         worksFor: { "@id": "https://troiestudio.fr/#organization" },
         url: "https://troiestudio.fr",
-        sameAs: [
-          "https://www.linkedin.com/in/hugueslourmieres/",
-          "https://www.instagram.com/hugueslourmieres/",
-          "https://www.behance.net/hugueslourmie3",
+        knowsAbout: [
+          "Intelligence artificielle générative",
+          "Prompt engineering",
+          "Agents IA",
+          "Automatisation",
+          "Direction artistique",
+          "Stratégie de marque",
         ],
+        sameAs: ["https://www.linkedin.com/in/hugueslourmieres/"],
       },
       {
         "@type": "WebSite",

@@ -7,11 +7,16 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   return {
-    title: locale === "fr" ? "Mentions légales" : "Légal notice",
+    title: locale === "fr" ? "Mentions légales" : "Legal notice",
+    description:
+      locale === "fr"
+        ? "Mentions légales et informations sur l'éditeur du site TROIE Studio."
+        : "Legal notice and publisher information for the TROIE Studio website.",
     alternates: {
       canonical: `/${locale}/terms`,
       languages: { fr: "/fr/terms", en: "/en/terms" },
     },
+    robots: { index: false, follow: true },
   };
 }
 
