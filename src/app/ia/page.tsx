@@ -969,19 +969,18 @@ export default function IaLandingPage() {
       <section className="tone-dark border-t border-[var(--rule)] bg-[var(--bg)] text-[var(--fg)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <div className="grid gap-12 md:grid-cols-12 md:gap-16">
-            {/* Portrait Hercule, engravure N&B, même registre que Hermès/Achille/Hestia */}
+            {/* Portrait Héraclès : céramique attique à figures noires (domaine public) */}
             <div className="md:col-span-4">
-              <div className="relative aspect-[4/5] overflow-hidden bg-[var(--fg)]/5">
+              <div className="relative aspect-[4/5] overflow-hidden bg-[#1a0e05]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src="/images/agents/hercule.jpg"
-                  alt="Le Grand Hercule, gravure de Hendrick Goltzius, 1589"
-                  className="h-full w-full object-cover object-top"
-                  style={{ filter: "grayscale(1) contrast(1.05) brightness(0.98)" }}
+                  src="/images/agents/hercule-vase.jpg"
+                  alt="Héraclès terrassant le lion de Némée, céramique attique à figures noires"
+                  className="h-full w-full object-cover object-center"
                 />
               </div>
               <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-mute)]">
-                Hercule · Goltzius, 1589
+                Héraclès & le lion de Némée · céramique attique
               </p>
             </div>
 
