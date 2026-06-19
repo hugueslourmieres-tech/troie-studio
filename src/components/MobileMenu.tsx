@@ -72,7 +72,7 @@ export function MobileMenu({ locale, groups }: Props) {
             {/* Top hairline */}
             <div className="absolute inset-x-6 top-[68px] h-px bg-[var(--rule-strong)]" />
 
-            <ul className="flex flex-1 flex-col justify-center gap-1">
+            <ul className="flex flex-1 flex-col justify-evenly gap-1">
               {groups.map((group, i) => (
                 <motion.li
                   key={group.label}

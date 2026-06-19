@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 import { HeroVideo } from "./HeroVideo";
 import { ToolsMarquee } from "./ToolsMarquee";
 import { RollText } from "./RollText";
+import { CyclingHeadline } from "./CyclingHeadline";
 import { useMagnetic } from "@/lib/hooks/useMagnetic";
 
 /**
@@ -24,15 +25,11 @@ export function Hero({ locale }: { locale: string }) {
   const primaryCtaRef = useMagnetic<HTMLAnchorElement>(0.3);
   const slideshowRef = useRef<HTMLDivElement | null>(null);
 
-  // Le hero est désormais la liste numérotée des 3 métiers.
-  const ITEMS = [
-    { num: "01", label: tNav("creation"), href: `/${locale}#création` },
-    { num: "02", label: tNav("strategy"), href: `/${locale}#strategy` },
-    {
-      num: "03",
-      label: locale === "en" ? "Training" : "Formation",
-      href: "/formations",
-    },
+  // Les 3 métiers défilent en surbrillance, en boucle, dans le titre.
+  const HERO_WORDS = [
+    tNav("creation"),
+    tNav("strategy"),
+    locale === "en" ? "Training" : "Formation",
   ];
 
   // Parallax: slideshow lifts up softly as you scroll past the hero.
@@ -74,29 +71,10 @@ export function Hero({ locale }: { locale: string }) {
             {t("heroEyebrow")}
           </motion.p>
 
-          <h1 className="t-display mt-10 text-5xl text-[var(--fg)] md:text-7xl lg:text-[104px]">
-            {ITEMS.map((it) => (
-              <Link
-                key={it.label}
-                href={it.href}
-                className="group block w-fit leading-[1.08]"
-              >
-                <RollText
-                  top={
-                    <>
-                      <span className="text-[#f5f0e6]">{it.num}.</span>{" "}
-                      {it.label}
-                    </>
-                  }
-                  bottom={
-                    <span className="text-[#f5f0e6]">
-                      {it.num}. {it.label}
-                    </span>
-                  }
-                />
-              </Link>
-            ))}
-          </h1>
+          <CyclingHeadline
+            words={HERO_WORDS}
+            className="t-display mt-10 text-5xl leading-[1.04] md:text-7xl lg:text-[104px]"
+          />
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -111,9 +89,12 @@ export function Hero({ locale }: { locale: string }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 flex flex-col gap-6"
+            className="mt-12 flex flex-col gap-5"
           >
-            {/* Deux CTA formation IA : professionnel + particulier */}
+            {/* Amorce + deux CTA : professionnels / particuliers */}
+            <p className="font-mono text-[12px] uppercase tracking-[0.32em] text-[#1a1714]">
+              Se former à l'IA
+            </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 ref={primaryCtaRef}
@@ -121,12 +102,8 @@ export function Hero({ locale }: { locale: string }) {
                 className="group inline-flex items-center justify-center gap-3 bg-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors will-change-transform"
               >
                 <RollText
-                  top={<>Formation IA · Professionnel</>}
-                  bottom={
-                    <span className="text-[#f37b22]">
-                      Formation IA · Professionnel
-                    </span>
-                  }
+                  top={<>Professionnels</>}
+                  bottom={<span className="text-[#f37b22]">Professionnels</span>}
                 />
                 <span aria-hidden="true" className="transition group-hover:translate-x-1 group-hover:text-[#f37b22]">
                   →
@@ -137,12 +114,8 @@ export function Hero({ locale }: { locale: string }) {
                 className="group inline-flex items-center justify-center gap-3 border border-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#1a1714]"
               >
                 <RollText
-                  top={<>Formation IA · Particulier</>}
-                  bottom={
-                    <span className="text-[#f5f0e6]">
-                      Formation IA · Particulier
-                    </span>
-                  }
+                  top={<>Particuliers</>}
+                  bottom={<span className="text-[#f5f0e6]">Particuliers</span>}
                 />
                 <span aria-hidden="true" className="transition group-hover:translate-x-1 group-hover:text-[#f5f0e6]">
                   →
