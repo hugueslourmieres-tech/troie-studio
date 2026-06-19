@@ -23,11 +23,11 @@ export function Hero({ locale }: { locale: string }) {
   const primaryCtaRef = useMagnetic<HTMLAnchorElement>(0.3);
   const slideshowRef = useRef<HTMLDivElement | null>(null);
 
-  // Accès directs aux 3 métiers depuis le hero.
+  // Accès directs aux autres métiers (la formation est portée par les
+  // deux CTA principaux pro / particulier).
   const QUICK = [
     { label: tNav("creation"), href: `/${locale}#création` },
     { label: tNav("strategy"), href: `/${locale}#strategy` },
-    { label: tNav("training"), href: "/formations" },
   ];
 
   // Parallax: slideshow lifts up softly as you scroll past the hero.
@@ -94,17 +94,28 @@ export function Hero({ locale }: { locale: string }) {
             transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="mt-12 flex flex-col gap-6"
           >
-            {/* CTA percutant : fond noir, "se former maintenant" */}
-            <Link
-              ref={primaryCtaRef}
-              href="/formations"
-              className="group inline-flex w-fit items-center gap-3 bg-[var(--fg)] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714] will-change-transform"
-            >
-              {t("heroCtaTrain")}
-              <span aria-hidden="true" className="transition group-hover:translate-x-1">
-                →
-              </span>
-            </Link>
+            {/* Deux CTA formation IA : professionnel + particulier */}
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Link
+                ref={primaryCtaRef}
+                href="/ia"
+                className="group inline-flex items-center justify-center gap-3 bg-[var(--fg)] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714] will-change-transform"
+              >
+                Formation IA · Professionnel
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+              <Link
+                href="/formations"
+                className="group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+              >
+                Formation IA · Particulier
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </div>
 
             {/* Accès directs aux 3 métiers */}
             <div className="flex flex-wrap items-center gap-3">
