@@ -1,7 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { ContactForm } from "@/components/ContactForm";
-import { CalInline } from "@/components/CalInline";
 
 const CAL_URL = "https://cal.com/hugueslourmieres";
 
@@ -48,7 +47,8 @@ function ContactView() {
           </p>
         </header>
 
-        {/* Rendez-vous : appel de 30 min + aperçu du calendrier cal.com */}
+        {/* Rendez-vous : appel de 30 min (aperçu calendrier à rebrancher
+            une fois le bon lien cal.com fourni) */}
         <section className="mt-16 overflow-hidden rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)]">
           <div className="flex flex-col gap-6 p-6 md:flex-row md:items-end md:justify-between md:p-10">
             <div>
@@ -71,11 +71,6 @@ function ContactView() {
                 →
               </span>
             </a>
-          </div>
-
-          {/* Aperçu du calendrier */}
-          <div className="border-t border-[var(--rule)] bg-[#fbfaf7] p-2 md:p-4">
-            <CalInline calLink="hugueslourmieres" className="rounded-xl" />
           </div>
         </section>
 
