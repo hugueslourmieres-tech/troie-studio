@@ -18,17 +18,9 @@ import { useMagnetic } from "@/lib/hooks/useMagnetic";
  */
 export function Hero({ locale }: { locale: string }) {
   const t = useTranslations("home");
-  const tNav = useTranslations("nav");
 
   const primaryCtaRef = useMagnetic<HTMLAnchorElement>(0.3);
   const slideshowRef = useRef<HTMLDivElement | null>(null);
-
-  // Accès directs numérotés aux 3 métiers, dans l'esprit de la navbar.
-  const QUICK = [
-    { num: "01", label: tNav("creation"), href: `/${locale}#création` },
-    { num: "02", label: tNav("strategy"), href: `/${locale}#strategy` },
-    { num: "03", label: locale === "en" ? "Training" : "Formation", href: "/formations" },
-  ];
 
   // Parallax: slideshow lifts up softly as you scroll past the hero.
   useEffect(() => {
@@ -115,20 +107,6 @@ export function Hero({ locale }: { locale: string }) {
                   →
                 </span>
               </Link>
-            </div>
-
-            {/* Accès directs aux 3 métiers */}
-            <div className="flex flex-wrap items-center gap-3">
-              {QUICK.map((q) => (
-                <Link
-                  key={q.label}
-                  href={q.href}
-                  className="group inline-flex items-center gap-2 rounded-full border border-[var(--rule-strong)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                >
-                  <span className="text-[var(--accent)]">{q.num}.</span>
-                  {q.label}
-                </Link>
-              ))}
             </div>
           </motion.div>
         </div>
