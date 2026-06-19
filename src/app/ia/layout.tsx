@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "../globals.css";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 /**
  * Layout dedie au sous-domaine ia.troiestudio.fr.
@@ -54,6 +55,7 @@ export default function IaLayout({
   return (
     <html lang="fr">
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
+        <ScrollReveal />
         {children}
       </body>
     </html>

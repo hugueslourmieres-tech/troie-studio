@@ -243,3 +243,26 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .t-marquee { animation: none; }
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   Reveal au scroll (auto) : les textes apparaissent en glissant vers
+   le haut quand ils entrent dans le viewport. La classe .reveal-init
+   n'est posée QUE par JS sur les éléments hors-écran (le contenu reste
+   visible sans JS et au-dessus de la ligne de flottaison, pas de flash).
+   ───────────────────────────────────────────────────────────────── */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(16px);
+  will-change: opacity, transform;
+}
+.reveal-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-init { opacity: 1; transform: none; }
+  .reveal-in { transition: none; }
+}
