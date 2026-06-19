@@ -66,17 +66,18 @@ export default function FormationsPage() {
 
         <div className="mx-auto w-full max-w-5xl px-6 pt-36 pb-24 md:px-12 md:pt-44 md:pb-32">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Formations IA · en ligne · accès immédiat
+            Cours en ligne IA · pro · perso · famille
           </p>
-          <h1 className="t-display mt-8 text-5xl leading-[0.95] md:text-7xl lg:text-[88px]">
-            Se former à l'IA,
+          <h1 className="t-display mt-8 text-5xl leading-[1.0] md:text-6xl lg:text-7xl">
+            Comprendre et intégrer l'IA
             <br />
-            <span className="text-[var(--accent)]">simplement.</span>
+            <span className="text-[var(--accent)]">au quotidien.</span>
           </h1>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-[#f6ead4]/85 md:text-lg">
-            Comprendre l'IA, l'utiliser vraiment, ne plus se faire avoir. Pour
-            vous et votre famille côté perso, pour gagner du temps côté pro. On
-            commence par un QCM, pas par des heures de vidéo.
+            Des cours en ligne pour vous, votre famille et vos équipes :
+            comprendre l'IA, l'utiliser vraiment et l'intégrer dans votre
+            quotidien. Accès immédiat, à votre rythme. On commence par un QCM
+            gratuit, pas par des heures de vidéo.
           </p>
 
           {/* Deux voies, boutons orange */}

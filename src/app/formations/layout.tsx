@@ -15,19 +15,19 @@ import "../globals.css";
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://troiestudio.fr"),
-  title: "TROIE · Formations IA. Maîtrisez ChatGPT, Claude et les agents.",
+  title: "TROIE · Cours en ligne IA. Pro, perso et famille.",
   description:
-    "Formations IA en ligne, pratiques et immediatement applicables. Maîtriser ChatGPT et Claude, workflows automatisés, agents personnels. Module 0 gratuit.",
+    "Cours en ligne pour comprendre et intégrer l'IA au quotidien : pour vous, votre famille et vos équipes. Accès immédiat, à votre rythme. QCM gratuits pour commencer.",
   alternates: {
     canonical: "https://troiestudio.fr/formations",
   },
   openGraph: {
     type: "website",
     url: "https://troiestudio.fr/formations",
-    title: "TROIE · Formations IA",
+    title: "TROIE · Cours en ligne IA",
     description:
-      "Formations IA en ligne. Module 0 gratuit, cours premium à partir de 97 €.",
-    siteName: "TROIE · Formations",
+      "Cours en ligne IA pour comprendre et intégrer l'IA au quotidien. Pro, perso, famille. QCM gratuits pour commencer.",
+    siteName: "TROIE · Cours en ligne IA",
     locale: "fr_FR",
     images: [
       {
@@ -40,8 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TROIE · Formations IA",
-    description: "Maîtrisez l'IA en pratique. Module 0 gratuit.",
+    title: "TROIE · Cours en ligne IA",
+    description:
+      "Comprendre et intégrer l'IA au quotidien. Pro, perso, famille. QCM gratuits.",
     images: ["/images/brand/og-image.png"],
   },
   robots: { index: true, follow: true },
