@@ -93,7 +93,7 @@ export function Intro() {
               />
             </div>
             <p className="t-eyebrow">{t("introEyebrow")}</p>
-            <h2 className="t-display t-emboss mt-8 text-4xl md:text-6xl lg:text-7xl">
+            <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
               {t("introTitle")}
             </h2>
             <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">

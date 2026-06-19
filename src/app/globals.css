@@ -266,17 +266,3 @@ body {
   .reveal-init { opacity: 1; transform: none; }
   .reveal-in { transition: none; }
 }
-
-/* ─────────────────────────────────────────────────────────────────
-   Emboss : relief tonal "vers l'extérieur" (raised), façon estampage.
-   Pensé pour les titres sur fond orange (tone-accent) : la lettre est
-   d'une teinte proche du fond, le relief vient d'un liseré clair en
-   haut-gauche (lumière) et d'une ombre chaude en bas-droite.
-   ───────────────────────────────────────────────────────────────── */
-.t-emboss {
-  color: #c2570f;
-  text-shadow:
-    -1px -1px 0 rgba(255, 236, 208, 0.55),
-    1px 1px 1px rgba(99, 43, 8, 0.55),
-    0 3px 7px rgba(74, 31, 6, 0.25);
-}
