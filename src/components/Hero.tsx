@@ -18,10 +18,17 @@ import { useMagnetic } from "@/lib/hooks/useMagnetic";
  */
 export function Hero({ locale }: { locale: string }) {
   const t = useTranslations("home");
+  const tNav = useTranslations("nav");
 
   const primaryCtaRef = useMagnetic<HTMLAnchorElement>(0.3);
-  const secondaryCtaRef = useMagnetic<HTMLAnchorElement>(0.22);
   const slideshowRef = useRef<HTMLDivElement | null>(null);
+
+  // Accès directs aux 3 métiers depuis le hero.
+  const QUICK = [
+    { label: tNav("creation"), href: `/${locale}#création` },
+    { label: tNav("strategy"), href: `/${locale}#strategy` },
+    { label: tNav("training"), href: "/formations" },
+  ];
 
   // Parallax: slideshow lifts up softly as you scroll past the hero.
   useEffect(() => {
@@ -85,25 +92,32 @@ export function Hero({ locale }: { locale: string }) {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 flex flex-wrap items-center gap-8"
+            className="mt-12 flex flex-col gap-6"
           >
+            {/* CTA percutant : fond noir, "se former maintenant" */}
             <Link
               ref={primaryCtaRef}
-              href={`/${locale}/contact`}
-              className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] will-change-transform"
+              href="/formations"
+              className="group inline-flex w-fit items-center gap-3 bg-[var(--fg)] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714] will-change-transform"
             >
-              {t("heroCtaPrimary")}
+              {t("heroCtaTrain")}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">
                 →
               </span>
             </Link>
-            <Link
-              ref={secondaryCtaRef}
-              href="#works"
-              className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition-colors hover:text-[var(--accent)] will-change-transform"
-            >
-              {t("heroCtaSecondary")}
-            </Link>
+
+            {/* Accès directs aux 3 métiers */}
+            <div className="flex flex-wrap items-center gap-3">
+              {QUICK.map((q) => (
+                <Link
+                  key={q.label}
+                  href={q.href}
+                  className="inline-flex items-center rounded-full border border-[var(--rule-strong)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                >
+                  {q.label}
+                </Link>
+              ))}
+            </div>
           </motion.div>
         </div>
 

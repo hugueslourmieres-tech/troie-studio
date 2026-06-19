@@ -118,7 +118,8 @@
       "Human escalation with full context"
     ],
     "agentsToolsLabel": "Tools",
-    "agentsCardCta": "Choose"
+    "agentsCardCta": "Choose",
+    "heroCtaTrain": "Train with AI, now"
   },
   "works": {
     "pageTitle": "Works",
@@ -245,9 +246,18 @@
     "ctaAudit": "Free AI audit, 30 min",
     "downloadProgramme": "Download the program (PDF)",
     "stats": [
-      { "value": "200", "label": "Professionals trained on AI" },
-      { "value": "50", "label": "Companies supported" },
-      { "value": "10 years", "label": "Alongside brands" }
+      {
+        "value": "200",
+        "label": "Professionals trained on AI"
+      },
+      {
+        "value": "50",
+        "label": "Companies supported"
+      },
+      {
+        "value": "10 years",
+        "label": "Alongside brands"
+      }
     ],
     "programmesEyebrow": "Three packs",
     "programmesTitle": "Pick your level.",
@@ -349,9 +359,18 @@
     "ctaAudit": "Book a free audit",
     "downloadBrief": "Download the brief",
     "stats": [
-      { "value": "3 agents", "label": "Sell · Produce · Retain" },
-      { "value": "24 / 7", "label": "Always present" },
-      { "value": "30 days", "label": "TROIE human supervision" }
+      {
+        "value": "3 agents",
+        "label": "Sell · Produce · Retain"
+      },
+      {
+        "value": "24 / 7",
+        "label": "Always present"
+      },
+      {
+        "value": "30 days",
+        "label": "TROIE human supervision"
+      }
     ],
     "introEyebrow": "Olympus at work",
     "introTitle": "Three agents born of Olympus.",

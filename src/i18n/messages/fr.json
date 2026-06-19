@@ -118,7 +118,8 @@
       "Escalade humaine avec contexte complet"
     ],
     "agentsToolsLabel": "Outils",
-    "agentsCardCta": "Choisir"
+    "agentsCardCta": "Choisir",
+    "heroCtaTrain": "Se former à l'IA, maintenant"
   },
   "works": {
     "pageTitle": "Réalisations",
@@ -245,9 +246,18 @@
     "ctaAudit": "Audit IA gratuit, 30 min",
     "downloadProgramme": "Télécharger le programme (PDF)",
     "stats": [
-      { "value": "200", "label": "Professionnels formés à l'IA" },
-      { "value": "50", "label": "Entreprises accompagnées" },
-      { "value": "10 ans", "label": "Aux côtés des marques" }
+      {
+        "value": "200",
+        "label": "Professionnels formés à l'IA"
+      },
+      {
+        "value": "50",
+        "label": "Entreprises accompagnées"
+      },
+      {
+        "value": "10 ans",
+        "label": "Aux côtés des marques"
+      }
     ],
     "programmesEyebrow": "Trois packs",
     "programmesTitle": "Choisissez votre niveau.",
@@ -349,9 +359,18 @@
     "ctaAudit": "Réserver un audit gratuit",
     "downloadBrief": "Télécharger le brief",
     "stats": [
-      { "value": "3 agents", "label": "Vendre · Produire · Fidéliser" },
-      { "value": "24 / 7", "label": "Présence sans rupture" },
-      { "value": "30 jours", "label": "Supervision humaine TROIE" }
+      {
+        "value": "3 agents",
+        "label": "Vendre · Produire · Fidéliser"
+      },
+      {
+        "value": "24 / 7",
+        "label": "Présence sans rupture"
+      },
+      {
+        "value": "30 jours",
+        "label": "Supervision humaine TROIE"
+      }
     ],
     "introEyebrow": "L'Olympe au travail",
     "introTitle": "Trois agents nés de l'Olympe.",
