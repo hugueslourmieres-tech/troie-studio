@@ -8,6 +8,7 @@ import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { HeroVideo } from "./HeroVideo";
 import { ToolsMarquee } from "./ToolsMarquee";
+import { RollText } from "./RollText";
 import { useMagnetic } from "@/lib/hooks/useMagnetic";
 
 /**
@@ -18,9 +19,21 @@ import { useMagnetic } from "@/lib/hooks/useMagnetic";
  */
 export function Hero({ locale }: { locale: string }) {
   const t = useTranslations("home");
+  const tNav = useTranslations("nav");
 
   const primaryCtaRef = useMagnetic<HTMLAnchorElement>(0.3);
   const slideshowRef = useRef<HTMLDivElement | null>(null);
+
+  // Le hero est désormais la liste numérotée des 3 métiers.
+  const ITEMS = [
+    { num: "01", label: tNav("creation"), href: `/${locale}#création` },
+    { num: "02", label: tNav("strategy"), href: `/${locale}#strategy` },
+    {
+      num: "03",
+      label: locale === "en" ? "Training" : "Formation",
+      href: "/formations",
+    },
+  ];
 
   // Parallax: slideshow lifts up softly as you scroll past the hero.
   useEffect(() => {
@@ -47,8 +60,6 @@ export function Hero({ locale }: { locale: string }) {
     return () => ctx.revert();
   }, []);
 
-  const lines = t("heroTitle").split("\n");
-
   return (
     <section className="relative isolate overflow-hidden bg-[var(--bg)]">
       <div className="relative mx-auto grid min-h-[92vh] max-w-7xl grid-cols-1 gap-12 px-6 pt-36 pb-24 md:grid-cols-12 md:gap-16 md:px-12 md:pt-44 md:pb-32">
@@ -64,10 +75,26 @@ export function Hero({ locale }: { locale: string }) {
           </motion.p>
 
           <h1 className="t-display mt-10 text-5xl text-[var(--fg)] md:text-7xl lg:text-[104px]">
-            {lines.map((line, i) => (
-              <span key={i} className="block">
-                {line}
-              </span>
+            {ITEMS.map((it) => (
+              <Link
+                key={it.label}
+                href={it.href}
+                className="group block w-fit leading-[1.08]"
+              >
+                <RollText
+                  top={
+                    <>
+                      <span className="text-[#f5f0e6]">{it.num}.</span>{" "}
+                      {it.label}
+                    </>
+                  }
+                  bottom={
+                    <span className="text-[#f5f0e6]">
+                      {it.num}. {it.label}
+                    </span>
+                  }
+                />
+              </Link>
             ))}
           </h1>
 
@@ -91,19 +118,33 @@ export function Hero({ locale }: { locale: string }) {
               <Link
                 ref={primaryCtaRef}
                 href="/ia"
-                className="group inline-flex items-center justify-center gap-3 bg-[var(--fg)] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714] will-change-transform"
+                className="group inline-flex items-center justify-center gap-3 bg-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors will-change-transform"
               >
-                Formation IA · Professionnel
-                <span aria-hidden="true" className="transition group-hover:translate-x-1">
+                <RollText
+                  top={<>Formation IA · Professionnel</>}
+                  bottom={
+                    <span className="text-[#f37b22]">
+                      Formation IA · Professionnel
+                    </span>
+                  }
+                />
+                <span aria-hidden="true" className="transition group-hover:translate-x-1 group-hover:text-[#f37b22]">
                   →
                 </span>
               </Link>
               <Link
                 href="/formations"
-                className="group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+                className="group inline-flex items-center justify-center gap-3 border border-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#1a1714]"
               >
-                Formation IA · Particulier
-                <span aria-hidden="true" className="transition group-hover:translate-x-1">
+                <RollText
+                  top={<>Formation IA · Particulier</>}
+                  bottom={
+                    <span className="text-[#f5f0e6]">
+                      Formation IA · Particulier
+                    </span>
+                  }
+                />
+                <span aria-hidden="true" className="transition group-hover:translate-x-1 group-hover:text-[#f5f0e6]">
                   →
                 </span>
               </Link>

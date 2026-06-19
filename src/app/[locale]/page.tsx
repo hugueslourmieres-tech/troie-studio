@@ -9,6 +9,7 @@ import { AboutBlock } from "@/components/AboutBlock";
 import { ContactCTA } from "@/components/ContactCTA";
 import { EmblemBreak } from "@/components/EmblemBreak";
 import { VideoSection } from "@/components/VideoSection";
+import { WriteOnScroll } from "@/components/WriteOnScroll";
 
 /**
  * Home, uniform cream tone everywhere (papier Hermès), one final
@@ -30,6 +31,9 @@ export default async function HomePage({
 
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
+      {/* Écriture au scroll : les titres de section s'écrivent mot par mot */}
+      <WriteOnScroll />
+
       {/* HERO, full orange Hermès, opening statement */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <Hero locale={locale} />

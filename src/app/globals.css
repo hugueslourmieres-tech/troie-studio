@@ -266,3 +266,59 @@ body {
   .reveal-init { opacity: 1; transform: none; }
   .reveal-in { transition: none; }
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   Roll : au survol, le texte déroule verticalement vers une copie
+   (souvent en accent). Le parent doit porter la classe `group` (ou on
+   survole le .roll lui-même). Copie clone positionnée juste en dessous,
+   les deux montent ensemble au hover.
+   ───────────────────────────────────────────────────────────────── */
+.roll {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.roll-line {
+  display: block;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.roll-clone {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+}
+.group:hover .roll-line,
+.roll:hover .roll-line {
+  transform: translateY(-100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .roll-line { transition: none; }
+  .group:hover .roll-line,
+  .roll:hover .roll-line { transform: none; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Write-on : les titres s'écrivent mot par mot quand ils entrent à
+   l'écran (cascade pilotée par transition-delay posé en JS).
+   ───────────────────────────────────────────────────────────────── */
+.writeon-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.4em);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.writeon-word.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .writeon-word {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
