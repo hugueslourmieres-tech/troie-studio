@@ -4,7 +4,7 @@ import { SignInForm } from "./SignInForm";
 export const metadata = {
   title: "Connexion · TROIE Formations",
   description:
-    "Connectez-vous à votre espace membre TROIE Formations. Magic link, sans mot de passé.",
+    "Connectez-vous à votre espace membre TROIE Formations. Magic link, sans mot de passe.",
   robots: { index: false, follow: false },
 };
 
@@ -24,7 +24,7 @@ export default async function SignInPage({
           Bon retour.
         </h1>
         <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-          Un lien magique vous est envoyé par email. Pas de mot de passé.
+          Un lien magique vous est envoyé par email. Pas de mot de passe.
           Cliquez, vous êtes connecté.
         </p>
 
