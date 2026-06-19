@@ -87,14 +87,14 @@ export function Hero({ locale }: { locale: string }) {
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 ref={primaryCtaRef}
-                href="/formations"
+                href={`/${locale}/contact`}
                 className="group inline-flex items-center justify-center gap-3 bg-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors will-change-transform"
               >
                 <RollText
-                  top={<>{t("heroCtaIndividuals")}</>}
+                  top={<>{t("heroCtaProject")}</>}
                   bottom={
                     <span className="text-[#f37b22]">
-                      {t("heroCtaIndividuals")}
+                      {t("heroCtaProject")}
                     </span>
                   }
                 />
@@ -103,13 +103,13 @@ export function Hero({ locale }: { locale: string }) {
                 </span>
               </Link>
               <Link
-                href="/ia"
+                href="/formations"
                 className="group inline-flex items-center justify-center gap-3 border border-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#1a1714]"
               >
                 <RollText
-                  top={<>{t("heroCtaPros")}</>}
+                  top={<>{t("heroCtaCourses")}</>}
                   bottom={
-                    <span className="text-[#f5f0e6]">{t("heroCtaPros")}</span>
+                    <span className="text-[#f5f0e6]">{t("heroCtaCourses")}</span>
                   }
                 />
                 <span aria-hidden="true" className="transition group-hover:translate-x-1 group-hover:text-[#f5f0e6]">

@@ -20,8 +20,8 @@
   },
   "home": {
     "heroEyebrow": "Digital Atelier",
-    "heroTitle": "Get trained in AI,\nstarting now.",
-    "heroSubtitle": "TROIE, a digital studio for ten years. Today, we help you understand and actually use AI, simply and concretely.",
+    "heroTitle": "Everything digital,\nfrom strategy to AI.",
+    "heroSubtitle": "Strategy, creative, SEO, web design, apps, AI agents and online courses. TROIE handles your entire digital, from the first brief to launch.",
     "heroCtaPrimary": "Start a project",
     "heroCtaSecondary": "See our work",
     "heroVideoCta": "See the atelier in motion",
@@ -120,10 +120,12 @@
     "agentsToolsLabel": "Tools",
     "agentsCardCta": "Choose",
     "heroCtaTrain": "Train with AI, now",
-    "heroLead": "Choose your path",
+    "heroLead": "A project or a course?",
     "heroCtaIndividuals": "Individuals",
     "heroCtaPros": "Professionals",
-    "heroMicro": "Create a free account and follow the available courses and quizzes."
+    "heroMicro": "Ten years alongside brands, from independents to large accounts.",
+    "heroCtaProject": "Start a project",
+    "heroCtaCourses": "Online courses"
   },
   "works": {
     "pageTitle": "Works",

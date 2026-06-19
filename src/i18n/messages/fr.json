@@ -20,8 +20,8 @@
   },
   "home": {
     "heroEyebrow": "Atelier Digital",
-    "heroTitle": "Formez-vous à l'IA,\ndès maintenant.",
-    "heroSubtitle": "TROIE, atelier digital depuis dix ans. Aujourd'hui, on vous aide à comprendre et à utiliser l'IA, simplement et concrètement.",
+    "heroTitle": "Tout votre digital,\nde la stratégie à l'IA.",
+    "heroSubtitle": "Stratégie, création, SEO, web design, applications, agents IA et cours en ligne. TROIE vous accompagne sur tout le digital, du premier brief à la mise en ligne.",
     "heroCtaPrimary": "Démarrer un projet",
     "heroCtaSecondary": "Voir nos travaux",
     "heroVideoCta": "Voir l'atelier en mouvement",
@@ -120,10 +120,12 @@
     "agentsToolsLabel": "Outils",
     "agentsCardCta": "Choisir",
     "heroCtaTrain": "Se former à l'IA, maintenant",
-    "heroLead": "Choisissez votre parcours",
+    "heroLead": "Un projet ou une formation ?",
     "heroCtaIndividuals": "Particuliers",
     "heroCtaPros": "Professionnels",
-    "heroMicro": "Créez un compte gratuit et suivez les cours et QCM disponibles."
+    "heroMicro": "Dix ans aux côtés des marques, des indépendants aux grands comptes.",
+    "heroCtaProject": "Démarrer un projet",
+    "heroCtaCourses": "Cours en ligne"
   },
   "works": {
     "pageTitle": "Réalisations",
