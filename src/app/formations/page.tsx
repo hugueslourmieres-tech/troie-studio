@@ -8,7 +8,7 @@ const CAL_URL = "https://cal.com/hugueslourmieres";
 /* Parcours pro, paiement unique ou abonnement. */
 const PRO_PATHS = [
   {
-    badge: "Parcours 01 · Solo",
+    badge: "Cours 01 · Solo",
     title: "Maîtriser une IA, niveau pro.",
     duration: "4 modules · 25 prompts livrés",
     price: "97 €",
@@ -18,7 +18,7 @@ const PRO_PATHS = [
     icon: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M16 7a4 4 0 1 0-8 0 4 4 0 0 0 8 0",
   },
   {
-    badge: "Parcours 02 · Avancé",
+    badge: "Cours 02 · Avancé",
     title: "Quatre IA, automatisation.",
     duration: "7 modules · 100 prompts + templates",
     price: "297 €",
@@ -29,7 +29,7 @@ const PRO_PATHS = [
     icon: "m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83zM2 12.18a1 1 0 0 0 .6.91l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.92M2 17.18a1 1 0 0 0 .6.91l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.92",
   },
   {
-    badge: "Parcours 03 · Mastermind",
+    badge: "Cours 03 · Mastermind",
     title: "Rester à jour, chaque mois.",
     duration: "Abonnement · communauté",
     price: "49 € / mois",
@@ -105,20 +105,33 @@ export default function FormationsPage() {
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="perso" className="border-t border-[var(--rule)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <div className="flex items-baseline gap-4">
-            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-              Perso
+          <div className="flex items-center gap-4">
+            <span
+              aria-hidden="true"
+              className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--accent)]"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-              Gratuit · pour tous, en famille
-            </span>
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                Cours en ligne · perso
+              </p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                Gratuit · pour tous, en famille
+              </p>
+            </div>
           </div>
-          <h2 className="t-display mt-5 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Comprendre et utiliser l'IA, sans danger.
+          <h2 className="t-display mt-6 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+            Des cours pour comprendre et utiliser l'IA, sans danger.
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Quatre QCM gratuits, débloqués dès la création de compte. Une dizaine
-            de questions chacun, avec l'explication après chaque réponse.
+            Vos cours commencent par quatre QCM gratuits, débloqués dès la
+            création de compte. Une dizaine de questions chacun, avec
+            l'explication après chaque réponse.
           </p>
 
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
@@ -189,20 +202,31 @@ export default function FormationsPage() {
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="pro" className="border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <div className="flex items-baseline gap-4">
-            <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-              Pro
+          <div className="flex items-center gap-4">
+            <span
+              aria-hidden="true"
+              className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--accent)]"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
+                <rect x="2" y="7" width="20" height="14" rx="2" />
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+              </svg>
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-              Parcours payants · accès à vie
-            </span>
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                Cours en ligne · pro
+              </p>
+              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                Accès à vie · indépendants et équipes
+              </p>
+            </div>
           </div>
-          <h2 className="t-display mt-5 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Gagnez du temps, sérieusement.
+          <h2 className="t-display mt-6 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+            Des cours pour gagner du temps, sérieusement.
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Pour les indépendants et les équipes : des parcours concrets pour
-            faire travailler l'IA dans vos vrais outils.
+            Pour les indépendants et les équipes : des cours concrets pour faire
+            travailler l'IA dans vos vrais outils.
           </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3 md:gap-8">
@@ -257,7 +281,7 @@ export default function FormationsPage() {
                         : "bg-[var(--fg)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#1a1714]"
                     }`}
                   >
-                    Voir le parcours
+                    Voir le cours
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                   </Link>
                 </div>
@@ -275,7 +299,7 @@ export default function FormationsPage() {
           <div className="grid gap-12 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-8">
               <h2 className="t-display text-4xl text-[var(--fg)] md:text-6xl">
-                Pas sûr du bon parcours ?
+                Pas sûr du bon cours ?
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
                 30 min en visio, gratuit. On regarde votre situation et on vous
