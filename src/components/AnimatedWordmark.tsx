@@ -20,8 +20,9 @@ export function AnimatedWordmark({ className = "" }: { className?: string }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Resserré (0.02em) en haut -> ouvert (0.34em) au scroll.
-  const ls = 0.02 + progress * 0.32;
+  // Resserré (0.04em) en haut -> largement ouvert (0.8em) au scroll,
+  // pour retrouver l'écartement du wordmark d'avant l'animation.
+  const ls = 0.04 + progress * 0.76;
 
   return (
     <span
