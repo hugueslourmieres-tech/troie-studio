@@ -20,8 +20,8 @@
   },
   "home": {
     "heroEyebrow": "Atelier Digital",
-    "heroTitle": "Création, stratégie\n& formation.",
-    "heroSubtitle": "Studio digital. Site web, application, web app, e-commerce, identité de marque, photo, vidéo et accompagnement IA. À taille humaine, dix ans aux côtés des marques.",
+    "heroTitle": "Formez-vous à l'IA,\ndès maintenant.",
+    "heroSubtitle": "TROIE, atelier digital depuis dix ans. Aujourd'hui, on vous aide à comprendre et à utiliser l'IA, simplement et concrètement.",
     "heroCtaPrimary": "Démarrer un projet",
     "heroCtaSecondary": "Voir nos travaux",
     "heroVideoCta": "Voir l'atelier en mouvement",
@@ -119,7 +119,11 @@
     ],
     "agentsToolsLabel": "Outils",
     "agentsCardCta": "Choisir",
-    "heroCtaTrain": "Se former à l'IA, maintenant"
+    "heroCtaTrain": "Se former à l'IA, maintenant",
+    "heroLead": "Choisissez votre parcours",
+    "heroCtaIndividuals": "Particuliers",
+    "heroCtaPros": "Professionnels",
+    "heroMicro": "Créez un compte gratuit et suivez les cours et QCM disponibles."
   },
   "works": {
     "pageTitle": "Réalisations",

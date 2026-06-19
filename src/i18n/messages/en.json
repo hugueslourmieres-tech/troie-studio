@@ -20,8 +20,8 @@
   },
   "home": {
     "heroEyebrow": "Digital Atelier",
-    "heroTitle": "Creative, strategy\n& training.",
-    "heroSubtitle": "Digital studio. Websites, mobile apps, web apps, e-commerce, brand identity, photo, video and AI rollout. A boutique team, ten years alongside brands.",
+    "heroTitle": "Get trained in AI,\nstarting now.",
+    "heroSubtitle": "TROIE, a digital studio for ten years. Today, we help you understand and actually use AI, simply and concretely.",
     "heroCtaPrimary": "Start a project",
     "heroCtaSecondary": "See our work",
     "heroVideoCta": "See the atelier in motion",
@@ -119,7 +119,11 @@
     ],
     "agentsToolsLabel": "Tools",
     "agentsCardCta": "Choose",
-    "heroCtaTrain": "Train with AI, now"
+    "heroCtaTrain": "Train with AI, now",
+    "heroLead": "Choose your path",
+    "heroCtaIndividuals": "Individuals",
+    "heroCtaPros": "Professionals",
+    "heroMicro": "Create a free account and follow the available courses and quizzes."
   },
   "works": {
     "pageTitle": "Works",
