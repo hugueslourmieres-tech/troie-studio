@@ -1023,7 +1023,9 @@ export default function IaLandingPage() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-3 md:gap-8">
+          {/* Slider horizontal sur mobile (12 cartes = trop long empilé),
+              grille 3 colonnes sur desktop. */}
+          <div className="mt-16 -mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:mt-20 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 md:pb-0">
             {TASKS.map((task, i) => (
               <Link
                 key={task.title}
@@ -1031,7 +1033,7 @@ export default function IaLandingPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`Prendre rendez-vous pour automatiser : ${task.title}`}
-                className="group relative block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+                className="group relative block w-[78%] shrink-0 snap-start sm:w-[46%] md:w-auto md:shrink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
               >
                 {/* Gravure Tempesta 1608, MET, domaine public.
                     Knockout : fond papier rendu transparent (invert + screen),
