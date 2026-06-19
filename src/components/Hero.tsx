@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 import { HeroVideo } from "./HeroVideo";
 import { ToolsMarquee } from "./ToolsMarquee";
 import { RollText } from "./RollText";
-import { WriteHeadline } from "./WriteHeadline";
+import { Typewriter } from "./Typewriter";
 import { useMagnetic } from "@/lib/hooks/useMagnetic";
 
 /**
@@ -60,10 +60,21 @@ export function Hero({ locale }: { locale: string }) {
             {t("heroEyebrow")}
           </motion.p>
 
-          <WriteHeadline
-            text={t("heroTitle")}
-            className="t-display mt-8 text-5xl leading-[1.04] text-[var(--fg)] md:text-6xl lg:text-7xl"
-          />
+          <h1 className="t-display mt-8 text-5xl leading-[1.06] text-[var(--fg)] md:text-6xl lg:text-7xl">
+            <span className="block">Stratégie.</span>
+            <span className="block">Création,</span>
+            <Typewriter
+              words={[
+                "Formation",
+                "Cours en ligne",
+                "Agents",
+                "Entreprise",
+                "Marque",
+                "IA",
+              ]}
+              className="flex items-center text-[#f5f0e6]"
+            />
+          </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}

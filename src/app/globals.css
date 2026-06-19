@@ -383,3 +383,10 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .write-word { animation: none; }
 }
+
+/* Curseur clignotant de la machine à écrire (Typewriter). */
+@keyframes tw-cursor {
+  0%,
+  100% { opacity: 1; }
+  50% { opacity: 0; }
+}
