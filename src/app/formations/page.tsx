@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { STARTER_QUIZZES } from "./quizzes";
 import { FormationsFooter } from "@/components/FormationsFooter";
+import { QcmSlideshow } from "@/components/QcmSlideshow";
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -64,7 +65,8 @@ export default function FormationsPage() {
           className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1c0f07]/82 via-[#2d1a0d]/78 to-[#160b04]/94"
         />
 
-        <div className="mx-auto w-full max-w-5xl px-6 pt-36 pb-24 md:px-12 md:pt-44 md:pb-32">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-36 pb-24 md:grid-cols-12 md:gap-16 md:px-12 md:pt-44 md:pb-32">
+          <div className="md:col-span-7">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
             Cours en ligne IA · pro · perso · famille
           </p>
@@ -96,6 +98,22 @@ export default function FormationsPage() {
               Se former pro
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </a>
+          </div>
+          </div>
+
+          {/* Slideshow des QCM proposés */}
+          <div className="flex items-center md:col-span-5">
+            <QcmSlideshow
+              quizzes={STARTER_QUIZZES.map((q) => ({
+                slug: q.slug,
+                title: q.title,
+                tagline: q.tagline,
+                cover: q.cover,
+                icon: q.icon,
+                level: q.level,
+                minutes: q.minutes,
+              }))}
+            />
           </div>
         </div>
       </section>
