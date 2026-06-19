@@ -140,14 +140,15 @@ export function FormationsHeader() {
 
       {/* Mobile overlay menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 flex flex-col bg-[var(--bg)] pt-24 md:hidden">
-          <nav className="flex flex-1 flex-col gap-1 px-6 pb-12">
+        <div className="fixed inset-0 z-40 flex flex-col bg-[var(--bg)] px-6 pt-24 pb-10 md:hidden">
+          {/* Catégories réparties sur toute la hauteur de l'écran */}
+          <nav className="flex flex-1 flex-col justify-evenly">
             {LINKS.map((l, i) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setMenuOpen(false)}
-                className="group flex items-baseline gap-3 border-b border-[var(--rule)] py-5 font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+                className="group flex items-baseline gap-3 border-b border-[var(--rule)] pb-4 font-mono text-[15px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
               >
                 <span className="text-[var(--accent)]">
                   {String(i + 1).padStart(2, "0")}.
@@ -155,10 +156,14 @@ export function FormationsHeader() {
                 <span>{l.label}</span>
               </Link>
             ))}
+          </nav>
+
+          {/* Pied : se connecter + retour */}
+          <div className="mt-6 flex flex-col gap-4 border-t border-[var(--rule)] pt-6">
             <Link
               href="/formations/auth/sign-in"
               onClick={() => setMenuOpen(false)}
-              className="mt-8 inline-flex items-center gap-3 border-b border-[var(--rule)] py-5 font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg-2)]"
+              className="inline-flex items-center gap-3 font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
             >
               <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <circle cx="12" cy="8" r="4" />
@@ -169,11 +174,11 @@ export function FormationsHeader() {
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
-              className="mt-auto py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70"
+              className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70"
             >
               ← Retour au site principal
             </Link>
-          </nav>
+          </div>
         </div>
       )}
     </>
