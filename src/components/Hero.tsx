@@ -23,11 +23,11 @@ export function Hero({ locale }: { locale: string }) {
   const primaryCtaRef = useMagnetic<HTMLAnchorElement>(0.3);
   const slideshowRef = useRef<HTMLDivElement | null>(null);
 
-  // Accès directs aux autres métiers (la formation est portée par les
-  // deux CTA principaux pro / particulier).
+  // Accès directs numérotés aux 3 métiers, dans l'esprit de la navbar.
   const QUICK = [
-    { label: tNav("creation"), href: `/${locale}#création` },
-    { label: tNav("strategy"), href: `/${locale}#strategy` },
+    { num: "01", label: tNav("creation"), href: `/${locale}#création` },
+    { num: "02", label: tNav("strategy"), href: `/${locale}#strategy` },
+    { num: "03", label: locale === "en" ? "Training" : "Formation", href: "/formations" },
   ];
 
   // Parallax: slideshow lifts up softly as you scroll past the hero.
@@ -123,8 +123,9 @@ export function Hero({ locale }: { locale: string }) {
                 <Link
                   key={q.label}
                   href={q.href}
-                  className="inline-flex items-center rounded-full border border-[var(--rule-strong)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                  className="group inline-flex items-center gap-2 rounded-full border border-[var(--rule-strong)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
                 >
+                  <span className="text-[var(--accent)]">{q.num}.</span>
                   {q.label}
                 </Link>
               ))}

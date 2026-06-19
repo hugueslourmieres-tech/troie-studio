@@ -90,10 +90,10 @@ export function Header({ locale }: { locale: string }) {
             <LangSwitch locale={locale} />
             <Link
               href="/formations/auth/sign-in"
-              className={`group inline-flex items-center gap-2.5 border px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 ${
+              className={`group inline-flex items-center gap-2.5 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 ${
                 scrolled
-                  ? "border-transparent bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
-                  : "border-[var(--fg)]/40 bg-transparent text-[var(--fg)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                  ? "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+                  : "bg-transparent text-[var(--fg)] hover:text-[var(--accent)]"
               }`}
             >
               <LoginIcon />
