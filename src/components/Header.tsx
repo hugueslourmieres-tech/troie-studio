@@ -55,9 +55,9 @@ export function Header({ locale }: { locale: string }) {
       label: "IA",
       href: `/formations`,
       items: [
-        { href: `/ia`, label: "Entreprise", meta: "01" },
-        { href: `/formations`, label: "Perso", meta: "02" },
-        { href: `/${locale}/agents`, label: "Agents", meta: "03" },
+        { href: `/ia`, label: "Professionnel", meta: "01" },
+        { href: `/formations`, label: "Particulier", meta: "02" },
+        { href: `/${locale}/agents`, label: "Agent", meta: "03" },
       ],
     },
   ];
