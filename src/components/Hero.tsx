@@ -50,7 +50,7 @@ export function Hero({ locale }: { locale: string }) {
     <section className="relative isolate overflow-hidden bg-[var(--bg)]">
       <div className="relative mx-auto grid min-h-[92vh] max-w-7xl grid-cols-1 gap-12 px-6 pt-36 pb-24 md:grid-cols-12 md:gap-16 md:px-12 md:pt-44 md:pb-32">
         {/* Text column */}
-        <div className="flex flex-col justify-end md:col-span-7">
+        <div className="flex flex-col justify-center md:col-span-7">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -127,7 +127,7 @@ export function Hero({ locale }: { locale: string }) {
             hairline as the "Le studio" boxes : border outside, horizontal
             divider between the vidéo and the CTA row, no fill. Parallax
             on scroll still lifts the whole frame. */}
-        <div className="flex md:col-span-5">
+        <div className="flex items-center md:col-span-5">
           <motion.div
             ref={slideshowRef}
             initial={{ opacity: 0, y: 32 }}
