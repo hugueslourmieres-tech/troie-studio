@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { FormationsHeader } from "@/components/FormationsHeader";
+import { Header } from "@/components/Header";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import "../globals.css";
 
@@ -56,7 +56,7 @@ export default function FormationsLayout({
   return (
     <html lang="fr">
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
-        <FormationsHeader />
+        <Header locale="fr" solid showLang={false} />
         <ScrollReveal />
         {children}
       </body>

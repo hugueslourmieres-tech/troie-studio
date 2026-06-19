@@ -21,7 +21,17 @@ export type NavGroup = { label: string; href?: string; items: NavItem[] };
  *
  * À droite : login + LinkedIn.
  */
-export function Header({ locale }: { locale: string }) {
+export function Header({
+  locale,
+  solid = false,
+  showLang = true,
+}: {
+  locale: string;
+  /** Barre crème pleine en permanence (au-dessus d'un hero sombre). */
+  solid?: boolean;
+  /** Affiche le sélecteur de langue (off hors des routes [locale]). */
+  showLang?: boolean;
+}) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -30,6 +40,8 @@ export function Header({ locale }: { locale: string }) {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const barSolid = scrolled || solid;
 
   const groups: NavGroup[] = [
     {
@@ -63,7 +75,7 @@ export function Header({ locale }: { locale: string }) {
   return (
     <header
       className={`tone-light fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
-        scrolled
+        barSolid
           ? "border-b border-[var(--rule)] bg-[var(--bg)]/95 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
@@ -85,13 +97,19 @@ export function Header({ locale }: { locale: string }) {
         </nav>
 
         <div className="flex items-center gap-4 md:gap-5">
-          {/* Desktop right cluster : langswitch + bouton Se connecter */}
-          <div className="hidden items-center gap-4 md:flex">
-            <LangSwitch locale={locale} />
+          {/* Desktop right cluster : langswitch + Contact + Se connecter */}
+          <div className="hidden items-center gap-5 md:flex">
+            {showLang && <LangSwitch locale={locale} />}
+            <Link
+              href={`/${locale}/contact`}
+              className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+            >
+              Contact
+            </Link>
             <Link
               href="/formations/auth/sign-in"
               className={`group inline-flex items-center gap-2.5 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 ${
-                scrolled
+                barSolid
                   ? "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
                   : "bg-transparent text-[var(--fg)] hover:text-[var(--accent)]"
               }`}
@@ -102,7 +120,7 @@ export function Header({ locale }: { locale: string }) {
           </div>
 
           {/* Mobile : burger */}
-          <MobileMenu locale={locale} groups={groups} />
+          <MobileMenu locale={locale} groups={groups} showLang={showLang} />
         </div>
       </div>
     </header>
