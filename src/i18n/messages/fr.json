@@ -350,7 +350,11 @@
     "or": "Ou directement",
     "emailDirect": "contact@troiestudio.fr",
     "callDirect": "Réserver un appel",
-    "thanks": "Merci. Nous revenons vers vous sous 24 heures ouvrées."
+    "thanks": "Merci. Nous revenons vers vous sous 24 heures ouvrées.",
+    "bookingEyebrow": "Rendez-vous",
+    "bookingTitle": "Réservez un appel de 30 minutes",
+    "bookingText": "Réservez un créneau de 30 minutes pour discuter de votre projet.",
+    "bookingCta": "Prendre un rendez-vous"
   },
   "agents": {
     "metaTitle": "Agents IA, TROIE Atelier Digital",

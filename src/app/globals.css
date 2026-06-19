@@ -70,6 +70,21 @@
   --gold: #c9a05a;
 }
 
+.tone-taupe {
+  /* Taupe / brun grisé chaud, fond de la page contact. Texte cream. */
+  --bg: #574e3e;
+  --bg-2: #625848;
+  --fg: #f4ead0;
+  --fg-2: #ddd1b0;
+  --fg-mute: rgba(244, 234, 208, 0.65);
+  --accent: #f37b22;
+  --accent-2: #ff8c33;
+  --accent-soft: rgba(243, 123, 34, 0.12);
+  --rule: rgba(244, 234, 208, 0.14);
+  --rule-strong: rgba(244, 234, 208, 0.32);
+  --gold: #c9a05a;
+}
+
 .tone-stone {
   /* Beige foncé / pierre chaude, entre cream et brown, donne une
      respiration tonale sans aller jusqu'au marron café. Texte ink. */

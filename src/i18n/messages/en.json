@@ -350,7 +350,11 @@
     "or": "Or directly",
     "emailDirect": "contact@troiestudio.fr",
     "callDirect": "Book a call",
-    "thanks": "Thanks. We'll get back to you within 24 business hours."
+    "thanks": "Thanks. We'll get back to you within 24 business hours.",
+    "bookingEyebrow": "Book a call",
+    "bookingTitle": "Book a 30-minute call",
+    "bookingText": "Book a 30-minute slot to discuss your project.",
+    "bookingCta": "Book a time"
   },
   "agents": {
     "metaTitle": "AI Agents, TROIE Digital Atelier",
