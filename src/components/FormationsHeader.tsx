@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Logo } from "./Logo";
+import { AnimatedWordmark } from "./AnimatedWordmark";
 
 /**
  * FormationsHeader, navbar dediee à la plateforme /formations/*.
@@ -59,7 +59,7 @@ export function FormationsHeader() {
             aria-label="TROIE Studio, retour au site principal"
             className="block text-[var(--fg)] transition hover:text-[var(--accent)]"
           >
-            <Logo variant="wordmark-emblem" className="h-10 md:h-12" />
+            <AnimatedWordmark className="text-[28px] md:text-[34px]" />
           </Link>
 
           {/* Éditorial nav, 01. QCM, 02. Parcours, ... */}
