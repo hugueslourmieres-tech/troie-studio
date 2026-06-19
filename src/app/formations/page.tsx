@@ -2,6 +2,7 @@ import Link from "next/link";
 import { STARTER_QUIZZES } from "./quizzes";
 import { FormationsFooter } from "@/components/FormationsFooter";
 import { QcmSlideshow } from "@/components/QcmSlideshow";
+import { Mascot } from "@/components/Mascot";
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/hugueslourmieres";
@@ -123,34 +124,43 @@ export default function FormationsPage() {
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="perso" className="border-t border-[var(--rule)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <div className="flex items-center gap-4">
-            <span
-              aria-hidden="true"
-              className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--accent)]"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-              </svg>
-            </span>
+          <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between md:gap-12">
             <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Cours en ligne · perso
-              </p>
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                Gratuit · pour tous, en famille
+              <div className="flex items-center gap-4">
+                <span
+                  aria-hidden="true"
+                  className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--accent)]"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </span>
+                <div>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                    Cours en ligne · perso
+                  </p>
+                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                    Gratuit · pour tous, en famille
+                  </p>
+                </div>
+              </div>
+              <h2 className="t-display mt-6 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+                Des cours pour comprendre et utiliser l'IA, sans danger.
+              </h2>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+                Vos cours commencent par quatre QCM gratuits, débloqués dès la
+                création de compte. Une dizaine de questions chacun, avec
+                l'explication après chaque réponse.
               </p>
             </div>
+            <Mascot
+              src="/images/mascot/robot.gif"
+              alt=""
+              className="hidden h-36 w-36 shrink-0 object-contain lg:block xl:h-40 xl:w-40"
+            />
           </div>
-          <h2 className="t-display mt-6 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Des cours pour comprendre et utiliser l'IA, sans danger.
-          </h2>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Vos cours commencent par quatre QCM gratuits, débloqués dès la
-            création de compte. Une dizaine de questions chacun, avec
-            l'explication après chaque réponse.
-          </p>
 
           <ul className="mt-12 grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
             {STARTER_QUIZZES.map((q) => (

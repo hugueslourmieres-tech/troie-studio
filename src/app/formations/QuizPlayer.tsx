@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { playSound, setMuted, isMuted } from "./sounds";
+import { Mascot } from "@/components/Mascot";
 
 /**
  * QuizPlayer, moteur de QCM pour les Modules de formation TROIE.
@@ -126,7 +127,12 @@ export function QuizPlayer({
 
         {passed ? (
           <>
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+            <Mascot
+              src="/images/mascot/robot-success.gif"
+              alt="Bravo !"
+              className="mt-8 h-28 w-28 object-contain"
+            />
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
               <strong className="text-[var(--fg)]">{passTitle}</strong>{" "}
               {passBody}
             </p>

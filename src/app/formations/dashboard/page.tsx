@@ -9,6 +9,7 @@ import {
 } from "@/lib/mock-data";
 import { TrophyIcon } from "./TrophyIcon";
 import { STARTER_QUIZZES } from "../quizzes";
+import { Mascot } from "@/components/Mascot";
 
 export const metadata = {
   title: "Vue d'ensemble · Espace membre TROIE",
@@ -42,17 +43,24 @@ export default async function DashboardOverview() {
   return (
     <div className="space-y-12 md:space-y-16">
       {/* Hero greeting */}
-      <section>
-        <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Espace membre · vue d'ensemble
-        </p>
-        <h1 className="t-display mt-4 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-          Bon retour.
-        </h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-          Voici où vous en êtes. Reprenez là où vous vous êtes
-          arrêté ou explorez les trophées à débloquer.
-        </p>
+      <section className="flex items-start justify-between gap-6">
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Espace membre · vue d'ensemble
+          </p>
+          <h1 className="t-display mt-4 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+            Bon retour.
+          </h1>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+            Voici où vous en êtes. Reprenez là où vous vous êtes
+            arrêté ou explorez les trophées à débloquer.
+          </p>
+        </div>
+        <Mascot
+          src="/images/mascot/robot.gif"
+          alt=""
+          className="hidden h-28 w-28 shrink-0 object-contain md:block lg:h-32 lg:w-32"
+        />
       </section>
 
       {/* Vos QCM gratuits, image duotone + picto, cliquables */}
