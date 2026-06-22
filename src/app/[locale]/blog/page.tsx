@@ -54,30 +54,49 @@ export default async function BlogIndexPage({
         </p>
       </header>
 
-      <ul className="mt-16 divide-y divide-[var(--rule)] border-t border-[var(--rule)]">
+      <ul className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2">
         {ARTICLES_SORTED.map((a) => (
           <li key={a.slug}>
             <Link
               href={`/${locale}/blog/${a.slug}`}
-              className="group flex flex-col gap-4 py-10 transition-colors md:flex-row md:items-baseline md:justify-between md:gap-12"
+              className="group flex h-full flex-col"
             >
-              <div className="md:max-w-2xl">
-                <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
-                  <span>{a.category}</span>
-                  <span className="text-[var(--fg-2)]/45">
-                    {a.readingMinutes} min
-                  </span>
+              {/* Aperçu : photo en duotone orange (traitement maison) */}
+              <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-[#1a0f08]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={a.cover}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
+                  loading="lazy"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[var(--accent)] opacity-55 mix-blend-multiply"
+                />
+                <span className="absolute left-4 top-4 font-mono text-[9px] uppercase tracking-[0.28em] text-[#f6ead4]">
+                  {a.category}
+                </span>
+              </div>
+
+              <div className="mt-5 flex flex-1 flex-col">
+                <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                  <span>{a.readingMinutes} min</span>
+                  <span>{formatDate(a.date)}</span>
                 </div>
-                <h2 className="t-display mt-3 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-3xl">
+                <h2 className="t-display mt-3 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-[28px]">
                   {a.cardTitle ?? a.title}
                 </h2>
                 <p className="mt-3 text-base leading-relaxed text-[var(--fg-2)]">
                   {a.description}
                 </p>
+                <span className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 transition-colors group-hover:text-[var(--accent)]">
+                  Lire l&apos;article
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                </span>
               </div>
-              <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                {formatDate(a.date)}
-              </span>
             </Link>
           </li>
         ))}

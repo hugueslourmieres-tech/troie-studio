@@ -31,6 +31,7 @@ export async function generateMetadata({
       description: a.description,
       publishedTime: a.date,
       authors: ["Hugues Lourmieres"],
+      images: [{ url: `${BASE}${a.cover}` }],
     },
   };
 }
@@ -68,6 +69,7 @@ export default async function ArticlePage({
     description: a.description,
     datePublished: a.date,
     dateModified: a.date,
+    image: `${BASE}${a.cover}`,
     inLanguage: "fr-FR",
     mainEntityOfPage: `${BASE}/${locale}/blog/${slug}`,
     author: {
@@ -100,6 +102,22 @@ export default async function ArticlePage({
           {a.title}
         </h1>
       </header>
+
+      {/* Bannière : photo en duotone orange (traitement maison) */}
+      <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-sm bg-[#1a0f08]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={a.cover}
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover"
+          style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[var(--accent)] opacity-55 mix-blend-multiply"
+        />
+      </div>
 
       <div className="blog-prose mt-12">
         <Body />

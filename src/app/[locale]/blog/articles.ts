@@ -14,6 +14,8 @@ export type Article = {
   date: string;
   category: string;
   readingMinutes: number;
+  /** Image d'aperçu (rendue en duotone orange). */
+  cover: string;
   /** Mots-clés indicatifs (SEO interne, non rendus). */
   keywords?: string[];
   Body: ComponentType;
@@ -29,6 +31,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-22",
     category: "Comprendre l'IA",
     readingMinutes: 6,
+    cover: "/images/blog/manager.jpg",
     keywords: [
       "l'IA va-t-elle remplacer mon métier",
       "IA et emploi",
@@ -46,6 +49,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-22",
     category: "Comprendre l'IA",
     readingMinutes: 7,
+    cover: "/images/blog/chatgpt-debutant.jpg",
     keywords: [
       "comment utiliser ChatGPT",
       "ChatGPT débutant",
@@ -63,6 +67,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-21",
     category: "L'IA au travail",
     readingMinutes: 7,
+    cover: "/images/blog/ai-act.jpg",
     keywords: [
       "AI Act entreprise",
       "AI Act 2026 que faire",
@@ -81,6 +86,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-20",
     category: "L'IA à la maison",
     readingMinutes: 6,
+    cover: "/images/blog/arnaque-voix.png",
     keywords: [
       "arnaque IA voix",
       "deepfake vocal",
