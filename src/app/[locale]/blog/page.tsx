@@ -2,7 +2,7 @@ import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import { ARTICLES_SORTED } from "./articles";
 
-const TITLE = "Le Journal TROIE : comprendre et utiliser l'IA, sans bullshit";
+const TITLE = "Le Journal TROIE : comprendre et utiliser l'IA";
 const DESCRIPTION =
   "Articles clairs et pédagogiques pour comprendre l'IA, l'utiliser vraiment et l'intégrer au quotidien. Pour les particuliers, les familles et les pros.";
 
@@ -47,7 +47,7 @@ export default async function BlogIndexPage({
       <header>
         <p className="t-eyebrow">/ Le Journal</p>
         <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
-          Comprendre l&apos;IA, sans bullshit.
+          Comprendre l&apos;IA.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]/80 md:text-xl">
           {DESCRIPTION}
