@@ -65,6 +65,14 @@ export async function Footer({ locale }: { locale: string }) {
                   {tNav("works")}
                 </Link>
               </li>
+              <li>
+                <Link
+                  href={`/${locale}/blog`}
+                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                >
+                  Journal
+                </Link>
+              </li>
             </ul>
           </div>
 

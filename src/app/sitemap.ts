@@ -3,6 +3,7 @@ import { routing } from "@/i18n/routing";
 import { WORKS } from "@/lib/works";
 import { PACKS } from "@/app/formations/prompts/data";
 import { QUIZZES } from "@/app/formations/quizzes";
+import { ARTICLES } from "@/app/[locale]/blog/articles";
 
 const BASE = "https://troiestudio.fr";
 
@@ -10,8 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   // /fr|/en/formations est desormais redirige (301) vers /agents.
-  const staticPaths = ["", "/agents", "/works", "/contact", "/privacy", "/terms"];
-  const HIGH_PRIORITY = new Set(["/works", "/agents"]);
+  const staticPaths = ["", "/agents", "/works", "/blog", "/contact", "/privacy", "/terms"];
+  const HIGH_PRIORITY = new Set(["/works", "/agents", "/blog"]);
 
   const entries: MetadataRoute.Sitemap = [];
 
@@ -40,6 +41,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: {
           languages: Object.fromEntries(
             routing.locales.map((alt) => [alt, `${BASE}/${alt}/works/${work.slug}`]),
+          ),
+        },
+      });
+    }
+
+    for (const article of ARTICLES) {
+      entries.push({
+        url: `${BASE}/${locale}/blog/${article.slug}`,
+        lastModified: new Date(article.date),
+        changeFrequency: "monthly",
+        priority: 0.8,
+        alternates: {
+          languages: Object.fromEntries(
+            routing.locales.map((alt) => [alt, `${BASE}/${alt}/blog/${article.slug}`]),
           ),
         },
       });
