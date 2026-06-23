@@ -9,14 +9,16 @@ import { Reveal } from "./Reveal";
  */
 export function AudienceFork({ locale }: { locale: string }) {
   return (
-    <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
+    <section className="border-t border-[#f5f0e6]/10 bg-[#1a1714]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <Reveal>
-          <p className="t-eyebrow">Par où commencer</p>
-          <h2 className="t-display mt-6 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Par où commencer
+          </p>
+          <h2 className="t-display mt-6 max-w-3xl text-4xl text-[#f5f0e6] md:text-5xl lg:text-6xl">
             Deux parcours, une méthode.
           </h2>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#f5f0e6]/70 md:text-lg">
             On vous forme et on vous accompagne à l&apos;IA, en ligne et en
             présentiel. Choisissez votre profil, on s&apos;occupe du reste.
           </p>
@@ -82,7 +84,7 @@ export function AudienceFork({ locale }: { locale: string }) {
 
           {/* PRO, carte noire */}
           <Reveal delay={0.08}>
-            <div className="group flex h-full flex-col rounded-sm bg-[#1a1714] p-8 transition-transform hover:-translate-y-1 md:p-10">
+            <div className="group flex h-full flex-col rounded-sm bg-[#5a4a3a] p-8 transition-transform hover:-translate-y-1 md:p-10">
               <span
                 aria-hidden="true"
                 className="flex h-12 w-12 items-center justify-center rounded-full border border-[#f5f0e6]/15 text-[var(--accent)]"
