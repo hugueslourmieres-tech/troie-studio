@@ -115,6 +115,9 @@ export default async function QuizPage({ params }: { params: Params }) {
           failBody={failBody}
           ctaHref={quiz.ctaHref ?? "/formations/quiz"}
           ctaLabel={quiz.ctaLabel ?? "Choisir un autre QCM"}
+          tiers={quiz.tiers}
+          contactHref={quiz.contactHref}
+          contactLabel={quiz.contactLabel}
         />
       </div>
     </main>

@@ -32,11 +32,11 @@ export default async function HomePage({
         <Intro asHero />
       </div>
 
-      {/* PARTICULIERS : les QCM gratuits, cartes cliquables */}
-      <QcmSection />
-
       {/* FORK Pro / Perso : oriente le visiteur */}
       <AudienceFork locale={locale} />
+
+      {/* QCM : situer son niveau IA (pour tous), juste au-dessus des projets */}
+      <QcmSection />
 
       {/* WORKS, réalisations = preuve (Création / Stratégie / Formation ont
           leurs pages dédiées, accessibles depuis la nav) */}

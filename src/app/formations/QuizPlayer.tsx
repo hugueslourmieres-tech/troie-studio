@@ -40,10 +40,18 @@ export function QuizPlayer({
   failBody = "Proche. La notion mérite une seconde lecture. Refaites le quiz ou démarrez direct le Cours 01 : on revoit chaque point en profondeur, avec des exemples concrets.",
   ctaHref = "/formations/cours-01",
   ctaLabel = "Voir le Cours 01",
+  tiers,
+  contactHref,
+  contactLabel = "Nous contacter",
 }: {
   questions: QuizQuestion[];
   passThreshold?: number;
   unlockCode?: string;
+  /** QCM "niveau" : 3 paliers de résultat (sinon pass/fail binaire). */
+  tiers?: { min: number; label: string; body: string }[];
+  /** CTA secondaire "nous contacter" en fin de QCM. */
+  contactHref?: string;
+  contactLabel?: string;
   /** Si vrai, demandé l'email avant de devoiler le code promo / contenu suivant. */
   captureEmail?: boolean;
   /** Si vrai, propose le bloc code promo / email (cas Module 0). Sinon écran de résultat simple. */
@@ -113,6 +121,63 @@ export function QuizPlayer({
   if (finished) {
     const pct = score / total;
     const passed = pct >= passThreshold;
+
+    // QCM "niveau" : on situe sur 3 paliers + on propose formations / contact.
+    if (tiers && tiers.length) {
+      const tier =
+        [...tiers].reverse().find((t) => pct >= t.min) ?? tiers[0];
+      return (
+        <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-8 md:p-12">
+          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Votre niveau
+          </p>
+          <h3 className="t-display mt-4 text-4xl text-[var(--fg)] md:text-6xl">
+            {tier.label}
+          </h3>
+          <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
+            {score} / {total} · {Math.round(pct * 100)} % de bonnes réponses
+          </p>
+
+          <Mascot
+            src="/images/mascot/robot-success.gif"
+            alt=""
+            className="mt-8 h-24 w-24 object-contain"
+          />
+
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+            {tier.body}
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <a
+              href={ctaHref}
+              className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+            >
+              {ctaLabel}
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </a>
+            {contactHref && (
+              <a
+                href={contactHref}
+                className="group inline-flex items-center gap-3 border border-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              >
+                {contactLabel}
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </a>
+            )}
+            <button
+              type="button"
+              onClick={restart}
+              className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            >
+              Refaire le quiz
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </button>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-8 md:p-12">
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">

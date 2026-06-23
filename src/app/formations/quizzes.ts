@@ -8,6 +8,10 @@ import {
   COURSE_01_PREVIEW,
   COURSE_02_PREVIEW,
 } from "./questions";
+import { NIVEAU_IA } from "./niveau-ia";
+
+/** Palier de résultat (QCM à 3 niveaux comme « niveau IA »). */
+export type QuizTier = { min: number; label: string; body: string };
 
 /* ─────────────────────────────────────────────────────────────────────
    Catalogue des QCM TROIE.
@@ -47,9 +51,52 @@ export type Quiz = {
   /** CTA de fin de quiz (sinon, défaut générique). */
   ctaHref?: string;
   ctaLabel?: string;
+  /** QCM "niveau" : 3 paliers de résultat au lieu d'un pass/fail binaire. */
+  tiers?: QuizTier[];
+  /** CTA secondaire "nous contacter" en fin de QCM. */
+  contactHref?: string;
+  contactLabel?: string;
 };
 
 export const QUIZZES: Quiz[] = [
+  /* ── QCM phare : situer son niveau en IA, pour tous ── */
+  {
+    slug: "niveau-ia",
+    cover: "/images/quiz/ci-1.jpg",
+    icon: "M12 2a4.5 4.5 0 0 0-4.5 4.5v.5A3.5 3.5 0 0 0 5 10.5 3.5 3.5 0 0 0 7 14a3.5 3.5 0 0 0 .5 5 3.5 3.5 0 0 0 4.5 1.5M12 2a4.5 4.5 0 0 1 4.5 4.5v.5A3.5 3.5 0 0 1 19 10.5 3.5 3.5 0 0 1 17 14a3.5 3.5 0 0 1-.5 5 3.5 3.5 0 0 1-4.5 1.5M12 2v18.5",
+    title: "Connaître mon niveau en IA",
+    tagline: "10 questions · 3 niveaux",
+    description:
+      "10 questions, des bases jusqu'aux agents et au MCP, pour situer votre niveau en IA et savoir par où continuer. Pour tous, particuliers comme pros.",
+    category: "perso",
+    audience: "Tout public",
+    level: "Découverte",
+    minutes: 6,
+    free: true,
+    starter: true,
+    questions: NIVEAU_IA,
+    ctaHref: "/formations",
+    ctaLabel: "Voir les formations",
+    contactHref: "/fr/contact",
+    contactLabel: "Nous contacter",
+    tiers: [
+      {
+        min: 0,
+        label: "Débutant",
+        body: "Vous découvrez l'IA, et c'est le meilleur moment pour bien démarrer. Nos formations « Découverte » posent les bases utiles dès la première séance, sans jargon.",
+      },
+      {
+        min: 0.5,
+        label: "Intermédiaire",
+        body: "Vous avez de bons réflexes. On passe à la vitesse supérieure : prompting avancé, bons outils et premiers workflows pour gagner du temps au quotidien.",
+      },
+      {
+        min: 0.8,
+        label: "Avancé",
+        body: "Vous maîtrisez les fondamentaux. Place aux agents, à l'automatisation via MCP et au déploiement en équipe. Parlons de votre cas concret.",
+      },
+    ],
+  },
   /* ── 4 QCM STARTER (perso, gratuits, dès l'inscription) ── */
   {
     slug: "comprendre-ia",
