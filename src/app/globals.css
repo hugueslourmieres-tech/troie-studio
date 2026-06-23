@@ -460,3 +460,25 @@ body {
   width: 100%;
   height: 100%;
 }
+
+/* Journal : slideshow auto des derniers articles (marquee continu) */
+@keyframes journal-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.journal-track {
+  animation: journal-scroll 55s linear infinite;
+  will-change: transform;
+}
+.journal-marquee:hover .journal-track {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .journal-track {
+    animation: none;
+  }
+}
