@@ -1,9 +1,10 @@
 /**
  * HeroMcpFlow : schéma "arborescence" animé du hero.
  * En haut, les LLM ; les lignes convergent vers un noeud central étiqueté MCP,
- * puis se ramifient vers les outils digitaux pilotés. Un flux animé (pointillé
- * qui descend) montre que tout passe par le connecteur MCP.
- * Deux géométries : desktop (large) et mobile (compacte, plus verticale).
+ * puis se ramifient (flux animé qui descend) vers les outils digitaux les plus
+ * utilisés. Tout ne passe pas par un connecteur MCP natif : ce qui n'en a pas
+ * (GA4, LinkedIn, TikTok...) est piloté par Claude via Chrome. Deux rangées
+ * d'outils en quinconce. Géométrie desktop large + mobile compacte.
  */
 
 const LLMS = [
@@ -14,37 +15,47 @@ const LLMS = [
   { name: "Perplexity", logo: "/images/logos/perplexity.svg" },
 ];
 
-const TOOLS = [
-  { name: "Google", logo: "/images/logos/google.svg" },
+// Rangée avant (6) + rangée arrière en quinconce (5) = les outils les plus
+// utilisés, toutes catégories (Google, social, CRM, e-commerce, CMS, no-code).
+const TOOLS_A = [
+  { name: "Gmail", logo: "/images/logos/gmail.svg" },
+  { name: "Google Analytics", logo: "/images/logos/googleanalytics.svg" },
   { name: "Meta", logo: "/images/logos/meta.svg" },
-  { name: "CRM", logo: "/images/logos/hubspot.svg" },
-  { name: "Planning éditorial", logo: "/images/logos/notion.svg" },
+  { name: "LinkedIn", logo: "/images/logos/linkedin.svg" },
   { name: "Shopify", logo: "/images/logos/shopify.svg" },
   { name: "WordPress", logo: "/images/logos/wordpress.svg" },
+];
+const TOOLS_B = [
+  { name: "Instagram", logo: "/images/logos/instagram.svg" },
+  { name: "TikTok", logo: "/images/logos/tiktok.svg" },
+  { name: "HubSpot", logo: "/images/logos/hubspot.svg" },
+  { name: "Notion", logo: "/images/logos/notion.svg" },
+  { name: "Slack", logo: "/images/logos/slack.svg" },
 ];
 
 const INK = "#1a1714";
 const CREAM = "#f6efe1";
 const ARIA =
-  "Avec les LLM (Claude, ChatGPT, Gemini, Copilot, Perplexity) et le connecteur MCP, TROIE pilote et automatise vos outils digitaux : Google, Meta, CRM, planning éditorial, Shopify, WordPress.";
+  "Les LLM (Claude, ChatGPT, Gemini, Copilot, Perplexity) pilotent, via le connecteur MCP et Chrome, vos outils digitaux : Gmail, Google Analytics, Meta, Instagram, LinkedIn, TikTok, HubSpot, Notion, Slack, Shopify, WordPress.";
 
 type Geo = {
   W: number;
   H: number;
   llmY: number;
-  toolY: number;
   topY: number;
   botY: number;
   mcpY: number;
+  toolAY: number;
+  toolBY: number;
   logo: number;
-  gap: number; // distance logo-centre -> départ de ligne
+  gap: number;
   mcpW: number;
   mcpH: number;
   font: number;
 };
 
-const DESKTOP: Geo = { W: 1120, H: 600, llmY: 80, toolY: 520, topY: 252, botY: 348, mcpY: 300, logo: 40, gap: 30, mcpW: 112, mcpH: 44, font: 19 };
-const MOBILE: Geo = { W: 384, H: 660, llmY: 66, toolY: 594, topY: 250, botY: 410, mcpY: 330, logo: 42, gap: 30, mcpW: 100, mcpH: 40, font: 18 };
+const DESKTOP: Geo = { W: 1120, H: 740, llmY: 80, topY: 250, botY: 342, mcpY: 296, toolAY: 540, toolBY: 670, logo: 38, gap: 28, mcpW: 112, mcpH: 44, font: 19 };
+const MOBILE: Geo = { W: 384, H: 880, llmY: 64, topY: 244, botY: 404, mcpY: 324, toolAY: 620, toolBY: 800, logo: 40, gap: 26, mcpW: 100, mcpH: 40, font: 18 };
 
 function Logo({ x, y, logo, s }: { x: number; y: number; logo: string; s: number }) {
   return (
@@ -64,7 +75,8 @@ function Logo({ x, y, logo, s }: { x: number; y: number; logo: string; s: number
 function Diagram(g: Geo) {
   const cx = g.W / 2;
   const llmX = (i: number) => (g.W * (i + 0.5)) / LLMS.length;
-  const toolX = (i: number) => (g.W * (i + 0.5)) / TOOLS.length;
+  const aX = (i: number) => (g.W * (i + 0.5)) / TOOLS_A.length; // 6 colonnes
+  const bX = (i: number) => (g.W * (i + 1)) / TOOLS_A.length; // 5 intervalles (quinconce)
 
   const converge = (i: number) => {
     const sx = llmX(i);
@@ -72,11 +84,10 @@ function Diagram(g: Geo) {
     const mid = (sy + g.topY) / 2;
     return `M ${sx} ${sy} C ${sx} ${mid}, ${cx} ${mid}, ${cx} ${g.topY}`;
   };
-  const diverge = (i: number) => {
-    const ex = toolX(i);
-    const ey = g.toolY - g.gap;
+  const diverge = (x: number, y: number) => {
+    const ey = y - g.gap;
     const mid = (g.botY + ey) / 2;
-    return `M ${cx} ${g.botY} C ${cx} ${mid}, ${ex} ${mid}, ${ex} ${ey}`;
+    return `M ${cx} ${g.botY} C ${cx} ${mid}, ${x} ${mid}, ${x} ${ey}`;
   };
 
   const Lines = () => (
@@ -85,8 +96,11 @@ function Diagram(g: Geo) {
         <path key={`l${i}`} d={converge(i)} />
       ))}
       <line x1={cx} y1={g.topY} x2={cx} y2={g.botY} />
-      {TOOLS.map((_, i) => (
-        <path key={`t${i}`} d={diverge(i)} />
+      {TOOLS_A.map((_, i) => (
+        <path key={`a${i}`} d={diverge(aX(i), g.toolAY)} />
+      ))}
+      {TOOLS_B.map((_, i) => (
+        <path key={`b${i}`} d={diverge(bX(i), g.toolBY)} />
       ))}
     </>
   );
@@ -94,29 +108,27 @@ function Diagram(g: Geo) {
   return (
     <svg viewBox={`0 0 ${g.W} ${g.H}`} className="h-auto w-full" role="img" aria-label={ARIA}>
       <g fill="none" stroke={INK} strokeLinecap="round">
-        {/* Trace de fond, toujours visible */}
-        <g strokeOpacity={0.22} strokeWidth={1.4}>
+        <g strokeOpacity={0.2} strokeWidth={1.4}>
           <Lines />
         </g>
-        {/* Flux animé (pointillé qui descend des LLM vers MCP puis les outils) */}
-        <g strokeOpacity={0.85} strokeWidth={1.7} className="mcp-flow">
+        <g strokeOpacity={0.82} strokeWidth={1.7} className="mcp-flow">
           <Lines />
         </g>
       </g>
 
-      {/* Noeuds du tronc */}
       <circle cx={cx} cy={g.topY} r={4} fill={INK} />
       <circle cx={cx} cy={g.botY} r={4} fill={INK} />
 
-      {/* Logos */}
       {LLMS.map((l, i) => (
         <Logo key={l.name} x={llmX(i)} y={g.llmY} logo={l.logo} s={g.logo} />
       ))}
-      {TOOLS.map((tl, i) => (
-        <Logo key={tl.name} x={toolX(i)} y={g.toolY} logo={tl.logo} s={g.logo} />
+      {TOOLS_A.map((tl, i) => (
+        <Logo key={tl.name} x={aX(i)} y={g.toolAY} logo={tl.logo} s={g.logo} />
+      ))}
+      {TOOLS_B.map((tl, i) => (
+        <Logo key={tl.name} x={bX(i)} y={g.toolBY} logo={tl.logo} s={g.logo} />
       ))}
 
-      {/* Pastille MCP, pulse doux */}
       <g className="mcp-pulse">
         <rect x={cx - g.mcpW / 2} y={g.mcpY - g.mcpH / 2} width={g.mcpW} height={g.mcpH} rx={g.mcpH / 2} fill={INK} />
         <text
