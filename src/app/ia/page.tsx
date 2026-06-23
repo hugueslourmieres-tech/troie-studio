@@ -3,6 +3,7 @@ import { AnimatedNumber } from "./AnimatedNumber";
 import { HeroVideoBg } from "./HeroVideoBg";
 import { GrowthCurve } from "./GrowthCurve";
 import { Header } from "@/components/Header";
+import { MetiersPro } from "@/components/MetiersPro";
 import { FormationsFooter } from "@/components/FormationsFooter";
 import { Slideshow } from "@/components/Slideshow";
 
@@ -403,8 +404,8 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* Stat band supprimee, les chiffres vérifiés sont desormais
-          dans la GrowthCurve du hero, pour éviter la redondance. */}
+      {/* VOTRE MÉTIER : grille de métiers, le chiffre en avant */}
+      <MetiersPro />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           SOLO / MICRO / AUTO-ENTREPRENEUR
