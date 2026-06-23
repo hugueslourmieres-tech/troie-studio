@@ -16,8 +16,8 @@ const TEAM: Member[] = [
     name: "Hugues Lourmieres",
     role: "Fondateur & CEO",
     note: "Direction artistique, stratégie de marque et formation IA. Dix ans auprès de marques exigeantes, en France et à l'international.",
-    img: "/images/about/hugues-2025.jpg",
-    pos: "center 22%",
+    img: "/images/about/hugues-studio.jpg",
+    pos: "center 14%",
   },
   {
     name: "Vanessa Nobrega",
