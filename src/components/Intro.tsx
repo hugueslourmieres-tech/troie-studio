@@ -72,12 +72,16 @@ const METIERS: Métier[] = [
  * Fond orange Hermès, 3 boxes encadrant un guerrier illustrant chaque metier.
  * Chaque box est cliquable et ancre vers la section détaillée plus bas.
  */
-export function Intro() {
+export function Intro({ asHero = false }: { asHero?: boolean }) {
   const t = useTranslations("home");
 
   return (
     <section className="relative">
-      <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
+      <div
+        className={`mx-auto max-w-7xl px-6 md:px-12 ${
+          asHero ? "pt-36 pb-28 md:pt-52 md:pb-40" : "py-28 md:py-40"
+        }`}
+      >
         {/* Header centré, intro éditoriale */}
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
