@@ -4,13 +4,11 @@ import { Intro } from "@/components/Intro";
 import { AudienceFork } from "@/components/AudienceFork";
 import { QcmSection } from "@/components/QcmSection";
 import { ServiceSection } from "@/components/ServiceSection";
-import { AgentsTeaser } from "@/components/AgentsTeaser";
 import { WorksGallery } from "@/components/WorksGallery";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
 import { JournalTeaser } from "@/components/JournalTeaser";
 import { ContactCTA } from "@/components/ContactCTA";
-import { EmblemBreak } from "@/components/EmblemBreak";
 import { WriteOnScroll } from "@/components/WriteOnScroll";
 
 /**
@@ -75,16 +73,6 @@ export default async function HomePage({
           { src: "/images/logos/copilot.svg", label: "Copilot" },
         ]}
       />
-
-      {/* AGENTS, teaser orange Hermès, 3 figures de l'Antiquité vers /agents */}
-      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <AgentsTeaser
-          locale={locale}
-          lang={locale === "en" ? "en" : "fr"}
-        />
-      </div>
-
-      <EmblemBreak size="md" />
 
       {/* PREUVE : on ne fait pas que former, on pratique (création + stratégie) */}
       <ServiceSection
