@@ -1,10 +1,12 @@
+import Link from "next/link";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Hero } from "@/components/Hero";
 import { Intro } from "@/components/Intro";
 import { AudienceFork } from "@/components/AudienceFork";
+import { QcmSection } from "@/components/QcmSection";
 import { ServiceSection } from "@/components/ServiceSection";
+import { ProSection } from "@/components/ProSection";
 import { AgentsTeaser } from "@/components/AgentsTeaser";
-import { WorksGallery } from "@/components/WorksGallery";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
 import { JournalTeaser } from "@/components/JournalTeaser";
@@ -13,10 +15,11 @@ import { EmblemBreak } from "@/components/EmblemBreak";
 import { WriteOnScroll } from "@/components/WriteOnScroll";
 
 /**
- * Home, positionnement "IA d'abord" : on forme et on accompagne à l'IA
- * (pro + perso, en ligne + présentiel). Le fork Pro/Perso oriente tout de
- * suite, la formation est mise en avant, création/stratégie/réalisations
- * deviennent la preuve. DA Hermès conservée (orange / cream alternés).
+ * Home, positionnement "IA d'abord". On entre par son public (fork), puis
+ * deux parcours : Particuliers (les QCM gratuits) et Professionnels (par
+ * métier). Création/stratégie/réalisations ne sont plus sur la home (elles
+ * vivent sur /works) : on garde juste les logos clients + un lien comme
+ * preuve. DA Hermès conservée (orange / cream alternés).
  */
 export default async function HomePage({
   params,
@@ -27,8 +30,6 @@ export default async function HomePage({
   setRequestLocale(locale);
 
   const t = await getTranslations({ locale, namespace: "home" });
-  const creationItems = t.raw("creationItems") as string[];
-  const strategyItems = t.raw("strategyItems") as string[];
   const trainingItems = t.raw("trainingItems") as string[];
 
   return (
@@ -48,6 +49,9 @@ export default async function HomePage({
 
       {/* FORK Pro / Perso : oriente le visiteur dès l'entrée */}
       <AudienceFork locale={locale} />
+
+      {/* PARTICULIERS : les QCM gratuits, cartes cliquables */}
+      <QcmSection />
 
       {/* FORMATION IA, le coeur de l'offre, preuve d'ateliers réels */}
       <ServiceSection
@@ -73,7 +77,10 @@ export default async function HomePage({
         ]}
       />
 
-      {/* AGENTS, 04. Teaser orange Hermès, 3 figures de l'Antiquité vers /agents */}
+      {/* PROFESSIONNELS : pitch par métier, renvoie vers /ia */}
+      <ProSection locale={locale} />
+
+      {/* AGENTS, teaser orange Hermès, 3 figures de l'Antiquité vers /agents */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <AgentsTeaser
           locale={locale}
@@ -81,66 +88,26 @@ export default async function HomePage({
         />
       </div>
 
+      {/* JOURNAL : aimant SEO + pédagogie */}
+      <JournalTeaser locale={locale} />
+
       <EmblemBreak size="md" />
 
-      {/* PREUVE : on ne fait pas que former, on pratique (création + stratégie) */}
-      <ServiceSection
-        id="création"
-        eyebrow={t("creationEyebrow")}
-        title={t("creationTitle")}
-        body={t("creationBody")}
-        items={creationItems}
-        ctaLabel={t("creationCta")}
-        ctaHref={`/${locale}/contact?subject=création`}
-        photos={[
-          { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
-          { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
-          { src: "/images/creation-section/03-img-8524.jpg", alt: "Création, image" },
-        ]}
-        tools={[
-          { src: "/images/logos/adobe.svg", label: "Adobe" },
-          { src: "/images/logos/figma.svg", label: "Figma" },
-          { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
-          { src: "/images/logos/midjourney.svg", label: "Midjourney" },
-          { src: "/images/logos/runway.svg", label: "Runway" },
-        ]}
-      />
-
-      <ServiceSection
-        id="strategy"
-        eyebrow={t("strategyEyebrow")}
-        title={t("strategyTitle")}
-        body={t("strategyBody")}
-        items={strategyItems}
-        ctaLabel={t("strategyCta")}
-        ctaHref={`/${locale}/contact?subject=strategy`}
-        reverse
-        photos={[
-          { src: "/images/strategy-section/01.jpg", alt: "Stratégie, communication marque" },
-          { src: "/images/strategy-section/02.jpg", alt: "Stratégie, direction artistique" },
-          { src: "/images/strategy-section/03.jpg", alt: "Stratégie, événement Yacht Show" },
-        ]}
-        tools={[
-          { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
-          { src: "/images/logos/google-ads.svg", label: "Google Ads" },
-          { src: "/images/logos/meta.svg", label: "Meta" },
-          { src: "/images/logos/hubspot.svg", label: "HubSpot" },
-          { src: "/images/logos/semrush.svg", label: "Semrush" },
-        ]}
-      />
-
-      {/* WORKS, réalisations = preuve */}
-      <WorksGallery locale={locale} />
-
-      {/* CLIENTS, ORANGE, wordmark grid on the iconic Hermès orange */}
+      {/* PREUVE FINE : logos clients + lien vers les réalisations */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <ClientsCloud />
+        <div className="mx-auto max-w-7xl px-6 pb-16 text-center md:px-12 md:pb-20">
+          <Link
+            href={`/${locale}/works`}
+            className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--bg)] hover:text-[var(--bg)]"
+          >
+            Voir nos réalisations
+            <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+          </Link>
+        </div>
       </div>
 
       <AboutBlock />
-
-      {/* JOURNAL : aimant SEO + pédagogie */}
-      <JournalTeaser locale={locale} />
 
       {/* CTA, only orange section of the entire site */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
