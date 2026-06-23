@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
+import { SealBadge } from "./SealBadge";
 
 /**
  * Fork Pro / Perso : oriente d'emblée le visiteur vers son parcours.
@@ -26,16 +27,13 @@ export function AudienceFork({ locale }: { locale: string }) {
           {/* PERSO */}
           <Reveal>
             <div className="group flex h-full flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-8 transition-colors hover:border-[var(--accent)] md:p-10">
-              <span
-                aria-hidden="true"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--accent)]"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
+              <SealBadge>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-[22px] w-[22px]" aria-hidden="true">
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx="9" cy="7" r="4" />
                   <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
                 </svg>
-              </span>
+              </SealBadge>
               <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
                 Particuliers &amp; familles
               </p>
@@ -83,15 +81,12 @@ export function AudienceFork({ locale }: { locale: string }) {
           {/* PRO */}
           <Reveal delay={0.08}>
             <div className="group flex h-full flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-8 transition-colors hover:border-[var(--accent)] md:p-10">
-              <span
-                aria-hidden="true"
-                className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--accent)]"
-              >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" aria-hidden="true">
+              <SealBadge>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-[22px] w-[22px]" aria-hidden="true">
                   <rect x="2" y="7" width="20" height="14" rx="2" />
                   <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
                 </svg>
-              </span>
+              </SealBadge>
               <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
                 Professionnels &amp; équipes
               </p>
