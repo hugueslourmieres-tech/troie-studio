@@ -48,8 +48,9 @@ export function Header({
       label: "Création",
       href: `/${locale}/creation`,
       items: [
-        { href: `/${locale}/creation`, label: "Création", meta: "01" },
-        { href: `/${locale}/works`, label: "Réalisations", meta: "02" },
+        { href: `/${locale}/creation/video`, label: "Vidéo", meta: "01" },
+        { href: `/${locale}/works`, label: "Photos", meta: "02" },
+        { href: `/${locale}/creation/web`, label: "Web", meta: "03" },
       ],
     },
     {
