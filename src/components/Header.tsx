@@ -46,28 +46,28 @@ export function Header({
   const groups: NavGroup[] = [
     {
       label: "Création",
-      href: `/${locale}#création`,
+      href: `/${locale}/creation`,
       items: [
-        { href: `/${locale}#création`, label: "Création", meta: "01" },
-        { href: `/${locale}/works`, label: "Réalisation", meta: "02" },
-        { href: `/${locale}#vidéos`, label: "Vidéos", meta: "03" },
+        { href: `/${locale}/creation`, label: "Création", meta: "01" },
+        { href: `/${locale}/works`, label: "Réalisations", meta: "02" },
       ],
     },
     {
       label: "Stratégie",
-      href: `/${locale}#strategy`,
+      href: `/${locale}/strategie`,
       items: [
-        { href: `/${locale}#strategy`, label: "Stratégie marketing", meta: "01" },
+        { href: `/${locale}/strategie`, label: "Stratégie marketing", meta: "01" },
         { href: `/ia`, label: "Stratégie IA", meta: "02" },
       ],
     },
     {
       label: "IA",
-      href: `/formations`,
+      href: `/ia`,
       items: [
         { href: `/ia`, label: "Professionnel", meta: "01" },
         { href: `/formations`, label: "Particulier", meta: "02" },
-        { href: `/${locale}/agents`, label: "Agent", meta: "03" },
+        { href: `/${locale}/formation`, label: "Formation équipes", meta: "03" },
+        { href: `/${locale}/agents`, label: "Agent", meta: "04" },
       ],
     },
   ];

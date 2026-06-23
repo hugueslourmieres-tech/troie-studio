@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Reveal } from "./Reveal";
 
 type Tool = { src: string; label: string };
@@ -13,7 +13,8 @@ type Métier = {
   slug: "creation" | "strategy" | "training";
   video: string;
   videoAlt: string;
-  hash: string;
+  /** Page dédiée du métier (sous /[locale]). */
+  path: string;
   tools: Tool[];
 };
 
@@ -26,7 +27,7 @@ const METIERS: Métier[] = [
     slug: "creation",
     video: "/images/videos/creation.mp4",
     videoAlt: "Création, video d'illustration",
-    hash: "#création",
+    path: "creation",
     tools: [
       { src: "/images/logos/adobe.svg", label: "Adobe" },
       { src: "/images/logos/figma.svg", label: "Figma" },
@@ -40,7 +41,7 @@ const METIERS: Métier[] = [
     slug: "strategy",
     video: "/images/videos/strategy.mp4",
     videoAlt: "Stratégie, video d'illustration",
-    hash: "#strategy",
+    path: "strategie",
     tools: [
       { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
       { src: "/images/logos/google-ads.svg", label: "Google Ads" },
@@ -54,7 +55,7 @@ const METIERS: Métier[] = [
     slug: "training",
     video: "/images/videos/formation.mp4",
     videoAlt: "Formation, video d'illustration",
-    hash: "#training",
+    path: "formation",
     tools: [
       { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
       { src: "/images/logos/claude.svg", label: "Claude" },
@@ -115,6 +116,7 @@ export function Intro() {
 
 function MetierBox({ metier, index }: { metier: Métier; index: number }) {
   const t = useTranslations("home");
+  const locale = useLocale();
 
   return (
     <motion.div
@@ -129,7 +131,7 @@ function MetierBox({ metier, index }: { metier: Métier; index: number }) {
       className="relative"
     >
       <Link
-        href={metier.hash}
+        href={`/${locale}/${metier.path}`}
         className="group relative flex h-full flex-col bg-[var(--bg)] p-8 transition-colors hover:bg-[var(--bg-2)] md:p-10"
       >
         {/* Index + label (re-using the eyebrow which already reads "01 · Création") */}

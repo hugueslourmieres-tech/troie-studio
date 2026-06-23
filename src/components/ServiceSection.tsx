@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ComponentProps } from "react";
 import { Reveal } from "./Reveal";
+
+/** Wrapper neutre : contenu visible d'emblée (sans reveal au scroll). */
+function Passthrough({ children, className }: ComponentProps<typeof Reveal>) {
+  return <div className={className}>{children}</div>;
+}
 
 export type Photo = { src: string; alt: string };
 export type Tool = { src: string; label: string };
@@ -16,6 +22,10 @@ type Props = {
   id?: string;
   ctaLabel?: string;
   ctaHref?: string;
+  /** Niveau de titre : h2 dans la home, h1 sur une page dédiée. */
+  headingAs?: "h1" | "h2";
+  /** Reveal au scroll. false = contenu visible d'emblée (pages dédiées). */
+  reveal?: boolean;
 };
 
 /**
@@ -36,7 +46,11 @@ export function ServiceSection({
   id,
   ctaLabel,
   ctaHref,
+  headingAs = "h2",
+  reveal = true,
 }: Props) {
+  const Heading = headingAs;
+  const W = reveal ? Reveal : Passthrough;
   return (
     <section
       id={id}
@@ -50,20 +64,20 @@ export function ServiceSection({
         >
           {/* Text column */}
           <div className="md:col-span-5">
-            <Reveal direction={reverse ? "right" : "left"}>
+            <W direction={reverse ? "right" : "left"}>
               <p className="t-eyebrow">{eyebrow}</p>
-            </Reveal>
-            <Reveal delay={0.1} direction={reverse ? "right" : "left"}>
-              <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+            </W>
+            <W delay={0.1} direction={reverse ? "right" : "left"}>
+              <Heading className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
                 {title}
-              </h2>
-            </Reveal>
-            <Reveal delay={0.2}>
+              </Heading>
+            </W>
+            <W delay={0.2}>
               <p className="mt-10 max-w-md text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">
                 {body}
               </p>
-            </Reveal>
-            <Reveal delay={0.3}>
+            </W>
+            <W delay={0.3}>
               <ul className="mt-12 space-y-3 border-t border-[var(--rule)] pt-8">
                 {items.map((item) => (
                   <li
@@ -78,17 +92,17 @@ export function ServiceSection({
                   </li>
                 ))}
               </ul>
-            </Reveal>
+            </W>
 
             {tools && tools.length > 0 && (
-              <Reveal delay={0.4}>
+              <W delay={0.4}>
                 <ToolsRow tools={tools} />
-              </Reveal>
+              </W>
             )}
 
             {/* Desktop CTA, stays under the bullets / tools, in the text column */}
             {ctaLabel && ctaHref && (
-              <Reveal delay={0.5}>
+              <W delay={0.5}>
                 <Link
                   href={ctaHref}
                   className="group mt-12 hidden items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:inline-flex"
@@ -101,19 +115,19 @@ export function ServiceSection({
                     →
                   </span>
                 </Link>
-              </Reveal>
+              </W>
             )}
           </div>
 
           {/* Photo column */}
           <div className="md:col-span-7">
-            <Reveal delay={0.15} direction={reverse ? "left" : "right"}>
+            <W delay={0.15} direction={reverse ? "left" : "right"}>
               <PhotoMosaic photos={photos} />
-            </Reveal>
+            </W>
 
             {/* Mobile CTA, sits below the photos on mobile only */}
             {ctaLabel && ctaHref && (
-              <Reveal delay={0.2}>
+              <W delay={0.2}>
                 <Link
                   href={ctaHref}
                   className="group mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:hidden"
@@ -126,7 +140,7 @@ export function ServiceSection({
                     →
                   </span>
                 </Link>
-              </Reveal>
+              </W>
             )}
           </div>
         </div>

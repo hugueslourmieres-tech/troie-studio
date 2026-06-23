@@ -27,7 +27,7 @@ export async function Footer({ locale }: { locale: string }) {
             <ul className="mt-6 space-y-3 text-sm">
               <li>
                 <Link
-                  href={`/${locale}#création`}
+                  href={`/${locale}/creation`}
                   className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
                   {tNav("creation")}
@@ -35,7 +35,7 @@ export async function Footer({ locale }: { locale: string }) {
               </li>
               <li>
                 <Link
-                  href={`/${locale}#strategy`}
+                  href={`/${locale}/strategie`}
                   className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
                   {tNav("strategy")}
@@ -43,7 +43,7 @@ export async function Footer({ locale }: { locale: string }) {
               </li>
               <li>
                 <Link
-                  href={`/${locale}/formations`}
+                  href={`/${locale}/formation`}
                   className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
                   {tNav("training")}
