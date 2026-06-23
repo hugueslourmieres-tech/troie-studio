@@ -1,20 +1,21 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Hero } from "@/components/Hero";
-import { Intro } from "@/components/Intro";
+import { AudienceFork } from "@/components/AudienceFork";
 import { ServiceSection } from "@/components/ServiceSection";
 import { AgentsTeaser } from "@/components/AgentsTeaser";
 import { WorksGallery } from "@/components/WorksGallery";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
+import { JournalTeaser } from "@/components/JournalTeaser";
 import { ContactCTA } from "@/components/ContactCTA";
 import { EmblemBreak } from "@/components/EmblemBreak";
-import { VideoSection } from "@/components/VideoSection";
 import { WriteOnScroll } from "@/components/WriteOnScroll";
 
 /**
- * Home, uniform cream tone everywhere (papier Hermès), one final
- * orange accent on the CTA. No dark sections; the rhythm comes from
- * typography, white space and B&W imagery instead of tonal contrast.
+ * Home, positionnement "IA d'abord" : on forme et on accompagne à l'IA
+ * (pro + perso, en ligne + présentiel). Le fork Pro/Perso oriente tout de
+ * suite, la formation est mise en avant, création/stratégie/réalisations
+ * deviennent la preuve. DA Hermès conservée (orange / cream alternés).
  */
 export default async function HomePage({
   params,
@@ -39,11 +40,44 @@ export default async function HomePage({
         <Hero locale={locale} />
       </div>
 
-      {/* INTRO, fond orange Hermès, 3 boxes / 3 métiers / 3 guerriers */}
+      {/* FORK Pro / Perso : oriente le visiteur dès l'entrée */}
+      <AudienceFork locale={locale} />
+
+      {/* FORMATION IA, le coeur de l'offre, preuve d'ateliers réels */}
+      <ServiceSection
+        id="training"
+        eyebrow={t("trainingEyebrow")}
+        title={t("trainingTitle")}
+        body={t("trainingBody")}
+        items={trainingItems}
+        ctaLabel={t("trainingCta")}
+        ctaHref={`/${locale}/formations`}
+        photos={[
+          { src: "/images/training-section/01.jpg", alt: "Formation IA, atelier" },
+          { src: "/images/training-section/02.jpg", alt: "Formation IA, Montpellier" },
+          { src: "/images/training-section/03.jpg", alt: "Formation IA, workshop" },
+        ]}
+        tools={[
+          { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+          { src: "/images/logos/claude.svg", label: "Claude" },
+          { src: "/images/logos/gemini.svg", label: "Gemini" },
+          { src: "/images/logos/perplexity.svg", label: "Perplexity" },
+          { src: "/images/logos/make.svg", label: "Make" },
+          { src: "/images/logos/copilot.svg", label: "Copilot" },
+        ]}
+      />
+
+      {/* AGENTS, 04. Teaser orange Hermès, 3 figures de l'Antiquité vers /agents */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <Intro />
+        <AgentsTeaser
+          locale={locale}
+          lang={locale === "en" ? "en" : "fr"}
+        />
       </div>
 
+      <EmblemBreak size="md" />
+
+      {/* PREUVE : on ne fait pas que former, on pratique (création + stratégie) */}
       <ServiceSection
         id="création"
         eyebrow={t("creationEyebrow")}
@@ -89,44 +123,8 @@ export default async function HomePage({
         ]}
       />
 
-      <ServiceSection
-        id="training"
-        eyebrow={t("trainingEyebrow")}
-        title={t("trainingTitle")}
-        body={t("trainingBody")}
-        items={trainingItems}
-        ctaLabel={t("trainingCta")}
-        ctaHref={`/${locale}/formations`}
-        photos={[
-          { src: "/images/training-section/01.jpg", alt: "Formation IA, atelier" },
-          { src: "/images/training-section/02.jpg", alt: "Formation IA, Montpellier" },
-          { src: "/images/training-section/03.jpg", alt: "Formation IA, workshop" },
-        ]}
-        tools={[
-          { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
-          { src: "/images/logos/claude.svg", label: "Claude" },
-          { src: "/images/logos/gemini.svg", label: "Gemini" },
-          { src: "/images/logos/perplexity.svg", label: "Perplexity" },
-          { src: "/images/logos/make.svg", label: "Make" },
-          { src: "/images/logos/copilot.svg", label: "Copilot" },
-        ]}
-      />
-
-      {/* AGENTS, 04. Teaser orange Hermès, 3 figures de l'Antiquité vers /agents */}
-      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <AgentsTeaser
-          locale={locale}
-          lang={locale === "en" ? "en" : "fr"}
-        />
-      </div>
-
-      <EmblemBreak size="md" />
-
-      {/* WORKS, fond cream, plus de tone-accent */}
+      {/* WORKS, réalisations = preuve */}
       <WorksGallery locale={locale} />
-
-      {/* VIDEOS, bibliothèque vidéo corporate, fond cream pour respirer */}
-      <VideoSection locale={locale} />
 
       {/* CLIENTS, ORANGE, wordmark grid on the iconic Hermès orange */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
@@ -134,6 +132,9 @@ export default async function HomePage({
       </div>
 
       <AboutBlock />
+
+      {/* JOURNAL : aimant SEO + pédagogie */}
+      <JournalTeaser locale={locale} />
 
       {/* CTA, only orange section of the entire site */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">

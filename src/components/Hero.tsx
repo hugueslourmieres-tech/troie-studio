@@ -85,7 +85,7 @@ export function Hero({ locale }: { locale: string }) {
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 ref={primaryCtaRef}
-                href={`/${locale}/contact`}
+                href="/formations"
                 className="group inline-flex items-center justify-center gap-3 bg-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors will-change-transform"
               >
                 <RollText
@@ -101,7 +101,7 @@ export function Hero({ locale }: { locale: string }) {
                 </span>
               </Link>
               <Link
-                href="/formations"
+                href="/ia"
                 className="group inline-flex items-center justify-center gap-3 border border-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#1a1714]"
               >
                 <RollText

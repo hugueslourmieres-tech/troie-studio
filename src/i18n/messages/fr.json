@@ -120,12 +120,12 @@
     "agentsToolsLabel": "Outils",
     "agentsCardCta": "Choisir",
     "heroCtaTrain": "Se former à l'IA, maintenant",
-    "heroLead": "Un projet ou une formation ?",
+    "heroLead": "Particulier ou professionnel ?",
     "heroCtaIndividuals": "Particuliers",
     "heroCtaPros": "Professionnels",
     "heroMicro": "Dix ans aux côtés des marques, des indépendants aux grands comptes.",
-    "heroCtaProject": "Démarrer un projet",
-    "heroCtaCourses": "Cours en ligne"
+    "heroCtaProject": "Me former",
+    "heroCtaCourses": "Former mes équipes"
   },
   "works": {
     "pageTitle": "Réalisations",

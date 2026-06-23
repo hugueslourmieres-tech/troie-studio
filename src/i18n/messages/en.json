@@ -120,12 +120,12 @@
     "agentsToolsLabel": "Tools",
     "agentsCardCta": "Choose",
     "heroCtaTrain": "Train with AI, now",
-    "heroLead": "A project or a course?",
+    "heroLead": "Individual or professional?",
     "heroCtaIndividuals": "Individuals",
     "heroCtaPros": "Professionals",
     "heroMicro": "Ten years alongside brands, from independents to large accounts.",
-    "heroCtaProject": "Start a project",
-    "heroCtaCourses": "Online courses"
+    "heroCtaProject": "Get trained",
+    "heroCtaCourses": "Train my team"
   },
   "works": {
     "pageTitle": "Works",
