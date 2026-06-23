@@ -7,7 +7,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import { Reveal } from "./Reveal";
-import { Emblem } from "./Emblem";
 import { WORKS } from "@/lib/works";
 
 /**
@@ -50,30 +49,18 @@ export function WorksGallery({ locale }: { locale: string }) {
   return (
     <section
       id="works"
-      className="relative border-t border-[var(--accent)] scroll-mt-24"
+      className="border-t border-[var(--accent)] scroll-mt-24"
     >
-      {/* Guerrier décoratif à gauche, posé en haut de la section */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-8 left-0 hidden md:block lg:-top-12 lg:left-4"
-      >
-        <Emblem className="h-72 w-auto opacity-90 lg:h-96" />
-      </div>
-
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         <Reveal>
-          <div className="grid gap-12 md:grid-cols-12 md:gap-20">
-            {/* Empty 3-col gutter on desktop to leave room for the warrior */}
-            <div className="hidden md:col-span-3 md:block" />
-            <div className="md:col-span-9">
-              <p className="t-eyebrow">{t("worksEyebrow")}</p>
-              <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-                {t("worksTitle")}
-              </h2>
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">
-                {t("worksIntro")}
-              </p>
-            </div>
+          <div className="max-w-3xl">
+            <p className="t-eyebrow">{t("worksEyebrow")}</p>
+            <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+              {t("worksTitle")}
+            </h2>
+            <p className="mt-8 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">
+              {t("worksIntro")}
+            </p>
           </div>
         </Reveal>
 

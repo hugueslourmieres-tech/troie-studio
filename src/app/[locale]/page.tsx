@@ -123,17 +123,17 @@ export default async function HomePage({
       {/* WORKS, réalisations = preuve */}
       <WorksGallery locale={locale} />
 
-      {/* CLIENTS, ORANGE, wordmark grid on the iconic Hermès orange */}
-      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <ClientsCloud />
-      </div>
-
       <AboutBlock />
 
       {/* JOURNAL : aimant SEO + pédagogie */}
       <JournalTeaser locale={locale} />
 
-      {/* CTA, only orange section of the entire site */}
+      {/* CLIENTS, ORANGE, juste au-dessus du CTA contact */}
+      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
+        <ClientsCloud />
+      </div>
+
+      {/* CTA, closing orange section */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <ContactCTA locale={locale} />
       </div>
