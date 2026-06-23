@@ -3,7 +3,6 @@ import { AnimatedNumber } from "./AnimatedNumber";
 import { HeroVideoBg } from "./HeroVideoBg";
 import { GrowthCurve } from "./GrowthCurve";
 import { Header } from "@/components/Header";
-import { MetiersPro } from "@/components/MetiersPro";
 import { FormationsFooter } from "@/components/FormationsFooter";
 import { Slideshow } from "@/components/Slideshow";
 
@@ -403,9 +402,6 @@ export default function IaLandingPage() {
           </div>
         </div>
       </section>
-
-      {/* VOTRE MÉTIER : grille de métiers, le chiffre en avant */}
-      <MetiersPro />
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           SOLO / MICRO / AUTO-ENTREPRENEUR
