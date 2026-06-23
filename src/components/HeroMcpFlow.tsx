@@ -36,21 +36,19 @@ const CREAM = "#f6efe1";
 const llmX = (i: number) => (W * (i + 0.5)) / LLMS.length;
 const toolX = (i: number) => (W * (i + 0.5)) / TOOLS.length;
 
-function Coin({ x, y, logo, s = 30 }: { x: number; y: number; logo: string; s?: number }) {
+function Coin({ x, y, logo, s = 40 }: { x: number; y: number; logo: string; s?: number }) {
   return (
-    <g>
-      <circle cx={x} cy={y} r={COIN} fill={INK} stroke={CREAM} strokeOpacity={0.16} />
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <image
-        href={logo}
-        x={x - s / 2}
-        y={y - s / 2}
-        width={s}
-        height={s}
-        style={{ filter: "brightness(0) invert(1)" }}
-        preserveAspectRatio="xMidYMid meet"
-      />
-    </g>
+    // Logo seul, sans fond, en noir gris foncé sur l'orange.
+    // eslint-disable-next-line @next/next/no-img-element
+    <image
+      href={logo}
+      x={x - s / 2}
+      y={y - s / 2}
+      width={s}
+      height={s}
+      style={{ filter: "brightness(0)", opacity: 0.82 }}
+      preserveAspectRatio="xMidYMid meet"
+    />
   );
 }
 
@@ -92,7 +90,7 @@ export function HeroMcpFlow() {
         ))}
         {/* Jetons outils */}
         {TOOLS.map((tl, i) => (
-          <Coin key={tl.name} x={toolX(i)} y={TOOL_Y} logo={tl.logo} s={tl.name === "Planning éditorial" ? 30 : 34} />
+          <Coin key={tl.name} x={toolX(i)} y={TOOL_Y} logo={tl.logo} />
         ))}
 
         {/* Pastille MCP sur le tronc */}
