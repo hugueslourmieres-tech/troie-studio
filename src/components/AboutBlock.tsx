@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Emblem } from "./Emblem";
 
 type Member = {
   name: string;
@@ -13,6 +12,13 @@ type Member = {
 };
 
 const TEAM: Member[] = [
+  {
+    name: "Hugues Lourmieres",
+    role: "Fondateur & CEO",
+    note: "Direction artistique, stratégie de marque et formation IA. Dix ans auprès de marques exigeantes, en France et à l'international.",
+    img: "/images/about/hugues-2025.jpg",
+    pos: "center 22%",
+  },
   {
     name: "Vanessa Nobrega",
     role: "Consultante IA & Communication",
@@ -40,71 +46,40 @@ export function AboutBlock() {
       className="border-t border-[var(--accent)] bg-[var(--bg)] scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
-        {/* HUGUES, fondateur & CEO */}
-        <div className="grid gap-16 md:grid-cols-12 md:gap-20">
-          <div className="group md:col-span-5">
-            <div className="relative aspect-[3/4] overflow-hidden bg-[var(--bg)]">
-              <Image
-                src="/images/about/hugues-portrait.jpg"
-                alt="Hugues Lourmieres, fondateur et CEO de TROIE"
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-              />
-            </div>
-          </div>
-          <div className="relative md:col-span-7">
-            {/* Discreet warrior watermark on the right of the about copy */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-8 -top-12 hidden opacity-40 md:block"
-            >
-              <Emblem className="h-72 w-auto" />
-            </div>
-
-            <p className="t-eyebrow relative">{t("aboutEyebrow")}</p>
-            <h2 className="t-display relative mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-              {t("aboutTitle")}
-            </h2>
-            <p className="relative mt-4 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
-              Fondateur &amp; CEO, TROIE
-            </p>
-            <p className="relative mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]/85">
-              {t("aboutBody")}
-            </p>
-            <ul className="relative mt-12 grid gap-4 border-t border-[var(--rule)] pt-10 md:grid-cols-2">
-              {bullets.map((b) => (
-                <li
-                  key={b}
-                  className="flex items-baseline gap-4 text-sm text-[var(--fg-2)]"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="inline-block h-px w-3 flex-shrink-0 bg-[var(--accent)]"
-                  />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* En-tête studio */}
+        <div className="md:max-w-3xl">
+          <p className="t-eyebrow">Le studio</p>
+          <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+            TROIE Studio.
+          </h2>
+          <p className="mt-8 text-base leading-relaxed text-[var(--fg-2)]/85 md:text-lg">
+            {t("aboutBody")}
+          </p>
         </div>
 
-        {/* L'EQUIPE */}
-        <div className="mt-24 border-t border-[var(--rule)] pt-16 md:mt-32 md:pt-20">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div className="md:max-w-2xl">
-              <p className="t-eyebrow">L&apos;équipe</p>
-              <h3 className="t-display mt-6 text-3xl text-[var(--fg)] md:text-4xl lg:text-5xl">
-                Des talents complémentaires.
-              </h3>
-              <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                Une cellule resserrée : conseil en IA et communication, création
-                de médias. La même exigence, du conseil à la production.
-              </p>
-            </div>
-          </div>
+        <ul className="mt-12 grid gap-4 border-t border-[var(--rule)] pt-10 sm:grid-cols-2 lg:grid-cols-4">
+          {bullets.map((b) => (
+            <li
+              key={b}
+              className="flex items-baseline gap-3 text-sm leading-relaxed text-[var(--fg-2)]"
+            >
+              <span
+                aria-hidden="true"
+                className="inline-block h-px w-3 flex-shrink-0 bg-[var(--accent)]"
+              />
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
 
-          <ul className="mt-12 grid gap-8 sm:grid-cols-2 md:mt-16 md:gap-12">
+        {/* L'équipe : les 3, ensemble */}
+        <div className="mt-20 border-t border-[var(--rule)] pt-16 md:mt-28 md:pt-20">
+          <p className="t-eyebrow">L&apos;équipe</p>
+          <h3 className="t-display mt-6 text-3xl text-[var(--fg)] md:text-4xl">
+            Trois talents, une exigence.
+          </h3>
+
+          <ul className="mt-12 grid gap-8 sm:grid-cols-2 md:mt-16 md:gap-10 lg:grid-cols-3">
             {TEAM.map((m) => (
               <li key={m.name} className="group flex flex-col">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-[#ece4d6]">
@@ -112,12 +87,12 @@ export function AboutBlock() {
                     src={m.img}
                     alt={`${m.name}, ${m.role}`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 45vw"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     style={{ filter: "grayscale(1) contrast(1.03)", objectPosition: m.pos }}
                   />
                 </div>
-                <h4 className="t-display mt-6 text-2xl text-[var(--fg)] md:text-3xl">
+                <h4 className="t-display mt-6 text-2xl text-[var(--fg)] md:text-[26px]">
                   {m.name}
                 </h4>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.26em] text-[var(--accent)]">

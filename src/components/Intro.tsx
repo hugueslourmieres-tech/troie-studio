@@ -7,6 +7,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Reveal } from "./Reveal";
 import { ToolsMarquee } from "./ToolsMarquee";
 import { HeroMcpFlow } from "./HeroMcpFlow";
+import { LetterReveal } from "./LetterReveal";
 
 type Tool = { src: string; label: string };
 
@@ -102,7 +103,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
             <p className="t-eyebrow">{t("introEyebrow")}</p>
             {asHero ? (
               <h1 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
-                {t("introTitle")}
+                <LetterReveal text={t("introTitle")} />
               </h1>
             ) : (
               <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">

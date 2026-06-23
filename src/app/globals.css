@@ -483,6 +483,32 @@ body {
   }
 }
 
+/* Titre hero : révélation lettre par lettre (montée + défloutage) */
+@keyframes hero-letter {
+  0% {
+    opacity: 0;
+    transform: translateY(0.55em);
+    filter: blur(7px);
+  }
+  60% {
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+.hero-letter {
+  display: inline-block;
+  animation: hero-letter 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-letter {
+    animation: none;
+  }
+}
+
 /* Schéma MCP : flux animé (pointillé qui descend) + pulse du connecteur */
 @keyframes mcp-flow-move {
   to {

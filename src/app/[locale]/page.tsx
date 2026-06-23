@@ -25,7 +25,7 @@ export default async function HomePage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       {/* Écriture au scroll : les titres de section s'écrivent mot par mot */}
-      <WriteOnScroll selector="h1, h2" />
+      <WriteOnScroll selector="h2" />
 
       {/* HERO = le studio et ses trois métiers, full orange Hermès */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
