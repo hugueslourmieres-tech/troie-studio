@@ -482,3 +482,37 @@ body {
     animation: none;
   }
 }
+
+/* Schéma MCP : flux animé (pointillé qui descend) + pulse du connecteur */
+@keyframes mcp-flow-move {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+.mcp-flow path,
+.mcp-flow line {
+  stroke-dasharray: 5 11;
+  animation: mcp-flow-move 0.8s linear infinite;
+}
+@keyframes mcp-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.74;
+  }
+}
+.mcp-pulse {
+  animation: mcp-pulse 2.4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mcp-flow path,
+  .mcp-flow line {
+    animation: none;
+    stroke-dasharray: none;
+  }
+  .mcp-pulse {
+    animation: none;
+  }
+}

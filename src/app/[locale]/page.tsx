@@ -1,6 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
 import { Intro } from "@/components/Intro";
-import { Hero } from "@/components/Hero";
 import { AudienceFork } from "@/components/AudienceFork";
 import { QcmSection } from "@/components/QcmSection";
 import { WorksGallery } from "@/components/WorksGallery";
@@ -26,16 +25,11 @@ export default async function HomePage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       {/* Écriture au scroll : les titres de section s'écrivent mot par mot */}
-      <WriteOnScroll />
+      <WriteOnScroll selector="h1, h2" />
 
       {/* HERO = le studio et ses trois métiers, full orange Hermès */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <Intro asHero />
-      </div>
-
-      {/* HERO secondaire : Stratégie, Création & Formation + CTAs */}
-      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <Hero locale={locale} />
       </div>
 
       {/* PARTICULIERS : les QCM gratuits, cartes cliquables */}
