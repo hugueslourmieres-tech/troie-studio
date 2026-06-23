@@ -48,7 +48,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
                       style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
                       loading="lazy"
                     />
-                    <div aria-hidden="true" className="absolute inset-0 bg-[var(--accent)] opacity-55 mix-blend-multiply" />
+                    <div aria-hidden="true" className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/45 to-transparent" />
                     <span className="absolute left-4 top-4 font-mono text-[9px] uppercase tracking-[0.28em] text-[#f6ead4]">
                       {a.category}
                     </span>

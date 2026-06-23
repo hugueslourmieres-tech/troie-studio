@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { Hero } from "@/components/Hero";
+import { Intro } from "@/components/Intro";
 import { AudienceFork } from "@/components/AudienceFork";
 import { ServiceSection } from "@/components/ServiceSection";
 import { AgentsTeaser } from "@/components/AgentsTeaser";
@@ -38,6 +39,11 @@ export default async function HomePage({
       {/* HERO, full orange Hermès, opening statement */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <Hero locale={locale} />
+      </div>
+
+      {/* INTRO, fond orange Hermès, le studio et ses métiers */}
+      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
+        <Intro />
       </div>
 
       {/* FORK Pro / Perso : oriente le visiteur dès l'entrée */}

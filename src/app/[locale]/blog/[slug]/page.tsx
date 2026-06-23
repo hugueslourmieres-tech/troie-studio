@@ -113,10 +113,6 @@ export default async function ArticlePage({
           className="h-full w-full object-cover"
           style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
         />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-[var(--accent)] opacity-55 mix-blend-multiply"
-        />
       </div>
 
       <div className="blog-prose mt-12">
