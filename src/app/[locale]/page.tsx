@@ -87,9 +87,9 @@ export default async function HomePage({
         ctaLabel={t("creationCta")}
         ctaHref={`/${locale}/contact?subject=création`}
         photos={[
-          { src: "/images/creation-section/01-black-horse.png", alt: "Création IA, portrait de cheval" },
-          { src: "/images/creation-section/02-dsc-0908.jpg", alt: "Création, photographie" },
-          { src: "/images/creation-section/03-img-8524.jpg", alt: "Création, image" },
+          { src: "/images/creation-section/mockup-phone.jpg", alt: "Application et site mobile sur smartphone" },
+          { src: "/images/creation-section/mockup-desktop.jpg", alt: "Site web sur ordinateur" },
+          { src: "/images/creation-section/mockup-billboard.jpg", alt: "Affichage digital sur panneau publicitaire" },
         ]}
         tools={[
           { src: "/images/logos/adobe.svg", label: "Adobe" },
