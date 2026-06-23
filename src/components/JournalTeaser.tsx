@@ -2,13 +2,19 @@ import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { ARTICLES_SORTED } from "@/app/[locale]/blog/articles";
 
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString("fr-FR", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 /**
- * Teaser du Journal sur la home : 3 derniers articles, mêmes cartes
- * duotone que le hub. Aimant SEO + preuve pédagogique.
+ * Le Journal sur la home : la liste complète des articles (rangées
+ * éditoriales), pas un teaser. Aimant SEO + pédagogie. DA TROIE.
  */
 export function JournalTeaser({ locale }: { locale: string }) {
-  const articles = ARTICLES_SORTED.slice(0, 3);
-
   return (
     <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
@@ -24,43 +30,38 @@ export function JournalTeaser({ locale }: { locale: string }) {
               href={`/${locale}/blog`}
               className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
-              Tout le Journal
+              Ouvrir le Journal
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </Link>
           </div>
         </Reveal>
 
-        <ul className="mt-14 grid gap-x-8 gap-y-12 md:mt-16 md:grid-cols-3">
-          {articles.map((a, i) => (
-            <li key={a.slug}>
-              <Reveal delay={i * 0.06}>
-                <Link
-                  href={`/${locale}/blog/${a.slug}`}
-                  className="group flex h-full flex-col"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-[#1a0f08]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={a.cover}
-                      alt=""
-                      aria-hidden="true"
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
-                      loading="lazy"
-                    />
-                    <div aria-hidden="true" className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/45 to-transparent" />
-                    <span className="absolute left-4 top-4 font-mono text-[9px] uppercase tracking-[0.28em] text-[#f6ead4]">
-                      {a.category}
-                    </span>
-                  </div>
-                  <h3 className="t-display mt-5 text-xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-2xl">
+        <ul className="mt-12 border-t border-[var(--rule)] md:mt-14">
+          {ARTICLES_SORTED.map((a) => (
+            <li key={a.slug} className="border-b border-[var(--rule)]">
+              <Link
+                href={`/${locale}/blog/${a.slug}`}
+                className="group flex flex-col gap-2 py-6 transition-colors md:flex-row md:items-baseline md:gap-10"
+              >
+                <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)] md:w-44">
+                  {a.category}
+                </span>
+                <span className="flex-1">
+                  <span className="t-display text-xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-2xl">
                     {a.cardTitle ?? a.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">
+                  </span>
+                  <span className="mt-1 block text-sm leading-relaxed text-[var(--fg-2)]">
                     {a.description}
-                  </p>
-                </Link>
-              </Reveal>
+                  </span>
+                </span>
+                <span className="flex shrink-0 items-center gap-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                  {a.readingMinutes} min
+                  <span aria-hidden="true" className="text-[var(--fg-2)]/35">
+                    {formatDate(a.date)}
+                  </span>
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1 group-hover:text-[var(--accent)]">→</span>
+                </span>
+              </Link>
             </li>
           ))}
         </ul>

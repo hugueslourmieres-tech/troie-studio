@@ -5,7 +5,6 @@ import { Intro } from "@/components/Intro";
 import { AudienceFork } from "@/components/AudienceFork";
 import { QcmSection } from "@/components/QcmSection";
 import { ServiceSection } from "@/components/ServiceSection";
-import { ProSection } from "@/components/ProSection";
 import { AgentsTeaser } from "@/components/AgentsTeaser";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
@@ -47,11 +46,11 @@ export default async function HomePage({
         <Intro />
       </div>
 
-      {/* FORK Pro / Perso : oriente le visiteur dès l'entrée */}
-      <AudienceFork locale={locale} />
-
       {/* PARTICULIERS : les QCM gratuits, cartes cliquables */}
       <QcmSection />
+
+      {/* FORK Pro / Perso : oriente le visiteur */}
+      <AudienceFork locale={locale} />
 
       {/* FORMATION IA, le coeur de l'offre, preuve d'ateliers réels */}
       <ServiceSection
@@ -76,9 +75,6 @@ export default async function HomePage({
           { src: "/images/logos/copilot.svg", label: "Copilot" },
         ]}
       />
-
-      {/* PROFESSIONNELS : pitch par métier, renvoie vers /ia */}
-      <ProSection locale={locale} />
 
       {/* AGENTS, teaser orange Hermès, 3 figures de l'Antiquité vers /agents */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
