@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { Intro } from "@/components/Intro";
+import { Hero } from "@/components/Hero";
 import { AudienceFork } from "@/components/AudienceFork";
 import { QcmSection } from "@/components/QcmSection";
 import { WorksGallery } from "@/components/WorksGallery";
@@ -30,6 +31,11 @@ export default async function HomePage({
       {/* HERO = le studio et ses trois métiers, full orange Hermès */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <Intro asHero />
+      </div>
+
+      {/* HERO secondaire : Stratégie, Création & Formation + CTAs */}
+      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
+        <Hero locale={locale} />
       </div>
 
       {/* PARTICULIERS : les QCM gratuits, cartes cliquables */}
