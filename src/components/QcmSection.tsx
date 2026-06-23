@@ -3,9 +3,8 @@ import { Reveal } from "./Reveal";
 import { STARTER_QUIZZES } from "@/app/formations/quizzes";
 
 /**
- * Section Particuliers : les QCM gratuits, cartes 100% cliquables. Fond marron
- * uniforme (lisible, cohérent), cover N&B, sans picto. Cartes alignées (même
- * hauteur). Zoom au survol.
+ * Section Particuliers : les QCM gratuits, cartes 100% cliquables. Fond clair
+ * (crème), cover N&B, sans picto, cartes alignées (même hauteur). DA TROIE.
  */
 export function QcmSection() {
   return (
@@ -42,7 +41,7 @@ export function QcmSection() {
               <Reveal delay={i * 0.05} className="h-full">
                 <Link
                   href={`/formations/quiz/${q.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-sm bg-[#5a4a3a] transition-transform hover:-translate-y-1"
+                  className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
                 >
                   {/* Cover N&B, zoom au survol */}
                   <div className="relative aspect-[16/10] overflow-hidden bg-[#1a0f08]">
@@ -64,13 +63,13 @@ export function QcmSection() {
                     <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
                       {q.tagline}
                     </p>
-                    <h3 className="t-display mt-3 text-xl text-[#f5f0e6]">
+                    <h3 className="t-display mt-3 text-xl text-[var(--fg)]">
                       {q.title}
                     </h3>
-                    <p className="mt-2 flex-1 text-sm leading-relaxed text-[#f5f0e6]/70">
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--fg-2)]">
                       {q.description}
                     </p>
-                    <span className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/70 transition-colors group-hover:text-[var(--accent)]">
+                    <span className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 transition-colors group-hover:text-[var(--accent)]">
                       Lancer le QCM
                       <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                     </span>
