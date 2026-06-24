@@ -46,18 +46,7 @@ export function AboutBlock() {
       className="border-t border-[var(--accent)] bg-[var(--bg)] scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
-        {/* En-tête studio */}
-        <div className="md:max-w-3xl">
-          <p className="t-eyebrow">Le studio</p>
-          <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            TROIE Studio.
-          </h2>
-          <p className="mt-8 text-base leading-relaxed text-[var(--fg-2)]/85 md:text-lg">
-            {t("aboutBody")}
-          </p>
-        </div>
-
-        <ul className="mt-12 grid gap-4 border-t border-[var(--rule)] pt-10 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {bullets.map((b) => (
             <li
               key={b}
