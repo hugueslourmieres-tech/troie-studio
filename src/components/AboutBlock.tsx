@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 
 type Member = {
   name: string;
@@ -37,74 +36,60 @@ const TEAM: Member[] = [
 ];
 
 export function AboutBlock() {
-  const t = useTranslations("home");
-  const bullets = t.raw("aboutBullets") as string[];
-
   return (
     <section
       id="about"
       className="border-t border-[var(--accent)] bg-[var(--bg)] scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {bullets.map((b) => (
-            <li
-              key={b}
-              className="flex items-baseline gap-3 text-sm leading-relaxed text-[var(--fg-2)]"
-            >
-              <span
-                aria-hidden="true"
-                className="inline-block h-px w-3 flex-shrink-0 bg-[var(--accent)]"
-              />
-              <span>{b}</span>
+        {/* Présentation de l'équipe */}
+        <div className="md:max-w-3xl">
+          <p className="t-eyebrow">L&apos;équipe</p>
+          <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+            Trois talents, une seule exigence.
+          </h2>
+          <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+            Direction artistique, intelligence artificielle, image : trois
+            métiers réunis sous un même toit, au service de votre marque.
+          </p>
+        </div>
+
+        <ul className="mt-12 grid gap-8 sm:grid-cols-2 md:mt-16 md:gap-10 lg:grid-cols-3">
+          {TEAM.map((m) => (
+            <li key={m.name} className="group flex flex-col">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-[#ece4d6]">
+                <Image
+                  src={m.img}
+                  alt={`${m.name}, ${m.role}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  style={{ filter: "grayscale(1) contrast(1.03)", objectPosition: m.pos }}
+                />
+              </div>
+              <h4 className="t-display mt-6 text-2xl text-[var(--fg)] md:text-[26px]">
+                {m.name}
+              </h4>
+              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.26em] text-[var(--accent)]">
+                {m.role}
+              </p>
+              <p className="mt-3 max-w-sm text-sm leading-relaxed text-[var(--fg-2)]">
+                {m.note}
+              </p>
+              {m.link && (
+                <a
+                  href={m.link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group/link mt-4 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                >
+                  {m.link.label}
+                  <span aria-hidden="true" className="transition group-hover/link:translate-x-1">→</span>
+                </a>
+              )}
             </li>
           ))}
         </ul>
-
-        {/* L'équipe : les 3, ensemble */}
-        <div className="mt-20 border-t border-[var(--rule)] pt-16 md:mt-28 md:pt-20">
-          <p className="t-eyebrow">L&apos;équipe</p>
-          <h3 className="t-display mt-6 text-3xl text-[var(--fg)] md:text-4xl">
-            Trois talents, une exigence.
-          </h3>
-
-          <ul className="mt-12 grid gap-8 sm:grid-cols-2 md:mt-16 md:gap-10 lg:grid-cols-3">
-            {TEAM.map((m) => (
-              <li key={m.name} className="group flex flex-col">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-[#ece4d6]">
-                  <Image
-                    src={m.img}
-                    alt={`${m.name}, ${m.role}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    style={{ filter: "grayscale(1) contrast(1.03)", objectPosition: m.pos }}
-                  />
-                </div>
-                <h4 className="t-display mt-6 text-2xl text-[var(--fg)] md:text-[26px]">
-                  {m.name}
-                </h4>
-                <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.26em] text-[var(--accent)]">
-                  {m.role}
-                </p>
-                <p className="mt-3 max-w-sm text-sm leading-relaxed text-[var(--fg-2)]">
-                  {m.note}
-                </p>
-                {m.link && (
-                  <a
-                    href={m.link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group/link mt-4 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                  >
-                    {m.link.label}
-                    <span aria-hidden="true" className="transition group-hover/link:translate-x-1">→</span>
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
   );
