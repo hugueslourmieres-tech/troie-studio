@@ -5,6 +5,7 @@ import { AiUrgency } from "@/components/AiUrgency";
 import { QcmSection } from "@/components/QcmSection";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
+import { McpSection } from "@/components/McpSection";
 import { WorksGallery } from "@/components/WorksGallery";
 import { VideoSection } from "@/components/VideoSection";
 import { JournalTeaser } from "@/components/JournalTeaser";
@@ -51,6 +52,9 @@ export default async function HomePage({
 
       {/* JOURNAL : aimant SEO + pédagogie */}
       <JournalTeaser locale={locale} />
+
+      {/* MCP : l'IA branchée sur vos outils (explication + schéma) */}
+      <McpSection />
 
       {/* CLIENTS, ORANGE, juste au-dessus du CTA contact */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">

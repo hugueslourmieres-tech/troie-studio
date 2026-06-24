@@ -6,7 +6,6 @@ import { motion } from "motion/react";
 import { useTranslations, useLocale } from "next-intl";
 import { Reveal } from "./Reveal";
 import { ToolsMarquee } from "./ToolsMarquee";
-import { HeroMcpFlow } from "./HeroMcpFlow";
 import { LetterReveal } from "./LetterReveal";
 
 type Tool = { src: string; label: string };
@@ -115,11 +114,6 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
             </p>
           </div>
         </Reveal>
-
-        {/* Schéma MCP : des LLM aux outils digitaux, via le connecteur MCP */}
-        <div className="mt-16 md:mt-20">
-          <HeroMcpFlow />
-        </div>
 
         {/* 3 boxes, un guerrier par metier */}
         <div className="mt-20 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-28 md:grid-cols-3">
