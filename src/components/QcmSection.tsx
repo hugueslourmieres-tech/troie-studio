@@ -57,26 +57,9 @@ export function QcmSection() {
           </Reveal>
         </div>
 
-        {/* Catalogue des QCM gratuits */}
-        <div className="mt-24 border-t border-[var(--rule)] pt-16 md:mt-32 md:pt-20">
-          <Reveal>
-            <div className="flex flex-wrap items-end justify-between gap-6">
-              <h3 className="t-display text-3xl text-[var(--fg)] md:text-4xl">
-                Tous nos QCM, gratuits.
-              </h3>
-              <Link
-                href="/formations/quiz"
-                className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              >
-                Voir tous les QCM
-                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-              </Link>
-            </div>
-          </Reveal>
-
-          <div className="mt-12 md:mt-14">
-            <QcmSlider items={slides} />
-          </div>
+        {/* Tous les QCM gratuits, slider (même section, resserré) */}
+        <div className="mt-12 md:mt-16">
+          <QcmSlider items={slides} moreHref="/formations/quiz" moreLabel="Voir tous les QCM" />
         </div>
       </div>
     </section>

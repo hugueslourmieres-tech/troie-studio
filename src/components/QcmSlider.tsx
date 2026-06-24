@@ -16,7 +16,15 @@ export type QcmSlideItem = {
  * Slider des QCM gratuits : on fait défiler (drag / swipe + flèches) et on
  * choisit. Cartes claires (illustration au trait sur crème). DA TROIE.
  */
-export function QcmSlider({ items }: { items: QcmSlideItem[] }) {
+export function QcmSlider({
+  items,
+  moreHref,
+  moreLabel,
+}: {
+  items: QcmSlideItem[];
+  moreHref?: string;
+  moreLabel?: string;
+}) {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: false,
@@ -92,10 +100,22 @@ export function QcmSlider({ items }: { items: QcmSlideItem[] }) {
         </div>
       </div>
 
-      <div className="mt-8 flex items-center justify-end gap-3">
-        <button
-          type="button"
-          aria-label="Précédent"
+      <div className="mt-8 flex items-center justify-between gap-4">
+        {moreHref ? (
+          <Link
+            href={moreHref}
+            className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+          >
+            {moreLabel}
+            <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+          </Link>
+        ) : (
+          <span aria-hidden="true" />
+        )}
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            aria-label="Précédent"
           onClick={scrollPrev}
           disabled={!canPrev}
           className="flex h-11 w-11 items-center justify-center border border-[var(--fg)] text-[var(--fg)] transition disabled:opacity-30 enabled:hover:border-[var(--accent)] enabled:hover:text-[var(--accent)]"
@@ -111,6 +131,7 @@ export function QcmSlider({ items }: { items: QcmSlideItem[] }) {
         >
           →
         </button>
+        </div>
       </div>
     </div>
   );
