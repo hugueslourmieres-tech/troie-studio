@@ -5,6 +5,7 @@ import { AiUrgency } from "@/components/AiUrgency";
 import { QcmSection } from "@/components/QcmSection";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
+import { CreationSection } from "@/components/CreationSection";
 import { JournalTeaser } from "@/components/JournalTeaser";
 import { ContactCTA } from "@/components/ContactCTA";
 import { WriteOnScroll } from "@/components/WriteOnScroll";
@@ -42,6 +43,9 @@ export default async function HomePage({
       <QcmSection />
 
       <AboutBlock />
+
+      {/* CRÉATION : nos réalisations (vidéo, photos, web) */}
+      <CreationSection locale={locale} />
 
       {/* JOURNAL : aimant SEO + pédagogie */}
       <JournalTeaser locale={locale} />

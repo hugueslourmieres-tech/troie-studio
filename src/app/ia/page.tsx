@@ -65,7 +65,7 @@ const SOLO_PACKS = [
     badge: "Pack 01",
     title: "Découverte solo.",
     duration: "1/2 journée · 4 h",
-    price: "À partir de 290 €",
+    price: "Sur devis",
     body:
       "Vous partez de zero. On installé les bons outils, on apprend la méthode, on construit ensemble votre première bibliothèque de prompts adaptée à votre activite.",
     bullets: [
@@ -78,7 +78,7 @@ const SOLO_PACKS = [
     badge: "Pack 02",
     title: "Atelier perso.",
     duration: "1 journée · 7 h",
-    price: "À partir de 590 €",
+    price: "Sur devis",
     body:
       "Un workflow IA construit avec vous, sur votre activite réelle. Vous repartez avec votre boite a outils, pas une présentation generique.",
     bullets: [
@@ -91,7 +91,7 @@ const SOLO_PACKS = [
     badge: "Pack 03",
     title: "Suivi 30 jours.",
     duration: "1 mois · 8 h de coaching",
-    price: "À partir de 1 290 €",
+    price: "Sur devis",
     body:
       "Un agent IA dedie sur votre cas + 2 sessions de 1 h par semaine pour ajuster. Vous passez de l'experimentation à la maîtrise sereine.",
     bullets: [
@@ -1007,93 +1007,6 @@ export default function IaLandingPage() {
         </div>
       </section>
 
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          LES 12 TRAVAUX D'HERCULE, TASKS GRID (noir)
-          Reframe éditorial : 12 travaux modernes que votre IA accomplit
-          pour vous, comme Hercule pour Eurysthée. Numérotation romaine
-          I → XII pour ancrer la référence mythologique.
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="tone-dark border-t border-[var(--rule)] bg-[var(--bg)] text-[var(--fg)]">
-        <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
-          {/* Titre + intro (photo portrait retirée) */}
-          <div className="max-w-3xl">
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-              Vos douze travaux · automatiques
-            </p>
-            <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
-              Les 12 travaux d'Hercule.
-            </h2>
-            <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-              Hercule accomplit douze travaux impossibles pour racheter sa
-              dette. Vous, vous avez les vôtres, les tâches qui rongent vos
-              semaines, qui repoussent l'essentiel. Votre équipage IA les
-              prend en charge. Une heure récupérée ici, deux là, trois par
-              jour. Au bout d'un mois, la moitié de votre temps retrouvée,
-              concrète, mesurable, par tâche, sources vérifiables.
-            </p>
-          </div>
-
-          {/* Slider horizontal sur mobile (12 cartes = trop long empilé),
-              grille 3 colonnes sur desktop. */}
-          <div className="mt-16 -mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:mt-20 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 md:pb-0">
-            {TASKS.map((task, i) => (
-              <Link
-                key={task.title}
-                href={CAL_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Prendre rendez-vous pour automatiser : ${task.title}`}
-                className="group relative block w-[78%] shrink-0 snap-start sm:w-[46%] md:w-auto md:shrink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
-              >
-                {/* Gravure Tempesta 1608, MET, domaine public.
-                    Knockout : fond papier rendu transparent (invert + screen),
-                    traits passés en orange (multiply accent). Sans picto. */}
-                <div className="relative mb-6 aspect-[3/2] overflow-hidden bg-[#120a03]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={task.image}
-                    alt={`${task.labor}, gravure d'Antonio Tempesta, 1608`}
-                    className="h-full w-full scale-[1.15] object-cover object-center mix-blend-screen transition-transform duration-700 group-hover:scale-[1.22]"
-                    style={{
-                      filter: "grayscale(1) invert(1) contrast(1.4) brightness(1.05)",
-                    }}
-                    loading="lazy"
-                  />
-                  {/* Recolore les traits (blancs) en orange */}
-                  <div
-                    className="absolute inset-0 bg-[var(--accent)] mix-blend-multiply"
-                    aria-hidden="true"
-                  />
-                </div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                  Travail {ROMAN[i]} · {task.labor}
-                </p>
-                {/* Picto à côté du titre */}
-                <div className="mt-4 flex items-center gap-3">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-7 w-7 flex-shrink-0 text-[var(--accent)] transition-transform duration-500 group-hover:scale-110"
-                    aria-hidden="true"
-                  >
-                    <path d={task.icon} />
-                  </svg>
-                  <h3 className="t-display text-2xl text-[var(--fg)] md:text-[28px]">
-                    {task.title}
-                  </h3>
-                </div>
-                <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  + {task.time}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           COMMENT CA MARCHE, 4 étapes

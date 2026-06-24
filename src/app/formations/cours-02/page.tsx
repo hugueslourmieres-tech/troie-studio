@@ -199,7 +199,7 @@ export default function Cours02Page() {
                   href={CHECKOUT_URL}
                   className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 >
-                  Commencer · 297 €
+                  Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <Link
@@ -248,7 +248,7 @@ export default function Cours02Page() {
                   href={CHECKOUT_URL}
                   className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 >
-                  Acheter · 297 €
+                  Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
@@ -446,7 +446,7 @@ export default function Cours02Page() {
                   href={CHECKOUT_URL}
                   className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
-                  Acheter le Cours 02 · 297 €
+                  Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <Link

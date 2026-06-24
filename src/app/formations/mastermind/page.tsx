@@ -137,7 +137,7 @@ export default function MastermindPage() {
                   href={SUBSCRIBE_MONTHLY}
                   className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 >
-                  Rejoindre · 49 € / mois
+                  Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <a
@@ -186,7 +186,7 @@ export default function MastermindPage() {
                   href={SUBSCRIBE_MONTHLY}
                   className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[#1a1714] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
-                  Rejoindre · 49 € / mois
+                  Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-[#1a1714]/70">
@@ -317,7 +317,7 @@ export default function MastermindPage() {
                   href={SUBSCRIBE_MONTHLY}
                   className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
-                  Rejoindre · 49 € / mois
+                  Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <a
