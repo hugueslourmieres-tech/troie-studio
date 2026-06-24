@@ -62,13 +62,6 @@ export function QcmDemo() {
         Bravo ! +1
       </div>
 
-      {/* Troyie qui saute de joie */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/images/mascot/troyie-happy.png"
-        alt="Troyie, l'assistant IA de TROIE Studio, saute de joie"
-        className="qcm-demo-troyie absolute -bottom-10 -left-24 z-30 h-24 w-auto object-contain md:-bottom-12 md:-left-32 md:h-28"
-      />
     </div>
   );
 }
