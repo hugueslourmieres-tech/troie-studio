@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { Intro } from "@/components/Intro";
 import { AudienceFork } from "@/components/AudienceFork";
+import { AiUrgency } from "@/components/AiUrgency";
 import { QcmSection } from "@/components/QcmSection";
 import { WorksGallery } from "@/components/WorksGallery";
 import { ClientsCloud } from "@/components/ClientsCloud";
@@ -34,6 +35,9 @@ export default async function HomePage({
 
       {/* FORK Pro / Perso : oriente le visiteur */}
       <AudienceFork locale={locale} />
+
+      {/* URGENCE IA : punchline FOMO, renvoie vers le QCM de niveau */}
+      <AiUrgency />
 
       {/* QCM : situer son niveau IA (pour tous), juste au-dessus des projets */}
       <QcmSection />
