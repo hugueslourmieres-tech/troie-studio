@@ -28,14 +28,13 @@ export function AudienceFork({ locale }: { locale: string }) {
           {/* PERSO */}
           <Reveal>
             <div className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]">
-              <div className="relative aspect-[16/9] overflow-hidden bg-[#1a0f08]">
+              <div className="relative aspect-[16/9] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg-2)]">
                 <Image
                   src="/images/audience/perso.jpg"
                   alt="Particulier en formation IA chez TROIE"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  style={{ filter: "grayscale(1) contrast(1.03)" }}
                 />
               </div>
               <div className="flex flex-1 flex-col p-8 md:p-10">
@@ -94,14 +93,13 @@ export function AudienceFork({ locale }: { locale: string }) {
           {/* PRO */}
           <Reveal delay={0.08}>
             <div className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]">
-              <div className="relative aspect-[16/9] overflow-hidden bg-[#1a0f08]">
+              <div className="relative aspect-[16/9] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg-2)]">
                 <Image
                   src="/images/audience/pro.jpg"
                   alt="Équipe en formation IA chez TROIE"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  style={{ filter: "grayscale(1) contrast(1.03)" }}
                 />
               </div>
               <div className="flex flex-1 flex-col p-8 md:p-10">
