@@ -1,17 +1,25 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { QcmDemo } from "./QcmDemo";
+import { QcmSlider } from "./QcmSlider";
 import { STARTER_QUIZZES } from "@/app/formations/quizzes";
 
 /**
  * Section QCM, version punchy : une accroche forte + une démo animée d'un QCM
  * (Troyie saute de joie à la bonne réponse) qui montre que c'est interactif et
- * ludique, pour les familles, les particuliers et les pros. En dessous, le
- * catalogue des QCM gratuits. Le QCM « niveau IA » est mis en avant ailleurs.
+ * ludique, pour les familles, les particuliers et les pros. En dessous, tous
+ * les QCM gratuits dans un slider à faire défiler.
  */
 export function QcmSection() {
-  const quizzes = STARTER_QUIZZES.filter((q) => q.slug !== "niveau-ia");
-  const first = quizzes[0];
+  const free = STARTER_QUIZZES;
+  const first = free.find((q) => q.slug === "comprendre-ia") ?? free[0];
+  const slides = free.map((q) => ({
+    slug: q.slug,
+    cover: q.cover,
+    tagline: q.tagline,
+    title: q.title,
+    description: q.description,
+  }));
 
   return (
     <section className="overflow-hidden border-t border-[var(--rule)] bg-[var(--bg)]">
@@ -66,48 +74,9 @@ export function QcmSection() {
             </div>
           </Reveal>
 
-          <ul className="mt-12 grid items-stretch gap-4 sm:grid-cols-2 md:mt-14 md:gap-6 lg:grid-cols-4">
-            {quizzes.map((q, i) => (
-              <li key={q.slug} className="h-full">
-                <Reveal delay={i * 0.05} className="h-full">
-                  <Link
-                    href={`/formations/quiz/${q.slug}`}
-                    className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
-                  >
-                    <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--rule)] bg-[#f4f1e5]">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={q.cover}
-                        alt=""
-                        aria-hidden="true"
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      <span className="absolute left-3 top-3 rounded-full bg-[var(--bg)]/80 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-[#1a1714]/65 backdrop-blur-sm">
-                        Gratuit
-                      </span>
-                    </div>
-
-                    <div className="flex flex-1 flex-col p-5">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
-                        {q.tagline}
-                      </p>
-                      <h4 className="t-display mt-3 text-xl text-[var(--fg)]">
-                        {q.title}
-                      </h4>
-                      <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--fg-2)]">
-                        {q.description}
-                      </p>
-                      <span className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 transition-colors group-hover:text-[var(--accent)]">
-                        Lancer le QCM
-                        <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                      </span>
-                    </div>
-                  </Link>
-                </Reveal>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-12 md:mt-14">
+            <QcmSlider items={slides} />
+          </div>
         </div>
       </div>
     </section>

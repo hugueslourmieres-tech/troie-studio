@@ -67,7 +67,7 @@ export function QcmDemo() {
       <img
         src="/images/mascot/troyie-happy.png"
         alt="Troyie, l'assistant IA de TROIE Studio, saute de joie"
-        className="qcm-demo-troyie absolute -bottom-8 -left-6 z-30 h-28 w-auto object-contain md:-left-10 md:h-32"
+        className="qcm-demo-troyie absolute -bottom-10 -left-24 z-30 h-24 w-auto object-contain md:-bottom-12 md:-left-32 md:h-28"
       />
     </div>
   );
