@@ -610,3 +610,37 @@ body {
   .qcm-demo-bravo  { opacity: 1; transform: none; }
   .qcm-demo-progress { width: 30%; }
 }
+
+/* ─────────────────────────────────────────────────────────────────────
+   Yeux de la bête (section « L'IA n'attend personne ») : points orange
+   posés sur l'illustration, qui scintillent dans le noir.
+   ───────────────────────────────────────────────────────────────────── */
+.beast-eye {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background: #ffb463;
+  box-shadow: 0 0 7px 2px rgba(243, 123, 34, 0.9), 0 0 15px 5px rgba(243, 123, 34, 0.45);
+  transform: translate(-50%, -50%);
+  animation: beast-eye 2.4s ease-in-out infinite;
+}
+.beast-eye-2 {
+  animation-duration: 2.9s;
+  animation-delay: 0.35s;
+}
+@keyframes beast-eye {
+  0%, 100% {
+    opacity: 0.5;
+    box-shadow: 0 0 5px 1px rgba(243, 123, 34, 0.6), 0 0 10px 3px rgba(243, 123, 34, 0.3);
+  }
+  45% {
+    opacity: 1;
+    box-shadow: 0 0 11px 4px rgba(243, 123, 34, 1), 0 0 22px 8px rgba(243, 123, 34, 0.55);
+  }
+  58% { opacity: 0.65; }
+  70% { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .beast-eye { animation: none; opacity: 0.92; }
+}
