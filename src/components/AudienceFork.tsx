@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { Reveal } from "./Reveal";
@@ -11,7 +10,8 @@ type Fork = {
   tint: string;
   /** Encre lisible posée sur la couleur du pack. */
   ink: string;
-  image: string;
+  video: string;
+  poster: string;
   eyebrow: string;
   title: string;
   body: string;
@@ -50,7 +50,8 @@ export function AudienceFork({ locale }: { locale: string }) {
       key: "perso",
       tint: "#f37b22",
       ink: "#1a1714",
-      image: "/images/audience/perso-v3.jpg",
+      video: "/images/audience/perso-loop.mp4",
+      poster: "/images/audience/perso-loop.jpg",
       eyebrow: "Particuliers & familles",
       title: "Comprendre l'IA, sans danger.",
       body: "Pour vous, vos enfants, vos parents. On commence par un QCM gratuit, pas par des heures de vidéo.",
@@ -75,7 +76,8 @@ export function AudienceFork({ locale }: { locale: string }) {
       key: "pro",
       tint: "#1f4d4a",
       ink: "#fdfaf3",
-      image: "/images/audience/pro-v3.jpg",
+      video: "/images/audience/pro-loop.mp4",
+      poster: "/images/audience/pro-loop.jpg",
       eyebrow: "Professionnels & équipes",
       title: "Formez et déployez l'IA.",
       body: "Montée en compétence des équipes, conformité AI Act, agents sur mesure. En présentiel ou à distance.",
@@ -139,15 +141,19 @@ function ForkCard({ fork }: { fork: Fork }) {
       {/* Bandeau couleur signature du pack */}
       <span aria-hidden="true" className="block h-1.5 w-full bg-[var(--card)]" />
 
-      {/* Photo forte */}
+      {/* Vidéo en boucle, traitement N&B pour rester dans la DA */}
       <div className="relative aspect-[4/3] overflow-hidden">
-        <Image
-          src={fork.image}
-          alt=""
+        <video
+          src={fork.video}
+          poster={fork.poster}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
           aria-hidden="true"
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          style={{ filter: "grayscale(1) contrast(1.05)" }}
         />
         {/* Pastille profil, dans la couleur du pack */}
         <span
