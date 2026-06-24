@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
-import { ClimbScene } from "./ClimbScene";
+import { QcmDemo } from "./QcmDemo";
 import { STARTER_QUIZZES } from "@/app/formations/quizzes";
 
 /**
@@ -22,10 +22,9 @@ export function QcmSection() {
             href={`/formations/quiz/${quiz.slug}`}
             className="group grid overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)] md:grid-cols-2"
           >
-            {/* Illustration */}
-            <div className="relative aspect-[16/11] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg)] md:aspect-auto md:border-b-0 md:border-r">
-              {/* Animation : le robot grimpe les marches vers l'étoile */}
-              <ClimbScene />
+            {/* Aperçu animé du QCM (question, bonne réponse, victoire) */}
+            <div className="relative flex items-center justify-center border-b border-[var(--rule)] bg-[var(--bg)] p-8 md:border-b-0 md:border-r md:p-12">
+              <QcmDemo />
               <span className="absolute left-4 top-4 rounded-full bg-[var(--bg)]/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-[#1a1714]/65 backdrop-blur-sm">
                 Gratuit
               </span>
