@@ -46,7 +46,7 @@ export function SealBadge({
       className={`relative inline-flex ${size} items-center justify-center text-[var(--accent)] ${className}`}
     >
       <svg
-        viewBox="0 0 48 48"
+        viewBox="-4 -4 56 56"
         className="absolute inset-0 h-full w-full"
         fill="none"
         stroke="currentColor"
