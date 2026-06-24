@@ -17,6 +17,7 @@ const TEAM: Member[] = [
     note: "CMO dans les arts graphiques. Créateur et consultant IA.",
     img: "/images/about/hugues-studio.jpg",
     pos: "center 14%",
+    link: { href: "https://www.linkedin.com/in/hugueslourmieres/", label: "LinkedIn" },
   },
   {
     name: "Vanessa Nobrega",
@@ -35,6 +36,17 @@ const TEAM: Member[] = [
   },
 ];
 
+/** Prestations proposées, listées sous l'intro de l'équipe. */
+const PRESTATIONS = [
+  "Sites web & applications",
+  "Design & identité de marque",
+  "E-commerce",
+  "Photographie & vidéo",
+  "Stratégie & communication",
+  "Formations IA",
+  "Agents IA & automatisation",
+];
+
 export function AboutBlock() {
   return (
     <section
@@ -49,9 +61,19 @@ export function AboutBlock() {
             Trois talents, une seule exigence.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Direction artistique, intelligence artificielle, image : trois
-            métiers réunis sous un même toit, au service de votre marque.
+            Nous vous accompagnons dans tous vos projets digitaux.
           </p>
+          <ul className="mt-8 grid max-w-2xl gap-x-8 gap-y-3 sm:grid-cols-2">
+            {PRESTATIONS.map((p) => (
+              <li
+                key={p}
+                className="flex items-baseline gap-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base"
+              >
+                <span aria-hidden="true" className="inline-block h-px w-3.5 flex-shrink-0 bg-[var(--accent)]" />
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <ul className="mt-12 grid gap-8 sm:grid-cols-2 md:mt-16 md:gap-10 lg:grid-cols-3">
