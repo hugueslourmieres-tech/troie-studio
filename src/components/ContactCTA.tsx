@@ -1,64 +1,57 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ContactForm } from "./ContactForm";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
 /**
- * Section de contact en clôture de page : accroche, réservation d'un créneau
- * (cal.com), formulaire complet, et une gravure néoclassique. Fond sombre
- * (tone-taupe) où le formulaire s'intègre comme sur la page /contact.
+ * Section de contact en clôture de page : simple et directe, sur le fond
+ * orange (hérité du wrapper tone-accent). Accroche, réservation d'un créneau
+ * (cal.com), email, et la mascotte Troyie.
  */
 export function ContactCTA(_props: { locale: string }) {
   const t = useTranslations("home");
 
   return (
-    <section className="tone-taupe bg-[var(--bg)] text-[var(--fg)]">
+    <section className="border-t border-[#1a1714]/15">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
-        <div className="md:max-w-3xl">
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Contact
-          </p>
-          <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-6xl">
-            {t("ctaTitle")}
-          </h2>
-          <p className="mt-8 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/85 md:text-lg">
-            {t("ctaSubtitle")}
-          </p>
-          <a
-            href={CAL_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="group mt-9 inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[#ff8c33]"
-          >
-            Réserver un créneau de 30 min
-            <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-          </a>
-        </div>
-
-        <div className="mt-14 grid gap-12 md:mt-16 md:grid-cols-12 md:gap-16">
-          {/* Formulaire complet (occupe 7 colonnes) */}
-          <ContactForm />
-
-          {/* Gravure + rappel email (5 colonnes) */}
-          <aside className="md:col-span-5">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-sm border border-[var(--rule)] bg-[#1a130c]">
-              <Image
-                src="/images/gravure/gravure-equipe.jpg"
-                alt=""
-                aria-hidden="true"
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover object-top"
-              />
+        <div className="grid items-center gap-10 md:grid-cols-12 md:gap-12">
+          <div className="md:col-span-8">
+            <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[#1a1714]/55">
+              Contact
+            </p>
+            <h2 className="t-display mt-6 text-4xl text-[#1a1714] md:text-6xl">
+              {t("ctaTitle")}
+            </h2>
+            <p className="mt-7 max-w-xl text-base leading-relaxed text-[#1a1714]/75 md:text-lg">
+              {t("ctaSubtitle")}
+            </p>
+            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
+              <a
+                href={CAL_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center gap-3 rounded-full bg-[#1a1714] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#f5f0e6] transition hover:bg-[#15120f]"
+              >
+                Réserver un créneau de 30 min
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </a>
+              <a
+                href="mailto:contact@troiestudio.fr"
+                className="border-b border-[#1a1714]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#1a1714]/75 transition hover:text-[#1a1714]"
+              >
+                contact@troiestudio.fr
+              </a>
             </div>
-            <a
-              href="mailto:contact@troiestudio.fr"
-              className="mt-5 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-            >
-              <span className="border-b border-[var(--rule-strong)] pb-0.5">contact@troiestudio.fr</span>
-            </a>
-          </aside>
+          </div>
+
+          {/* Troyie, posé directement (traits noirs sur l'orange) */}
+          <div className="flex justify-center md:col-span-4 md:justify-end">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/mascot/troyie-happy.png"
+              alt="Troyie, l'assistant IA de TROIE Studio"
+              className="h-48 w-auto object-contain md:h-60"
+            />
+          </div>
         </div>
       </div>
     </section>
