@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -207,6 +208,7 @@ export default async function LocaleLayout({
           <main>{children}</main>
           <Footer locale={locale} />
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 
 /**
@@ -59,6 +60,7 @@ export default function FormationsLayout({
         <Header locale="fr" solid showLang={false} />
         <ScrollReveal />
         {children}
+        <Analytics />
       </body>
     </html>
   );

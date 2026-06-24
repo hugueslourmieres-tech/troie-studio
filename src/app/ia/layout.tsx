@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { Analytics } from "@vercel/analytics/next";
 
 /**
  * Layout dedie au sous-domaine ia.troiestudio.fr.
@@ -57,6 +58,7 @@ export default function IaLayout({
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
         <ScrollReveal />
         {children}
+        <Analytics />
       </body>
     </html>
   );
