@@ -46,7 +46,7 @@ type Geo = {
 const DESKTOP: Geo = { W: 1120, H: 600, llmY: 80, topY: 252, botY: 348, mcpY: 300, toolY: 520, logo: 40, gap: 30, mcpW: 112, mcpH: 44, font: 19 };
 const MOBILE: Geo = { W: 384, H: 660, llmY: 66, topY: 250, botY: 410, mcpY: 330, toolY: 594, logo: 42, gap: 30, mcpW: 100, mcpH: 40, font: 18 };
 
-function Logo({ x, y, logo, s }: { x: number; y: number; logo: string; s: number }) {
+function Logo({ x, y, logo, s, dark }: { x: number; y: number; logo: string; s: number; dark: boolean }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <image
@@ -55,13 +55,17 @@ function Logo({ x, y, logo, s }: { x: number; y: number; logo: string; s: number
       y={y - s / 2}
       width={s}
       height={s}
-      style={{ filter: "brightness(0)", opacity: 0.82 }}
+      style={{ filter: dark ? "brightness(0) invert(1)" : "brightness(0)", opacity: 0.82 }}
       preserveAspectRatio="xMidYMid meet"
     />
   );
 }
 
-function Diagram(g: Geo) {
+function Diagram(g: Geo, dark: boolean) {
+  // Sur fond sombre, on inverse le trait (clair) et le pictogramme central.
+  const line = dark ? CREAM : INK;
+  const mcpFill = dark ? CREAM : INK;
+  const mcpText = dark ? INK : CREAM;
   const cx = g.W / 2;
   const llmX = (i: number) => (g.W * (i + 0.5)) / LLMS.length;
   const toolX = (i: number) => (g.W * (i + 0.5)) / TOOLS.length;
@@ -89,7 +93,7 @@ function Diagram(g: Geo) {
 
   return (
     <svg viewBox={`0 0 ${g.W} ${g.H}`} className="h-auto w-full" role="img" aria-label={ARIA}>
-      <g fill="none" stroke={INK} strokeLinecap="round">
+      <g fill="none" stroke={line} strokeLinecap="round">
         <g strokeOpacity={0.2} strokeWidth={1.4}>
           <Lines />
         </g>
@@ -98,26 +102,26 @@ function Diagram(g: Geo) {
         </g>
       </g>
 
-      <circle cx={cx} cy={g.topY} r={4} fill={INK} />
-      <circle cx={cx} cy={g.botY} r={4} fill={INK} />
+      <circle cx={cx} cy={g.topY} r={4} fill={line} />
+      <circle cx={cx} cy={g.botY} r={4} fill={line} />
 
-      {LLMS.map((l, i) => (<Logo key={l.name} x={llmX(i)} y={g.llmY} logo={l.logo} s={g.logo} />))}
-      {TOOLS.map((tl, i) => (<Logo key={tl.name} x={toolX(i)} y={g.toolY} logo={tl.logo} s={g.logo} />))}
+      {LLMS.map((l, i) => (<Logo key={l.name} x={llmX(i)} y={g.llmY} logo={l.logo} s={g.logo} dark={dark} />))}
+      {TOOLS.map((tl, i) => (<Logo key={tl.name} x={toolX(i)} y={g.toolY} logo={tl.logo} s={g.logo} dark={dark} />))}
 
       <g className="mcp-pulse">
-        <rect x={cx - g.mcpW / 2} y={g.mcpY - g.mcpH / 2} width={g.mcpW} height={g.mcpH} rx={g.mcpH / 2} fill={INK} />
-        <text x={cx} y={g.mcpY} textAnchor="middle" dominantBaseline="central" fill={CREAM}
+        <rect x={cx - g.mcpW / 2} y={g.mcpY - g.mcpH / 2} width={g.mcpW} height={g.mcpH} rx={g.mcpH / 2} fill={mcpFill} />
+        <text x={cx} y={g.mcpY} textAnchor="middle" dominantBaseline="central" fill={mcpText}
           style={{ fontFamily: "var(--font-jetbrains), monospace", fontSize: `${g.font}px`, letterSpacing: "0.22em", fontWeight: 600 }}>MCP</text>
       </g>
     </svg>
   );
 }
 
-export function HeroMcpFlow() {
+export function HeroMcpFlow({ dark = false }: { dark?: boolean }) {
   return (
     <div className="mx-auto w-full max-w-5xl">
-      <div className="hidden md:block">{Diagram(DESKTOP)}</div>
-      <div className="md:hidden">{Diagram(MOBILE)}</div>
+      <div className="hidden md:block">{Diagram(DESKTOP, dark)}</div>
+      <div className="md:hidden">{Diagram(MOBILE, dark)}</div>
     </div>
   );
 }
