@@ -42,16 +42,6 @@ export function ContactCTA(_props: { locale: string }) {
               </a>
             </div>
           </div>
-
-          {/* Troyie, posé directement (traits noirs sur l'orange) */}
-          <div className="flex justify-center md:col-span-4 md:justify-end">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/mascot/troyie-happy.png"
-              alt="Troyie, l'assistant IA de TROIE Studio"
-              className="h-48 w-auto object-contain md:h-60"
-            />
-          </div>
         </div>
       </div>
     </section>

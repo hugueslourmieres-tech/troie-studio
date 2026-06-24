@@ -104,7 +104,7 @@ export function Header({
               href={`/${locale}/contact`}
               className={`font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 ${
                 barSolid
-                  ? "rounded-full bg-[var(--accent)] px-5 py-2.5 text-[#1a1714] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+                  ? "bg-[var(--fg)] px-5 py-2.5 text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#1a1714]"
                   : "text-[var(--fg)] hover:text-[var(--accent)]"
               }`}
             >
@@ -114,7 +114,7 @@ export function Header({
               href="/formations/auth/sign-in"
               className={`group inline-flex items-center gap-2.5 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 ${
                 barSolid
-                  ? "bg-[var(--fg)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#1a1714]"
+                  ? "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
                   : "bg-transparent text-[var(--fg)] hover:text-[var(--accent)]"
               }`}
             >
