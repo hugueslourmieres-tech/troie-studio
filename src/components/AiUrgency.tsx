@@ -15,7 +15,7 @@ export function AiUrgency() {
           <Reveal className="md:col-span-5">
             <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-[#ece4d6]">
               <Image
-                src="/images/ai-urgency.jpg"
+                src="/images/ai-urgency-robot.jpg"
                 alt=""
                 aria-hidden="true"
                 fill
