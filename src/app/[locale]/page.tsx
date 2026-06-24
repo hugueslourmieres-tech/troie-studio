@@ -33,11 +33,11 @@ export default async function HomePage({
         <Intro asHero />
       </div>
 
-      {/* FORK Pro / Perso : oriente le visiteur */}
-      <AudienceFork locale={locale} />
-
       {/* URGENCE IA : punchline FOMO, renvoie vers le QCM de niveau */}
       <AiUrgency />
+
+      {/* FORK Pro / Perso : oriente le visiteur */}
+      <AudienceFork locale={locale} />
 
       {/* QCM : situer son niveau IA (pour tous), juste au-dessus des projets */}
       <QcmSection />
