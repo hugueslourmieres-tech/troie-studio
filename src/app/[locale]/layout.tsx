@@ -56,8 +56,8 @@ export async function generateMetadata({
 
   const title = `${t("name")}. ${
     isFr
-      ? "Communication, création & formations IA"
-      : "Communication, créative & AI training"
+      ? "Atelier digital, création & IA à Nice"
+      : "Digital studio, creative & AI in Nice, France"
   }`;
   // SEO description (long form), différent from the in-page `tagline`
   // which is kept short for visual use in the footer.
@@ -70,6 +70,33 @@ export async function generateMetadata({
       template: `%s · ${t("name")}`,
     },
     description,
+    keywords: isFr
+      ? [
+          "agence IA Nice",
+          "atelier digital Nice",
+          "formation IA Nice",
+          "agence intelligence artificielle Côte d'Azur",
+          "formation ChatGPT Nice",
+          "consultant IA Nice",
+          "agents IA entreprise",
+          "automatisation IA",
+          "agence communication Nice",
+          "direction artistique Nice",
+          "stratégie de marque",
+          "création de site web Nice",
+          "formation intelligence artificielle France",
+          "IA pour entreprises francophones",
+          "agence digitale Provence-Alpes-Côte d'Azur",
+        ]
+      : [
+          "AI agency Nice France",
+          "AI training",
+          "ChatGPT training",
+          "AI agents for business",
+          "automation",
+          "brand strategy",
+          "digital studio French Riviera",
+        ],
     alternates: {
       canonical: `/${locale}`,
       languages: {
@@ -84,6 +111,7 @@ export async function generateMetadata({
       description,
       siteName: t("name"),
       locale: isFr ? "fr_FR" : "en_US",
+      alternateLocale: isFr ? ["en_US"] : ["fr_FR"],
       images: [
         {
           url: "/images/brand/og-image.png",
@@ -129,7 +157,7 @@ export default async function LocaleLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["Organization", "EducationalOrganization"],
+        "@type": ["Organization", "EducationalOrganization", "ProfessionalService"],
         "@id": "https://troiestudio.fr/#organization",
         name: tBrand("name"),
         alternateName: "TROIE Atelier Digital",
@@ -152,9 +180,29 @@ export default async function LocaleLayout({
         ],
         address: {
           "@type": "PostalAddress",
+          addressLocality: "Nice",
+          addressRegion: "Provence-Alpes-Côte d'Azur",
+          postalCode: "06000",
           addressCountry: "FR",
         },
-        areaServed: ["FR", "EU", "Worldwide"],
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: 43.7102,
+          longitude: 7.262,
+        },
+        hasMap: "https://www.google.com/maps/place/Nice,+France",
+        priceRange: "Sur devis",
+        knowsLanguage: ["fr-FR", "en"],
+        areaServed: [
+          { "@type": "City", name: "Nice" },
+          { "@type": "AdministrativeArea", name: "Provence-Alpes-Côte d'Azur" },
+          { "@type": "Country", name: "France" },
+          { "@type": "Country", name: "Monaco" },
+          { "@type": "Country", name: "Belgique" },
+          { "@type": "Country", name: "Suisse" },
+          { "@type": "Country", name: "Luxembourg" },
+          { "@type": "Country", name: "Canada" },
+        ],
         contactPoint: {
           "@type": "ContactPoint",
           email: "contact@troiestudio.fr",
