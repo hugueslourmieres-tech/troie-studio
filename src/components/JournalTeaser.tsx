@@ -1,8 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
 import { Reveal } from "./Reveal";
 import { ARTICLES_SORTED } from "@/app/[locale]/blog/articles";
 
@@ -15,38 +11,11 @@ function formatDate(iso: string) {
 }
 
 /**
- * Le Journal sur la home : les derniers articles en carrousel manuel
- * (drag / swipe + flèches). DA TROIE.
+ * Le Journal sur la home : trois articles en aperçu, image à gauche et texte
+ * à droite (desktop), avec catégorie, date et lien de lecture. DA TROIE.
  */
 export function JournalTeaser({ locale }: { locale: string }) {
-  const items = ARTICLES_SORTED.slice(0, 8);
-
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    align: "start",
-    loop: false,
-    dragFree: true,
-    containScroll: "trimSnaps",
-  });
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(true);
-
-  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-    const update = () => {
-      setCanPrev(emblaApi.canScrollPrev());
-      setCanNext(emblaApi.canScrollNext());
-    };
-    update();
-    emblaApi.on("select", update);
-    emblaApi.on("reInit", update);
-    return () => {
-      emblaApi.off("select", update);
-      emblaApi.off("reInit", update);
-    };
-  }, [emblaApi]);
+  const items = ARTICLES_SORTED.slice(0, 3);
 
   return (
     <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
@@ -69,67 +38,61 @@ export function JournalTeaser({ locale }: { locale: string }) {
           </div>
         </Reveal>
 
-        {/* Carrousel manuel : drag / swipe + flèches */}
-        <div className="mt-12 md:mt-16">
-          <div ref={emblaRef} className="overflow-hidden">
-            <div className="flex touch-pan-y gap-6">
-              {items.map((a) => (
-                <div
-                  key={a.slug}
-                  className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_48%] lg:flex-[0_0_31%]"
+        <ul className="mt-12 md:mt-16">
+          {items.map((a, i) => (
+            <li key={a.slug} className="border-t border-[var(--rule)] first:border-t-0">
+              <Reveal delay={i * 0.05}>
+                <Link
+                  href={`/${locale}/blog/${a.slug}`}
+                  className="group grid gap-6 py-8 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-center md:gap-12 md:py-10"
                 >
-                  <Link href={`/${locale}/blog/${a.slug}`} className="group block">
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-[#1a1714]">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={a.cover}
-                        alt=""
-                        aria-hidden="true"
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        style={{ filter: "grayscale(1) contrast(1.05) brightness(0.95)" }}
-                        loading="lazy"
-                      />
-                      <div aria-hidden="true" className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/45 to-transparent" />
-                      <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.28em] text-[#f5f0e6]">
-                        {a.category}
-                      </span>
-                    </div>
-                    <div className="mt-4">
-                      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                        {a.readingMinutes} min · {formatDate(a.date)}
-                      </p>
-                      <h3 className="t-display mt-2 text-xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
-                        {a.cardTitle ?? a.title}
-                      </h3>
-                    </div>
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </div>
+                  {/* Image à gauche */}
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-[#1a1714]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={a.cover}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ filter: "grayscale(1) contrast(1.05) brightness(0.95)" }}
+                      loading="lazy"
+                    />
+                    <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.28em] text-[#f5f0e6]">
+                      {a.category}
+                    </span>
+                  </div>
 
-          {/* Flèches */}
-          <div className="mt-8 flex items-center justify-end gap-3">
-            <button
-              type="button"
-              aria-label="Précédent"
-              onClick={scrollPrev}
-              disabled={!canPrev}
-              className="flex h-11 w-11 items-center justify-center border border-[var(--fg)] text-[var(--fg)] transition disabled:opacity-30 enabled:hover:border-[var(--accent)] enabled:hover:text-[var(--accent)]"
-            >
-              ←
-            </button>
-            <button
-              type="button"
-              aria-label="Suivant"
-              onClick={scrollNext}
-              disabled={!canNext}
-              className="flex h-11 w-11 items-center justify-center border border-[var(--fg)] text-[var(--fg)] transition disabled:opacity-30 enabled:hover:border-[var(--accent)] enabled:hover:text-[var(--accent)]"
-            >
-              →
-            </button>
-          </div>
-        </div>
+                  {/* Texte à droite */}
+                  <div>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                      {a.readingMinutes} min · {formatDate(a.date)}
+                    </p>
+                    <h3 className="t-display mt-3 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-3xl lg:text-[34px]">
+                      {a.cardTitle ?? a.title}
+                    </h3>
+                    <p className="mt-4 max-w-xl text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+                      {a.description}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
+                      Lire l&apos;article
+                      <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+
+        <Reveal>
+          <Link
+            href={`/${locale}/blog`}
+            className="group mt-12 inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714] md:mt-14"
+          >
+            Voir plus d&apos;articles
+            <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );
