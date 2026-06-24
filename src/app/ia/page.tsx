@@ -393,6 +393,19 @@ export default function IaLandingPage() {
                   Marques / équipes →
                 </a>
               </div>
+
+              {/* Troyie, l'assistant IA de TROIE, posé sans cadre (traits noirs) */}
+              <div className="mt-14 hidden items-center gap-4 lg:flex">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/mascot/troyie-face.png"
+                  alt="Troyie, l'assistant IA de TROIE Studio"
+                  className="h-28 w-auto object-contain xl:h-32"
+                />
+                <p className="max-w-[15rem] font-mono text-[11px] uppercase leading-relaxed tracking-[0.22em] text-[var(--fg-2)]/70">
+                  Troyie, votre assistant IA, vous guide à chaque étape.
+                </p>
+              </div>
             </div>
 
             {/* Col droite : courbe + logos + metriques */}

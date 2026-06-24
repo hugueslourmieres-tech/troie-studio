@@ -14,7 +14,7 @@ export function QcmSection() {
     <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-8">
             <div className="md:max-w-2xl">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
                 Formations en ligne · gratuit
@@ -28,13 +28,23 @@ export function QcmSection() {
                 formations en ligne : cliquez, testez, apprenez.
               </p>
             </div>
-            <Link
-              href="/formations/quiz"
-              className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-            >
-              Tous les QCM
-              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-            </Link>
+
+            <div className="flex flex-col items-start gap-5 md:items-end">
+              {/* Troyie, l'assistant IA, posé directement (traits noirs, sans cadre) */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/mascot/troyie-face.png"
+                alt="Troyie, l'assistant IA de TROIE Studio"
+                className="hidden h-36 w-auto object-contain lg:block xl:h-44"
+              />
+              <Link
+                href="/formations/quiz"
+                className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              >
+                Tous les QCM
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </Link>
+            </div>
           </div>
         </Reveal>
 

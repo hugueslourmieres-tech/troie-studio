@@ -3,14 +3,15 @@
 import { useEffect, useState } from "react";
 
 /**
- * Mascotte robot TROIE (GIF). Le GIF est préchargé en JS : l'image n'est
- * rendue que si elle se charge réellement. Tant que le fichier n'existe pas,
- * le composant ne rend RIEN (aucune image cassée). Dès que le GIF est déposé
- * au chemin indiqué, il apparaît automatiquement.
+ * Troyie, la mascotte / assistant IA de TROIE Studio (PNG transparent, traits
+ * noirs). L'image est préchargée en JS : elle n'est rendue que si elle se
+ * charge réellement. Tant que le fichier n'existe pas, le composant ne rend
+ * RIEN (aucune image cassée).
  *
- * Fichiers attendus dans public/images/mascot/ :
- *   - robot.gif          (idle, dans la page et le dashboard)
- *   - robot-success.gif  (réussite d'un QCM)
+ * Fichiers dans public/images/mascot/ :
+ *   - troyie-face.png   (de face, idle : page formations, dashboard, sections)
+ *   - troyie-happy.png  (bras levés, réussite d'un QCM)
+ *   - troyie-side.png   (de profil)
  */
 export function Mascot({
   src,

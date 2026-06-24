@@ -156,9 +156,9 @@ export default function FormationsPage() {
               </p>
             </div>
             <Mascot
-              src="/images/mascot/robot.gif"
+              src="/images/mascot/troyie-face.png"
               alt=""
-              className="hidden h-36 w-36 shrink-0 object-contain lg:block xl:h-40 xl:w-40"
+              className="hidden h-40 w-40 shrink-0 object-contain lg:block xl:h-44 xl:w-44"
             />
           </div>
 

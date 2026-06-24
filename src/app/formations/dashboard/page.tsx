@@ -57,9 +57,9 @@ export default async function DashboardOverview() {
           </p>
         </div>
         <Mascot
-          src="/images/mascot/robot.gif"
-          alt=""
-          className="hidden h-28 w-28 shrink-0 object-contain md:block lg:h-32 lg:w-32"
+          src="/images/mascot/troyie-face.png"
+          alt="Troyie, l'assistant IA de TROIE Studio"
+          className="hidden h-32 w-32 shrink-0 object-contain md:block lg:h-36 lg:w-36"
         />
       </section>
 

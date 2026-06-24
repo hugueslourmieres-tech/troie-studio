@@ -139,7 +139,7 @@ export function QuizPlayer({
           </p>
 
           <Mascot
-            src="/images/mascot/robot-success.gif"
+            src="/images/mascot/troyie-happy.png"
             alt=""
             className="mt-8 h-24 w-24 object-contain"
           />
@@ -193,7 +193,7 @@ export function QuizPlayer({
         {passed ? (
           <>
             <Mascot
-              src="/images/mascot/robot-success.gif"
+              src="/images/mascot/troyie-happy.png"
               alt="Bravo !"
               className="mt-8 h-28 w-28 object-contain"
             />
