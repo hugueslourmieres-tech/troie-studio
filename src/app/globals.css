@@ -638,3 +638,36 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .beast-eye { animation: none; opacity: 0.92; }
 }
+
+/* ─────────────────────────────────────────────────────────────────────
+   Scène QCM « niveau IA » : Troyie grimpe les marches, étoile scintille.
+   ───────────────────────────────────────────────────────────────────── */
+.qcm-robot {
+  animation: qcm-robot-climb 6s ease-in-out infinite;
+}
+@keyframes qcm-robot-climb {
+  0%, 6%  { transform: translate(0px, 0px); opacity: 0; }
+  10%     { opacity: 1; }
+  30%     { transform: translate(36px, -28px); }
+  33%     { transform: translate(36px, -33px); }
+  37%     { transform: translate(36px, -28px); }
+  57%     { transform: translate(72px, -56px); }
+  60%     { transform: translate(72px, -61px); }
+  64%     { transform: translate(72px, -56px); }
+  85%     { transform: translate(108px, -84px); opacity: 1; }
+  93%     { transform: translate(108px, -84px); opacity: 0; }
+  100%    { transform: translate(0px, 0px); opacity: 0; }
+}
+.qcm-star {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: qcm-star-tw 2.2s ease-in-out infinite;
+}
+@keyframes qcm-star-tw {
+  0%, 100% { opacity: 0.5; transform: scale(0.82); }
+  50%      { opacity: 1; transform: scale(1.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .qcm-robot { animation: none; transform: translate(108px, -84px); }
+  .qcm-star { animation: none; opacity: 1; }
+}
