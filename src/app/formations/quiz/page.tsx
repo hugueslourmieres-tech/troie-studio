@@ -16,7 +16,7 @@ function QuizCard({ quiz }: { quiz: Quiz }) {
         className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
       >
         {/* Illustration QCM (trait noir sur crème) */}
-        <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--rule)] bg-[#f4f1e5]">
+        <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg)]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={quiz.cover}

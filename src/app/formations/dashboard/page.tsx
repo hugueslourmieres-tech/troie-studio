@@ -83,7 +83,7 @@ export default async function DashboardOverview() {
               href={`/formations/quiz/${q.slug}`}
               className="group flex flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
             >
-              <div className="relative aspect-[16/9] overflow-hidden border-b border-[var(--rule)] bg-[#f4f1e5]">
+              <div className="relative aspect-[16/9] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg)]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={q.cover}
