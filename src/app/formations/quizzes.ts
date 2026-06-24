@@ -62,7 +62,7 @@ export const QUIZZES: Quiz[] = [
   /* ── QCM phare : situer son niveau en IA, pour tous ── */
   {
     slug: "niveau-ia",
-    cover: "/images/quiz/niveau-ia.jpg",
+    cover: "/images/quiz/niveau-ia-v2.jpg",
     icon: "M12 2a4.5 4.5 0 0 0-4.5 4.5v.5A3.5 3.5 0 0 0 5 10.5 3.5 3.5 0 0 0 7 14a3.5 3.5 0 0 0 .5 5 3.5 3.5 0 0 0 4.5 1.5M12 2a4.5 4.5 0 0 1 4.5 4.5v.5A3.5 3.5 0 0 1 19 10.5 3.5 3.5 0 0 1 17 14a3.5 3.5 0 0 1-.5 5 3.5 3.5 0 0 1-4.5 1.5M12 2v18.5",
     title: "Connaître mon niveau en IA",
     tagline: "10 questions · 3 niveaux",
