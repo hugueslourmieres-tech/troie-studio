@@ -1,66 +1,74 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
-import { QcmDemo } from "./QcmDemo";
-import { QcmSlider } from "./QcmSlider";
 import { STARTER_QUIZZES } from "@/app/formations/quizzes";
 
 /**
- * Section QCM, version punchy : une accroche forte + une démo animée d'un QCM
- * (Troyie saute de joie à la bonne réponse) qui montre que c'est interactif et
- * ludique, pour les familles, les particuliers et les pros. En dessous, tous
- * les QCM gratuits dans un slider à faire défiler.
+ * Section QCM : un seul QCM mis en avant (situer son niveau en IA), illustration
+ * d'un côté et description de l'autre. DA TROIE.
  */
 export function QcmSection() {
-  const free = STARTER_QUIZZES;
-  const first = free.find((q) => q.slug === "comprendre-ia") ?? free[0];
-  const slides = free.map((q) => ({
-    slug: q.slug,
-    cover: q.cover,
-    tagline: q.tagline,
-    title: q.title,
-    description: q.description,
-  }));
+  const quiz = STARTER_QUIZZES.find((q) => q.slug === "niveau-ia");
+  if (!quiz) return null;
+  const levels = quiz.tiers?.map((t) => t.label) ?? [];
 
   return (
     <section className="overflow-hidden border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
-        {/* Accroche + démo animée */}
-        <div className="grid items-center gap-16 md:grid-cols-2 md:gap-12 lg:gap-20">
-          <Reveal>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-              Le premier QCM · gratuit
-            </p>
-            <h2 className="t-display mt-6 text-4xl leading-[1.05] text-[var(--fg)] md:text-5xl lg:text-6xl">
-              L&apos;IA, ça s&apos;apprend en jouant.
-            </h2>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-              Dix questions, l&apos;explication après chaque réponse. Pour les
-              familles, les particuliers et les pros. Vous vous trompez&nbsp;? Vous
-              comprenez pourquoi. C&apos;est tout l&apos;intérêt.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <Link
-                href={`/formations/quiz/${first.slug}`}
-                className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
-              >
-                Commencer le premier QCM
-                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-              </Link>
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                10 questions · 6 min · gratuit
+        <Reveal>
+          <Link
+            href={`/formations/quiz/${quiz.slug}`}
+            className="group grid overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)] md:grid-cols-2"
+          >
+            {/* Illustration */}
+            <div className="relative aspect-[16/11] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg)] md:aspect-auto md:border-b-0 md:border-r">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={quiz.cover}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <span className="absolute left-4 top-4 rounded-full bg-[var(--bg)]/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-[#1a1714]/65 backdrop-blur-sm">
+                Gratuit
               </span>
             </div>
-          </Reveal>
 
-          <Reveal delay={0.1} className="md:pl-6 lg:pl-10">
-            <QcmDemo />
-          </Reveal>
-        </div>
+            {/* Description sur le côté */}
+            <div className="flex flex-col justify-center p-8 md:p-12 lg:p-14">
+              <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[var(--accent)]">
+                {quiz.tagline}
+              </p>
+              <h2 className="t-display mt-5 text-3xl text-[var(--fg)] md:text-4xl lg:text-5xl">
+                {quiz.title}.
+              </h2>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+                {quiz.description}
+              </p>
 
-        {/* Tous les QCM gratuits, slider (même section, resserré) */}
-        <div className="mt-12 md:mt-16">
-          <QcmSlider items={slides} moreHref="/formations/quiz" moreLabel="Voir tous les QCM" />
-        </div>
+              {levels.length > 0 && (
+                <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/65">
+                  {levels.map((l) => (
+                    <span key={l} className="inline-flex items-center gap-2">
+                      <span aria-hidden="true" className="h-px w-3 bg-[var(--accent)]" />
+                      {l}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
+                <span className="inline-flex items-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors group-hover:bg-[var(--fg)] group-hover:text-[var(--bg)]">
+                  Lancer le QCM
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                </span>
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                  Gratuit · {quiz.minutes} min
+                </span>
+              </div>
+            </div>
+          </Link>
+        </Reveal>
       </div>
     </section>
   );
