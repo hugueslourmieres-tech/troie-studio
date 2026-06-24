@@ -46,7 +46,6 @@ export function QcmSection() {
                 alt=""
                 aria-hidden="true"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                style={{ filter: "grayscale(1) contrast(1.05) brightness(0.95)" }}
                 loading="lazy"
               />
               <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#1a0f08]/55 to-transparent" />
