@@ -7,8 +7,11 @@ import { STARTER_QUIZZES } from "@/app/formations/quizzes";
  * d'un côté et description de l'autre. DA TROIE.
  */
 export function QcmSection() {
-  const quiz = STARTER_QUIZZES.find((q) => q.slug === "niveau-ia");
+  // QCM mis en avant ici : différent du QCM "niveau" ciblé plus haut
+  // (section L'IA n'attend personne). On garde la même illustration.
+  const quiz = STARTER_QUIZZES.find((q) => q.slug === "comprendre-ia");
   if (!quiz) return null;
+  const cover = "/images/quiz/niveau-ia-v2.jpg";
   const levels = quiz.tiers?.map((t) => t.label) ?? [];
 
   return (
@@ -23,7 +26,7 @@ export function QcmSection() {
             <div className="relative aspect-[16/11] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg)] md:aspect-auto md:border-b-0 md:border-r">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={quiz.cover}
+                src={cover}
                 alt=""
                 aria-hidden="true"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"

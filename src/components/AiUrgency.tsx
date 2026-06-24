@@ -2,6 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./Reveal";
 
+/** Les outils IA du moment, logos posés en blanc sur le fond ink. */
+const AI_TOOLS = [
+  { src: "/images/logos/claude.svg", label: "Claude" },
+  { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+  { src: "/images/logos/gemini.svg", label: "Gemini" },
+  { src: "/images/logos/perplexity.svg", label: "Perplexity" },
+  { src: "/images/logos/copilot.svg", label: "Copilot" },
+];
+
 /**
  * Section "urgence IA" : la punchline FOMO, fond ink dramatique, illustration
  * + CTA vers le QCM de niveau. Ton TROIE : phrases courtes, staccato.
@@ -56,6 +65,33 @@ export function AiUrgency() {
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/45">
                   10 questions · 6 min · gratuit
                 </span>
+              </div>
+            </Reveal>
+
+            {/* Les outils IA d'aujourd'hui, logos blancs */}
+            <Reveal delay={0.4}>
+              <div className="mt-12 border-t border-[#f5f0e6]/12 pt-7">
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#f5f0e6]/40">
+                  Les outils d&apos;aujourd&apos;hui
+                </p>
+                <ul className="mt-5 flex flex-wrap items-center gap-x-8 gap-y-4">
+                  {AI_TOOLS.map((tool) => (
+                    <li
+                      key={tool.src}
+                      title={tool.label}
+                      className="flex h-6 items-center opacity-70 transition-opacity duration-300 hover:opacity-100"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={tool.src}
+                        alt={tool.label}
+                        loading="lazy"
+                        className="h-6 w-auto"
+                        style={{ filter: "brightness(0) invert(1)" }}
+                      />
+                    </li>
+                  ))}
+                </ul>
               </div>
             </Reveal>
           </div>
