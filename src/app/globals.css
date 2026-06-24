@@ -625,10 +625,6 @@ body {
   transform: translate(-50%, -50%);
   animation: beast-eye 2.4s ease-in-out infinite;
 }
-.beast-eye-2 {
-  animation-duration: 2.9s;
-  animation-delay: 0.35s;
-}
 @keyframes beast-eye {
   0%, 100% {
     opacity: 0.5;

@@ -23,8 +23,8 @@ export function AiUrgency() {
                 className="object-cover"
               />
               {/* Yeux orange de la bête, qui scintillent */}
-              <span aria-hidden="true" className="beast-eye" style={{ top: "15.5%", left: "40.5%" }} />
-              <span aria-hidden="true" className="beast-eye beast-eye-2" style={{ top: "16%", left: "47.5%" }} />
+              <span aria-hidden="true" className="beast-eye" style={{ top: "20.5%", left: "36%" }} />
+              <span aria-hidden="true" className="beast-eye" style={{ top: "18.5%", left: "43%" }} />
             </div>
           </Reveal>
 
