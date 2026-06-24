@@ -41,12 +41,12 @@ export default async function HomePage({
       {/* FORK Pro / Perso : oriente le visiteur */}
       <AudienceFork locale={locale} />
 
+      {/* QCM : situer son niveau IA (pour tous), juste sous le fork */}
+      <QcmSection />
+
       {/* CRÉATION : projets photos (slider) puis vidéos */}
       <WorksGallery locale={locale} />
       <VideoSection locale={locale} />
-
-      {/* QCM : situer son niveau IA (pour tous) */}
-      <QcmSection />
 
       <AboutBlock />
 
