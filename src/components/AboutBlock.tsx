@@ -22,7 +22,7 @@ const TEAM: Member[] = [
     name: "Vanessa Nobrega",
     role: "Consultante IA & Communication",
     note: "Anciennement à la Maison de l'Intelligence Artificielle.",
-    img: "/images/about/vanessa.jpg",
+    img: "/images/about/vanessa-v2.jpg",
     pos: "center 12%",
     link: { href: "https://vanessanobrega.com", label: "vanessanobrega.com" },
   },
