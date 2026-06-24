@@ -15,23 +15,16 @@ function QuizCard({ quiz }: { quiz: Quiz }) {
         href={`/formations/quiz/${quiz.slug}`}
         className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
       >
-        {/* Bandeau image duotone orange + picto */}
-        <div className="relative aspect-[16/7] overflow-hidden bg-[#1a0f08]">
+        {/* Illustration QCM (trait noir sur crème) */}
+        <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--rule)] bg-[#f4f1e5]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={quiz.cover}
             alt=""
             aria-hidden="true"
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-            style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
             loading="lazy"
           />
-          <div aria-hidden="true" className="absolute inset-0 bg-[var(--accent)] opacity-55 mix-blend-multiply" />
-          <div className="absolute left-5 top-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#1a0f08]/70 backdrop-blur-[1px]">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6 text-[#f6ead4]" aria-hidden="true">
-              <path d={quiz.icon} />
-            </svg>
-          </div>
         </div>
         <div className="flex flex-1 flex-col p-6 md:p-7">
           <div className="flex items-baseline justify-between gap-3">

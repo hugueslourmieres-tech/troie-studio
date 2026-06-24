@@ -74,17 +74,16 @@ export function QcmSection() {
                     href={`/formations/quiz/${q.slug}`}
                     className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
                   >
-                    <div className="relative aspect-[16/10] overflow-hidden bg-[#1a0f08]">
+                    <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--rule)] bg-[#f4f1e5]">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={q.cover}
                         alt=""
                         aria-hidden="true"
                         className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        style={{ filter: "grayscale(1) contrast(1.05) brightness(0.95)" }}
                         loading="lazy"
                       />
-                      <span className="absolute left-4 top-4 font-mono text-[9px] uppercase tracking-[0.28em] text-[#f6ead4]/85">
+                      <span className="absolute left-3 top-3 rounded-full bg-[var(--bg)]/80 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-[#1a1714]/65 backdrop-blur-sm">
                         Gratuit
                       </span>
                     </div>

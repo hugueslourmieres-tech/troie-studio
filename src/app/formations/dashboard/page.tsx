@@ -83,22 +83,15 @@ export default async function DashboardOverview() {
               href={`/formations/quiz/${q.slug}`}
               className="group flex flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
             >
-              <div className="relative aspect-[16/9] overflow-hidden bg-[#1a0f08]">
+              <div className="relative aspect-[16/9] overflow-hidden border-b border-[var(--rule)] bg-[#f4f1e5]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={q.cover}
                   alt=""
                   aria-hidden="true"
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
                   loading="lazy"
                 />
-                <div aria-hidden="true" className="absolute inset-0 bg-[var(--accent)] opacity-55 mix-blend-multiply" />
-                <div className="absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#1a0f08]/70">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-[#f6ead4]" aria-hidden="true">
-                    <path d={q.icon} />
-                  </svg>
-                </div>
               </div>
               <div className="flex flex-1 flex-col p-5">
                 <h3 className="t-display text-lg text-[var(--fg)] md:text-xl">
