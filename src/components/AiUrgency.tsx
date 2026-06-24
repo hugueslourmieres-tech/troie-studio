@@ -34,16 +34,14 @@ export function AiUrgency() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="t-display mt-8 text-4xl leading-[1.05] text-[#f5f0e6] md:text-5xl lg:text-6xl">
-                Si vous n&apos;utilisez pas l&apos;IA, les autres le feront à
-                votre place.
+                Utilisez l&apos;IA avant qu&apos;elle ne vous utilise.
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mt-8 max-w-xl text-base leading-relaxed text-[#f5f0e6]/70 md:text-lg">
-                La production s&apos;accélère. Les outils explosent. La question
-                n&apos;est plus « si », mais « quand ». Situez-vous en 10
-                questions, gratuitement, et prenez l&apos;avance plutôt que le
-                retard.
+                La production s&apos;accélère. Les outils explosent. La
+                comprendre, c&apos;est reprendre la main, pas la subir.
+                Situez-vous en 10 questions, gratuitement.
               </p>
             </Reveal>
             <Reveal delay={0.3}>
