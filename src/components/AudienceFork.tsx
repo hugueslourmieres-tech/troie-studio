@@ -30,7 +30,7 @@ export function AudienceFork({ locale }: { locale: string }) {
             <div className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]">
               <div className="relative aspect-[16/9] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg-2)]">
                 <Image
-                  src="/images/audience/perso-v2.jpg"
+                  src="/images/audience/perso-v3.jpg"
                   alt=""
                   aria-hidden="true"
                   fill
@@ -96,7 +96,7 @@ export function AudienceFork({ locale }: { locale: string }) {
             <div className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]">
               <div className="relative aspect-[16/9] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg-2)]">
                 <Image
-                  src="/images/audience/pro-v2.jpg"
+                  src="/images/audience/pro-v3.jpg"
                   alt=""
                   aria-hidden="true"
                   fill
