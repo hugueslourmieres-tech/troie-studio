@@ -102,7 +102,11 @@ export function Header({
             {showLang && <LangSwitch locale={locale} />}
             <Link
               href={`/${locale}/contact`}
-              className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+              className={`font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 ${
+                barSolid
+                  ? "rounded-full bg-[var(--accent)] px-5 py-2.5 text-[#1a1714] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+                  : "text-[var(--fg)] hover:text-[var(--accent)]"
+              }`}
             >
               Contact
             </Link>
