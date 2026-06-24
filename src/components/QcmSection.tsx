@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
-import { ClimbScene } from "./ClimbScene";
 import { STARTER_QUIZZES } from "@/app/formations/quizzes";
 
 /**
@@ -22,7 +21,14 @@ export function QcmSection() {
           >
             {/* Illustration */}
             <div className="relative aspect-[16/11] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg)] md:aspect-auto md:border-b-0 md:border-r">
-              <ClimbScene />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={quiz.cover}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
               <span className="absolute left-4 top-4 rounded-full bg-[var(--bg)]/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-[#1a1714]/65 backdrop-blur-sm">
                 Gratuit
               </span>
