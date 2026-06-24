@@ -17,7 +17,7 @@ const FORMATION_SLIDES = [
 ];
 
 const MAIN_SITE = "https://troiestudio.fr";
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 
 /* ─────────────────────────────────────────────────────────────────────
    Sources vérifiées (juin 2026), gains de productivite réels marketing

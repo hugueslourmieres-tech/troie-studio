@@ -15,7 +15,7 @@ import {
 } from "@/lib/data/formations";
 
 const SITE = "https://troiestudio.fr";
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

@@ -6,7 +6,7 @@ import { FormationsFooter } from "@/components/FormationsFooter";
 import { JsonLd, ORG_ID } from "@/components/JsonLd";
 
 const MAIN_SITE = "https://troiestudio.fr";
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 const checkoutForPack = (badge: string) =>
   `mailto:contact@troiestudio.fr?subject=TROIE+Prompts+%E2%80%94+Pack+${encodeURIComponent(badge)}+29`;
 

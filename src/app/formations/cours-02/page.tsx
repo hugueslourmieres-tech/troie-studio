@@ -30,7 +30,7 @@ const COURSE_JSONLD = {
 };
 
 const MAIN_SITE = "https://troiestudio.fr";
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 const CHECKOUT_URL = "mailto:contact@troiestudio.fr?subject=Cours+02+%E2%80%94+TROIE-MULTI";
 
 export const metadata = {

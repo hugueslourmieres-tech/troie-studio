@@ -8,7 +8,7 @@ import { Reveal } from "./Reveal";
  */
 export function AiUrgency() {
   return (
-    <section className="border-t border-[var(--accent)] bg-[#15120f] text-[#f5f0e6]">
+    <section className="border-t border-[var(--accent)] bg-[#241710] text-[#f5f0e6]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
           {/* Illustration */}

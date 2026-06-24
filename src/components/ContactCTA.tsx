@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ContactForm } from "./ContactForm";
 
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 
 /**
  * Section de contact en clôture de page : accroche, réservation d'un créneau

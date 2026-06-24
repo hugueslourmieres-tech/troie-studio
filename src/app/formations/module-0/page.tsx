@@ -4,7 +4,7 @@ import { MODULE_0_FREE, COURSE_01_PREVIEW, COURSE_02_PREVIEW } from "../question
 import { FormationsFooter } from "@/components/FormationsFooter";
 
 const MAIN_SITE = "https://troiestudio.fr";
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 
 export const metadata = {
   title: "Module 0 · La théorie LLM en 15 minutes, TROIE Formations",

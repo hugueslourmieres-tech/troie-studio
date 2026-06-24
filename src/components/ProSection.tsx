@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 
 const HIGHLIGHTS = [
   { stat: "+40 à 60 %", label: "de contenu, pour les agences" },

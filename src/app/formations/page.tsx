@@ -5,7 +5,7 @@ import { QcmSlideshow } from "@/components/QcmSlideshow";
 import { Mascot } from "@/components/Mascot";
 
 const MAIN_SITE = "https://troiestudio.fr";
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 
 /* Parcours pro, paiement unique ou abonnement. */
 const PRO_PATHS = [

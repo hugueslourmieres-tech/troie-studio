@@ -30,7 +30,7 @@ const COURSE_JSONLD = {
 };
 
 const MAIN_SITE = "https://troiestudio.fr";
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 // TODO : remplacer par l'URL Lemon Squeezy / Stripe Checkout des activation
 const CHECKOUT_URL = "mailto:contact@troiestudio.fr?subject=Cours+01+%E2%80%94+TROIE-START";
 

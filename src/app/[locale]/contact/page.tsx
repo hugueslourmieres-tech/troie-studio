@@ -2,7 +2,7 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { ContactForm } from "@/components/ContactForm";
 
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 const EMAIL = "contact@troiestudio.fr";
 
 const WHAT_WE_DO = [

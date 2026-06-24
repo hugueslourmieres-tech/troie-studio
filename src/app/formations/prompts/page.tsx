@@ -3,7 +3,7 @@ import { EmblemBreak } from "@/components/EmblemBreak";
 import { FormationsFooter } from "@/components/FormationsFooter";
 
 const MAIN_SITE = "https://troiestudio.fr";
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 
 /* TODO : remplacer les mailto par Lemon Squeezy / Stripe URLs au moment du go-live. */
 const CHECKOUT_BUNDLE = "mailto:contact@troiestudio.fr?subject=TROIE+Prompts+Vault+%E2%80%94+Bundle+5+packs+99";

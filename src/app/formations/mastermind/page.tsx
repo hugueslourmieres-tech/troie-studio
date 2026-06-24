@@ -29,7 +29,7 @@ const MASTERMIND_JSONLD = {
 };
 
 const MAIN_SITE = "https://troiestudio.fr";
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 const SUBSCRIBE_MONTHLY = "mailto:contact@troiestudio.fr?subject=Mastermind+TROIE+%E2%80%94+Mensuel+49";
 const SUBSCRIBE_ANNUAL = "mailto:contact@troiestudio.fr?subject=Mastermind+TROIE+%E2%80%94+Annuel+490";
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const CAL_URL = "https://cal.com/hugueslourmieres";
+const CAL_URL = "https://cal.com/troiestudio/30min";
 
 type Metier = {
   name: string;

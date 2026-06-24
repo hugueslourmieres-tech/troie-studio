@@ -14,7 +14,7 @@ const TEAM: Member[] = [
   {
     name: "Hugues Lourmieres",
     role: "Fondateur & CEO",
-    note: "Direction artistique, stratégie de marque et formation IA. Dix ans auprès de marques exigeantes, en France et à l'international.",
+    note: "CMO dans les arts graphiques. Créateur, formateur et consultant IA. Dix ans auprès de marques exigeantes, en France et à l'international.",
     img: "/images/about/hugues-studio.jpg",
     pos: "center 14%",
   },
