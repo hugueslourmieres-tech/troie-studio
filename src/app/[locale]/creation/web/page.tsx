@@ -133,7 +133,7 @@ export default async function WebPage({
                       alt={`${p.name}, aperçu du site`}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                      className="object-cover object-top grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
                     />
                   </div>
                   <h3 className="t-display mt-5 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
