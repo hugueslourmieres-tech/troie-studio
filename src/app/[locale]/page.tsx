@@ -3,7 +3,6 @@ import { Intro } from "@/components/Intro";
 import { AudienceFork } from "@/components/AudienceFork";
 import { AiUrgency } from "@/components/AiUrgency";
 import { QcmSection } from "@/components/QcmSection";
-import { WorksGallery } from "@/components/WorksGallery";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
 import { JournalTeaser } from "@/components/JournalTeaser";
@@ -39,12 +38,8 @@ export default async function HomePage({
       {/* FORK Pro / Perso : oriente le visiteur */}
       <AudienceFork locale={locale} />
 
-      {/* QCM : situer son niveau IA (pour tous), juste au-dessus des projets */}
+      {/* QCM : situer son niveau IA (pour tous) */}
       <QcmSection />
-
-      {/* WORKS, réalisations = preuve (Création / Stratégie / Formation ont
-          leurs pages dédiées, accessibles depuis la nav) */}
-      <WorksGallery locale={locale} />
 
       <AboutBlock />
 
