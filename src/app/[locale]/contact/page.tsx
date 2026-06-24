@@ -1,32 +1,18 @@
+import Image from "next/image";
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
 import { ContactForm } from "@/components/ContactForm";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
+const CAL_EMBED = "https://cal.com/troiestudio/30min?layout=month_view";
 const EMAIL = "contact@troiestudio.fr";
+const MAPS_LINK = "https://www.google.com/maps/place/Nice,+France";
+const MAPS_EMBED =
+  "https://maps.google.com/maps?q=Nice%2C%20Côte%20d'Azur%2C%20France&z=12&output=embed";
 
 const WHAT_WE_DO = [
-  {
-    n: "01",
-    title: "Création",
-    body: "Photo, vidéo, graphisme, web design, sites et applications.",
-  },
-  {
-    n: "02",
-    title: "Stratégie",
-    body: "Marque, contenu et acquisition : SEO, SEA, GEO.",
-  },
-  {
-    n: "03",
-    title: "Intelligence artificielle",
-    body: "Formation des équipes et déploiement d'agents sur mesure.",
-  },
-];
-
-const TEAM = [
-  { name: "Hugues Lourmieres", role: "Fondateur & CEO" },
-  { name: "Vanessa Nobrega", role: "Consultante IA & Communication" },
-  { name: "Thibaud Lourmieres", role: "Créateur de médias" },
+  { n: "01", title: "Création", body: "Photo, vidéo, graphisme, web design, sites et applications." },
+  { n: "02", title: "Stratégie", body: "Marque, contenu et acquisition : SEO, SEA, GEO." },
+  { n: "03", title: "Intelligence artificielle", body: "Formation des équipes et déploiement d'agents sur mesure." },
 ];
 
 export async function generateMetadata({
@@ -57,73 +43,40 @@ export default async function ContactPage({
 }
 
 function ContactView() {
-  const t = useTranslations("contact");
-
   return (
-    <div className="tone-taupe bg-[var(--bg)] text-[var(--fg)]">
-      <article className="mx-auto max-w-5xl px-6 py-24 md:px-10 md:py-36">
-        <header>
+    <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
+      <article className="mx-auto max-w-6xl px-6 pt-28 pb-24 md:px-10 md:pt-36 md:pb-32">
+        {/* En-tête */}
+        <header className="max-w-3xl">
           <p className="t-eyebrow">/ Contact</p>
           <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
-            {t("pageTitle")}
+            Parlons de votre projet.
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]/80 md:text-xl">
-            {t("pageSubtitle")}
+          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]/85 md:text-xl">
+            Un atelier digital basé à Nice, IA d&apos;abord. Décrivez votre besoin
+            ou réservez directement un créneau : on revient vers vous rapidement.
           </p>
         </header>
 
-        {/* Qui nous sommes */}
-        <section className="mt-14 max-w-3xl border-t border-[var(--rule)] pt-10">
-          <p className="t-eyebrow">Qui nous sommes</p>
-          <p className="mt-5 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            TROIE est un atelier digital basé à Nice. Création, stratégie et
-            intelligence artificielle réunies sous un même toit, pour les marques
-            comme pour les particuliers. Dix ans auprès de marques exigeantes, en
-            France et à l&apos;international.
-          </p>
-        </section>
-
-        {/* Réserver un créneau */}
-        <section className="mt-10 overflow-hidden rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)]">
-          <div className="flex flex-col gap-6 p-6 md:flex-row md:items-end md:justify-between md:p-10">
-            <div>
-              <p className="t-eyebrow">{t("bookingEyebrow")}</p>
-              <h2 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">
-                {t("bookingTitle")}
-              </h2>
-              <p className="mt-4 max-w-lg text-base leading-relaxed text-[var(--fg-2)]">
-                {t("bookingText")}
-              </p>
-            </div>
-            <a
-              href={CAL_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex shrink-0 items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[#ff8c33]"
-            >
-              Réserver un créneau
-              <span aria-hidden="true" className="transition group-hover:translate-x-1">
-                →
-              </span>
-            </a>
-          </div>
-        </section>
-
-        <div className="mt-16 grid gap-12 md:grid-cols-12 lg:gap-16">
-          {/* Formulaire */}
+        {/* Formulaire + photo atelier + coordonnées */}
+        <div className="mt-14 grid gap-10 md:mt-16 md:grid-cols-12 md:gap-12">
           <ContactForm />
 
-          {/* Coordonnées + studio */}
           <aside className="space-y-6 md:col-span-5">
-            {/* Studio / Nice */}
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)]">
+              <Image
+                src="/images/training-section/01.jpg"
+                alt="L'atelier TROIE à Nice"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover"
+                style={{ filter: "grayscale(1) contrast(1.03)" }}
+              />
+            </div>
+
             <div className="rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-8">
-              <p className="t-eyebrow">Le studio</p>
-              <p className="mt-5 font-mono text-[13px] uppercase leading-relaxed tracking-[0.14em] text-[var(--fg)]">
-                Nice, Côte d&apos;Azur
-                <br />
-                <span className="text-[var(--fg-2)]/70">France</span>
-              </p>
-              <div className="mt-6 space-y-3 border-t border-[var(--rule)] pt-6">
+              <p className="t-eyebrow">Direct</p>
+              <div className="mt-5 space-y-3">
                 <a
                   href={`mailto:${EMAIL}`}
                   className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
@@ -131,55 +84,102 @@ function ContactView() {
                   <span className="border-b border-[var(--rule-strong)] pb-0.5">{EMAIL}</span>
                 </a>
                 <a
-                  href={CAL_URL}
+                  href={MAPS_LINK}
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
-                  <span className="border-b border-[var(--rule-strong)] pb-0.5">
-                    {t("callDirect")}
-                  </span>
+                  <span className="border-b border-[var(--rule-strong)] pb-0.5">Nice, Côte d&apos;Azur</span>
                   →
                 </a>
               </div>
             </div>
-
-            {/* Ce que l'on fait */}
-            <div className="rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-8">
-              <p className="t-eyebrow">Ce que l&apos;on fait</p>
-              <ul className="mt-5 space-y-5">
-                {WHAT_WE_DO.map((d) => (
-                  <li key={d.n} className="flex gap-4">
-                    <span className="font-mono text-[10px] tracking-[0.22em] text-[var(--accent)]">
-                      {d.n}
-                    </span>
-                    <div>
-                      <p className="t-display text-lg text-[var(--fg)]">{d.title}</p>
-                      <p className="mt-1 text-sm leading-relaxed text-[var(--fg-2)]">
-                        {d.body}
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* L'équipe */}
-            <div className="rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-8">
-              <p className="t-eyebrow">L&apos;équipe</p>
-              <ul className="mt-5 space-y-4">
-                {TEAM.map((m) => (
-                  <li key={m.name} className="flex items-baseline justify-between gap-4">
-                    <span className="text-[var(--fg)]">{m.name}</span>
-                    <span className="text-right font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--fg-2)]/70">
-                      {m.role}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
           </aside>
         </div>
+
+        {/* Réserver un créneau, aperçu cal.com */}
+        <section className="mt-20 md:mt-28">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-xl">
+              <p className="t-eyebrow">Rendez-vous</p>
+              <h2 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-5xl">
+                Réservez un appel de 30 minutes.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+                Choisissez un créneau directement dans le calendrier. On fait le
+                point sur votre besoin et on vous propose une approche.
+              </p>
+            </div>
+            <a
+              href={CAL_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex shrink-0 items-center gap-3 rounded-full bg-[var(--accent)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[#ff8c33]"
+            >
+              Ouvrir le calendrier
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+
+          <div className="mt-8 overflow-hidden rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)]">
+            <iframe
+              src={CAL_EMBED}
+              title="Réserver un créneau, calendrier TROIE"
+              loading="lazy"
+              className="h-[640px] w-full md:h-[720px]"
+            />
+          </div>
+        </section>
+
+        {/* Le studio, Nice, map */}
+        <section className="mt-20 md:mt-28">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-xl">
+              <p className="t-eyebrow">Le studio</p>
+              <h2 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-5xl">
+                Nice, Côte d&apos;Azur.
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+                Notre atelier est basé à Nice. On intervient partout en France et
+                à l&apos;international, en présentiel comme à distance.
+              </p>
+            </div>
+            <a
+              href={MAPS_LINK}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex shrink-0 items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            >
+              Ouvrir dans Google Maps
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </a>
+          </div>
+
+          <div className="mt-8 overflow-hidden rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)]">
+            <iframe
+              src={MAPS_EMBED}
+              title="TROIE, Nice"
+              loading="lazy"
+              className="h-[360px] w-full grayscale md:h-[420px]"
+            />
+          </div>
+        </section>
+
+        {/* Ce que l'on fait */}
+        <section className="mt-20 border-t border-[var(--rule)] pt-14 md:mt-28 md:pt-16">
+          <p className="t-eyebrow">Ce que l&apos;on fait</p>
+          <ul className="mt-8 grid gap-8 sm:grid-cols-3 md:gap-12">
+            {WHAT_WE_DO.map((d) => (
+              <li key={d.n}>
+                <span className="font-mono text-[10px] tracking-[0.22em] text-[var(--accent)]">
+                  {d.n}
+                </span>
+                <h3 className="t-display mt-3 text-2xl text-[var(--fg)]">{d.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)]">{d.body}</p>
+              </li>
+            ))}
+          </ul>
+        </section>
       </article>
     </div>
   );
