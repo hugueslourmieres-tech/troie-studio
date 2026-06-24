@@ -1,91 +1,86 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
-import { getQuiz } from "@/app/formations/quizzes";
-
-const LEVELS = ["Débutant", "Intermédiaire", "Avancé"];
+import { STARTER_QUIZZES } from "@/app/formations/quizzes";
 
 /**
- * Section QCM "niveau IA" : un seul QCM, pour tous (particuliers comme pros).
- * 10 questions, 3 niveaux de réussite, puis on propose les formations / contact.
- * Carte en vedette cliquable. DA TROIE.
+ * Section QCM : présente les QCM gratuits, porte d'entrée des formations en
+ * ligne (cliquer, tester, apprendre). Le QCM "niveau IA" est mis en avant plus
+ * haut (section dédiée), on l'exclut donc ici. DA TROIE.
  */
 export function QcmSection() {
-  const quiz = getQuiz("niveau-ia");
-  if (!quiz) return null;
+  const quizzes = STARTER_QUIZZES.filter((q) => q.slug !== "niveau-ia");
 
   return (
     <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <Reveal>
-          <div className="md:max-w-3xl">
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-              Pour tous · gratuit
-            </p>
-            <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-              Testez vos connaissances en IA.
-            </h2>
-            <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-              Un seul QCM, 10 questions, pour situer votre niveau et savoir par
-              où continuer. Particulier ou professionnel : tout le monde gagne à
-              connaître son point de départ. C&apos;est gratuit et ça prend 6 minutes.
-            </p>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="md:max-w-2xl">
+              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                Formations en ligne · gratuit
+              </p>
+              <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+                Apprendre l&apos;IA, ça commence par un QCM.
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+                Des QCM courts et gratuits pour entrer dans chaque sujet, avec
+                l&apos;explication après chaque réponse. La porte d&apos;entrée de nos
+                formations en ligne : cliquez, testez, apprenez.
+              </p>
+            </div>
+            <Link
+              href="/formations/quiz"
+              className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            >
+              Tous les QCM
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </Link>
           </div>
         </Reveal>
 
-        {/* Carte QCM en vedette */}
-        <Reveal>
-          <Link
-            href={`/formations/quiz/${quiz.slug}`}
-            className="group mt-12 grid overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)] md:mt-16 md:grid-cols-2"
-          >
-            {/* Cover N&B */}
-            <div className="relative aspect-[16/10] overflow-hidden bg-[#1a0f08] md:aspect-auto md:min-h-[340px]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={quiz.cover}
-                alt=""
-                aria-hidden="true"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                style={{ filter: "grayscale(1) contrast(1.05) brightness(0.95)" }}
-                loading="lazy"
-              />
-              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#1a0f08]/55 to-transparent" />
-              <span className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.28em] text-[#f6ead4]">
-                Gratuit · {quiz.minutes} min
-              </span>
-            </div>
+        <ul className="mt-14 grid items-stretch gap-4 sm:grid-cols-2 md:mt-16 md:gap-6 lg:grid-cols-4">
+          {quizzes.map((q, i) => (
+            <li key={q.slug} className="h-full">
+              <Reveal delay={i * 0.05} className="h-full">
+                <Link
+                  href={`/formations/quiz/${q.slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden bg-[#1a0f08]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={q.cover}
+                      alt=""
+                      aria-hidden="true"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      style={{ filter: "grayscale(1) contrast(1.05) brightness(0.95)" }}
+                      loading="lazy"
+                    />
+                    <span className="absolute left-4 top-4 font-mono text-[9px] uppercase tracking-[0.28em] text-[#f6ead4]/85">
+                      Gratuit
+                    </span>
+                  </div>
 
-            {/* Texte */}
-            <div className="flex flex-col justify-center p-8 md:p-12">
-              <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
-                {quiz.tagline}
-              </p>
-              <h3 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">
-                {quiz.title}
-              </h3>
-              <p className="mt-4 max-w-md text-base leading-relaxed text-[var(--fg-2)]">
-                {quiz.description}
-              </p>
-
-              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2">
-                {LEVELS.map((l) => (
-                  <li
-                    key={l}
-                    className="flex items-baseline gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/75"
-                  >
-                    <span aria-hidden="true" className="inline-block h-px w-3 bg-[var(--accent)]" />
-                    {l}
-                  </li>
-                ))}
-              </ul>
-
-              <span className="mt-8 inline-flex w-fit items-center gap-3 bg-[var(--fg)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors group-hover:bg-[var(--accent)] group-hover:text-[#1a1714]">
-                Lancer le QCM
-                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-              </span>
-            </div>
-          </Link>
-        </Reveal>
+                  <div className="flex flex-1 flex-col p-5">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
+                      {q.tagline}
+                    </p>
+                    <h3 className="t-display mt-3 text-xl text-[var(--fg)]">
+                      {q.title}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-[var(--fg-2)]">
+                      {q.description}
+                    </p>
+                    <span className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 transition-colors group-hover:text-[var(--accent)]">
+                      Lancer le QCM
+                      <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
