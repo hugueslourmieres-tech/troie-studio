@@ -87,7 +87,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
         <Reveal>
           <Link
             href={`/${locale}/blog`}
-            className="group mt-12 inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714] md:mt-14"
+            className="group mt-12 inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)] md:mt-14"
           >
             Voir plus d&apos;articles
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
