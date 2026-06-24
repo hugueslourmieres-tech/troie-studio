@@ -54,7 +54,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
                       alt=""
                       aria-hidden="true"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      style={{ filter: "grayscale(1) contrast(1.05) brightness(0.95)" }}
+                      style={{ filter: "grayscale(1) contrast(1.03)" }}
                       loading="lazy"
                     />
                     <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.28em] text-[#f5f0e6]">
