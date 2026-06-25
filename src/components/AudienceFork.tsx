@@ -86,11 +86,18 @@ export function AudienceFork({ locale }: { locale: string }) {
       ],
       toolsLabel: "Les outils des équipes",
       tools: [
+        { src: "/images/logos/claude.svg", label: "Claude" },
+        { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+        { src: "/images/logos/gemini.svg", label: "Gemini" },
+        { src: "/images/logos/copilot.svg", label: "Copilot" },
+        { src: "/images/logos/perplexity.svg", label: "Perplexity" },
+        { src: "/images/logos/mistral.svg", label: "Mistral" },
+        { src: "/images/logos/huggingface.svg", label: "Hugging Face" },
+        { src: "/images/logos/make.svg", label: "Make" },
+        { src: "/images/logos/hubspot.svg", label: "HubSpot" },
+        { src: "/images/logos/salesforce.svg", label: "Salesforce" },
         { src: "/images/logos/notion.svg", label: "Notion" },
         { src: "/images/logos/slack.svg", label: "Slack" },
-        { src: "/images/logos/hubspot.svg", label: "HubSpot" },
-        { src: "/images/logos/make.svg", label: "Make" },
-        { src: "/images/logos/salesforce.svg", label: "Salesforce" },
       ],
       icon: PRO_ICON,
       cta: { href: `/${locale}/contact`, label: "Réserver un audit de 30 min" },
@@ -149,10 +156,10 @@ function ForkCard({ fork }: { fork: Fork }) {
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
-        {/* Pastille profil, dans la couleur du pack */}
+        {/* Pastille profil, posée directement sur l'image, en orange */}
         <span
-          className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-[var(--bg)]/85 px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em] backdrop-blur-sm"
-          style={{ color: fork.tint }}
+          className="absolute left-5 top-5 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.22em] [text-shadow:0_0_1px_rgba(0,0,0,0.95),0_1px_3px_rgba(0,0,0,0.9),0_2px_16px_rgba(0,0,0,0.6)]"
+          style={{ color: "#f37b22" }}
         >
           {fork.icon}
           {fork.eyebrow}
