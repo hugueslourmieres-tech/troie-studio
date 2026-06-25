@@ -160,13 +160,13 @@ function ForkCard({ fork }: { fork: Fork }) {
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           style={{ objectPosition: fork.imagePosition ?? "center" }}
         />
-        {/* Pastille profil, posée directement sur l'image, en orange */}
+        {/* Pictogramme profil cerclé, posé directement sur l'image, en orange */}
         <span
-          className="absolute left-5 top-5 inline-flex items-center gap-2 font-mono text-[10px] font-semibold uppercase tracking-[0.22em] [text-shadow:0_0_1px_rgba(0,0,0,0.95),0_1px_3px_rgba(0,0,0,0.9),0_2px_16px_rgba(0,0,0,0.6)]"
+          aria-label={fork.eyebrow}
+          className="absolute left-5 top-5 inline-flex h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-current [filter:drop-shadow(0_0_2px_rgba(0,0,0,0.7))_drop-shadow(0_2px_5px_rgba(0,0,0,0.5))]"
           style={{ color: "#f37b22" }}
         >
           {fork.icon}
-          {fork.eyebrow}
         </span>
       </div>
 
