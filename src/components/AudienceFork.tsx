@@ -12,6 +12,8 @@ type Fork = {
   /** Encre lisible posée sur la couleur du pack. */
   ink: string;
   image: string;
+  /** Cadrage vertical de l'image (object-position), défaut center. */
+  imagePosition?: string;
   eyebrow: string;
   title: string;
   body: string;
@@ -76,6 +78,7 @@ export function AudienceFork({ locale }: { locale: string }) {
       tint: "#1f4d4a",
       ink: "#fdfaf3",
       image: "/images/audience/pro-v6.jpg",
+      imagePosition: "center 28%",
       eyebrow: "Professionnels & équipes",
       title: "Formez et déployez l'IA.",
       body: "Montée en compétence des équipes, conformité AI Act, agents sur mesure. En présentiel ou à distance.",
@@ -155,6 +158,7 @@ function ForkCard({ fork }: { fork: Fork }) {
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
+          style={{ objectPosition: fork.imagePosition ?? "center" }}
         />
         {/* Pastille profil, posée directement sur l'image, en orange */}
         <span
