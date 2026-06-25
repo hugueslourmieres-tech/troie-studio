@@ -60,6 +60,7 @@ function WorksView({ locale }: { locale: string }) {
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="t-photo object-cover transition duration-700 group-hover:scale-[1.03]"
+                style={{ objectPosition: w.coverPosition ?? "center" }}
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)]/60 via-transparent to-transparent" />
               <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)]/80">

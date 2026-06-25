@@ -27,6 +27,8 @@ export type WorkSlug =
 export type Work = {
   slug: WorkSlug;
   cover: string;
+  /** Cadrage object-position du cover dans le hero plein cadre (défaut center). */
+  coverPosition?: string;
   gallery: string[];
 };
 
@@ -39,6 +41,7 @@ export const WORKS: Work[] = [
   {
     slug: "capefront",
     cover: file("Capefront", "cover.jpg"),
+    coverPosition: "center 30%",
     gallery: [
       file("Capefront", "DSC_8104.jpg"),
       file("Capefront", "DSC_8111.jpg"),
@@ -71,6 +74,7 @@ export const WORKS: Work[] = [
   {
     slug: "veoria",
     cover: file("Veoria", "cover.jpg"),
+    coverPosition: "center 55%",
     gallery: Array.from({ length: 8 }, (_, i) =>
       file("Veoria", `${String(i + 1).padStart(2, "0")}.jpg`),
     ),
@@ -78,6 +82,7 @@ export const WORKS: Work[] = [
   {
     slug: "wauters-bpack",
     cover: file("Wauters B'Pack", "cover.jpg"),
+    coverPosition: "center 40%",
     gallery: [
       file("Wauters B'Pack", "DSC_2813.jpg"),
       file("Wauters B'Pack", "DSC_2866-5.jpg"),
@@ -93,6 +98,7 @@ export const WORKS: Work[] = [
   {
     slug: "chanel",
     cover: file("CHANEL", "cover.jpg"),
+    coverPosition: "center 22%",
     gallery: [
       file("CHANEL", "DSC_5552-5.jpg"),
       file("CHANEL", "DSC_6477-5.jpg"),
@@ -113,6 +119,7 @@ export const WORKS: Work[] = [
   {
     slug: "eshuis",
     cover: file("Eshuis", "cover.jpg"),
+    coverPosition: "center 35%",
     gallery: [
       file("Eshuis", "DSC_0691.jpg"),
       file("Eshuis", "DSC_0762.jpg"),
@@ -150,6 +157,7 @@ export const WORKS: Work[] = [
   {
     slug: "formation-ia",
     cover: file("Formation IA", "cover.jpg"),
+    coverPosition: "center 42%",
     gallery: [
       file("Formation IA", "01.jpg"),
       file("Formation IA", "02.jpg"),
@@ -167,6 +175,7 @@ export const WORKS: Work[] = [
   {
     slug: "valberg",
     cover: file("Valberg", "cover.jpg"),
+    coverPosition: "center 40%",
     gallery: Array.from({ length: 5 }, (_, i) =>
       file("Valberg", `${String(i + 1).padStart(2, "0")}.jpg`),
     ),

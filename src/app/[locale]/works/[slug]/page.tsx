@@ -51,9 +51,11 @@ export default async function WorkCasePage({
       locale={locale}
       slug={work.slug}
       cover={work.cover}
+      coverPosition={work.coverPosition}
       gallery={work.gallery}
       nextSlug={next.slug}
       nextCover={next.cover}
+      nextCoverPosition={next.coverPosition}
     />
   );
 }
@@ -62,16 +64,20 @@ function CaseView({
   locale,
   slug,
   cover,
+  coverPosition,
   gallery,
   nextSlug,
   nextCover,
+  nextCoverPosition,
 }: {
   locale: string;
   slug: string;
   cover: string;
+  coverPosition?: string;
   gallery: string[];
   nextSlug: string;
   nextCover: string;
+  nextCoverPosition?: string;
 }) {
   const t = useTranslations("works");
 
@@ -119,6 +125,7 @@ function CaseView({
             priority
             sizes="100vw"
             className="t-photo object-cover"
+            style={{ objectPosition: coverPosition ?? "center" }}
           />
           {/* Strong gradient at the bottom for title readability */}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
@@ -169,7 +176,7 @@ function CaseView({
       )}
 
       {/* Next project, keeps visitors deep in the work */}
-      <NextProject locale={locale} nextSlug={nextSlug} nextCover={nextCover} />
+      <NextProject locale={locale} nextSlug={nextSlug} nextCover={nextCover} nextCoverPosition={nextCoverPosition} />
 
       {/* Closing CTA, Book a call */}
       <section className="border-t border-[var(--rule)]">
@@ -203,10 +210,12 @@ function NextProject({
   locale,
   nextSlug,
   nextCover,
+  nextCoverPosition,
 }: {
   locale: string;
   nextSlug: string;
   nextCover: string;
+  nextCoverPosition?: string;
 }) {
   const t = useTranslations("works");
   return (
@@ -230,6 +239,7 @@ function NextProject({
             fill
             sizes="100vw"
             className="t-photo object-cover transition duration-700 group-hover:scale-[1.02]"
+            style={{ objectPosition: nextCoverPosition ?? "center" }}
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)]/55 via-transparent to-transparent" />
 
