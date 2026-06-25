@@ -21,14 +21,14 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["motion", "gsap", "@gsap/react", "lucide-react"],
   },
-  // Redirections SEO : /fr|/en/formations (legacy B2B Qualiopi) -> /fr|/en/agents.
-  // Le contenu formation entreprise est desormais traite cote agents IA.
+  // Redirections SEO : /fr|/en/formations (legacy B2B Qualiopi) -> /ia.
+  // Le contenu formation entreprise est desormais traite cote IA Pro.
   // /formations (sans locale) reste = nouvelle plateforme cours en ligne.
   async redirects() {
     return [
       {
         source: "/:locale(fr|en)/formations",
-        destination: "/:locale/agents",
+        destination: "/ia",
         permanent: true,
       },
     ];

@@ -44,7 +44,7 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
       primary: {
         label: "Agents IA & formations équipe",
         sub: "Déploiement sur mesure, sur devis",
-        href: "/fr/agents",
+        href: "/ia",
         price: "Sur devis",
       },
       timeGain: "Variable selon la taille de l'équipe",

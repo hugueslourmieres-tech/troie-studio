@@ -997,7 +997,7 @@ export default function IaLandingPage() {
             </div>
 
             <Link
-              href={`${MAIN_SITE}/fr/agents`}
+              href={`${MAIN_SITE}/fr/contact`}
               className="group mt-12 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
               Découvrir les 3 agents

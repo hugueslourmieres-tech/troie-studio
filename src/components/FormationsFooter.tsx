@@ -24,7 +24,6 @@ export function FormationsFooter() {
       title: "Se former · entreprise",
       links: [
         { label: "TROIE · IA Pro", href: "/ia" },
-        { label: "Agents IA", href: "/fr/agents" },
         { label: "Parcours pro", href: "/formations#pro" },
       ],
     },
