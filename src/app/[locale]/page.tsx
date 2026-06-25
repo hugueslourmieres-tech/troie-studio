@@ -6,8 +6,7 @@ import { QcmSection } from "@/components/QcmSection";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
 import { McpSection } from "@/components/McpSection";
-import { WorksGallery } from "@/components/WorksGallery";
-import { VideoSection } from "@/components/VideoSection";
+import { MediasSection } from "@/components/MediasSection";
 import { JournalTeaser } from "@/components/JournalTeaser";
 import { ContactCTA } from "@/components/ContactCTA";
 import { WriteOnScroll } from "@/components/WriteOnScroll";
@@ -44,9 +43,8 @@ export default async function HomePage({
       {/* QCM : situer son niveau IA (pour tous), juste sous le fork */}
       <QcmSection />
 
-      {/* CRÉATION : projets photos (slider) puis vidéos */}
-      <WorksGallery locale={locale} />
-      <VideoSection locale={locale} />
+      {/* MÉDIAS : photo (réalisations) + vidéo, fusionnés */}
+      <MediasSection locale={locale} />
 
       <AboutBlock />
 
