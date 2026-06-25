@@ -75,7 +75,7 @@ export function AudienceFork({ locale }: { locale: string }) {
       key: "pro",
       tint: "#1f4d4a",
       ink: "#fdfaf3",
-      image: "/images/audience/pro-v5.jpg",
+      image: "/images/audience/pro-v6.jpg",
       eyebrow: "Professionnels & équipes",
       title: "Formez et déployez l'IA.",
       body: "Montée en compétence des équipes, conformité AI Act, agents sur mesure. En présentiel ou à distance.",
