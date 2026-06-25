@@ -47,16 +47,16 @@ export function ToolsMarquee({ ariaLabel }: { ariaLabel: string }) {
     <div
       role="region"
       aria-label={ariaLabel}
-      className="relative w-full overflow-hidden border-t border-b border-[var(--fg)]/15 bg-[var(--bg)]"
+      className="relative w-full overflow-hidden border-t border-b border-[#f37b22]/25 bg-[#0f0b08]"
     >
       {/* Edge fades, keep the marquee feeling boundless */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[var(--bg)] to-transparent md:w-32"
+        className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#0f0b08] to-transparent md:w-32"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[var(--bg)] to-transparent md:w-32"
+        className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#0f0b08] to-transparent md:w-32"
       />
 
       <div className="t-marquee flex w-max items-center gap-8 py-5 md:gap-12 md:py-6">
@@ -73,17 +73,20 @@ export function ToolsMarquee({ ariaLabel }: { ariaLabel: string }) {
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
-                className="h-4 w-auto opacity-80 md:h-5"
-                style={{ filter: "brightness(0)" }}
+                className="h-4 w-auto opacity-90 md:h-5"
+                style={{
+                  filter:
+                    "brightness(0) saturate(100%) invert(58%) sepia(89%) saturate(1234%) hue-rotate(346deg) brightness(98%) contrast(94%)",
+                }}
               />
-              <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg-2)]/80 whitespace-nowrap">
+              <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-[#f37b22]/90 whitespace-nowrap">
                 {tool.name}
               </span>
             </span>
             {/* Orange dot separator */}
             <span
               aria-hidden="true"
-              className="text-[var(--accent)]/70 select-none"
+              className="text-[#f37b22]/55 select-none"
             >
               ·
             </span>
