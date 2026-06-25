@@ -31,6 +31,17 @@ const nextConfig: NextConfig = {
         destination: "/ia",
         permanent: true,
       },
+      // Pages photo + vidéo fusionnees dans /medias (les detail /works/:slug restent).
+      {
+        source: "/:locale(fr|en)/works",
+        destination: "/:locale/medias",
+        permanent: true,
+      },
+      {
+        source: "/:locale(fr|en)/creation/video",
+        destination: "/:locale/medias",
+        permanent: true,
+      },
     ];
   },
 };

@@ -120,7 +120,7 @@ export function WorksGallery({
       {/* Footer row: hint label + arrows */}
       <div className="mt-10 flex items-end justify-between">
         <Link
-          href={`/${locale}/works`}
+          href={`/${locale}/medias`}
           className="inline-flex items-center gap-3 border-b border-[var(--rule-strong)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
         >
           {t("worksCta")} →

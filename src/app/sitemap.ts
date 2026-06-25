@@ -11,8 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   // /fr|/en/formations est desormais redirige (301) vers /ia.
-  const staticPaths = ["", "/creation", "/creation/video", "/creation/web", "/strategie", "/formation", "/works", "/blog", "/contact", "/privacy", "/terms"];
-  const HIGH_PRIORITY = new Set(["/works", "/blog", "/creation", "/strategie", "/formation"]);
+  const staticPaths = ["", "/creation", "/creation/web", "/strategie", "/formation", "/medias", "/blog", "/contact", "/privacy", "/terms"];
+  const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/formation"]);
 
   const entries: MetadataRoute.Sitemap = [];
 
