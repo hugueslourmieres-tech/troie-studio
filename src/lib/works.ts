@@ -37,7 +37,30 @@ const file = (folder: string, name: string) =>
 
 export const WORKS: Work[] = [
   // ─────────────────────────────────────────────────────────────
-  // Cas client corporate & industrie, mis en avant en premier
+  // Clients prestige, mis en avant en premier
+  {
+    slug: "chanel",
+    cover: file("CHANEL", "cover.jpg"),
+    coverPosition: "center 22%",
+    gallery: [
+      file("CHANEL", "DSC_5552-5.jpg"),
+      file("CHANEL", "DSC_6477-5.jpg"),
+      file("CHANEL", "DSC_8647-2.jpg"),
+    ],
+  },
+  {
+    slug: "monaco",
+    cover: file("Monaco", "cover.jpg"),
+    gallery: [
+      file("Monaco", "01.jpg"),
+      file("Monaco", "02.jpg"),
+      file("Monaco", "03.jpg"),
+      file("Monaco", "04.jpg"),
+      file("Monaco", "IMG_8522.jpg"),
+    ],
+  },
+  // ─────────────────────────────────────────────────────────────
+  // Cas client corporate & industrie
   {
     slug: "capefront",
     cover: file("Capefront", "cover.jpg"),
@@ -95,27 +118,6 @@ export const WORKS: Work[] = [
   },
   // ─────────────────────────────────────────────────────────────
   // Clients luxe & événementiel
-  {
-    slug: "chanel",
-    cover: file("CHANEL", "cover.jpg"),
-    coverPosition: "center 22%",
-    gallery: [
-      file("CHANEL", "DSC_5552-5.jpg"),
-      file("CHANEL", "DSC_6477-5.jpg"),
-      file("CHANEL", "DSC_8647-2.jpg"),
-    ],
-  },
-  {
-    slug: "monaco",
-    cover: file("Monaco", "cover.jpg"),
-    gallery: [
-      file("Monaco", "01.jpg"),
-      file("Monaco", "02.jpg"),
-      file("Monaco", "03.jpg"),
-      file("Monaco", "04.jpg"),
-      file("Monaco", "IMG_8522.jpg"),
-    ],
-  },
   {
     slug: "eshuis",
     cover: file("Eshuis", "cover.jpg"),
