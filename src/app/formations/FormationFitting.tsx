@@ -57,11 +57,11 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
       return {
         primary: {
           label: "Mastermind TROIE",
-          sub: "Cours 01 + 02 inclus + communaute",
+          sub: "Cours 01 + 02 inclus + communauté",
           href: "/formations/mastermind",
           price: "Sur devis",
         },
-        secondary: { label: "Ou Cours 02 à l'unite (297 €)", href: "/formations/cours-02" },
+        secondary: { label: "Ou Cours 02 à l'unité (297 €)", href: "/formations/cours-02" },
         timeGain: "~ 25-40 h/mois pour l'équipe",
       };
     }
@@ -88,7 +88,7 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
           price: "Sur devis",
         },
         secondary: { label: "Puis Cours 01 (97 €)", href: "/formations/cours-01" },
-        timeGain: "Premiers gains des la 1ere semaine",
+        timeGain: "Premiers gains dès la 1re semaine",
       };
     }
     return {
@@ -133,7 +133,7 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
     return {
       primary: {
         label: "Mastermind TROIE",
-        sub: "Tous les cours + bibliothèque vivante + communaute",
+        sub: "Tous les cours + bibliothèque vivante + communauté",
         href: "/formations/mastermind",
         price: "Sur devis",
       },
@@ -154,21 +154,21 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
 }
 
 const PROFILE_OPTS: { key: Profile; label: string; sub: string }[] = [
-  { key: "solo", label: "Solo", sub: "Freelance, micro, indep" },
-  { key: "team", label: "Équipe", sub: "2 a 15 personnes" },
+  { key: "solo", label: "Solo", sub: "Freelance, micro, indép" },
+  { key: "team", label: "Équipe", sub: "2 à 15 personnes" },
   { key: "enterprise", label: "Entreprise", sub: "15+ ou besoin sur mesure" },
 ];
 
 const LEVEL_OPTS: { key: Level; label: string; sub: string }[] = [
   { key: "beginner", label: "Débutant", sub: "Jamais ou peu utilisé" },
-  { key: "intermediate", label: "Intermediaire", sub: "Utilisé au quotidien" },
+  { key: "intermediate", label: "Intermédiaire", sub: "Utilisé au quotidien" },
   { key: "advanced", label: "Avancé", sub: "Connais prompts, agents" },
 ];
 
 const GOAL_OPTS: { key: Goal; label: string; sub: string }[] = [
   { key: "learn", label: "Apprendre", sub: "Comprendre & démarrer" },
   { key: "workflow", label: "Workflows", sub: "Automatiser des tâches" },
-  { key: "everything", label: "Tout", sub: "Cours + communaute" },
+  { key: "everything", label: "Tout", sub: "Cours + communauté" },
 ];
 
 export function FormationFitting() {
@@ -296,7 +296,7 @@ export function FormationFitting() {
             </div>
 
             <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-              Réponse instantanee. Pas d'inscription.
+              Réponse instantanée. Pas d'inscription.
             </p>
           </motion.div>
         ) : (

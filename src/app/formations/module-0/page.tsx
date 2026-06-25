@@ -25,18 +25,18 @@ export const metadata = {
 const LECONS = [
   {
     badge: "01 · Pre-training",
-    title: "Comment un modèle apprend a predire.",
-    body: "Le modèle est nourri de milliards de tokens. Il apprend a deviner le prochain mot. C'est tout. Pas de compréhension, pas de logique : juste des probabilites.",
+    title: "Comment un modèle apprend à prédire.",
+    body: "Le modèle est nourri de milliards de tokens. Il apprend à deviner le prochain mot. C'est tout. Pas de compréhension, pas de logique : juste des probabilités.",
   },
   {
     badge: "02 · RLHF",
     title: "Pourquoi il devient sycophant.",
-    body: "Après le pre-training, des humains notent ses réponses. Il apprend a vous plaire. Effet secondaire : il vous donne raison même quand vous avez tort.",
+    body: "Après le pre-training, des humains notent ses réponses. Il apprend à vous plaire. Effet secondaire : il vous donne raison même quand vous avez tort.",
   },
   {
     badge: "03 · Hallucinations",
-    title: "D'ou viennent les inventions.",
-    body: "Comme c'est un predicteur, il privilegie ce qui 'sonne juste'. Quand il n'a pas l'info exacte, il l'inventé. Particulièrement sur chiffres, dates et citations.",
+    title: "D'où viennent les inventions.",
+    body: "Comme c'est un prédicteur, il privilégie ce qui 'sonne juste'. Quand il n'a pas l'info exacte, il l'invente. Particulièrement sur chiffres, dates et citations.",
   },
   {
     badge: "04 · Réflexes pro",
@@ -60,8 +60,8 @@ export default function Module0Page() {
             <span className="text-[var(--accent)]">et veut vous plaire.</span>
           </h1>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
-            Avant d'équiper votre heros, comprenez son fonctionnement de
-            base. La théorie LLM en 4 lecons, puis 10 questions pour
+            Avant d'équiper votre héros, comprenez son fonctionnement de
+            base. La théorie LLM en 4 leçons, puis 10 questions pour
             valider votre compréhension. Score ≥ 7/10 :{" "}
             <strong className="text-[var(--fg)]">code promo de -15 %</strong>{" "}
             sur le Cours 01.
@@ -73,7 +73,7 @@ export default function Module0Page() {
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            La théorie · 4 lecons
+            La théorie · 4 leçons
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             Comprendre pour ne plus jamais subir.
@@ -107,7 +107,7 @@ export default function Module0Page() {
             Validez votre compréhension.
           </h2>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Chaque question à une explication détaillée. Score &ge; 7/10 : code
+            Chaque question a une explication détaillée. Score &ge; 7/10 : code
             promo -15 % débloqué pour le Cours 01.
           </p>
 
@@ -253,12 +253,12 @@ export default function Module0Page() {
           <div className="grid gap-16 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-8">
               <h2 className="t-display text-4xl text-[var(--fg)] md:text-7xl">
-                Prêt a équiper votre premier heros ?
+                Prêt à équiper votre premier héros ?
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
                 Si vous avez compris le Module 0, vous êtes prêt pour
                 le Cours 01. On y voit 5 patterns de prompts
-                reutilisables, comment écrire un system prompt qui
+                réutilisables, comment écrire un system prompt qui
                 tient, et les 3 MCPs essentiels pour transformer
                 ChatGPT ou Claude en outil pro.
               </p>
@@ -283,7 +283,7 @@ export default function Module0Page() {
                 30 min en visio →
               </a>
               <p className="mt-3 text-sm leading-relaxed text-[var(--fg)]/75">
-                On regarde votre activite. On vous dit honnêtement par quel cours commencer.
+                On regarde votre activité. On vous dit honnêtement par quel cours commencer.
               </p>
             </div>
           </div>

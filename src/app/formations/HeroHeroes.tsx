@@ -29,7 +29,7 @@ type Hero = {
 const HEROES: Hero[] = [
   {
     name: "Claude",
-    role: "Le strategiste",
+    role: "Le stratégiste",
     logo: "/images/logos/claude.svg",
     stats: [
       { label: "Stratégie", value: 96 },
@@ -98,7 +98,7 @@ export function HeroHeroes() {
     <div className="rounded-sm border border-[var(--fg)]/15 bg-[var(--bg)]/40 p-6 md:p-8">
       <div className="flex items-center justify-between">
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Vos 4 heros · slideshow
+          Vos 4 héros · slideshow
         </p>
         <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
           {String(selectedIndex + 1).padStart(2, "0")} / 04

@@ -109,7 +109,7 @@ export default async function ProfilePage() {
               Export RGPD
             </p>
             <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)]">
-              Téléchargez vos données personnelles. Disponible sur demandé
+              Téléchargez vos données personnelles. Disponible sur demande
               à <a href="mailto:contact@troiestudio.fr" className="text-[var(--accent)] hover:underline">contact@troiestudio.fr</a>.
             </p>
           </li>

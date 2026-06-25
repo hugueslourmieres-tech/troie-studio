@@ -28,7 +28,7 @@ const METIERS: Métier[] = [
     index: "01",
     slug: "creation",
     video: "/images/videos/creation.mp4",
-    videoAlt: "Création, video d'illustration",
+    videoAlt: "Création, vidéo d'illustration",
     path: "creation",
     tools: [
       { src: "/images/logos/adobe.svg", label: "Adobe" },
@@ -42,7 +42,7 @@ const METIERS: Métier[] = [
     index: "02",
     slug: "strategy",
     video: "/images/videos/strategy.mp4",
-    videoAlt: "Stratégie, video d'illustration",
+    videoAlt: "Stratégie, vidéo d'illustration",
     path: "strategie",
     tools: [
       { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
@@ -56,7 +56,7 @@ const METIERS: Métier[] = [
     index: "03",
     slug: "training",
     video: "/images/videos/formation.mp4",
-    videoAlt: "Formation, video d'illustration",
+    videoAlt: "Formation, vidéo d'illustration",
     path: "formation",
     tools: [
       { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },

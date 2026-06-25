@@ -36,7 +36,7 @@ const SUBSCRIBE_ANNUAL = "mailto:contact@troiestudio.fr?subject=Mastermind+TROIE
 export const metadata = {
   title: "Mastermind TROIE · L'abo qui garde votre stack IA à jour, TROIE",
   description:
-    "49 €/mois ou 490 €/an. Cours 01 + Cours 02 inclus. Nouveaux prompts mensuels, office hours live, communaute Discord. Restez top tier.",
+    "49 €/mois ou 490 €/an. Cours 01 + Cours 02 inclus. Nouveaux prompts mensuels, office hours live, communauté Discord. Restez top tier.",
   alternates: {
     canonical: "https://troiestudio.fr/formations/mastermind",
   },
@@ -49,22 +49,22 @@ const RYTHMES = [
   },
   {
     title: "Chaque mois",
-    body: "Office hours live 1 h. Demos, refonte de cas, Q&A. Replays disponibles à tout moment.",
+    body: "Office hours live 1 h. Démos, refonte de cas, Q&A. Replays disponibles à tout moment.",
   },
   {
-    title: "A chaque release",
+    title: "À chaque release",
     body: "Mises à jour des supports cours 24 h après un nouveau modèle (GPT 6, Claude Opus 5, Gemini 3.5...).",
   },
   {
     title: "En continu",
-    body: "Discord prive actif : entraide, partagé de workflows, retours d'expérience réel.",
+    body: "Discord privé actif : entraide, partage de workflows, retours d'expérience réels.",
   },
 ];
 
 const INCLUDED = [
   {
     title: "Cours 01 · Maîtriser ChatGPT & Claude",
-    body: "97 € inclus. 4 modules + 25 prompts livres. Accès à vie.",
+    body: "97 € inclus. 4 modules + 25 prompts livrés. Accès à vie.",
   },
   {
     title: "Cours 02 · Workflows IA solo & équipe",
@@ -76,30 +76,30 @@ const INCLUDED = [
   },
   {
     title: "Veille IA mensuelle",
-    body: "1 brief synthèse par mois : releases majeures, nouveaux MCPs, évolutions tarifaires, ce qui marché réellement.",
+    body: "1 brief synthèse par mois : releases majeures, nouveaux MCPs, évolutions tarifaires, ce qui marche réellement.",
   },
   {
     title: "Office hours live",
-    body: "1 fois par mois, 1 h. On regarde vos cas concrets. Vous prenez le micro, on resout en live.",
+    body: "1 fois par mois, 1 h. On regarde vos cas concrets. Vous prenez le micro, on résout en live.",
   },
   {
-    title: "Discord prive",
-    body: "Communaute de pros : freelances, équipes, marques. Entraide, partagé, jobs board.",
+    title: "Discord privé",
+    body: "Communauté de pros : freelances, équipes, marques. Entraide, partage, jobs board.",
   },
 ];
 
 const FAQ = [
   {
-    q: "Quel est l'avantage du Mastermind vs acheter les cours separes ?",
+    q: "Quel est l'avantage du Mastermind vs acheter les cours séparés ?",
     a: "Vous économisez déjà 97 + 297 = 394 € avec le cumul des deux cours (vs 588 € si pris à l'unité). Le plus important : vous restez aligné sur la meta du moment. L'IA bouge vite, un cours acheté il y a 6 mois peut être dépassé sur certains outils. Le Mastermind garantit que votre stack reste pertinente.",
   },
   {
     q: "Puis-je annuler quand je veux ?",
-    a: "Oui, en 1 clic dans votre espace membre. L'abonnement mensuel s'arrete à la fin du mois en cours, pas de prelevement supplementaire. L'annuel : remboursement au prorata des mois non consommes pendant les 30 premiers jours.",
+    a: "Oui, en 1 clic dans votre espace membre. L'abonnement mensuel s'arrête à la fin du mois en cours, pas de prélèvement supplémentaire. L'annuel : remboursement au prorata des mois non consommés pendant les 30 premiers jours.",
   },
   {
     q: "Mensuel ou annuel : que choisir ?",
-    a: "Si vous testez : mensuel. Si vous êtes déjà convaincu et voulez optimiser : annuel (2 mois offerts, 490 € soit 41 €/mois equivalent). Vous pouvez switcher du mensuel à l'annuel à tout moment.",
+    a: "Si vous testez : mensuel. Si vous êtes déjà convaincu et voulez optimiser : annuel (2 mois offerts, 490 € soit 41 €/mois équivalent). Vous pouvez switcher du mensuel à l'annuel à tout moment.",
   },
   {
     q: "Pour qui n'est-ce PAS fait ?",
@@ -107,7 +107,7 @@ const FAQ = [
   },
   {
     q: "Combien êtes-vous à l'inscription ?",
-    a: "Petite communaute volontairement limitee a 100 membres actifs pour garder la qualité des office hours et l'attention sur chaque cas. Si plein : liste d'attente avec accès au cours 01 inclus en attendant.",
+    a: "Petite communauté volontairement limitée à 100 membres actifs pour garder la qualité des office hours et l'attention sur chaque cas. Si plein : liste d'attente avec accès au cours 01 inclus en attendant.",
   },
 ];
 
@@ -122,7 +122,7 @@ export default function MastermindPage() {
           <div className="grid gap-16 md:grid-cols-12 md:gap-12 lg:gap-20">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Mastermind · abo mensuel · communaute limitee
+                Mastermind · abo mensuel · communauté limitée
               </p>
               <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px]">
                 L'abo qui garde{" "}
@@ -130,7 +130,7 @@ export default function MastermindPage() {
               </h1>
               <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
                 <strong className="text-[var(--fg)]">L'IA change vite. Vous restez top tier.</strong>{" "}
-                Les 2 cours inclus, nouveaux prompts chaque mois, office hours live, Discord prive.
+                Les 2 cours inclus, nouveaux prompts chaque mois, office hours live, Discord privé.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <a
@@ -167,7 +167,7 @@ export default function MastermindPage() {
                     "Cours 02 (297 €) inclus",
                     "Bibliothèque 500+ prompts vivante",
                     "Office hours 1x / mois live",
-                    "Discord prive (100 membres max)",
+                    "Discord privé (100 membres max)",
                     "Veille IA mensuelle",
                   ].map((b) => (
                     <li
@@ -204,10 +204,10 @@ export default function MastermindPage() {
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Comment ça marché
+            Comment ça marche
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Un rythme calibre pour rester en avancé.
+            Un rythme calibré pour rester en avance.
           </h2>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-2 lg:grid-cols-4">
@@ -240,7 +240,7 @@ export default function MastermindPage() {
             394 € de cours offerts, et la suite à vie.
           </h2>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Si vous comptiez acheter Cours 01 + Cours 02 à l'unité (394 €), l'abonnement est rentable des le mois 1. Et après, c'est tout le reste qui compte.
+            Si vous comptiez acheter Cours 01 + Cours 02 à l'unité (394 €), l'abonnement est rentable dès le mois 1. Et après, c'est tout le reste qui compte.
           </p>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-2 lg:grid-cols-3">
@@ -270,7 +270,7 @@ export default function MastermindPage() {
             Questions
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Ce qu'on nous demandé avant de s'abonner.
+            Ce qu'on nous demande avant de s'abonner.
           </h2>
 
           <div className="mt-16 space-y-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20">
@@ -304,13 +304,13 @@ export default function MastermindPage() {
           <div className="grid gap-16 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-8">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg)]/80">
-                Prêt a rejoindre la guilde ?
+                Prêt à rejoindre la guilde ?
               </p>
               <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-7xl">
                 49 € / mois. Annulez quand vous voulez.
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
-                Communaute volontairement limitee a 100 membres actifs. Vos cas trouvent une vraie réponse en live, pas un thread perdu.
+                Communauté volontairement limitée à 100 membres actifs. Vos cas trouvent une vraie réponse en live, pas un thread perdu.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <a

@@ -103,7 +103,7 @@ export function AboutBlock() {
                   href={m.link.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group/link mt-4 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                  className="group/link mt-auto inline-flex w-fit items-center gap-2 self-start border-b border-[var(--fg)] pb-1 pt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
                 >
                   {m.link.label}
                   <span aria-hidden="true" className="transition group-hover/link:translate-x-1">→</span>

@@ -255,7 +255,7 @@ export function QuizPlayer({
                 </p>
                 {emailSubmitted && (
                   <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                    Egalement envoyé a {email}
+                    Également envoyé à {email}
                   </p>
                 )}
               </div>

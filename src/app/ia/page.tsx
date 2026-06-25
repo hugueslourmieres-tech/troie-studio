@@ -37,14 +37,14 @@ const STATS = [
     prefix: "× ",
     suffix: "",
     label: "Impact par collaborateur sur les tâches automatisables",
-    détail: "Médiane etudes marketing solopreneurs 2026",
+    détail: "Médiane études marketing solopreneurs 2026",
   },
   {
     value: 60,
     prefix: "+",
     suffix: " %",
-    label: "De capacite équipe sans recruter un seul poste",
-    détail: "3 jours par semaine gagnes par membre",
+    label: "De capacité équipe sans recruter un seul poste",
+    détail: "3 jours par semaine gagnés par membre",
   },
   {
     value: 21,
@@ -56,7 +56,7 @@ const STATS = [
     value: -70,
     suffix: " %",
     label: "Sur le temps de production des créatifs",
-    détail: "Nielsen Norman Group, design assiste IA",
+    détail: "Nielsen Norman Group, design assisté IA",
   },
 ];
 
@@ -67,7 +67,7 @@ const SOLO_PACKS = [
     duration: "1/2 journée · 4 h",
     price: "Sur devis",
     body:
-      "Vous partez de zero. On installé les bons outils, on apprend la méthode, on construit ensemble votre première bibliothèque de prompts adaptée à votre activite.",
+      "Vous partez de zéro. On installe les bons outils, on apprend la méthode, on construit ensemble votre première bibliothèque de prompts adaptée à votre activité.",
     bullets: [
       "Bibliothèque de 25 prompts pour votre métier",
       "ChatGPT, Claude, Gemini : usage avancé",
@@ -80,10 +80,10 @@ const SOLO_PACKS = [
     duration: "1 journée · 7 h",
     price: "Sur devis",
     body:
-      "Un workflow IA construit avec vous, sur votre activite réelle. Vous repartez avec votre boite a outils, pas une présentation generique.",
+      "Un workflow IA construit avec vous, sur votre activité réelle. Vous repartez avec votre boîte à outils, pas une présentation générique.",
     bullets: [
-      "Audit de vos tâches a forte valeur a déléguer",
-      "Workflow IA documenté, calque sur votre métier",
+      "Audit de vos tâches à forte valeur à déléguer",
+      "Workflow IA documenté, calqué sur votre métier",
       "Templates : devis, emails, posts, visuels",
     ],
   },
@@ -93,9 +93,9 @@ const SOLO_PACKS = [
     duration: "1 mois · 8 h de coaching",
     price: "Sur devis",
     body:
-      "Un agent IA dedie sur votre cas + 2 sessions de 1 h par semaine pour ajuster. Vous passez de l'experimentation à la maîtrise sereine.",
+      "Un agent IA dédié sur votre cas + 2 sessions de 1 h par semaine pour ajuster. Vous passez de l'expérimentation à la maîtrise sereine.",
     bullets: [
-      "Agent IA configuré sur votre activite réelle",
+      "Agent IA configuré sur votre activité réelle",
       "2 sessions de coaching par semaine",
       "Joignable à tout moment pendant 30 jours",
     ],
@@ -110,7 +110,7 @@ const PRO_PACKS = [
     duration: "1/2 journée · jusqu'à 10 pers.",
     price: "Sur devis",
     body:
-      "Fondamentaux IA pour toute l'équipe. ChatGPT, Claude, Gemini. Méthode de prompting, hygiene des données, bibliothèque de prompts partagée.",
+      "Fondamentaux IA pour toute l'équipe. ChatGPT, Claude, Gemini. Méthode de prompting, hygiène des données, bibliothèque de prompts partagée.",
     bullets: [
       "Méthode de prompting structurée",
       "Bibliothèque de prompts collective",
@@ -257,16 +257,16 @@ const TASKS = [
 const STEPS = [
   {
     title: "Audit gratuit · 30 min.",
-    body: "On regarde vos tâches reelles. Réponse claire, chiffree, écrite, sous 48 h.",
+    body: "On regarde vos tâches réelles. Réponse claire, chiffrée, écrite, sous 48 h.",
     img: "/images/corpo/strategie/DSC_5552-4.jpg",
   },
   {
     title: "Setup & formation.",
-    body: "On configuré les outils sur vos cas concrets. On formé votre équipe avec vos données, votre voix.",
+    body: "On configure les outils sur vos cas concrets. On forme votre équipe avec vos données, votre voix.",
     img: "/images/corpo/montpellier/DSC_7573.jpg",
   },
   {
-    title: "Production supervisee.",
+    title: "Production supervisée.",
     body: "Pendant 30 jours, on accompagne les premières semaines. Ajustements continus, transfert progressif.",
     img: "/images/corpo/mibi/DSC_7665.jpg",
   },
@@ -279,28 +279,28 @@ const STEPS = [
 
 const FAQ = [
   {
-    q: "C'est quoi la difference micro-entreprise et SAS ?",
-    a: "Micro-entreprise (anciennement auto-entrepreneur) : le statut le plus simple pour démarrer. Plafond 77 700 € en services, comptabilite allegee. Idéal pour freelances et consultants qui commencent. SAS / SASU : formé societe, plus structurée, pour ceux qui veulent grandir, embaucher, s'associer ou lever des fonds. Si vous hésitez, on en parle pendant l'audit gratuit.",
+    q: "C'est quoi la différence micro-entreprise et SAS ?",
+    a: "Micro-entreprise (anciennement auto-entrepreneur) : le statut le plus simple pour démarrer. Plafond 77 700 € en services, comptabilité allégée. Idéal pour freelances et consultants qui commencent. SAS / SASU : forme société, plus structurée, pour ceux qui veulent grandir, embaucher, s'associer ou lever des fonds. Si vous hésitez, on en parle pendant l'audit gratuit.",
   },
   {
-    q: "Concretement, je gagne combien de temps ?",
-    a: "Les chiffres officiels 2026 : 8 heures par semaine en moyenne pour les freelances actifs avec l'IA, jusqu'à 10-15 heures pour les marketers en équipe. Sur les emails, 26 minutes par jour récupérées rien que la. Sur la prospection ciblée, 5 a 10 heures par semaine. Le 5x s'applique aux tâches automatisables (drafts, première réponse, posts, prospection), pas à votre métier de fond.",
+    q: "Concrètement, je gagne combien de temps ?",
+    a: "Les chiffres officiels 2026 : 8 heures par semaine en moyenne pour les freelances actifs avec l'IA, jusqu'à 10-15 heures pour les marketers en équipe. Sur les emails, 26 minutes par jour récupérées rien que là. Sur la prospection ciblée, 5 à 10 heures par semaine. Le 5x s'applique aux tâches automatisables (drafts, première réponse, posts, prospection), pas à votre métier de fond.",
   },
   {
     q: "Combien de temps avant que ça serve vraiment ?",
-    a: "Pour les solos : utilisable des le soir même de la formation. Résultats mesurables sous 2 semaines. Pour les équipes : 14 jours pour les premiers contenus publiés via Achille, 21 jours pour passer 60 % des tickets en mode autonome via Hestia, 30 jours pour les premiers RDV qualifiés via Hermes.",
+    a: "Pour les solos : utilisable dès le soir même de la formation. Résultats mesurables sous 2 semaines. Pour les équipes : 14 jours pour les premiers contenus publiés via Achille, 21 jours pour passer 60 % des tickets en mode autonome via Hestia, 30 jours pour les premiers RDV qualifiés via Hermès.",
   },
   {
-    q: "Mes données restent en Union europeenne ?",
-    a: "Oui par defaut. Tous les agents et outils tournent sur des modèles hebergees Europe (Mistral, Claude region UE) ou via passerelles a garanties contractuelles. Variante 100 % souveraine sur demandé pour les secteurs reglementes.",
+    q: "Mes données restent en Union européenne ?",
+    a: "Oui par défaut. Tous les agents et outils tournent sur des modèles hébergés Europe (Mistral, Claude région UE) ou via passerelles à garanties contractuelles. Variante 100 % souveraine sur demande pour les secteurs réglementés.",
   },
   {
     q: "Un agent peut-il vraiment remplacer une personne ?",
-    a: "Non, et c'est volontaire. Un agent prend la charge répétitive et mesurable (suivi, première réponse, prospection, contenu). Il libéré votre équipe pour ce qui demandé du jugement, de la relation, de la création. La promesse, c'est ça : moins de tâches à la chaine, plus de temps pour ce qui compte.",
+    a: "Non, et c'est volontaire. Un agent prend la charge répétitive et mesurable (suivi, première réponse, prospection, contenu). Il libère votre équipe pour ce qui demande du jugement, de la relation, de la création. La promesse, c'est ça : moins de tâches à la chaîne, plus de temps pour ce qui compte.",
   },
   {
     q: "Vous êtes pris en charge par les OPCO ?",
-    a: "Pas en direct chez TROIE, nous travaillons avec un organisme certifie Qualiopi pour les sessions intra. Sur devis, nous indiquons le format eligible et le partenaire OF qui prend la prise en charge en main.",
+    a: "Pas en direct chez TROIE, nous travaillons avec un organisme certifié Qualiopi pour les sessions intra. Sur devis, nous indiquons le format éligible et le partenaire OF qui prend la prise en charge en main.",
   },
 ];
 
@@ -364,9 +364,9 @@ export default function IaLandingPage() {
                 <span className="text-[var(--accent)]">grâce à l'IA.</span>
               </h1>
               <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
-                <strong className="text-[var(--fg)]">Vos equipes deviennent des super-heros.</strong>{" "}
+                <strong className="text-[var(--fg)]">Vos équipes deviennent des super-héros.</strong>{" "}
                 Solo, freelance, équipe ou entreprise : trois jours par semaine
-                récupérés, capacite doublee sans embaucher. Formations courtes
+                récupérés, capacité doublée sans embaucher. Formations courtes
                 et agents IA prêts à l'emploi. Sans changer de métier, sans
                 grosse facture.
               </p>
@@ -433,7 +433,7 @@ export default function IaLandingPage() {
             <div className="md:col-span-7">
               <p className="text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
                 Vous êtes seul à tout porter : prospection, production, devis,
-                SAV, compta, reseaux. L'IA bien configurée avec vous, n'enleve
+                SAV, compta, réseaux. L'IA bien configurée avec vous, n'enlève
                 pas votre signature. Elle vous rend les heures qu'on n'a plus
                 quand on est solo.
               </p>
@@ -497,7 +497,7 @@ export default function IaLandingPage() {
                     </p>
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                    Formé societe. Plus structurée, pour ceux qui veulent
+                    Forme société. Plus structurée, pour ceux qui veulent
                     grandir, embaucher, s'associer ou lever des fonds.
                   </p>
                 </div>
@@ -676,16 +676,16 @@ export default function IaLandingPage() {
             </div>
             <div className="md:col-span-7">
               <p className="text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                Vos équipes ont accumule des années de contenus, de clients, de
+                Vos équipes ont accumulé des années de contenus, de clients, de
                 tickets, de prospects. C'est le carburant idéal pour des agents
                 IA bien configurés.{" "}
                 <strong className="text-[var(--fg)]">Plus vous avez de
                 données, plus le résultat est précis.</strong>
               </p>
               <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                On formé vos équipes a maîtriser les outils, on déploie des
+                On forme vos équipes à maîtriser les outils, on déploie des
                 agents qui prennent les charges mesurables. Reste pour vous : la
-                stratégie, la relation, le geste qui fait la difference.
+                stratégie, la relation, le geste qui fait la différence.
               </p>
 
               {/* SEO / SEA / GEO avec logos + chiffres animes */}
@@ -714,8 +714,8 @@ export default function IaLandingPage() {
                     <img src="/images/logos/semrush.svg" alt="Semrush" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
                   </div>
                   <p className="mt-5 text-sm leading-relaxed text-[var(--fg-2)]">
-                    Référencement Google organique, contenus optimisés a grande
-                    echelle.
+                    Référencement Google organique, contenus optimisés à grande
+                    échelle.
                   </p>
                 </div>
 
@@ -742,7 +742,7 @@ export default function IaLandingPage() {
                     <img src="/images/logos/meta.svg" alt="Meta" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
                   </div>
                   <p className="mt-5 text-sm leading-relaxed text-[var(--fg-2)]">
-                    Google Ads, Meta, LinkedIn. Campagnes structurees, A/B
+                    Google Ads, Meta, LinkedIn. Campagnes structurées, A/B
                     quotidien.
                   </p>
                 </div>
@@ -761,7 +761,7 @@ export default function IaLandingPage() {
                     <AnimatedNumber value={42} prefix="+" suffix=" %" duration={1500} />
                   </p>
                   <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                    Visibilite dans les LLM
+                    Visibilité dans les LLM
                   </p>
                   <div className="mt-5 flex items-center gap-4">
                     {/* eslint-disable-next-line @next/next/no-img-élément */}
@@ -773,7 +773,7 @@ export default function IaLandingPage() {
                   </div>
                   <p className="mt-5 text-sm leading-relaxed text-[var(--fg-2)]">
                     Apparaître dans ChatGPT, Claude, Perplexity. La nouvelle
-                    porté d'entree.
+                    porte d'entrée.
                   </p>
                 </div>
               </div>
@@ -805,13 +805,13 @@ export default function IaLandingPage() {
                   3 jours · jusqu'à 15 pers. · 3 agents inclus
                 </p>
                 <p className="mt-6 text-base leading-relaxed text-[#f5f0e6]/85 md:text-lg">
-                  Le programme complet pour une équipe : formation collective, audit de vos processus, déploiement de 3 agents IA (Hermes, Achille, Hestia ou personnalisés), workflows et gouvernance.
+                  Le programme complet pour une équipe : formation collective, audit de vos processus, déploiement de 3 agents IA (Hermès, Achille, Hestia ou personnalisés), workflows et gouvernance.
                 </p>
                 <ul className="mt-6 grid gap-2.5 md:grid-cols-2">
                   {[
                     "Formation 3 j · 15 personnes max",
                     "Audit complet de vos processus",
-                    "3 agents IA configurés et livres",
+                    "3 agents IA configurés et livrés",
                     "Workflows Make / Zapier / n8n",
                     "Gouvernance, sécurité, RGPD",
                     "Suivi 90 jours post-déploiement",
@@ -939,11 +939,11 @@ export default function IaLandingPage() {
               Votre équipage IA · 3 agents clé en main
             </p>
             <h3 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-              Hermes. Achille. Hestia.
+              Hermès. Achille. Hestia.
             </h3>
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
               <strong className="text-[var(--fg)]">L'IA qui exécute. Pas celle qui répond.</strong>{" "}
-              Vous donnez le cap, votre équipage opère : Hermes prospecte,
+              Vous donnez le cap, votre équipage opère : Hermès prospecte,
               Achille produit, Hestia accueille. 24/7, dans votre voix, sans
               que vous leviez le petit doigt.
             </p>
@@ -952,7 +952,7 @@ export default function IaLandingPage() {
             <div className="mt-12 -mx-6 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:mt-16 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0 md:pb-0">
               {[
                 {
-                  name: "Hermes",
+                  name: "Hermès",
                   role: "Prospection & qualification",
                   img: "/images/agents/hermes.jpg",
                   body: "Listes ciblées, premiers messages personnalisés, relances. Toujours dans votre voix.",
@@ -1056,7 +1056,7 @@ export default function IaLandingPage() {
           <div className="grid gap-12 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Questions frequentes
+                Questions fréquentes
               </p>
               <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl">
                 Vous nous demandez souvent.

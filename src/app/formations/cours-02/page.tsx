@@ -51,20 +51,20 @@ const MODULES = [
       "Make vs Zapier vs n8n : quand choisir lequel",
       "Schedule, webhook, HTTP : les 3 triggers essentiels",
       "Iterators et boucles : traiter 50 leads en 1 scénario",
-      "Cout & debugging : faire tourner serein",
+      "Coût & debugging : faire tourner serein",
     ],
-    duree: "30 min · 5 scénarios livres",
+    duree: "30 min · 5 scénarios livrés",
   },
   {
     badge: "Module 6",
     title: "Agents persistants : mémoire, contexte, garde-fous.",
     lecons: [
-      "Difference chatbot vs agent persistant",
+      "Différence chatbot vs agent persistant",
       "Mémoire : vectorielle + relationnelle, quand quoi",
-      "Pattern ReAct & plan-then-exécuté",
+      "Pattern ReAct & plan-then-execute",
       "Garde-fous : human-in-the-loop sur les actions sensibles",
-      "Tool use : declarer des fonctions au modèle",
-      "Code 70 / LLM 30 : la règle de fiabilite",
+      "Tool use : déclarer des fonctions au modèle",
+      "Code 70 / LLM 30 : la règle de fiabilité",
     ],
     duree: "40 min · 3 agents templates",
   },
@@ -74,12 +74,12 @@ const MODULES = [
     lecons: [
       "Source de leads qualifiée + RGPD",
       "Scoring IA + rédaction personnalisée",
-      "Sequence 3-5 mails espaces (J0/J3/J7/J14/J30)",
-      "Reputation domaine : SPF, DKIM, DMARC, warm-up",
+      "Séquence 3-5 mails espacés (J0/J3/J7/J14/J30)",
+      "Réputation domaine : SPF, DKIM, DMARC, warm-up",
       "Mesurer le ROI : reply rate, RDV, deals closed",
       "Stop-rules : quand sortir un lead du pipeline",
     ],
-    duree: "35 min · pipeline complet livre",
+    duree: "35 min · pipeline complet livré",
   },
   {
     badge: "Module 8",
@@ -91,7 +91,7 @@ const MODULES = [
       "Read-only sur 90 %, write sur 1 canal validable",
       "Self-hosted vs SaaS : RGPD strict mode",
     ],
-    duree: "35 min · 8 MCPs setup pas-a-pas",
+    duree: "35 min · 8 MCPs setup pas-à-pas",
   },
   {
     badge: "Module 9",
@@ -103,17 +103,17 @@ const MODULES = [
       "CRM auto-update · Facturation conforme FR",
       "SEO content factory · Social listening",
     ],
-    duree: "40 min · 10 workflows livres",
+    duree: "40 min · 10 workflows livrés",
   },
   {
     badge: "Module 10",
     title: "Production, monitoring, sécurité.",
     lecons: [
-      "Logs structures + metriques (success rate, latence, cout)",
+      "Logs structurés + métriques (success rate, latence, coût)",
       "Prompt injection : reconnaître et mitiger",
-      "Hard cap cout + circuit breaker + kill switch",
+      "Hard cap coût + circuit breaker + kill switch",
       "Déploiement progressif (shadow > A/B > full)",
-      "RGPD : duree de conservation des logs",
+      "RGPD : durée de conservation des logs",
     ],
     duree: "25 min · checklist prod complète",
   },
@@ -122,19 +122,19 @@ const MODULES = [
 const DELIVERABLES = [
   {
     title: "100 prompts métier multi-tools",
-    body: "Marketing, ops, sales, content, support, devis, veille. Calques sur 4 heros (Claude, ChatGPT+Codex, Gemini, Copilot).",
+    body: "Marketing, ops, sales, content, support, devis, veille. Calqués sur 4 héros (Claude, ChatGPT+Codex, Gemini, Copilot).",
   },
   {
     title: "10 templates Make / n8n",
     body: "Scénarios prêts à importer : lead-to-RDV, support tier-1, reporting, transcription, devis, veille, newsletter et plus.",
   },
   {
-    title: "8 setups MCP detailes",
-    body: "Slack, Notion, Gmail, Figma, GitHub, GA4, Stripe, Make. Permissions, scopes, sécurité : pas-a-pas.",
+    title: "8 setups MCP détaillés",
+    body: "Slack, Notion, Gmail, Figma, GitHub, GA4, Stripe, Make. Permissions, scopes, sécurité : pas-à-pas.",
   },
   {
     title: "3 agents persistants templates",
-    body: "Code de base pour : agent veille, agent prospection, agent support. A adapter en 1 après-midi.",
+    body: "Code de base pour : agent veille, agent prospection, agent support. À adapter en 1 après-midi.",
   },
   {
     title: "70 questions QCM + explications",
@@ -142,18 +142,18 @@ const DELIVERABLES = [
   },
   {
     title: "Accès à vie + Discord 90 j",
-    body: "Tous les contenus mis à jour quand les modèles ou MCPs evoluent. Discord prive 90 j offerts.",
+    body: "Tous les contenus mis à jour quand les modèles ou MCPs évoluent. Discord privé 90 j offerts.",
   },
 ];
 
 const FAQ = [
   {
-    q: "Cours 01 est-il un prerequis ?",
-    a: "Pas obligatoire mais fortement recommande. Cours 02 part du principe que vous savez déjà écrire un system prompt et utiliser un Custom GPT ou un Projet Claude. Si ce n'est pas le cas, commencez par Cours 01 (97 €) avant.",
+    q: "Cours 01 est-il un prérequis ?",
+    a: "Pas obligatoire mais fortement recommandé. Cours 02 part du principe que vous savez déjà écrire un system prompt et utiliser un Custom GPT ou un Projet Claude. Si ce n'est pas le cas, commencez par Cours 01 (97 €) avant.",
   },
   {
     q: "Faut-il savoir coder ?",
-    a: "Non. Le cours est no-code-first. Make et n8n suffisent pour 95 % des workflows. Les agents persistants sont presentes en deux versions : no-code (Make) et code (Python/Node). Vous choisissez votre voie.",
+    a: "Non. Le cours est no-code-first. Make et n8n suffisent pour 95 % des workflows. Les agents persistants sont présentés en deux versions : no-code (Make) et code (Python/Node). Vous choisissez votre voie.",
   },
   {
     q: "Quelle stack faut-il pour suivre ?",
@@ -161,7 +161,7 @@ const FAQ = [
   },
   {
     q: "Combien de temps pour déployer un premier workflow ?",
-    a: "Le pipeline lead-to-RDV (module 7) est fait pour être opérationnel en 1 après-midi avec les templates livres. Les workflows plus complexes (agents persistants) demandent 1-3 jours.",
+    a: "Le pipeline lead-to-RDV (module 7) est fait pour être opérationnel en 1 après-midi avec les templates livrés. Les workflows plus complexes (agents persistants) demandent 1-3 jours.",
   },
   {
     q: "Si ça ne me convient pas ?",
@@ -169,7 +169,7 @@ const FAQ = [
   },
   {
     q: "Et après ce cours ?",
-    a: "Mastermind TROIE (49 €/mois) pour rester à jour : nouveaux prompts mensuels, office hours, communaute. C'est l'abonnement qui prolonge la vie des cours en gardant votre stack alignée sur la meta du moment.",
+    a: "Mastermind TROIE (49 €/mois) pour rester à jour : nouveaux prompts mensuels, office hours, communauté. C'est l'abonnement qui prolonge la vie des cours en gardant votre stack alignée sur la meta du moment.",
   },
 ];
 
@@ -188,7 +188,7 @@ export default function Cours02Page() {
               </p>
               <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px]">
                 Workflows IA{" "}
-                <span className="text-[var(--accent)]">solo &amp; equipe.</span>
+                <span className="text-[var(--accent)]">solo &amp; équipe.</span>
               </h1>
               <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
                 <strong className="text-[var(--fg)]">Connectez vos IA à vos outils. Construisez des agents qui tournent sans vous.</strong>{" "}
@@ -206,7 +206,7 @@ export default function Cours02Page() {
                   href="/formations/cours-01"
                   className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
                 >
-                  Voir Cours 01 (prerequis) →
+                  Voir Cours 01 (prérequis) →
                 </Link>
               </div>
             </div>
@@ -225,9 +225,9 @@ export default function Cours02Page() {
                 <ul className="mt-6 space-y-2.5">
                   {[
                     "7 modules · 3 h de vidéo",
-                    "100 prompts métier livres",
+                    "100 prompts métier livrés",
                     "10 templates Make / n8n",
-                    "8 MCPs configurés pas-a-pas",
+                    "8 MCPs configurés pas-à-pas",
                     "3 agents persistants prêts",
                     "70 questions QCM",
                     "Discord 90 j offerts",
@@ -252,7 +252,7 @@ export default function Cours02Page() {
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                  Garantie satisfait ou rembourse 14 jours
+                  Garantie satisfait ou remboursé 14 jours
                 </p>
               </div>
             </div>
@@ -296,9 +296,9 @@ export default function Cours02Page() {
                 Vos workflows tournent sans vous.
               </h3>
               <ul className="mt-6 space-y-2.5 text-sm leading-relaxed text-[#f5f0e6]/85">
-                <li>· 3 agents persistants gèrent vos tâches recurrentes.</li>
-                <li>· Brief quotidien dans Slack a 8h.</li>
-                <li>· Leads scores et contactes auto.</li>
+                <li>· 3 agents persistants gèrent vos tâches récurrentes.</li>
+                <li>· Brief quotidien dans Slack à 8h.</li>
+                <li>· Leads scorés et contactés auto.</li>
                 <li>· Reporting client généré en 5 min.</li>
                 <li>· Votre IA agit dans vos outils 24/7.</li>
               </ul>
@@ -369,7 +369,7 @@ export default function Cours02Page() {
             Ce que vous repartez avec
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Templates, scénarios, agents, tout livre.
+            Templates, scénarios, agents, tout livré.
           </h2>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-2 lg:grid-cols-3">
@@ -399,7 +399,7 @@ export default function Cours02Page() {
             Questions
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Tout ce qu'on nous demandé avant d'acheter.
+            Tout ce qu'on nous demande avant d'acheter.
           </h2>
 
           <div className="mt-16 space-y-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20">
@@ -433,13 +433,13 @@ export default function Cours02Page() {
           <div className="grid gap-16 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg)]/80">
-                Prêt a équiper toute votre équipe ?
+                Prêt à équiper toute votre équipe ?
               </p>
               <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-7xl">
                 297 €. 3 heures. Accès à vie.
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
-                Garantie 14 jours, sans question. Le cours qui transformé vos heures perdues en pipeline.
+                Garantie 14 jours, sans question. Le cours qui transforme vos heures perdues en pipeline.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <a
@@ -470,7 +470,7 @@ export default function Cours02Page() {
                 30 min en visio →
               </a>
               <p className="mt-3 text-sm leading-relaxed text-[var(--fg)]/75">
-                Gratuit. On regarde vos workflows actuels, je vous dis ce qui se delivre vraiment en Cours 02.
+                Gratuit. On regarde vos workflows actuels, je vous dis ce qui se délivre vraiment en Cours 02.
               </p>
             </div>
           </div>

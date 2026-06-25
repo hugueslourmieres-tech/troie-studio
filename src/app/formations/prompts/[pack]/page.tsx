@@ -97,7 +97,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
       {
         "@type": "Product",
         "@id": `${url}#product`,
-        name: `${pack.title.replace(/\.$/, "")} — System Prompts`,
+        name: `${pack.title.replace(/\.$/, "")} - System Prompts`,
         description: pack.body,
         url,
         category: "System prompts IA",
@@ -318,7 +318,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                             Locked
                           </p>
                           <p className="t-display mt-3 text-2xl text-[var(--fg)] md:text-3xl">
-                            Debloquez ce prompt + 4 autres
+                            Débloquez ce prompt + 4 autres
                           </p>
                           <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">
                             29 € le pack complet (5 prompts). Accès à vie, MAJ
@@ -409,7 +409,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
           <div className="grid gap-16 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-8">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg)]/80">
-                Prêt a équiper votre IA ?
+                Prêt à équiper votre IA ?
               </p>
               <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-7xl">
                 29 € le pack. Garantie 14 jours.
@@ -448,7 +448,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                 30 min en visio →
               </a>
               <p className="mt-3 text-sm leading-relaxed text-[var(--fg)]/75">
-                Gratuit. On regarde votre activite, je vous dis quel pack vous fera vraiment gagner du temps.
+                Gratuit. On regarde votre activité, je vous dis quel pack vous fera vraiment gagner du temps.
               </p>
             </div>
           </div>

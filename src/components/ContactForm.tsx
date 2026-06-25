@@ -24,7 +24,7 @@ const SUBJECT_PRESETS: Record<string, { fr: string; en: string }> = {
     en: "AI training",
   },
   "formation-intra": {
-    fr: "Demandé de devis, formation intra",
+    fr: "Demande de devis, formation intra",
     en: "Quote request, in-house training",
   },
   "formation-inter": {

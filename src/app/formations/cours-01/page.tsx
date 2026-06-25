@@ -37,7 +37,7 @@ const CHECKOUT_URL = "mailto:contact@troiestudio.fr?subject=Cours+01+%E2%80%94+T
 export const metadata = {
   title: "Cours 01 · Maîtriser ChatGPT & Claude, TROIE Formations",
   description:
-    "4 modules · 90 min de vidéo · 25 prompts livres · accès à vie. Équipez votre premier heros IA en 1 soiree. 97 €.",
+    "4 modules · 90 min de vidéo · 25 prompts livrés · accès à vie. Équipez votre premier héros IA en 1 soirée. 97 €.",
   alternates: {
     canonical: "https://troiestudio.fr/formations/cours-01",
   },
@@ -52,25 +52,25 @@ const MODULES = [
       "Few-shot prompting : 2-5 exemples qui calent la sortie",
       "Chain-of-thought : raisonner avant de répondre",
       "Constraint prompting : forcer un format strict",
-      "Critique then iterate : auto-correction en 2 passés",
+      "Critique then iterate : auto-correction en 2 passes",
     ],
-    duree: "25 min · 8 demos pratiques",
+    duree: "25 min · 8 démos pratiques",
   },
   {
     badge: "Module 2",
-    title: "System prompts a coller dans GPTs et Projets Claude.",
+    title: "System prompts à coller dans GPTs et Projets Claude.",
     lecons: [
       "Anatomie d'un system prompt qui tient sur 100 messages",
       "Calquer votre voix avec 5-10 exemples bruts",
       "Sortie de secours : éliminer les hallucinations",
-      "Resister aux prompt injections",
+      "Résister aux prompt injections",
       "5 templates prêts à coller dans votre Custom GPT",
     ],
-    duree: "30 min · 5 templates livres",
+    duree: "30 min · 5 templates livrés",
   },
   {
     badge: "Module 3",
-    title: "10 cas d'usage solo, du concret immediat.",
+    title: "10 cas d'usage solo, du concret immédiat.",
     lecons: [
       "Triage email 30 min/jour > 3 min",
       "30 jours de posts LinkedIn dans votre voix",
@@ -80,7 +80,7 @@ const MODULES = [
       "Pages de vente qui convertissent",
       "10 visuels on-brand par jour (Midjourney)",
       "Analyse CSV : 3 insights en 2 min",
-      "Compta simplifiee mensuelle",
+      "Compta simplifiée mensuelle",
       "Traduction de site en 5 langues sans perdre la voix",
     ],
     duree: "25 min · 25 prompts bibliothèque",
@@ -90,9 +90,9 @@ const MODULES = [
     title: "Limites, sécurité des données, RGPD.",
     lecons: [
       "Ce qu'on NE met JAMAIS dans un chat web",
-      "API en zone EU et DPA signe",
+      "API en zone EU et DPA signé",
       "Anonymisation PII avant envoi",
-      "Quand redemarrer une conversation",
+      "Quand redémarrer une conversation",
       "Calculer le ROI de votre stack au bout de 30 jours",
     ],
     duree: "10 min · checklist sécurité",
@@ -102,7 +102,7 @@ const MODULES = [
 const DELIVERABLES = [
   {
     title: "Bibliothèque de 25 prompts métier",
-    body: "Email, posts, devis, prospection, veille, devis, brief créatif, analyse data. Prêts a coller, classes par tâche.",
+    body: "Email, posts, devis, prospection, veille, devis, brief créatif, analyse data. Prêts à coller, classés par tâche.",
   },
   {
     title: "5 templates System Prompts",
@@ -110,7 +110,7 @@ const DELIVERABLES = [
   },
   {
     title: "Checklist sécurité RGPD",
-    body: "Ce qu'on met, ce qu'on ne met pas, ou heberger l'API, comment anonymiser. 1 page A4 référence.",
+    body: "Ce qu'on met, ce qu'on ne met pas, où héberger l'API, comment anonymiser. 1 page A4 référence.",
   },
   {
     title: "Accès à vie + mises à jour",
@@ -121,15 +121,15 @@ const DELIVERABLES = [
     body: "Après chaque module, un mini-quiz pour ancrer. Score visible, explications détaillées à chaque question.",
   },
   {
-    title: "Communaute Discord (option)",
-    body: "Accès 30 jours offerts à la communaute TROIE. Entraide, partagé de prompts, retours d'expérience.",
+    title: "Communauté Discord (option)",
+    body: "Accès 30 jours offerts à la communauté TROIE. Entraide, partage de prompts, retours d'expérience.",
   },
 ];
 
 const FAQ = [
   {
     q: "Combien de temps pour finir le cours ?",
-    a: "Compter 1 soiree pour le visionner intégralement (90 min de vidéo). Et 2-3 soirees supplementaires pour configurer votre premier Custom GPT et tester les prompts sur vos vrais cas. Bilan typique : 1 semaine entre l'achat et un setup pro qui tourne.",
+    a: "Compter 1 soirée pour le visionner intégralement (90 min de vidéo). Et 2-3 soirées supplémentaires pour configurer votre premier Custom GPT et tester les prompts sur vos vrais cas. Bilan typique : 1 semaine entre l'achat et un setup pro qui tourne.",
   },
   {
     q: "Pour quel niveau ?",
@@ -137,7 +137,7 @@ const FAQ = [
   },
   {
     q: "Quels outils faut-il pour suivre ?",
-    a: "Un compte ChatGPT (Plus a 20 €/mois recommande pour les Custom GPTs) OU Claude.ai (Pro a 20 € recommande pour les Projects). Le cours montre les deux. Pas besoin des deux pour démarrer.",
+    a: "Un compte ChatGPT (Plus à 20 €/mois recommandé pour les Custom GPTs) OU Claude.ai (Pro à 20 € recommandé pour les Projects). Le cours montre les deux. Pas besoin des deux pour démarrer.",
   },
   {
     q: "Si ça ne me convient pas ?",
@@ -145,11 +145,11 @@ const FAQ = [
   },
   {
     q: "Et après ce cours ?",
-    a: "Cours 02 (Workflows IA) est la suite logique : connecter le LLM à vos outils (MCPs), construire des agents qui tournent sans vous, automatiser des pipelines. Réductions cumulatives prevues si vous prenez les deux.",
+    a: "Cours 02 (Workflows IA) est la suite logique : connecter le LLM à vos outils (MCPs), construire des agents qui tournent sans vous, automatiser des pipelines. Réductions cumulatives prévues si vous prenez les deux.",
   },
   {
-    q: "Possibilite de financer via CPF / OPCO ?",
-    a: "Pas encore : la certification Qualiopi est en cours. Pour les CPF / OPCO, regardez le Cours 04 sur place (sur devis) qui passé via TROIE Studio en tant qu'organisme partenaire. Possible des juillet 2026.",
+    q: "Possibilité de financer via CPF / OPCO ?",
+    a: "Pas encore : la certification Qualiopi est en cours. Pour les CPF / OPCO, regardez le Cours 04 sur place (sur devis) qui passe via TROIE Studio en tant qu'organisme partenaire. Possible dès juillet 2026.",
   },
 ];
 
@@ -171,9 +171,9 @@ export default function Cours01Page() {
                 <span className="text-[var(--accent)]">Claude.</span>
               </h1>
               <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
-                <strong className="text-[var(--fg)]">Equipez votre premier heros IA en 1 soiree.</strong>{" "}
-                4 modules, 90 min de vidéo, 25 prompts livres, 5 templates de
-                system prompts. A la fin, vous passez de l'outil ponctuel a
+                <strong className="text-[var(--fg)]">Équipez votre premier héros IA en 1 soirée.</strong>{" "}
+                4 modules, 90 min de vidéo, 25 prompts livrés, 5 templates de
+                system prompts. À la fin, vous passez de l'outil ponctuel à
                 l'assistant pro qui sait votre métier.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -208,11 +208,11 @@ export default function Cours01Page() {
                 <ul className="mt-6 space-y-2.5">
                   {[
                     "4 modules · 90 min de vidéo",
-                    "25 prompts métier livres",
+                    "25 prompts métier livrés",
                     "5 templates System Prompts",
                     "30 questions QCM avec explications",
                     "Accès à vie + mises à jour",
-                    "Communaute Discord (30 j offerts)",
+                    "Communauté Discord (30 j offerts)",
                   ].map((b) => (
                     <li
                       key={b}
@@ -234,7 +234,7 @@ export default function Cours01Page() {
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                  Garantie satisfait ou rembourse 14 jours
+                  Garantie satisfait ou remboursé 14 jours
                 </p>
               </div>
             </div>
@@ -266,7 +266,7 @@ export default function Cours01Page() {
                 <li>· Vous re-expliquez tout, à chaque fois.</li>
                 <li>· Le ton n'est jamais le votre.</li>
                 <li>· Vous corrigez plus que vous ne produisez.</li>
-                <li>· Les hallucinations vous piegent.</li>
+                <li>· Les hallucinations vous piègent.</li>
                 <li>· Vous perdez 30 min à chaque tâche complexe.</li>
               </ul>
             </div>
@@ -280,7 +280,7 @@ export default function Cours01Page() {
               <ul className="mt-6 space-y-2.5 text-sm leading-relaxed text-[#f5f0e6]/85">
                 <li>· Vos Custom GPTs / Projects ont VOTRE ton.</li>
                 <li>· Vous savez quand utiliser quel pattern.</li>
-                <li>· Sortie de secours : zero hallucination subie.</li>
+                <li>· Sortie de secours : zéro hallucination subie.</li>
                 <li>· Vous publiez en 5 min ce qui prenait 30 min.</li>
                 <li>· Vos données restent sécurisées.</li>
               </ul>
@@ -298,7 +298,7 @@ export default function Cours01Page() {
             Le programme · 4 modules + bonus 0
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Vous apprenez ce qui marché en pratique.
+            Vous apprenez ce qui marche en pratique.
           </h2>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             Pas de théorie indigeste. Chaque module finit avec un
@@ -323,7 +323,7 @@ export default function Cours01Page() {
                     Pourquoi un LLM hallucine et veut vous plaire.
                   </h3>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-[15px]">
-                    Théorie LLM : pre-training, RLHF, hallucinations, sycophancy. 4 lecons + QCM 10 questions. Score ≥ 7/10 : code promo -15 % sur ce cours.
+                    Théorie LLM : pre-training, RLHF, hallucinations, sycophancy. 4 leçons + QCM 10 questions. Score ≥ 7/10 : code promo -15 % sur ce cours.
                   </p>
                   <Link
                     href="/formations/module-0"
@@ -383,7 +383,7 @@ export default function Cours01Page() {
             Ce que vous repartez avec
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Pas juste de la théorie. Du concret reutilisable.
+            Pas juste de la théorie. Du concret réutilisable.
           </h2>
 
           <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20 md:grid-cols-2 lg:grid-cols-3">
@@ -413,7 +413,7 @@ export default function Cours01Page() {
             Questions
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Tout ce qu'on nous demandé avant d'acheter.
+            Tout ce qu'on nous demande avant d'acheter.
           </h2>
 
           <div className="mt-16 space-y-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-20">
@@ -447,13 +447,13 @@ export default function Cours01Page() {
           <div className="grid gap-16 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg)]/80">
-                Prêt a équiper votre heros ?
+                Prêt à équiper votre héros ?
               </p>
               <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-7xl">
-                97 €. Une soiree. Accès à vie.
+                97 €. Une soirée. Accès à vie.
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
-                Garantie satisfait ou rembourse 14 jours, sans question.
+                Garantie satisfait ou remboursé 14 jours, sans question.
                 Si le contenu ne tient pas sa promesse, vous m'écrivez
                 et je vous rembourse le jour même.
               </p>
@@ -475,7 +475,7 @@ export default function Cours01Page() {
             </div>
             <div className="md:col-span-5 md:border-l md:border-[var(--fg)]/20 md:pl-12">
               <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)]/70">
-                Encore pas sur ?
+                Encore pas sûr ?
               </p>
               <a
                 href={CAL_URL}
@@ -486,7 +486,7 @@ export default function Cours01Page() {
                 30 min en visio →
               </a>
               <p className="mt-3 text-sm leading-relaxed text-[var(--fg)]/75">
-                Gratuit. On regarde votre activite. Je vous dis honnêtement si Cours 01 est pour vous, ou si vous êtes déjà plus avancé et qu'il faut viser Cours 02.
+                Gratuit. On regarde votre activité. Je vous dis honnêtement si Cours 01 est pour vous, ou si vous êtes déjà plus avancé et qu'il faut viser Cours 02.
               </p>
             </div>
           </div>
