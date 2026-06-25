@@ -160,14 +160,6 @@ function ForkCard({ fork }: { fork: Fork }) {
           className="object-cover transition-transform duration-700 group-hover:scale-105"
           style={{ objectPosition: fork.imagePosition ?? "center" }}
         />
-        {/* Pictogramme profil cerclé, posé directement sur l'image, en orange */}
-        <span
-          aria-label={fork.eyebrow}
-          className="absolute left-5 top-5 inline-flex h-11 w-11 items-center justify-center rounded-full border-[1.5px] border-current [filter:drop-shadow(0_0_2px_rgba(0,0,0,0.7))_drop-shadow(0_2px_5px_rgba(0,0,0,0.5))]"
-          style={{ color: "#f37b22" }}
-        >
-          {fork.icon}
-        </span>
       </div>
 
       {/* Corps */}

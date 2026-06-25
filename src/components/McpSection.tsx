@@ -4,11 +4,12 @@ import { HeroMcpFlow } from "./HeroMcpFlow";
 
 /**
  * Section MCP : explique le Model Context Protocol (à quoi ça sert) et montre
- * le schéma "LLM → MCP → vos outils". Fond orange Hermès, CTA noir.
+ * le schéma "LLM → MCP → vos outils". Fond beige (comme les sections au-dessus),
+ * CTA orange.
  */
 export function McpSection() {
   return (
-    <section className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
+    <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <Reveal>
           <div className="max-w-3xl">
@@ -33,7 +34,7 @@ export function McpSection() {
             <div className="mt-10">
               <Link
                 href="/ia"
-                className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
               >
                 Déployer l&apos;IA dans vos outils
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
