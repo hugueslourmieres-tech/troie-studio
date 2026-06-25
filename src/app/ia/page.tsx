@@ -1030,7 +1030,7 @@ export default function IaLandingPage() {
                     src={step.img}
                     alt=""
                     className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                    style={{ filter: "grayscale(1) contrast(1.05)" }}
+                    style={{ filter: "grayscale(0.45)" }}
                   />
                 </div>
                 <div className="mt-6 border-t border-[var(--rule)] pt-6">
