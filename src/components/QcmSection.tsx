@@ -20,10 +20,10 @@ export function QcmSection() {
         <Reveal>
           <Link
             href={`/formations/quiz/${quiz.slug}`}
-            className="group grid overflow-hidden rounded-sm border border-[#f37b22]/20 bg-[#0f0b08] text-[#f5f0e6] transition-colors hover:border-[var(--accent)] md:grid-cols-2"
+            className="group grid overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)] md:grid-cols-2"
           >
             {/* Aperçu : image du robot qui monte les marches + démo QCM */}
-            <div className="relative flex flex-col items-center justify-center gap-8 border-b border-[#f5f0e6]/10 bg-[#0f0b08] p-8 md:gap-10 md:border-b-0 md:border-r md:p-12">
+            <div className="relative flex flex-col items-center justify-center gap-8 border-b border-[var(--rule)] bg-[var(--bg)] p-8 md:gap-10 md:border-b-0 md:border-r md:p-12">
               <div className="w-full max-w-md overflow-hidden rounded-sm">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -35,7 +35,7 @@ export function QcmSection() {
                 />
               </div>
               <QcmDemo />
-              <span className="absolute left-4 top-4 rounded-full bg-[#f5f0e6]/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-[#f5f0e6]/70 backdrop-blur-sm">
+              <span className="absolute left-4 top-4 rounded-full bg-[var(--bg)]/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-[#1a1714]/65 backdrop-blur-sm">
                 Gratuit
               </span>
             </div>
@@ -45,15 +45,15 @@ export function QcmSection() {
               <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[var(--accent)]">
                 {quiz.tagline}
               </p>
-              <h2 className="t-display mt-5 text-3xl text-[#f5f0e6] md:text-4xl lg:text-5xl">
+              <h2 className="t-display mt-5 text-3xl text-[var(--fg)] md:text-4xl lg:text-5xl">
                 Apprendre dès maintenant.
               </h2>
-              <p className="mt-6 max-w-md text-base leading-relaxed text-[#f5f0e6]/70 md:text-lg">
+              <p className="mt-6 max-w-md text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
                 {quiz.description}
               </p>
 
               {levels.length > 0 && (
-                <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[#f5f0e6]/60">
+                <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/65">
                   {levels.map((l) => (
                     <span key={l} className="inline-flex items-center gap-2">
                       <span aria-hidden="true" className="h-px w-3 bg-[var(--accent)]" />
@@ -64,11 +64,11 @@ export function QcmSection() {
               )}
 
               <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-                <span className="inline-flex items-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors group-hover:bg-[#f5f0e6] group-hover:text-[#1a1714]">
+                <span className="inline-flex items-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors group-hover:bg-[var(--fg)] group-hover:text-[var(--bg)]">
                   Lancer le QCM
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </span>
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/45">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
                   Gratuit · {quiz.minutes} min
                 </span>
               </div>
