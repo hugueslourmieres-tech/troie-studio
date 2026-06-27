@@ -643,7 +643,7 @@ export default function IaLandingPage() {
                   ))}
                 </ul>
                 <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#1a1714]/20 pt-6">
-                  <p className="t-display text-3xl md:text-4xl">À partir de 2 490 €</p>
+                  <p className="t-display text-3xl md:text-4xl">Sur devis</p>
                   <a
                     href={CAL_URL}
                     target="_blank"
