@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 210" fill="none">
+  <style>text{fill:currentColor}</style>
+  <text x="300" y="108" text-anchor="middle" font-family="'Bodoni Moda', serif" font-weight="500" font-size="96" letter-spacing="12">TROIE</text>
+  <line x1="210" y1="140" x2="390" y2="140" stroke="currentColor" stroke-width="1.4" opacity="0.4"/>
+  <text x="300" y="170" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="400" font-size="18" letter-spacing="9" opacity="0.78">ATELIER DIGITAL</text>
+</svg>
