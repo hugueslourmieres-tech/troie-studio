@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { useTranslations, useLocale } from "next-intl";
 import { Reveal } from "./Reveal";
-import { ToolsMarquee } from "./ToolsMarquee";
 import { LetterReveal } from "./LetterReveal";
 
 type Tool = { src: string; label: string };
@@ -122,9 +121,6 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
           ))}
         </div>
       </div>
-
-      {/* Slideshow auto des IA & outils maîtrisés */}
-      <ToolsMarquee ariaLabel="Outils et IA que nous maîtrisons" />
     </section>
   );
 }
