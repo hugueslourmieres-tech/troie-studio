@@ -24,14 +24,16 @@ export function QcmSection() {
           >
             {/* Aperçu : image du robot qui monte les marches + démo QCM */}
             <div className="relative flex flex-col items-center justify-center gap-8 border-b border-[var(--rule)] bg-[var(--bg)] p-8 md:gap-10 md:border-b-0 md:border-r md:p-12">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/quiz/niveau-ia-v2.jpg"
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                className="h-auto w-full max-w-md"
-              />
+              <div className="w-full max-w-md overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/quiz/niveau-ia-v2.jpg"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="h-auto w-full scale-125"
+                />
+              </div>
               <QcmDemo />
               <span className="absolute left-4 top-4 rounded-full bg-[var(--bg)]/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-[#1a1714]/65 backdrop-blur-sm">
                 Gratuit
