@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./Reveal";
-import { ToolsMarquee } from "./ToolsMarquee";
 
 /** Les outils IA du moment, logos posés en blanc sur le fond ink. */
 const AI_TOOLS = [
@@ -98,9 +97,6 @@ export function AiUrgency() {
           </div>
         </div>
       </div>
-
-      {/* Slider des outils & IA maîtrisés, au bas de la section */}
-      <ToolsMarquee ariaLabel="Outils et IA que nous maîtrisons" />
     </section>
   );
 }
