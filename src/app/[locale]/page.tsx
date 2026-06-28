@@ -7,7 +7,6 @@ import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
 import { McpSection } from "@/components/McpSection";
 import { MediasSection } from "@/components/MediasSection";
-import { WebAppSection } from "@/components/WebAppSection";
 import { JournalTeaser } from "@/components/JournalTeaser";
 import { ContactCTA } from "@/components/ContactCTA";
 import { WriteOnScroll } from "@/components/WriteOnScroll";
@@ -46,9 +45,6 @@ export default async function HomePage({
 
       {/* MÉDIAS : photo (réalisations) + vidéo, fusionnés */}
       <MediasSection locale={locale} />
-
-      {/* SITE WEB & APPLICATION : aperçus produit (mockups) */}
-      <WebAppSection locale={locale} />
 
       <AboutBlock />
 
