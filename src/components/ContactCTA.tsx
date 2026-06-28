@@ -13,18 +13,18 @@ export function ContactCTA(_props: { locale: string }) {
   return (
     <section className="border-t border-[#1a1714]/15">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
-        <div className="grid items-center gap-10 md:grid-cols-12 md:gap-12">
-          <div className="md:col-span-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <div>
             <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[#1a1714]/55">
               Contact
             </p>
             <h2 className="t-display mt-6 text-4xl text-[#1a1714] md:text-6xl">
               {t("ctaTitle")}
             </h2>
-            <p className="mt-7 max-w-xl text-base leading-relaxed text-[#1a1714]/75 md:text-lg">
+            <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-[#1a1714]/75 md:text-lg">
               {t("ctaSubtitle")}
             </p>
-            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-5">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
               <a
                 href={CAL_URL}
                 target="_blank"
