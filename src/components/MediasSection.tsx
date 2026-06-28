@@ -12,9 +12,9 @@ export function MediasSection({ locale }: { locale: string }) {
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <div className="max-w-3xl">
-            <p className="t-eyebrow">Médias</p>
+            <p className="t-eyebrow">Atelier</p>
             <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-              Photo &amp; vidéo.
+              Création.
             </h2>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">
               Réalisations photo et productions vidéo : maisons de luxe,
