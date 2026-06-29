@@ -52,6 +52,7 @@ const PRESTATIONS = [
   "Photographie & vidéo",
   "Stratégie & communication",
   "Formations IA",
+  "Formations outils digitaux",
   "Agents IA & automatisation",
 ];
 
