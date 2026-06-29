@@ -64,9 +64,9 @@ export function AboutBlock() {
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         {/* Présentation de l'équipe */}
         <div className="md:max-w-3xl">
-          <p className="t-eyebrow">L&apos;équipe</p>
+          <p className="t-eyebrow">Le studio</p>
           <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Quatre talents, une seule exigence.
+            Notre équipe.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             Nous vous accompagnons dans tous vos projets digitaux.
