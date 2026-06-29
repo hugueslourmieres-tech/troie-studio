@@ -5,6 +5,13 @@ import { ContactCTA } from "@/components/ContactCTA";
 
 const PROJECTS = [
   {
+    name: "LOIR Paris",
+    kind: "E-commerce · mode",
+    img: "/images/creation/web/loirparis.jpg",
+    href: "https://loirparis.fr",
+    label: "loirparis.fr",
+  },
+  {
     name: "Maison Lumière",
     kind: "Site vitrine · hôtellerie (démo)",
     img: "/images/creation/web/maison-lumiere.jpg",
@@ -66,7 +73,7 @@ export async function generateMetadata({
   return {
     title: "Web · Création",
     description:
-      "Sites, web apps et e-commerce sur mesure : notre processus et nos réalisations (Color Guesser, Rutherford, PerPost).",
+      "Sites, web apps et e-commerce sur mesure : notre processus et nos réalisations (LOIR Paris, Rutherford, PerPost).",
     alternates: {
       canonical: `/${locale}/creation/web`,
       languages: { fr: "/fr/creation/web", en: "/en/creation/web" },
