@@ -44,6 +44,11 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // ── Main domain, `/demo*` path (démos de portfolio) : bypass next-intl
+  if (request.nextUrl.pathname.startsWith("/demo")) {
+    return NextResponse.next();
+  }
+
   // ── Main domain : delegate to next-intl ───────────────────────────
   const response = intlHandle(request);
 

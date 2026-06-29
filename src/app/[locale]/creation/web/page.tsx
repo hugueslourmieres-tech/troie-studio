@@ -5,6 +5,13 @@ import { ContactCTA } from "@/components/ContactCTA";
 
 const PROJECTS = [
   {
+    name: "Maison Lumière",
+    kind: "Site vitrine · hôtellerie (démo)",
+    img: "/images/creation/web/maison-lumiere.jpg",
+    href: "/demo/maison-lumiere",
+    label: "Voir la démo",
+  },
+  {
     name: "Color Guesser",
     kind: "Web app · jeu",
     img: "/images/creation/web/playcolorguesser.jpg",
