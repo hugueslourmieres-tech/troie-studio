@@ -34,6 +34,14 @@ const TEAM: Member[] = [
     img: "/images/about/thibaud-v2.jpg",
     pos: "center 18%",
   },
+  {
+    name: "Gilles Pons",
+    role: "Lead développeur",
+    note: "Développement fullstack : sites, applications et agents IA.",
+    img: "/images/about/gilles-pons.jpg",
+    pos: "center",
+    link: { href: "https://www.linkedin.com/in/gilles-pons-370569b9/", label: "LinkedIn" },
+  },
 ];
 
 /** Prestations proposées, listées sous l'intro de l'équipe. */
@@ -58,7 +66,7 @@ export function AboutBlock() {
         <div className="md:max-w-3xl">
           <p className="t-eyebrow">L&apos;équipe</p>
           <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Trois talents, une seule exigence.
+            Quatre talents, une seule exigence.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             Nous vous accompagnons dans tous vos projets digitaux.
