@@ -28,19 +28,19 @@ const TEAM: Member[] = [
     link: { href: "https://vanessanobrega.com", label: "vanessanobrega.com" },
   },
   {
-    name: "Thibaud Lourmieres",
-    role: "Créateur de médias",
-    note: "Réalisateur de films, vidéos et photographie.",
-    img: "/images/about/thibaud-v2.jpg",
-    pos: "center 18%",
-  },
-  {
     name: "Gilles Pons",
     role: "Lead développeur",
     note: "Développement fullstack : sites, applications et agents IA.",
     img: "/images/about/gilles-pons.jpg",
     pos: "center",
     link: { href: "https://www.linkedin.com/in/gilles-pons-370569b9/", label: "LinkedIn" },
+  },
+  {
+    name: "Thibaud Lourmieres",
+    role: "Créateur de médias",
+    note: "Réalisateur de films, vidéos et photographie.",
+    img: "/images/about/thibaud-v2.jpg",
+    pos: "center 18%",
   },
 ];
 
