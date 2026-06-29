@@ -30,7 +30,7 @@ const TEAM: Member[] = [
   {
     name: "Thibaud Lourmieres",
     role: "Créateur de médias",
-    note: "Réalisation photo & vidéo.",
+    note: "Réalisateur de films, vidéos et photographie.",
     img: "/images/about/thibaud-v2.jpg",
     pos: "center 18%",
   },
