@@ -23,6 +23,15 @@ const PROJECTS: Project[] = [
     mobile: "/images/creation/web/rutherford-mobile.jpg",
   },
   {
+    name: "Capefront Energies",
+    kind: "Site web corporate · énergie",
+    href: "https://capefront-site.vercel.app/fr",
+    url: "capefront-site.vercel.app",
+    label: "capefront-site.vercel.app",
+    desktop: "/images/creation/web/capefront-desktop.jpg",
+    mobile: "/images/creation/web/capefront-mobile.jpg",
+  },
+  {
     name: "PerPost",
     kind: "Site web & application",
     href: "https://perpost-web.vercel.app",
