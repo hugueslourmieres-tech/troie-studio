@@ -73,9 +73,6 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
           </button>
 
           <nav className="flex h-full flex-col overflow-y-auto px-6 pt-20 pb-8">
-            {/* Top hairline */}
-            <div className="absolute inset-x-6 top-[68px] h-px bg-[var(--rule-strong)]" />
-
             <div className="mx-auto flex min-h-full w-full max-w-xl flex-col">
               <ul className="flex flex-1 flex-col justify-evenly">
                 {groups.map((group, i) => (
@@ -89,30 +86,26 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                       delay: 0.08 + i * 0.05,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="border-b border-[var(--rule-strong)] py-5"
                   >
-                    <p className="t-display text-[28px] leading-none text-[var(--fg)]">
+                    <p className="t-display text-[40px] leading-[1.0] text-[var(--fg)]">
                       {group.label}
                     </p>
-                    <ul className="mt-3 flex flex-col">
+                    <ul className="mt-4 flex flex-col">
                       {group.items.map((item) => (
                         <li key={item.label}>
                           <Link
                             href={item.href}
                             onClick={() => setOpen(false)}
-                            className="group/it -mx-3 flex items-center justify-between gap-4 rounded-lg px-3 py-4 transition-colors hover:bg-[var(--accent-soft)] active:bg-[var(--accent-soft)]"
+                            className="group/it -mx-3 flex items-center gap-3.5 rounded-lg px-3 py-2.5 transition-colors hover:bg-[var(--accent-soft)] active:bg-[var(--accent-soft)]"
                           >
-                            <span className="flex items-baseline gap-3">
-                              {item.meta && (
-                                <span className="font-mono text-[12px] tracking-[0.12em] text-[var(--accent)]">
-                                  {item.meta}
-                                </span>
-                              )}
-                              <span className="font-mono text-[15px] uppercase tracking-[0.1em] text-[var(--fg)] transition-colors group-hover/it:text-[var(--accent)]">
-                                {item.label}
+                            {item.meta && (
+                              <span className="font-mono text-[12px] tracking-[0.12em] text-[var(--accent)]">
+                                {item.meta}
                               </span>
+                            )}
+                            <span className="font-mono text-[14px] uppercase tracking-[0.12em] text-[var(--fg-2)] transition-colors group-hover/it:text-[var(--accent)]">
+                              {item.label}
                             </span>
-                            <ArrowRight />
                           </Link>
                         </li>
                       ))}
@@ -121,7 +114,7 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                 ))}
               </ul>
 
-              {/* Footer : Blog, Contact, puis réseaux + langue + se connecter */}
+              {/* Footer : Blog/Contact discrets + réseaux + langue + se connecter */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -131,30 +124,27 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                   delay: 0.08 + groups.length * 0.05 + 0.05,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="pt-6"
+                className="mt-8 border-t border-[var(--rule)] pt-5"
               >
-                <ul className="flex flex-col">
-                  {[
-                    { href: `/${locale}/blog`, label: "Blog" },
-                    { href: `/${locale}/contact`, label: "Contact" },
-                  ].map((l) => (
-                    <li key={l.label}>
-                      <Link
-                        href={l.href}
-                        onClick={() => setOpen(false)}
-                        className="group/ft flex items-center justify-between border-t border-[var(--rule-strong)] py-5"
-                      >
-                        <span className="font-mono text-[15px] uppercase tracking-[0.1em] text-[var(--fg)] transition-colors group-hover/ft:text-[var(--accent)]">
-                          {l.label}
-                        </span>
-                        <ArrowRight />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex items-center gap-7">
+                  <Link
+                    href={`/${locale}/blog`}
+                    onClick={() => setOpen(false)}
+                    className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    href={`/${locale}/contact`}
+                    onClick={() => setOpen(false)}
+                    className="font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                  >
+                    Contact
+                  </Link>
+                </div>
 
               {/* Réseaux + langue + se connecter */}
-              <div className="mt-5 flex items-center justify-between border-t border-[var(--rule-strong)] pt-5">
+              <div className="mt-5 flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <a
                     href={LINKEDIN_URL}
@@ -207,25 +197,6 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
       <BurgerButton open={open} onClick={() => setOpen((v) => !v)} />
       {mounted ? createPortal(overlay, document.body) : null}
     </>
-  );
-}
-
-/** Flèche fine, glisse vers la droite au survol/contact. */
-function ArrowRight() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-[18px] w-[18px] shrink-0 text-[var(--fg-2)] transition-transform duration-300 group-hover/it:translate-x-0.5 group-hover/ft:translate-x-0.5"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M5 12h14" />
-      <path d="M13 6l6 6-6 6" />
-    </svg>
   );
 }
 
