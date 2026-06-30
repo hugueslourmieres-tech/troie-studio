@@ -38,6 +38,89 @@ const PROJECTS = [
   },
 ];
 
+const EXAMPLES = [
+  {
+    name: "Cabinet d'avocats",
+    kind: "Exemple · site vitrine juridique",
+    href: "/demo/avocat",
+    label: "Voir l'exemple",
+    desktop: "/images/creation/web/avocat-desktop.jpg",
+    mobile: "/images/creation/web/avocat-mobile.jpg",
+  },
+  {
+    name: "Hôtel & rooftop",
+    kind: "Exemple · site vitrine hôtellerie",
+    href: "/demo/maison-lumiere",
+    label: "Voir l'exemple",
+    desktop: "/images/creation/web/maison-desktop.jpg",
+    mobile: "/images/creation/web/maison-mobile.jpg",
+  },
+];
+
+type Project = {
+  name: string;
+  kind: string;
+  href: string;
+  label: string;
+  desktop: string;
+  mobile: string;
+};
+
+/** Carte projet : aperçu mockup navigateur (desktop) + iPhone (mobile). */
+function ProjectCard({ p }: { p: Project }) {
+  return (
+    <li>
+      <a href={p.href} target="_blank" rel="noreferrer" className="group block">
+        <div className="relative">
+          {/* Navigateur */}
+          <div className="overflow-hidden rounded-xl border border-[var(--rule)] bg-[var(--bg-2)] shadow-[0_30px_70px_-30px_rgba(26,23,20,0.4)] transition-transform duration-500 group-hover:-translate-y-1">
+            <div className="flex items-center gap-1.5 border-b border-[var(--rule)] bg-[var(--bg)] px-4 py-2.5">
+              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+              <span className="mx-auto flex h-5 w-1/2 max-w-[200px] items-center justify-center rounded-full bg-[var(--bg-2)] font-mono text-[9px] tracking-[0.1em] text-[var(--fg-2)]/55">
+                {p.label}
+              </span>
+            </div>
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
+              <Image
+                src={p.desktop}
+                alt={`${p.name}, aperçu desktop`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-top"
+              />
+            </div>
+          </div>
+          {/* iPhone */}
+          <div className="absolute -bottom-8 right-4 w-[26%] min-w-[86px] max-w-[148px] transition-transform duration-500 group-hover:-translate-y-1">
+            <div className="relative rounded-[1.9rem] border-[7px] border-[#0e0e10] bg-[#0e0e10] shadow-[0_24px_52px_-18px_rgba(26,23,20,0.7)]">
+              <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.25rem] bg-white">
+                <Image
+                  src={p.mobile}
+                  alt={`${p.name}, aperçu mobile`}
+                  fill
+                  sizes="148px"
+                  className="object-cover object-top"
+                />
+                <span aria-hidden="true" className="absolute left-1/2 top-2 h-3.5 w-11 -translate-x-1/2 rounded-full bg-[#0e0e10]" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3 className="t-display mt-9 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
+          {p.name}
+        </h3>
+        <p className="mt-1 text-sm text-[var(--fg-2)]">{p.kind}</p>
+        <span className="mt-3 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
+          {p.label}
+          <span aria-hidden="true" className="transition group-hover:translate-x-1">↗</span>
+        </span>
+      </a>
+    </li>
+  );
+}
+
 const PROCESS = [
   {
     step: "01",
@@ -131,53 +214,24 @@ export default async function WebPage({
 
           <ul className="mt-12 grid gap-x-10 gap-y-16 md:mt-16 lg:grid-cols-2">
             {PROJECTS.map((p) => (
-              <li key={p.name}>
-                <a href={p.href} target="_blank" rel="noreferrer" className="group block">
-                  {/* Aperçu desktop + mobile */}
-                  <div className="relative">
-                    {/* Navigateur */}
-                    <div className="overflow-hidden rounded-xl border border-[var(--rule)] bg-[var(--bg-2)] shadow-[0_30px_70px_-30px_rgba(26,23,20,0.4)] transition-transform duration-500 group-hover:-translate-y-1">
-                      <div className="flex items-center gap-1.5 border-b border-[var(--rule)] bg-[var(--bg)] px-4 py-2.5">
-                        <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-                        <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-                        <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                        <span className="mx-auto flex h-5 w-1/2 max-w-[200px] items-center justify-center rounded-full bg-[var(--bg-2)] font-mono text-[9px] tracking-[0.1em] text-[var(--fg-2)]/55">
-                          {p.label}
-                        </span>
-                      </div>
-                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
-                        <Image
-                          src={p.desktop}
-                          alt={`${p.name}, aperçu desktop`}
-                          fill
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                          className="object-cover object-top"
-                        />
-                      </div>
-                    </div>
-                    {/* Téléphone */}
-                    <div className="absolute -bottom-6 right-5 w-[20%] min-w-[66px] max-w-[112px] overflow-hidden rounded-[1.3rem] border-[5px] border-[#1a1714] bg-[#1a1714] shadow-[0_20px_44px_-18px_rgba(26,23,20,0.65)] transition-transform duration-500 group-hover:-translate-y-1">
-                      <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[0.9rem] bg-white">
-                        <Image
-                          src={p.mobile}
-                          alt={`${p.name}, aperçu mobile`}
-                          fill
-                          sizes="112px"
-                          className="object-cover object-top"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <h3 className="t-display mt-9 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
-                    {p.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-[var(--fg-2)]">{p.kind}</p>
-                  <span className="mt-3 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
-                    {p.label}
-                    <span aria-hidden="true" className="transition group-hover:translate-x-1">↗</span>
-                  </span>
-                </a>
-              </li>
+              <ProjectCard key={p.name} p={p} />
+            ))}
+          </ul>
+
+          {/* Exemples par secteur */}
+          <p className="mt-24 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)] md:mt-32">
+            Exemples par secteur
+          </p>
+          <h2 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl">
+            Des maquettes prêtes pour votre métier.
+          </h2>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/80">
+            Un aperçu de ce que nous concevons par secteur. Exemples de
+            démonstration, à décliner à votre marque.
+          </p>
+          <ul className="mt-12 grid gap-x-10 gap-y-16 md:mt-16 lg:grid-cols-2">
+            {EXAMPLES.map((p) => (
+              <ProjectCard key={p.name} p={p} />
             ))}
           </ul>
 

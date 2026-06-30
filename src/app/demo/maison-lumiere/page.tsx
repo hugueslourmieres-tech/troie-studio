@@ -12,10 +12,10 @@ const IMG = "/images/demo/maison";
 const GALLERY = [
   `${IMG}/pool2.jpg`,
   `${IMG}/dining1.jpg`,
-  `${IMG}/room2.jpg`,
+  `${IMG}/med-bed.jpg`,
   `${IMG}/coast1.jpg`,
   `${IMG}/lobby.jpg`,
-  `${IMG}/room1.jpg`,
+  `${IMG}/med-villa.jpg`,
 ];
 
 /**
@@ -120,7 +120,7 @@ export default function MaisonLumiere() {
           </div>
           <div className="grid gap-7 md:grid-cols-3">
             {[
-              { img: `${IMG}/villa.jpg`, k: "Les Suites", t: "Vue mer, terrasses privées et majordome dédié." },
+              { img: `${IMG}/med-sea.jpg`, k: "Les Suites", t: "Vue mer, terrasses privées et majordome dédié." },
               { img: `${IMG}/spa.jpg`, k: "Le Spa", t: "Soins signature, hammam et piscine intérieure." },
               { img: `${IMG}/bath.jpg`, k: "Le Rooftop", t: "Piscine à débordement et bar au coucher du soleil." },
             ].map((c) => (
