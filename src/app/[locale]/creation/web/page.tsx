@@ -11,18 +11,7 @@ const PROJECTS: Project[] = [
     url: "loirparis.fr",
     label: "loirparis.fr",
     desktop: "/images/creation/web/loirparis-desktop.jpg",
-    video: "/videos/creation/web/loirparis.mp4",
     mobile: "/images/creation/web/loirparis-mobile.jpg",
-  },
-  {
-    name: "Rutherford",
-    kind: "Site web & plateforme SaaS",
-    href: "https://rutherford.fr",
-    url: "rutherford.fr",
-    label: "rutherford.fr",
-    desktop: "/images/creation/web/rutherford-desktop.jpg",
-    video: "/videos/creation/web/rutherford.mp4",
-    mobile: "/images/creation/web/rutherford-mobile.jpg",
   },
   {
     name: "Capefront Energies",
@@ -42,8 +31,17 @@ const PROJECTS: Project[] = [
     label: "perpost-web.vercel.app",
     desktop: "/images/creation/web/perpost-desktop.jpg",
     video: "/videos/creation/web/perpost.mp4",
-    mobile: "/images/creation/web/perpost-mobile.jpg",
-    mobileApp: true,
+    mobile: "/images/creation/web/perpost-login.jpg",
+  },
+  {
+    name: "Rutherford",
+    kind: "Site web & plateforme SaaS",
+    href: "https://rutherford.fr",
+    url: "rutherford.fr",
+    label: "rutherford.fr",
+    desktop: "/images/creation/web/rutherford-desktop.jpg",
+    video: "/videos/creation/web/rutherford.mp4",
+    mobile: "/images/creation/web/rutherford-mobile.jpg",
   },
   {
     name: "Color Guesser",
@@ -52,7 +50,7 @@ const PROJECTS: Project[] = [
     url: "playcolorguesser.com",
     label: "playcolorguesser.com",
     desktop: "/images/creation/web/colorguesser-desktop.jpg",
-    mobile: "/images/creation/web/colorguesser-app.jpg",
+    mobile: "/images/creation/web/colorguesser-login.jpg",
   },
 ];
 
@@ -66,8 +64,6 @@ type Project = {
   mobile: string;
   /** Aperçu video du hero (lit en boucle, fallback sur l'image desktop). */
   video?: string;
-  /** Affiche une capture d'app (sans barre URL navigateur). */
-  mobileApp?: boolean;
 };
 
 /** Carte projet : fenêtre navigateur desktop + fenêtre mobile en superposition. */
@@ -86,10 +82,13 @@ function ProjectCard({ p }: { p: Project }) {
                 {p.url}
               </span>
             </div>
-            <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
+            <div
+              className="relative w-full overflow-hidden bg-white"
+              style={{ aspectRatio: "16 / 10" }}
+            >
               {p.video ? (
                 <video
-                  className="absolute inset-0 h-full w-full object-cover object-top"
+                  className="absolute inset-0 block h-full w-full object-cover object-top grayscale"
                   poster={p.desktop}
                   autoPlay
                   muted
@@ -106,7 +105,7 @@ function ProjectCard({ p }: { p: Project }) {
                   alt={`${p.name}, aperçu desktop`}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-top"
+                  className="object-cover object-top grayscale"
                 />
               )}
             </div>
@@ -115,24 +114,25 @@ function ProjectCard({ p }: { p: Project }) {
           {/* Mobile : la page mobile en superposition (sans cadre), centrée */}
           <div className="absolute -bottom-9 right-6 w-[32%] min-w-[120px] max-w-[178px] sm:right-10 transition-transform duration-500 group-hover:-translate-y-1">
             <div className="overflow-hidden rounded-[1.4rem] bg-[var(--bg-2)] shadow-[0_28px_62px_-18px_rgba(26,23,20,0.5)] ring-1 ring-[#1a1714]/10">
-              {p.mobileApp ? null : (
-                <div className="border-b border-[var(--rule)] bg-[var(--bg)] px-2.5 py-2">
-                  <div className="mx-auto flex max-w-[150px] items-center justify-center gap-1.5 rounded-full bg-[var(--bg-2)] px-3 py-1">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-2.5 w-2.5 shrink-0 text-[var(--fg-2)]/45">
-                      <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" />
-                      <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
-                    </svg>
-                    <span className="truncate font-mono text-[8px] tracking-[0.08em] text-[var(--fg-2)]/55">{p.url}</span>
-                  </div>
+              <div className="border-b border-[var(--rule)] bg-[var(--bg)] px-2.5 py-2">
+                <div className="mx-auto flex max-w-[150px] items-center justify-center gap-1.5 rounded-full bg-[var(--bg-2)] px-3 py-1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-2.5 w-2.5 shrink-0 text-[var(--fg-2)]/45">
+                    <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" />
+                    <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+                  </svg>
+                  <span className="truncate font-mono text-[8px] tracking-[0.08em] text-[var(--fg-2)]/55">{p.url}</span>
                 </div>
-              )}
-              <div className="relative aspect-[9/16] w-full overflow-hidden bg-white">
+              </div>
+              <div
+                className="relative w-full overflow-hidden bg-white"
+                style={{ aspectRatio: "9 / 16" }}
+              >
                 <Image
                   src={p.mobile}
                   alt={`${p.name}, aperçu mobile`}
                   fill
                   sizes="178px"
-                  className="object-cover object-top"
+                  className="object-cover object-top grayscale"
                 />
               </div>
             </div>
