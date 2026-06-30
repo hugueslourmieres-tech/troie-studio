@@ -58,7 +58,7 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="tone-light fixed inset-0 z-[60] md:hidden"
+          className="tone-light fixed inset-0 z-[60] lg:hidden"
           style={{ backgroundColor: "#f5f0e6" }}
         >
           {/* Close button, overlays burger, same position, X icon */}
@@ -72,70 +72,89 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
             <span className="absolute block h-px w-7 -rotate-45 bg-[var(--fg)]" />
           </button>
 
-          <nav className="flex h-full flex-col px-6 pt-20 pb-8">
+          <nav className="flex h-full flex-col overflow-y-auto px-6 pt-20 pb-8">
             {/* Top hairline */}
             <div className="absolute inset-x-6 top-[68px] h-px bg-[var(--rule-strong)]" />
 
-            <ul className="flex flex-1 flex-col justify-evenly gap-1">
-              {groups.map((group, i) => (
-                <motion.li
-                  key={group.label}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{
-                    duration: 0.45,
-                    delay: 0.1 + i * 0.05,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  className="border-b border-[var(--rule-strong)] py-3.5"
-                >
-                  <p className="t-display text-[26px] leading-tight text-[var(--fg)]">
-                    {group.label}
-                  </p>
-                  <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-1.5">
-                    {group.items.map((item) => (
-                      <li key={item.label}>
-                        <Link
-                          href={item.href}
-                          onClick={() => setOpen(false)}
-                          className="inline-flex items-baseline gap-2 font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                        >
-                          {item.meta && (
-                            <span className="text-[9px] text-[var(--accent)]">{item.meta}</span>
-                          )}
-                          {item.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </motion.li>
-              ))}
-            </ul>
+            <div className="mx-auto flex min-h-full w-full max-w-xl flex-col">
+              <ul className="flex flex-col">
+                {groups.map((group, i) => (
+                  <motion.li
+                    key={group.label}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 8 }}
+                    transition={{
+                      duration: 0.45,
+                      delay: 0.08 + i * 0.05,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                    className="border-b border-[var(--rule-strong)] py-5"
+                  >
+                    <p className="t-display text-[22px] leading-none text-[var(--fg)]">
+                      {group.label}
+                    </p>
+                    <ul className="mt-2.5 flex flex-col">
+                      {group.items.map((item) => (
+                        <li key={item.label}>
+                          <Link
+                            href={item.href}
+                            onClick={() => setOpen(false)}
+                            className="group/it -mx-3 flex items-center justify-between gap-4 rounded-lg px-3 py-2.5 transition-colors hover:bg-[var(--accent-soft)] active:bg-[var(--accent-soft)]"
+                          >
+                            <span className="flex items-baseline gap-3">
+                              {item.meta && (
+                                <span className="font-mono text-[11px] tracking-[0.1em] text-[var(--accent)]">
+                                  {item.meta}
+                                </span>
+                              )}
+                              <span className="text-[17px] tracking-[0.01em] text-[var(--fg)] transition-colors group-hover/it:text-[var(--accent)]">
+                                {item.label}
+                              </span>
+                            </span>
+                            <ArrowRight />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.li>
+                ))}
+              </ul>
 
-            {/* Footer of menu, lang + Se connecter */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{
-                duration: 0.4,
-                delay: 0.1 + groups.length * 0.05 + 0.05,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mt-5 flex flex-col gap-5 border-t border-[var(--rule-strong)] pt-6"
-            >
-              {/* Contact */}
-              <Link
-                href={`/${locale}/contact`}
-                onClick={() => setOpen(false)}
-                className="font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+              {/* Footer : Blog, Contact, puis réseaux + langue + se connecter */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.08 + groups.length * 0.05 + 0.05,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="mt-auto pt-5"
               >
-                Contact
-              </Link>
+                <ul className="flex flex-col">
+                  {[
+                    { href: `/${locale}/blog`, label: "Blog" },
+                    { href: `/${locale}/contact`, label: "Contact" },
+                  ].map((l) => (
+                    <li key={l.label}>
+                      <Link
+                        href={l.href}
+                        onClick={() => setOpen(false)}
+                        className="group/ft flex items-center justify-between border-t border-[var(--rule-strong)] py-4"
+                      >
+                        <span className="font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover/ft:text-[var(--accent)]">
+                          {l.label}
+                        </span>
+                        <ArrowRight />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
 
               {/* Réseaux + langue + se connecter */}
-              <div className="flex items-center justify-between">
+              <div className="mt-5 flex items-center justify-between border-t border-[var(--rule-strong)] pt-5">
                 <div className="flex items-center gap-4">
                   <a
                     href={LINKEDIN_URL}
@@ -175,7 +194,8 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                   Se connecter
                 </Link>
               </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </nav>
         </motion.div>
       )}
@@ -187,6 +207,25 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
       <BurgerButton open={open} onClick={() => setOpen((v) => !v)} />
       {mounted ? createPortal(overlay, document.body) : null}
     </>
+  );
+}
+
+/** Flèche fine, glisse vers la droite au survol/contact. */
+function ArrowRight() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-4 w-4 shrink-0 text-[var(--fg-2)] transition-transform duration-300 group-hover/it:translate-x-0.5 group-hover/ft:translate-x-0.5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14" />
+      <path d="M13 6l6 6-6 6" />
+    </svg>
   );
 }
 
@@ -206,7 +245,7 @@ function BurgerButton({
       aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
       aria-expanded={open}
       onClick={onClick}
-      className="group relative z-50 h-10 w-10 md:hidden"
+      className="group relative z-50 h-10 w-10 lg:hidden"
     >
       <span
         className="absolute left-1/2 top-1/2 block h-px w-7 -translate-x-1/2 -translate-y-[6px] bg-[var(--fg)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"

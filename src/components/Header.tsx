@@ -87,8 +87,8 @@ export function Header({
           <AnimatedWordmark className="text-[28px] md:text-[34px]" />
         </Link>
 
-        {/* Éditorial nav avec menus déroulants */}
-        <nav className="hidden items-center gap-7 md:flex lg:gap-9">
+        {/* Éditorial nav avec menus déroulants (desktop large uniquement) */}
+        <nav className="hidden items-center gap-7 lg:flex lg:gap-9">
           {groups.map((group, i) => (
             <NavDropdown key={group.label} group={group} index={i} />
           ))}
@@ -96,7 +96,7 @@ export function Header({
 
         <div className="flex items-center gap-4 md:gap-5">
           {/* Desktop right cluster : langswitch + Contact + Se connecter */}
-          <div className="hidden items-center gap-5 md:flex">
+          <div className="hidden items-center gap-5 lg:flex">
             {showLang && <LangSwitch locale={locale} />}
             <Link
               href={`/${locale}/contact`}
