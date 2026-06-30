@@ -8,6 +8,7 @@ const PROJECTS = [
     name: "LOIR Paris",
     kind: "E-commerce · mode",
     href: "https://loirparis.fr",
+    url: "loirparis.fr",
     label: "loirparis.fr",
     desktop: "/images/creation/web/loirparis-desktop.jpg",
     mobile: "/images/creation/web/loirparis-mobile.jpg",
@@ -16,6 +17,7 @@ const PROJECTS = [
     name: "Rutherford",
     kind: "Site web & plateforme SaaS",
     href: "https://rutherford.fr",
+    url: "rutherford.fr",
     label: "rutherford.fr",
     desktop: "/images/creation/web/rutherford-desktop.jpg",
     mobile: "/images/creation/web/rutherford-mobile.jpg",
@@ -24,6 +26,7 @@ const PROJECTS = [
     name: "PerPost",
     kind: "Site web & application",
     href: "https://perpost-web.vercel.app",
+    url: "perpost-web.vercel.app",
     label: "perpost-web.vercel.app",
     desktop: "/images/creation/web/perpost-desktop.jpg",
     mobile: "/images/creation/web/perpost-mobile.jpg",
@@ -32,6 +35,7 @@ const PROJECTS = [
     name: "Color Guesser",
     kind: "Web app · jeu",
     href: "https://playcolorguesser.com",
+    url: "playcolorguesser.com",
     label: "playcolorguesser.com",
     desktop: "/images/creation/web/colorguesser-desktop.jpg",
     mobile: "/images/creation/web/colorguesser-mobile.jpg",
@@ -43,6 +47,7 @@ const EXAMPLES = [
     name: "Cabinet d'avocats",
     kind: "Exemple · site vitrine juridique",
     href: "/demo/avocat",
+    url: "vasseur-associes.fr",
     label: "Voir l'exemple",
     desktop: "/images/creation/web/avocat-desktop.jpg",
     mobile: "/images/creation/web/avocat-mobile.jpg",
@@ -51,6 +56,7 @@ const EXAMPLES = [
     name: "Hôtel & rooftop",
     kind: "Exemple · site vitrine hôtellerie",
     href: "/demo/maison-lumiere",
+    url: "maison-lumiere.fr",
     label: "Voir l'exemple",
     desktop: "/images/creation/web/maison-desktop.jpg",
     mobile: "/images/creation/web/maison-mobile.jpg",
@@ -61,54 +67,60 @@ type Project = {
   name: string;
   kind: string;
   href: string;
+  url: string;
   label: string;
   desktop: string;
   mobile: string;
 };
 
-/** Carte projet : aperçu mockup navigateur (desktop) + iPhone (mobile). */
+/** Carte projet : aperçu navigateur (desktop) + navigateur mobile (téléphone). */
 function ProjectCard({ p }: { p: Project }) {
   return (
     <li>
       <a href={p.href} target="_blank" rel="noreferrer" className="group block">
-        <div className="relative">
-          {/* Navigateur */}
-          <div className="overflow-hidden rounded-xl border border-[var(--rule)] bg-[var(--bg-2)] shadow-[0_30px_70px_-30px_rgba(26,23,20,0.4)] transition-transform duration-500 group-hover:-translate-y-1">
-            <div className="flex items-center gap-1.5 border-b border-[var(--rule)] bg-[var(--bg)] px-4 py-2.5">
-              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-              <span className="mx-auto flex h-5 w-1/2 max-w-[200px] items-center justify-center rounded-full bg-[var(--bg-2)] font-mono text-[9px] tracking-[0.1em] text-[var(--fg-2)]/55">
-                {p.label}
-              </span>
+        {/* Desktop : fenêtre navigateur */}
+        <div className="overflow-hidden rounded-xl border border-[var(--rule)] bg-[var(--bg-2)] shadow-[0_30px_70px_-34px_rgba(26,23,20,0.42)] transition-transform duration-500 group-hover:-translate-y-1">
+          <div className="flex items-center gap-1.5 border-b border-[var(--rule)] bg-[var(--bg)] px-4 py-2.5">
+            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+            <span className="mx-auto flex h-5 w-1/2 max-w-[210px] items-center justify-center rounded-full bg-[var(--bg-2)] font-mono text-[9px] tracking-[0.08em] text-[var(--fg-2)]/55">
+              {p.url}
+            </span>
+          </div>
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
+            <Image
+              src={p.desktop}
+              alt={`${p.name}, aperçu desktop`}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-top"
+            />
+          </div>
+        </div>
+
+        {/* Mobile : navigateur sur téléphone, barre URL en haut, site centré */}
+        <div className="mx-auto mt-7 w-[60%] max-w-[210px] overflow-hidden rounded-[1.8rem] border-[6px] border-[#15110d] bg-[#15110d] shadow-[0_26px_54px_-22px_rgba(26,23,20,0.5)] transition-transform duration-500 group-hover:-translate-y-1">
+          <div className="overflow-hidden rounded-[1.25rem] bg-white">
+            <div className="bg-[#f1f1f4] px-2.5 pb-2 pt-2.5">
+              <div className="mx-auto flex max-w-[150px] items-center justify-center gap-1.5 rounded-lg bg-white px-3 py-1.5">
+                <span aria-hidden="true" className="text-[8px] leading-none text-[#9a9183]">🔒</span>
+                <span className="truncate text-[8px] font-medium tracking-tight text-[#6a6356]">{p.url}</span>
+              </div>
             </div>
-            <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
+            <div className="relative aspect-[9/16] w-full overflow-hidden bg-white">
               <Image
-                src={p.desktop}
-                alt={`${p.name}, aperçu desktop`}
+                src={p.mobile}
+                alt={`${p.name}, aperçu mobile`}
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="210px"
                 className="object-cover object-top"
               />
             </div>
           </div>
-          {/* iPhone */}
-          <div className="absolute -bottom-8 right-4 w-[26%] min-w-[86px] max-w-[148px] transition-transform duration-500 group-hover:-translate-y-1">
-            <div className="relative rounded-[1.9rem] border-[7px] border-[#0e0e10] bg-[#0e0e10] shadow-[0_24px_52px_-18px_rgba(26,23,20,0.7)]">
-              <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[1.25rem] bg-white">
-                <Image
-                  src={p.mobile}
-                  alt={`${p.name}, aperçu mobile`}
-                  fill
-                  sizes="148px"
-                  className="object-cover object-top"
-                />
-                <span aria-hidden="true" className="absolute left-1/2 top-2 h-3.5 w-11 -translate-x-1/2 rounded-full bg-[#0e0e10]" />
-              </div>
-            </div>
-          </div>
         </div>
-        <h3 className="t-display mt-9 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
+
+        <h3 className="t-display mt-7 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
           {p.name}
         </h3>
         <p className="mt-1 text-sm text-[var(--fg-2)]">{p.kind}</p>
