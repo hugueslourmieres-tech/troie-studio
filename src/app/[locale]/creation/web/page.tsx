@@ -73,54 +73,60 @@ type Project = {
   mobile: string;
 };
 
-/** Carte projet : aperçu navigateur (desktop) + navigateur mobile (téléphone). */
+/** Carte projet : fenêtre navigateur desktop + fenêtre mobile en superposition. */
 function ProjectCard({ p }: { p: Project }) {
   return (
     <li>
       <a href={p.href} target="_blank" rel="noreferrer" className="group block">
-        {/* Desktop : fenêtre navigateur */}
-        <div className="overflow-hidden rounded-xl border border-[var(--rule)] bg-[var(--bg-2)] shadow-[0_30px_70px_-34px_rgba(26,23,20,0.42)] transition-transform duration-500 group-hover:-translate-y-1">
-          <div className="flex items-center gap-1.5 border-b border-[var(--rule)] bg-[var(--bg)] px-4 py-2.5">
-            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-            <span className="mx-auto flex h-5 w-1/2 max-w-[210px] items-center justify-center rounded-full bg-[var(--bg-2)] font-mono text-[9px] tracking-[0.08em] text-[var(--fg-2)]/55">
-              {p.url}
-            </span>
-          </div>
-          <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
-            <Image
-              src={p.desktop}
-              alt={`${p.name}, aperçu desktop`}
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover object-top"
-            />
-          </div>
-        </div>
-
-        {/* Mobile : navigateur sur téléphone, barre URL en haut, site centré */}
-        <div className="mx-auto mt-7 w-[60%] max-w-[210px] overflow-hidden rounded-[1.8rem] border-[6px] border-[#15110d] bg-[#15110d] shadow-[0_26px_54px_-22px_rgba(26,23,20,0.5)] transition-transform duration-500 group-hover:-translate-y-1">
-          <div className="overflow-hidden rounded-[1.25rem] bg-white">
-            <div className="bg-[#f1f1f4] px-2.5 pb-2 pt-2.5">
-              <div className="mx-auto flex max-w-[150px] items-center justify-center gap-1.5 rounded-lg bg-white px-3 py-1.5">
-                <span aria-hidden="true" className="text-[8px] leading-none text-[#9a9183]">🔒</span>
-                <span className="truncate text-[8px] font-medium tracking-tight text-[#6a6356]">{p.url}</span>
-              </div>
+        {/* Desktop : fenêtre navigateur (le téléphone se superpose dessus) */}
+        <div className="relative">
+          <div className="overflow-hidden rounded-xl border border-[var(--rule)] bg-[var(--bg-2)] shadow-[0_30px_70px_-34px_rgba(26,23,20,0.42)] transition-transform duration-500 group-hover:-translate-y-1">
+            <div className="flex items-center gap-1.5 border-b border-[var(--rule)] bg-[var(--bg)] px-4 py-2.5">
+              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+              <span className="mx-auto flex h-5 w-1/2 max-w-[210px] items-center justify-center rounded-full bg-[var(--bg-2)] font-mono text-[9px] tracking-[0.08em] text-[var(--fg-2)]/55">
+                {p.url}
+              </span>
             </div>
-            <div className="relative aspect-[9/16] w-full overflow-hidden bg-white">
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
               <Image
-                src={p.mobile}
-                alt={`${p.name}, aperçu mobile`}
+                src={p.desktop}
+                alt={`${p.name}, aperçu desktop`}
                 fill
-                sizes="210px"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-top"
               />
             </div>
           </div>
+
+          {/* Mobile : fenêtre navigateur sur téléphone, superposée bas-droite */}
+          <div className="absolute -bottom-9 right-6 w-[31%] min-w-[112px] max-w-[166px] sm:right-9 transition-transform duration-500 group-hover:-translate-y-1">
+            {/* Fond derrière le téléphone, pour le détacher du desktop */}
+            <div aria-hidden="true" className="absolute -inset-2.5 rounded-[2.1rem] bg-[var(--bg)] shadow-[0_30px_60px_-20px_rgba(26,23,20,0.5)]" />
+            <div className="relative overflow-hidden rounded-[1.6rem] border-[6px] border-[#15110d] bg-[#15110d] shadow-[0_8px_22px_-10px_rgba(26,23,20,0.55)]">
+              <div className="overflow-hidden rounded-[1.15rem] bg-white">
+                <div className="bg-[#f1f1f4] px-2 pb-1.5 pt-2">
+                  <div className="mx-auto flex max-w-[126px] items-center justify-center gap-1 rounded-md bg-white px-2 py-1">
+                    <span aria-hidden="true" className="text-[7px] leading-none text-[#9a9183]">🔒</span>
+                    <span className="truncate text-[7px] font-medium tracking-tight text-[#6a6356]">{p.url}</span>
+                  </div>
+                </div>
+                <div className="relative aspect-[9/15.5] w-full overflow-hidden bg-white">
+                  <Image
+                    src={p.mobile}
+                    alt={`${p.name}, aperçu mobile`}
+                    fill
+                    sizes="166px"
+                    className="object-cover object-top"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <h3 className="t-display mt-7 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
+        <h3 className="t-display mt-16 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
           {p.name}
         </h3>
         <p className="mt-1 text-sm text-[var(--fg-2)]">{p.kind}</p>
