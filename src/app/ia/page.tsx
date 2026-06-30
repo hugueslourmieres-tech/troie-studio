@@ -248,29 +248,6 @@ const TASKS = [
   },
 ];
 
-const STEPS = [
-  {
-    title: "Audit gratuit · 30 min.",
-    body: "On regarde vos tâches réelles. Réponse claire, chiffrée, écrite, sous 48 h.",
-    img: "/images/corpo/strategie/DSC_5552-4.jpg",
-  },
-  {
-    title: "Setup & formation.",
-    body: "On configure les outils sur vos cas concrets. On forme votre équipe avec vos données, votre voix.",
-    img: "/images/corpo/montpellier/DSC_7573.jpg",
-  },
-  {
-    title: "Production supervisée.",
-    body: "Pendant 30 jours, on accompagne les premières semaines. Ajustements continus, transfert progressif.",
-    img: "/images/corpo/mibi/DSC_7665.jpg",
-  },
-  {
-    title: "Autonomie complète.",
-    body: "Vos workflows, vos prompts, vos accès. Tout vous appartient. Sortie propre, sans lock-in.",
-    img: "/images/corpo/barcelona/13Hugues-Nikon-35mm.jpg",
-  },
-];
-
 const FAQ = [
   {
     q: "C'est quoi la différence micro-entreprise et SAS ?",
@@ -924,48 +901,6 @@ export default function IaLandingPage() {
       </section>
 
 
-
-      {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          COMMENT CA MARCHE, 4 étapes
-          ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-      <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
-        <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
-          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            La méthode
-          </p>
-          <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Quatre étapes, jamais plus.
-          </h2>
-
-          <ol className="mt-16 grid gap-10 md:mt-20 md:grid-cols-2 md:gap-x-10 md:gap-y-14 lg:grid-cols-4 lg:gap-x-8">
-            {STEPS.map((step, i) => (
-              <li key={step.title} className="flex flex-col">
-                {/* Bandeau 16:9 N&B */}
-                <div className="relative aspect-video overflow-hidden bg-[var(--fg)]/5">
-                  {/* eslint-disable-next-line @next/next/no-img-élément */}
-                  <img
-                    src={step.img}
-                    alt=""
-                    className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                    style={{ filter: "grayscale(0.45)" }}
-                  />
-                </div>
-                <div className="mt-6 border-t border-[var(--rule)] pt-6">
-                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                    {String(i + 1).padStart(2, "0")} ·
-                  </p>
-                  <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[28px]">
-                    {step.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
-                    {step.body}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className="border-t border-[var(--rule)]">
