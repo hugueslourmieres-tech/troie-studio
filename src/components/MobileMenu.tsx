@@ -77,7 +77,7 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
             <div className="absolute inset-x-6 top-[68px] h-px bg-[var(--rule-strong)]" />
 
             <div className="mx-auto flex min-h-full w-full max-w-xl flex-col">
-              <ul className="flex flex-col">
+              <ul className="flex flex-1 flex-col justify-evenly">
                 {groups.map((group, i) => (
                   <motion.li
                     key={group.label}
@@ -91,24 +91,24 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                     }}
                     className="border-b border-[var(--rule-strong)] py-5"
                   >
-                    <p className="t-display text-[22px] leading-none text-[var(--fg)]">
+                    <p className="t-display text-[28px] leading-none text-[var(--fg)]">
                       {group.label}
                     </p>
-                    <ul className="mt-2.5 flex flex-col">
+                    <ul className="mt-3 flex flex-col">
                       {group.items.map((item) => (
                         <li key={item.label}>
                           <Link
                             href={item.href}
                             onClick={() => setOpen(false)}
-                            className="group/it -mx-3 flex items-center justify-between gap-4 rounded-lg px-3 py-2.5 transition-colors hover:bg-[var(--accent-soft)] active:bg-[var(--accent-soft)]"
+                            className="group/it -mx-3 flex items-center justify-between gap-4 rounded-lg px-3 py-4 transition-colors hover:bg-[var(--accent-soft)] active:bg-[var(--accent-soft)]"
                           >
                             <span className="flex items-baseline gap-3">
                               {item.meta && (
-                                <span className="font-mono text-[11px] tracking-[0.1em] text-[var(--accent)]">
+                                <span className="font-mono text-[12px] tracking-[0.12em] text-[var(--accent)]">
                                   {item.meta}
                                 </span>
                               )}
-                              <span className="text-[17px] tracking-[0.01em] text-[var(--fg)] transition-colors group-hover/it:text-[var(--accent)]">
+                              <span className="font-mono text-[15px] uppercase tracking-[0.1em] text-[var(--fg)] transition-colors group-hover/it:text-[var(--accent)]">
                                 {item.label}
                               </span>
                             </span>
@@ -131,7 +131,7 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                   delay: 0.08 + groups.length * 0.05 + 0.05,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="mt-auto pt-5"
+                className="pt-6"
               >
                 <ul className="flex flex-col">
                   {[
@@ -142,9 +142,9 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                       <Link
                         href={l.href}
                         onClick={() => setOpen(false)}
-                        className="group/ft flex items-center justify-between border-t border-[var(--rule-strong)] py-4"
+                        className="group/ft flex items-center justify-between border-t border-[var(--rule-strong)] py-5"
                       >
-                        <span className="font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover/ft:text-[var(--accent)]">
+                        <span className="font-mono text-[15px] uppercase tracking-[0.1em] text-[var(--fg)] transition-colors group-hover/ft:text-[var(--accent)]">
                           {l.label}
                         </span>
                         <ArrowRight />
@@ -215,7 +215,7 @@ function ArrowRight() {
   return (
     <svg
       viewBox="0 0 24 24"
-      className="h-4 w-4 shrink-0 text-[var(--fg-2)] transition-transform duration-300 group-hover/it:translate-x-0.5 group-hover/ft:translate-x-0.5"
+      className="h-[18px] w-[18px] shrink-0 text-[var(--fg-2)] transition-transform duration-300 group-hover/it:translate-x-0.5 group-hover/ft:translate-x-0.5"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.6"
