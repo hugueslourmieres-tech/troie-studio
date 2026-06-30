@@ -7,37 +7,34 @@ const PROJECTS = [
   {
     name: "LOIR Paris",
     kind: "E-commerce · mode",
-    img: "/images/creation/web/loirparis.jpg",
     href: "https://loirparis.fr",
     label: "loirparis.fr",
-  },
-  {
-    name: "Maison Lumière",
-    kind: "Site vitrine · hôtellerie (démo)",
-    img: "/images/creation/web/maison-lumiere.jpg",
-    href: "/demo/maison-lumiere",
-    label: "Voir la démo",
-  },
-  {
-    name: "Color Guesser",
-    kind: "Web app · jeu",
-    img: "/images/creation/web/playcolorguesser.jpg",
-    href: "https://playcolorguesser.com",
-    label: "playcolorguesser.com",
+    desktop: "/images/creation/web/loirparis-desktop.jpg",
+    mobile: "/images/creation/web/loirparis-mobile.jpg",
   },
   {
     name: "Rutherford",
     kind: "Site web & plateforme SaaS",
-    img: "/images/creation/web/rutherford.jpg",
     href: "https://rutherford.fr",
     label: "rutherford.fr",
+    desktop: "/images/creation/web/rutherford-desktop.jpg",
+    mobile: "/images/creation/web/rutherford-mobile.jpg",
   },
   {
     name: "PerPost",
     kind: "Site web & application",
-    img: "/images/creation/web/perpost.jpg",
     href: "https://perpost-web.vercel.app",
     label: "perpost-web.vercel.app",
+    desktop: "/images/creation/web/perpost-desktop.jpg",
+    mobile: "/images/creation/web/perpost-mobile.jpg",
+  },
+  {
+    name: "Color Guesser",
+    kind: "Web app · jeu",
+    href: "https://playcolorguesser.com",
+    label: "playcolorguesser.com",
+    desktop: "/images/creation/web/colorguesser-desktop.jpg",
+    mobile: "/images/creation/web/colorguesser-mobile.jpg",
   },
 ];
 
@@ -132,25 +129,46 @@ export default async function WebPage({
             Des sites et des apps en ligne.
           </h2>
 
-          <ul className="mt-12 grid gap-8 sm:grid-cols-2 md:mt-16 md:gap-x-8 md:gap-y-14 lg:grid-cols-3">
+          <ul className="mt-12 grid gap-x-10 gap-y-16 md:mt-16 lg:grid-cols-2">
             {PROJECTS.map((p) => (
               <li key={p.name}>
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group block"
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)]">
-                    <Image
-                      src={p.img}
-                      alt={`${p.name}, aperçu du site`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover object-top grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
-                    />
+                <a href={p.href} target="_blank" rel="noreferrer" className="group block">
+                  {/* Aperçu desktop + mobile */}
+                  <div className="relative">
+                    {/* Navigateur */}
+                    <div className="overflow-hidden rounded-xl border border-[var(--rule)] bg-[var(--bg-2)] shadow-[0_30px_70px_-30px_rgba(26,23,20,0.4)] transition-transform duration-500 group-hover:-translate-y-1">
+                      <div className="flex items-center gap-1.5 border-b border-[var(--rule)] bg-[var(--bg)] px-4 py-2.5">
+                        <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
+                        <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
+                        <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
+                        <span className="mx-auto flex h-5 w-1/2 max-w-[200px] items-center justify-center rounded-full bg-[var(--bg-2)] font-mono text-[9px] tracking-[0.1em] text-[var(--fg-2)]/55">
+                          {p.label}
+                        </span>
+                      </div>
+                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
+                        <Image
+                          src={p.desktop}
+                          alt={`${p.name}, aperçu desktop`}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="object-cover object-top"
+                        />
+                      </div>
+                    </div>
+                    {/* Téléphone */}
+                    <div className="absolute -bottom-6 right-5 w-[20%] min-w-[66px] max-w-[112px] overflow-hidden rounded-[1.3rem] border-[5px] border-[#1a1714] bg-[#1a1714] shadow-[0_20px_44px_-18px_rgba(26,23,20,0.65)] transition-transform duration-500 group-hover:-translate-y-1">
+                      <div className="relative aspect-[9/19.5] w-full overflow-hidden rounded-[0.9rem] bg-white">
+                        <Image
+                          src={p.mobile}
+                          alt={`${p.name}, aperçu mobile`}
+                          fill
+                          sizes="112px"
+                          className="object-cover object-top"
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="t-display mt-5 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
+                  <h3 className="t-display mt-9 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
                     {p.name}
                   </h3>
                   <p className="mt-1 text-sm text-[var(--fg-2)]">{p.kind}</p>
