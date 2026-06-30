@@ -3,7 +3,7 @@ import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import { ContactCTA } from "@/components/ContactCTA";
 
-const PROJECTS = [
+const PROJECTS: Project[] = [
   {
     name: "LOIR Paris",
     kind: "E-commerce · mode",
@@ -12,6 +12,7 @@ const PROJECTS = [
     label: "loirparis.fr",
     desktop: "/images/creation/web/loirparis-desktop.jpg",
     mobile: "/images/creation/web/loirparis-mobile.jpg",
+    app: "loir",
   },
   {
     name: "Rutherford",
@@ -30,6 +31,7 @@ const PROJECTS = [
     label: "perpost-web.vercel.app",
     desktop: "/images/creation/web/perpost-desktop.jpg",
     mobile: "/images/creation/web/perpost-mobile.jpg",
+    app: "perpost",
   },
   {
     name: "Color Guesser",
@@ -39,10 +41,11 @@ const PROJECTS = [
     label: "playcolorguesser.com",
     desktop: "/images/creation/web/colorguesser-desktop.jpg",
     mobile: "/images/creation/web/colorguesser-mobile.jpg",
+    app: "color",
   },
 ];
 
-const EXAMPLES = [
+const EXAMPLES: Project[] = [
   {
     name: "Cabinet d'avocats",
     kind: "Exemple · site vitrine juridique",
@@ -71,7 +74,38 @@ type Project = {
   label: string;
   desktop: string;
   mobile: string;
+  /** Affiche une icône "application disponible" sur la carte. */
+  app?: "loir" | "perpost" | "color";
 };
+
+/** Icône d'application (style iOS) posée sur la carte des projets avec une app. */
+function AppIcon({ type }: { type: NonNullable<Project["app"]> }) {
+  const base =
+    "absolute -bottom-7 left-5 z-10 flex h-14 w-14 items-center justify-center rounded-[28%] shadow-[0_14px_32px_-10px_rgba(26,23,20,0.55)] ring-1 ring-black/5 transition-transform duration-500 group-hover:-translate-y-1";
+  if (type === "loir") {
+    return (
+      <div className={`${base} bg-[#ece3d8]`}>
+        <span className="t-display text-2xl leading-none text-[#2a2622]">L</span>
+      </div>
+    );
+  }
+  if (type === "perpost") {
+    return (
+      <div className={`${base} bg-[#141414]`}>
+        <svg viewBox="0 0 24 24" className="h-6 w-6" fill="#FFD400" aria-hidden="true">
+          <path d="M21.4 3.1 2.6 11.3c-.7.3-.7 1.3.1 1.5l5.3 1.6 2 5.5c.3.7 1.2.8 1.6.2l2.7-3.4 4.9 3.6c.5.4 1.3.1 1.4-.6L23 4c.1-.7-.6-1.2-1.3-.9zM9.2 14.7l8.7-7.2-6.6 8.2-.1 3z" />
+        </svg>
+      </div>
+    );
+  }
+  return (
+    <div className={`${base} gap-1 bg-[#f4eee4]`}>
+      <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#e8836a]" />
+      <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#f0c14b]" />
+      <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#5aa9a0]" />
+    </div>
+  );
+}
 
 /** Carte projet : fenêtre navigateur desktop + fenêtre mobile en superposition. */
 function ProjectCard({ p }: { p: Project }) {
@@ -124,6 +158,7 @@ function ProjectCard({ p }: { p: Project }) {
               </div>
             </div>
           </div>
+          {p.app ? <AppIcon type={p.app} /> : null}
         </div>
 
         <h3 className="t-display mt-16 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
