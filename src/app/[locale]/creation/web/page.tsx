@@ -102,11 +102,14 @@ function ProjectCard({ p }: { p: Project }) {
 
           {/* Mobile : la page mobile en superposition (sans cadre), centrée */}
           <div className="absolute -bottom-9 right-6 w-[32%] min-w-[120px] max-w-[178px] sm:right-10 transition-transform duration-500 group-hover:-translate-y-1">
-            <div className="overflow-hidden rounded-[1.4rem] bg-white shadow-[0_28px_62px_-18px_rgba(26,23,20,0.5)] ring-1 ring-[#1a1714]/10">
-              <div className="bg-[#f3f3f5] px-2 pb-1.5 pt-2">
-                <div className="mx-auto flex max-w-[140px] items-center justify-center gap-1 rounded-md bg-white px-2.5 py-1 shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
-                  <span aria-hidden="true" className="text-[7px] leading-none text-[#9a9183]">🔒</span>
-                  <span className="truncate text-[7px] font-medium tracking-tight text-[#6a6356]">{p.url}</span>
+            <div className="overflow-hidden rounded-[1.4rem] bg-[var(--bg-2)] shadow-[0_28px_62px_-18px_rgba(26,23,20,0.5)] ring-1 ring-[#1a1714]/10">
+              <div className="border-b border-[var(--rule)] bg-[var(--bg)] px-2.5 py-2">
+                <div className="mx-auto flex max-w-[150px] items-center justify-center gap-1.5 rounded-full bg-[var(--bg-2)] px-3 py-1">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-2.5 w-2.5 shrink-0 text-[var(--fg-2)]/45">
+                    <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" />
+                    <path d="M8 10.5V7a4 4 0 0 1 8 0v3.5" />
+                  </svg>
+                  <span className="truncate font-mono text-[8px] tracking-[0.08em] text-[var(--fg-2)]/55">{p.url}</span>
                 </div>
               </div>
               <div className="relative aspect-[9/16] w-full overflow-hidden bg-white">
