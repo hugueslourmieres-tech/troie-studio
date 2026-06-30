@@ -11,6 +11,7 @@ const PROJECTS: Project[] = [
     url: "loirparis.fr",
     label: "loirparis.fr",
     desktop: "/images/creation/web/loirparis-desktop.jpg",
+    video: "/videos/creation/web/loirparis.mp4",
     mobile: "/images/creation/web/loirparis-mobile.jpg",
   },
   {
@@ -20,6 +21,7 @@ const PROJECTS: Project[] = [
     url: "rutherford.fr",
     label: "rutherford.fr",
     desktop: "/images/creation/web/rutherford-desktop.jpg",
+    video: "/videos/creation/web/rutherford.mp4",
     mobile: "/images/creation/web/rutherford-mobile.jpg",
   },
   {
@@ -29,6 +31,7 @@ const PROJECTS: Project[] = [
     url: "capefront-site.vercel.app",
     label: "capefront-site.vercel.app",
     desktop: "/images/creation/web/capefront-desktop.jpg",
+    video: "/videos/creation/web/capefront.mp4",
     mobile: "/images/creation/web/capefront-mobile.jpg",
   },
   {
@@ -38,6 +41,7 @@ const PROJECTS: Project[] = [
     url: "perpost-web.vercel.app",
     label: "perpost-web.vercel.app",
     desktop: "/images/creation/web/perpost-desktop.jpg",
+    video: "/videos/creation/web/perpost.mp4",
     mobile: "/images/creation/web/perpost-mobile.jpg",
     mobileApp: true,
   },
@@ -48,28 +52,7 @@ const PROJECTS: Project[] = [
     url: "playcolorguesser.com",
     label: "playcolorguesser.com",
     desktop: "/images/creation/web/colorguesser-desktop.jpg",
-    mobile: "/images/creation/web/colorguesser-mobile.jpg",
-  },
-];
-
-const EXAMPLES: Project[] = [
-  {
-    name: "Cabinet d'avocats",
-    kind: "Exemple · site vitrine juridique",
-    href: "/demo/avocat",
-    url: "vasseur-associes.fr",
-    label: "Voir l'exemple",
-    desktop: "/images/creation/web/avocat-desktop.jpg",
-    mobile: "/images/creation/web/avocat-mobile.jpg",
-  },
-  {
-    name: "Hôtel & rooftop",
-    kind: "Exemple · site vitrine hôtellerie",
-    href: "/demo/maison-lumiere",
-    url: "maison-lumiere.fr",
-    label: "Voir l'exemple",
-    desktop: "/images/creation/web/maison-desktop.jpg",
-    mobile: "/images/creation/web/maison-mobile.jpg",
+    mobile: "/images/creation/web/colorguesser-app.jpg",
   },
 ];
 
@@ -81,6 +64,8 @@ type Project = {
   label: string;
   desktop: string;
   mobile: string;
+  /** Aperçu video du hero (lit en boucle, fallback sur l'image desktop). */
+  video?: string;
   /** Affiche une capture d'app (sans barre URL navigateur). */
   mobileApp?: boolean;
 };
@@ -102,13 +87,28 @@ function ProjectCard({ p }: { p: Project }) {
               </span>
             </div>
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
-              <Image
-                src={p.desktop}
-                alt={`${p.name}, aperçu desktop`}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-top"
-              />
+              {p.video ? (
+                <video
+                  className="absolute inset-0 h-full w-full object-cover object-top"
+                  poster={p.desktop}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  aria-label={`${p.name}, aperçu animé`}
+                >
+                  <source src={p.video} type="video/mp4" />
+                </video>
+              ) : (
+                <Image
+                  src={p.desktop}
+                  alt={`${p.name}, aperçu desktop`}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top"
+                />
+              )}
             </div>
           </div>
 
@@ -245,23 +245,6 @@ export default async function WebPage({
 
           <ul className="mt-12 grid gap-x-10 gap-y-16 md:mt-16 lg:grid-cols-2">
             {PROJECTS.map((p) => (
-              <ProjectCard key={p.name} p={p} />
-            ))}
-          </ul>
-
-          {/* Exemples par secteur */}
-          <p className="mt-24 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)] md:mt-32">
-            Exemples par secteur
-          </p>
-          <h2 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl">
-            Des maquettes prêtes pour votre métier.
-          </h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/80">
-            Un aperçu de ce que nous concevons par secteur. Exemples de
-            démonstration, à décliner à votre marque.
-          </p>
-          <ul className="mt-12 grid gap-x-10 gap-y-16 md:mt-16 lg:grid-cols-2">
-            {EXAMPLES.map((p) => (
               <ProjectCard key={p.name} p={p} />
             ))}
           </ul>
