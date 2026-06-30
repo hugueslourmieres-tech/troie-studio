@@ -7,14 +7,8 @@ import { FormationsFooter } from "@/components/FormationsFooter";
 import { Slideshow } from "@/components/Slideshow";
 
 /* Images de formation pour le slideshow du Pack 04. */
-const FORMATION_SLIDES = [
-  "/images/training-section/01.jpg",
-  "/images/corpo/barcelona/13Hugues-Nikon-35mm.jpg",
-  "/images/training-section/02.jpg",
-  "/images/corpo/montpellier/DSC_7573.jpg",
-  "/images/training-section/03.jpg",
-  "/images/corpo/strategie/DSC_5552-4.jpg",
-];
+// Une seule photo (casque) pour le Pack 04, plus de slideshow.
+const FORMATION_SLIDES = ["/images/corpo/strategie/DSC_5552-4.jpg"];
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/troiestudio/30min";
