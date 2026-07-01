@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/ContactForm";
 
@@ -63,17 +62,6 @@ function ContactView() {
           <ContactForm />
 
           <aside className="space-y-6 md:col-span-5">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)]">
-              <Image
-                src="/images/training-section/01.jpg"
-                alt="L'atelier TROIE à Nice"
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-                style={{ filter: "grayscale(1) contrast(1.03)" }}
-              />
-            </div>
-
             <div className="rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-8">
               <p className="t-eyebrow">Direct</p>
               <div className="mt-5 space-y-3">
