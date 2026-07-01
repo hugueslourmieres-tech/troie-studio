@@ -8,13 +8,9 @@ const CLIENTS = [
   "CHANEL",
   "X-RITE",
   "SOFITEL",
-  "GS MONACO",
-  "VEORIA",
   "RUTHERFORD",
   "TOP AKITA INU",
   "CAPEFRONT",
-  "STUDIO DE LA ROCHE",
-  "MEASURECOLOR",
   "LOIR PARIS",
 ];
 
