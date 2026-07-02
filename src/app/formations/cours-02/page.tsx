@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BuyButton } from "@/components/BuyButton";
 import { EmblemBreak } from "@/components/EmblemBreak";
 import { FormationsFooter } from "@/components/FormationsFooter";
 import { JsonLd, ORG_ID } from "@/components/JsonLd";
@@ -31,7 +32,9 @@ const COURSE_JSONLD = {
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/troiestudio/30min";
-const CHECKOUT_URL = "mailto:contact@troiestudio.fr?subject=Cours+02+%E2%80%94+TROIE-MULTI";
+// Achat via Stripe Checkout (BuyButton) ; mailto en secours si Stripe
+// n'est pas configuré sur l'environnement.
+const FALLBACK_MAILTO = "mailto:contact@troiestudio.fr?subject=Cours+02+%E2%80%94+TROIE-MULTI";
 
 export const metadata = {
   title: "Cours 02 · Workflows IA pour solo & équipe, TROIE Formations",
@@ -195,13 +198,12 @@ export default function Cours02Page() {
                 Make, MCPs, agents persistants, 10 workflows business clés-en-main, sécurité production.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <a
-                  href={CHECKOUT_URL}
+                <BuyButton
+                  product="cours-02"
+                  label="Acheter · 297 € · accès à vie"
+                  fallbackMailto={FALLBACK_MAILTO}
                   className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
-                >
-                  Demander un devis
-                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
+                />
                 <Link
                   href="/formations/cours-01"
                   className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
@@ -244,13 +246,12 @@ export default function Cours02Page() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={CHECKOUT_URL}
+                <BuyButton
+                  product="cours-02"
+                  label="Acheter · 297 €"
+                  fallbackMailto={FALLBACK_MAILTO}
                   className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
-                >
-                  Demander un devis
-                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
+                />
                 <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
                   Garantie satisfait ou remboursé 14 jours
                 </p>
@@ -442,13 +443,12 @@ export default function Cours02Page() {
                 Garantie 14 jours, sans question. Le cours qui transforme vos heures perdues en pipeline.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <a
-                  href={CHECKOUT_URL}
+                <BuyButton
+                  product="cours-02"
+                  label="Acheter · 297 € · accès à vie"
+                  fallbackMailto={FALLBACK_MAILTO}
                   className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
-                >
-                  Demander un devis
-                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
+                />
                 <Link
                   href="/formations/mastermind"
                   className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:text-[var(--bg)]"
