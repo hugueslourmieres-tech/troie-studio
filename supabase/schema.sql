@@ -1,11 +1,11 @@
 -- ────────────────────────────────────────────────────────────────────
--- TROIE Formations — Supabase database schema
+-- TROIE Formations : Supabase database schema
 --
 -- A copier dans le SQL Editor de Supabase au moment du go-live.
 -- Inclut : profiles, courses, modules, lessons, progress, trophies, RLS.
 -- ────────────────────────────────────────────────────────────────────
 
--- Reset (dev only — remove on prod)
+-- Reset (dev only : remove on prod)
 -- drop table if exists public.user_trophies cascade;
 -- drop table if exists public.user_lesson_progress cascade;
 -- drop table if exists public.user_module_progress cascade;
@@ -90,7 +90,7 @@ alter table public.modules enable row level security;
 create policy "Anyone reads modules" on public.modules
   for select using (true);  -- Course access is enforced at lesson level
 
--- ── LESSONS (inside a module — optional layer) ──────────────────────
+-- ── LESSONS (inside a module : optional layer) ──────────────────────
 create table if not exists public.lessons (
   id uuid default gen_random_uuid() primary key,
   module_id uuid references public.modules(id) on delete cascade not null,
@@ -204,10 +204,10 @@ insert into public.trophies (slug, title, description, icon_slug, tier, xp_rewar
 on conflict (slug) do nothing;
 
 -- ── SEED COURSES (3 cours) ──────────────────────────────────────────
-insert into public.courses (slug, title, subtitle, description, price_cents, modules_count, duration_min, level) values
-  ('module-0',  'Module 0 — Théorie LLM',           'Pourquoi un LLM hallucine et veut vous plaire', 0,     1, 15,  'free'),
-  ('cours-01',  'Cours 01 — Maîtriser ChatGPT & Claude', '4 modules · 25 prompts · 5 templates',     9700,  4, 90,  'starter'),
-  ('cours-02',  'Cours 02 — Workflows IA',          'Make · MCPs · Agents persistants',              29700, 7, 180, 'advanced')
+insert into public.courses (slug, title, subtitle, price_cents, modules_count, duration_min, level) values
+  ('module-0',  'Module 0 · Théorie LLM',           'Pourquoi un LLM hallucine et veut vous plaire', 0,     1, 15,  'free'),
+  ('cours-01',  'Cours 01 · Maîtriser ChatGPT & Claude', '4 modules · 25 prompts · 5 templates',     9700,  4, 90,  'starter'),
+  ('cours-02',  'Cours 02 · Workflows IA',          'Make · MCPs · Agents persistants',              29700, 6, 180, 'advanced')
 on conflict (slug) do nothing;
 
 -- ── HELPER FUNCTIONS ────────────────────────────────────────────────
