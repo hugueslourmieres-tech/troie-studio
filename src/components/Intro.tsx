@@ -22,19 +22,22 @@ type Métier = {
 // Vidéos + outils sourcés depuis /public/images/{vidéos,logos}.
 // Les logos sont en SVG monochrome, posés avec un filtre brightness(0)
 // pour rester noirs en tout cas, et une opacité réduite pour rester discrets.
+// Ordre arbitré (juillet 2026) : la formation IA d'abord, la création en
+// cross-sell. Les numéros affichés vivent dans les eyebrows i18n.
 const METIERS: Métier[] = [
   {
     index: "01",
-    slug: "creation",
-    video: "/images/videos/creation.mp4",
-    videoAlt: "Création, vidéo d'illustration",
-    path: "creation",
+    slug: "training",
+    video: "/images/videos/formation.mp4",
+    videoAlt: "Formation, vidéo d'illustration",
+    path: "formation",
     tools: [
-      { src: "/images/logos/adobe.svg", label: "Adobe" },
-      { src: "/images/logos/figma.svg", label: "Figma" },
-      { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
-      { src: "/images/logos/midjourney.svg", label: "Midjourney" },
-      { src: "/images/logos/runway.svg", label: "Runway" },
+      { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+      { src: "/images/logos/claude.svg", label: "Claude" },
+      { src: "/images/logos/gemini.svg", label: "Gemini" },
+      { src: "/images/logos/perplexity.svg", label: "Perplexity" },
+      { src: "/images/logos/make.svg", label: "Make" },
+      { src: "/images/logos/copilot.svg", label: "Copilot" },
     ],
   },
   {
@@ -53,17 +56,16 @@ const METIERS: Métier[] = [
   },
   {
     index: "03",
-    slug: "training",
-    video: "/images/videos/formation.mp4",
-    videoAlt: "Formation, vidéo d'illustration",
-    path: "formation",
+    slug: "creation",
+    video: "/images/videos/creation.mp4",
+    videoAlt: "Création, vidéo d'illustration",
+    path: "creation",
     tools: [
-      { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
-      { src: "/images/logos/claude.svg", label: "Claude" },
-      { src: "/images/logos/gemini.svg", label: "Gemini" },
-      { src: "/images/logos/perplexity.svg", label: "Perplexity" },
-      { src: "/images/logos/make.svg", label: "Make" },
-      { src: "/images/logos/copilot.svg", label: "Copilot" },
+      { src: "/images/logos/adobe.svg", label: "Adobe" },
+      { src: "/images/logos/figma.svg", label: "Figma" },
+      { src: "/images/logos/davinci-resolve.svg", label: "DaVinci Resolve" },
+      { src: "/images/logos/midjourney.svg", label: "Midjourney" },
+      { src: "/images/logos/runway.svg", label: "Runway" },
     ],
   },
 ];
@@ -111,6 +113,28 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
             <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
               {t("introBody")}
             </p>
+
+            {/* CTA : audit gratuit (Cal.com) + plateforme e-learning */}
+            {asHero && (
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+                <a
+                  href="https://cal.com/troiestudio/30min"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
+                >
+                  {t("heroCtaAudit")}
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                </a>
+                <Link
+                  href="/formations"
+                  className="group inline-flex items-center gap-3 border border-[var(--fg)]/40 px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--fg)] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+                >
+                  {t("heroCtaPlatform")}
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                </Link>
+              </div>
+            )}
           </div>
         </Reveal>
 

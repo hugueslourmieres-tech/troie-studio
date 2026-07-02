@@ -43,29 +43,31 @@ export function Header({
 
   const barSolid = scrolled || solid;
 
+  // Ordre arbitré (juillet 2026) : Formation et agents IA d'abord,
+  // la Création descend en dernier (cross-sell).
   const groups: NavGroup[] = [
-    {
-      label: "Création",
-      href: `/${locale}/creation`,
-      items: [
-        { href: `/${locale}/medias`, label: "Médias", meta: "01" },
-        { href: `/${locale}/creation/web`, label: "Web", meta: "02" },
-      ],
-    },
-    {
-      label: "Stratégie",
-      href: `/${locale}/strategie`,
-      items: [
-        { href: `/${locale}/strategie`, label: "Stratégie marketing", meta: "01" },
-        { href: `/ia`, label: "Stratégie IA", meta: "02" },
-      ],
-    },
     {
       label: "Formation",
       href: `/formations`,
       items: [
         { href: `/ia`, label: "Professionnel", meta: "01" },
         { href: `/formations`, label: "Particulier", meta: "02" },
+      ],
+    },
+    {
+      label: "Stratégie",
+      href: `/${locale}/strategie`,
+      items: [
+        { href: `/ia`, label: "Stratégie IA", meta: "01" },
+        { href: `/${locale}/strategie`, label: "Stratégie marketing", meta: "02" },
+      ],
+    },
+    {
+      label: "Création",
+      href: `/${locale}/creation`,
+      items: [
+        { href: `/${locale}/medias`, label: "Médias", meta: "01" },
+        { href: `/${locale}/creation/web`, label: "Web", meta: "02" },
       ],
     },
   ];
