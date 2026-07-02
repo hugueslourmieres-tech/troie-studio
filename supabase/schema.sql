@@ -206,8 +206,8 @@ on conflict (slug) do nothing;
 -- ── SEED COURSES (3 cours) ──────────────────────────────────────────
 insert into public.courses (slug, title, subtitle, price_cents, modules_count, duration_min, level) values
   ('module-0',  'Module 0 · Théorie LLM',           'Pourquoi un LLM hallucine et veut vous plaire', 0,     1, 15,  'free'),
-  ('cours-01',  'Cours 01 · Maîtriser ChatGPT & Claude', '4 modules · 25 prompts · 5 templates',     9700,  4, 90,  'starter'),
-  ('cours-02',  'Cours 02 · Workflows IA',          'Make · MCPs · Agents persistants',              29700, 6, 180, 'advanced')
+  ('cours-01',  'Cours 01 · Maîtriser ChatGPT & Claude', '4 modules · 25 prompts · 5 templates',     9900,  4, 90,  'starter'),
+  ('cours-02',  'Cours 02 · Workflows IA',          'Make · MCPs · Agents persistants',              29900, 6, 180, 'advanced')
 on conflict (slug) do nothing;
 
 -- ── HELPER FUNCTIONS ────────────────────────────────────────────────

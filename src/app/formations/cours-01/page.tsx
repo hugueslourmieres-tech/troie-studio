@@ -18,7 +18,7 @@ const COURSE_JSONLD = {
   timeRequired: "PT90M",
   offers: {
     "@type": "Offer",
-    price: "97",
+    price: "99",
     priceCurrency: "EUR",
     availability: "https://schema.org/InStock",
     url: "https://troiestudio.fr/formations/cours-01",
@@ -39,7 +39,7 @@ const FALLBACK_MAILTO = "mailto:contact@troiestudio.fr?subject=Cours+01+%E2%80%9
 export const metadata = {
   title: "Cours 01 · Maîtriser ChatGPT & Claude, TROIE Formations",
   description:
-    "4 modules · 90 min de vidéo · 25 prompts livrés · accès à vie. Équipez votre premier héros IA en 1 soirée. 97 €.",
+    "4 modules · 90 min de vidéo · 25 prompts livrés · accès à vie. Équipez votre premier héros IA en 1 soirée. 99 €.",
   alternates: {
     canonical: "https://troiestudio.fr/formations/cours-01",
   },
@@ -181,7 +181,7 @@ export default function Cours01Page() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <BuyButton
                   product="cours-01"
-                  label="Acheter · 97 € · accès à vie"
+                  label="Acheter · 99 € · accès à vie"
                   fallbackMailto={FALLBACK_MAILTO}
                   className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 />
@@ -201,7 +201,7 @@ export default function Cours01Page() {
                   Résumé
                 </p>
                 <h2 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">
-                  97 €
+                  99 €
                 </h2>
                 <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
                   Paiement unique · accès à vie · garantie 14 j
@@ -229,7 +229,7 @@ export default function Cours01Page() {
                 </ul>
                 <BuyButton
                   product="cours-01"
-                  label="Acheter · 97 €"
+                  label="Acheter · 99 €"
                   fallbackMailto={FALLBACK_MAILTO}
                   className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 />
@@ -450,7 +450,7 @@ export default function Cours01Page() {
                 Prêt à équiper votre héros ?
               </p>
               <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-7xl">
-                97 €. Une soirée. Accès à vie.
+                99 €. Une soirée. Accès à vie.
               </h2>
               <p className="mt-8 max-w-2xl text-base leading-relaxed text-[var(--fg)]/85 md:text-lg">
                 Garantie satisfait ou remboursé 14 jours, sans question.
@@ -460,7 +460,7 @@ export default function Cours01Page() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <BuyButton
                   product="cours-01"
-                  label="Acheter · 97 € · accès à vie"
+                  label="Acheter · 99 € · accès à vie"
                   fallbackMailto={FALLBACK_MAILTO}
                   className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 />

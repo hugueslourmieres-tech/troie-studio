@@ -103,7 +103,7 @@ export default function TarifsPage() {
           {/* Abonnement, mis en avant */}
           <div className="relative flex flex-col rounded-sm border border-[var(--accent)] bg-[var(--fg)] p-8 text-[var(--bg)] md:p-10">
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
-              Abonnement · tout le catalogue
+              Abonnement · 7 jours gratuits
             </p>
             <h2 className="t-display mt-5 text-3xl text-[var(--bg)]">
               Tout, en continu.

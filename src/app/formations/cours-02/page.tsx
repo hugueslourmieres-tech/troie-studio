@@ -152,7 +152,7 @@ const DELIVERABLES = [
 const FAQ = [
   {
     q: "Cours 01 est-il un prérequis ?",
-    a: "Pas obligatoire mais fortement recommandé. Cours 02 part du principe que vous savez déjà écrire un system prompt et utiliser un Custom GPT ou un Projet Claude. Si ce n'est pas le cas, commencez par Cours 01 (97 €) avant.",
+    a: "Pas obligatoire mais fortement recommandé. Cours 02 part du principe que vous savez déjà écrire un system prompt et utiliser un Custom GPT ou un Projet Claude. Si ce n'est pas le cas, commencez par Cours 01 (99 €) avant.",
   },
   {
     q: "Faut-il savoir coder ?",

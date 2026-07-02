@@ -367,7 +367,7 @@ export default function FormationsPage() {
                 Formez toute l&apos;équipe, déployez vos agents.
               </h2>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-[#f5f0e6]/75 md:text-lg">
-                Formations intra sur vos cas réels dès 900 €, déploiement
+                Formations intra sur vos cas réels dès 990 €, déploiement
                 d&apos;agents IA, conformité AI Act et supervision continue.
                 Certification Qualiopi en cours. Tout commence par un audit
                 gratuit de 30 minutes.

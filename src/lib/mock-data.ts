@@ -43,7 +43,7 @@ export const MOCK_COURSES: Course[] = [
     subtitle: "4 modules · 90 min de vidéo · 25 prompts livres",
     description:
       "Les 5 patterns de prompts, les system prompts, 10 cas d'usage solo, sécurité RGPD.",
-    price_cents: 9700,
+    price_cents: 9900,
     modules_count: 4,
     duration_min: 90,
     level: "starter",
@@ -56,7 +56,7 @@ export const MOCK_COURSES: Course[] = [
     subtitle: "7 modules · 3 h · MCPs · agents persistants",
     description:
       "Make/Zapier, agents persistants, MCPs, 10 workflows business, production & monitoring.",
-    price_cents: 29700,
+    price_cents: 29900,
     modules_count: 6,
     duration_min: 180,
     level: "advanced",

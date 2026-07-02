@@ -88,7 +88,7 @@ const BRIQUES = [
   {
     step: "03",
     title: "Formation littératie IA",
-    price: "dès 900 €",
+    price: "dès 990 €",
     body: "L'obligation la plus immédiate (article 4). Formation de vos équipes documentée : la preuve de conformité est incluse.",
   },
   {

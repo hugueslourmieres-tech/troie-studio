@@ -34,7 +34,7 @@ export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
     key: "cours-01",
     name: "Cours 01 · Maîtriser ChatGPT & Claude",
     description: "4 modules, 90 min, 25 prompts livrés. Accès à vie.",
-    amountCents: 9700,
+    amountCents: 9900,
     interval: "one_time",
     grants: ["cours-01"],
   },
@@ -49,7 +49,7 @@ export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
   "abo-mensuel": {
     key: "abo-mensuel",
     name: "Abonnement TROIE Formations · mensuel",
-    description: "Tout le catalogue, QCM, prompts et nouveautés incluses.",
+    description: "Tout le catalogue, QCM, prompts et nouveautés. 7 jours d'essai gratuit.",
     amountCents: 2900,
     interval: "month",
     grants: ["*"],

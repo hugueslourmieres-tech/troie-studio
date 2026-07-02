@@ -74,6 +74,8 @@ export async function POST(request: NextRequest) {
       ? {
           subscription_data: {
             metadata: { user_id: user.id, product_key: product.key },
+            // Essai gratuit : 7 jours, carte demandée, annulable avant débit.
+            trial_period_days: 7,
           },
         }
       : {}),
