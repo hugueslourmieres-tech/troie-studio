@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  MOCK_COURSES,
-  MOCK_MODULES,
-  MOCK_COURSE_ACCESS,
-} from "@/lib/mock-data";
+import { MOCK_COURSES, MOCK_MODULES } from "@/lib/mock-data";
+import { getLearnState } from "@/lib/learn/data";
+import { CompleteModuleButton } from "@/components/CompleteModuleButton";
 
 type Params = Promise<{ slug: string; moduleSlug: string }>;
 
@@ -26,8 +24,10 @@ export default async function ModuleViewerPage({ params }: { params: Params }) {
   const mod = modules.find((m) => m.slug === moduleSlug);
   if (!mod) notFound();
 
-  const unlocked = MOCK_COURSE_ACCESS.has(slug);
-  const canAccess = unlocked || mod.is_free;
+  const state = await getLearnState();
+  const canAccess = state.access.has(slug) || mod.is_free;
+  const moduleCompleted =
+    state.progress.get(`${slug}/${mod.slug}`)?.status === "completed";
 
   if (!canAccess) {
     return (
@@ -129,18 +129,13 @@ export default async function ModuleViewerPage({ params }: { params: Params }) {
         </div>
       </section>
 
-      {/* Mark as complète */}
+      {/* Marquer comme terminé (persiste la progression) */}
       <section>
-        <button
-          type="button"
-          className="inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
-        >
-          ✓ Marquer comme terminé
-          <span aria-hidden="true">→</span>
-        </button>
-        <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-          Débloque XP + déclenche les trophées éligibles.
-        </p>
+        <CompleteModuleButton
+          courseSlug={slug}
+          moduleSlug={mod.slug}
+          initiallyCompleted={moduleCompleted}
+        />
       </section>
 
       {/* Nav prev/next */}

@@ -6,6 +6,7 @@ import {
   SUBSCRIPTION_ACCESS_SLUG,
 } from "@/lib/billing/catalog";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { sendAccessEmail } from "@/lib/billing/emails";
 
 /**
  * POST /api/stripe/webhook
@@ -61,27 +62,35 @@ export async function POST(request: NextRequest) {
   switch (event.type) {
     case "checkout.session.completed": {
       const session = event.data.object;
-      if (session.mode !== "payment") break; // abonnements gérés plus bas
-
       const userId =
         session.metadata?.user_id ?? session.client_reference_id ?? null;
       const productKey = session.metadata?.product_key ?? null;
       const product = productKey ? BILLING_PRODUCTS[productKey] : null;
       if (!userId || !product) break;
 
-      // Accès à vie à chaque cours couvert par le produit.
-      for (const slug of product.grants) {
-        if (slug === "*") continue;
-        await admin.from("user_course_access").upsert(
-          {
-            user_id: userId,
-            course_slug: slug,
-            source: "purchase",
-            expires_at: null,
-            stripe_ref: typeof session.id === "string" ? session.id : null,
-          },
-          { onConflict: "user_id,course_slug" },
-        );
+      // Accès à vie pour les achats one-shot (les abonnements sont
+      // gérés par les événements customer.subscription.*).
+      if (session.mode === "payment") {
+        for (const slug of product.grants) {
+          if (slug === "*") continue;
+          await admin.from("user_course_access").upsert(
+            {
+              user_id: userId,
+              course_slug: slug,
+              source: "purchase",
+              expires_at: null,
+              stripe_ref: typeof session.id === "string" ? session.id : null,
+            },
+            { onConflict: "user_id,course_slug" },
+          );
+        }
+      }
+
+      // Email de bienvenue (one-shot comme abonnement), best-effort.
+      const email =
+        session.customer_details?.email ?? session.customer_email ?? null;
+      if (email) {
+        await sendAccessEmail({ to: email, productName: product.name });
       }
       break;
     }

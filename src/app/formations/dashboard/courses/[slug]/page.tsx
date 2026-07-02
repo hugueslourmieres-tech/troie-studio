@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  MOCK_COURSES,
-  MOCK_MODULES,
-  MOCK_COURSE_ACCESS,
-  MOCK_MODULE_PROGRESS,
-} from "@/lib/mock-data";
+import { MOCK_COURSES, MOCK_MODULES } from "@/lib/mock-data";
+import { getLearnState } from "@/lib/learn/data";
+import { BILLING_PRODUCTS } from "@/lib/billing/catalog";
+import { BuyButton } from "@/components/BuyButton";
 
 type Params = Promise<{ slug: string }>;
 
@@ -27,11 +25,15 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
   const course = MOCK_COURSES.find((c) => c.slug === slug);
   if (!course) notFound();
 
-  const unlocked = MOCK_COURSE_ACCESS.has(slug);
+  const state = await getLearnState();
+  const unlocked = state.access.has(slug);
   const modules = MOCK_MODULES[slug] ?? [];
   const progressById = Object.fromEntries(
-    MOCK_MODULE_PROGRESS.map((p) => [p.module_id, p]),
+    modules
+      .map((m) => [m.id, state.progress.get(`${slug}/${m.slug}`)] as const)
+      .filter(([, p]) => p !== undefined),
   );
+  const buyable = BILLING_PRODUCTS[slug];
 
   return (
     <div className="space-y-12 md:space-y-16">
@@ -51,7 +53,23 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
         <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
           {course.description}
         </p>
-        {!unlocked && (
+        {!unlocked && buyable ? (
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <BuyButton
+              product={buyable.key}
+              label={`Débloquer · ${(course.price_cents / 100).toFixed(0)} € · accès à vie`}
+              fallbackMailto={`mailto:contact@troiestudio.fr?subject=${encodeURIComponent(course.title)}`}
+              className="inline-flex items-center gap-3 bg-[var(--fg)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+            />
+            <Link
+              href="/formations/tarifs"
+              className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
+            >
+              Ou tout le catalogue en abonnement →
+            </Link>
+          </div>
+        ) : null}
+        {!unlocked && !buyable && (
           <Link
             href={`/formations/${slug === "module-0" ? "module-0" : slug}`}
             className="mt-8 inline-flex items-center gap-3 bg-[var(--fg)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"

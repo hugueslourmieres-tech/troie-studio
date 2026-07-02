@@ -1,12 +1,6 @@
 import Link from "next/link";
-import {
-  MOCK_COURSES,
-  MOCK_TROPHIES,
-  MOCK_UNLOCKED_TROPHIES,
-  MOCK_COURSE_ACCESS,
-  MOCK_MODULE_PROGRESS,
-  MOCK_MODULES,
-} from "@/lib/mock-data";
+import { MOCK_COURSES, MOCK_TROPHIES, MOCK_MODULES } from "@/lib/mock-data";
+import { getLearnState, getUnlockedTrophySlugs } from "@/lib/learn/data";
 import { TrophyIcon } from "./TrophyIcon";
 import { STARTER_QUIZZES } from "../quizzes";
 import { Mascot } from "@/components/Mascot";
@@ -17,26 +11,38 @@ export const metadata = {
 };
 
 export default async function DashboardOverview() {
-  const accessible = MOCK_COURSES.filter((c) => MOCK_COURSE_ACCESS.has(c.slug));
+  const [state, unlockedTrophySlugs] = await Promise.all([
+    getLearnState(),
+    getUnlockedTrophySlugs(),
+  ]);
+
+  const accessible = MOCK_COURSES.filter((c) => state.access.has(c.slug));
   const recentTrophies = MOCK_TROPHIES.filter((t) =>
-    MOCK_UNLOCKED_TROPHIES.has(t.slug),
+    unlockedTrophySlugs.has(t.slug),
   ).slice(0, 3);
   const lockedTrophies = MOCK_TROPHIES.filter(
-    (t) => !MOCK_UNLOCKED_TROPHIES.has(t.slug),
+    (t) => !unlockedTrophySlugs.has(t.slug),
   ).slice(0, 3);
 
-  // Continuer where left off : dernière module en started
-  const inProgress = MOCK_MODULE_PROGRESS.find((p) => p.status === "started") ?? null;
+  // Reprendre : premier cours accessible entamé mais pas terminé,
+  // on pointe son premier module non complété.
   let continueModule = null;
   let continueCourse = null;
-  if (inProgress) {
-    for (const courseSlug of Object.keys(MOCK_MODULES)) {
-      const m = MOCK_MODULES[courseSlug].find((m) => m.id === inProgress.module_id);
-      if (m) {
-        continueModule = m;
-        continueCourse = MOCK_COURSES.find((c) => c.slug === courseSlug);
-        break;
-      }
+  let continuePct = 0;
+  for (const course of accessible) {
+    const mods = MOCK_MODULES[course.slug] ?? [];
+    if (mods.length === 0) continue;
+    const doneCount = mods.filter(
+      (m) => state.progress.get(`${course.slug}/${m.slug}`)?.status === "completed",
+    ).length;
+    if (doneCount > 0 && doneCount < mods.length) {
+      continueCourse = course;
+      continueModule =
+        mods.find(
+          (m) => state.progress.get(`${course.slug}/${m.slug}`)?.status !== "completed",
+        ) ?? null;
+      continuePct = Math.round((doneCount / mods.length) * 100);
+      break;
     }
   }
 
@@ -110,7 +116,7 @@ export default async function DashboardOverview() {
       </section>
 
       {/* Continue where left off */}
-      {continueModule && continueCourse && inProgress && (
+      {continueModule && continueCourse && (
         <section>
           <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
             Reprendre
@@ -142,13 +148,13 @@ export default async function DashboardOverview() {
                   Progression
                 </span>
                 <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  {inProgress.progress_pct} %
+                  {continuePct} %
                 </span>
               </div>
               <div className="mt-2 h-[3px] w-full overflow-hidden bg-[var(--fg)]/12">
                 <div
                   className="h-full bg-[var(--accent)]"
-                  style={{ width: `${inProgress.progress_pct}%` }}
+                  style={{ width: `${continuePct}%` }}
                 />
               </div>
             </div>
