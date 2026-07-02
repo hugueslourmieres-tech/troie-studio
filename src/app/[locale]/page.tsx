@@ -3,6 +3,7 @@ import { Intro } from "@/components/Intro";
 import { AudienceFork } from "@/components/AudienceFork";
 import { AiUrgency } from "@/components/AiUrgency";
 import { QcmSection } from "@/components/QcmSection";
+import { FormationLadder } from "@/components/FormationLadder";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
 import { McpSection } from "@/components/McpSection";
@@ -42,6 +43,9 @@ export default async function HomePage({
 
       {/* QCM : situer son niveau IA (pour tous), juste sous le fork */}
       <QcmSection />
+
+      {/* Échelle de formation : du gratuit à l'entreprise, prix visibles */}
+      <FormationLadder />
 
       {/* MÉDIAS : photo (réalisations) + vidéo, fusionnés */}
       <MediasSection locale={locale} />

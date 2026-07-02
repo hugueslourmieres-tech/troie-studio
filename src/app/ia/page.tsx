@@ -110,7 +110,7 @@ const PRO_PACKS = [
       "Bibliothèque de prompts collective",
       "Plan d'usage par métier (commercial, marketing, support)",
     ],
-    cta: { label: "Voir le programme", href: `${MAIN_SITE}/fr/formations` },
+    cta: { label: "Voir le programme", href: `${MAIN_SITE}/formations` },
   },
   {
     badge: "Formation 02",
@@ -125,7 +125,7 @@ const PRO_PACKS = [
       "Intégration au workflow créatif existant",
       "Droits, mentions, limites juridiques",
     ],
-    cta: { label: "Voir le programme", href: `${MAIN_SITE}/fr/formations` },
+    cta: { label: "Voir le programme", href: `${MAIN_SITE}/formations` },
   },
   {
     badge: "Formation 03",
@@ -140,7 +140,7 @@ const PRO_PACKS = [
       "1 a 2 automatisations en production",
       "Gouvernance et privacy-by-design",
     ],
-    cta: { label: "Voir le programme", href: `${MAIN_SITE}/fr/formations` },
+    cta: { label: "Voir le programme", href: `${MAIN_SITE}/formations` },
   },
 ];
 

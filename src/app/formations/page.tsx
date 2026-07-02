@@ -355,6 +355,46 @@ export default function FormationsPage() {
         </div>
       </section>
 
+      {/* Équipes & entreprises : la porte B2B du hub (audit, intra, agents) */}
+      <section className="border-t border-[var(--rule)] bg-[#1a1714] text-[#f5f0e6]">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
+          <div className="grid items-center gap-12 md:grid-cols-12">
+            <div className="md:col-span-7">
+              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                Équipes &amp; entreprises
+              </p>
+              <h2 className="t-display mt-6 text-3xl text-[#f5f0e6] md:text-5xl">
+                Formez toute l&apos;équipe, déployez vos agents.
+              </h2>
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-[#f5f0e6]/75 md:text-lg">
+                Formations intra sur vos cas réels dès 900 €, déploiement
+                d&apos;agents IA, conformité AI Act et supervision continue.
+                Certification Qualiopi en cours. Tout commence par un audit
+                gratuit de 30 minutes.
+              </p>
+            </div>
+            <div className="flex flex-col gap-4 md:col-span-5">
+              <a
+                href="https://cal.com/troiestudio/30min"
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6]"
+              >
+                Audit gratuit · 30 min
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </a>
+              <a
+                href="/ia"
+                className="group inline-flex items-center justify-center gap-3 border border-[#f5f0e6]/30 px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              >
+                Découvrir TROIE IA Pro
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <FormationsFooter />
     </article>
   );

@@ -43,7 +43,7 @@ export async function Footer({ locale }: { locale: string }) {
               </li>
               <li>
                 <Link
-                  href={`/${locale}/formation`}
+                  href="/formations"
                   className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
                   {tNav("training")}
