@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MOCK_COURSES, MOCK_MODULES } from "@/lib/mock-data";
 import { getLearnState } from "@/lib/learn/data";
+import { getModuleContent } from "@/lib/learn/content";
+import { LessonMarkdown } from "@/components/LessonMarkdown";
 import { CompleteModuleButton } from "@/components/CompleteModuleButton";
 
 type Params = Promise<{ slug: string; moduleSlug: string }>;
@@ -28,6 +30,7 @@ export default async function ModuleViewerPage({ params }: { params: Params }) {
   const canAccess = state.access.has(slug) || mod.is_free;
   const moduleCompleted =
     state.progress.get(`${slug}/${mod.slug}`)?.status === "completed";
+  const content = canAccess ? await getModuleContent(slug, mod.slug) : null;
 
   if (!canAccess) {
     return (
@@ -101,32 +104,32 @@ export default async function ModuleViewerPage({ params }: { params: Params }) {
               <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" />
             </svg>
             <p className="font-mono text-[10px] uppercase tracking-[0.32em]">
-              Vidéo · NotebookLM · à venir
+              Vidéo · à venir
             </p>
           </div>
         </div>
         <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-          La vidéo sera intégrée via Mux/Cloudflare Stream une fois le tournage NotebookLM finalisé. Le contenu .md est déjà rédigé.
+          La version vidéo arrive bientôt. Le contenu écrit ci-dessous est complet.
         </p>
       </section>
 
-      {/* Content placeholder */}
+      {/* Contenu écrit du module */}
       <section>
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
           Contenu écrit
         </p>
-        <div className="mt-4 rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 md:p-8">
-          <p className="text-base leading-relaxed text-[var(--fg-2)]">
-            {mod.description}
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-[var(--fg-2)]">
-            Le contenu détaillé de ce module est disponible dans le fichier{" "}
-            <code className="font-mono text-[12px] text-[var(--accent)]">
-              /content/{slug === "module-0" ? "cours-01" : slug}/{mod.slug}.md
-            </code>
-            . Il sera transformé en vidéo via NotebookLM puis intégré ici.
-          </p>
-        </div>
+        {content ? (
+          <LessonMarkdown markdown={content} />
+        ) : (
+          <div className="mt-4 rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 md:p-8">
+            <p className="text-base leading-relaxed text-[var(--fg-2)]">
+              {mod.description}
+            </p>
+            <p className="mt-4 text-base leading-relaxed text-[var(--fg-2)]">
+              Le contenu écrit de ce module arrive très prochainement.
+            </p>
+          </div>
+        )}
       </section>
 
       {/* Marquer comme terminé (persiste la progression) */}

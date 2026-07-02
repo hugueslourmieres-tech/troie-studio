@@ -1,4 +1,4 @@
-# Module 5 — Make & Zapier, les bases qui suffisent
+# Module 5 · Make & Zapier, les bases qui suffisent
 
 > **Durée lecture** : 14 min · **Durée vidéo NotebookLM cible** : 18-22 min
 
@@ -10,7 +10,7 @@ Ce module enseigne le minimum suffisant pour brancher votre Claude/ChatGPT sur *
 
 ---
 
-## Leçon 01 — Anatomie d'un scénario
+## Leçon 01 · Anatomie d'un scénario
 
 Un scénario, c'est une suite de modules connectés qui s'exécute sur trigger ou planning.
 
@@ -30,7 +30,7 @@ Setup : 30 min. Tourne tous les jours, sans vous, à 8h pétantes. Brief Slack m
 
 ---
 
-## Leçon 02 — Make vs Zapier vs n8n
+## Leçon 02 · Make vs Zapier vs n8n
 
 ### Make (ex-Integromat)
 - **Force** : workflows complexes (branches, boucles, iterators)
@@ -58,9 +58,9 @@ Setup : 30 min. Tourne tous les jours, sans vous, à 8h pétantes. Brief Slack m
 
 ---
 
-## Leçon 03 — Les 3 triggers essentiels
+## Leçon 03 · Les 3 triggers essentiels
 
-### Trigger 1 — Schedule (CRON)
+### Trigger 1 · Schedule (CRON)
 
 Déclenche à heure fixe. Exemples :
 - Brief matinal à 8h
@@ -70,7 +70,7 @@ Déclenche à heure fixe. Exemples :
 
 Setup Make : module "Schedule" → choisir fréquence → activer.
 
-### Trigger 2 — Webhook
+### Trigger 2 · Webhook
 
 Une URL que Make écoute. Une app externe POST sur cette URL avec un payload → scénario démarre.
 
@@ -80,7 +80,7 @@ Cas d'usage :
 - Calendly RDV pris → préparer brief client
 - GitHub push → notification équipe
 
-### Trigger 3 — Polling app (Gmail, Slack, etc.)
+### Trigger 3 · Polling app (Gmail, Slack, etc.)
 
 Make check toutes les X minutes si une nouvelle data est apparue dans une app (nouveau mail Gmail, nouveau message Slack, nouvelle ligne Airtable). Si oui, déclenche.
 
@@ -88,7 +88,7 @@ Plus lent que webhook (latence de 1-15 min selon plan) mais marche avec toutes l
 
 ---
 
-## Leçon 04 — Appeler Claude / GPT depuis Make
+## Leçon 04 · Appeler Claude / GPT depuis Make
 
 Make a un module **HTTP** générique. Vous configurez :
 
@@ -137,7 +137,7 @@ Stockez votre clé API dans les **Make Connections** (chiffré) ou dans les vari
 
 ---
 
-## Leçon 05 — Iterators : traiter une liste
+## Leçon 05 · Iterators : traiter une liste
 
 Vous avez 50 leads dans un CSV. Vous voulez qualifier chacun avec Claude. Make peut le faire en 1 scénario avec un **Iterator**.
 
@@ -157,7 +157,7 @@ Couplez avec un **Aggregator** ensuite, pour resynthétiser les résultats en 1 
 
 ---
 
-## Leçon 06 — Coût typique d'un scénario IA quotidien
+## Leçon 06 · Coût typique d'un scénario IA quotidien
 
 Estimation réaliste pour un scénario "brief matinal IA" qui tourne 1x/jour pendant 30 jours :
 
@@ -173,7 +173,7 @@ Si vous remplacez 30 min × 22 jours = 11 h de lecture/synthèse manuelle à 50 
 
 ---
 
-## Leçon 07 — Debugger un scénario Make
+## Leçon 07 · Debugger un scénario Make
 
 Make a un mode debug puissant. **"Run Once"** exécute le scénario en visualisant les données à chaque étape.
 
@@ -197,7 +197,7 @@ Make a un mode debug puissant. **"Run Once"** exécute le scénario en visualisa
 
 ---
 
-## Leçon 08 — La règle d'or : valider avant l'envoi externe
+## Leçon 08 · La règle d'or : valider avant l'envoi externe
 
 L'IA peut produire du texte mal formaté, du JSON cassé, du contenu hors-sujet.
 
@@ -228,7 +228,7 @@ Templates Make `.json` exportables fournis. Vous importez en 1 clic dans votre M
 
 Make + Claude/GPT = 80 % de ce dont vous avez besoin pour automatiser. Pas besoin de coder. Pas besoin d'ingénieur.
 
-**Prochaine étape** : Module 6 — Agents persistants. On y passe de "scénario qui tourne sur trigger" à "agent qui observe-décide-agit dans la durée, avec mémoire".
+**Prochaine étape** : Module 6. Agents persistants. On y passe de "scénario qui tourne sur trigger" à "agent qui observe-décide-agit dans la durée, avec mémoire".
 
 ---
 

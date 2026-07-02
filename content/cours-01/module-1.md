@@ -1,4 +1,4 @@
-# Module 1 — Les 5 patterns de prompts qui marchent
+# Module 1 · Les 5 patterns de prompts qui marchent
 
 > **Durée lecture** : 12 min · **Durée vidéo NotebookLM cible** : 15-20 min
 
@@ -10,7 +10,7 @@ Cinq patterns. Ils couvrent 95 % de vos besoins. Une fois appris, vous les combi
 
 ---
 
-## Pattern 1 — RTCF : la fondation
+## Pattern 1 · RTCF : la fondation
 
 **R** ole · **T** ask · **C** ontext · **F** ormat
 
@@ -50,7 +50,7 @@ Résultat : un contrat exploitable, calé sur votre cas. Pas un template génér
 
 ---
 
-## Pattern 2 — Few-shot prompting
+## Pattern 2 · Few-shot prompting
 
 Au lieu d'expliquer ce que vous voulez, **montrez** 2 à 5 exemples du résultat attendu. Le modèle s'aligne dessus.
 
@@ -83,7 +83,7 @@ Avec 3 exemples, le modèle capture le rythme, l'usage des chiffres, la posture 
 
 ---
 
-## Pattern 3 — Chain-of-thought : raisonner avant de répondre
+## Pattern 3 · Chain-of-thought : raisonner avant de répondre
 
 Pour les questions complexes (math, logique, stratégie multi-étapes), ajoutez : *"Réfléchis étape par étape avant de me donner ta réponse finale."*
 
@@ -118,7 +118,7 @@ Les modèles "thinking" (Claude Opus 4.7 thinking mode, GPT-5 Pro, Gemini 2.5 Pr
 
 ---
 
-## Pattern 4 — Constraint prompting : forcer un format strict
+## Pattern 4 · Constraint prompting : forcer un format strict
 
 Quand vous voulez une sortie utilisable par un autre système (CSV, JSON, Markdown structuré), vous devez contraindre le format précisément.
 
@@ -163,7 +163,7 @@ JSON array, structure : {id, intention, urgence, resume}
 
 ---
 
-## Pattern 5 — Critique then iterate : auto-correction
+## Pattern 5 · Critique then iterate : auto-correction
 
 Le pattern le plus puissant et le moins utilisé. Vous demandez au modèle de critiquer sa propre réponse puis de la refaire.
 
@@ -198,15 +198,15 @@ C'est lent (plus de tokens), c'est cher (plus d'API calls), mais pour les output
 
 Les 5 patterns, dans l'ordre utile :
 
-1. **RTCF** — fondation de tout prompt sérieux
-2. **Few-shot** — quand l'exemple vaut mille mots d'instruction
-3. **Chain-of-thought** — quand le raisonnement compte
-4. **Constraint** — quand le format est critique
-5. **Critique then iterate** — quand la qualité est critique
+1. **RTCF** : fondation de tout prompt sérieux
+2. **Few-shot** : quand l'exemple vaut mille mots d'instruction
+3. **Chain-of-thought** : quand le raisonnement compte
+4. **Constraint** : quand le format est critique
+5. **Critique then iterate** : quand la qualité est critique
 
 Vous les combinez. Un bon prompt pro c'est souvent : RTCF + 2-3 few-shot + constraint format + sortie de secours (Module 0).
 
-**Prochaine étape** : Module 2 — System prompts à coller dans GPTs et Projets Claude. On y voit comment transformer ces patterns en "constitution" persistante pour votre assistant.
+**Prochaine étape** : Module 2. System prompts à coller dans GPTs et Projets Claude. On y voit comment transformer ces patterns en "constitution" persistante pour votre assistant.
 
 ---
 

@@ -1,4 +1,4 @@
-# Module 3 — 10 cas d'usage solo
+# Module 3 · 10 cas d'usage solo
 
 > **Durée lecture** : 16 min · **Durée vidéo NotebookLM cible** : 22-28 min
 
@@ -10,7 +10,7 @@ Pour chaque cas : le setup minimum, la sortie attendue, le temps gagné mesuré.
 
 ---
 
-## Cas 01 — Triage email (30 min → 3 min)
+## Cas 01 · Triage email (30 min → 3 min)
 
 **Setup** : Custom GPT "Email Triage" avec 5 catégories (URGENT / RDV / DEVIS / SUPPORT / PUB) + 10 exemples par catégorie + format de sortie tableau.
 
@@ -22,7 +22,7 @@ Pour chaque cas : le setup minimum, la sortie attendue, le temps gagné mesuré.
 
 ---
 
-## Cas 02 — 30 jours de posts LinkedIn dans votre voix
+## Cas 02 · 30 jours de posts LinkedIn dans votre voix
 
 **Setup** : Custom GPT "Content LinkedIn" avec :
 - Votre persona pro en 5 lignes
@@ -38,7 +38,7 @@ Pour chaque cas : le setup minimum, la sortie attendue, le temps gagné mesuré.
 
 ---
 
-## Cas 03 — Devis personnalisé en 30 secondes
+## Cas 03 · Devis personnalisé en 30 secondes
 
 **Setup** : voir le Pack 01 TROIE Prompts → System Prompt "Devis personnalisé" complet livré.
 
@@ -50,7 +50,7 @@ Pour chaque cas : le setup minimum, la sortie attendue, le temps gagné mesuré.
 
 ---
 
-## Cas 04 — Veille concurrentielle quotidienne
+## Cas 04 · Veille concurrentielle quotidienne
 
 **Setup** : Projet Claude "Veille [secteur]" avec :
 - 3-5 concurrents nommés (URL, profil dirigeant)
@@ -66,7 +66,7 @@ Pour chaque cas : le setup minimum, la sortie attendue, le temps gagné mesuré.
 
 ---
 
-## Cas 05 — Transcription + résumé de réunion
+## Cas 05 · Transcription + résumé de réunion
 
 **Setup** :
 1. **Otter.ai** ou **Fireflies** ou **Whisper API** pour transcrire
@@ -80,7 +80,7 @@ Pour chaque cas : le setup minimum, la sortie attendue, le temps gagné mesuré.
 
 ---
 
-## Cas 06 — Pages de vente qui convertissent
+## Cas 06 · Pages de vente qui convertissent
 
 **Setup** : Custom GPT "Sales Copy" avec :
 - 3 frameworks éprouvés (AIDA, PAS, Before-After-Bridge)
@@ -95,7 +95,7 @@ Pour chaque cas : le setup minimum, la sortie attendue, le temps gagné mesuré.
 
 ---
 
-## Cas 07 — 10 visuels on-brand par jour avec Midjourney
+## Cas 07 · 10 visuels on-brand par jour avec Midjourney
 
 **Setup** : système prompt Midjourney avec :
 - `--cref [URL de vos visuels existants]` pour la cohérence persona
@@ -110,7 +110,7 @@ Pour chaque cas : le setup minimum, la sortie attendue, le temps gagné mesuré.
 
 ---
 
-## Cas 08 — Analyse CSV en 2 minutes
+## Cas 08 · Analyse CSV en 2 minutes
 
 **Setup** :
 - **ChatGPT Plus** avec Code Interpreter activé, OU
@@ -125,7 +125,7 @@ Pour chaque cas : le setup minimum, la sortie attendue, le temps gagné mesuré.
 
 ---
 
-## Cas 09 — Comptabilité simplifiée mensuelle
+## Cas 09 · Comptabilité simplifiée mensuelle
 
 **Setup** : Custom GPT "Compta perso" avec :
 - Votre plan comptable (frais pro, achats, ventes, perso, prestation)
@@ -139,7 +139,7 @@ Pour chaque cas : le setup minimum, la sortie attendue, le temps gagné mesuré.
 
 ---
 
-## Cas 10 — Traduction de site en 5 langues sans perdre la voix
+## Cas 10 · Traduction de site en 5 langues sans perdre la voix
 
 **Setup** : Claude (meilleur sur la nuance de langue que GPT et Gemini) avec :
 - System prompt "voix de marque" complet
@@ -160,7 +160,7 @@ Dix cas d'usage. Tous testés en production chez TROIE et nos clients. Le gain t
 
 Pas magique. Pas instantané. Le setup initial demande 2-3 soirées. Mais le ROI est rentable dès la semaine 2.
 
-**Prochaine étape** : Module 4 — Limites, sécurité des données, RGPD. Avant de tout brancher, on apprend ce qu'on NE met JAMAIS dans un LLM.
+**Prochaine étape** : Module 4. Limites, sécurité des données, RGPD. Avant de tout brancher, on apprend ce qu'on NE met JAMAIS dans un LLM.
 
 ---
 

@@ -4,7 +4,7 @@
 
 ---
 
-## NotebookLM en 2026 — ce qu'il fait
+## NotebookLM en 2026 : ce qu'il fait
 
 [Google NotebookLM](https://notebooklm.google.com) (gratuit avec compte Google) génère :
 - **Audio Overview** : podcast à 2 voix (style NPR / France Inter)
@@ -33,7 +33,7 @@ Le format le plus utile : **Video Overview**. Chaque module .md = 1 vidéo de 12
 
 ## Workflow étape par étape
 
-### Étape 1 — Préparer la source
+### Étape 1 : Préparer la source
 
 Pour chaque module, vous avez déjà :
 - Le fichier `.md` dans `/content/cours-XX/module-N.md`
@@ -41,13 +41,13 @@ Pour chaque module, vous avez déjà :
 
 Action : ouvrez le `.md`, copiez tout le contenu.
 
-### Étape 2 — Créer un Notebook
+### Étape 2 : Créer un Notebook
 
 1. Allez sur https://notebooklm.google.com
 2. **"+ Create new notebook"**
-3. Nommez-le : *"TROIE Cours 01 — Module 0"* (ou équivalent)
+3. Nommez-le : *"TROIE Cours 01 : Module 0"* (ou équivalent)
 
-### Étape 3 — Ajouter les sources
+### Étape 3 : Ajouter les sources
 
 NotebookLM accepte :
 - Docs (Google Docs)
@@ -67,14 +67,14 @@ Optionnel : ajoutez 1-2 sources complémentaires pour enrichir :
 - Pour Module 5 : la doc Make officielle
 - Pour Module 8 : la doc MCP Anthropic (https://modelcontextprotocol.io)
 
-### Étape 4 — Générer la Video Overview
+### Étape 4 : Générer la Video Overview
 
 1. Une fois la source ajoutée, dans le panneau de droite cliquez **"Video Overview"**
 2. **Customize the video** (facultatif mais recommandé) : collez le prompt customization de la section "Variables NotebookLM" du `.md`
 3. Cliquez **"Generate"**
 4. **Wait 5-15 minutes** (selon longueur de la source)
 
-### Étape 5 — Récupérer la vidéo
+### Étape 5 : Récupérer la vidéo
 
 1. Une fois prête, vous pouvez :
    - **Regarder en preview** dans NotebookLM
@@ -83,23 +83,23 @@ Optionnel : ajoutez 1-2 sources complémentaires pour enrichir :
 
 2. **Téléchargez le `.mp4`**
 
-### Étape 6 — Upload vers votre hosting
+### Étape 6 : Upload vers votre hosting
 
 Pour l'espace membre TROIE :
 
-**Option A — Mux** (recommandé pour qualité pro)
+**Option A : Mux** (recommandé pour qualité pro)
 1. Compte Mux (https://www.mux.com), plan starter ~10 $/mois
 2. Upload via Direct Upload ou API
 3. Récupérer le playback ID
 4. Embed via `@mux/mux-player-react`
 
-**Option B — Cloudflare Stream** (~5 $/1000 min)
+**Option B : Cloudflare Stream** (~5 $/1000 min)
 1. Compte Cloudflare Stream
 2. Upload via dashboard ou API
 3. Récupérer l'URL HLS
 4. Embed via `<video>` avec HLS.js
 
-**Option C — YouTube unlisted** (gratuit mais branding YouTube)
+**Option C : YouTube unlisted** (gratuit mais branding YouTube)
 1. Upload sur YouTube avec visibilité "Non répertorié"
 2. Embed via `<iframe>`
 3. Inconvénient : pubs possibles, branding YouTube
@@ -109,20 +109,20 @@ Pour l'espace membre TROIE :
 
 ## Limites NotebookLM à connaître
 
-### Limite 1 — Langue
+### Limite 1 : Langue
 - Audio/Video Overview supporte FR (depuis 2025), EN, ES, JP, etc.
 - Force la langue dans le **Customize prompt** : *"Génère la vidéo en français"*
 
-### Limite 2 — Durée
+### Limite 2 : Durée
 - Vidéos limitées à ~25-30 min max actuellement
 - Pour les modules longs (Module 9 par exemple), splittez en 2 sources si nécessaire
 
-### Limite 3 — Visuels
+### Limite 3 : Visuels
 - Les slides sont auto-générées (templates Google)
 - Pas de contrôle fin sur la DA
 - **Workaround** : pour TROIE, prévoir un re-traitement DaVinci/After Effects optionnel pour overlay logo + transitions custom (1-2 h par module)
 
-### Limite 4 — Quota
+### Limite 4 : Quota
 - Gratuit jusqu'à 100 notebooks (largement suffisant pour TROIE)
 - Premium NotebookLM Plus : 5x les notebooks (~20 €/mois)
 
@@ -150,19 +150,19 @@ Si vous voulez une vidéo avec **votre avatar** (votre tête, votre voix), au li
 
 ## Workflow recommandé TROIE (24 vidéos à produire)
 
-### Phase 1 — Validation concept (Module 0 only)
+### Phase 1 : Validation concept (Module 0 only)
 1. Générer le Module 0 via NotebookLM (15 min)
 2. L'embedder dans `/formations/module-0` en MVP
 3. Recueillir feedback utilisateurs (5-10 personnes)
 4. Décider : continuer NotebookLM, ou passer à Heygen ?
 
-### Phase 2 — Production Cours 01 (5 modules)
+### Phase 2 : Production Cours 01 (5 modules)
 - 5 vidéos × 1 h de travail (génération + upload + embed) = 5 h
 
-### Phase 3 — Production Cours 02 (6 modules)
+### Phase 3 : Production Cours 02 (6 modules)
 - 6 vidéos × 1 h = 6 h
 
-### Phase 4 — Polish (optionnel)
+### Phase 4 : Polish (optionnel)
 - Re-traitement DaVinci pour overlay logo + intro custom (1 h/vidéo)
 - Sous-titres FR + EN (Whisper, 30 min par vidéo)
 - Total polish : 2 jours

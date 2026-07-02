@@ -1,16 +1,16 @@
-# Module 7 — Pipeline lead → mail → relance, en 1 après-midi
+# Module 7 · Pipeline lead → mail → relance, en 1 après-midi
 
 > **Durée lecture** : 14 min · **Durée vidéo NotebookLM cible** : 18-22 min
 
 ## Pourquoi ce module
 
-C'est le cas d'usage business numéro 1. Tous les SaaS, freelances, agences en ont besoin. Un pipeline qui prend un lead qualifié, lui écrit, le relance, et le passe en RDV — sans intervention manuelle (sauf validation).
+C'est le cas d'usage business numéro 1. Tous les SaaS, freelances, agences en ont besoin. Un pipeline qui prend un lead qualifié, lui écrit, le relance, et le passe en RDV : sans intervention manuelle (sauf validation).
 
 Setup en 1 après-midi avec ce que vous savez maintenant (Make + Claude/GPT + un CRM léger).
 
 ---
 
-## Étape 1 — La source de leads doit être qualifiée + RGPD
+## Étape 1 · La source de leads doit être qualifiée + RGPD
 
 Le pipeline ne sauve pas une base pourrie. Investissez dans la source.
 
@@ -38,7 +38,7 @@ Le pipeline ne sauve pas une base pourrie. Investissez dans la source.
 
 ---
 
-## Étape 2 — Scoring IA du lead
+## Étape 2 · Scoring IA du lead
 
 Vous voulez prioriser les bons. Faites scorer chaque lead par un LLM.
 
@@ -67,7 +67,7 @@ Vous appelez ce prompt via Make pour chaque nouveau lead. Score >= 8 = priorité
 
 ---
 
-## Étape 3 — Personnaliser massivement sans spammer
+## Étape 3 · Personnaliser massivement sans spammer
 
 La règle : personnaliser le sujet, le premier paragraphe et l'exemple. Pas juste "Bonjour {{prenom}}".
 
@@ -94,22 +94,22 @@ Couplé à un signal observé (Crunchbase, news API, Make Google Alerts), le mai
 
 ---
 
-## Étape 4 — Séquence J0/J7/J21/J45
+## Étape 4 · Séquence J0/J7/J21/J45
 
-### J0 — Premier contact
+### J0 · Premier contact
 Le mail ci-dessus.
 
-### J7 — Rappel doux
+### J7 · Rappel doux
 - Reprend en 1 phrase le contexte
 - Ajoute un élément NOUVEAU (article, cas client, deadline interne)
 - Question fermée
 
-### J21 — Valeur ajoutée
+### J21 · Valeur ajoutée
 - Apporte un vrai insight sans demander
 - Cas client de leur secteur
 - "Si plus pertinent, dites-le, j'arrête"
 
-### J45 — Décision claire
+### J45 · Décision claire
 - "On relance ou on clot ?"
 - Donne le choix : oui / non / pas encore
 - Dernière relance
@@ -124,7 +124,7 @@ Sortir le lead du pipeline si :
 
 ---
 
-## Étape 5 — Réputation de domaine
+## Étape 5 · Réputation de domaine
 
 Sans SPF/DKIM/DMARC bien configurés, vos mails atterrissent en spam. Personne ne les lit. Game over.
 
@@ -151,7 +151,7 @@ Progression typique :
 
 ---
 
-## Étape 6 — Mesurer le ROI réel
+## Étape 6 · Mesurer le ROI réel
 
 ### Métriques en 2026
 
@@ -180,7 +180,7 @@ Pour valider votre pipeline IA, faites un test honnête :
 
 ---
 
-## Étape 7 — Setup time-to-prod
+## Étape 7 · Setup time-to-prod
 
 Avec les templates du Cours 02, vous pouvez avoir un pipeline opérationnel en **1 après-midi** :
 
@@ -217,7 +217,7 @@ Volume × 10 sans qualité = réputation domaine cassée en 30 jours + bouche-à
 
 Pipeline pro = source qualifiée + scoring IA + 3-5 mails espacés + monitoring honnête. Setup 1 après-midi, ROI mesurable sous 30 jours.
 
-**Prochaine étape** : Module 8 — Les 8 MCPs stratégiques. On apprend à connecter votre LLM à Slack, Notion, Gmail, et tout votre stack.
+**Prochaine étape** : Module 8. Les 8 MCPs stratégiques. On apprend à connecter votre LLM à Slack, Notion, Gmail, et tout votre stack.
 
 ---
 

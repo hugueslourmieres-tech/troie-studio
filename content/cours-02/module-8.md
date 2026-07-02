@@ -1,4 +1,4 @@
-# Module 8 — Les 8 MCPs stratégiques
+# Module 8 · Les 8 MCPs stratégiques
 
 > **Durée lecture** : 15 min · **Durée vidéo NotebookLM cible** : 18-22 min
 
@@ -28,7 +28,7 @@ Avec MCPs : un MCP Slack fonctionne avec Claude, GPT, Gemini, **tout outil compa
 
 ---
 
-## MCP 1 — Slack
+## MCP 1 · Slack
 
 ### Capacités
 - Lire les channels (selon permissions)
@@ -51,7 +51,7 @@ Avec MCPs : un MCP Slack fonctionne avec Claude, GPT, Gemini, **tout outil compa
 
 ---
 
-## MCP 2 — Notion
+## MCP 2 · Notion
 
 ### Capacités
 - Lire pages et databases
@@ -73,7 +73,7 @@ Limitez l'intégration aux **workspaces business** (pas la knowledge perso). Per
 
 ---
 
-## MCP 3 — Gmail
+## MCP 3 · Gmail
 
 ### Capacités
 - Lire mails (selon scope)
@@ -97,7 +97,7 @@ Limitez l'intégration aux **workspaces business** (pas la knowledge perso). Per
 
 ---
 
-## MCP 4 — Figma
+## MCP 4 · Figma
 
 ### Capacités
 - Lire design files
@@ -118,7 +118,7 @@ Read-only pour la prod. Write réservé aux duplicates de drafts.
 
 ---
 
-## MCP 5 — GitHub
+## MCP 5 · GitHub
 
 ### Capacités
 - Lire repos
@@ -141,7 +141,7 @@ Read-only pour la prod. Write réservé aux duplicates de drafts.
 
 ---
 
-## MCP 6 — Google Analytics 4
+## MCP 6 · Google Analytics 4
 
 ### Capacités
 - Requêter rapports GA4
@@ -161,7 +161,7 @@ Read-only. Pas de risque de modifier les comptes.
 
 ---
 
-## MCP 7 — Stripe
+## MCP 7 · Stripe
 
 ### Capacités
 - Voir paiements, abonnements
@@ -181,7 +181,7 @@ Read-only. Pas de risque de modifier les comptes.
 
 ---
 
-## MCP 8 — Make/Zapier (orchestration)
+## MCP 8 · Make/Zapier (orchestration)
 
 ### Capacités
 - Déclencher scénarios depuis le LLM
@@ -260,7 +260,7 @@ Trop de MCPs = le LLM perd du temps à savoir lequel utiliser, hésite, hallucin
 
 Les MCPs transforment votre LLM en assistant connecté à TOUT votre stack. Démarrez avec 3-4 MCPs strictement nécessaires. Étendez progressivement. Toujours en read-only d'abord.
 
-**Prochaine étape** : Module 9 — 10 workflows business clés-en-main. On applique MCPs + agents à 10 cas concrets.
+**Prochaine étape** : Module 9. 10 workflows business clés-en-main. On applique MCPs + agents à 10 cas concrets.
 
 ---
 

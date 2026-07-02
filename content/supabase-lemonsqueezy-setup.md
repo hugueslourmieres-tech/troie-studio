@@ -1,4 +1,4 @@
-# Step C — Supabase + Lemon Squeezy setup
+# Step C : Supabase + Lemon Squeezy setup
 
 > **Objectif** : architecture complète paiement + auth + accès cours pour TROIE Formations. Time-to-prod : 2-3 jours.
 
@@ -9,7 +9,7 @@
 ```
 [Visiteur] 
     ↓
-[Pages publiques /formations/*] (Next.js — déjà en place)
+[Pages publiques /formations/*] (Next.js : déjà en place)
     ↓
 [Bouton "Acheter"] 
     ↓
@@ -58,7 +58,7 @@
 
 ---
 
-## Étape 1 — Setup Lemon Squeezy
+## Étape 1 : Setup Lemon Squeezy
 
 ### 1.1 Création compte
 1. https://www.lemonsqueezy.com → Sign up
@@ -69,40 +69,40 @@
 
 Dans le dashboard Lemon Squeezy → **Products** :
 
-**Produit 1 — Pack Prompts Freelance**
+**Produit 1 : Pack Prompts Freelance**
 - Nom : "TROIE Prompts · Pack Freelance"
 - Prix : 29 €
 - Type : One-time payment
 - Description : "5 system prompts métier prêts à coller"
 - SKU : `PROMPTS-FREELANCE`
 
-**Produit 2 — Pack Prompts Marketing**
+**Produit 2 : Pack Prompts Marketing**
 - Identique, SKU : `PROMPTS-MARKETING`
 
 **...** (5 packs au total)
 
-**Produit 6 — Bundle Prompts complet**
+**Produit 6 : Bundle Prompts complet**
 - Nom : "TROIE Prompts Vault · Bundle 5 packs"
 - Prix : 99 €
 - SKU : `PROMPTS-BUNDLE`
 
-**Produit 7 — Cours 01**
+**Produit 7 : Cours 01**
 - Nom : "TROIE Cours 01 · Maîtriser ChatGPT & Claude"
 - Prix : 97 €
 - SKU : `COURS-01`
 
-**Produit 8 — Cours 02**
+**Produit 8 : Cours 02**
 - Nom : "TROIE Cours 02 · Workflows IA"
 - Prix : 297 €
 - SKU : `COURS-02`
 
-**Produit 9 — Mastermind Mensuel**
+**Produit 9 : Mastermind Mensuel**
 - Nom : "TROIE Mastermind · Abonnement"
 - Prix : 49 €/mois
 - Type : Subscription
 - SKU : `MASTERMIND-MONTHLY`
 
-**Produit 10 — Mastermind Annuel**
+**Produit 10 : Mastermind Annuel**
 - Nom : "TROIE Mastermind · Annuel"
 - Prix : 490 €/an
 - Type : Subscription
@@ -133,7 +133,7 @@ Lemon Squeezy → **Settings** → **Webhooks** → **Create webhook**
 
 ---
 
-## Étape 2 — Setup Supabase
+## Étape 2 : Setup Supabase
 
 ### 2.1 Création projet
 1. https://supabase.com → New project
@@ -229,7 +229,7 @@ create policy "Users see own access" on public.course_access
 
 ---
 
-## Étape 3 — Webhook handler Next.js
+## Étape 3 : Webhook handler Next.js
 
 ### 3.1 API route
 
@@ -338,7 +338,7 @@ RESEND_API_KEY=re_xxx...
 
 ---
 
-## Étape 4 — Auth côté client
+## Étape 4 : Auth côté client
 
 ### 4.1 Install Supabase JS
 
@@ -411,7 +411,7 @@ const { data: access } = await supabase
 
 ---
 
-## Étape 5 — Tests E2E
+## Étape 5 : Tests E2E
 
 ### 5.1 Test paiement
 
@@ -435,7 +435,7 @@ const { data: access } = await supabase
 
 ---
 
-## Étape 6 — Migration du code existant
+## Étape 6 : Migration du code existant
 
 Dans les 4 fichiers actuels avec `mailto:` placeholder :
 
@@ -463,7 +463,7 @@ Dans les 4 fichiers actuels avec `mailto:` placeholder :
 
 ---
 
-## Sécurité — checklist
+## Sécurité : checklist
 
 - [ ] Webhook signature vérifiée (HMAC SHA256)
 - [ ] Service role key UNIQUEMENT côté serveur, jamais client
@@ -491,7 +491,7 @@ Vous payez vraiment quand vous vendez. Healthy.
 
 ---
 
-## Prochaine étape — Step D
+## Prochaine étape : Step D
 
 Refonte de `/formations` pour mettre en avant le tunnel de conversion optimal :
 

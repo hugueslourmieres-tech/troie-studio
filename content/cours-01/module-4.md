@@ -1,4 +1,4 @@
-# Module 4 — Limites, sécurité des données, RGPD
+# Module 4 · Limites, sécurité des données, RGPD
 
 > **Durée lecture** : 10 min · **Durée vidéo NotebookLM cible** : 12-15 min
 
@@ -10,7 +10,7 @@ C'est court. C'est crucial.
 
 ---
 
-## Leçon 01 — Ce qu'on NE met JAMAIS dans un chat web
+## Leçon 01 · Ce qu'on NE met JAMAIS dans un chat web
 
 ### Le contexte
 
@@ -38,7 +38,7 @@ Si vous ne voulez pas que cette donnée se retrouve dans un journal, ne la mette
 
 ---
 
-## Leçon 02 — Où mettre les données sensibles quand on doit les traiter
+## Leçon 02 · Où mettre les données sensibles quand on doit les traiter
 
 ### L'API en mode privacy
 
@@ -66,7 +66,7 @@ Avec ces options, vos données ne quittent jamais l'EU. Votre DPO est content.
 
 ---
 
-## Leçon 03 — Anonymiser avant d'envoyer
+## Leçon 03 · Anonymiser avant d'envoyer
 
 Même avec une API privacy-safe, **bonne pratique pro** : anonymiser les PII (Personally Identifiable Information) avant l'envoi.
 
@@ -97,7 +97,7 @@ Si jamais une fuite se produit, votre data sortie n'est pas exploitable. Belt an
 
 ---
 
-## Leçon 04 — Quand redémarrer une conversation
+## Leçon 04 · Quand redémarrer une conversation
 
 Un contexte pollué (longue conversation, plusieurs corrections successives) fait souvent dériver le modèle.
 
@@ -118,7 +118,7 @@ Au-delà de **30-40 messages dans une conversation**, la qualité dégrade. Red�
 
 ---
 
-## Leçon 05 — Calculer le ROI de votre stack en 30 jours
+## Leçon 05 · Calculer le ROI de votre stack en 30 jours
 
 Tout ce qu'on apprend n'a de valeur que si c'est rentable. Voici le calcul honnête.
 
