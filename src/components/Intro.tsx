@@ -103,13 +103,29 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               />
             </Parallax>
             <p className="t-eyebrow">{t("introEyebrow")}</p>
+            {/* Titre verrouillé sur 2 lignes : chaque phrase est
+                insécable et la taille suit la largeur de fenêtre
+                (clamp), pour ne jamais passer sur 3 lignes. */}
             {asHero ? (
-              <h1 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
-                <LetterReveal text={t("introTitle")} />
+              <h1
+                className="t-display mt-8 text-[var(--fg)]"
+                aria-label={t("introTitle")}
+                style={{ fontSize: "clamp(1.32rem, 4.6vw, 4.4rem)", lineHeight: 1.12 }}
+              >
+                <span aria-hidden="true" className="block whitespace-nowrap">
+                  <LetterReveal text={t("introTitleLine1")} />
+                </span>
+                <span aria-hidden="true" className="block whitespace-nowrap">
+                  <LetterReveal text={t("introTitleLine2")} />
+                </span>
               </h1>
             ) : (
-              <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
-                {t("introTitle")}
+              <h2
+                className="t-display mt-8 text-[var(--fg)]"
+                style={{ fontSize: "clamp(1.32rem, 4.6vw, 4.4rem)", lineHeight: 1.12 }}
+              >
+                <span className="block whitespace-nowrap">{t("introTitleLine1")}</span>
+                <span className="block whitespace-nowrap">{t("introTitleLine2")}</span>
               </h2>
             )}
             <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
