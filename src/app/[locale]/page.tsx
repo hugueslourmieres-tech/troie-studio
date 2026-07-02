@@ -38,14 +38,14 @@ export default async function HomePage({
       {/* URGENCE IA : punchline FOMO, renvoie vers le QCM de niveau */}
       <AiUrgency />
 
+      {/* Échelle de formation : du gratuit à l'entreprise, prix visibles */}
+      <FormationLadder />
+
       {/* FORK Pro / Perso : oriente le visiteur */}
       <AudienceFork locale={locale} />
 
       {/* QCM : situer son niveau IA (pour tous), juste sous le fork */}
       <QcmSection />
-
-      {/* Échelle de formation : du gratuit à l'entreprise, prix visibles */}
-      <FormationLadder />
 
       {/* MÉDIAS : photo (réalisations) + vidéo, fusionnés */}
       <MediasSection locale={locale} />

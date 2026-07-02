@@ -23,6 +23,10 @@ type Pack = {
   href: string;
   cta: string;
   icon: "spark" | "infinity" | "team";
+  /** Logos des outils couverts (monochromes). */
+  tools: { src: string; label: string }[];
+  /** Filtre CSS pour teinter les logos selon le fond de la carte. */
+  toolFilter: string;
   /** Classes de la carte (fond / texte / bordure). */
   card: string;
   /** Couleurs internes. */
@@ -50,6 +54,14 @@ const PACKS: Pack[] = [
     href: "/formations/tarifs",
     cta: "Essayer gratuitement",
     icon: "spark",
+    tools: [
+      { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+      { src: "/images/logos/claude.svg", label: "Claude" },
+      { src: "/images/logos/gemini.svg", label: "Gemini" },
+      { src: "/images/logos/midjourney.svg", label: "Midjourney" },
+      { src: "/images/logos/perplexity.svg", label: "Perplexity" },
+    ],
+    toolFilter: "brightness(0)",
     card: "border-[var(--accent)] bg-[var(--accent)]",
     text: "text-[#1a1714]",
     sub: "text-[#1a1714]/70",
@@ -71,6 +83,14 @@ const PACKS: Pack[] = [
     href: "/formations/tarifs",
     cta: "Choisir mon cours",
     icon: "infinity",
+    tools: [
+      { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+      { src: "/images/logos/claude.svg", label: "Claude" },
+      { src: "/images/logos/make.svg", label: "Make" },
+      { src: "/images/logos/notion.svg", label: "Notion" },
+      { src: "/images/logos/copilot.svg", label: "Copilot" },
+    ],
+    toolFilter: "brightness(0) invert(1)",
     card: "border-[#1a1714] bg-[#1a1714]",
     text: "text-[#f5f0e6]",
     sub: "text-[#f5f0e6]/60",
@@ -92,6 +112,15 @@ const PACKS: Pack[] = [
     href: "/ia",
     cta: "Réserver l'audit gratuit",
     icon: "team",
+    tools: [
+      { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+      { src: "/images/logos/claude.svg", label: "Claude" },
+      { src: "/images/logos/gemini.svg", label: "Gemini" },
+      { src: "/images/logos/mistral.svg", label: "Mistral" },
+      { src: "/images/logos/copilot.svg", label: "Copilot" },
+      { src: "/images/logos/make.svg", label: "Make" },
+    ],
+    toolFilter: "brightness(0) invert(1)",
     card: "border-[#1f3a34] bg-[#1f3a34]",
     text: "text-[#f5f0e6]",
     sub: "text-[#f5f0e6]/60",
@@ -221,16 +250,43 @@ export function FormationLadder() {
                   ))}
                 </ul>
 
-                {/* CTA puissant */}
-                <Link
-                  href={p.href}
-                  className={`mt-8 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors duration-300 ${p.button}`}
+                {/* Outils couverts : logos monochromes */}
+                <ul
+                  aria-label="Outils couverts"
+                  className={`mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-t pt-5 ${
+                    p.step === "01" ? "border-[#1a1714]/15" : "border-[#f5f0e6]/15"
+                  }`}
                 >
-                  {p.cta}
-                  <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </Link>
+                  {p.tools.map((tool) => (
+                    <li
+                      key={tool.src}
+                      title={tool.label}
+                      className="flex h-5 items-center opacity-55 transition-opacity duration-300 hover:opacity-100"
+                    >
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={tool.src}
+                        alt={tool.label}
+                        loading="lazy"
+                        className="h-5 w-auto"
+                        style={{ filter: p.toolFilter }}
+                      />
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA puissant, aligné en pied de carte */}
+                <div className="mt-auto pt-8">
+                  <Link
+                    href={p.href}
+                    className={`inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors duration-300 ${p.button}`}
+                  >
+                    {p.cta}
+                    <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </Link>
+                </div>
               </div>
             </motion.li>
           ))}
