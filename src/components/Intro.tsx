@@ -6,6 +6,8 @@ import { motion } from "motion/react";
 import { useTranslations, useLocale } from "next-intl";
 import { Reveal } from "./Reveal";
 import { LetterReveal } from "./LetterReveal";
+import { AiToolsMarquee } from "./AiToolsMarquee";
+import { Parallax } from "./Parallax";
 
 type Tool = { src: string; label: string };
 
@@ -89,7 +91,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             {/* Embossed Greek warrior relief, tone-on-tone seal at the top */}
-            <div className="mx-auto mb-12 flex w-full max-w-[220px] justify-center md:max-w-[260px]">
+            <Parallax strength={28} className="mx-auto mb-12 flex w-full max-w-[220px] justify-center md:max-w-[260px]">
               <Image
                 src="/images/brand/emboss.png"
                 alt=""
@@ -99,7 +101,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                 sizes="(max-width: 768px) 220px, 260px"
                 className="h-auto w-full"
               />
-            </div>
+            </Parallax>
             <p className="t-eyebrow">{t("introEyebrow")}</p>
             {asHero ? (
               <h1 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
@@ -137,6 +139,9 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
             )}
           </div>
         </Reveal>
+
+        {/* Slider infini : les outils IA sur lesquels on forme */}
+        {asHero && <AiToolsMarquee label="On vous forme sur ces outils" />}
 
         {/* 3 boxes, un guerrier par metier */}
         <div className="mt-20 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-28 md:grid-cols-3">

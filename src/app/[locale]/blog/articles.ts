@@ -11,6 +11,8 @@ import { IaViePriveeDonnees } from "./_content/ia-vie-privee-donnees";
 import { IaEnfantEcole } from "./_content/ia-enfant-ecole";
 import { CestQuoiUnAgentIa } from "./_content/cest-quoi-un-agent-ia";
 import { IaEthique } from "./_content/ia-ethique";
+import { FormationIaObligatoireEntreprise } from "./_content/formation-ia-obligatoire-entreprise";
+import { AgentIaPmeGuide } from "./_content/agent-ia-pme-guide";
 
 export type Article = {
   slug: string;
@@ -30,6 +32,42 @@ export type Article = {
 };
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "formation-ia-obligatoire-entreprise",
+    title: "Formation IA obligatoire en entreprise : ce que dit vraiment l'article 4",
+    cardTitle: "Formation IA obligatoire : ce que dit l'article 4",
+    description:
+      "Depuis février 2025, former les équipes qui utilisent l'IA est une obligation légale (littératie IA, AI Act). Qui est concerné, ce qu'exige une formation conforme, et par où commencer.",
+    date: "2026-07-02",
+    category: "L'IA au travail",
+    readingMinutes: 6,
+    cover: "/images/corpo/montpellier/DSC_7573.jpg",
+    keywords: [
+      "formation IA obligatoire",
+      "littératie IA article 4",
+      "AI Act formation entreprise",
+      "obligation formation intelligence artificielle",
+    ],
+    Body: FormationIaObligatoireEntreprise,
+  },
+  {
+    slug: "agent-ia-pme-guide",
+    title: "Agent IA pour PME : le guide pour démarrer sans se tromper",
+    cardTitle: "Agent IA pour PME : le guide pour démarrer",
+    description:
+      "Ce qu'un agent IA fait vraiment, les trois familles qui rapportent en PME, les prix réels (publiés), et les erreurs à éviter. Le guide concret, sans jargon.",
+    date: "2026-07-02",
+    category: "L'IA au travail",
+    readingMinutes: 7,
+    cover: "/images/ia-packs/solo-pc.jpg",
+    keywords: [
+      "agent IA PME",
+      "automatisation IA entreprise",
+      "déployer un agent IA",
+      "prix agent IA",
+    ],
+    Body: AgentIaPmeGuide,
+  },
   {
     slug: "ia-remplacer-mon-metier-manager-pas-remplace",
     title: "L'IA va-t-elle remplacer mon métier ? Manager, pas remplacé",

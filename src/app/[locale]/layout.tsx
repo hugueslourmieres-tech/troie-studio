@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { Analytics } from "@vercel/analytics/next";
 
 const bodoni = Bodoni_Moda({
@@ -252,6 +253,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <ScrollProgress />
           <Header locale={locale} />
           <main>{children}</main>
           <Footer locale={locale} />
