@@ -110,7 +110,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               <h1
                 className="t-display mt-8 text-[var(--fg)]"
                 aria-label={t("introTitle")}
-                style={{ fontSize: "clamp(1.32rem, 4.6vw, 4.4rem)", lineHeight: 1.12 }}
+                style={{ fontSize: "clamp(1.5rem, 5.5vw, 5.2rem)", lineHeight: 1.12 }}
               >
                 <span aria-hidden="true" className="block whitespace-nowrap">
                   <LetterReveal text={t("introTitleLine1")} />
@@ -122,7 +122,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
             ) : (
               <h2
                 className="t-display mt-8 text-[var(--fg)]"
-                style={{ fontSize: "clamp(1.32rem, 4.6vw, 4.4rem)", lineHeight: 1.12 }}
+                style={{ fontSize: "clamp(1.5rem, 5.5vw, 5.2rem)", lineHeight: 1.12 }}
               >
                 <span className="block whitespace-nowrap">{t("introTitleLine1")}</span>
                 <span className="block whitespace-nowrap">{t("introTitleLine2")}</span>
