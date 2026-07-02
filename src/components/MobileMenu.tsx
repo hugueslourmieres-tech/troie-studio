@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { LangSwitch } from "./LangSwitch";
+import { useSignedIn } from "./useSignedIn";
 import type { NavGroup } from "./Header";
 
 type Props = {
@@ -30,6 +31,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/hugueslourmieres/";
 export function MobileMenu({ locale, groups, showLang = true }: Props) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const signedIn = useSignedIn();
 
   useEffect(() => {
     setMounted(true);
@@ -183,7 +185,7 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                   {showLang && <LangSwitch locale={locale} />}
                 </div>
                 <Link
-                  href="/formations/auth/sign-in"
+                  href={signedIn ? "/formations/dashboard" : "/formations/auth/sign-in"}
                   onClick={() => setOpen(false)}
                   className="inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:opacity-70"
                 >
@@ -191,7 +193,7 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                     <circle cx="12" cy="8" r="4" />
                     <path d="M4 21c0-4 3.5-6 8-6s8 2 8 6" />
                   </svg>
-                  Se connecter
+                  {signedIn ? "Mon espace" : "Se connecter"}
                 </Link>
               </div>
               </motion.div>

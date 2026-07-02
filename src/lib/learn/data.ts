@@ -19,6 +19,8 @@ export type LearnState = {
   access: Set<string>;
   /** `${courseSlug}/${moduleSlug}` → progression. */
   progress: Map<string, ModuleState>;
+  /** Abonnement actif (accès plateforme complet). */
+  hasSubscription: boolean;
 };
 
 const FREE_COURSE_SLUGS = MOCK_COURSES.filter((c) => c.price_cents === 0).map(
@@ -57,6 +59,7 @@ export async function getLearnState(): Promise<LearnState> {
       userId: null,
       access: new Set(MOCK_COURSE_ACCESS),
       progress: demoProgress(),
+      hasSubscription: false,
     };
   }
 
@@ -69,6 +72,7 @@ export async function getLearnState(): Promise<LearnState> {
       userId: null,
       access: new Set(FREE_COURSE_SLUGS),
       progress: new Map(),
+      hasSubscription: false,
     };
   }
 
@@ -106,7 +110,7 @@ export async function getLearnState(): Promise<LearnState> {
     });
   }
 
-  return { mode: "user", userId: user.id, access, progress };
+  return { mode: "user", userId: user.id, access, progress, hasSubscription };
 }
 
 /**

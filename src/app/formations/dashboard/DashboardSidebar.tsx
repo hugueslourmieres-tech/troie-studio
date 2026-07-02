@@ -19,15 +19,24 @@ const NAV = [
   { href: "/formations/dashboard/profile", label: "Profil", icon: "user" },
 ];
 
+const PLAN_LABELS = {
+  subscription: "Abonnement actif",
+  lifetime: "Cours à vie",
+  free: "Découverte",
+} as const;
+
 export function DashboardSidebar({
   profile,
   unlockedTrophyCount,
+  streak = 1,
+  plan = "free",
 }: {
   profile: Profile;
   unlockedTrophyCount: number;
+  streak?: number;
+  plan?: keyof typeof PLAN_LABELS;
 }) {
   const pathname = usePathname();
-  const xpToNext = profile.level * 500;
   const xpInLevel = profile.xp_total % 500;
   const xpPct = Math.round((xpInLevel / 500) * 100);
 
@@ -36,11 +45,21 @@ export function DashboardSidebar({
       {/* Profil card */}
       <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-5">
         <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[var(--accent)] text-[#1a1714]">
-            <span className="t-display text-2xl">
-              {(profile.full_name?.[0] ?? profile.email[0]).toUpperCase()}
-            </span>
-          </div>
+          {profile.avatar_url ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={profile.avatar_url}
+              alt=""
+              referrerPolicy="no-referrer"
+              className="h-12 w-12 flex-shrink-0 rounded-full border border-[var(--rule)] object-cover"
+            />
+          ) : (
+            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[var(--accent)] text-[#1a1714]">
+              <span className="t-display text-2xl">
+                {(profile.full_name?.[0] ?? profile.email[0]).toUpperCase()}
+              </span>
+            </div>
+          )}
           <div className="min-w-0">
             <p className="t-display text-lg leading-tight text-[var(--fg)]">
               {profile.full_name || profile.email.split("@")[0]}
@@ -49,6 +68,31 @@ export function DashboardSidebar({
               {profile.email}
             </p>
           </div>
+        </div>
+
+        {/* Plan */}
+        <div className="mt-4 flex items-center justify-between border-t border-[var(--rule)] pt-4">
+          <span
+            className={`inline-flex items-center gap-1.5 font-mono text-[9px] uppercase tracking-[0.22em] ${
+              plan === "free" ? "text-[var(--fg-2)]/70" : "text-[var(--accent)]"
+            }`}
+          >
+            <span
+              aria-hidden="true"
+              className={`h-1.5 w-1.5 rounded-full ${
+                plan === "free" ? "bg-[var(--fg-2)]/50" : "bg-[var(--accent)]"
+              }`}
+            />
+            {PLAN_LABELS[plan]}
+          </span>
+          {plan === "free" && (
+            <Link
+              href="/formations/tarifs"
+              className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)] hover:underline"
+            >
+              Débloquer →
+            </Link>
+          )}
         </div>
 
         <div className="mt-5">
@@ -85,7 +129,7 @@ export function DashboardSidebar({
               Streak
             </p>
             <p className="t-display text-xl text-[var(--fg)]">
-              <span aria-hidden="true">🔥</span> 1
+              <span aria-hidden="true">🔥</span> {streak}
             </p>
           </div>
         </div>

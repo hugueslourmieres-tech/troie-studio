@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatedWordmark } from "./AnimatedWordmark";
 import { LangSwitch } from "./LangSwitch";
 import { MobileMenu } from "./MobileMenu";
+import { useSignedIn } from "./useSignedIn";
 
 
 export type NavItem = { href: string; label: string; meta?: string };
@@ -33,6 +34,7 @@ export function Header({
   showLang?: boolean;
 }) {
   const [scrolled, setScrolled] = useState(false);
+  const signedIn = useSignedIn();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -107,7 +109,7 @@ export function Header({
               Contact
             </Link>
             <Link
-              href="/formations/auth/sign-in"
+              href={signedIn ? "/formations/dashboard" : "/formations/auth/sign-in"}
               className={`group inline-flex items-center gap-2.5 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 ${
                 barSolid
                   ? "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
@@ -115,7 +117,7 @@ export function Header({
               }`}
             >
               <LoginIcon />
-              Se connecter
+              {signedIn ? "Mon espace" : "Se connecter"}
             </Link>
           </div>
 

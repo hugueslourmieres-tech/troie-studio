@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MOCK_COURSES, MOCK_TROPHIES, MOCK_MODULES } from "@/lib/mock-data";
 import { getLearnState, getUnlockedTrophySlugs } from "@/lib/learn/data";
+import { createClient } from "@/lib/supabase/server";
 import { TrophyIcon } from "./TrophyIcon";
 import { STARTER_QUIZZES } from "../quizzes";
 import { Mascot } from "@/components/Mascot";
@@ -16,6 +17,21 @@ export default async function DashboardOverview() {
     getUnlockedTrophySlugs(),
   ]);
 
+  // Prénom pour l'accueil (métadonnées OAuth, sinon neutre).
+  let firstName: string | null = null;
+  try {
+    const supabase = await createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    const meta = (user?.user_metadata ?? {}) as Record<string, unknown>;
+    const fullName =
+      (meta.full_name as string | undefined) ??
+      (meta.name as string | undefined) ??
+      null;
+    firstName = fullName?.split(" ")[0] ?? null;
+  } catch {
+    /* mode démo */
+  }
+
   const accessible = MOCK_COURSES.filter((c) => state.access.has(c.slug));
   const recentTrophies = MOCK_TROPHIES.filter((t) =>
     unlockedTrophySlugs.has(t.slug),
@@ -23,6 +39,16 @@ export default async function DashboardOverview() {
   const lockedTrophies = MOCK_TROPHIES.filter(
     (t) => !unlockedTrophySlugs.has(t.slug),
   ).slice(0, 3);
+
+  // Progression par cours : modules complétés / total.
+  const courseProgress = new Map<string, { done: number; total: number }>();
+  for (const course of accessible) {
+    const mods = MOCK_MODULES[course.slug] ?? [];
+    const done = mods.filter(
+      (m) => state.progress.get(`${course.slug}/${m.slug}`)?.status === "completed",
+    ).length;
+    courseProgress.set(course.slug, { done, total: mods.length });
+  }
 
   // Reprendre : premier cours accessible entamé mais pas terminé,
   // on pointe son premier module non complété.
@@ -32,19 +58,29 @@ export default async function DashboardOverview() {
   for (const course of accessible) {
     const mods = MOCK_MODULES[course.slug] ?? [];
     if (mods.length === 0) continue;
-    const doneCount = mods.filter(
-      (m) => state.progress.get(`${course.slug}/${m.slug}`)?.status === "completed",
-    ).length;
-    if (doneCount > 0 && doneCount < mods.length) {
+    const { done } = courseProgress.get(course.slug) ?? { done: 0 };
+    if (done > 0 && done < mods.length) {
       continueCourse = course;
       continueModule =
         mods.find(
           (m) => state.progress.get(`${course.slug}/${m.slug}`)?.status !== "completed",
         ) ?? null;
-      continuePct = Math.round((doneCount / mods.length) * 100);
+      continuePct = Math.round((done / mods.length) * 100);
       break;
     }
   }
+
+  // Aucune progression nulle part : proposer le point de départ
+  // (premier module du premier cours accessible, Module 0 gratuit).
+  const hasAnyProgress = state.progress.size > 0;
+  const startCourse = !hasAnyProgress
+    ? accessible.find((c) => (MOCK_MODULES[c.slug] ?? []).length > 0) ?? null
+    : null;
+  const startModule = startCourse
+    ? (MOCK_MODULES[startCourse.slug] ?? [])[0] ?? null
+    : null;
+
+  const showUpsell = state.mode === "user" && !state.hasSubscription;
 
   return (
     <div className="space-y-12 md:space-y-16">
@@ -55,7 +91,7 @@ export default async function DashboardOverview() {
             Espace membre · vue d'ensemble
           </p>
           <h1 className="t-display mt-4 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Bon retour.
+            {firstName ? `Bon retour, ${firstName}.` : "Bon retour."}
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             Voici où vous en êtes. Reprenez là où vous vous êtes
@@ -67,52 +103,6 @@ export default async function DashboardOverview() {
           alt="Troyie, l'assistant IA de TROIE Studio"
           className="hidden h-32 w-32 shrink-0 object-contain md:block lg:h-36 lg:w-36"
         />
-      </section>
-
-      {/* Vos QCM gratuits, image duotone + picto, cliquables */}
-      <section>
-        <div className="flex items-baseline justify-between">
-          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Vos QCM · débloqués
-          </p>
-          <Link
-            href="/formations/quiz"
-            className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 hover:text-[var(--accent)]"
-          >
-            Voir tout →
-          </Link>
-        </div>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
-          {STARTER_QUIZZES.map((q) => (
-            <Link
-              key={q.slug}
-              href={`/formations/quiz/${q.slug}`}
-              className="group flex flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
-            >
-              <div className="relative aspect-[16/9] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={q.cover}
-                  alt=""
-                  aria-hidden="true"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="t-display text-lg text-[var(--fg)] md:text-xl">
-                  {q.title}
-                </h3>
-                <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-[var(--fg-2)] md:text-sm">
-                  {q.tagline}
-                </p>
-                <span className="mt-auto pt-4 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  Lancer →
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
       </section>
 
       {/* Continue where left off */}
@@ -162,6 +152,38 @@ export default async function DashboardOverview() {
         </section>
       )}
 
+      {/* Premier pas : rien d'entamé, on pointe le Module 0 gratuit */}
+      {startCourse && startModule && (
+        <section>
+          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Par où commencer
+          </p>
+          <Link
+            href={`/formations/dashboard/courses/${startCourse.slug}/${startModule.slug}`}
+            className="group mt-4 block rounded-sm border border-[var(--accent)] bg-[var(--accent)]/8 p-6 transition-colors hover:bg-[var(--accent)]/15 md:p-8"
+          >
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="min-w-0 flex-1">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
+                  {startCourse.title} · {startCourse.price_cents === 0 ? "gratuit" : "inclus"}
+                </p>
+                <h2 className="t-display mt-3 text-2xl text-[var(--fg)] md:text-3xl">
+                  {startModule.title}
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
+                  Votre première leçon fait 10 minutes. Terminez-la et
+                  votre premier trophée tombe.
+                </p>
+              </div>
+              <span className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                Commencer
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </span>
+            </div>
+          </Link>
+        </section>
+      )}
+
       {/* My courses */}
       <section>
         <div className="flex items-baseline justify-between">
@@ -176,24 +198,119 @@ export default async function DashboardOverview() {
           </Link>
         </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2 md:gap-6">
-          {accessible.map((c) => (
-            <Link
-              key={c.id}
-              href={`/formations/dashboard/courses/${c.slug}`}
-              className="group flex flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 transition-colors hover:border-[var(--accent)] md:p-7"
-            >
+          {accessible.map((c) => {
+            const prog = courseProgress.get(c.slug) ?? { done: 0, total: 0 };
+            const pct = prog.total > 0 ? Math.round((prog.done / prog.total) * 100) : 0;
+            return (
+              <Link
+                key={c.id}
+                href={`/formations/dashboard/courses/${c.slug}`}
+                className="group flex flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 transition-colors hover:border-[var(--accent)] md:p-7"
+              >
+                <div className="flex items-baseline justify-between">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+                    {c.level === "free" ? "Gratuit" : c.level}
+                  </p>
+                  {pct === 100 && (
+                    <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                      ✓ terminé
+                    </span>
+                  )}
+                </div>
+                <h3 className="t-display mt-3 text-xl text-[var(--fg)] md:text-2xl">
+                  {c.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--fg-2)]">
+                  {c.subtitle}
+                </p>
+                <div className="mt-5">
+                  <div className="flex items-baseline justify-between font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
+                    <span>
+                      {prog.done}/{prog.total} modules · {c.duration_min} min
+                    </span>
+                    <span className="text-[var(--accent)]">{pct} %</span>
+                  </div>
+                  <div className="mt-2 h-[3px] w-full overflow-hidden bg-[var(--fg)]/12">
+                    <div
+                      className="h-full bg-[var(--accent)] transition-all"
+                      style={{ width: `${pct}%` }}
+                    />
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Upsell abonnement, seulement sans abonnement actif */}
+      {showUpsell && (
+        <section className="rounded-sm bg-[#1a1714] p-6 md:p-8">
+          <div className="flex flex-wrap items-center justify-between gap-6">
+            <div className="min-w-0 flex-1">
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                {c.level === "free" ? "Gratuit" : c.level}
+                7 jours gratuits
               </p>
-              <h3 className="t-display mt-3 text-xl text-[var(--fg)] md:text-2xl">
-                {c.title}
-              </h3>
-              <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--fg-2)]">
-                {c.subtitle}
+              <h2 className="t-display mt-3 text-2xl text-[#f5f0e6] md:text-3xl">
+                Débloquez tous les cours.
+              </h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#f5f0e6]/70 md:text-base">
+                Tous les cours actuels et à venir, les QCM, les prompts
+                métier. Essai gratuit 7 jours, puis 29 € par mois,
+                annulable en un clic.
               </p>
-              <div className="mt-5 flex items-baseline justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                <span>{c.modules_count} modules · {c.duration_min} min</span>
-                <span className="text-[var(--accent)] transition-transform group-hover:translate-x-1">→</span>
+            </div>
+            <Link
+              href="/formations/tarifs"
+              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6]"
+            >
+              Essayer gratuitement
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </Link>
+          </div>
+        </section>
+      )}
+
+      {/* Vos QCM gratuits, image duotone + picto, cliquables */}
+      <section>
+        <div className="flex items-baseline justify-between">
+          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Vos QCM · débloqués
+          </p>
+          <Link
+            href="/formations/quiz"
+            className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 hover:text-[var(--accent)]"
+          >
+            Voir tout →
+          </Link>
+        </div>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
+          {STARTER_QUIZZES.map((q) => (
+            <Link
+              key={q.slug}
+              href={`/formations/quiz/${q.slug}`}
+              className="group flex flex-col overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] transition-colors hover:border-[var(--accent)]"
+            >
+              <div className="relative aspect-[16/9] overflow-hidden border-b border-[var(--rule)] bg-[var(--bg)]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={q.cover}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="t-display text-lg text-[var(--fg)] md:text-xl">
+                  {q.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-[var(--fg-2)] md:text-sm">
+                  {q.tagline}
+                </p>
+                <span className="mt-auto pt-4 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                  Lancer →
+                </span>
               </div>
             </Link>
           ))}
