@@ -10,9 +10,9 @@ const BASE = "https://troiestudio.fr";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // /fr|/en/formations est desormais redirige (301) vers /ia.
-  const staticPaths = ["", "/creation", "/creation/web", "/strategie", "/formation", "/medias", "/blog", "/contact", "/privacy", "/terms"];
-  const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/formation"]);
+  // /fr|/en/formation(s) redirige (301) vers /formations : exclu du sitemap.
+  const staticPaths = ["", "/creation", "/creation/web", "/strategie", "/medias", "/blog", "/contact", "/privacy", "/terms"];
+  const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie"]);
 
   const entries: MetadataRoute.Sitemap = [];
 
@@ -46,19 +46,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       });
     }
 
-    for (const article of ARTICLES) {
-      entries.push({
-        url: `${BASE}/${locale}/blog/${article.slug}`,
-        lastModified: new Date(article.date),
-        changeFrequency: "monthly",
-        priority: 0.8,
-        alternates: {
-          languages: Object.fromEntries(
-            routing.locales.map((alt) => [alt, `${BASE}/${alt}/blog/${article.slug}`]),
-          ),
-        },
-      });
-    }
+  }
+
+  // Articles rediges en francais uniquement : une seule URL canonique
+  // par article (/fr), la version /en n'est pas proposee a l'indexation.
+  for (const article of ARTICLES) {
+    entries.push({
+      url: `${BASE}/fr/blog/${article.slug}`,
+      lastModified: new Date(article.date),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    });
   }
 
   // ── Routes hors-locale : /ia + /formations (FR par défaut) ─────────

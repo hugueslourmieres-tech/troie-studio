@@ -11,22 +11,21 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; slug: string }>;
 }) {
-  const { locale, slug } = await params;
+  const { slug } = await params;
   const a = getArticle(slug);
   if (!a) return {};
+  // Les articles ne sont rediges qu'en francais : la version /en sert
+  // le meme contenu, donc canonique unique vers /fr (sinon Google
+  // choisit lui-meme et signale un duplicata en Search Console).
   return {
     title: a.title,
     description: a.description,
     alternates: {
-      canonical: `/${locale}/blog/${slug}`,
-      languages: {
-        fr: `/fr/blog/${slug}`,
-        en: `/en/blog/${slug}`,
-      },
+      canonical: `/fr/blog/${slug}`,
     },
     openGraph: {
       type: "article",
-      url: `${BASE}/${locale}/blog/${slug}`,
+      url: `${BASE}/fr/blog/${slug}`,
       title: a.title,
       description: a.description,
       publishedTime: a.date,
