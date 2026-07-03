@@ -48,15 +48,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   }
 
-  // Articles rediges en francais uniquement : une seule URL canonique
-  // par article (/fr), la version /en n'est pas proposee a l'indexation.
+  // Articles : /fr toujours, /en seulement si la traduction existe
+  // (BodyEn), avec hreflang croise entre les deux versions.
   for (const article of ARTICLES) {
-    entries.push({
-      url: `${BASE}/fr/blog/${article.slug}`,
-      lastModified: new Date(article.date),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    });
+    const hasEn = !!article.BodyEn;
+    const languages = hasEn
+      ? {
+          fr: `${BASE}/fr/blog/${article.slug}`,
+          en: `${BASE}/en/blog/${article.slug}`,
+        }
+      : undefined;
+    for (const locale of hasEn ? (["fr", "en"] as const) : (["fr"] as const)) {
+      entries.push({
+        url: `${BASE}/${locale}/blog/${article.slug}`,
+        lastModified: new Date(article.date),
+        changeFrequency: "monthly",
+        priority: 0.8,
+        ...(languages ? { alternates: { languages } } : {}),
+      });
+    }
   }
 
   // ── Routes hors-locale : /ia + /formations (FR par défaut) ─────────
@@ -66,7 +76,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     frequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   }[] = [
     { path: "/ia", priority: 0.9, frequency: "weekly" },
+    { path: "/ia/ai-act", priority: 0.9, frequency: "weekly" },
     { path: "/formations", priority: 0.95, frequency: "weekly" },
+    { path: "/formations/tarifs", priority: 0.9, frequency: "weekly" },
     { path: "/formations/quiz", priority: 0.9, frequency: "weekly" },
     { path: "/formations/module-0", priority: 0.8, frequency: "monthly" },
     { path: "/formations/prompts", priority: 0.9, frequency: "weekly" },
