@@ -77,6 +77,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }[] = [
     { path: "/ia", priority: 0.9, frequency: "weekly" },
     { path: "/ia/ai-act", priority: 0.9, frequency: "weekly" },
+    { path: "/ia/accessibilite", priority: 0.9, frequency: "weekly" },
     { path: "/formations", priority: 0.95, frequency: "weekly" },
     { path: "/formations/tarifs", priority: 0.9, frequency: "weekly" },
     { path: "/formations/quiz", priority: 0.9, frequency: "weekly" },

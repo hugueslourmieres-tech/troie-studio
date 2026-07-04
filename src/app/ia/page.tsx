@@ -369,6 +369,12 @@ export default function IaLandingPage() {
                 >
                   Conformité AI Act →
                 </Link>
+                <Link
+                  href="/ia/accessibilite"
+                  className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
+                >
+                  Accessibilité web →
+                </Link>
               </div>
 
               {/* Troyie, l'assistant IA de TROIE, posé sans cadre (traits noirs) */}
@@ -940,7 +946,7 @@ export default function IaLandingPage() {
                 title: "Diagnostic IA",
                 price: "1 500 à 3 000 €",
                 unit: "selon périmètre",
-                body: "Cartographie de vos processus, cas d'usage priorisés, feuille de route chiffrée et plan de conformité AI Act.",
+                body: "Cartographie de vos processus, cas d'usage priorisés, feuille de route chiffrée et plan de conformité (AI Act, accessibilité).",
                 featured: false,
               },
               {

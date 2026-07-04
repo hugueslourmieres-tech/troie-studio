@@ -27,6 +27,8 @@ import { ArnaqueIaVoixCloneeEn } from "./_content/arnaque-ia-voix-clonee.en";
 import { IaEnfantEcoleEn } from "./_content/ia-enfant-ecole.en";
 import { CestQuoiUnAgentIaEn } from "./_content/cest-quoi-un-agent-ia.en";
 import { IaEthiqueEn } from "./_content/ia-ethique.en";
+import { AccessibiliteSiteWebObligation } from "./_content/accessibilite-site-web-obligation";
+import { AccessibiliteSiteWebObligationEn } from "./_content/accessibilite-site-web-obligation.en";
 
 export type Article = {
   slug: string;
@@ -55,6 +57,7 @@ export const CATEGORY_EN: Record<string, string> = {
   "Comprendre l'IA": "Understanding AI",
   "L'IA au travail": "AI at work",
   "L'IA à la maison": "AI at home",
+  Conformité: "Compliance",
 };
 
 /**
@@ -76,6 +79,32 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "accessibilite-site-web-obligation",
+    title:
+      "Accessibilité web obligatoire : ce que l'affaire Carrefour change pour votre site",
+    cardTitle: "Accessibilité web : l'affaire Carrefour",
+    description:
+      "Depuis juin 2025, l'accessibilité est obligatoire pour l'e-commerce. Carrefour vient d'être condamné sous astreinte. Qui est concerné, les 5 familles de critères, et par où commencer.",
+    date: "2026-07-04",
+    category: "Conformité",
+    readingMinutes: 6,
+    cover: "/images/corpo/montpellier/DSC_7616.jpg",
+    keywords: [
+      "accessibilité site web obligatoire",
+      "RGAA e-commerce",
+      "European Accessibility Act",
+      "mise en conformité accessibilité numérique",
+      "condamnation Carrefour accessibilité",
+    ],
+    titleEn:
+      "Web accessibility is now mandatory: what the Carrefour ruling means for your website",
+    cardTitleEn: "Web accessibility: the Carrefour ruling",
+    descriptionEn:
+      "Since June 2025, accessibility has been mandatory for e-commerce. Carrefour has just been ordered to comply under daily penalty. Who is covered, the 5 families of criteria, and where to start.",
+    Body: AccessibiliteSiteWebObligation,
+    BodyEn: AccessibiliteSiteWebObligationEn,
+  },
   {
     slug: "formation-ia-obligatoire-entreprise",
     title: "Formation IA obligatoire en entreprise : ce que dit vraiment l'article 4",

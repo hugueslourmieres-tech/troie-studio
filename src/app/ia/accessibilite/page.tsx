@@ -4,98 +4,105 @@ import type { Metadata } from "next";
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
 export const metadata: Metadata = {
-  title: "AI Act entreprise : êtes-vous concerné ? Obligations, dates, plan d'action",
+  title:
+    "Accessibilité web obligatoire : votre site est-il conforme ? RGAA, sanctions, plan d'action",
   description:
-    "Le règlement européen sur l'IA s'applique déjà : littératie IA et interdictions depuis février 2025, transparence en 2026. Ce que votre PME doit faire, et ce que TROIE prend en charge : diagnostic, formation, conformité continue.",
-  alternates: { canonical: "https://troiestudio.fr/ia/ai-act" },
+    "Depuis le 28 juin 2025, l'accessibilité numérique est obligatoire pour l'e-commerce et les services en ligne. Carrefour vient d'être condamné. Qui est concerné, ce que dit le RGAA, et ce que TROIE prend en charge : audit gratuit, diagnostic, mise en conformité.",
+  alternates: { canonical: "https://troiestudio.fr/ia/accessibilite" },
   openGraph: {
     type: "article",
-    url: "https://troiestudio.fr/ia/ai-act",
-    title: "AI Act : ce que votre entreprise doit faire, sans paniquer",
+    url: "https://troiestudio.fr/ia/accessibilite",
+    title: "Accessibilité web : ce que votre entreprise doit faire, sans paniquer",
     description:
       "Dates clés, obligations réelles pour les PME, sanctions, et un plan d'action en 4 briques à prix publiés.",
   },
 };
 
-/* Échéances du règlement (UE) 2024/1689. Vérifié juillet 2026 :
-   le paquet Digital Omnibus (2026) ajuste le calendrier haut risque,
-   mais littératie, interdictions et GPAI sont déjà en vigueur. */
+/* Échéances de la directive (UE) 2019/882 (European Accessibility Act),
+   transposée en droit français. Vérifié juillet 2026 : première
+   condamnation (Carrefour) prononcée en juin 2026. */
 const TIMELINE = [
   {
-    date: "1er août 2024",
-    title: "Entrée en vigueur",
-    body: "Le règlement (UE) 2024/1689 est adopté. Le compte à rebours démarre pour toutes les entreprises qui utilisent l'IA dans l'Union.",
+    date: "17 avril 2019",
+    title: "La directive est adoptée",
+    body: "L'European Accessibility Act (directive (UE) 2019/882) impose l'accessibilité des produits et services numériques dans toute l'Union. Les entreprises ont six ans pour se préparer.",
     status: "past",
   },
   {
-    date: "2 février 2025",
-    title: "Interdictions + littératie IA",
-    body: "Les pratiques à risque inacceptable sont interdites. Surtout : l'article 4 impose de former à l'IA toute équipe qui l'utilise. C'est déjà applicable, et c'est la marche la plus simple à monter.",
+    date: "28 juin 2025",
+    title: "Entrée en application",
+    body: "E-commerce, banque, transport, livres numériques : tout service en ligne vendu à des consommateurs européens doit être accessible. Seules les micro-entreprises (moins de 10 salariés et moins de 2 M€ de CA) sont exemptées.",
     status: "past",
   },
   {
-    date: "2 août 2025",
-    title: "Modèles d'IA générative (GPAI)",
-    body: "Obligations pour les fournisseurs de grands modèles. Impact indirect pour vous : vos fournisseurs d'outils IA doivent être conformes, à vérifier dans vos contrats.",
+    date: "Juillet 2025",
+    title: "Premières mises en demeure",
+    body: "Des associations mettent en demeure Auchan, Carrefour, E.Leclerc et Picard : leurs sites e-commerce ne sont pas utilisables par les personnes handicapées.",
     status: "past",
   },
   {
-    date: "2 août 2026",
-    title: "Application générale",
-    body: "Transparence obligatoire : chatbots déclarés comme IA, contenus générés signalés, deepfakes étiquetés. Le gros des obligations pour les déployeurs entre en application.",
+    date: "Novembre 2025",
+    title: "Premiers procès européens",
+    body: "Faute de réponse satisfaisante, les associations assignent en référé devant le tribunal de commerce. Ce sont les premières actions en justice fondées sur l'European Accessibility Act en Europe.",
+    status: "past",
+  },
+  {
+    date: "Juin 2026",
+    title: "Carrefour condamné",
+    body: "Le tribunal ordonne à Carrefour de rendre son site et son application accessibles sous 6 mois, sous astreinte par jour de retard. Le signal est clair : l'obligation est réelle, et elle se plaide.",
     status: "now",
   },
   {
-    date: "2027 et après",
-    title: "Haut risque (calendrier en ajustement)",
-    body: "RH, crédit, éducation, infrastructures : exigences renforcées. Le paquet Digital Omnibus (2026) allège et décale une partie de ces échéances, mais ne touche pas à ce qui est déjà en vigueur.",
+    date: "2026 et après",
+    title: "Les contrôles s'étendent",
+    body: "DGCCRF, associations, clients : les signalements se multiplient. Plus un site attend, plus la mise en conformité se fait dans l'urgence, au prix fort.",
     status: "future",
   },
 ];
 
 const OBLIGATIONS = [
   {
-    q: "Vos équipes utilisent ChatGPT, Claude ou Gemini ?",
-    a: "Article 4 : vous devez garantir un niveau suffisant de littératie IA (formation adaptée au contexte d'usage). Applicable depuis février 2025.",
+    q: "Vous vendez en ligne (produits ou services) ?",
+    a: "L'e-commerce est explicitement couvert par la directive. Si des consommateurs européens peuvent acheter sur votre site, il doit être accessible : navigation au clavier, lecteur d'écran, contrastes, formulaires étiquetés.",
   },
   {
-    q: "Un chatbot parle à vos clients ?",
-    a: "Transparence : l'utilisateur doit savoir qu'il parle à une IA. Applicable à l'échéance d'août 2026.",
+    q: "Plus de 10 salariés ou plus de 2 M€ de chiffre d'affaires ?",
+    a: "Alors l'exemption micro-entreprise ne s'applique pas : vous êtes dans le périmètre depuis le 28 juin 2025. La taille ne protège plus au-delà de ce seuil.",
   },
   {
-    q: "Vous publiez des contenus générés par IA ?",
-    a: "Les contenus synthétiques (images, audio, vidéo) devront être identifiables comme tels. Les deepfakes doivent être étiquetés.",
+    q: "Votre site passe-t-il le test du clavier ?",
+    a: "Débranchez la souris : si on ne peut pas parcourir le menu, remplir le formulaire et payer uniquement au clavier, votre site n'est pas conforme. C'est le test le plus rapide, et le plus souvent raté.",
   },
   {
-    q: "Vous triez des CV ou scorez des clients avec l'IA ?",
-    a: "Vous êtes probablement en zone haut risque : documentation, supervision humaine, registre. Le calendrier précis bouge encore, la préparation, elle, ne peut pas attendre.",
+    q: "Une refonte ou un nouveau site est prévu ?",
+    a: "C'est le meilleur moment : intégrer l'accessibilité dès la conception coûte une fraction d'une mise en conformité après coup, et le référentiel RGAA sert de cahier des charges.",
   },
 ];
 
 const BRIQUES = [
   {
     step: "01",
-    title: "Audit IA gratuit",
+    title: "Audit accessibilité gratuit",
     price: "0 €",
-    body: "30 minutes : on identifie vos usages IA réels et vos obligations actuelles. Réponse écrite sous 48 h.",
+    body: "Scan automatisé + revue manuelle de vos pages clés (accueil, produit, panier, contact). Verdict écrit sous 48 h : concerné ou pas, et les 5 blocages les plus graves.",
   },
   {
     step: "02",
-    title: "Diagnostic IA & conformité",
+    title: "Diagnostic RGAA complet",
     price: "1 500 à 3 000 €",
-    body: "Cartographie de vos systèmes, classement par niveau de risque, registre des usages, plan d'action daté.",
+    body: "Audit sur le référentiel officiel (106 critères), tests lecteur d'écran, registre des non-conformités, plan d'action daté et chiffré. Le document qui prouve votre démarche.",
   },
   {
     step: "03",
-    title: "Formation littératie IA",
-    price: "dès 990 €",
-    body: "L'obligation la plus immédiate (article 4). Formation de vos équipes documentée : la preuve de conformité est incluse.",
+    title: "Mise en conformité",
+    price: "Sur devis",
+    body: "Nos développeurs corrigent : structure, contrastes, formulaires, navigation clavier, alternatives. Par lots priorisés, avec re-test à chaque livraison.",
   },
   {
     step: "04",
     title: "Supervision continue",
     price: "500 à 1 500 € / mois",
-    body: "Veille réglementaire, registre tenu à jour, contrôles périodiques de vos agents. La conformité qui ne se périme pas.",
+    body: "Monitoring de votre conformité numérique (accessibilité + AI Act) : chaque mise en production est re-testée, votre déclaration reste à jour. La conformité qui ne se périme pas.",
   },
 ];
 
@@ -110,10 +117,11 @@ const JSONLD = {
 };
 
 /**
- * Page Conformité AI Act : la porte d'entrée SEO/commerciale du
- * positionnement (requêtes "AI Act entreprise"). Univers /ia (B2B).
+ * Page Conformité Accessibilité : deuxième volet de la porte d'entrée
+ * conformité (avec /ia/ai-act). Univers /ia (B2B). Requêtes visées :
+ * "accessibilité site web obligatoire", "RGAA obligation e-commerce".
  */
-export default function AiActPage() {
+export default function AccessibilitePage() {
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <script
@@ -144,17 +152,18 @@ export default function AiActPage() {
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 pt-20 pb-16 md:px-12 md:pt-28 md:pb-24">
         <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Conformité · Règlement (UE) 2024/1689
+          Conformité · Directive (UE) 2019/882
         </p>
         <h1 className="t-display mt-8 max-w-4xl text-5xl leading-[1.02] text-[var(--fg)] md:text-7xl">
-          L&apos;AI Act s&apos;applique déjà. Pas de panique, une méthode.
+          Votre site doit être accessible. C&apos;est la loi, depuis juin 2025.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)] md:text-xl">
-          Depuis février 2025, toute entreprise dont les équipes utilisent
-          l&apos;IA doit les former (article 4). En 2026, la transparence
-          devient obligatoire. La taille de votre entreprise ne vous exonère
-          pas, mais la mise en conformité d&apos;une PME est un chantier
-          court quand il est bien cadré.
+          En juin 2026, Carrefour a été condamné à rendre son site accessible
+          sous 6 mois, sous astreinte. L&apos;obligation vaut pour tout
+          e-commerce et service en ligne au-delà de 10 salariés ou 2 M€ de
+          chiffre d&apos;affaires. La mise en conformité d&apos;une PME est un
+          chantier court quand il est bien cadré, et un cauchemar quand il se
+          fait sous astreinte.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
           <a
@@ -182,7 +191,7 @@ export default function AiActPage() {
             Les dates qui comptent
           </p>
           <h2 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl">
-            Trois échéances sont déjà passées.
+            L&apos;obligation est en vigueur. La jurisprudence aussi.
           </h2>
           <ol className="mt-12 space-y-px">
             {TIMELINE.map((t) => (
@@ -203,7 +212,7 @@ export default function AiActPage() {
                   <p className={`mt-1 font-mono text-[9px] uppercase tracking-[0.22em] ${
                     t.status === "past" ? "text-[var(--fg-2)]/60" : t.status === "now" ? "text-[var(--accent)]" : "text-[var(--fg-2)]/45"
                   }`}>
-                    {t.status === "past" ? "✓ En vigueur" : t.status === "now" ? "● Échéance en cours" : "À venir"}
+                    {t.status === "past" ? "✓ Acquis" : t.status === "now" ? "● Jurisprudence en cours" : "À venir"}
                   </p>
                 </div>
                 <div className="md:col-span-9">
@@ -239,9 +248,9 @@ export default function AiActPage() {
           {/* Sanctions */}
           <div className="mt-12 grid gap-8 rounded-sm bg-[#1a1714] p-8 text-[#f5f0e6] md:grid-cols-3 md:p-12">
             {[
-              ["35 M€ ou 7 %", "du CA mondial : pratiques interdites"],
-              ["15 M€ ou 3 %", "du CA mondial : non-conformité haut risque"],
-              ["7,5 M€ ou 1 %", "du CA mondial : manquements de transparence"],
+              ["7 500 €", "d'amende par manquement (15 000 € en récidive)"],
+              ["Astreinte", "par jour de retard sur injonction du tribunal"],
+              ["Publication", "de la sanction, voire suspension du service"],
             ].map(([n, l]) => (
               <div key={l}>
                 <p className="t-display text-3xl text-[var(--accent)] md:text-4xl">{n}</p>
@@ -249,7 +258,7 @@ export default function AiActPage() {
               </div>
             ))}
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#f5f0e6]/50 md:col-span-3">
-              Pour les PME, le montant retenu est le moindre des deux. La bonne nouvelle : la conformité coûte deux ordres de grandeur de moins.
+              Le vrai coût n&apos;est pas l&apos;amende : c&apos;est la mise en conformité en urgence, sous astreinte, avec l&apos;image de marque en jeu. Et, selon l&apos;OMS, près d&apos;une personne sur six vit avec un handicap : autant de clients qui ne pouvaient pas acheter chez vous.
             </p>
           </div>
         </div>
@@ -285,16 +294,10 @@ export default function AiActPage() {
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </a>
             <Link
-              href="/ia#tarifs"
+              href="/ia/ai-act"
               className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
             >
-              Le détail des offres IA Pro →
-            </Link>
-            <Link
-              href="/ia/accessibilite"
-              className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
-            >
-              L&apos;autre échéance conformité : accessibilité web →
+              L&apos;autre conformité qui vous concerne : AI Act →
             </Link>
           </div>
         </div>
@@ -304,10 +307,10 @@ export default function AiActPage() {
       <footer className="border-t border-[var(--rule)]">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-10 md:px-12">
           <p className="max-w-3xl text-xs leading-relaxed text-[var(--fg-2)]/70">
-            Informations vérifiées en juillet 2026 sur la base du règlement
-            (UE) 2024/1689 et des ajustements du paquet Digital Omnibus. Cette
-            page est une synthèse pédagogique, pas un conseil juridique : pour
-            une analyse opposable, consultez votre conseil.
+            Informations vérifiées en juillet 2026 sur la base de la directive
+            (UE) 2019/882, de sa transposition française et du référentiel
+            RGAA. Cette page est une synthèse pédagogique, pas un conseil
+            juridique : pour une analyse opposable, consultez votre conseil.
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/55">
             TROIE Studio · Nice · <Link href="/ia" className="underline underline-offset-4 hover:text-[var(--accent)]">ia.troiestudio.fr</Link>
