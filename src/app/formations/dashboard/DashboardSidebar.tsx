@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Profile } from "@/lib/types";
+import { HOUSES, isHouseSlug } from "@/lib/pantheon";
 
 /**
  * DashboardSidebar, nav verticale + carte profil avec XP / level.
@@ -69,6 +70,34 @@ export function DashboardSidebar({
             </p>
           </div>
         </div>
+
+        {/* Maison du Panthéon */}
+        {isHouseSlug(profile.house) ? (
+          <div
+            className="mt-4 flex items-center justify-between rounded-sm px-3 py-2.5"
+            style={{
+              backgroundColor: HOUSES[profile.house].bg,
+              color: HOUSES[profile.house].fg,
+            }}
+          >
+            <span className="font-mono text-[9px] uppercase tracking-[0.22em]">
+              ⚡ {HOUSES[profile.house].title}
+            </span>
+            <span
+              className="font-mono text-[9px] uppercase tracking-[0.18em] opacity-75"
+            >
+              {HOUSES[profile.house].motto}
+            </span>
+          </div>
+        ) : (
+          <Link
+            href="/formations/pantheon"
+            className="mt-4 flex items-center justify-between rounded-sm border border-dashed border-[var(--rule-strong)] px-3 py-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/75 transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+          >
+            <span>Découvrir ma maison</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+        )}
 
         {/* Plan */}
         <div className="mt-4 flex items-center justify-between border-t border-[var(--rule)] pt-4">

@@ -215,6 +215,117 @@ export function renderLifecycleEmail(type: LifecycleEmailType): {
   return TEMPLATES[type];
 }
 
+/* ── Le s&eacute;same du Panth&eacute;on ─────────────────────────────────────
+   Envoy&eacute; quand l'utilisateur re&ccedil;oit sa maison : il ne devient pas
+   sorcier, il devient dieu. Un seul s&eacute;same par compte (email_log,
+   type "sesame"). */
+
+const SESAME_HOUSES: Record<
+  string,
+  { name: string; plainName: string; godOf: string; motto: string; color: string }
+> = {
+  hermes: {
+    name: "Herm&egrave;s",
+    plainName: "Hermès",
+    godOf: "dieu de la prospection",
+    motto: "Toujours en mouvement.",
+    color: "#f37b22",
+  },
+  athena: {
+    name: "Ath&eacute;na",
+    plainName: "Athéna",
+    godOf: "dieu de la strat&eacute;gie",
+    motto: "Voir avant les autres.",
+    color: "#8a7a5c",
+  },
+  achille: {
+    name: "Achille",
+    plainName: "Achille",
+    godOf: "dieu de la cr&eacute;ation",
+    motto: "La beaut&eacute; frappe fort.",
+    color: "#b4552d",
+  },
+  hestia: {
+    name: "Hestia",
+    plainName: "Hestia",
+    godOf: "dieu du foyer qui tourne",
+    motto: "La maison tient gr&acirc;ce &agrave; moi.",
+    color: "#1f3a34",
+  },
+};
+
+export function renderSesameEmail(house: string): {
+  subject: string;
+  html: string;
+} | null {
+  const h = SESAME_HOUSES[house];
+  if (!h) return null;
+  return {
+    subject: `Votre sésame pour l'Olympe : maison ${h.plainName}`,
+    html: layout(
+      `Le Panth&eacute;on &middot; Votre s&eacute;same`,
+      `
+      ${h1(`Bienvenue dans la maison ${h.name}.`)}
+      ${p(
+        `Le test a parl&eacute; : vous avez l'&eacute;toffe d'un ${h.godOf}. Ce s&eacute;same vous ouvre l'Olympe : votre espace membre, vos parcours et vos prompts choisis pour votre lign&eacute;e.`,
+      )}
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:26px;">
+        <tr><td style="border-left:4px solid ${h.color};padding:14px 20px;background:#f5f0e6;">
+          <div style="font-family:${MONO};font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:${C.gray};">Devise de la maison</div>
+          <div style="font-family:${SERIF};font-size:22px;color:${C.ink};margin-top:6px;">&laquo; ${h.motto} &raquo;</div>
+        </td></tr>
+      </table>
+      ${steps([
+        "Ouvrez votre espace membre : votre blason y est d&eacute;j&agrave; accroch&eacute;.",
+        "Commencez le parcours recommand&eacute; pour votre maison.",
+        "Gagnez vos premiers troph&eacute;es : l'Olympe r&eacute;compense la r&eacute;gularit&eacute;.",
+      ])}
+      ${button(DASHBOARD_URL, "Entrer dans l'Olympe")}
+      ${note(
+        "Un s&eacute;same ne se partage pas, mais un test si : vos coll&egrave;gues peuvent d&eacute;couvrir leur maison sur troiestudio.fr/formations/pantheon.",
+      )}
+    `,
+    ),
+  };
+}
+
+/**
+ * Envoie le s&eacute;same (une seule fois par compte, type "sesame").
+ */
+export async function sendSesameEmail(
+  userId: string,
+  to: string,
+  house: string,
+): Promise<"sent" | "duplicate" | "skipped"> {
+  const apiKey = process.env.RESEND_API_KEY;
+  const admin = createAdminClient();
+  const template = renderSesameEmail(house);
+  if (!apiKey || !admin || !to || !template) return "skipped";
+
+  const { error: dupe } = await admin
+    .from("email_log")
+    .insert({ user_id: userId, email_type: "sesame" });
+  if (dupe) return "duplicate";
+
+  const from = process.env.CONTACT_FROM ?? "TROIE <onboarding@resend.dev>";
+  try {
+    await new Resend(apiKey).emails.send({
+      from,
+      to,
+      subject: template.subject,
+      html: template.html,
+    });
+    return "sent";
+  } catch {
+    await admin
+      .from("email_log")
+      .delete()
+      .eq("user_id", userId)
+      .eq("email_type", "sesame");
+    return "skipped";
+  }
+}
+
 /**
  * Envoie un email de cycle de vie, une seule fois par (user, type).
  * Renvoie "sent", "duplicate" ou "skipped" (config manquante).

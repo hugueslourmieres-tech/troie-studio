@@ -9,6 +9,8 @@ export type Profile = {
   email: string;
   full_name: string | null;
   avatar_url: string | null;
+  /** Maison du Panthéon (hermes, athena, achille, hestia) ou null. */
+  house?: string | null;
   xp_total: number;
   level: number;
   created_at: string;
