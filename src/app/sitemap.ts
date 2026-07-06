@@ -81,6 +81,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/creation/site-conforme", priority: 0.9, frequency: "weekly" },
     { path: "/formations", priority: 0.95, frequency: "weekly" },
     { path: "/formations/tarifs", priority: 0.9, frequency: "weekly" },
+    { path: "/formations/pantheon", priority: 0.9, frequency: "weekly" },
+    { path: "/formations/pantheon/test", priority: 0.8, frequency: "monthly" },
     { path: "/formations/quiz", priority: 0.9, frequency: "weekly" },
     { path: "/formations/module-0", priority: 0.8, frequency: "monthly" },
     { path: "/formations/prompts", priority: 0.9, frequency: "weekly" },

@@ -134,7 +134,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
             {asHero && (
               <div className="mt-10 flex flex-col items-center gap-5">
                 <Link
-                  href="/formations/pantheon"
+                  href="/formations/pantheon/test"
                   className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
                 >
                   {t("heroCtaHouse")}

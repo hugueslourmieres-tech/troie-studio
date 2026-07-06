@@ -91,7 +91,7 @@ export function DashboardSidebar({
           </div>
         ) : (
           <Link
-            href="/formations/pantheon"
+            href="/formations/pantheon/test"
             className="mt-4 flex items-center justify-between rounded-sm border border-dashed border-[var(--rule-strong)] px-3 py-2.5 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/75 transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
             <span>Découvrir ma maison</span>

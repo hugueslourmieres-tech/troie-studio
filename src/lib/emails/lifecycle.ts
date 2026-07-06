@@ -282,7 +282,7 @@ export function renderSesameEmail(house: string): {
       ])}
       ${button(DASHBOARD_URL, "Entrer dans l'Olympe")}
       ${note(
-        "Un s&eacute;same ne se partage pas, mais un test si : vos coll&egrave;gues peuvent d&eacute;couvrir leur maison sur troiestudio.fr/formations/pantheon.",
+        "Un s&eacute;same ne se partage pas, mais un test si : vos coll&egrave;gues peuvent d&eacute;couvrir leur maison sur troiestudio.fr/formations/pantheon/test.",
       )}
     `,
     ),

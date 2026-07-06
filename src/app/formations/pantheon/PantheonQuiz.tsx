@@ -131,7 +131,7 @@ export function PantheonQuiz() {
                 parcours de maison.
               </p>
               <Link
-                href={`/formations/auth/sign-in?next=${encodeURIComponent(`/formations/pantheon?house=${house}`)}`}
+                href={`/formations/auth/sign-in?next=${encodeURIComponent(`/formations/pantheon/test?house=${house}`)}`}
                 className="group inline-flex items-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
               >
                 Recevoir mon sésame
@@ -160,7 +160,7 @@ export function PantheonQuiz() {
             setPicks([]);
             setHouse(null);
             setSaveState("idle");
-            window.history.replaceState(null, "", "/formations/pantheon");
+            window.history.replaceState(null, "", "/formations/pantheon/test");
           }}
           className="mt-8 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 transition hover:text-[var(--accent)]"
         >

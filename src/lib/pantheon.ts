@@ -21,6 +21,11 @@ export type House = {
   accent: string;
   /** Offres du site servies en priorité à cette maison. */
   offers: { label: string; href: string }[];
+  /** Ce que la maison fait au quotidien avec l'IA (3 tâches, chiffres et
+   * visuels déjà publiés et sourcés sur /ia, réutilisés ici). */
+  tasks: { title: string; time: string; body: string; image: string }[];
+  /** Outils IA connectés (logos), typiques de cette maison. */
+  tools: { src: string; label: string }[];
 };
 
 export const HOUSES: Record<HouseSlug, House> = {
@@ -40,6 +45,34 @@ export const HOUSES: Record<HouseSlug, House> = {
       { label: "Cours 01 · Maîtriser ChatGPT & Claude", href: "/formations/cours-01" },
       { label: "Prompts métier vente", href: "/formations/prompts" },
     ],
+    tasks: [
+      {
+        title: "Votre prospection",
+        time: "5 à 10 h / semaine",
+        body: "Listes qualifiées, mails personnalisés ciblage par ciblage.",
+        image: "/images/travaux/04_sanglier-erymanthe.jpg",
+      },
+      {
+        title: "Vos emails",
+        time: "26 min / jour",
+        body: "Réponses pros calées dans votre voix. Première réponse en 3 secondes.",
+        image: "/images/travaux/01_lion-nemee.jpg",
+      },
+      {
+        title: "Vos devis et factures",
+        time: "3 à 5 h / semaine",
+        body: "Générés, envoyés, relances automatiques. Plus jamais oubliés.",
+        image: "/images/travaux/03_biche-cerynie.jpg",
+      },
+    ],
+    tools: [
+      { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+      { src: "/images/logos/claude.svg", label: "Claude" },
+      { src: "/images/logos/hubspot.svg", label: "HubSpot" },
+      { src: "/images/logos/salesforce.svg", label: "Salesforce" },
+      { src: "/images/logos/gmail.svg", label: "Gmail" },
+      { src: "/images/logos/linkedin.svg", label: "LinkedIn" },
+    ],
   },
   athena: {
     slug: "athena",
@@ -56,6 +89,34 @@ export const HOUSES: Record<HouseSlug, House> = {
       { label: "Audit & diagnostic IA", href: "/ia" },
       { label: "Conformité AI Act", href: "/ia/ai-act" },
       { label: "Accessibilité web", href: "/ia/accessibilite" },
+    ],
+    tasks: [
+      {
+        title: "Votre reporting",
+        time: "Chaque lundi matin",
+        body: "Synthèse automatique de vos chiffres, livrée sans intervention.",
+        image: "/images/travaux/07_pommes-hesperides.jpg",
+      },
+      {
+        title: "Votre veille marché",
+        time: "Sur demande",
+        body: "Concurrents, tendances, signaux faibles. Résumés pertinents en 30 sec.",
+        image: "/images/travaux/08_cerbere.jpg",
+      },
+      {
+        title: "Vos analyses de données",
+        time: "Tableurs en minutes",
+        body: "Vos CSV, vos Excel. Lus, croisés, expliqués en clair.",
+        image: "/images/travaux/12_achelous.jpg",
+      },
+    ],
+    tools: [
+      { src: "/images/logos/claude.svg", label: "Claude" },
+      { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+      { src: "/images/logos/notion.svg", label: "Notion" },
+      { src: "/images/logos/google-analytics.svg", label: "Google Analytics" },
+      { src: "/images/logos/semrush.svg", label: "Semrush" },
+      { src: "/images/logos/make.svg", label: "Make" },
     ],
   },
   achille: {
@@ -74,6 +135,34 @@ export const HOUSES: Record<HouseSlug, House> = {
       { label: "Création médias & web", href: "/creation/site-conforme" },
       { label: "Prompts contenu & social", href: "/formations/prompts" },
     ],
+    tasks: [
+      {
+        title: "Vos posts sociaux",
+        time: "5 h / semaine",
+        body: "LinkedIn, Instagram, TikTok. Un sujet, cinq formats sortants prêts à publier.",
+        image: "/images/travaux/02_hydre-lerne.jpg",
+      },
+      {
+        title: "Vos visuels et illustrations",
+        time: "Quelques secondes",
+        body: "Génération image on-brand, votre charte respectée.",
+        image: "/images/travaux/05_juments-diomede.jpg",
+      },
+      {
+        title: "Vos briefs créatifs",
+        time: "30 sec",
+        body: "Moodboards, références, scripts. Prêts à passer en prod.",
+        image: "/images/travaux/10_nessus.jpg",
+      },
+    ],
+    tools: [
+      { src: "/images/logos/midjourney.svg", label: "Midjourney" },
+      { src: "/images/logos/figma.svg", label: "Figma" },
+      { src: "/images/logos/adobe.svg", label: "Adobe" },
+      { src: "/images/logos/runway.svg", label: "Runway" },
+      { src: "/images/logos/instagram.svg", label: "Instagram" },
+      { src: "/images/logos/tiktok.svg", label: "TikTok" },
+    ],
   },
   hestia: {
     slug: "hestia",
@@ -90,6 +179,34 @@ export const HOUSES: Record<HouseSlug, House> = {
       { label: "Agent service client 24/7", href: "/ia" },
       { label: "Formation équipe dès 990 €", href: "/formations" },
       { label: "Automatisations Make / n8n", href: "/ia" },
+    ],
+    tasks: [
+      {
+        title: "Votre service client",
+        time: "40 % en autonomie",
+        body: "Première réponse en moins d'une minute, 24/7, en cinq langues.",
+        image: "/images/travaux/06_geryon.jpg",
+      },
+      {
+        title: "Vos sous-titrages vidéo",
+        time: "Automatique",
+        body: "Réels et lives sous-titrés et traduits en cinq langues.",
+        image: "/images/travaux/09_serpents-berceau.jpg",
+      },
+      {
+        title: "Vos traductions",
+        time: "Instantanées",
+        body: "Voix de marque conservée dans 5 langues.",
+        image: "/images/travaux/11_centaures.jpg",
+      },
+    ],
+    tools: [
+      { src: "/images/logos/whatsapp.svg", label: "WhatsApp" },
+      { src: "/images/logos/slack.svg", label: "Slack" },
+      { src: "/images/logos/make.svg", label: "Make" },
+      { src: "/images/logos/notion.svg", label: "Notion" },
+      { src: "/images/logos/gmail.svg", label: "Gmail" },
+      { src: "/images/logos/hubspot.svg", label: "HubSpot" },
     ],
   },
 };

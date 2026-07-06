@@ -39,7 +39,7 @@ export function PantheonSection() {
                 transition={{ duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
               >
                 <Link
-                  href="/formations/pantheon"
+                  href="/formations/pantheon/test"
                   className="group flex h-full flex-col rounded-sm border p-7 transition-transform duration-300 hover:-translate-y-1.5"
                   style={{ backgroundColor: h.bg, borderColor: h.bg, color: h.fg }}
                 >
@@ -76,7 +76,7 @@ export function PantheonSection() {
 
         <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
           <Link
-            href="/formations/pantheon"
+            href="/formations/pantheon/test"
             className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
           >
             Faire le test du Panthéon
