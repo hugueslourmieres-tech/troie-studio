@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { HOUSES, type HouseSlug } from "@/lib/pantheon";
+import { HouseCrest } from "@/components/HouseCrest";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 const ORDER: HouseSlug[] = ["hermes", "athena", "achille", "hestia"];
@@ -96,27 +97,39 @@ export default function PantheonOverviewPage() {
               className={`scroll-mt-24 border-t border-[var(--rule)] ${alt ? "bg-[var(--bg-2)]" : "bg-[var(--bg)]"}`}
             >
               <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-                <div className="flex flex-wrap items-center gap-4">
-                  <span
-                    className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em]"
-                    style={{ backgroundColor: h.bg, color: h.fg }}
+                <div className="flex flex-col items-center gap-10 text-center md:flex-row md:items-start md:gap-14 md:text-left">
+                  {/* Blason de la maison, grand format */}
+                  <div
+                    className="flex shrink-0 items-center justify-center rounded-full p-3"
+                    style={{ backgroundColor: `${h.bg}14` }}
                   >
-                    ✦ Maison {h.name}
-                  </span>
-                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                    {h.godOf}
-                  </span>
-                </div>
+                    <HouseCrest slug={slug} size={168} symbolColor={h.bg} />
+                  </div>
 
-                <h2 className="t-display mt-6 max-w-2xl text-4xl text-[var(--fg)] md:text-6xl">
-                  {h.name}.
-                </h2>
-                <p className="mt-3 t-display text-xl italic md:text-2xl" style={{ color: h.bg }}>
-                  « {h.motto} »
-                </p>
-                <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                  {h.description}
-                </p>
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+                      <span
+                        className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-[10px] uppercase tracking-[0.22em]"
+                        style={{ backgroundColor: h.bg, color: h.fg }}
+                      >
+                        ✦ Maison {h.name}
+                      </span>
+                      <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
+                        {h.godOf}
+                      </span>
+                    </div>
+
+                    <h2 className="t-display mt-6 max-w-2xl text-4xl text-[var(--fg)] md:text-6xl">
+                      {h.name}.
+                    </h2>
+                    <p className="mt-3 t-display text-xl italic md:text-2xl" style={{ color: h.bg }}>
+                      « {h.motto} »
+                    </p>
+                    <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+                      {h.description}
+                    </p>
+                  </div>
+                </div>
 
                 {/* Ce que la maison fait au quotidien : 3 taches, chiffres + visuels */}
                 <p className="mt-14 font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
