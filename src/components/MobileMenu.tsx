@@ -79,25 +79,6 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
             <div className="absolute inset-x-6 top-[68px] h-px bg-[var(--rule-strong)]" />
 
             <div className="mx-auto flex min-h-full w-full max-w-xl flex-col">
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 8 }}
-                transition={{ duration: 0.45, delay: 0.04, ease: [0.16, 1, 0.3, 1] }}
-                className="border-b border-[var(--rule-strong)] py-6"
-              >
-                <Link
-                  href="/formations/pantheon"
-                  onClick={() => setOpen(false)}
-                  className="group/pt flex items-center justify-between gap-4"
-                >
-                  <span className="t-display text-[26px] leading-none text-[var(--accent)]">
-                    ✦ Le Panthéon
-                  </span>
-                  <ArrowRight />
-                </Link>
-              </motion.div>
-
               <ul className="flex flex-col">
                 {groups.map((group, i) => (
                   <motion.li

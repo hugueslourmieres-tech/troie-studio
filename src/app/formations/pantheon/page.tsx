@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { HOUSES, type HouseSlug } from "@/lib/pantheon";
-import { HouseCrest } from "@/components/HouseCrest";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 const ORDER: HouseSlug[] = ["hermes", "athena", "achille", "hestia"];
@@ -98,14 +97,7 @@ export default function PantheonOverviewPage() {
             >
               <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
                 <div className="flex flex-col items-center gap-10 text-center md:flex-row md:items-start md:gap-14 md:text-left">
-                  {/* Blason de la maison, grand format */}
-                  <div
-                    className="flex shrink-0 items-center justify-center rounded-full p-3"
-                    style={{ backgroundColor: `${h.bg}14` }}
-                  >
-                    <HouseCrest slug={slug} size={168} symbolColor={h.bg} />
-                  </div>
-
+                  {/* Blason retiré en attendant une version propre */}
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
                       <span

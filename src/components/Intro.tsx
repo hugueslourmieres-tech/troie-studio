@@ -103,22 +103,22 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               />
             </Parallax>
             <p className="t-eyebrow">{t("introEyebrow")}</p>
-            {/* Titre verrouillé sur 1 ligne : insécable, la taille suit
-                la largeur de fenêtre (clamp) pour ne jamais wrapper. */}
+            {/* Titre : grand sur mobile (peut passer sur 2 lignes),
+                verrouillé sur 1 ligne dès md via whitespace-nowrap. */}
             {asHero ? (
               <h1
-                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(1.05rem,6vw,4rem)] md:text-[clamp(2rem,4.2vw,5.2rem)]"
+                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(2.1rem,11.5vw,4rem)] md:text-[clamp(2rem,4.2vw,5.2rem)]"
                 aria-label={t("introTitle")}
               >
-                <span aria-hidden="true" className="block whitespace-nowrap">
+                <span aria-hidden="true" className="block md:whitespace-nowrap">
                   <LetterReveal text={t("introTitle")} />
                 </span>
               </h1>
             ) : (
               <h2
-                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(1.05rem,6vw,4rem)] md:text-[clamp(2rem,4.2vw,5.2rem)]"
+                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(2.1rem,11.5vw,4rem)] md:text-[clamp(2rem,4.2vw,5.2rem)]"
               >
-                <span className="block whitespace-nowrap">{t("introTitle")}</span>
+                <span className="block md:whitespace-nowrap">{t("introTitle")}</span>
               </h2>
             )}
             <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
@@ -132,7 +132,6 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                   href="/formations/pantheon/test"
                   className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
                 >
-                  <HermesIcon className="h-4 w-4 shrink-0" />
                   {t("heroCtaHouse")}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </Link>
@@ -258,25 +257,5 @@ function ToolsRow({ tools }: { tools: Tool[] }) {
         </li>
       ))}
     </ul>
-  );
-}
-
-/** Casque aile (Hermes) : pictogramme pour le CTA "Decouvrir ma maison". */
-function HermesIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M3.5 15A8.5 8.5 0 0 1 20.5 15" />
-      <path d="M2.5 15.3h19" />
-      <path d="M16.5 9.5C18 6.5 20 4.5 22 3.5C20.3 5.3 18.8 7 17.8 7.8Z" fill="currentColor" stroke="none" />
-    </svg>
   );
 }
