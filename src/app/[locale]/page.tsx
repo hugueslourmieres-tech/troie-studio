@@ -1,5 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { Intro } from "@/components/Intro";
+import { PantheonSection } from "@/components/PantheonSection";
 import { AudienceFork } from "@/components/AudienceFork";
 import { AiUrgency } from "@/components/AiUrgency";
 import { QcmSection } from "@/components/QcmSection";
@@ -34,6 +35,9 @@ export default async function HomePage({
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <Intro asHero />
       </div>
+
+      {/* PANTHÉON : les 4 maisons, tient la promesse du hero tout de suite */}
+      <PantheonSection />
 
       {/* URGENCE IA : punchline FOMO, renvoie vers le QCM de niveau */}
       <AiUrgency />

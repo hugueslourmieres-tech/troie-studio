@@ -97,6 +97,12 @@ export function Header({
           {groups.map((group, i) => (
             <NavDropdown key={group.label} group={group} index={i} />
           ))}
+          <Link
+            href="/formations/pantheon"
+            className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+          >
+            <span aria-hidden="true" className="text-[var(--accent)]">✦</span> Le Panthéon
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4 md:gap-5">

@@ -130,25 +130,25 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               {t("introBody")}
             </p>
 
-            {/* CTA : audit gratuit (Cal.com) + plateforme e-learning */}
+            {/* CTA : découvrir sa maison (Panthéon) d'abord, audit gratuit ensuite */}
             {asHero && (
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <div className="mt-10 flex flex-col items-center gap-5">
+                <Link
+                  href="/formations/pantheon"
+                  className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
+                >
+                  {t("heroCtaHouse")}
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                </Link>
                 <a
                   href="https://cal.com/troiestudio/30min"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
+                  className="group inline-flex items-center gap-2.5 border-b border-[var(--fg)]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)]/85 transition-colors hover:border-[var(--fg)] hover:text-[var(--fg)]"
                 >
                   {t("heroCtaAudit")}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
-                <Link
-                  href="/formations"
-                  className="group inline-flex items-center gap-3 border border-[var(--fg)]/40 px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--fg)] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
-                >
-                  {t("heroCtaPlatform")}
-                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </Link>
               </div>
             )}
           </div>
