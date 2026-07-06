@@ -117,7 +117,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-04",
     category: "Conformité",
     readingMinutes: 6,
-    cover: "/images/corpo/montpellier/DSC_7616.jpg",
+    cover: "/images/blog/accessibilite-carrefour.jpg",
     keywords: [
       "accessibilité site web obligatoire",
       "RGAA e-commerce",

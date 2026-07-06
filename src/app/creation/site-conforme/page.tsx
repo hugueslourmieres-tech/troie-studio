@@ -30,7 +30,7 @@ const TIMELINE = [
   {
     date: "4 juin 2026",
     title: "Carrefour condamné sous astreinte",
-    body: "Ordonnance du 4 juin 2026 : obligation de résultat, mise en conformité sous 6 mois, astreinte de 500 € par jour de retard. La jurisprudence est posée, et elle ne vise pas que les géants.",
+    body: "Ordonnance du 4 juin 2026 : obligation de résultat (100 % des critères RGAA), mise en conformité sous 6 mois, sous astreinte par jour de retard. La jurisprudence est posée, et elle ne vise pas que les géants.",
     status: "now",
   },
   {
