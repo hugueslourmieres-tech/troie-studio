@@ -84,7 +84,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "ai-act-controlable-2-aout-2026",
     title:
-      "AI Act : ce qui devient contrôlable le 2 août 2026 (et ce que votre PME doit avoir fait avant)",
+      "AI Act : ce qui devient contrôlable le 2 août 2026",
     cardTitle: "AI Act : contrôlable le 2 août 2026",
     description:
       "Le 2 août 2026, les autorités peuvent contrôler et sanctionner. L'obligation de former vos équipes existe depuis février 2025. Qui est concerné, ce que vous risquez, et le minimum vital en 4 semaines.",
@@ -202,7 +202,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "comment-utiliser-chatgpt-debutant",
     title: "Comment utiliser ChatGPT : le guide simple pour débuter",
-    cardTitle: "Comment utiliser ChatGPT (guide débutant)",
+    cardTitle: "Comment utiliser ChatGPT",
     description:
       "Vous n'avez jamais osé vous lancer ? Le guide clair pour utiliser ChatGPT gratuitement : c'est quoi un prompt, 5 exemples, les erreurs à éviter. Sans jargon.",
     date: "2026-06-22",
@@ -216,7 +216,7 @@ export const ARTICLES: Article[] = [
       "utiliser ChatGPT gratuitement",
     ],
     titleEn: "How to Use ChatGPT: The Simple Beginner's Guide",
-    cardTitleEn: "How to use ChatGPT (beginner's guide)",
+    cardTitleEn: "How to use ChatGPT",
     descriptionEn: "Never dared to give it a try? The clear guide to using ChatGPT for free: what a prompt is, 5 example prompts, the mistakes to avoid. No jargon.",
     Body: CommentUtiliserChatgptDebutant,
     BodyEn: CommentUtiliserChatgptDebutantEn,
@@ -302,7 +302,7 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "pourquoi-lia-hallucine",
-    title: "Pourquoi l'IA invente des choses (et comment la vérifier)",
+    title: "Pourquoi l'IA invente des choses, et comment la vérifier",
     cardTitle: "Pourquoi l'IA \"hallucine\"",
     description:
       "L'IA vous donne une info crédible mais fausse ? On appelle ça une hallucination. Pourquoi ça arrive, et 3 réflexes pour ne jamais se faire avoir.",
@@ -311,7 +311,7 @@ export const ARTICLES: Article[] = [
     readingMinutes: 5,
     cover: "/images/blog/hallucinations-v2.jpg",
     keywords: ["l'IA hallucine", "ChatGPT se trompe", "vérifier une réponse IA"],
-    titleEn: "Why AI Makes Things Up (and How to Fact-Check It)",
+    titleEn: "Why AI Makes Things Up, and How to Fact-Check It",
     cardTitleEn: "Why AI Hallucinates",
     descriptionEn: "AI gave you a credible but false answer? That is called a hallucination. Why it happens, and 3 habits so you never get fooled again.",
     Body: PourquoiLiaHallucine,
@@ -320,7 +320,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "glossaire-ia",
     title: "Glossaire de l'IA : 20 mots expliqués simplement",
-    cardTitle: "Glossaire de l'IA (20 mots simples)",
+    cardTitle: "Glossaire de l'IA en 20 mots",
     description:
       "IA, LLM, prompt, token, agent, hallucination, deepfake, AI Act... Le vocabulaire de l'IA expliqué en une phrase chacun, sans jargon.",
     date: "2026-06-16",
@@ -329,7 +329,7 @@ export const ARTICLES: Article[] = [
     cover: "/images/blog/glossaire-v2.jpg",
     keywords: ["glossaire IA", "vocabulaire intelligence artificielle", "lexique IA"],
     titleEn: "AI Glossary: 20 Terms Explained in Plain English",
-    cardTitleEn: "AI glossary (20 simple terms)",
+    cardTitleEn: "AI glossary in 20 terms",
     descriptionEn: "AI, LLM, prompt, token, agent, hallucination, deepfake, EU AI Act... The vocabulary of AI explained in one sentence each, with zero jargon.",
     Body: GlossaireIa,
     BodyEn: GlossaireIaEn,
@@ -370,8 +370,8 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "cest-quoi-un-agent-ia",
-    title: "C'est quoi un agent IA ? (et ce que ça change pour votre travail)",
-    cardTitle: "C'est quoi un agent IA ?",
+    title: "Qu'est-ce qu'un agent IA, et ce que ça change pour votre travail",
+    cardTitle: "Qu'est-ce qu'un agent IA ?",
     description:
       "ChatGPT répond, un agent IA agit. La différence en clair, un exemple concret, et les garde-fous à connaître avant de leur déléguer des tâches.",
     date: "2026-06-13",
@@ -379,7 +379,7 @@ export const ARTICLES: Article[] = [
     readingMinutes: 5,
     cover: "/images/blog/agent-v2.jpg",
     keywords: ["c'est quoi un agent IA", "agent IA définition", "automatiser avec l'IA"],
-    titleEn: "What Is an AI Agent? (And What It Changes for Your Work)",
+    titleEn: "What Is an AI Agent, and What It Changes for Your Work",
     cardTitleEn: "What Is an AI Agent?",
     descriptionEn: "ChatGPT answers, an AI agent acts. The difference explained clearly, a concrete example, and the guardrails to know before delegating tasks to one.",
     Body: CestQuoiUnAgentIa,
@@ -387,8 +387,8 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "ia-ethique",
-    title: "IA éthique : c'est quoi concrètement (et pourquoi ça compte)",
-    cardTitle: "IA éthique : c'est quoi concrètement ?",
+    title: "IA éthique : ce que c'est concrètement, et pourquoi ça compte",
+    cardTitle: "IA éthique : ce que c'est concrètement",
     description:
       "L'IA éthique, ce n'est pas une IA gentille. Définition simple, pourquoi ça compte (biais, désinformation, données) et 4 réflexes au quotidien.",
     date: "2026-06-12",
@@ -396,7 +396,7 @@ export const ARTICLES: Article[] = [
     readingMinutes: 5,
     cover: "/images/blog/ethique-v2.jpg",
     keywords: ["IA éthique", "intelligence artificielle éthique", "IA responsable"],
-    titleEn: "Ethical AI: What It Actually Means (and Why It Matters)",
+    titleEn: "Ethical AI: What It Actually Means, and Why It Matters",
     cardTitleEn: "Ethical AI: What Does It Actually Mean?",
     descriptionEn: "Ethical AI is not just nice AI. A simple definition, why it matters (bias, misinformation, your data), and 4 everyday habits for responsible use.",
     Body: IaEthique,

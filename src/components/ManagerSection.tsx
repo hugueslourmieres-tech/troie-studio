@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { VideoFacade } from "./VideoFacade";
 
 /**
  * Section home "Devenez manager" : juste après le hero. Pose le vrai
@@ -50,17 +51,11 @@ export function ManagerSection({ locale = "fr" }: { locale?: string }) {
 
         {/* Vidéo de l'audition + lien article */}
         <figure className="mx-auto mt-12 max-w-3xl md:mt-14">
-          <div className="relative aspect-video overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--ink)]">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/vczBo0AvbTI?start=375"
-              title="Arthur Mensch (Mistral) devant l'Assemblée nationale"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              loading="lazy"
-              className="absolute inset-0 h-full w-full"
-              style={{ filter: "grayscale(1)" }}
-            />
-          </div>
+          <VideoFacade
+            youtubeSrc="https://www.youtube-nocookie.com/embed/vczBo0AvbTI?start=375"
+            poster="/images/mensch-audition.jpg"
+            title="Arthur Mensch (Mistral) devant l'Assemblée nationale"
+          />
           <figcaption className="mt-5 flex flex-col items-center gap-6">
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--fg-2)]/60">
               {c.caption}
