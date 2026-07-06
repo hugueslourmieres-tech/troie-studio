@@ -11,24 +11,30 @@ const AI_TOOLS = [
   { src: "/images/logos/copilot.svg", label: "Copilot" },
 ];
 
+/** Décryptage officiel (entreprises.gouv.fr) : qui est concerné par l'AI Act. */
+const SOURCE_URL =
+  "https://www.entreprises.gouv.fr/decryptages-de-nos-experts/le-reglement-europeen-sur-lintelligence-artificielle-publics-concernes";
+
 const COPY = {
   fr: {
-    eyebrow: "AI Act · échéance 2 août 2026",
-    title: "Former vos équipes à l'IA devient obligatoire.",
-    body: "Le règlement européen sur l'IA impose déjà un niveau minimal de compétences à toute organisation qui utilise ces outils, même gratuits. Le 2 août 2026, les autorités peuvent contrôler et sanctionner. « On ne savait pas » ne sera plus recevable.",
+    eyebrow: "Conformité · échéance 2 août 2026",
+    title: "AI Act : vous êtes concerné.",
+    body: "Le règlement européen sur l'IA concerne toute organisation qui fournit, importe, distribue ou déploie des systèmes d'IA, même via des outils gratuits. Il impose déjà un niveau minimal de compétences aux équipes. Le 2 août 2026, les autorités peuvent contrôler et sanctionner.",
     ctaPrimary: "S'informer sur l'AI Act",
     ctaSecondary: "Voir les formations",
     meta: "Obligation en vigueur depuis février 2025",
+    sourceLabel: "Le texte officiel",
     toolsLabel: "Vos équipes utilisent déjà ces outils",
     articleSlug: "ai-act-controlable-2-aout-2026",
   },
   en: {
-    eyebrow: "EU AI Act · August 2, 2026",
-    title: "Training your teams on AI is now mandatory.",
-    body: "The EU AI regulation already requires a minimum level of AI literacy from any organisation that uses these tools, even free ones. On August 2, 2026, authorities can audit and sanction. « We didn't know » will no longer hold.",
+    eyebrow: "Compliance · August 2, 2026",
+    title: "The EU AI Act concerns you.",
+    body: "The EU AI regulation applies to any organisation that provides, imports, distributes or deploys AI systems, even through free tools. It already requires a minimum level of AI literacy from teams. On August 2, 2026, authorities can audit and sanction.",
     ctaPrimary: "Learn about the AI Act",
     ctaSecondary: "See the training",
     meta: "In force since February 2025",
+    sourceLabel: "The official regulation",
     toolsLabel: "Your teams already use these tools",
     articleSlug: "ai-act-controlable-2-aout-2026",
   },
@@ -93,10 +99,19 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
                   {c.ctaSecondary}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </Link>
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/45">
-                  {c.meta}
-                </span>
               </div>
+              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/45">
+                {c.meta}
+                {" · "}
+                <a
+                  href={SOURCE_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline decoration-[#f5f0e6]/30 underline-offset-2 transition-colors hover:text-[#f5f0e6] hover:decoration-[#f5f0e6]"
+                >
+                  {c.sourceLabel} →
+                </a>
+              </p>
             </Reveal>
 
             {/* Les outils que les équipes utilisent déjà, logos blancs */}
