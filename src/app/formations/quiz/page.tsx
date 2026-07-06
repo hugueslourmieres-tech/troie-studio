@@ -130,7 +130,7 @@ export default function QuizCatalogPage() {
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
           <Link
             href="/formations/auth/sign-in"
-            className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
           >
             Créer mon compte
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

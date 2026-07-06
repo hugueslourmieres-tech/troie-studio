@@ -185,7 +185,7 @@ export default function Module0Page() {
 
               <a
                 href="/formations#paths"
-                className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--ink)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
               >
                 Débloquer · 97 €
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -193,7 +193,7 @@ export default function Module0Page() {
             </div>
 
             {/* Cours 02 locked card */}
-            <div className="relative overflow-hidden rounded-sm border border-[var(--rule)] bg-[#1a1714] p-8 text-[#f5f0e6] md:p-10">
+            <div className="relative overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--ink)] p-8 text-[#f5f0e6] md:p-10">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
                   Cours 02 · Advanced · 297 €
@@ -229,7 +229,7 @@ export default function Module0Page() {
                   ))}
                 </ul>
                 <div className="pointer-events-none absolute inset-0 flex items-end justify-end p-4">
-                  <div className="rounded-sm border border-[var(--accent)] bg-[#1a1714] px-3 py-2 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
+                  <div className="rounded-sm border border-[var(--accent)] bg-[var(--ink)] px-3 py-2 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
                     + 68 questions
                   </div>
                 </div>

@@ -61,7 +61,7 @@ export function CompleteModuleButton({
         type="button"
         onClick={onClick}
         disabled={pending}
-        className="inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] disabled:opacity-60"
+        className="inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] disabled:opacity-60"
       >
         {pending ? "Enregistrement…" : "✓ Marquer comme terminé"}
         <span aria-hidden="true">→</span>

@@ -50,7 +50,7 @@ export function HeroLines() {
       {COLUMNS.map((x, i) => (
         <div
           key={`col-${i}`}
-          className="absolute top-0 h-full w-px bg-[var(--fg)]"
+          className="absolute top-0 h-full w-px bg-[var(--ink)]"
           style={{ left: `${x}%`, opacity: 0.05 }}
         />
       ))}
@@ -59,7 +59,7 @@ export function HeroLines() {
       {LINES.map((l, i) => (
         <motion.div
           key={`line-${i}`}
-          className="absolute h-px bg-[var(--fg)]"
+          className="absolute h-px bg-[var(--ink)]"
           style={{
             top: l.y,
             ...(l.from === "left" ? { left: 0 } : { right: 0 }),
@@ -83,7 +83,7 @@ export function HeroLines() {
       {PINS.map((p, i) => (
         <motion.span
           key={`pin-${i}`}
-          className="absolute block h-1 w-1 rounded-full bg-[var(--fg)]"
+          className="absolute block h-1 w-1 rounded-full bg-[var(--ink)]"
           style={{ top: p.top, left: p.left }}
           initial={{ scale: 0.7, opacity: 0 }}
           animate={{

@@ -260,7 +260,7 @@ export default async function WebPage({
 
           <Link
             href={`/${locale}/contact?subject=web`}
-            className="group mt-14 inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+            className="group mt-14 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
           >
             Démarrer un projet web
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

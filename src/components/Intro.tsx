@@ -103,22 +103,22 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               />
             </Parallax>
             <p className="t-eyebrow">{t("introEyebrow")}</p>
-            {/* Titre : grand sur mobile (peut passer sur 2 lignes),
-                verrouillé sur 1 ligne dès md via whitespace-nowrap. */}
+            {/* Titre : revient à la ligne mot par mot selon la largeur.
+                Clamp calé pour un rendu net sur ordinateur et téléphone. */}
             {asHero ? (
               <h1
-                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(2.1rem,11.5vw,4rem)] md:text-[clamp(2rem,4.2vw,5.2rem)]"
+                className="t-display mx-auto mt-8 max-w-[15ch] text-balance leading-[1.08] text-[var(--fg)] text-[clamp(2.4rem,10vw,3.4rem)] md:max-w-[18ch] md:text-[clamp(3rem,5vw,5rem)]"
                 aria-label={t("introTitle")}
               >
-                <span aria-hidden="true" className="block md:whitespace-nowrap">
+                <span aria-hidden="true" className="block">
                   <LetterReveal text={t("introTitle")} />
                 </span>
               </h1>
             ) : (
               <h2
-                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(2.1rem,11.5vw,4rem)] md:text-[clamp(2rem,4.2vw,5.2rem)]"
+                className="t-display mx-auto mt-8 max-w-[15ch] text-balance leading-[1.08] text-[var(--fg)] text-[clamp(2.4rem,10vw,3.4rem)] md:max-w-[18ch] md:text-[clamp(3rem,5vw,5rem)]"
               >
-                <span className="block md:whitespace-nowrap">{t("introTitle")}</span>
+                {t("introTitle")}
               </h2>
             )}
             <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
@@ -132,7 +132,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                   href="https://cal.com/troiestudio/30min"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
                 >
                   {t("heroCtaAudit")}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

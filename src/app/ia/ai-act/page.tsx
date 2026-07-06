@@ -135,7 +135,7 @@ export default function AiActPage() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2.5 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+            className="inline-flex items-center gap-2.5 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
             Audit gratuit · 30 min
           </a>
@@ -165,7 +165,7 @@ export default function AiActPage() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
           >
             Vérifier ma situation · gratuit
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -241,7 +241,7 @@ export default function AiActPage() {
           </div>
 
           {/* Sanctions */}
-          <div className="mt-12 grid gap-8 rounded-sm bg-[#1a1714] p-8 text-[#f5f0e6] md:grid-cols-3 md:p-12">
+          <div className="mt-12 grid gap-8 rounded-sm bg-[var(--ink)] p-8 text-[#f5f0e6] md:grid-cols-3 md:p-12">
             {[
               ["35 M€ ou 7 %", "du CA mondial : pratiques interdites"],
               ["15 M€ ou 3 %", "du CA mondial : non-conformité haut risque"],
@@ -336,7 +336,7 @@ export default function AiActPage() {
               href={CAL_URL}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
             >
               Commencer par l&apos;audit gratuit
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

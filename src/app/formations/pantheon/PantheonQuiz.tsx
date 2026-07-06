@@ -132,7 +132,7 @@ export function PantheonQuiz() {
               </p>
               <Link
                 href={`/formations/auth/sign-in?next=${encodeURIComponent(`/formations/pantheon/test?house=${house}`)}`}
-                className="group inline-flex items-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+                className="group inline-flex items-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
               >
                 Recevoir mon sésame
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -181,7 +181,7 @@ export function PantheonQuiz() {
           {PANTHEON_QUESTIONS.map((_, i) => (
             <span
               key={i}
-              className={`h-[3px] w-8 ${i <= step ? "bg-[var(--accent)]" : "bg-[var(--fg)]/15"}`}
+              className={`h-[3px] w-8 ${i <= step ? "bg-[var(--accent)]" : "bg-[var(--ink)]/15"}`}
             />
           ))}
         </div>

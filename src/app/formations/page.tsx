@@ -298,8 +298,8 @@ export default function FormationsPage() {
                     href={p.href}
                     className={`group mt-6 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${
                       p.featured
-                        ? "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
-                        : "bg-[var(--fg)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#1a1714]"
+                        ? "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+                        : "bg-[var(--ink)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#1a1714]"
                     }`}
                   >
                     Voir le cours
@@ -356,7 +356,7 @@ export default function FormationsPage() {
       </section>
 
       {/* Équipes & entreprises : la porte B2B du hub (audit, intra, agents) */}
-      <section className="border-t border-[var(--rule)] bg-[#1a1714] text-[#f5f0e6]">
+      <section className="border-t border-[var(--rule)] bg-[var(--ink)] text-[#f5f0e6]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
           <div className="grid items-center gap-12 md:grid-cols-12">
             <div className="md:col-span-7">

@@ -14,10 +14,18 @@ const AI_TOOLS = [
 /**
  * Section "urgence IA" : la punchline FOMO, fond ink dramatique, illustration
  * + CTA vers le QCM de niveau. Ton TROIE : phrases courtes, staccato.
+ * En bas : la preuve video (Arthur Mensch, Mistral) + lien vers l'article.
  */
-export function AiUrgency() {
+export function AiUrgency({ locale = "fr" }: { locale?: string }) {
+  const articleHref = `/${locale}/blog/ia-remplacer-mon-metier-manager-pas-remplace`;
+  const proofCta = locale === "en" ? "Read the article" : "Lire l'article";
+  const proofCaption =
+    locale === "en"
+      ? "Arthur Mensch (Mistral) before the French National Assembly, May 12, 2026."
+      : "Arthur Mensch (Mistral) devant l'Assemblée nationale, 12 mai 2026.";
+
   return (
-    <section className="border-t border-[var(--accent)] bg-[#0f0b08] text-[#f5f0e6]">
+    <section className="border-t border-[var(--accent)] bg-[var(--ink)] text-[#f5f0e6]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
           {/* Illustration */}
@@ -95,6 +103,34 @@ export function AiUrgency() {
               </div>
             </Reveal>
           </div>
+        </div>
+
+        {/* Preuve : la video Mensch + lien article (deplace du bloc Manager) */}
+        <div className="mt-16 border-t border-[#f5f0e6]/12 pt-12 md:mt-24 md:pt-16">
+          <figure className="mx-auto max-w-4xl">
+            <div className="relative aspect-video overflow-hidden rounded-sm border border-[#f5f0e6]/15 bg-[var(--ink)]">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/vczBo0AvbTI?start=375"
+                title="Arthur Mensch (Mistral) devant l'Assemblée nationale"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+            <figcaption className="mt-5 flex flex-col items-center gap-5 text-center">
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#f5f0e6]/45">
+                {proofCaption}
+              </span>
+              <Link
+                href={articleHref}
+                className="group inline-flex items-center gap-3 border border-[#f5f0e6]/40 px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors hover:bg-[#f5f0e6] hover:text-[var(--ink)]"
+              >
+                {proofCta}
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </Link>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>

@@ -74,7 +74,7 @@ export function LessonMarkdown({ markdown }: { markdown: string }) {
                 {children}
               </code>
             ) : (
-              <code className="rounded-sm bg-[var(--fg)]/8 px-1.5 py-0.5 font-mono text-[13px] text-[var(--fg)]">
+              <code className="rounded-sm bg-[var(--ink)]/8 px-1.5 py-0.5 font-mono text-[13px] text-[var(--fg)]">
                 {children}
               </code>
             );

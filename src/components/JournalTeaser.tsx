@@ -47,7 +47,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
                   className="group grid gap-6 py-8 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:items-center md:gap-12 md:py-10"
                 >
                   {/* Image à gauche */}
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-[#1a1714]">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-[var(--ink)]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={a.cover}
@@ -87,7 +87,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
         <Reveal>
           <Link
             href={`/${locale}/blog`}
-            className="group mt-12 inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)] md:mt-14"
+            className="group mt-12 inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)] md:mt-14"
           >
             Voir plus d&apos;articles
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

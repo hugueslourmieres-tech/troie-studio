@@ -141,7 +141,7 @@ export default async function DashboardOverview() {
                   {continuePct} %
                 </span>
               </div>
-              <div className="mt-2 h-[3px] w-full overflow-hidden bg-[var(--fg)]/12">
+              <div className="mt-2 h-[3px] w-full overflow-hidden bg-[var(--ink)]/12">
                 <div
                   className="h-full bg-[var(--accent)]"
                   style={{ width: `${continuePct}%` }}
@@ -230,7 +230,7 @@ export default async function DashboardOverview() {
                     </span>
                     <span className="text-[var(--accent)]">{pct} %</span>
                   </div>
-                  <div className="mt-2 h-[3px] w-full overflow-hidden bg-[var(--fg)]/12">
+                  <div className="mt-2 h-[3px] w-full overflow-hidden bg-[var(--ink)]/12">
                     <div
                       className="h-full bg-[var(--accent)] transition-all"
                       style={{ width: `${pct}%` }}
@@ -245,7 +245,7 @@ export default async function DashboardOverview() {
 
       {/* Upsell abonnement, seulement sans abonnement actif */}
       {showUpsell && (
-        <section className="rounded-sm bg-[#1a1714] p-6 md:p-8">
+        <section className="rounded-sm bg-[var(--ink)] p-6 md:p-8">
           <div className="flex flex-wrap items-center justify-between gap-6">
             <div className="min-w-0 flex-1">
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">

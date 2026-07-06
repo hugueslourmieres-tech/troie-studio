@@ -118,7 +118,7 @@ export default async function VideoPage({
                       aria-hidden="true"
                       className="absolute inset-0 flex items-center justify-center"
                     >
-                      <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[#f5f0e6]/80 bg-[#1a1714]/35 text-[#f5f0e6] backdrop-blur-sm transition group-hover:bg-[var(--accent)] group-hover:text-[#1a1714]">
+                      <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[#f5f0e6]/80 bg-[var(--ink)]/35 text-[#f5f0e6] backdrop-blur-sm transition group-hover:bg-[var(--accent)] group-hover:text-[#1a1714]">
                         <svg viewBox="0 0 24 24" className="ml-0.5 h-5 w-5" fill="currentColor" aria-hidden="true">
                           <path d="M8 5v14l11-7z" />
                         </svg>

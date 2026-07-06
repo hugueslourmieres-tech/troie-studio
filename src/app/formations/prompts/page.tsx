@@ -269,7 +269,7 @@ export default function PromptsPage() {
                   rule: "border-[#1a1714]/15",
                   body: "text-[#1a1714]/80",
                   meta: "text-[#1a1714]/60",
-                  cta: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[var(--accent)]",
+                  cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[var(--accent)]",
                   dotBg: "bg-[var(--accent)]",
                   badgeText: "text-[var(--accent)]",
                 },
@@ -284,7 +284,7 @@ export default function PromptsPage() {
                   badgeText: "text-[var(--accent)]",
                 },
                 {
-                  card: "bg-[#1a1714] text-[#f5f0e6]",
+                  card: "bg-[var(--ink)] text-[#f5f0e6]",
                   border: "border-[#f5f0e6]/15",
                   rule: "border-[#f5f0e6]/15",
                   body: "text-[#f5f0e6]/85",
@@ -299,7 +299,7 @@ export default function PromptsPage() {
                   rule: "border-[#1a1714]/15",
                   body: "text-[#1a1714]/80",
                   meta: "text-[#1a1714]/60",
-                  cta: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[var(--accent)]",
+                  cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[var(--accent)]",
                   dotBg: "bg-[var(--accent)]",
                   badgeText: "text-[var(--accent)]",
                 },
@@ -459,7 +459,7 @@ export default function PromptsPage() {
                       >
                         <span
                           aria-hidden="true"
-                          className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[#1a1714]"
+                          className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[var(--ink)]"
                         />
                         <span>{p.title.replace(".", "")}</span>
                       </li>
@@ -467,7 +467,7 @@ export default function PromptsPage() {
                   </ul>
                   <ObfuscatedEmail
                     subject={SUBJECT_BUNDLE}
-                    className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                    className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                   >
                     Acheter le bundle · 99 €
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -565,7 +565,7 @@ export default function PromptsPage() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <ObfuscatedEmail
                   subject={SUBJECT_BUNDLE}
-                  className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Acheter le bundle · 99 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

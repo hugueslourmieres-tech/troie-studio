@@ -133,7 +133,7 @@ export function DashboardSidebar({
               {profile.xp_total} XP
             </span>
           </div>
-          <div className="mt-2 h-[3px] w-full overflow-hidden bg-[var(--fg)]/12">
+          <div className="mt-2 h-[3px] w-full overflow-hidden bg-[var(--ink)]/12">
             <div
               className="h-full bg-[var(--accent)] transition-all"
               style={{ width: `${xpPct}%` }}

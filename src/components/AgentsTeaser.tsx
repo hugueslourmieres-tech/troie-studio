@@ -113,7 +113,7 @@ export function AgentsTeaser({
                   />
                   <div
                     aria-hidden="true"
-                    className="absolute inset-0 flex items-center justify-center bg-[var(--fg)]/55 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                    className="absolute inset-0 flex items-center justify-center bg-[var(--ink)]/55 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   >
                     <span className="inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] md:text-[12px]">
                       {t("agentsCardCta")} {a.name[lang]}
@@ -158,7 +158,7 @@ export function AgentsTeaser({
                           <li
                             key={tool.src}
                             title={tool.label}
-                            className="flex h-9 w-9 items-center justify-center bg-[var(--fg)]/8"
+                            className="flex h-9 w-9 items-center justify-center bg-[var(--ink)]/8"
                           >
                             {/* eslint-disable-next-line @next/next/no-img-élément */}
                             <img

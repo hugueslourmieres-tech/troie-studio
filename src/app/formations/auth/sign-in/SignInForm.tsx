@@ -153,7 +153,7 @@ export function SignInForm({ next }: { next: string }) {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] disabled:opacity-60"
+        className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] disabled:opacity-60"
       >
         {status === "sending" ? "Envoi en cours..." : "Recevoir le lien magique"}
         <span aria-hidden="true" className="transition group-hover:translate-x-1">

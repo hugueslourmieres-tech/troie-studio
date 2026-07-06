@@ -41,14 +41,14 @@ export function FormationsFooter() {
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/formations/quiz"
-                className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+                className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
               >
                 Essayez le QCM gratuit
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </Link>
               <Link
                 href="/formations/prompts"
-                className="group inline-flex items-center justify-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+                className="group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
               >
                 Obtenir les prompts système
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

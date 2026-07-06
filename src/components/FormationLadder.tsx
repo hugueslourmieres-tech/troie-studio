@@ -66,7 +66,7 @@ const PACKS: Pack[] = [
     text: "text-[#1a1714]",
     sub: "text-[#1a1714]/70",
     check: "text-[#1a1714]",
-    button: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[#f5f0e6] hover:text-[#1a1714]",
+    button: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[#f5f0e6] hover:text-[#1a1714]",
   },
   {
     step: "02",
@@ -91,7 +91,7 @@ const PACKS: Pack[] = [
       { src: "/images/logos/copilot.svg", label: "Copilot" },
     ],
     toolFilter: "brightness(0) invert(1)",
-    card: "border-[#1a1714] bg-[#1a1714]",
+    card: "border-[#1a1714] bg-[var(--ink)]",
     text: "text-[#f5f0e6]",
     sub: "text-[#f5f0e6]/60",
     check: "text-[var(--accent)]",
@@ -189,7 +189,7 @@ export function FormationLadder() {
               >
                 {/* Badge essai gratuit */}
                 {p.badge && (
-                  <span className="absolute right-0 top-0 bg-[#1a1714] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)]">
+                  <span className="absolute right-0 top-0 bg-[var(--ink)] px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)]">
                     {p.badge}
                   </span>
                 )}

@@ -47,7 +47,7 @@ export function ToolsMarquee({ ariaLabel }: { ariaLabel: string }) {
     <div
       role="region"
       aria-label={ariaLabel}
-      className="relative w-full overflow-hidden border-t border-b border-[#f5f0e6]/15 bg-[#0f0b08]"
+      className="relative w-full overflow-hidden border-t border-b border-[#f5f0e6]/15 bg-[var(--ink)]"
     >
       {/* Edge fades, keep the marquee feeling boundless */}
       <div

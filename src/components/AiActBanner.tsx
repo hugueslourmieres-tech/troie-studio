@@ -27,7 +27,7 @@ export function AiActBanner({ locale = "fr" }: { locale?: string }) {
     <Link
       href={c.href}
       aria-label={`${c.text} ${c.cta}`}
-      className="group block overflow-hidden bg-[#3d2418] py-2.5"
+      className="group block overflow-hidden bg-[var(--ink)] py-2.5"
     >
       <div className="t-marquee flex w-max">
         {[0, 1].map((half) => (

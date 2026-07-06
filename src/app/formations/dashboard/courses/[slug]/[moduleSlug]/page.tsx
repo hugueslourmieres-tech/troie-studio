@@ -50,7 +50,7 @@ export default async function ModuleViewerPage({ params }: { params: Params }) {
           </h2>
           <Link
             href={`/formations/${slug}`}
-            className="mt-6 inline-flex items-center gap-3 bg-[var(--fg)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+            className="mt-6 inline-flex items-center gap-3 bg-[var(--ink)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
           >
             Voir le cours
             <span aria-hidden="true">→</span>

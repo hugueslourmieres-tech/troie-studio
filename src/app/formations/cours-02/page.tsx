@@ -202,7 +202,7 @@ export default function Cours02Page() {
                   product="cours-02"
                   label="Acheter · 297 € · accès à vie"
                   fallbackSubject={FALLBACK_SUBJECT}
-                  className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 />
                 <Link
                   href="/formations/cours-01"
@@ -250,7 +250,7 @@ export default function Cours02Page() {
                   product="cours-02"
                   label="Acheter · 297 €"
                   fallbackSubject={FALLBACK_SUBJECT}
-                  className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                  className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--ink)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 />
                 <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
                   Garantie satisfait ou remboursé 14 jours
@@ -289,7 +289,7 @@ export default function Cours02Page() {
                 <li>· Votre IA ne sait rien de vos outils.</li>
               </ul>
             </div>
-            <div className="rounded-sm border border-[var(--accent)] bg-[#1a1714] p-8 text-[#f5f0e6] md:p-10">
+            <div className="rounded-sm border border-[var(--accent)] bg-[var(--ink)] p-8 text-[#f5f0e6] md:p-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
                 Après · LV. 92+
               </p>
@@ -447,7 +447,7 @@ export default function Cours02Page() {
                   product="cours-02"
                   label="Acheter · 297 € · accès à vie"
                   fallbackSubject={FALLBACK_SUBJECT}
-                  className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 />
                 <Link
                   href="/formations/mastermind"

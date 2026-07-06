@@ -40,7 +40,7 @@ const THEMES = {
     rule: "border-[#1a1714]/15",
     badgeText: "text-[var(--accent)]",
     dotBg: "bg-[var(--accent)]",
-    cta: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[var(--accent)]",
+    cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[var(--accent)]",
   },
   warm: {
     card: "bg-[#5a4a3a] text-[#f5f0e6]",
@@ -53,7 +53,7 @@ const THEMES = {
     cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
   },
   dark: {
-    card: "bg-[#1a1714] text-[#f5f0e6]",
+    card: "bg-[var(--ink)] text-[#f5f0e6]",
     border: "border-[#f5f0e6]/15",
     body: "text-[#f5f0e6]/85",
     meta: "text-[#f5f0e6]/60",
@@ -70,7 +70,7 @@ const THEMES = {
     rule: "border-[#1a1714]/15",
     badgeText: "text-[var(--accent)]",
     dotBg: "bg-[var(--accent)]",
-    cta: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[var(--accent)]",
+    cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[var(--accent)]",
   },
   taupe: {
     card: "bg-[#7a6753] text-[#f5f0e6]",
@@ -143,7 +143,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <ObfuscatedEmail
                   subject={subjectForPack(pack.badge)}
-                  className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 >
                   Acheter ce pack · 29 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -327,7 +327,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                           </p>
                           <ObfuscatedEmail
                             subject={subjectForPack(pack.badge)}
-                            className="group mt-6 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                            className="group mt-6 inline-flex w-full items-center justify-center gap-3 bg-[var(--ink)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                           >
                             Acheter le pack · 29 €
                             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -395,7 +395,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
           <div className="mt-12 flex justify-center">
             <Link
               href="/formations/prompts#bundle"
-              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#1a1714] hover:text-[var(--accent)]"
+              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--accent)]"
             >
               Voir le bundle complet · 99 €
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -423,7 +423,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <ObfuscatedEmail
                   subject={subjectForPack(pack.badge)}
-                  className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Acheter ce pack · 29 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

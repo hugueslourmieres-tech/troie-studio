@@ -34,7 +34,7 @@ export function McpSection() {
             <div className="mt-10">
               <Link
                 href="/ia"
-                className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+                className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
               >
                 Déployer l&apos;IA dans vos outils
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

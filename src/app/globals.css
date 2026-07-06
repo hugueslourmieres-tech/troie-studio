@@ -15,7 +15,8 @@
 .tone-light {
   --bg: #f5f0e6;          /* crème principale (papier Hermès) */
   --bg-2: #fdfaf3;        /* crème claire (cards) */
-  --fg: #1a1714;          /* presque-noir */
+  --fg: #1a1714;          /* presque-noir (texte) */
+  --ink: #3d2418;         /* marron chocolat : fonds boutons + surfaces sombres */
   --fg-2: #4a4239;        /* gris foncé patiné */
   --fg-mute: rgba(26, 23, 20, 0.55);
   --accent: #f37b22;      /* Orange Hermès, accent unique */

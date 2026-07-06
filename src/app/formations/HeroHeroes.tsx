@@ -184,7 +184,7 @@ export function HeroHeroes() {
             className={`h-[3px] w-8 transition-colors ${
               i === selectedIndex
                 ? "bg-[var(--accent)]"
-                : "bg-[var(--fg)]/15 hover:bg-[var(--fg)]/30"
+                : "bg-[var(--ink)]/15 hover:bg-[var(--ink)]/30"
             }`}
           />
         ))}

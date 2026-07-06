@@ -107,7 +107,7 @@ export function WebAppSection({ locale }: { locale: string }) {
                     key={p.url}
                     aria-hidden="true"
                     className={`h-1.5 rounded-full transition-all ${
-                      i === selected ? "w-7 bg-[var(--accent)]" : "w-1.5 bg-[var(--fg)]/25"
+                      i === selected ? "w-7 bg-[var(--accent)]" : "w-1.5 bg-[var(--ink)]/25"
                     }`}
                   />
                 ))}

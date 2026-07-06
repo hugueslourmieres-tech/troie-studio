@@ -30,7 +30,7 @@ export function ContactCTA(_props: { locale: string }) {
                 href={CAL_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-3 rounded-full bg-[#1a1714] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#f5f0e6] transition hover:bg-[#15120f]"
+                className="group inline-flex items-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#f5f0e6] transition hover:bg-[#15120f]"
               >
                 Réserver un créneau de 30 min
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

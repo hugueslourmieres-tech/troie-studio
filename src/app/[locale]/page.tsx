@@ -41,8 +41,8 @@ export default async function HomePage({
           Le Panthéon est mis de côté (code conservé, non affiché). */}
       <ManagerSection locale={locale} />
 
-      {/* URGENCE IA : punchline FOMO, renvoie vers le QCM de niveau */}
-      <AiUrgency />
+      {/* URGENCE IA : punchline FOMO + preuve video Mensch, renvoie vers le QCM */}
+      <AiUrgency locale={locale} />
 
       {/* Échelle de formation : du gratuit à l'entreprise, prix visibles */}
       <FormationLadder />

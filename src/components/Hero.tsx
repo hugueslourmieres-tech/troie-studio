@@ -86,7 +86,7 @@ export function Hero({ locale }: { locale: string }) {
               <Link
                 ref={primaryCtaRef}
                 href="/formations"
-                className="group inline-flex items-center justify-center gap-3 bg-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors will-change-transform"
+                className="group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors will-change-transform"
               >
                 <RollText
                   top={<>{t("heroCtaProject")}</>}
@@ -102,7 +102,7 @@ export function Hero({ locale }: { locale: string }) {
               </Link>
               <Link
                 href="/ia"
-                className="group inline-flex items-center justify-center gap-3 border border-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#1a1714]"
+                className="group inline-flex items-center justify-center gap-3 border border-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)]"
               >
                 <RollText
                   top={<>{t("heroCtaCourses")}</>}

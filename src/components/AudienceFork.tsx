@@ -212,7 +212,7 @@ function ForkCard({ fork }: { fork: Fork }) {
         <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-3">
           <Link
             href={fork.cta.href}
-            className="group/cta inline-flex items-center gap-3 bg-[var(--card)] px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink)] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+            className="group/cta inline-flex items-center gap-3 bg-[var(--card)] px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
             {fork.cta.label}
             <span aria-hidden="true" className="transition group-hover/cta:translate-x-1">→</span>

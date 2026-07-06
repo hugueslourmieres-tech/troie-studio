@@ -506,7 +506,7 @@ export default function IaLandingPage() {
                   rule: "border-[#1a1714]/15",
                   body: "text-[#1a1714]/75",
                   meta: "text-[#1a1714]/55",
-                  cta: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[var(--accent)]",
+                  cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[var(--accent)]",
                 },
                 {
                   card: "bg-[#5a4a3a] text-[#f5f0e6]",
@@ -517,7 +517,7 @@ export default function IaLandingPage() {
                   cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
                 },
                 {
-                  card: "bg-[#1a1714] text-[#f5f0e6]",
+                  card: "bg-[var(--ink)] text-[#f5f0e6]",
                   border: "border-[#f5f0e6]/15",
                   rule: "border-[#f5f0e6]/15",
                   body: "text-[#f5f0e6]/80",
@@ -540,7 +540,7 @@ export default function IaLandingPage() {
                   className={`flex h-full flex-col overflow-hidden rounded-sm border ${t.border} ${t.card} transition-transform hover:-translate-y-1`}
                 >
                   {/* Bandeau 16:9 N&B */}
-                  <div className="relative aspect-video overflow-hidden bg-[var(--fg)]/10">
+                  <div className="relative aspect-video overflow-hidden bg-[var(--ink)]/10">
                     {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img
                       src={banner}
@@ -627,7 +627,7 @@ export default function IaLandingPage() {
                     "Workflows Make / Zapier livres",
                   ].map((b) => (
                     <li key={b} className="flex items-start gap-3 text-sm leading-relaxed text-[#1a1714]/85 md:text-[15px]">
-                      <span aria-hidden="true" className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[#1a1714]" />
+                      <span aria-hidden="true" className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[var(--ink)]" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -638,7 +638,7 @@ export default function IaLandingPage() {
                     href={CAL_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                    className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                   >
                     Réserver
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -771,7 +771,7 @@ export default function IaLandingPage() {
           </div>
 
           {/* Pack Complet Pro, featured noir/orange */}
-          <div className="mt-20 overflow-hidden rounded-sm bg-[#1a1714] text-[#f5f0e6] md:mt-28">
+          <div className="mt-20 overflow-hidden rounded-sm bg-[var(--ink)] text-[#f5f0e6] md:mt-28">
             <div className="grid gap-0 md:grid-cols-12">
               <div className="md:col-span-5">
                 <div className="relative h-64 md:h-full">
@@ -837,7 +837,7 @@ export default function IaLandingPage() {
                   rule: "border-[#1a1714]/15",
                   body: "text-[#1a1714]/75",
                   meta: "text-[#1a1714]/55",
-                  cta: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[var(--accent)]",
+                  cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[var(--accent)]",
                 },
                 {
                   card: "bg-[#7a6753] text-[#f5f0e6]",
@@ -853,7 +853,7 @@ export default function IaLandingPage() {
                   rule: "border-[#1a1714]/20",
                   body: "text-[#1a1714]/85",
                   meta: "text-[#1a1714]/60",
-                  cta: "bg-[#1a1714] text-[#f5f0e6] hover:bg-[#f5f0e6] hover:text-[#1a1714]",
+                  cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[#f5f0e6] hover:text-[#1a1714]",
                 },
               ];
               const t = themes[i % themes.length];
@@ -894,7 +894,7 @@ export default function IaLandingPage() {
                       >
                         <span
                           aria-hidden="true"
-                          className={`mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 ${i === 2 ? "bg-[#1a1714]" : "bg-[var(--accent)]"}`}
+                          className={`mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 ${i === 2 ? "bg-[var(--ink)]" : "bg-[var(--accent)]"}`}
                         />
                         <span>{b}</span>
                       </li>
@@ -977,7 +977,7 @@ export default function IaLandingPage() {
                 key={o.step}
                 className={`flex flex-col rounded-sm border p-8 ${
                   o.featured
-                    ? "border-[var(--accent)] bg-[#1a1714] text-[#f5f0e6]"
+                    ? "border-[var(--accent)] bg-[var(--ink)] text-[#f5f0e6]"
                     : "border-[var(--rule)] bg-[var(--bg)]"
                 }`}
               >
@@ -1005,7 +1005,7 @@ export default function IaLandingPage() {
               href={CAL_URL}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+              className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
             >
               Commencer par l&apos;audit gratuit
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -1075,7 +1075,7 @@ export default function IaLandingPage() {
                   href={CAL_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f37b22] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f37b22] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Réserver l'audit gratuit
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -1086,7 +1086,7 @@ export default function IaLandingPage() {
 
             {/* Énorme "30" sur une image */}
             <div className="md:col-span-5">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-[#1a1714]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-[var(--ink)]">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="/images/corpo/montpellier/DSC_7573.jpg"

@@ -151,7 +151,7 @@ export function QuizPlayer({
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
             <a
               href={ctaHref}
-              className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+              className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
             >
               {ctaLabel}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -231,7 +231,7 @@ export function QuizPlayer({
                   />
                   <button
                     type="submit"
-                    className="group inline-flex items-center justify-center gap-3 bg-[var(--fg)] px-6 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                    className="group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-6 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                   >
                     Recevoir le code
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -271,7 +271,7 @@ export function QuizPlayer({
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
           <a
             href={ctaHref}
-            className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
           >
             {ctaLabel}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -326,7 +326,7 @@ export function QuizPlayer({
       </div>
 
       {/* Progression */}
-      <div className="mt-5 h-[3px] w-full overflow-hidden bg-[var(--fg)]/10">
+      <div className="mt-5 h-[3px] w-full overflow-hidden bg-[var(--ink)]/10">
         <motion.div
           className="h-full bg-[var(--accent)]"
           initial={{ width: 0 }}
@@ -403,7 +403,7 @@ export function QuizPlayer({
             >
               {/* Choix erroné de l'utilisateur, rappelé en petit */}
               {!isCorrect && selected !== null && (
-                <div className="flex items-center gap-4 border border-[var(--fg)]/25 bg-[var(--fg)]/5 px-6 py-4">
+                <div className="flex items-center gap-4 border border-[var(--fg)]/25 bg-[var(--ink)]/5 px-6 py-4">
                   <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
                     {String.fromCharCode(65 + selected)}
                   </span>
@@ -448,7 +448,7 @@ export function QuizPlayer({
                   type="button"
                   onClick={next}
                   onMouseEnter={() => playSound("hover")}
-                  className="group mt-6 inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                  className="group mt-6 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 >
                   {index + 1 < total ? "Question suivante" : "Voir le résultat"}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

@@ -116,7 +116,7 @@ export function MetiersPro() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
           >
             Réserver un audit de 30 min
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

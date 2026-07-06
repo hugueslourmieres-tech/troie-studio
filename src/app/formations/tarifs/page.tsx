@@ -79,7 +79,7 @@ export default function TarifsPage() {
                   product={cours01.key}
                   label="Acheter le Cours 01"
                   fallbackSubject="Cours 01"
-                  className={`${CARD_BTN} border border-[var(--fg)]/30 text-[var(--fg)] hover:border-[var(--fg)] hover:bg-[var(--fg)] hover:text-[var(--bg)]`}
+                  className={`${CARD_BTN} border border-[var(--fg)]/30 text-[var(--fg)] hover:border-[var(--fg)] hover:bg-[var(--ink)] hover:text-[var(--bg)]`}
                 />
               </div>
               <div className="border-t border-[var(--rule)] pt-6">
@@ -94,14 +94,14 @@ export default function TarifsPage() {
                   product={cours02.key}
                   label="Acheter le Cours 02"
                   fallbackSubject="Cours 02"
-                  className={`${CARD_BTN} border border-[var(--fg)]/30 text-[var(--fg)] hover:border-[var(--fg)] hover:bg-[var(--fg)] hover:text-[var(--bg)]`}
+                  className={`${CARD_BTN} border border-[var(--fg)]/30 text-[var(--fg)] hover:border-[var(--fg)] hover:bg-[var(--ink)] hover:text-[var(--bg)]`}
                 />
               </div>
             </div>
           </div>
 
           {/* Abonnement, mis en avant */}
-          <div className="relative flex flex-col rounded-sm border border-[var(--accent)] bg-[var(--fg)] p-8 text-[var(--bg)] md:p-10">
+          <div className="relative flex flex-col rounded-sm border border-[var(--accent)] bg-[var(--ink)] p-8 text-[var(--bg)] md:p-10">
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
               Abonnement · 7 jours gratuits
             </p>
@@ -172,7 +172,7 @@ export default function TarifsPage() {
               href="https://cal.com/troiestudio/30min"
               target="_blank"
               rel="noreferrer"
-              className={`${CARD_BTN} mt-auto bg-[var(--fg)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#1a1714]`}
+              className={`${CARD_BTN} mt-auto bg-[var(--ink)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#1a1714]`}
             >
               Audit gratuit · 30 min
             </a>

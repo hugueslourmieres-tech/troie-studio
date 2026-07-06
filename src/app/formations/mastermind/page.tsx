@@ -136,7 +136,7 @@ export default function MastermindPage() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <ObfuscatedEmail
                   subject={SUBJECT_MONTHLY}
-                  className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 >
                   Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -177,7 +177,7 @@ export default function MastermindPage() {
                     >
                       <span
                         aria-hidden="true"
-                        className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[#1a1714]"
+                        className="mt-[10px] inline-block h-[3px] w-3 flex-shrink-0 bg-[var(--ink)]"
                       />
                       <span>{b}</span>
                     </li>
@@ -185,7 +185,7 @@ export default function MastermindPage() {
                 </ul>
                 <ObfuscatedEmail
                   subject={SUBJECT_MONTHLY}
-                  className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[#1a1714] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--ink)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -316,7 +316,7 @@ export default function MastermindPage() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <ObfuscatedEmail
                   subject={SUBJECT_MONTHLY}
-                  className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

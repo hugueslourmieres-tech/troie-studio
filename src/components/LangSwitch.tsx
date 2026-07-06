@@ -81,7 +81,7 @@ export function LangSwitch({ locale }: { locale: string }) {
               <Link
                 href={swap(l)}
                 onClick={() => setOpen(false)}
-                className="block px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+                className="block px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:bg-[var(--ink)] hover:text-[var(--bg)]"
               >
                 {l}
               </Link>

@@ -168,7 +168,7 @@ export default async function ArticlePage({
           </Link>
           <Link
             href={`/${locale}/contact`}
-            className="group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+            className="group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
             {ui.ctaCall}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

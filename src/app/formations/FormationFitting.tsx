@@ -323,7 +323,7 @@ export function FormationFitting() {
 
             <Link
               href={reco.primary.href}
-              className="group mt-6 inline-flex items-center gap-3 bg-[var(--fg)] px-6 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+              className="group mt-6 inline-flex items-center gap-3 bg-[var(--ink)] px-6 py-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
             >
               Découvrir
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

@@ -79,7 +79,7 @@ export function Header({
     <header
       className={`tone-light fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
         barSolid
-          ? "border-b border-[var(--rule)] bg-[var(--bg)]/95 backdrop-blur-xl"
+          ? "border-b border-transparent bg-[var(--bg)]/95 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >
@@ -113,7 +113,7 @@ export function Header({
               href={signedIn ? "/formations/dashboard" : "/formations/auth/sign-in"}
               className={`group inline-flex items-center gap-2.5 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 ${
                 barSolid
-                  ? "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+                  ? "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--ink)] hover:text-[var(--bg)]"
                   : "bg-transparent text-[var(--fg)] hover:text-[var(--accent)]"
               }`}
             >

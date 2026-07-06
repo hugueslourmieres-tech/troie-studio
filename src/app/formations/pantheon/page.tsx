@@ -49,7 +49,7 @@ export default function PantheonOverviewPage() {
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
           <Link
             href="/formations/pantheon/test"
-            className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
           >
             Faire le test · gratuit
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -64,7 +64,7 @@ export default function PantheonOverviewPage() {
       </section>
 
       {/* Chiffres, toutes maisons confondues */}
-      <section className="border-t border-[var(--rule)] bg-[#1a1714]">
+      <section className="border-t border-[var(--rule)] bg-[var(--ink)]">
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-20">
           <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
             Ce que l&apos;Olympe permet, toutes maisons confondues
@@ -244,7 +244,7 @@ export default function PantheonOverviewPage() {
           <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
               href="/formations/pantheon/test"
-              className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+              className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
             >
               Faire le test du Panthéon
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

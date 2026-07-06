@@ -120,7 +120,7 @@ export default function SiteConformePage() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2.5 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
+            className="inline-flex items-center gap-2.5 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
             Audit gratuit · 30 min
           </a>
@@ -146,7 +146,7 @@ export default function SiteConformePage() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
           >
             Demander mon prix fixe · gratuit
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -221,7 +221,7 @@ export default function SiteConformePage() {
           </div>
 
           {/* Prix */}
-          <div className="mt-12 grid gap-8 rounded-sm bg-[#1a1714] p-8 text-[#f5f0e6] md:grid-cols-12 md:items-center md:p-12">
+          <div className="mt-12 grid gap-8 rounded-sm bg-[var(--ink)] p-8 text-[#f5f0e6] md:grid-cols-12 md:items-center md:p-12">
             <div className="md:col-span-7">
               <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
                 Prix fixe, annoncé avant de commencer

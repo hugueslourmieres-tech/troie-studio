@@ -59,7 +59,7 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
               product={buyable.key}
               label={`Débloquer · ${(course.price_cents / 100).toFixed(0)} € · accès à vie`}
               fallbackSubject={course.title}
-              className="inline-flex items-center gap-3 bg-[var(--fg)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+              className="inline-flex items-center gap-3 bg-[var(--ink)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
             />
             <Link
               href="/formations/tarifs"
@@ -72,7 +72,7 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
         {!unlocked && !buyable && (
           <Link
             href={`/formations/${slug === "module-0" ? "module-0" : slug}`}
-            className="mt-8 inline-flex items-center gap-3 bg-[var(--fg)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
+            className="mt-8 inline-flex items-center gap-3 bg-[var(--ink)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
           >
             Débloquer · {(course.price_cents / 100).toFixed(0)} €
             <span aria-hidden="true">→</span>

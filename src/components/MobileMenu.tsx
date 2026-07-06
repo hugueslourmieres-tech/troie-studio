@@ -70,8 +70,8 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
             onClick={() => setOpen(false)}
             className="absolute right-6 top-5 z-10 flex h-10 w-10 items-center justify-center text-[var(--fg)]"
           >
-            <span className="absolute block h-px w-7 rotate-45 bg-[var(--fg)]" />
-            <span className="absolute block h-px w-7 -rotate-45 bg-[var(--fg)]" />
+            <span className="absolute block h-px w-7 rotate-45 bg-[var(--ink)]" />
+            <span className="absolute block h-px w-7 -rotate-45 bg-[var(--ink)]" />
           </button>
 
           <nav className="flex h-full flex-col overflow-y-auto px-6 pt-20 pb-8">
@@ -250,7 +250,7 @@ function BurgerButton({
       className="group relative z-50 h-10 w-10 lg:hidden"
     >
       <span
-        className="absolute left-1/2 top-1/2 block h-px w-7 -translate-x-1/2 -translate-y-[6px] bg-[var(--fg)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        className="absolute left-1/2 top-1/2 block h-px w-7 -translate-x-1/2 -translate-y-[6px] bg-[var(--ink)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
           transform: open
             ? "translate(-50%, 0) rotate(45deg)"
@@ -258,11 +258,11 @@ function BurgerButton({
         }}
       />
       <span
-        className="absolute left-1/2 top-1/2 block h-px w-7 -translate-x-1/2 -translate-y-1/2 bg-[var(--fg)] transition-opacity duration-300"
+        className="absolute left-1/2 top-1/2 block h-px w-7 -translate-x-1/2 -translate-y-1/2 bg-[var(--ink)] transition-opacity duration-300"
         style={{ opacity: open ? 0 : 1 }}
       />
       <span
-        className="absolute left-1/2 top-1/2 block h-px w-7 -translate-x-1/2 translate-y-[6px] bg-[var(--fg)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        className="absolute left-1/2 top-1/2 block h-px w-7 -translate-x-1/2 translate-y-[6px] bg-[var(--ink)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
           transform: open
             ? "translate(-50%, 0) rotate(-45deg)"

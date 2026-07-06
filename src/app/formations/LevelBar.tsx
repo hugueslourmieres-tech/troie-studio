@@ -30,7 +30,7 @@ export function LevelBar({
 
   const labelColor = tone === "dark" ? "text-[#f5f0e6]/85" : "text-[var(--fg-2)]/80";
   const valueColor = tone === "dark" ? "text-[#f5f0e6]" : "text-[var(--fg)]";
-  const trackColor = tone === "dark" ? "bg-[#f5f0e6]/15" : "bg-[var(--fg)]/12";
+  const trackColor = tone === "dark" ? "bg-[#f5f0e6]/15" : "bg-[var(--ink)]/12";
 
   return (
     <div ref={ref} className="w-full">
