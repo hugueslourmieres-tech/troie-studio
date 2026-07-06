@@ -1,10 +1,9 @@
 import Link from "next/link";
 
 /**
- * Bandeau annonce AI Act : texte defilant en boucle (marquee, pause au
- * survol), entierement cliquable vers l'article "controlable le 2 aout
- * 2026". Noir en haut de page, orange une fois la page scrollee
- * (prop `solid`, alignee sur l'etat de la navbar).
+ * Bandeau annonce AI Act : fond noir, texte defilant en boucle
+ * (marquee, pause au survol), ponctue d'etoiles IA, entierement
+ * cliquable vers l'article "controlable le 2 aout 2026".
  */
 
 const COPY = {
@@ -20,14 +19,7 @@ const COPY = {
   },
 } as const;
 
-export function AiActBanner({
-  locale = "fr",
-  solid = false,
-}: {
-  locale?: string;
-  /** Fond orange (page scrollee) au lieu du noir. */
-  solid?: boolean;
-}) {
+export function AiActBanner({ locale = "fr" }: { locale?: string }) {
   const c = COPY[locale === "en" ? "en" : "fr"];
   const items = Array.from({ length: 6 });
 
@@ -35,9 +27,7 @@ export function AiActBanner({
     <Link
       href={c.href}
       aria-label={`${c.text} ${c.cta}`}
-      className={`group block overflow-hidden py-2.5 transition-colors duration-500 ${
-        solid ? "bg-[var(--accent)]" : "bg-[#1a1714]"
-      }`}
+      className="group block overflow-hidden bg-[#1a1714] py-2.5"
     >
       <div className="t-marquee flex w-max">
         {[0, 1].map((half) => (
@@ -49,24 +39,15 @@ export function AiActBanner({
             {items.map((_, i) => (
               <span
                 key={i}
-                className={`mr-16 flex items-baseline gap-3 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 ${
-                  solid ? "text-[#1a1714]" : "text-[#f5f0e6]"
-                }`}
+                className="mr-14 flex items-baseline gap-3 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]"
               >
-                <span
-                  aria-hidden="true"
-                  className={solid ? "text-[#1a1714]" : "text-[var(--accent)]"}
-                >
-                  ●
-                </span>
+                <span aria-hidden="true" className="text-[var(--accent)]">✦</span>
                 {c.text}
-                <span
-                  className={`transition group-hover:underline ${
-                    solid ? "font-bold text-[#1a1714]" : "text-[var(--accent)]"
-                  }`}
-                >
+                <span aria-hidden="true" className="text-[var(--accent)]/70">✧</span>
+                <span className="text-[var(--accent)] transition group-hover:underline">
                   {c.cta}
                 </span>
+                <span aria-hidden="true" className="ml-1 text-[10px] text-[#f5f0e6]/40">✦</span>
               </span>
             ))}
           </div>

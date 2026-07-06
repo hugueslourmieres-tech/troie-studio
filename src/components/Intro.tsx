@@ -108,9 +108,8 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                 (clamp), pour ne jamais passer sur 3 lignes. */}
             {asHero ? (
               <h1
-                className="t-display mt-8 text-[var(--fg)]"
+                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(1.65rem,8.2vw,4rem)] md:text-[clamp(2.6rem,5.5vw,5.2rem)]"
                 aria-label={t("introTitle")}
-                style={{ fontSize: "clamp(1.5rem, 5.5vw, 5.2rem)", lineHeight: 1.12 }}
               >
                 <span aria-hidden="true" className="block whitespace-nowrap">
                   <LetterReveal text={t("introTitleLine1")} />
@@ -121,8 +120,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               </h1>
             ) : (
               <h2
-                className="t-display mt-8 text-[var(--fg)]"
-                style={{ fontSize: "clamp(1.5rem, 5.5vw, 5.2rem)", lineHeight: 1.12 }}
+                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(1.65rem,8.2vw,4rem)] md:text-[clamp(2.6rem,5.5vw,5.2rem)]"
               >
                 <span className="block whitespace-nowrap">{t("introTitleLine1")}</span>
                 <span className="block whitespace-nowrap">{t("introTitleLine2")}</span>

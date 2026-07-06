@@ -127,9 +127,8 @@ export function Header({
         </div>
       </div>
 
-      {/* Annonce AI Act : bandeau defilant sous la navbar,
-          noir en haut de page puis orange au scroll */}
-      <AiActBanner locale={locale} solid={barSolid} />
+      {/* Annonce AI Act : bandeau noir defilant, sous la navbar */}
+      <AiActBanner locale={locale} />
     </header>
   );
 }
