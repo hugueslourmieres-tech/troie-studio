@@ -107,7 +107,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                 Clamp calé pour un rendu net sur ordinateur et téléphone. */}
             {asHero ? (
               <h1
-                className="t-display mx-auto mt-8 max-w-[15ch] text-balance leading-[1.08] text-[var(--fg)] text-[clamp(2.4rem,10vw,3.4rem)] md:max-w-[18ch] md:text-[clamp(3rem,5vw,5rem)]"
+                className="t-display mx-auto mt-8 max-w-[13ch] text-balance leading-[1.02] text-[var(--fg)] text-[clamp(2.9rem,12vw,4rem)] md:max-w-[15ch] md:text-[clamp(3.8rem,6vw,6.2rem)]"
                 aria-label={t("introTitle")}
               >
                 <span aria-hidden="true" className="block">
@@ -116,7 +116,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               </h1>
             ) : (
               <h2
-                className="t-display mx-auto mt-8 max-w-[15ch] text-balance leading-[1.08] text-[var(--fg)] text-[clamp(2.4rem,10vw,3.4rem)] md:max-w-[18ch] md:text-[clamp(3rem,5vw,5rem)]"
+                className="t-display mx-auto mt-8 max-w-[13ch] text-balance leading-[1.02] text-[var(--fg)] text-[clamp(2.9rem,12vw,4rem)] md:max-w-[15ch] md:text-[clamp(3.8rem,6vw,6.2rem)]"
               >
                 {t("introTitle")}
               </h2>

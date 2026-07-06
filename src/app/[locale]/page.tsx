@@ -4,7 +4,6 @@ import { ManagerSection } from "@/components/ManagerSection";
 import { AudienceFork } from "@/components/AudienceFork";
 import { AiUrgency } from "@/components/AiUrgency";
 import { QcmSection } from "@/components/QcmSection";
-import { FormationLadder } from "@/components/FormationLadder";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
 import { McpSection } from "@/components/McpSection";
@@ -44,10 +43,9 @@ export default async function HomePage({
       {/* URGENCE IA : punchline FOMO + preuve video Mensch, renvoie vers le QCM */}
       <AiUrgency locale={locale} />
 
-      {/* Échelle de formation : du gratuit à l'entreprise, prix visibles */}
-      <FormationLadder />
-
-      {/* FORK Pro / Perso : oriente le visiteur */}
+      {/* FORK Pro / Perso : oriente le visiteur.
+          FormationLadder (grille de prix) retirée de la home : les prix
+          restent hors des pages marketing (composant conservé). */}
       <AudienceFork locale={locale} />
 
       {/* QCM : situer son niveau IA (pour tous), juste sous le fork */}
