@@ -103,27 +103,22 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               />
             </Parallax>
             <p className="t-eyebrow">{t("introEyebrow")}</p>
-            {/* Titre verrouillé sur 2 lignes : chaque phrase est
-                insécable et la taille suit la largeur de fenêtre
-                (clamp), pour ne jamais passer sur 3 lignes. */}
+            {/* Titre verrouillé sur 1 ligne : insécable, la taille suit
+                la largeur de fenêtre (clamp) pour ne jamais wrapper. */}
             {asHero ? (
               <h1
-                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(1.65rem,8.2vw,4rem)] md:text-[clamp(2.6rem,5.5vw,5.2rem)]"
+                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(1.05rem,6vw,4rem)] md:text-[clamp(2rem,4.2vw,5.2rem)]"
                 aria-label={t("introTitle")}
               >
                 <span aria-hidden="true" className="block whitespace-nowrap">
-                  <LetterReveal text={t("introTitleLine1")} />
-                </span>
-                <span aria-hidden="true" className="block whitespace-nowrap">
-                  <LetterReveal text={t("introTitleLine2")} />
+                  <LetterReveal text={t("introTitle")} />
                 </span>
               </h1>
             ) : (
               <h2
-                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(1.65rem,8.2vw,4rem)] md:text-[clamp(2.6rem,5.5vw,5.2rem)]"
+                className="t-display mt-8 leading-[1.12] text-[var(--fg)] text-[clamp(1.05rem,6vw,4rem)] md:text-[clamp(2rem,4.2vw,5.2rem)]"
               >
-                <span className="block whitespace-nowrap">{t("introTitleLine1")}</span>
-                <span className="block whitespace-nowrap">{t("introTitleLine2")}</span>
+                <span className="block whitespace-nowrap">{t("introTitle")}</span>
               </h2>
             )}
             <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
@@ -266,24 +261,22 @@ function ToolsRow({ tools }: { tools: Tool[] }) {
   );
 }
 
-/** Caducee simplifie (Hermes) : pictogramme pour le CTA "Decouvrir ma maison". */
+/** Casque aile (Hermes) : pictogramme pour le CTA "Decouvrir ma maison". */
 function HermesIcon({ className }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.6"
+      strokeWidth="1.8"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
       className={className}
     >
-      <line x1="12" y1="7" x2="12" y2="19" />
-      <path d="M12 9c-3 1.5-3 3.5 0 5s3 3.5 0 5" />
-      <path d="M12 9c3 1.5 3 3.5 0 5s-3 3.5 0 5" />
-      <path d="M12 7c-2-3-5-3.4-7-1.6c1.2.6 1.8 1.8 1.8 1.8" fill="currentColor" stroke="none" />
-      <path d="M12 7c2-3 5-3.4 7-1.6c-1.2.6-1.8 1.8-1.8 1.8" fill="currentColor" stroke="none" />
+      <path d="M3.5 15A8.5 8.5 0 0 1 20.5 15" />
+      <path d="M2.5 15.3h19" />
+      <path d="M16.5 9.5C18 6.5 20 4.5 22 3.5C20.3 5.3 18.8 7 17.8 7.8Z" fill="currentColor" stroke="none" />
     </svg>
   );
 }
