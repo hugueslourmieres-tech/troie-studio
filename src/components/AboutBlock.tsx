@@ -81,10 +81,10 @@ export function AboutBlock() {
         <div className="md:max-w-3xl">
           <p className="t-eyebrow">Qui sommes-nous</p>
           <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Atelier, Studio, Équipe.
+            L&apos;Atelier TROIE vous accompagne.
           </h2>
           <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Nous vous accompagnons dans tous vos projets digitaux.
+            Une équipe pluridisciplinaire pour tous vos projets digitaux.
           </p>
           <ul className="mt-8 grid max-w-2xl gap-x-8 gap-y-3 sm:grid-cols-2">
             {PRESTATIONS.map((p) => (

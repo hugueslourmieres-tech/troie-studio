@@ -4,6 +4,10 @@
  * CONTENU-AI-ACT-2-AOUT. Prudence : ne pas nommer la CNIL comme
  * autorite de controle (designation francaise non confirmee).
  */
+import { OfficialEmblems } from "@/components/OfficialEmblems";
+
+const SOURCE_URL =
+  "https://www.entreprises.gouv.fr/decryptages-de-nos-experts/le-reglement-europeen-sur-lintelligence-artificielle-publics-concernes";
 
 const FAQ = [
   {
@@ -45,6 +49,13 @@ export function AiActControlable2Aout2026() {
         2025. Voici ce qui change, qui est concerné, et le minimum vital à
         mettre en place.
       </p>
+
+      <div className="not-prose my-8 flex flex-wrap items-center gap-4">
+        <OfficialEmblems url={SOURCE_URL} />
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--fg-2)]/60">
+          Source : République française · Union européenne
+        </span>
+      </div>
 
       <h2>Le 2 août 2026, qu&apos;est-ce qui change exactement ?</h2>
       <p>

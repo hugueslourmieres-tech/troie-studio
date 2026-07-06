@@ -44,7 +44,13 @@ export function ManagerSection({ locale = "fr" }: { locale?: string }) {
           <p className="t-display text-2xl italic text-[var(--fg)] md:text-3xl">
             « {c.quote} »
           </p>
-          <cite className="mt-4 block font-mono text-[10px] uppercase not-italic tracking-[0.22em] text-[var(--fg-2)]/70">
+          <cite className="mt-4 flex items-center justify-center gap-3 font-mono text-[10px] uppercase not-italic tracking-[0.22em] text-[var(--fg-2)]/70">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logos/mistral.svg"
+              alt="Mistral AI"
+              className="h-4 w-auto opacity-80"
+            />
             {c.quoteAttr}
           </cite>
         </blockquote>

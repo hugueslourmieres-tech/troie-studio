@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./Reveal";
+import { OfficialEmblems } from "./OfficialEmblems";
 
 /** Les outils IA que les équipes utilisent déjà (donc : déployeur AI Act). */
 const AI_TOOLS = [
@@ -100,18 +101,21 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </Link>
               </div>
-              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/45">
-                {c.meta}
-                {" · "}
-                <a
-                  href={SOURCE_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline decoration-[#f5f0e6]/30 underline-offset-2 transition-colors hover:text-[#f5f0e6] hover:decoration-[#f5f0e6]"
-                >
-                  {c.sourceLabel} →
-                </a>
-              </p>
+              <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-4">
+                <OfficialEmblems url={SOURCE_URL} />
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/45">
+                  {c.meta}
+                  {" · "}
+                  <a
+                    href={SOURCE_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="underline decoration-[#f5f0e6]/30 underline-offset-2 transition-colors hover:text-[#f5f0e6] hover:decoration-[#f5f0e6]"
+                  >
+                    {c.sourceLabel} →
+                  </a>
+                </p>
+              </div>
             </Reveal>
 
             {/* Les outils que les équipes utilisent déjà, logos blancs */}
