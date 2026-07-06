@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 /**
- * Bandeau annonce AI Act : fond noir, texte defilant en boucle
+ * Bandeau annonce AI Act : fond marron, texte defilant en boucle
  * (marquee, pause au survol), ponctue d'etoiles IA, entierement
  * cliquable vers l'article "controlable le 2 aout 2026".
  */
@@ -27,7 +27,7 @@ export function AiActBanner({ locale = "fr" }: { locale?: string }) {
     <Link
       href={c.href}
       aria-label={`${c.text} ${c.cta}`}
-      className="group block overflow-hidden bg-[#1a1714] py-2.5"
+      className="group block overflow-hidden bg-[#3d2418] py-2.5"
     >
       <div className="t-marquee flex w-max">
         {[0, 1].map((half) => (

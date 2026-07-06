@@ -5,6 +5,13 @@
  * un profil d'usage vers les offres du site.
  */
 
+/**
+ * Interrupteur global du Panthéon. Mis de côté (decision Hugues,
+ * juillet 2026) : rien ne s'affiche côté site tant que c'est false.
+ * Le code reste en place, on rallumera plus tard en repassant à true.
+ */
+export const PANTHEON_ENABLED = false;
+
 export type HouseSlug = "hermes" | "athena" | "achille" | "hestia";
 
 export type House = {

@@ -125,21 +125,14 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               {t("introBody")}
             </p>
 
-            {/* CTA : découvrir sa maison (Panthéon) d'abord, audit gratuit ensuite */}
+            {/* CTA hero : audit gratuit (conversion principale) */}
             {asHero && (
-              <div className="mt-10 flex flex-col items-center gap-5">
-                <Link
-                  href="/formations/pantheon/test"
-                  className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
-                >
-                  {t("heroCtaHouse")}
-                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </Link>
+              <div className="mt-10 flex justify-center">
                 <a
                   href="https://cal.com/troiestudio/30min"
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-2.5 border-b border-[var(--fg)]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)]/85 transition-colors hover:border-[var(--fg)] hover:text-[var(--fg)]"
+                  className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
                 >
                   {t("heroCtaAudit")}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

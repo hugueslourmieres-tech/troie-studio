@@ -2,7 +2,7 @@ import Link from "next/link";
 
 /**
  * Article : "L'IA va-t-elle remplacer mon métier ?"
- * Angle TROIE : manager, pas remplacé. Pédagogique, sans bullshit.
+ * Angle TROIE : manager, pas remplacé. Pédagogique, sans survente.
  */
 export function ManagerPasRemplace() {
   return (
@@ -93,7 +93,7 @@ export function ManagerPasRemplace() {
         <strong> décider, vérifier, arbitrer</strong>. Autrement dit : manager.
       </p>
 
-      <h2>Manager une IA, ça s&apos;apprend (et ce n&apos;est pas du bullshit)</h2>
+      <h2>Manager une IA, cela s&apos;apprend</h2>
       <p>
         Voilà le vrai sujet. On ouvre ChatGPT, on copie-colle une réponse, et on
         croit &laquo; faire de l&apos;IA &raquo;. Ce n&apos;en est pas. Manager
@@ -153,8 +153,8 @@ export function ManagerPasRemplace() {
       </p>
       <p>
         Côté entreprise, on cadre l&apos;usage de l&apos;IA dans vos équipes,
-        en présentiel ou à distance, avec une vraie pédagogie et zéro bullshit :
-        voir <Link href="/ia">TROIE pour les professionnels</Link>, ou{" "}
+        en présentiel ou à distance, avec une pédagogie exigeante et sans
+        survente : voir <Link href="/ia">TROIE pour les professionnels</Link>, ou{" "}
         <Link href="/fr/contact">réserver un appel de 30 minutes</Link> pour en
         parler.
       </p>
@@ -164,8 +164,8 @@ export function ManagerPasRemplace() {
         La vraie fracture de 2026 ne sépare pas ceux qui utilisent l&apos;IA de
         ceux qui ne l&apos;utilisent pas. Elle sépare ceux qui savent la{" "}
         <strong>manager</strong> de ceux qui se contentent de cliquer. La bonne
-        nouvelle, c&apos;est que ça s&apos;apprend. Et que vous pouvez commencer
-        aujourd&apos;hui, gratuitement.
+        nouvelle, c&apos;est que cela s&apos;apprend. Et que vous pouvez commencer
+        dès aujourd&apos;hui, gratuitement.
       </p>
     </>
   );

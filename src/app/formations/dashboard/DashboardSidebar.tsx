@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { Profile } from "@/lib/types";
-import { HOUSES, isHouseSlug } from "@/lib/pantheon";
+import { HOUSES, isHouseSlug, PANTHEON_ENABLED } from "@/lib/pantheon";
 
 /**
  * DashboardSidebar, nav verticale + carte profil avec XP / level.
@@ -71,8 +71,8 @@ export function DashboardSidebar({
           </div>
         </div>
 
-        {/* Maison du Panthéon */}
-        {isHouseSlug(profile.house) ? (
+        {/* Maison du Panthéon (masquée tant que PANTHEON_ENABLED est false) */}
+        {PANTHEON_ENABLED && (isHouseSlug(profile.house) ? (
           <div
             className="mt-4 flex items-center justify-between rounded-sm px-3 py-2.5"
             style={{
@@ -97,7 +97,7 @@ export function DashboardSidebar({
             <span>Découvrir ma maison</span>
             <span aria-hidden="true">→</span>
           </Link>
-        )}
+        ))}
 
         {/* Plan */}
         <div className="mt-4 flex items-center justify-between border-t border-[var(--rule)] pt-4">

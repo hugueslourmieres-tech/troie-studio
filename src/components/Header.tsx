@@ -55,7 +55,6 @@ export function Header({
       items: [
         { href: `/ia`, label: "Professionnel", meta: "01" },
         { href: `/formations`, label: "Particulier", meta: "02" },
-        { href: `/formations/pantheon`, label: "Le Panthéon", meta: "✦" },
       ],
     },
     {

@@ -1,6 +1,6 @@
 import { setRequestLocale } from "next-intl/server";
 import { Intro } from "@/components/Intro";
-import { PantheonSection } from "@/components/PantheonSection";
+import { ManagerSection } from "@/components/ManagerSection";
 import { AudienceFork } from "@/components/AudienceFork";
 import { AiUrgency } from "@/components/AiUrgency";
 import { QcmSection } from "@/components/QcmSection";
@@ -36,8 +36,10 @@ export default async function HomePage({
         <Intro asHero />
       </div>
 
-      {/* PANTHÉON : les 4 maisons, tient la promesse du hero tout de suite */}
-      <PantheonSection />
+      {/* MANAGER : l'angle "devenez manager, pas remplacé" tient la
+          promesse du hero tout de suite (vidéo Mensch + article).
+          Le Panthéon est mis de côté (code conservé, non affiché). */}
+      <ManagerSection locale={locale} />
 
       {/* URGENCE IA : punchline FOMO, renvoie vers le QCM de niveau */}
       <AiUrgency />

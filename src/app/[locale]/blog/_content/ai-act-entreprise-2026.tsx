@@ -95,8 +95,8 @@ export function AiActEntreprise2026() {
       <p>
         Le plus simple est de faire un point honnête sur votre situation. Chez
         TROIE, on accompagne les équipes à cadrer et utiliser l’IA, en
-        présentiel ou à distance, avec une vraie pédagogie et zéro bullshit :
-        voir <Link href="/ia">TROIE pour les professionnels</Link>, ou{" "}
+        présentiel ou à distance, avec une pédagogie exigeante et sans
+        survente : voir <Link href="/ia">TROIE pour les professionnels</Link>, ou{" "}
         <Link href="/fr/contact">réserver un appel de 30 minutes</Link> pour
         faire le point sur votre conformité et vos besoins.
       </p>
