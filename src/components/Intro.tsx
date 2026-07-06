@@ -137,6 +137,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                   href="/formations/pantheon/test"
                   className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
                 >
+                  <HermesIcon className="h-4 w-4 shrink-0" />
                   {t("heroCtaHouse")}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </Link>
@@ -262,5 +263,27 @@ function ToolsRow({ tools }: { tools: Tool[] }) {
         </li>
       ))}
     </ul>
+  );
+}
+
+/** Caducee simplifie (Hermes) : pictogramme pour le CTA "Decouvrir ma maison". */
+function HermesIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <line x1="12" y1="7" x2="12" y2="19" />
+      <path d="M12 9c-3 1.5-3 3.5 0 5s3 3.5 0 5" />
+      <path d="M12 9c3 1.5 3 3.5 0 5s-3 3.5 0 5" />
+      <path d="M12 7c-2-3-5-3.4-7-1.6c1.2.6 1.8 1.8 1.8 1.8" fill="currentColor" stroke="none" />
+      <path d="M12 7c2-3 5-3.4 7-1.6c-1.2.6-1.8 1.8-1.8 1.8" fill="currentColor" stroke="none" />
+    </svg>
   );
 }
