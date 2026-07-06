@@ -83,7 +83,7 @@ export function Header({
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
+      <div className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
         <Link
           href={`/${locale}`}
           aria-label="TROIE, Studio France"
