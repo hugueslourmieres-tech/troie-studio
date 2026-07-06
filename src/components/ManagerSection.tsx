@@ -10,8 +10,8 @@ import Link from "next/link";
 
 const COPY = {
   fr: {
-    eyebrow: "Le vrai sujet",
-    title: "Devenez manager.",
+    eyebrow: "La valeur ajoutée",
+    title: "L'IA exécute, vous pilotez.",
     quote: "Vous n'êtes plus un artisan, vous êtes un manager.",
     quoteAttr: "Arthur Mensch, PDG de Mistral AI, devant l'Assemblée nationale",
     caption: "Arthur Mensch (Mistral) devant l'Assemblée nationale, 12 mai 2026.",
@@ -19,8 +19,8 @@ const COPY = {
     slug: "ia-remplacer-mon-metier-manager-pas-remplace",
   },
   en: {
-    eyebrow: "The real question",
-    title: "Become a manager.",
+    eyebrow: "The added value",
+    title: "AI executes. You steer.",
     quote: "You are no longer a craftsman, you are a manager.",
     quoteAttr: "Arthur Mensch, CEO of Mistral AI, before the French National Assembly",
     caption: "Arthur Mensch (Mistral) before the French National Assembly, May 12, 2026.",
@@ -58,6 +58,7 @@ export function ManagerSection({ locale = "fr" }: { locale?: string }) {
               allowFullScreen
               loading="lazy"
               className="absolute inset-0 h-full w-full"
+              style={{ filter: "grayscale(1)" }}
             />
           </div>
           <figcaption className="mt-5 flex flex-col items-center gap-6">

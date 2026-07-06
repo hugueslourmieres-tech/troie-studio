@@ -35,13 +35,14 @@ export default async function HomePage({
         <Intro asHero />
       </div>
 
-      {/* MANAGER : l'angle "devenez manager, pas remplacé" tient la
-          promesse du hero tout de suite (vidéo Mensch + article).
+      {/* AI ACT : le hook conformité (échéance 2 août 2026), pousse à
+          s'informer puis à se former. */}
+      <AiUrgency locale={locale} />
+
+      {/* MANAGER : juste sous l'AI Act, le propos de Mensch (Mistral) sur
+          la valeur ajoutée : l'IA exécute, vous pilotez (vidéo + article).
           Le Panthéon est mis de côté (code conservé, non affiché). */}
       <ManagerSection locale={locale} />
-
-      {/* URGENCE IA : punchline FOMO, renvoie vers le QCM de niveau */}
-      <AiUrgency />
 
       {/* FORK Pro / Perso : oriente le visiteur.
           FormationLadder (grille de prix) retirée de la home : les prix
