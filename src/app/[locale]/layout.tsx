@@ -206,7 +206,9 @@ export default async function LocaleLayout({
         ],
         contactPoint: {
           "@type": "ContactPoint",
-          email: "contact@troiestudio.fr",
+          // Email volontairement absent (anti-moisson) : le formulaire
+          // de contact est le canal public.
+          url: "https://troiestudio.fr/fr/contact",
           contactType: "customer service",
           availableLanguage: ["French", "English"],
         },

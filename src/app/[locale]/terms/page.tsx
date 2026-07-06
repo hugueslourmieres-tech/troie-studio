@@ -1,4 +1,5 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export async function generateMetadata({
   params,
@@ -56,7 +57,7 @@ function TermsFr() {
           Exploité par Hugues Lourmieres, entrepreneur individuel établi en
           France.
           <br />
-          Contact : <a className="underline" href="mailto:contact@troiestudio.fr">contact@troiestudio.fr</a>
+          Contact : <ObfuscatedEmail className="underline" />
         </p>
       </Block>
       <Block title="Directeur de la publication">
@@ -116,7 +117,7 @@ function TermsEn() {
           <br />
           Operated by Hugues Lourmieres, sole proprietor based in France.
           <br />
-          Contact: <a className="underline" href="mailto:contact@troiestudio.fr">contact@troiestudio.fr</a>
+          Contact: <ObfuscatedEmail className="underline" />
         </p>
       </Block>
       <Block title="Publication director">

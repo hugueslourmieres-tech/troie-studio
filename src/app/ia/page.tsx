@@ -5,6 +5,7 @@ import { GrowthCurve } from "./GrowthCurve";
 import { Header } from "@/components/Header";
 import { FormationsFooter } from "@/components/FormationsFooter";
 import { Slideshow } from "@/components/Slideshow";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 /* Images de formation pour le slideshow du Pack 04. */
 // Une seule photo (casque) pour le Pack 04, plus de slideshow.
@@ -1079,12 +1080,7 @@ export default function IaLandingPage() {
                   Réserver l'audit gratuit
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
-                <a
-                  href="mailto:contact@troiestudio.fr"
-                  className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)]/75 transition-colors hover:text-[var(--fg)]"
-                >
-                  contact@troiestudio.fr →
-                </a>
+                <ObfuscatedEmail className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)]/75 transition-colors hover:text-[var(--fg)]" />
               </div>
             </div>
 

@@ -13,14 +13,21 @@ export function BuyButton({
   product,
   label,
   className,
-  fallbackMailto,
+  fallbackSubject,
 }: {
   product: string;
   label: string;
   className: string;
-  fallbackMailto?: string;
+  fallbackSubject?: string;
 }) {
   const [busy, setBusy] = useState(false);
+
+  const fallbackMail = () => {
+    const address = ["contact", "troiestudio.fr"].join("@");
+    window.location.href = `mailto:${address}${
+      fallbackSubject ? `?subject=${encodeURIComponent(fallbackSubject)}` : ""
+    }`;
+  };
 
   const buy = async () => {
     if (busy) return;
@@ -40,7 +47,7 @@ export function BuyButton({
         return;
       }
       if (!res.ok) {
-        if (fallbackMailto) window.location.href = fallbackMailto;
+        fallbackMail();
         return;
       }
       const { url } = await res.json();
@@ -48,9 +55,9 @@ export function BuyButton({
         window.location.href = url;
         return;
       }
-      if (fallbackMailto) window.location.href = fallbackMailto;
+      fallbackMail();
     } catch {
-      if (fallbackMailto) window.location.href = fallbackMailto;
+      fallbackMail();
     } finally {
       setBusy(false);
     }

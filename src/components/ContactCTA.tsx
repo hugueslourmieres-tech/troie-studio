@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
@@ -34,12 +35,7 @@ export function ContactCTA(_props: { locale: string }) {
                 Réserver un créneau de 30 min
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
-              <a
-                href="mailto:contact@troiestudio.fr"
-                className="border-b border-[#1a1714]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#1a1714]/75 transition hover:text-[#1a1714]"
-              >
-                contact@troiestudio.fr
-              </a>
+              <ObfuscatedEmail className="border-b border-[#1a1714]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#1a1714]/75 transition hover:text-[#1a1714]" />
             </div>
           </div>
         </div>

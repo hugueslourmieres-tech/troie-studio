@@ -1,6 +1,7 @@
 import { MOCK_PROFILE, isSupabaseConfigured } from "@/lib/mock-data";
 import { createClient } from "@/lib/supabase/server";
 import type { Profile } from "@/lib/types";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = {
   title: "Profil · Espace membre TROIE",
@@ -110,7 +111,7 @@ export default async function ProfilePage() {
             </p>
             <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)]">
               Téléchargez vos données personnelles. Disponible sur demande
-              à <a href="mailto:contact@troiestudio.fr" className="text-[var(--accent)] hover:underline">contact@troiestudio.fr</a>.
+              à <ObfuscatedEmail className="text-[var(--accent)] hover:underline" />.
             </p>
           </li>
         </ul>

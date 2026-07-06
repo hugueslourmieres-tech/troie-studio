@@ -1,14 +1,13 @@
 import Link from "next/link";
 import { EmblemBreak } from "@/components/EmblemBreak";
 import { FormationsFooter } from "@/components/FormationsFooter";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
 /* TODO : remplacer les mailto par Lemon Squeezy / Stripe URLs au moment du go-live. */
-const CHECKOUT_BUNDLE = "mailto:contact@troiestudio.fr?subject=TROIE+Prompts+Vault+%E2%80%94+Bundle+5+packs+99";
-const checkoutForPack = (pack: string) =>
-  `mailto:contact@troiestudio.fr?subject=TROIE+Prompts+%E2%80%94+Pack+${encodeURIComponent(pack)}+29`;
+const SUBJECT_BUNDLE = "TROIE Prompts Vault - Bundle 5 packs 99";
 
 export const metadata = {
   title: "System Prompts · La boutique TROIE, 5 packs métier, prêts à coller",
@@ -466,13 +465,13 @@ export default function PromptsPage() {
                       </li>
                     ))}
                   </ul>
-                  <a
-                    href={CHECKOUT_BUNDLE}
+                  <ObfuscatedEmail
+                    subject={SUBJECT_BUNDLE}
                     className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                   >
                     Acheter le bundle · 99 €
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                  </a>
+                  </ObfuscatedEmail>
                 </div>
               </div>
             </div>
@@ -564,13 +563,13 @@ export default function PromptsPage() {
                 14 jours satisfait ou remboursé.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <a
-                  href={CHECKOUT_BUNDLE}
+                <ObfuscatedEmail
+                  subject={SUBJECT_BUNDLE}
                   className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Acheter le bundle · 99 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
+                </ObfuscatedEmail>
                 <Link
                   href="/formations/cours-01"
                   className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:text-[var(--bg)]"

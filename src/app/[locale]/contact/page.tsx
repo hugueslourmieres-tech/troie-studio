@@ -1,9 +1,9 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/ContactForm";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 const CAL_EMBED = "https://cal.com/troiestudio/30min?layout=month_view";
-const EMAIL = "contact@troiestudio.fr";
 const MAPS_LINK = "https://www.google.com/maps/place/Nice,+France";
 const MAPS_EMBED =
   "https://maps.google.com/maps?q=Nice%2C%20Côte%20d'Azur%2C%20France&z=12&output=embed";
@@ -65,12 +65,7 @@ function ContactView() {
             <div className="rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-8">
               <p className="t-eyebrow">Direct</p>
               <div className="mt-5 space-y-3">
-                <a
-                  href={`mailto:${EMAIL}`}
-                  className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  <span className="border-b border-[var(--rule-strong)] pb-0.5">{EMAIL}</span>
-                </a>
+                <ObfuscatedEmail className="flex items-center gap-2 border-b border-[var(--rule-strong)] pb-0.5 font-mono text-xs uppercase tracking-[0.16em] text-[var(--fg-2)] transition hover:text-[var(--accent)]" />
                 <a
                   href={MAPS_LINK}
                   target="_blank"

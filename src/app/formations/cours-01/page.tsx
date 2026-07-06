@@ -34,7 +34,7 @@ const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/troiestudio/30min";
 // Achat via Stripe Checkout (BuyButton) ; mailto en secours si Stripe
 // n'est pas configuré sur l'environnement.
-const FALLBACK_MAILTO = "mailto:contact@troiestudio.fr?subject=Cours+01+%E2%80%94+TROIE-START";
+const FALLBACK_SUBJECT = "Cours 01 - TROIE-START";
 
 export const metadata = {
   title: "Cours 01 · Maîtriser ChatGPT & Claude, TROIE Formations",
@@ -182,7 +182,7 @@ export default function Cours01Page() {
                 <BuyButton
                   product="cours-01"
                   label="Acheter · 99 € · accès à vie"
-                  fallbackMailto={FALLBACK_MAILTO}
+                  fallbackSubject={FALLBACK_SUBJECT}
                   className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 />
                 <Link
@@ -230,7 +230,7 @@ export default function Cours01Page() {
                 <BuyButton
                   product="cours-01"
                   label="Acheter · 99 €"
-                  fallbackMailto={FALLBACK_MAILTO}
+                  fallbackSubject={FALLBACK_SUBJECT}
                   className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 />
                 <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
@@ -461,7 +461,7 @@ export default function Cours01Page() {
                 <BuyButton
                   product="cours-01"
                   label="Acheter · 99 € · accès à vie"
-                  fallbackMailto={FALLBACK_MAILTO}
+                  fallbackSubject={FALLBACK_SUBJECT}
                   className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 />
                 <Link

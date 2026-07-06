@@ -58,7 +58,7 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
             <BuyButton
               product={buyable.key}
               label={`Débloquer · ${(course.price_cents / 100).toFixed(0)} € · accès à vie`}
-              fallbackMailto={`mailto:contact@troiestudio.fr?subject=${encodeURIComponent(course.title)}`}
+              fallbackSubject={course.title}
               className="inline-flex items-center gap-3 bg-[var(--fg)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
             />
             <Link

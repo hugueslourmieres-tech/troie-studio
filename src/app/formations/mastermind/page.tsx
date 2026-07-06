@@ -2,6 +2,7 @@ import Link from "next/link";
 import { EmblemBreak } from "@/components/EmblemBreak";
 import { FormationsFooter } from "@/components/FormationsFooter";
 import { JsonLd, ORG_ID } from "@/components/JsonLd";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 const MASTERMIND_JSONLD = {
   "@context": "https://schema.org",
@@ -30,8 +31,8 @@ const MASTERMIND_JSONLD = {
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/troiestudio/30min";
-const SUBSCRIBE_MONTHLY = "mailto:contact@troiestudio.fr?subject=Mastermind+TROIE+%E2%80%94+Mensuel+49";
-const SUBSCRIBE_ANNUAL = "mailto:contact@troiestudio.fr?subject=Mastermind+TROIE+%E2%80%94+Annuel+490";
+const SUBJECT_MONTHLY = "Mastermind TROIE - Mensuel 49";
+const SUBJECT_ANNUAL = "Mastermind TROIE - Annuel 490";
 
 export const metadata = {
   title: "Mastermind TROIE · L'abo qui garde votre stack IA à jour, TROIE",
@@ -133,19 +134,19 @@ export default function MastermindPage() {
                 Les 2 cours inclus, nouveaux prompts chaque mois, office hours live, Discord privé.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <a
-                  href={SUBSCRIBE_MONTHLY}
+                <ObfuscatedEmail
+                  subject={SUBJECT_MONTHLY}
                   className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 >
                   Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
-                <a
-                  href={SUBSCRIBE_ANNUAL}
+                </ObfuscatedEmail>
+                <ObfuscatedEmail
+                  subject={SUBJECT_ANNUAL}
                   className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:text-[var(--fg)]"
                 >
                   Annuel 490 € (2 mois offerts) →
-                </a>
+                </ObfuscatedEmail>
               </div>
             </div>
 
@@ -182,13 +183,13 @@ export default function MastermindPage() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={SUBSCRIBE_MONTHLY}
+                <ObfuscatedEmail
+                  subject={SUBJECT_MONTHLY}
                   className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[#1a1714] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
+                </ObfuscatedEmail>
                 <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-[#1a1714]/70">
                   Annulez en 1 clic, sans engagement
                 </p>
@@ -313,19 +314,19 @@ export default function MastermindPage() {
                 Communauté volontairement limitée à 100 membres actifs. Vos cas trouvent une vraie réponse en live, pas un thread perdu.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <a
-                  href={SUBSCRIBE_MONTHLY}
+                <ObfuscatedEmail
+                  subject={SUBJECT_MONTHLY}
                   className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
-                <a
-                  href={SUBSCRIBE_ANNUAL}
+                </ObfuscatedEmail>
+                <ObfuscatedEmail
+                  subject={SUBJECT_ANNUAL}
                   className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:text-[var(--bg)]"
                 >
                   Annuel 490 € (2 mois offerts) →
-                </a>
+                </ObfuscatedEmail>
               </div>
             </div>
             <div className="md:col-span-4 md:border-l md:border-[var(--fg)]/20 md:pl-12">

@@ -78,7 +78,7 @@ export default function TarifsPage() {
                 <BuyButton
                   product={cours01.key}
                   label="Acheter le Cours 01"
-                  fallbackMailto="mailto:contact@troiestudio.fr?subject=Cours+01"
+                  fallbackSubject="Cours 01"
                   className={`${CARD_BTN} border border-[var(--fg)]/30 text-[var(--fg)] hover:border-[var(--fg)] hover:bg-[var(--fg)] hover:text-[var(--bg)]`}
                 />
               </div>
@@ -93,7 +93,7 @@ export default function TarifsPage() {
                 <BuyButton
                   product={cours02.key}
                   label="Acheter le Cours 02"
-                  fallbackMailto="mailto:contact@troiestudio.fr?subject=Cours+02"
+                  fallbackSubject="Cours 02"
                   className={`${CARD_BTN} border border-[var(--fg)]/30 text-[var(--fg)] hover:border-[var(--fg)] hover:bg-[var(--fg)] hover:text-[var(--bg)]`}
                 />
               </div>
@@ -123,7 +123,7 @@ export default function TarifsPage() {
             <BuyButton
               product={mensuel.key}
               label="S'abonner · mensuel"
-              fallbackMailto="mailto:contact@troiestudio.fr?subject=Abonnement"
+              fallbackSubject="Abonnement"
               className={`${CARD_BTN} bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--bg)] hover:text-[var(--fg)]`}
             />
             <div className="mt-6 border-t border-[var(--bg)]/15 pt-6">
@@ -138,7 +138,7 @@ export default function TarifsPage() {
               <BuyButton
                 product={annuel.key}
                 label="S'abonner · annuel"
-                fallbackMailto="mailto:contact@troiestudio.fr?subject=Abonnement+annuel"
+                fallbackSubject="Abonnement annuel"
                 className={`${CARD_BTN} border border-[var(--bg)]/30 text-[var(--bg)] hover:border-[var(--bg)] hover:bg-[var(--bg)] hover:text-[var(--fg)]`}
               />
             </div>

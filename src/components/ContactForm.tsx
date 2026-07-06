@@ -1,9 +1,22 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 type Status = "idle" | "sending" | "ok" | "error";
+
+/* Cloudflare Turnstile (optionnel) : le widget ne s'affiche que si la
+   cle publique est definie. Sans cle, les protections invisibles
+   (honeypot, delai, limite IP) restent actives. */
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (el: HTMLElement, opts: Record<string, unknown>) => string;
+    };
+  }
+}
 
 /**
  * Map `?subject=…` query keys to readable subject text. Anything outside
@@ -70,6 +83,39 @@ export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [subjectInitial, setSubjectInitial] = useState<string>("");
+  // Anti-spam : instant de montage (delai minimal) + jeton Turnstile.
+  const mountedAt = useRef<number>(0);
+  const turnstileToken = useRef<string>("");
+  const turnstileRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    mountedAt.current = Date.now();
+  }, []);
+
+  // Charge et rend le widget Turnstile si la cle publique existe.
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY || !turnstileRef.current) return;
+    const render = () => {
+      if (window.turnstile && turnstileRef.current) {
+        window.turnstile.render(turnstileRef.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          callback: (token: string) => {
+            turnstileToken.current = token;
+          },
+        });
+      }
+    };
+    if (window.turnstile) {
+      render();
+      return;
+    }
+    const script = document.createElement("script");
+    script.src =
+      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.onload = render;
+    document.head.appendChild(script);
+  }, []);
 
   // Resolve a readable subject from `?subject=…` on mount. Read it from
   // window.location directly so the component doesn't need a Suspense
@@ -102,6 +148,10 @@ export function ContactForm() {
       company: String(formData.get("company") ?? ""),
       subject: String(formData.get("subject") ?? ""),
       message: String(formData.get("message") ?? ""),
+      // Anti-spam : honeypot (vide pour un humain) + temps passe.
+      website: String(formData.get("website") ?? ""),
+      elapsedMs: mountedAt.current ? Date.now() - mountedAt.current : 0,
+      turnstileToken: turnstileToken.current,
     };
 
     try {
@@ -178,6 +228,22 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="space-y-5 md:col-span-7" noValidate>
+      {/* Honeypot : invisible pour les humains, rempli par les bots.
+          Hors ecran (pas display:none, que certains bots detectent). */}
+      <div
+        aria-hidden="true"
+        style={{ position: "absolute", left: "-9999px", top: "auto", height: 0, overflow: "hidden" }}
+      >
+        <label htmlFor="website">Website</label>
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <Field name="name" label={t("name")} required />
       <Field name="email" label={t("email")} type="email" required />
       <Field name="company" label={t("company")} />
@@ -202,6 +268,9 @@ export function ContactForm() {
           className="w-full rounded-xl border border-[var(--rule)] bg-[var(--bg-2)] px-4 py-3 text-[var(--fg)] outline-none transition focus:border-[var(--accent)]"
         />
       </div>
+
+      {/* Widget Turnstile (rendu uniquement si la cle publique existe) */}
+      {TURNSTILE_SITE_KEY && <div ref={turnstileRef} className="pt-2" />}
 
       {status === "error" && (
         <p className="text-sm text-[var(--accent)]">{errorMsg}</p>

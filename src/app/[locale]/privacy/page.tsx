@@ -1,4 +1,5 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export async function generateMetadata({
   params,
@@ -52,7 +53,7 @@ function PrivacyFr() {
       <Block title="1. Responsable du traitement">
         <p>
           TROIE, atelier digital exploité par Hugues Lourmieres,
-          France. Contact : <a className="underline" href="mailto:contact@troiestudio.fr">contact@troiestudio.fr</a>.
+          France. Contact : <ObfuscatedEmail className="underline" />.
         </p>
       </Block>
       <Block title="2. Données collectées">
@@ -82,7 +83,7 @@ function PrivacyFr() {
           Conformément au RGPD, vous disposez d'un droit d'accès, de
           rectification, d'effacement, de limitation et de portabilité de vos
           données. Pour exercer ces droits, écrivez-nous à
-          {" "}<a className="underline" href="mailto:contact@troiestudio.fr">contact@troiestudio.fr</a>.
+          {" "}<ObfuscatedEmail className="underline" />.
         </p>
       </Block>
       <Block title="6. Réclamation">
@@ -102,7 +103,7 @@ function PrivacyEn() {
       <Block title="1. Data controller">
         <p>
           TROIE, a digital studio operated by Hugues Lourmieres, based in
-          France. Contact: <a className="underline" href="mailto:contact@troiestudio.fr">contact@troiestudio.fr</a>.
+          France. Contact: <ObfuscatedEmail className="underline" />.
         </p>
       </Block>
       <Block title="2. Data we collect">
@@ -128,7 +129,7 @@ function PrivacyEn() {
         <p>
           Under GDPR, you may access, rectify, erase, limit or port your
           personal data at any time. To exercise these rights, write to
-          {" "}<a className="underline" href="mailto:contact@troiestudio.fr">contact@troiestudio.fr</a>.
+          {" "}<ObfuscatedEmail className="underline" />.
         </p>
       </Block>
       <Block title="6. Complaint">

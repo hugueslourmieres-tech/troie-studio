@@ -4,11 +4,12 @@ import { EmblemBreak } from "@/components/EmblemBreak";
 import { PACKS } from "../data";
 import { FormationsFooter } from "@/components/FormationsFooter";
 import { JsonLd, ORG_ID } from "@/components/JsonLd";
+import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/troiestudio/30min";
-const checkoutForPack = (badge: string) =>
-  `mailto:contact@troiestudio.fr?subject=TROIE+Prompts+%E2%80%94+Pack+${encodeURIComponent(badge)}+29`;
+const subjectForPack = (badge: string) =>
+  `TROIE Prompts - Pack ${badge} 29`;
 
 type Params = Promise<{ pack: string }>;
 
@@ -140,13 +141,13 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                 {pack.body}
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <a
-                  href={checkoutForPack(pack.badge)}
+                <ObfuscatedEmail
+                  subject={subjectForPack(pack.badge)}
                   className="group inline-flex items-center gap-3 bg-[var(--fg)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 >
                   Acheter ce pack · 29 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
+                </ObfuscatedEmail>
                 <a
                   href="#prompts"
                   className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
@@ -207,13 +208,13 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                       Accès à vie · MAJ libres
                     </p>
                   </div>
-                  <a
-                    href={checkoutForPack(pack.badge)}
+                  <ObfuscatedEmail
+                    subject={subjectForPack(pack.badge)}
                     className={`group mt-6 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
                   >
                     Acheter · 29 €
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                  </a>
+                  </ObfuscatedEmail>
                 </div>
               </div>
             </div>
@@ -324,13 +325,13 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                             29 € le pack complet (5 prompts). Accès à vie, MAJ
                             libres, garantie 14 jours.
                           </p>
-                          <a
-                            href={checkoutForPack(pack.badge)}
+                          <ObfuscatedEmail
+                            subject={subjectForPack(pack.badge)}
                             className="group mt-6 inline-flex w-full items-center justify-center gap-3 bg-[var(--fg)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                           >
                             Acheter le pack · 29 €
                             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                          </a>
+                          </ObfuscatedEmail>
                         </div>
                       </div>
                     )}
@@ -420,13 +421,13 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                 même. Aucune question.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <a
-                  href={checkoutForPack(pack.badge)}
+                <ObfuscatedEmail
+                  subject={subjectForPack(pack.badge)}
                   className="group inline-flex items-center gap-3 bg-[#1a1714] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
                   Acheter ce pack · 29 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
+                </ObfuscatedEmail>
                 <Link
                   href="/formations/cours-01"
                   className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:text-[var(--bg)]"
