@@ -91,7 +91,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-06",
     category: "Conformité",
     readingMinutes: 6,
-    cover: "/images/blog/ai-act-v2.jpg",
+    cover: "/images/blog/ai-act-2-aout.jpg",
     keywords: [
       "AI Act 2 août 2026",
       "contrôle AI Act entreprise",
