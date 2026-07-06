@@ -5,6 +5,15 @@ import { ContactCTA } from "@/components/ContactCTA";
 
 const PROJECTS: Project[] = [
   {
+    name: "Bilber",
+    kind: "Web app · scan produits, scores & DPP",
+    href: "https://bilber.app",
+    url: "bilber.app",
+    label: "bilber.app",
+    desktop: "/images/creation/web/bilber-desktop.jpg",
+    mobile: "/images/creation/web/bilber-mobile.jpg",
+  },
+  {
     name: "LOIR Paris",
     kind: "E-commerce · mode",
     href: "https://loirparis.fr",

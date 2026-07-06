@@ -13,7 +13,6 @@
 export type WorkSlug =
   | "chanel"
   | "monaco"
-  | "bilber"
   | "veoria"
   | "mibi-2026"
   | "cartonajes-pans"
@@ -58,18 +57,6 @@ export const WORKS: Work[] = [
       file("Monaco", "03.jpg"),
       file("Monaco", "04.jpg"),
       file("Monaco", "IMG_8522.jpg"),
-    ],
-  },
-  // ─────────────────────────────────────────────────────────────
-  // Produit web maison (design + dev, captures du site en ligne)
-  {
-    slug: "bilber",
-    cover: file("Bilber", "cover.jpg"),
-    coverPosition: "center top",
-    gallery: [
-      file("Bilber", "01.jpg"),
-      file("Bilber", "02.jpg"),
-      file("Bilber", "03.jpg"),
     ],
   },
   // ─────────────────────────────────────────────────────────────

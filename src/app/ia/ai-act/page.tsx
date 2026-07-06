@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { AiActBanner } from "@/components/AiActBanner";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
@@ -141,20 +142,8 @@ export default function AiActPage() {
         </div>
       </header>
 
-      {/* Bandeau compte a rebours : controles a partir du 2 aout 2026 */}
-      <div className="border-b border-[var(--rule)] bg-[#1a1714]">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-8 gap-y-2 px-6 py-3.5 md:px-12">
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#f5f0e6]">
-            <span className="text-[var(--accent)]">Le 2 août 2026</span>, l&apos;AI Act devient contrôlable. Votre plan de formation est-il documenté ?
-          </p>
-          <Link
-            href="/fr/blog/ai-act-controlable-2-aout-2026"
-            className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)] transition hover:text-[#f5f0e6]"
-          >
-            Ce qui change →
-          </Link>
-        </div>
-      </div>
+      {/* Annonce AI Act : bandeau noir defilant, sous la navbar */}
+      <AiActBanner />
 
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 pt-20 pb-16 md:px-12 md:pt-28 md:pb-24">

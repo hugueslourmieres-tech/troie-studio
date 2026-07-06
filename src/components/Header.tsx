@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AnimatedWordmark } from "./AnimatedWordmark";
+import { AiActBanner } from "./AiActBanner";
 import { LangSwitch } from "./LangSwitch";
 import { MobileMenu } from "./MobileMenu";
 import { useSignedIn } from "./useSignedIn";
@@ -125,6 +126,9 @@ export function Header({
           <MobileMenu locale={locale} groups={groups} showLang={showLang} />
         </div>
       </div>
+
+      {/* Annonce AI Act : bandeau noir defilant, sous la navbar */}
+      <AiActBanner locale={locale} />
     </header>
   );
 }
