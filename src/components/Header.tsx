@@ -77,10 +77,10 @@ export function Header({
 
   return (
     <header
-      className={`tone-light fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
+      className={`tone-light fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter] duration-500 ${
         barSolid
-          ? "border-b border-transparent bg-[var(--bg)]/95 backdrop-blur-xl"
-          : "border-b border-transparent bg-transparent"
+          ? "bg-[var(--bg)]/95 backdrop-blur-xl"
+          : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
