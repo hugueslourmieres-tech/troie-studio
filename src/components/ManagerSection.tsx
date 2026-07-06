@@ -1,8 +1,9 @@
+import Link from "next/link";
+
 /**
- * Section home "Devenez manager" : juste après le hero, elle pose le
- * vrai sujet et la citation d'Arthur Mensch (Mistral) devant
- * l'Assemblée nationale. La vidéo et le lien article vivent plus bas,
- * dans la section sombre AiUrgency.
+ * Section home "Devenez manager" : juste après le hero. Pose le vrai
+ * sujet, la citation d'Arthur Mensch (Mistral) devant l'Assemblée
+ * nationale, puis la vidéo de l'audition et le lien vers l'article.
  *
  * Registre soutenu (ton presse).
  */
@@ -10,15 +11,21 @@
 const COPY = {
   fr: {
     eyebrow: "Le vrai sujet",
-    title: "Ne soyez pas remplacé. Devenez manager.",
+    title: "Devenez manager.",
     quote: "Vous n'êtes plus un artisan, vous êtes un manager.",
     quoteAttr: "Arthur Mensch, PDG de Mistral AI, devant l'Assemblée nationale",
+    caption: "Arthur Mensch (Mistral) devant l'Assemblée nationale, 12 mai 2026.",
+    cta: "Lire l'article",
+    slug: "ia-remplacer-mon-metier-manager-pas-remplace",
   },
   en: {
     eyebrow: "The real question",
-    title: "Don't get replaced. Become a manager.",
+    title: "Become a manager.",
     quote: "You are no longer a craftsman, you are a manager.",
     quoteAttr: "Arthur Mensch, CEO of Mistral AI, before the French National Assembly",
+    caption: "Arthur Mensch (Mistral) before the French National Assembly, May 12, 2026.",
+    cta: "Read the article",
+    slug: "ia-remplacer-mon-metier-manager-pas-remplace",
   },
 } as const;
 
@@ -27,12 +34,12 @@ export function ManagerSection({ locale = "fr" }: { locale?: string }) {
 
   return (
     <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
-      <div className="mx-auto max-w-3xl px-6 py-24 text-center md:px-12 md:py-32">
+      <div className="mx-auto max-w-4xl px-6 py-24 text-center md:px-12 md:py-32">
         <p className="t-eyebrow">{c.eyebrow}</p>
-        <h2 className="t-display mt-6 text-3xl leading-[1.1] text-[var(--fg)] md:text-5xl">
+        <h2 className="t-display mt-6 text-4xl leading-[1.05] text-[var(--fg)] md:text-6xl">
           {c.title}
         </h2>
-        <blockquote className="mx-auto mt-12 max-w-2xl">
+        <blockquote className="mx-auto mt-10 max-w-2xl">
           <p className="t-display text-2xl italic text-[var(--fg)] md:text-3xl">
             « {c.quote} »
           </p>
@@ -40,6 +47,32 @@ export function ManagerSection({ locale = "fr" }: { locale?: string }) {
             {c.quoteAttr}
           </cite>
         </blockquote>
+
+        {/* Vidéo de l'audition + lien article */}
+        <figure className="mx-auto mt-12 max-w-3xl md:mt-14">
+          <div className="relative aspect-video overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--ink)]">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/vczBo0AvbTI?start=375"
+              title="Arthur Mensch (Mistral) devant l'Assemblée nationale"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+              className="absolute inset-0 h-full w-full"
+            />
+          </div>
+          <figcaption className="mt-5 flex flex-col items-center gap-6">
+            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--fg-2)]/60">
+              {c.caption}
+            </span>
+            <Link
+              href={`/${locale}/blog/${c.slug}`}
+              className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
+            >
+              {c.cta}
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </Link>
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
