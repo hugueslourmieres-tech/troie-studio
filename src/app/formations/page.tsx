@@ -372,6 +372,14 @@ export default function FormationsPage() {
                 Certification Qualiopi en cours. Tout commence par un audit
                 gratuit de 30 minutes.
               </p>
+              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-[#f5f0e6]/60">
+                <Link
+                  href="/fr/blog/ai-act-controlable-2-aout-2026"
+                  className="transition hover:text-[var(--accent)]"
+                >
+                  Le 2 août 2026, l&apos;AI Act devient contrôlable : ce que votre PME doit avoir fait →
+                </Link>
+              </p>
             </div>
             <div className="flex flex-col gap-4 md:col-span-5">
               <a

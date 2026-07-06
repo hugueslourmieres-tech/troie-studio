@@ -29,6 +29,8 @@ import { CestQuoiUnAgentIaEn } from "./_content/cest-quoi-un-agent-ia.en";
 import { IaEthiqueEn } from "./_content/ia-ethique.en";
 import { AccessibiliteSiteWebObligation } from "./_content/accessibilite-site-web-obligation";
 import { AccessibiliteSiteWebObligationEn } from "./_content/accessibilite-site-web-obligation.en";
+import { AiActControlable2Aout2026 } from "./_content/ai-act-controlable-2-aout-2026";
+import { AiActControlable2Aout2026En } from "./_content/ai-act-controlable-2-aout-2026.en";
 
 export type Article = {
   slug: string;
@@ -79,6 +81,32 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "ai-act-controlable-2-aout-2026",
+    title:
+      "AI Act : ce qui devient contrôlable le 2 août 2026 (et ce que votre PME doit avoir fait avant)",
+    cardTitle: "AI Act : contrôlable le 2 août 2026",
+    description:
+      "Le 2 août 2026, les autorités peuvent contrôler et sanctionner. L'obligation de former vos équipes existe depuis février 2025. Qui est concerné, ce que vous risquez, et le minimum vital en 4 semaines.",
+    date: "2026-07-06",
+    category: "Conformité",
+    readingMinutes: 6,
+    cover: "/images/blog/ai-act-v2.jpg",
+    keywords: [
+      "AI Act 2 août 2026",
+      "contrôle AI Act entreprise",
+      "article 4 littératie IA",
+      "obligation formation IA PME",
+      "sanction AI Act",
+    ],
+    titleEn:
+      "The EU AI Act becomes enforceable on August 2, 2026: what your SMB must have done by then",
+    cardTitleEn: "EU AI Act: enforceable August 2, 2026",
+    descriptionEn:
+      "On August 2, 2026, national supervisory authorities can inspect and fine. The obligation to train your teams has applied since February 2025. Who is affected, what you risk, and the bare minimum in 4 weeks.",
+    Body: AiActControlable2Aout2026,
+    BodyEn: AiActControlable2Aout2026En,
+  },
   {
     slug: "accessibilite-site-web-obligation",
     title:

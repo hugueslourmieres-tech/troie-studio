@@ -375,6 +375,12 @@ export default function IaLandingPage() {
                 >
                   Accessibilité web →
                 </Link>
+                <Link
+                  href="/creation/site-conforme"
+                  className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80 transition-colors hover:text-[var(--accent)]"
+                >
+                  Pack site conforme →
+                </Link>
               </div>
 
               {/* Troyie, l'assistant IA de TROIE, posé sans cadre (traits noirs) */}

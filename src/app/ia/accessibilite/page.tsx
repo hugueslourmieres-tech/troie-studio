@@ -299,6 +299,12 @@ export default function AccessibilitePage() {
             >
               L&apos;autre conformité qui vous concerne : AI Act →
             </Link>
+            <Link
+              href="/creation/site-conforme"
+              className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
+            >
+              Refonte + conformité en un pack : site conforme dès 1 500 € →
+            </Link>
           </div>
         </div>
       </section>

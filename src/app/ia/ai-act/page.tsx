@@ -141,6 +141,21 @@ export default function AiActPage() {
         </div>
       </header>
 
+      {/* Bandeau compte a rebours : controles a partir du 2 aout 2026 */}
+      <div className="border-b border-[var(--rule)] bg-[#1a1714]">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-8 gap-y-2 px-6 py-3.5 md:px-12">
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#f5f0e6]">
+            <span className="text-[var(--accent)]">Le 2 août 2026</span>, l&apos;AI Act devient contrôlable. Votre plan de formation est-il documenté ?
+          </p>
+          <Link
+            href="/fr/blog/ai-act-controlable-2-aout-2026"
+            className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--accent)] transition hover:text-[#f5f0e6]"
+          >
+            Ce qui change →
+          </Link>
+        </div>
+      </div>
+
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 pt-20 pb-16 md:px-12 md:pt-28 md:pb-24">
         <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
@@ -252,6 +267,59 @@ export default function AiActPage() {
               Pour les PME, le montant retenu est le moindre des deux. La bonne nouvelle : la conformité coûte deux ordres de grandeur de moins.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Minimum vital avant le 2 aout */}
+      <section className="border-t border-[var(--rule)]">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
+          <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
+            Avant le 2 août
+          </p>
+          <h2 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl">
+            Le minimum vital en 4 semaines.
+          </h2>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                step: "01",
+                title: "Cartographier",
+                body: "Lister les outils d'IA utilisés dans l'entreprise, officiels et officieux. Le shadow IT compte aussi.",
+              },
+              {
+                step: "02",
+                title: "Cadrer",
+                body: "Une charte d'usage d'une page : usages autorisés, données interdites, validation humaine.",
+              },
+              {
+                step: "03",
+                title: "Former",
+                body: "Une formation proportionnée par profil d'usage, avec trace écrite (attestations nominatives).",
+              },
+              {
+                step: "04",
+                title: "Documenter",
+                body: "Conserver la preuve des trois points précédents. C'est elle qui vous protège en cas de contrôle.",
+              },
+            ].map((s) => (
+              <div key={s.step} className="flex flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-8">
+                <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">{s.step}</p>
+                <h3 className="t-display mt-4 text-xl text-[var(--fg)] md:text-2xl">{s.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">{s.body}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-[var(--fg-2)]">
+            Le détail, les trois questions pour savoir si vous êtes concerné
+            et la FAQ complète sont dans notre article :{" "}
+            <Link
+              href="/fr/blog/ai-act-controlable-2-aout-2026"
+              className="underline underline-offset-4 transition hover:text-[var(--accent)]"
+            >
+              AI Act : ce qui devient contrôlable le 2 août 2026
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

@@ -49,6 +49,12 @@ export async function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // ── Main domain, `/creation/site-conforme` (offre productisee,
+  // FR par defaut comme /ia et /formations) : bypass next-intl
+  if (request.nextUrl.pathname.startsWith("/creation/site-conforme")) {
+    return NextResponse.next();
+  }
+
   // ── Main domain : delegate to next-intl ───────────────────────────
   const response = intlHandle(request);
 
