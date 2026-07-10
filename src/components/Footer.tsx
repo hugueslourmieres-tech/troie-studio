@@ -12,7 +12,7 @@ export async function Footer({ locale }: { locale: string }) {
     <footer className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
         <div className="grid gap-16 md:grid-cols-12 md:gap-20">
-          <div className="md:col-span-5">
+          <div className="md:col-span-4">
             <Logo
               variant="stack"
               className="w-44 text-[var(--fg)]"
@@ -76,7 +76,43 @@ export async function Footer({ locale }: { locale: string }) {
             </ul>
           </div>
 
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
+            <p className="t-eyebrow">Le campus</p>
+            <ul className="mt-6 space-y-3 text-sm">
+              <li>
+                <a
+                  href="https://troie.app"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                >
+                  troie.app
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://troie.app/ai-act"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                >
+                  Formation AI Act
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://troie.app/formation"
+                  target="_blank"
+                  rel="noopener"
+                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                >
+                  Attestation article 4
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
             <p className="t-eyebrow">Contact</p>
             <ul className="mt-6 flex items-center gap-5">
               <li>

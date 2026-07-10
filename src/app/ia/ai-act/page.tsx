@@ -353,6 +353,14 @@ export default function AiActPage() {
             >
               L&apos;autre échéance conformité : accessibilité web →
             </Link>
+            <a
+              href="https://troie.app/ai-act"
+              target="_blank"
+              rel="noopener"
+              className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
+            >
+              L&apos;attestation art. 4 en ligne : troie.app →
+            </a>
           </div>
         </div>
       </section>

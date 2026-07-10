@@ -213,6 +213,14 @@ export default async function LocaleLayout({
           availableLanguage: ["French", "English"],
         },
         sameAs: ["https://www.linkedin.com/in/hugueslourmieres/"],
+        subOrganization: {
+          "@type": ["Organization", "EducationalOrganization"],
+          name: "TROIE",
+          alternateName: "troie.app",
+          url: "https://troie.app",
+          description:
+            "Le campus IA de TROIE Studio : des cours d'IA de 5 minutes et l'attestation de formation qui répond à l'article 4 de l'AI Act.",
+        },
       },
       {
         "@type": "Person",
