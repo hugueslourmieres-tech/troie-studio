@@ -2,9 +2,11 @@ import Image from "next/image";
 
 /**
  * Emblem, guerrier grec en pose d'attaque (épée levée), inspiré des
- * céramiques attiques. Source : illustration noir + détails or fournie
- * par le studio. À utiliser comme signe distinctif en pendant du wordmark,
- * ou comme accent décoratif sur les sections clés du site.
+ * céramiques attiques. Source : illustration noire à hachures blanches
+ * (muscles, barbe, jupe) fournie par le studio, détourée en transparent.
+ * À utiliser comme signe distinctif en pendant du wordmark, ou comme
+ * accent décoratif sur les sections clés du site. Variante crème pour
+ * fonds sombres : /brand/v2/warrior-cream.png.
  *
  * L'image PNG est volontairement utilisée plutôt qu'un SVG retracé :
  * la richesse des hachures (muscles, barbe, jupe en bandes) ne peut pas
@@ -24,8 +26,8 @@ export function Emblem({
     <Image
       src="/images/brand/warrior.png"
       alt={alt}
-      width={1024}
-      height={1517}
+      width={925}
+      height={1185}
       priority={priority}
       sizes="(max-width: 768px) 80px, 200px"
       className={className}
