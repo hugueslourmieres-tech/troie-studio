@@ -26,8 +26,8 @@ export function Emblem({
     <Image
       src="/images/brand/warrior.png"
       alt={alt}
-      width={925}
-      height={1185}
+      width={883}
+      height={1143}
       priority={priority}
       sizes="(max-width: 768px) 80px, 200px"
       className={className}
