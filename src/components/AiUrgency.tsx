@@ -93,13 +93,13 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
                   {c.ctaPrimary}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </Link>
-                <Link
-                  href="/formations"
+                <a
+                  href="https://troie.app/formation"
                   className="group inline-flex items-center gap-2.5 border-b border-[#f5f0e6]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6]/85 transition-colors hover:border-[#f5f0e6] hover:text-[#f5f0e6]"
                 >
                   {c.ctaSecondary}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </Link>
+                </a>
               </div>
               <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-4">
                 <OfficialEmblems url={SOURCE_URL} />

@@ -26,14 +26,25 @@ const nextConfig: NextConfig = {
   // bloc entreprises qui renvoie vers /ia). Consolidation du 02/07/2026.
   async redirects() {
     return [
+      // ─── E-learning déplacé sur troie.app (la plateforme d'apprentissage) ───
+      // Le studio ne fait plus que l'agence. Redirections 301 : elles gardent
+      // le référencement et renvoient chacun au bon endroit sur l'app.
+      { source: "/formations/tarifs", destination: "https://troie.app/abonnement", permanent: true },
+      { source: "/formations/auth/:path*", destination: "https://troie.app/connexion", permanent: true },
+      { source: "/formations/dashboard/:path*", destination: "https://troie.app/parcours", permanent: true },
+      { source: "/formations/quiz/:path*", destination: "https://troie.app/niveau", permanent: true },
+      { source: "/formations/prompts/:path*", destination: "https://troie.app/formation", permanent: true },
+      { source: "/formations", destination: "https://troie.app/formation", permanent: true },
+      { source: "/formations/:path*", destination: "https://troie.app/formation", permanent: true },
+      // Vitrines formation localisées → directement sur l'app (pas de double saut).
       {
         source: "/:locale(fr|en)/formations",
-        destination: "/formations",
+        destination: "https://troie.app/formation",
         permanent: true,
       },
       {
         source: "/:locale(fr|en)/formation",
-        destination: "/formations",
+        destination: "https://troie.app/formation",
         permanent: true,
       },
       // Pages photo + vidéo fusionnees dans /medias (les detail /works/:slug restent).

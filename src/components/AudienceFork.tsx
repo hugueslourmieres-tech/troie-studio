@@ -70,8 +70,8 @@ export function AudienceFork({ locale }: { locale: string }) {
         { src: "/images/logos/midjourney.svg", label: "Midjourney" },
       ],
       icon: PERSO_ICON,
-      cta: { href: "/formations/quiz", label: "Faire le QCM gratuit" },
-      secondary: { href: "/formations", label: "Voir les cours" },
+      cta: { href: "https://troie.app/niveau", label: "Faire le QCM gratuit" },
+      secondary: { href: "https://troie.app/formation", label: "Voir les cours" },
     },
     {
       key: "pro",

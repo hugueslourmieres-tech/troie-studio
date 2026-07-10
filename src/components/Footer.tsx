@@ -42,12 +42,14 @@ export async function Footer({ locale }: { locale: string }) {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/formations"
+                <a
+                  href="https://troie.app/formation"
+                  target="_blank"
+                  rel="noopener"
                   className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
                   {tNav("training")}
-                </Link>
+                </a>
               </li>
               <li>
                 <Link

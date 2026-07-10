@@ -1,8 +1,6 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { WORKS } from "@/lib/works";
-import { PACKS } from "@/app/formations/prompts/data";
-import { QUIZZES } from "@/app/formations/quizzes";
 import { ARTICLES } from "@/app/[locale]/blog/articles";
 
 const BASE = "https://troiestudio.fr";
@@ -69,7 +67,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // ── Routes hors-locale : /ia + /formations (FR par défaut) ─────────
+  // ── Routes hors-locale : /ia + /creation (FR par défaut) ─────────
+  // L'e-learning (/formations/*) a été déplacé sur troie.app : ces URL
+  // redirigent en 301 vers l'app et sont donc exclues du sitemap studio.
   const NON_LOCALE: {
     path: string;
     priority: number;
@@ -79,27 +79,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/ia/ai-act", priority: 0.9, frequency: "weekly" },
     { path: "/ia/accessibilite", priority: 0.9, frequency: "weekly" },
     { path: "/creation/site-conforme", priority: 0.9, frequency: "weekly" },
-    { path: "/formations", priority: 0.95, frequency: "weekly" },
-    { path: "/formations/tarifs", priority: 0.9, frequency: "weekly" },
-    // Panthéon mis de côté (PANTHEON_ENABLED=false) : hors sitemap tant qu'il n'est pas affiché.
-    { path: "/formations/quiz", priority: 0.9, frequency: "weekly" },
-    { path: "/formations/module-0", priority: 0.8, frequency: "monthly" },
-    { path: "/formations/prompts", priority: 0.9, frequency: "weekly" },
-    { path: "/formations/cours-01", priority: 0.9, frequency: "monthly" },
-    { path: "/formations/cours-02", priority: 0.9, frequency: "monthly" },
-    { path: "/formations/mastermind", priority: 0.85, frequency: "monthly" },
-    // QCM gratuits : long-tail SEO + matière citable pour les LLM (GEO)
-    ...QUIZZES.map((q) => ({
-      path: `/formations/quiz/${q.slug}`,
-      priority: 0.75,
-      frequency: "monthly" as const,
-    })),
-    // Packs de prompts (boutique), mappés depuis la donnée pour éviter la dérive
-    ...PACKS.map((p) => ({
-      path: `/formations/prompts/${p.slug}`,
-      priority: 0.8,
-      frequency: "monthly" as const,
-    })),
   ];
 
   for (const { path, priority, frequency } of NON_LOCALE) {

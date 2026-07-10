@@ -3,7 +3,6 @@ import { Intro } from "@/components/Intro";
 import { ManagerSection } from "@/components/ManagerSection";
 import { AudienceFork } from "@/components/AudienceFork";
 import { AiUrgency } from "@/components/AiUrgency";
-import { QcmSection } from "@/components/QcmSection";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
 import { McpSection } from "@/components/McpSection";
@@ -44,13 +43,10 @@ export default async function HomePage({
           Le Panthéon est mis de côté (code conservé, non affiché). */}
       <ManagerSection locale={locale} />
 
-      {/* FORK Pro / Perso : oriente le visiteur.
-          FormationLadder (grille de prix) retirée de la home : les prix
-          restent hors des pages marketing (composant conservé). */}
+      {/* FORK Pro / Perso : oriente le visiteur. Le volet Particuliers
+          (apprentissage) renvoie vers troie.app ; le volet Pro reste sur
+          les services agence (audit, IA Pro). */}
       <AudienceFork locale={locale} />
-
-      {/* QCM : situer son niveau IA (pour tous), juste sous le fork */}
-      <QcmSection />
 
       {/* MÉDIAS : photo (réalisations) + vidéo, fusionnés */}
       <MediasSection locale={locale} />

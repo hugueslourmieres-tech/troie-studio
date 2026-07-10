@@ -6,7 +6,6 @@ import { AnimatedWordmark } from "./AnimatedWordmark";
 import { AiActBanner } from "./AiActBanner";
 import { LangSwitch } from "./LangSwitch";
 import { MobileMenu } from "./MobileMenu";
-import { useSignedIn } from "./useSignedIn";
 
 
 export type NavItem = { href: string; label: string; meta?: string };
@@ -35,7 +34,6 @@ export function Header({
   showLang?: boolean;
 }) {
   const [scrolled, setScrolled] = useState(false);
-  const signedIn = useSignedIn();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -51,10 +49,10 @@ export function Header({
   const groups: NavGroup[] = [
     {
       label: "Formation",
-      href: `/formations`,
+      href: `https://troie.app`,
       items: [
-        { href: `/ia`, label: "Professionnel", meta: "01" },
-        { href: `/formations`, label: "Particulier", meta: "02" },
+        { href: `https://troie.app`, label: "Se former en ligne", meta: "01" },
+        { href: `/ia`, label: "Formation entreprise", meta: "02" },
       ],
     },
     {
@@ -100,25 +98,15 @@ export function Header({
         </nav>
 
         <div className="flex items-center gap-4 md:gap-5">
-          {/* Desktop right cluster : langswitch + Contact + Se connecter */}
-          <div className="hidden items-center gap-5 lg:flex">
+          {/* Desktop right cluster : langswitch + Contact (plus de connexion :
+              l'apprentissage et le compte vivent sur troie.app). */}
+          <div className="hidden items-center gap-6 lg:flex">
             {showLang && <LangSwitch locale={locale} />}
             <Link
               href={`/${locale}/contact`}
               className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
             >
               Contact
-            </Link>
-            <Link
-              href={signedIn ? "/formations/dashboard" : "/formations/auth/sign-in"}
-              className={`group inline-flex items-center gap-2.5 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] transition-colors duration-500 ${
-                barSolid
-                  ? "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--ink)] hover:text-[var(--bg)]"
-                  : "bg-transparent text-[var(--fg)] hover:text-[var(--accent)]"
-              }`}
-            >
-              <LoginIcon />
-              {signedIn ? "Mon espace" : "Se connecter"}
             </Link>
           </div>
 
@@ -241,23 +229,5 @@ function NavDropdown({ group, index }: { group: NavGroup; index: number }) {
   );
 }
 
-/** Login / compte, silhouette simple. */
-function LoginIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-[19px] w-[19px]"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 21c0-4 3.5-6 8-6s8 2 8 6" />
-    </svg>
-  );
-}
 
 

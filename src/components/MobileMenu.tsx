@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { LangSwitch } from "./LangSwitch";
-import { useSignedIn } from "./useSignedIn";
 import type { NavGroup } from "./Header";
 
 type Props = {
@@ -31,7 +30,6 @@ const INSTAGRAM_URL = "https://www.instagram.com/hugueslourmieres/";
 export function MobileMenu({ locale, groups, showLang = true }: Props) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const signedIn = useSignedIn();
 
   useEffect(() => {
     setMounted(true);
@@ -155,7 +153,7 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                   ))}
                 </ul>
 
-              {/* Réseaux + langue + se connecter */}
+              {/* Réseaux + langue (plus de connexion : compte sur troie.app) */}
               <div className="mt-5 flex items-center justify-between border-t border-[var(--rule-strong)] pt-5">
                 <div className="flex items-center gap-4">
                   <a
@@ -184,17 +182,6 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                   </a>
                   {showLang && <LangSwitch locale={locale} />}
                 </div>
-                <Link
-                  href={signedIn ? "/formations/dashboard" : "/formations/auth/sign-in"}
-                  onClick={() => setOpen(false)}
-                  className="inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:opacity-70"
-                >
-                  <svg viewBox="0 0 24 24" className="h-[15px] w-[15px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="8" r="4" />
-                    <path d="M4 21c0-4 3.5-6 8-6s8 2 8 6" />
-                  </svg>
-                  {signedIn ? "Mon espace" : "Se connecter"}
-                </Link>
               </div>
               </motion.div>
             </div>
