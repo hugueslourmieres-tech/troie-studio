@@ -59,19 +59,19 @@ const UI = {
   fr: {
     back: "← Le Journal",
     ctaEyebrow: "Passez à l'action",
-    ctaTitle: "Devenez le manager, pas le remplacé.",
+    ctaTitle: "Formez-vous à l'IA, et prouvez-le.",
     ctaBody:
-      "Commencez par le QCM gratuit pour situer vos réflexes, ou parlons de votre projet en 30 minutes.",
-    ctaQuiz: "Lancer le QCM gratuit",
+      "Des cours de 5 minutes, un QCM par module et l'attestation qui met votre entreprise en règle avec l'AI Act, sur troie.app. Ou parlons de votre projet en 30 minutes.",
+    ctaQuiz: "Se former sur troie.app",
     ctaCall: "Réserver un appel",
   },
   en: {
     back: "← The Journal",
     ctaEyebrow: "Take action",
-    ctaTitle: "Become the manager, not the replaced.",
+    ctaTitle: "Train on AI, and prove it.",
     ctaBody:
-      "Start with the free quiz to see where you stand, or let's talk about your project for 30 minutes.",
-    ctaQuiz: "Start the free quiz",
+      "Five-minute lessons, a quiz per module and the attestation that makes your company AI Act compliant, on troie.app. Or let's talk about your project for 30 minutes.",
+    ctaQuiz: "Train on troie.app",
     ctaCall: "Book a call",
   },
 } as const;
@@ -159,13 +159,22 @@ export default async function ArticlePage({
           {ui.ctaBody}
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <Link
-            href="/formations/quiz"
-            className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#ff8c33]"
+          <a
+            href="https://troie.app"
+            target="_blank"
+            rel="noopener"
+            className="group relative inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-7 py-4 pr-14 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#ff8c33]"
           >
             {ui.ctaQuiz}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-          </Link>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/brand/certif-badge.png"
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute right-2.5 top-1/2 h-8 w-auto -translate-y-1/2"
+            />
+          </a>
           <Link
             href={`/${locale}/contact`}
             className="group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"

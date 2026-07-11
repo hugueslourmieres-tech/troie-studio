@@ -31,7 +31,7 @@ export function McpSection() {
               collaborateur.
             </p>
 
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link
                 href="/ia"
                 className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
@@ -39,6 +39,15 @@ export function McpSection() {
                 Déployer l&apos;IA dans vos outils
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </Link>
+              <a
+                href="https://troie.app/formation"
+                target="_blank"
+                rel="noopener"
+                className="group inline-flex items-center gap-2.5 border-b border-[var(--fg-2)]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)] transition-colors hover:border-[var(--fg)] hover:text-[var(--fg)]"
+              >
+                Se former aux agents IA
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </a>
             </div>
           </div>
         </Reveal>

@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { OfficialEmblems } from "./OfficialEmblems";
-import { AiActStamp } from "./AiActStamp";
 
 /** Les outils IA que les équipes utilisent déjà (donc : déployeur AI Act). */
 const AI_TOOLS = [
@@ -95,7 +94,13 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
                 >
                   {c.ctaPrimary}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                  <AiActStamp className="pointer-events-none absolute -right-2 top-1/2 h-[52px] w-[52px] -translate-y-1/2 rotate-[-9deg] text-[#1a1714] opacity-45" />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/images/brand/certif-badge.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="pointer-events-none absolute right-3 top-1/2 h-9 w-auto -translate-y-1/2"
+                  />
                 </a>
                 <Link
                   href={`/${locale}/blog/${c.articleSlug}`}
