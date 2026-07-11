@@ -107,18 +107,26 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                 Clamp calé pour un rendu net sur ordinateur et téléphone. */}
             {asHero ? (
               <h1
-                className="t-display mx-auto mt-8 max-w-[13ch] text-balance leading-[1.02] text-[var(--fg)] text-[clamp(2.9rem,12vw,4rem)] md:max-w-[15ch] md:text-[clamp(3.8rem,6vw,6.2rem)]"
-                aria-label={t("introTitle")}
+                className="t-display mx-auto mt-8 leading-[1.06] text-[var(--fg)] text-[clamp(1.3rem,6.3vw,3.4rem)] md:text-[clamp(3.3rem,5.2vw,5.9rem)]"
+                aria-label={t("introTitle").replace(/\|/g, " ")}
               >
-                <span aria-hidden="true" className="block">
-                  <LetterReveal text={t("introTitle")} />
-                </span>
+                {t("introTitle")
+                  .split("|")
+                  .map((line, i) => (
+                    <span
+                      key={i}
+                      aria-hidden="true"
+                      className="block whitespace-nowrap"
+                    >
+                      <LetterReveal text={line} />
+                    </span>
+                  ))}
               </h1>
             ) : (
               <h2
-                className="t-display mx-auto mt-8 max-w-[13ch] text-balance leading-[1.02] text-[var(--fg)] text-[clamp(2.9rem,12vw,4rem)] md:max-w-[15ch] md:text-[clamp(3.8rem,6vw,6.2rem)]"
+                className="t-display mx-auto mt-8 max-w-[15ch] text-balance leading-[1.05] text-[var(--fg)] text-[clamp(2.4rem,8vw,4rem)] md:text-[clamp(3.4rem,5.4vw,5.9rem)]"
               >
-                {t("introTitle")}
+                {t("introTitle").replace(/\|/g, " ")}
               </h2>
             )}
             <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
