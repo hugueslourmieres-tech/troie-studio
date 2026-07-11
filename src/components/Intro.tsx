@@ -8,6 +8,7 @@ import { Reveal } from "./Reveal";
 import { LetterReveal } from "./LetterReveal";
 import { AiToolsMarquee } from "./AiToolsMarquee";
 import { Parallax } from "./Parallax";
+import { AiActSeal } from "./AiActSeal";
 
 type Tool = { src: string; label: string };
 
@@ -125,9 +126,9 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               {t("introBody")}
             </p>
 
-            {/* CTA hero : audit gratuit (conversion principale) */}
+            {/* CTA hero : audit gratuit (studio) + attestation AI Act (troie.app) */}
             {asHero && (
-              <div className="mt-10 flex justify-center">
+              <div className="mt-10 flex flex-col items-center gap-4">
                 <a
                   href="https://cal.com/troiestudio/30min"
                   target="_blank"
@@ -136,6 +137,16 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                 >
                   {t("heroCtaAudit")}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                </a>
+                <a
+                  href="https://troie.app"
+                  target="_blank"
+                  rel="noopener"
+                  className="group relative inline-flex items-center gap-3 border-2 border-[var(--ink)] bg-[#faf5ec] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--ink)] transition-colors hover:bg-[var(--ink)] hover:text-[#faf5ec]"
+                >
+                  {t("heroCtaAttestation")}
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                  <AiActSeal className="pointer-events-none absolute -right-5 -top-6 h-[62px] w-[62px] rotate-[-13deg] drop-shadow-[0_7px_12px_rgba(26,23,20,0.28)]" />
                 </a>
               </div>
             )}

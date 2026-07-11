@@ -104,7 +104,7 @@ export function Header({
             {showLang && <LangSwitch locale={locale} />}
             <Link
               href={`/${locale}/contact`}
-              className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+              className="inline-flex items-center gap-2 border-[1.5px] border-[var(--fg)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:bg-[var(--fg)] hover:text-[var(--bg)]"
             >
               Contact
             </Link>
