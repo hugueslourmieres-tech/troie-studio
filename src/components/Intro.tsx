@@ -149,19 +149,10 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                   href="https://troie.app"
                   target="_blank"
                   rel="noopener"
-                  className="group inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:opacity-70"
+                  className="group inline-flex items-center gap-2.5 border-b-2 border-[var(--fg)] pb-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:opacity-70"
                 >
-                  <span className="inline-flex items-center gap-2.5 border-b-2 border-[var(--fg)] pb-1.5">
-                    {t("heroCtaAttestation")}
-                    <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                  </span>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/images/brand/certif-badge.png"
-                    alt=""
-                    aria-hidden="true"
-                    className="pointer-events-none h-9 w-auto"
-                  />
+                  {t("heroCtaAttestation")}
+                  <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
               </div>
             )}
