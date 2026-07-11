@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { OfficialEmblems } from "./OfficialEmblems";
+import { AiActStamp } from "./AiActStamp";
 
 /** Les outils IA que les équipes utilisent déjà (donc : déployeur AI Act). */
 const AI_TOOLS = [
@@ -21,8 +22,8 @@ const COPY = {
     eyebrow: "Conformité · échéance 2 août 2026",
     title: "AI Act : vous êtes concerné.",
     body: "Le règlement européen sur l'IA concerne toute organisation qui fournit, importe, distribue ou déploie des systèmes d'IA, même via des outils gratuits. Il impose déjà un niveau minimal de compétences aux équipes. Le 2 août 2026, les autorités peuvent contrôler et sanctionner.",
-    ctaPrimary: "S'informer sur l'AI Act",
-    ctaSecondary: "Voir les formations",
+    ctaPrimary: "Se former sur l'AI Act",
+    ctaSecondary: "S'informer sur l'AI Act",
     meta: "Obligation en vigueur depuis février 2025",
     sourceLabel: "Le texte officiel",
     toolsLabel: "Vos équipes utilisent déjà ces outils",
@@ -32,8 +33,8 @@ const COPY = {
     eyebrow: "Compliance · August 2, 2026",
     title: "The EU AI Act concerns you.",
     body: "The EU AI regulation applies to any organisation that provides, imports, distributes or deploys AI systems, even through free tools. It already requires a minimum level of AI literacy from teams. On August 2, 2026, authorities can audit and sanction.",
-    ctaPrimary: "Learn about the AI Act",
-    ctaSecondary: "See the training",
+    ctaPrimary: "Train on the AI Act",
+    ctaSecondary: "Learn about the AI Act",
     meta: "In force since February 2025",
     sourceLabel: "The official regulation",
     toolsLabel: "Your teams already use these tools",
@@ -86,20 +87,23 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
             </Reveal>
             <Reveal delay={0.3}>
               <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-                <Link
-                  href={`/${locale}/blog/${c.articleSlug}`}
-                  className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6]"
+                <a
+                  href="https://troie.app/formation"
+                  target="_blank"
+                  rel="noopener"
+                  className="group relative inline-flex items-center gap-3 overflow-hidden bg-[var(--accent)] py-4 pl-8 pr-16 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6]"
                 >
                   {c.ctaPrimary}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </Link>
-                <a
-                  href="https://troie.app/formation"
+                  <AiActStamp className="pointer-events-none absolute -right-2 top-1/2 h-[52px] w-[52px] -translate-y-1/2 rotate-[-9deg] text-[#1a1714] opacity-45" />
+                </a>
+                <Link
+                  href={`/${locale}/blog/${c.articleSlug}`}
                   className="group inline-flex items-center gap-2.5 border-b border-[#f5f0e6]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6]/85 transition-colors hover:border-[#f5f0e6] hover:text-[#f5f0e6]"
                 >
                   {c.ctaSecondary}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                </a>
+                </Link>
               </div>
               <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-4">
                 <OfficialEmblems url={SOURCE_URL} />
