@@ -119,7 +119,7 @@ export async function Footer({ locale }: { locale: string }) {
             <ul className="mt-6 flex items-center gap-5">
               <li>
                 <a
-                  href="https://www.linkedin.com/in/hugueslourmieres/"
+                  href="https://www.linkedin.com/company/troiestudio"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="LinkedIn"
@@ -130,7 +130,7 @@ export async function Footer({ locale }: { locale: string }) {
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/hugueslourmieres/"
+                  href="https://www.instagram.com/troiestudio/"
                   target="_blank"
                   rel="noreferrer"
                   aria-label="Instagram"

@@ -213,7 +213,10 @@ export default async function LocaleLayout({
           contactType: "customer service",
           availableLanguage: ["French", "English"],
         },
-        sameAs: ["https://www.linkedin.com/in/hugueslourmieres/"],
+        sameAs: [
+          "https://www.linkedin.com/company/troiestudio",
+          "https://www.instagram.com/troiestudio/",
+        ],
         subOrganization: {
           "@type": ["Organization", "EducationalOrganization"],
           name: "TROIE",

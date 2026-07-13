@@ -2,8 +2,8 @@ import Link from "next/link";
 import { Logo } from "./Logo";
 
 const MAIN_SITE = "https://troiestudio.fr";
-const LINKEDIN_URL = "https://www.linkedin.com/in/hugueslourmieres/";
-const INSTAGRAM_URL = "https://www.instagram.com/hugueslourmieres/";
+const LINKEDIN_URL = "https://www.linkedin.com/company/troiestudio";
+const INSTAGRAM_URL = "https://www.instagram.com/troiestudio/";
 
 /**
  * Footer commun à toutes les pages de formation (/formations, /ia,

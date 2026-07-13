@@ -13,8 +13,8 @@ type Props = {
   showLang?: boolean;
 };
 
-const LINKEDIN_URL = "https://www.linkedin.com/in/hugueslourmieres/";
-const INSTAGRAM_URL = "https://www.instagram.com/hugueslourmieres/";
+const LINKEDIN_URL = "https://www.linkedin.com/company/troiestudio";
+const INSTAGRAM_URL = "https://www.instagram.com/troiestudio/";
 
 /**
  * MobileMenu, burger + full-screen overlay.
