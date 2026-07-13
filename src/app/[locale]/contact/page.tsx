@@ -1,6 +1,7 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/ContactForm";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
+import { GreekMark } from "@/components/GreekMark";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 const CAL_EMBED = "https://cal.com/troiestudio/30min?layout=month_view";
@@ -47,7 +48,7 @@ function ContactView() {
       <article className="mx-auto max-w-6xl px-6 pt-28 pb-24 md:px-10 md:pt-36 md:pb-32">
         {/* En-tête */}
         <header className="max-w-3xl">
-          <p className="t-eyebrow">/ Contact</p>
+          <GreekMark letter="Ζ" label="/ Contact" />
           <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
             Parlons de votre projet.
           </h1>

@@ -1,6 +1,7 @@
 import "../globals.css";
 import type { Metadata } from "next";
 import { Bodoni_Moda, Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { gfsDidot } from "@/lib/greek-font";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale, getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -254,7 +255,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${bodoni.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}
+      className={`${bodoni.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable} ${gfsDidot.variable}`}
     >
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
         <script

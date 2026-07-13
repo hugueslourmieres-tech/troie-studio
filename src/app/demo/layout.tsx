@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
+import { gfsDidot } from "@/lib/greek-font";
 import "../globals.css";
 
 const display = Cormorant_Garamond({
@@ -31,7 +32,7 @@ export default function DemoLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className={`${display.variable} ${sans.variable}`}>
+    <html lang="fr" className={`${display.variable} ${sans.variable} ${gfsDidot.variable}`}>
       <body>{children}</body>
     </html>
   );

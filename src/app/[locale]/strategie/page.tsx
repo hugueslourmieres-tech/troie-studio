@@ -36,6 +36,7 @@ export default async function StrategiePage({
         headingAs="h1"
         reveal={false}
         id="strategie"
+        marker="Γ"
         eyebrow={t("strategyEyebrow")}
         title={t("strategyTitle")}
         body={t("strategyBody")}

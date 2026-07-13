@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { GreekMark } from "./GreekMark";
 
 const CLIENTS = [
   "CHANEL",
@@ -47,7 +48,12 @@ export function ClientsCloud() {
             className="h-auto w-full"
           />
         </div>
-        <p className="t-eyebrow text-center">Ils nous font confiance</p>
+        <GreekMark
+          letter="Ε"
+          label="Ils nous font confiance"
+          className="justify-center"
+          labelClassName="t-eyebrow text-center"
+        />
       </div>
 
       {/* Marquee, défile infiniment, full width */}

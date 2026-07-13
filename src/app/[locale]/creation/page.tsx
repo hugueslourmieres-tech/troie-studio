@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 import { ContactCTA } from "@/components/ContactCTA";
+import { GreekMark } from "@/components/GreekMark";
 
 export async function generateMetadata({
   params,
@@ -52,7 +53,7 @@ export default async function CreationPage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-24">
-        <p className="t-eyebrow">01 · Création</p>
+        <GreekMark letter="Δ" label="01 · Création" />
         <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
           Création.
         </h1>

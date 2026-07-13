@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Analytics } from "@vercel/analytics/next";
+import { gfsDidot } from "@/lib/greek-font";
 import "../globals.css";
 
 /**
@@ -55,7 +56,7 @@ export default function FormationsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={gfsDidot.variable}>
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
         <Header locale="fr" solid showLang={false} />
         <ScrollReveal />

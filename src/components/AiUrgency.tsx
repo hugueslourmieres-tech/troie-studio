@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { OfficialEmblems } from "./OfficialEmblems";
+import { GreekMark } from "./GreekMark";
 
 /** Les outils IA que les équipes utilisent déjà (donc : déployeur AI Act). */
 const AI_TOOLS = [
@@ -70,9 +71,12 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
           {/* Texte */}
           <div className="md:col-span-7">
             <Reveal>
-              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                {c.eyebrow}
-              </p>
+              <GreekMark
+                letter="Α"
+                label={c.eyebrow}
+                letterClassName="text-[2.4rem] leading-[0.7] md:text-[2.9rem] text-[var(--accent)]"
+                labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]"
+              />
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="t-display mt-8 text-4xl leading-[1.05] text-[#f5f0e6] md:text-5xl lg:text-6xl">

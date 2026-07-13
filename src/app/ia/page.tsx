@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { FormationsFooter } from "@/components/FormationsFooter";
 import { Slideshow } from "@/components/Slideshow";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
+import { GreekMark } from "@/components/GreekMark";
 
 /* Images de formation pour le slideshow du Pack 04. */
 // Une seule photo (casque) pour le Pack 04, plus de slideshow.
@@ -328,9 +329,12 @@ export default function IaLandingPage() {
           <div className="grid gap-16 md:grid-cols-12 md:gap-12 lg:gap-20">
             {/* Col gauche : punchline */}
             <div className="md:col-span-6">
-              <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Pour solo · équipes · entreprises
-              </p>
+              <GreekMark
+                letter="Γ"
+                label="Pour solo · équipes · entreprises"
+                letterClassName="text-[2.4rem] leading-[0.7] md:text-[2.9rem] text-[var(--accent)]"
+                labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]"
+              />
               <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px] xl:text-[92px]">
                 Multipliez vos bénéfices,{" "}
                 <span className="text-[var(--accent)]">grâce à l'IA.</span>

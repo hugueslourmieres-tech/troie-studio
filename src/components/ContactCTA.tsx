@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
+import { GreekMark } from "@/components/GreekMark";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
@@ -16,9 +17,13 @@ export function ContactCTA(_props: { locale: string }) {
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[#1a1714]/55">
-              Contact
-            </p>
+            <GreekMark
+              letter="Ζ"
+              label="Contact"
+              className="justify-center"
+              letterClassName="text-[2.4rem] leading-[0.7] md:text-[2.9rem] text-[#1a1714]"
+              labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[#1a1714]/55"
+            />
             <h2 className="t-display mt-6 text-4xl text-[#1a1714] md:text-6xl">
               {t("ctaTitle")}
             </h2>

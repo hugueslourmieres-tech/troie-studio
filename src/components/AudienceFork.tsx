@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { Reveal } from "./Reveal";
+import { GreekMark } from "./GreekMark";
 
 type Tool = { src: string; label: string };
 
@@ -112,7 +113,7 @@ export function AudienceFork({ locale }: { locale: string }) {
     <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <Reveal>
-          <p className="t-eyebrow">Par où commencer</p>
+          <GreekMark letter="Β" label="Par où commencer" />
           <h2 className="t-display mt-6 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             Deux parcours, une méthode.
           </h2>

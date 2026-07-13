@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { HeroMcpFlow } from "./HeroMcpFlow";
+import { GreekMark } from "./GreekMark";
 
 /**
  * Section MCP : explique le Model Context Protocol (à quoi ça sert) et montre
@@ -13,7 +14,7 @@ export function McpSection() {
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <Reveal>
           <div className="max-w-3xl">
-            <p className="t-eyebrow">Le protocole MCP</p>
+            <GreekMark letter="Γ" label="Le protocole MCP" />
             <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
               L&apos;IA, branchée sur vos outils.
             </h2>

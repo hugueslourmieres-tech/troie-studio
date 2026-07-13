@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps } from "react";
 import { Reveal } from "./Reveal";
+import { GreekMark } from "./GreekMark";
 
 /** Wrapper neutre : contenu visible d'emblée (sans reveal au scroll). */
 function Passthrough({ children, className }: ComponentProps<typeof Reveal>) {
@@ -26,6 +27,8 @@ type Props = {
   headingAs?: "h1" | "h2";
   /** Reveal au scroll. false = contenu visible d'emblée (pages dédiées). */
   reveal?: boolean;
+  /** Sigle grec optionnel (index thematique) affiché devant l'eyebrow. */
+  marker?: string;
 };
 
 /**
@@ -48,6 +51,7 @@ export function ServiceSection({
   ctaHref,
   headingAs = "h2",
   reveal = true,
+  marker,
 }: Props) {
   const Heading = headingAs;
   const W = reveal ? Reveal : Passthrough;
@@ -65,7 +69,11 @@ export function ServiceSection({
           {/* Text column */}
           <div className="md:col-span-5">
             <W direction={reverse ? "right" : "left"}>
-              <p className="t-eyebrow">{eyebrow}</p>
+              {marker ? (
+                <GreekMark letter={marker} label={eyebrow} />
+              ) : (
+                <p className="t-eyebrow">{eyebrow}</p>
+              )}
             </W>
             <W delay={0.1} direction={reverse ? "right" : "left"}>
               <Heading className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">

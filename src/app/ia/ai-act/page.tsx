@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { AiActBanner } from "@/components/AiActBanner";
+import { GreekMark } from "@/components/GreekMark";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
@@ -147,9 +148,12 @@ export default function AiActPage() {
 
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 pt-20 pb-16 md:px-12 md:pt-28 md:pb-24">
-        <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Conformité · Règlement (UE) 2024/1689
-        </p>
+        <GreekMark
+          letter="Α"
+          label="Conformité · Règlement (UE) 2024/1689"
+          letterClassName="text-[2.4rem] leading-[0.7] md:text-[2.9rem] text-[var(--accent)]"
+          labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]"
+        />
         <h1 className="t-display mt-8 max-w-4xl text-5xl leading-[1.02] text-[var(--fg)] md:text-7xl">
           L&apos;AI Act s&apos;applique déjà. Pas de panique, une méthode.
         </h1>

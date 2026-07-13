@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Analytics } from "@vercel/analytics/next";
+import { gfsDidot } from "@/lib/greek-font";
 
 /**
  * Layout du segment /creation hors-locale (offres productisees,
@@ -19,7 +20,7 @@ export default function CreationLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={gfsDidot.variable}>
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
         <ScrollReveal />
         {children}
