@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ServiceSection } from "@/components/ServiceSection";
+import type { Locale } from "@/lib/glossaire";
 import { ContactCTA } from "@/components/ContactCTA";
 
 export async function generateMetadata({
@@ -37,6 +38,7 @@ export default async function StrategiePage({
         reveal={false}
         id="strategie"
         marker="Γ"
+        locale={locale as Locale}
         eyebrow={t("strategyEyebrow")}
         title={t("strategyTitle")}
         body={t("strategyBody")}

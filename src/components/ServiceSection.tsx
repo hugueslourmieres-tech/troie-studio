@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { ComponentProps } from "react";
 import { Reveal } from "./Reveal";
 import { GreekMark } from "./GreekMark";
+import { withTerms } from "./withTerms";
+import type { Locale, TermId } from "@/lib/glossaire";
 
 /** Wrapper neutre : contenu visible d'emblée (sans reveal au scroll). */
 function Passthrough({ children, className }: ComponentProps<typeof Reveal>) {
@@ -29,6 +31,8 @@ type Props = {
   reveal?: boolean;
   /** Sigle grec optionnel (index thematique) affiché devant l'eyebrow. */
   marker?: string;
+  /** Langue courante : sert à définir le jargon (SEO, GEO, LLM) au survol. */
+  locale: Locale;
 };
 
 /**
@@ -52,9 +56,14 @@ export function ServiceSection({
   headingAs = "h2",
   reveal = true,
   marker,
+  locale,
 }: Props) {
   const Heading = headingAs;
   const W = reveal ? Reveal : Passthrough;
+  /** Mémoire du glossaire pour CETTE section : chaque mot n'est expliqué
+      qu'une fois, à sa première apparition. Partagée entre le chapô et la
+      liste, sinon « SEO » serait souligné deux fois à trois lignes d'écart. */
+  const used = new Set<TermId>();
   return (
     <section
       id={id}
@@ -82,7 +91,7 @@ export function ServiceSection({
             </W>
             <W delay={0.2}>
               <p className="mt-10 max-w-md text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">
-                {body}
+                {withTerms(body, used, locale)}
               </p>
             </W>
             <W delay={0.3}>
@@ -96,7 +105,7 @@ export function ServiceSection({
                       aria-hidden="true"
                       className="inline-block h-px w-3 flex-shrink-0 bg-[var(--accent)]"
                     />
-                    <span>{item}</span>
+                    <span>{withTerms(item, used, locale)}</span>
                   </li>
                 ))}
               </ul>

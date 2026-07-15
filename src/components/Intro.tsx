@@ -5,6 +5,8 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { useTranslations, useLocale } from "next-intl";
 import { Reveal } from "./Reveal";
+import { withTerms } from "./withTerms";
+import type { Locale, TermId } from "@/lib/glossaire";
 import { LetterReveal } from "./LetterReveal";
 import { AiToolsMarquee } from "./AiToolsMarquee";
 import { Parallax } from "./Parallax";
@@ -79,6 +81,7 @@ const METIERS: Métier[] = [
  */
 export function Intro({ asHero = false }: { asHero?: boolean }) {
   const t = useTranslations("home");
+  const locale = useLocale() as Locale;
 
   return (
     <section className="relative">
@@ -130,7 +133,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               </h2>
             )}
             <p className="mt-10 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-              {t("introBody")}
+              {withTerms(t("introBody"), new Set<TermId>(), locale)}
             </p>
 
             {/* CTA hero : audit gratuit (studio) + attestation AI Act (troie.app) */}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { HeroMcpFlow } from "./HeroMcpFlow";
 import { GreekMark } from "./GreekMark";
+import { Term } from "./Term";
 
 /**
  * Section MCP : explique le Model Context Protocol (à quoi ça sert) et montre
@@ -19,11 +20,11 @@ export function McpSection() {
               L&apos;IA, branchée sur vos outils.
             </h2>
             <p className="mt-8 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-              Le MCP (Model Context Protocol) est le standard qui relie les
-              intelligences artificielles à vos outils. Vos IA (ChatGPT, Claude,
-              Gemini, Copilot, Perplexity) ne répondent plus dans le vide : elles
-              lisent et agissent directement dans Google, Meta, HubSpot, Notion,
-              Shopify, WordPress.
+              Le <Term id="mcp">MCP</Term> (Model Context Protocol) est le
+              standard qui relie les intelligences artificielles à vos outils.
+              Vos IA (ChatGPT, Claude, Gemini, Copilot, Perplexity) ne répondent
+              plus dans le vide : elles lisent et agissent directement dans
+              Google, Meta, HubSpot, Notion, Shopify, WordPress.
             </p>
             <p className="mt-5 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
               Concrètement, elles passent du conseil à l&apos;action : créer, mettre
