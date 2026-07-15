@@ -45,30 +45,43 @@ export function Header({
   const barSolid = scrolled || solid;
 
   // Ordre arbitré (juillet 2026) : Formation et agents IA d'abord,
-  // la Création descend en dernier (cross-sell).
+  // la Création descend en dernier (cross-sell). Libellés bilingues : le menu
+  // restait français sur /en alors que tout le reste de la page était traduit.
+  const nav = locale === "en"
+    ? {
+        training: "Training", online: "Learn online", corporate: "Corporate training",
+        strategy: "Strategy", aiStrategy: "AI strategy", marketing: "Marketing strategy",
+        creation: "Creative", medias: "Media", web: "Web",
+      }
+    : {
+        training: "Formation", online: "Se former en ligne", corporate: "Formation entreprise",
+        strategy: "Stratégie", aiStrategy: "Stratégie IA", marketing: "Stratégie marketing",
+        creation: "Création", medias: "Médias", web: "Web",
+      };
+
   const groups: NavGroup[] = [
     {
-      label: "Formation",
+      label: nav.training,
       href: `https://troie.app`,
       items: [
-        { href: `https://troie.app`, label: "Se former en ligne", meta: "01" },
-        { href: `/ia`, label: "Formation entreprise", meta: "02" },
+        { href: `https://troie.app`, label: nav.online, meta: "01" },
+        { href: `/ia`, label: nav.corporate, meta: "02" },
       ],
     },
     {
-      label: "Stratégie",
+      label: nav.strategy,
       href: `/${locale}/strategie`,
       items: [
-        { href: `/ia`, label: "Stratégie IA", meta: "01" },
-        { href: `/${locale}/strategie`, label: "Stratégie marketing", meta: "02" },
+        { href: `/ia`, label: nav.aiStrategy, meta: "01" },
+        { href: `/${locale}/strategie`, label: nav.marketing, meta: "02" },
       ],
     },
     {
-      label: "Création",
+      label: nav.creation,
       href: `/${locale}/creation`,
       items: [
-        { href: `/${locale}/medias`, label: "Médias", meta: "01" },
-        { href: `/${locale}/creation/web`, label: "Web", meta: "02" },
+        { href: `/${locale}/medias`, label: nav.medias, meta: "01" },
+        { href: `/${locale}/creation/web`, label: nav.web, meta: "02" },
       ],
     },
   ];
