@@ -30,6 +30,26 @@ export type BillingProduct = {
 };
 
 export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
+  /**
+   * Le pack AI Act vendu sur troie.app, en paiement unique.
+   *
+   * Il vit ici ET dans troie-app/src/lib/billing.ts, et ce n'est pas une
+   * duplication paresseuse : la Checkout Session est creee par troie.app,
+   * mais c'est le webhook de CE projet qui accorde l'acces, en relisant
+   * `grants` par product_key dans ce catalogue. Une cle absente ici =
+   * paiement encaisse, aucun acces accorde. Les deux doivent bouger ensemble.
+   *
+   * « aiact » est l'id du cours dans troie-app/src/lib/formation.ts.
+   */
+  "aiact-unitaire": {
+    key: "aiact-unitaire",
+    name: "Conformité AI Act · accès à vie",
+    description:
+      "Le parcours AI Act complet, l'examen et l'attestation nominative. Accès permanent, sans abonnement.",
+    amountCents: 5900,
+    interval: "one_time",
+    grants: ["aiact"],
+  },
   "cours-01": {
     key: "cours-01",
     name: "Cours 01 · Maîtriser ChatGPT & Claude",
