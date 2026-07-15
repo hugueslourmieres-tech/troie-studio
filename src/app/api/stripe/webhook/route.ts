@@ -51,13 +51,41 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "invalid_signature" }, { status: 400 });
   }
 
-  // Idempotence : si l'event a déjà été traité, on répond 200 sans agir.
-  const { error: dedupeError } = await admin
+  /*
+   * Idempotence : on LIT si l'event est déjà traité, on ne l'écrit pas encore.
+   *
+   * L'ancienne version inserait ici, avant le travail, et prenait n'importe
+   * quelle erreur d'insertion pour un doublon. Deux consequences : un echec
+   * d'attribution laissait un 200 a Stripe, qui ne reessayait donc jamais, et
+   * une table indisponible faisait passer tous les paiements pour des doublons.
+   * L'argent rentrait, l'acces non, et rien ne le disait.
+   *
+   * Desormais l'event n'est marque qu'a la toute fin, si tout a reussi. Les
+   * attributions etant des upsert, un rejeu apres echec partiel est sans
+   * danger : c'est ce qui rend ce sens-la possible.
+   */
+  const { data: seen, error: seenError } = await admin
     .from("billing_events")
-    .insert({ id: event.id, type: event.type });
-  if (dedupeError) {
+    .select("id")
+    .eq("id", event.id)
+    .maybeSingle();
+  if (seenError) {
+    // La table ne repond pas : on ne devine pas, on laisse Stripe reessayer.
+    console.error("[stripe] lecture billing_events", event.id, seenError);
+    return NextResponse.json({ error: "dedupe_unavailable" }, { status: 503 });
+  }
+  if (seen) {
     return NextResponse.json({ received: true, duplicate: true });
   }
+
+  /** Collecte les echecs : un seul suffit a refuser le 200. */
+  const failures: string[] = [];
+  const check = (label: string, error: { message: string } | null) => {
+    if (error) {
+      console.error(`[stripe] ${label}`, event.id, error.message);
+      failures.push(`${label}: ${error.message}`);
+    }
+  };
 
   switch (event.type) {
     case "checkout.session.completed": {
@@ -66,14 +94,27 @@ export async function POST(request: NextRequest) {
         session.metadata?.user_id ?? session.client_reference_id ?? null;
       const productKey = session.metadata?.product_key ?? null;
       const product = productKey ? BILLING_PRODUCTS[productKey] : null;
-      if (!userId || !product) break;
+      if (!userId || !product) {
+        /*
+         * Rien a rejouer : une metadonnee absente n'apparaitra pas au retry.
+         * Mais un paiement encaisse sans acces possible ne doit pas
+         * disparaitre en silence, comme avant : il hurle dans les logs.
+         */
+        console.error("[stripe] session encaissee sans user ou produit connu", {
+          event: event.id,
+          userId,
+          productKey,
+          catalogue: Object.keys(BILLING_PRODUCTS),
+        });
+        break;
+      }
 
       // Accès à vie pour les achats one-shot (les abonnements sont
       // gérés par les événements customer.subscription.*).
       if (session.mode === "payment") {
         for (const slug of product.grants) {
           if (slug === "*") continue;
-          await admin.from("user_course_access").upsert(
+          const { error } = await admin.from("user_course_access").upsert(
             {
               user_id: userId,
               course_slug: slug,
@@ -83,6 +124,8 @@ export async function POST(request: NextRequest) {
             },
             { onConflict: "user_id,course_slug" },
           );
+          // Le resultat n'etait pas lu : l'acces pouvait echouer sans un mot.
+          check(`upsert acces ${slug} pour ${userId}`, error);
         }
       }
 
@@ -113,7 +156,7 @@ export async function POST(request: NextRequest) {
         ? new Date((periodEnd + 3 * 86400) * 1000).toISOString()
         : new Date().toISOString();
 
-      await admin.from("user_course_access").upsert(
+      const { error: subError } = await admin.from("user_course_access").upsert(
         {
           user_id: userId,
           course_slug: SUBSCRIPTION_ACCESS_SLUG,
@@ -123,6 +166,7 @@ export async function POST(request: NextRequest) {
         },
         { onConflict: "user_id,course_slug" },
       );
+      check(`upsert abonnement pour ${userId}`, subError);
       break;
     }
 
@@ -131,16 +175,41 @@ export async function POST(request: NextRequest) {
       const userId = sub.metadata?.user_id ?? null;
       if (!userId) break;
 
-      await admin
+      const { error: cutError } = await admin
         .from("user_course_access")
         .update({ expires_at: new Date().toISOString() })
         .eq("user_id", userId)
         .eq("course_slug", SUBSCRIPTION_ACCESS_SLUG);
+      check(`coupure abonnement pour ${userId}`, cutError);
       break;
     }
 
     default:
       break;
+  }
+
+  /*
+   * Un seul echec suffit a refuser le 200 : Stripe reessaiera, et les
+   * attributions etant des upsert, le rejeu est sans danger. C'est tout
+   * l'interet de ne marquer l'event qu'ici.
+   */
+  if (failures.length) {
+    return NextResponse.json(
+      { error: "processing_failed", failures },
+      { status: 500 },
+    );
+  }
+
+  const { error: markError } = await admin
+    .from("billing_events")
+    .insert({ id: event.id, type: event.type });
+  if (markError) {
+    /*
+     * Course entre deux livraisons du meme event : l'autre l'a marque avant
+     * nous. Le travail est fait des deux cotes et idempotent, donc c'est sans
+     * consequence. On le note quand meme, ca ne devrait pas etre courant.
+     */
+    console.warn("[stripe] marquage event", event.id, markError.message);
   }
 
   return NextResponse.json({ received: true });
