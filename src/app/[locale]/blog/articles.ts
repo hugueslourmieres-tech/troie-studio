@@ -31,6 +31,7 @@ import { AccessibiliteSiteWebObligation } from "./_content/accessibilite-site-we
 import { AccessibiliteSiteWebObligationEn } from "./_content/accessibilite-site-web-obligation.en";
 import { AiActControlable2Aout2026 } from "./_content/ai-act-controlable-2-aout-2026";
 import { AiActControlable2Aout2026En } from "./_content/ai-act-controlable-2-aout-2026.en";
+import { DigitalOmnibusAiActCeQuiChange } from "./_content/digital-omnibus-ai-act-ce-qui-change";
 
 export type Article = {
   slug: string;
@@ -81,6 +82,26 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "digital-omnibus-ai-act-ce-qui-change",
+    title:
+      "Digital Omnibus : l'Europe allège l'AI Act, ce qui change pour votre PME",
+    cardTitle: "Digital Omnibus : ce qui change pour votre PME",
+    description:
+      "Adopté le 29 juin 2026, le Digital Omnibus reporte les règles sur l'IA à haut risque et réécrit l'obligation de formation de l'article 4. Ce qui est reporté, ce qui tombe quand même le 2 août 2026, et ce que vous devez faire.",
+    date: "2026-07-15",
+    category: "Conformité",
+    readingMinutes: 6,
+    cover: "/images/corpo/montpellier/DSC_7603.jpg",
+    keywords: [
+      "Digital Omnibus IA",
+      "report AI Act haut risque",
+      "article 4 littératie IA",
+      "AI Act 2 août 2026",
+      "obligation formation IA PME",
+    ],
+    Body: DigitalOmnibusAiActCeQuiChange,
+  },
   {
     slug: "ai-act-controlable-2-aout-2026",
     title:
