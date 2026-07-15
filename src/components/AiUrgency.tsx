@@ -21,7 +21,7 @@ const COPY = {
   fr: {
     eyebrow: "Conformité · échéance 2 août 2026",
     title: "AI Act : vous êtes concerné.",
-    body: "Le règlement européen sur l'IA concerne toute organisation qui fournit, importe, distribue ou déploie des systèmes d'IA, même via des outils gratuits. Il impose déjà un niveau minimal de compétences aux équipes. Le 2 août 2026, les autorités peuvent contrôler et sanctionner.",
+    body: "Le règlement européen sur l'IA concerne toute organisation qui fournit, importe, distribue ou déploie des systèmes d'IA, même via des outils gratuits. Depuis février 2025, il demande d'agir sur les compétences IA des équipes. Le 2 août 2026, les autorités peuvent contrôler et sanctionner.",
     ctaPrimary: "Se former sur l'AI Act",
     ctaSecondary: "S'informer sur l'AI Act",
     meta: "Obligation en vigueur depuis février 2025",
@@ -32,7 +32,7 @@ const COPY = {
   en: {
     eyebrow: "Compliance · August 2, 2026",
     title: "The EU AI Act concerns you.",
-    body: "The EU AI regulation applies to any organisation that provides, imports, distributes or deploys AI systems, even through free tools. It already requires a minimum level of AI literacy from teams. On August 2, 2026, authorities can audit and sanction.",
+    body: "The EU AI regulation applies to any organisation that provides, imports, distributes or deploys AI systems, even through free tools. Since February 2025, it asks organisations to act on their teams' AI literacy. On August 2, 2026, authorities can audit and sanction.",
     ctaPrimary: "Train on the AI Act",
     ctaSecondary: "Learn about the AI Act",
     meta: "In force since February 2025",

@@ -51,13 +51,13 @@ export default async function HomePage({
       {/* MÉDIAS : photo (réalisations) + vidéo, fusionnés */}
       <MediasSection locale={locale} />
 
-      <AboutBlock />
+      <AboutBlock locale={locale} />
 
       {/* JOURNAL : aimant SEO + pédagogie */}
       <JournalTeaser locale={locale} />
 
       {/* MCP : l'IA branchée sur vos outils (explication + schéma) */}
-      <McpSection />
+      <McpSection locale={locale} />
 
       {/* CLIENTS, ORANGE, juste au-dessus du CTA contact */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">

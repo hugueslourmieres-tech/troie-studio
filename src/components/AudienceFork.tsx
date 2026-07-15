@@ -41,19 +41,15 @@ const PRO_ICON = (
   </svg>
 );
 
-/**
- * Fork Pro / Perso : le carrefour central de la home. Oriente d'emblée le
- * visiteur vers son parcours. Deux box appuyées, chacune sa couleur signature
- * (particuliers en orange Hermès, pros en vert pétrole), une photo forte et la
- * rangée des outils maîtrisés dans chaque univers.
- */
-export function AudienceFork({ locale }: { locale: string }) {
-  const FORKS: Fork[] = [
-    {
-      key: "perso",
-      tint: "#f37b22",
-      ink: "#1a1714",
-      image: "/images/audience/perso-v5.jpg",
+/* La copie des deux volets, dans les deux langues. Servie sur /en depuis que
+   le composant codait le français en dur : 12 chaînes fuyaient. */
+const COPY = {
+  fr: {
+    sectionLabel: "Par où commencer",
+    title: "Deux parcours, une méthode.",
+    intro:
+      "On vous forme et on vous accompagne à l'IA, en ligne et en présentiel. Choisissez votre profil, on s'occupe du reste.",
+    perso: {
       eyebrow: "Particuliers & familles",
       title: "Comprendre l'IA, sans danger.",
       body: "Pour vous, vos enfants, vos parents. On commence par un QCM gratuit, pas par des heures de vidéo.",
@@ -63,23 +59,10 @@ export function AudienceFork({ locale }: { locale: string }) {
         "Sécurité, esprit critique, usages du quotidien",
       ],
       toolsLabel: "Les outils du quotidien",
-      tools: [
-        { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
-        { src: "/images/logos/gemini.svg", label: "Gemini" },
-        { src: "/images/logos/copilot.svg", label: "Copilot" },
-        { src: "/images/logos/claude.svg", label: "Claude" },
-        { src: "/images/logos/midjourney.svg", label: "Midjourney" },
-      ],
-      icon: PERSO_ICON,
-      cta: { href: "https://troie.app/niveau", label: "Faire le QCM gratuit" },
-      secondary: { href: "https://troie.app/formation", label: "Voir les cours" },
+      cta: "Faire le QCM gratuit",
+      secondary: "Voir les cours",
     },
-    {
-      key: "pro",
-      tint: "#1f4d4a",
-      ink: "#fdfaf3",
-      image: "/images/audience/pro-v6.jpg",
-      imagePosition: "center 28%",
+    pro: {
       eyebrow: "Professionnels & équipes",
       title: "Formez et déployez l'IA.",
       body: "Montée en compétence des équipes, conformité AI Act, agents sur mesure. En présentiel ou à distance.",
@@ -89,6 +72,86 @@ export function AudienceFork({ locale }: { locale: string }) {
         "Agents IA : création, déploiement, supervision",
       ],
       toolsLabel: "Les outils des équipes",
+      cta: "Réserver un audit de 30 min",
+      secondary: "TROIE IA Pro",
+    },
+  },
+  en: {
+    sectionLabel: "Where to start",
+    title: "Two paths, one method.",
+    intro:
+      "We train you and guide you through AI, online and in person. Pick your profile, we handle the rest.",
+    perso: {
+      eyebrow: "Individuals & families",
+      title: "Understand AI, safely.",
+      body: "For you, your kids, your parents. Start with a free quiz, not hours of video.",
+      points: [
+        "Free quizzes from day one",
+        "Online lessons, at your own pace",
+        "Safety, critical thinking, everyday uses",
+      ],
+      toolsLabel: "Everyday tools",
+      cta: "Take the free quiz",
+      secondary: "Browse the lessons",
+    },
+    pro: {
+      eyebrow: "Professionals & teams",
+      title: "Train your team, deploy AI.",
+      body: "Team upskilling, AI Act compliance, custom agents. On site or remote.",
+      points: [
+        "In-house training, France and remote",
+        "Usage framing and AI Act compliance",
+        "AI agents: build, deploy, supervise",
+      ],
+      toolsLabel: "Team tools",
+      cta: "Book a 30-min audit",
+      secondary: "TROIE AI Pro",
+    },
+  },
+} as const;
+
+/**
+ * Fork Pro / Perso : le carrefour central de la home. Oriente d'emblée le
+ * visiteur vers son parcours. Deux box appuyées, chacune sa couleur signature
+ * (particuliers en orange Hermès, pros en vert pétrole), une photo forte et la
+ * rangée des outils maîtrisés dans chaque univers.
+ */
+export function AudienceFork({ locale }: { locale: string }) {
+  const c = COPY[locale === "en" ? "en" : "fr"];
+
+  const FORKS: Fork[] = [
+    {
+      key: "perso",
+      tint: "#f37b22",
+      ink: "#1a1714",
+      image: "/images/audience/perso-v5.jpg",
+      eyebrow: c.perso.eyebrow,
+      title: c.perso.title,
+      body: c.perso.body,
+      points: [...c.perso.points],
+      toolsLabel: c.perso.toolsLabel,
+      tools: [
+        { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
+        { src: "/images/logos/gemini.svg", label: "Gemini" },
+        { src: "/images/logos/copilot.svg", label: "Copilot" },
+        { src: "/images/logos/claude.svg", label: "Claude" },
+        { src: "/images/logos/midjourney.svg", label: "Midjourney" },
+      ],
+      icon: PERSO_ICON,
+      cta: { href: "https://troie.app/niveau", label: c.perso.cta },
+      secondary: { href: "https://troie.app/formation", label: c.perso.secondary },
+    },
+    {
+      key: "pro",
+      tint: "#1f4d4a",
+      ink: "#fdfaf3",
+      image: "/images/audience/pro-v6.jpg",
+      imagePosition: "center 28%",
+      eyebrow: c.pro.eyebrow,
+      title: c.pro.title,
+      body: c.pro.body,
+      points: [...c.pro.points],
+      toolsLabel: c.pro.toolsLabel,
       tools: [
         { src: "/images/logos/claude.svg", label: "Claude" },
         { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
@@ -104,8 +167,8 @@ export function AudienceFork({ locale }: { locale: string }) {
         { src: "/images/logos/slack.svg", label: "Slack" },
       ],
       icon: PRO_ICON,
-      cta: { href: `/${locale}/contact`, label: "Réserver un audit de 30 min" },
-      secondary: { href: "/ia", label: "TROIE IA Pro" },
+      cta: { href: `/${locale}/contact`, label: c.pro.cta },
+      secondary: { href: "/ia", label: c.pro.secondary },
     },
   ];
 
@@ -113,13 +176,12 @@ export function AudienceFork({ locale }: { locale: string }) {
     <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <Reveal>
-          <GreekMark letter="Β" label="Par où commencer" />
+          <GreekMark letter="Β" label={c.sectionLabel} />
           <h2 className="t-display mt-6 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Deux parcours, une méthode.
+            {c.title}
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            On vous forme et on vous accompagne à l&apos;IA, en ligne et en
-            présentiel. Choisissez votre profil, on s&apos;occupe du reste.
+            {c.intro}
           </p>
         </Reveal>
 

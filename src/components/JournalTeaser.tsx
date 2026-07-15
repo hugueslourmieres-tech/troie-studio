@@ -2,13 +2,21 @@ import Link from "next/link";
 import { Reveal } from "./Reveal";
 import { ARTICLES_SORTED } from "@/app/[locale]/blog/articles";
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("fr-FR", {
+function formatDate(iso: string, locale: string) {
+  return new Date(iso).toLocaleDateString(locale === "en" ? "en-GB" : "fr-FR", {
     day: "numeric",
     month: "short",
     year: "numeric",
   });
 }
+
+/* Les articles du Journal sont ecrits en francais : sur /en, on le DIT au
+   lieu de laisser le clic surprendre (pas de lien anglais qui tombe sur du
+   francais sans prevenir). */
+const COPY = {
+  fr: { eyebrow: "Le Journal", title: "Comprendre l'IA, sans jargon.", open: "Ouvrir le Journal", read: "Lire l'article", frOnly: "" },
+  en: { eyebrow: "The Journal", title: "Understand AI, without the jargon.", open: "Open the Journal", read: "Read the article", frOnly: " (in French)" },
+} as const;
 
 /**
  * Le Journal sur la home : trois articles en aperçu, image à gauche et texte
@@ -16,6 +24,7 @@ function formatDate(iso: string) {
  */
 export function JournalTeaser({ locale }: { locale: string }) {
   const items = ARTICLES_SORTED.slice(0, 3);
+  const c = COPY[locale === "en" ? "en" : "fr"];
 
   return (
     <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
@@ -23,16 +32,16 @@ export function JournalTeaser({ locale }: { locale: string }) {
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
-              <p className="t-eyebrow">Le Journal</p>
+              <p className="t-eyebrow">{c.eyebrow}</p>
               <h2 className="t-display mt-6 max-w-2xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-                Comprendre l&apos;IA, sans jargon.
+                {c.title}
               </h2>
             </div>
             <Link
               href={`/${locale}/blog`}
               className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
-              Ouvrir le Journal
+              {c.open}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </Link>
           </div>
@@ -65,7 +74,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
                   {/* Texte à droite */}
                   <div>
                     <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                      {a.readingMinutes} min · {formatDate(a.date)}
+                      {a.readingMinutes} min · {formatDate(a.date, locale)}{c.frOnly}
                     </p>
                     <h3 className="t-display mt-3 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-3xl lg:text-[34px]">
                       {a.cardTitle ?? a.title}
@@ -74,7 +83,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
                       {a.description}
                     </p>
                     <span className="mt-5 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
-                      Lire l&apos;article
+                      {c.read}
                       <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                     </span>
                   </div>

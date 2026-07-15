@@ -13,54 +13,93 @@ type Member = {
   link?: { href: string; label: string };
 };
 
-const TEAM: Member[] = [
-  {
+/* Portraits : identiques dans les deux langues, seuls rôle et note changent. */
+const TEAM_MEDIA = {
+  hugues: {
     name: "Hugues Lourmieres",
-    role: "Fondateur & CEO",
-    note: "CMO dans les arts graphiques. Créateur et consultant IA.",
     img: "/images/about/hugues-studio.jpg",
     pos: "center 14%",
     link: { href: "https://www.linkedin.com/in/hugueslourmieres/", label: "LinkedIn" },
   },
-  {
+  vanessa: {
     name: "Vanessa Nobrega",
-    role: "Consultante IA & Communication",
-    note: "Anciennement à la Maison de l'Intelligence Artificielle.",
     img: "/images/about/vanessa-v2.jpg",
     pos: "center 12%",
     link: { href: "https://vanessanobrega.com", label: "vanessanobrega.com" },
   },
-  {
+  gilles: {
     name: "Gilles Pons",
-    role: "Lead développeur",
-    note: "Développement fullstack : sites, applications et agents IA.",
     img: "/images/about/gilles-pons.jpg",
     pos: "center",
     link: { href: "https://www.linkedin.com/in/gilles-pons-370569b9/", label: "LinkedIn" },
   },
-  {
+  thibaud: {
     name: "Thibaud Lourmieres",
-    role: "Créateur de médias",
-    note: "Réalisateur de films, vidéos et photographie.",
     img: "/images/about/thibaud-v2.jpg",
     pos: "center 18%",
   },
-];
+} as const;
 
-/** Prestations proposées, listées sous l'intro de l'équipe. */
-const PRESTATIONS = [
-  "Sites web & applications",
-  "Design & identité de marque",
-  "E-commerce",
-  "Photographie & vidéo",
-  "Stratégie & communication",
-  "Formations IA",
-  "Formations outils digitaux",
-  "Agents IA & automatisation",
-];
+/* La section codait tout en français et le servait sur /en : 10 chaînes
+   fuyaient (titres, prestations, rôles de l'équipe). */
+const COPY = {
+  fr: {
+    eyebrow: "Qui sommes-nous",
+    title: "L'Atelier TROIE vous accompagne.",
+    sub: "Une équipe pluridisciplinaire pour tous vos projets digitaux.",
+    prestations: [
+      "Sites web & applications",
+      "Design & identité de marque",
+      "E-commerce",
+      "Photographie & vidéo",
+      "Stratégie & communication",
+      "Formations IA",
+      "Formations outils digitaux",
+      "Agents IA & automatisation",
+    ],
+    teamLabel: "L'équipe",
+    prev: "Précédent",
+    next: "Suivant",
+    team: {
+      hugues: { role: "Fondateur & CEO", note: "CMO dans les arts graphiques. Créateur et consultant IA." },
+      vanessa: { role: "Consultante IA & Communication", note: "Anciennement à la Maison de l'Intelligence Artificielle." },
+      gilles: { role: "Lead développeur", note: "Développement fullstack : sites, applications et agents IA." },
+      thibaud: { role: "Créateur de médias", note: "Réalisateur de films, vidéos et photographie." },
+    },
+  },
+  en: {
+    eyebrow: "Who we are",
+    title: "The TROIE studio, at your side.",
+    sub: "A multidisciplinary team for all your digital projects.",
+    prestations: [
+      "Websites & apps",
+      "Design & brand identity",
+      "E-commerce",
+      "Photography & video",
+      "Strategy & communication",
+      "AI training",
+      "Digital tools training",
+      "AI agents & automation",
+    ],
+    teamLabel: "The team",
+    prev: "Previous",
+    next: "Next",
+    team: {
+      hugues: { role: "Founder & CEO", note: "CMO in the graphic arts industry. AI builder and consultant." },
+      vanessa: { role: "AI & Communication consultant", note: "Formerly at the Maison de l'Intelligence Artificielle." },
+      gilles: { role: "Lead developer", note: "Full-stack development: websites, apps and AI agents." },
+      thibaud: { role: "Media creator", note: "Film director, video and photography." },
+    },
+  },
+} as const;
 
-export function AboutBlock() {
+export function AboutBlock({ locale = "fr" }: { locale?: string }) {
+  const c = COPY[locale === "en" ? "en" : "fr"];
   const scrollerRef = useRef<HTMLUListElement>(null);
+
+  const TEAM: Member[] = (Object.keys(TEAM_MEDIA) as (keyof typeof TEAM_MEDIA)[]).map(
+    (k) => ({ ...TEAM_MEDIA[k], ...c.team[k] }),
+  );
 
   const slide = (dir: 1 | -1) => {
     const el = scrollerRef.current;
@@ -79,15 +118,15 @@ export function AboutBlock() {
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         {/* Présentation de l'équipe */}
         <div className="md:max-w-3xl">
-          <p className="t-eyebrow">Qui sommes-nous</p>
+          <p className="t-eyebrow">{c.eyebrow}</p>
           <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            L&apos;Atelier TROIE vous accompagne.
+            {c.title}
           </h2>
           <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Une équipe pluridisciplinaire pour tous vos projets digitaux.
+            {c.sub}
           </p>
           <ul className="mt-8 grid max-w-2xl gap-x-8 gap-y-3 sm:grid-cols-2">
-            {PRESTATIONS.map((p) => (
+            {c.prestations.map((p) => (
               <li
                 key={p}
                 className="flex items-baseline gap-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base"
@@ -102,13 +141,13 @@ export function AboutBlock() {
         {/* Ligne de contrôle : intitulé + flèches (desktop) */}
         <div className="mt-12 flex items-end justify-between md:mt-16">
           <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-[var(--fg-2)]/70">
-            L&apos;équipe
+            {c.teamLabel}
           </p>
           <div className="hidden items-center gap-2.5 md:flex">
             <button
               type="button"
               onClick={() => slide(-1)}
-              aria-label="Précédent"
+              aria-label={c.prev}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -118,7 +157,7 @@ export function AboutBlock() {
             <button
               type="button"
               onClick={() => slide(1)}
-              aria-label="Suivant"
+              aria-label={c.next}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
