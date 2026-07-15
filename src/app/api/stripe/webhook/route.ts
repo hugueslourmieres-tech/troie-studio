@@ -184,6 +184,55 @@ export async function POST(request: NextRequest) {
       break;
     }
 
+    case "charge.refunded": {
+      /*
+       * Rembourse = revoque. Sans ce cas, un achat unitaire rembourse gardait
+       * son acces a vie : paye 59, rembourse 59, formation offerte. Decouvert
+       * en remboursant le paiement de test du 15 juillet.
+       *
+       * On ne coupe que sur remboursement INTEGRAL (charge.refunded = true),
+       * et uniquement les acces `source = purchase` : les abonnements ont
+       * leur propre cycle via customer.subscription.*.
+       */
+      const charge = event.data.object;
+      if (!charge.refunded) break; // remboursement partiel : on ne coupe pas
+      const pi =
+        typeof charge.payment_intent === "string"
+          ? charge.payment_intent
+          : (charge.payment_intent?.id ?? null);
+      if (!pi) break;
+
+      // La charge ne porte pas nos metadonnees : on remonte a la Checkout
+      // Session par le payment_intent, c'est elle qui sait qui et quoi.
+      const sessions = await stripe.checkout.sessions.list({
+        payment_intent: pi,
+        limit: 1,
+      });
+      const session = sessions.data[0];
+      const userId =
+        session?.metadata?.user_id ?? session?.client_reference_id ?? null;
+      const productKey = session?.metadata?.product_key ?? null;
+      const product = productKey ? BILLING_PRODUCTS[productKey] : null;
+      if (!userId || !product) {
+        console.error("[stripe] remboursement sans session rattachable", {
+          event: event.id,
+          payment_intent: pi,
+        });
+        break;
+      }
+      for (const slug of product.grants) {
+        if (slug === "*") continue;
+        const { error } = await admin
+          .from("user_course_access")
+          .update({ expires_at: new Date().toISOString() })
+          .eq("user_id", userId)
+          .eq("course_slug", slug)
+          .eq("source", "purchase");
+        check(`revocation apres remboursement ${slug} pour ${userId}`, error);
+      }
+      break;
+    }
+
     default:
       break;
   }

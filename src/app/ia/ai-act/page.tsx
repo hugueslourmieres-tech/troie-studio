@@ -32,7 +32,7 @@ const TIMELINE = [
   {
     date: "2 février 2025",
     title: "Interdictions + littératie IA",
-    body: "Les pratiques à risque inacceptable sont interdites. Surtout : l'article 4 impose de former à l'IA toute équipe qui l'utilise. C'est déjà applicable, et c'est la marche la plus simple à monter.",
+    body: "Les pratiques à risque inacceptable sont interdites. Surtout : l'article 4 demande d'agir sur la maîtrise de l'IA de toute équipe qui l'utilise. C'est déjà applicable, et c'est la marche la plus simple à monter.",
     status: "past",
   },
   {
