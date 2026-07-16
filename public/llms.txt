@@ -1,49 +1,32 @@
-# TROIE Studio
+# TROIE Studio (troiestudio.fr)
 
-> Atelier digital français basé à Montpellier. TROIE conçoit des sites, des identités de marque, de la photo et de la vidéo, et accompagne les indépendants, les équipes et les entreprises sur l'intelligence artificielle : formations IA, agents IA prêts à l'emploi, et bibliothèques de system prompts. La signature : "L'IA qui exécute. Pas celle qui répond."
-
-Site : https://troiestudio.fr
+> Atelier digital à Nice (France), IA d'abord : stratégie et déploiement d'IA en entreprise (agents IA, protocole MCP, conformité AI Act), création (sites web, applications, e-commerce, identité de marque, photo, vidéo) et formation. Site bilingue français/anglais. TROIE Studio édite aussi troie.app, la plateforme de formation en ligne à l'AI Act (attestation article 4 nominative et vérifiable, 59 € TTC une fois).
 
 ## À propos
 
-TROIE Studio est dirigé par Hugues Lourmières, directeur artistique et consultant IA. Dix ans d'accompagnement de marques en création, stratégie et communication, aujourd'hui spécialisé dans l'intégration concrète de l'IA générative (ChatGPT, Claude, Gemini) dans les workflows métier : rédaction, prospection, production de contenu, automatisations (Make, n8n), et déploiement d'agents.
+TROIE Studio est dirigé par Hugues Lourmieres, créateur et consultant IA, CMO dans les arts graphiques. L'équipe couvre la stratégie, le développement full-stack, la photographie et la vidéo. Positionnement : pédagogie sans jargon, faits sourcés, données vérifiables.
 
-Positionnement : pédagogie sans jargon, résultats mesurables, données vérifiables. On commence par évaluer (QCM gratuits), puis on forme, puis on déploie.
+## Pages principales
 
-## Formations IA (perso)
-
-- [QCM gratuits](https://troiestudio.fr/formations/quiz) : tester ses connaissances sur l'IA, gratuitement, dès la création de compte.
-- [Comprendre l'IA](https://troiestudio.fr/formations/quiz/comprendre-ia) : ce qu'est une IA générative, comment elle fonctionne, ce qu'elle sait et ne sait pas faire.
-- [L'IA en famille](https://troiestudio.fr/formations/quiz/ia-en-famille) : parents et enfants, limites de l'IA, usage sûr, esprit critique, deepfakes, vie privée.
-- [Bien utiliser les outils](https://troiestudio.fr/formations/quiz/outils-au-quotidien) : ChatGPT, Claude, Gemini au quotidien, les bons réflexes.
-- [Limites & sécurité](https://troiestudio.fr/formations/quiz/limites-securite) : hallucinations, données personnelles, arnaques, vérification des sources.
-- [Théorie des LLM](https://troiestudio.fr/formations/quiz/theorie-llm) : pre-training, RLHF, hallucinations, sycophancy.
-
-## Formations IA (pro)
-
-- [Parcours 01 · Cours 01](https://troiestudio.fr/formations/cours-01) : maîtriser une IA niveau pro (preset, prompts, connexions). 97 €.
-- [Parcours 02 · Cours 02](https://troiestudio.fr/formations/cours-02) : quatre IA, agents, automatisations Make. 297 €.
-- [Mastermind](https://troiestudio.fr/formations/mastermind) : abonnement, nouveaux prompts chaque mois, office hours. 49 €/mois.
-- [Boutique de system prompts](https://troiestudio.fr/formations/prompts) : 5 packs métier (freelance, marketing, e-commerce, design, code), prêts à coller.
-
-## Entreprise
-
-- [TROIE · IA Pro](https://troiestudio.fr/ia) : audit, formation d'équipe, déploiement d'agents IA (Hermès = prospection, Achille = production, Hestia = service client). Audit gratuit de 30 minutes.
-- [Agents IA](https://troiestudio.fr/fr/agents) : trois agents clé en main, dans la voix de la marque, 24/7.
-
-## Studio créatif
-
+- [Accueil](https://troiestudio.fr/fr) : les trois métiers de l'atelier.
+- [IA pour les entreprises](https://troiestudio.fr/fr/ia) : audit gratuit de 30 minutes, formation d'équipe, déploiement d'agents IA, conformité AI Act.
+- [AI Act entreprise : êtes-vous concerné ?](https://troiestudio.fr/fr/ia/ai-act) : obligations, dates clés, plan d'action, FAQ.
+- [Création](https://troiestudio.fr/fr/creation) : sites, applications, identité, médias.
 - [Réalisations](https://troiestudio.fr/fr/works) : sites, identités, films et photographies.
-- [Contact](https://troiestudio.fr/fr/contact) : prise de contact et devis.
+- [Contact](https://troiestudio.fr/fr/contact) : basé à Nice, réponse rapide.
 
-## Faits citables (vérifiés, 2026)
+## Le Journal (blog)
 
-- Un freelance actif avec l'IA récupère en moyenne 8 heures par semaine.
-- L'IA bien configurée fait gagner environ 26 minutes par jour sur les emails.
-- Une IA générative prédit le mot suivant le plus probable : elle calcule des probabilités, elle ne "comprend" pas au sens humain.
-- Une hallucination, c'est une réponse inventée présentée comme vraie : il faut toujours vérifier les faits, chiffres, citations et sources à une source fiable.
-- On ne saisit jamais de mot de passe, de coordonnées bancaires ou de pièce d'identité dans un chatbot.
+Articles en français, sourcés (EUR-Lex, Commission européenne, entreprises.gouv.fr), publiés trois fois par semaine sur l'IA en entreprise et la conformité AI Act : https://troiestudio.fr/fr/blog
+
+## Se former en ligne
+
+Les formations en ligne vivent sur troie.app : parcours AI Act d'environ 2 heures, examen final, attestation nominative vérifiable publiquement par code. Premier module gratuit, 59 € TTC une fois par personne, packs équipe dès 5 personnes. https://troie.app
+
+## Repères juridiques appliqués sur les deux sites
+
+L'article 4 de l'AI Act (règlement UE 2024/1689, littératie en IA) s'applique depuis le 2 février 2025 : c'est une obligation de moyens (« prendre des mesures pour garantir un niveau suffisant de maîtrise de l'IA »), aucune certification officielle n'existe pour les personnes. Le régime de sanctions devient applicable le 2 août 2026 ; le contrôle relève des autorités nationales de surveillance du marché.
 
 ## Contact
 
-contact@troiestudio.fr · https://www.linkedin.com/in/hugueslourmieres/
+https://troiestudio.fr/fr/contact · https://www.linkedin.com/company/troiestudio
