@@ -113,8 +113,17 @@ export function Header({
         <div className="flex items-center gap-4 md:gap-5">
           {/* Desktop right cluster : langswitch + Contact (plus de connexion :
               l'apprentissage et le compte vivent sur troie.app). */}
-          <div className="hidden items-center gap-6 lg:flex">
+          <div className="hidden items-center gap-4 lg:flex">
             {showLang && <LangSwitch locale={locale} />}
+            {/* Passerelle produit : le campus vit sur troie.app */}
+            <a
+              href="https://troie.app"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors duration-300 hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            >
+              {locale === "en" ? "Learn · troie.app" : "Se former · troie.app"}
+            </a>
             <Link
               href={`/${locale}/contact`}
               className="inline-flex items-center gap-2.5 bg-[var(--ink)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors duration-300 hover:bg-[var(--accent)] hover:text-[#1a1714]"
