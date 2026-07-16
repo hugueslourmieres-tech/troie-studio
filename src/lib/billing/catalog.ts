@@ -27,6 +27,12 @@ export type BillingProduct = {
   interval: "one_time" | "month" | "year";
   /** Slugs de cours couverts ("*" = tout le catalogue). */
   grants: string[];
+  /**
+   * Pack équipe : nombre de sièges à créer (team_packs/team_seats) au lieu
+   * d'un accès personnel. `grants` reste vide pour ces produits : l'acheteur
+   * distribue des codes d'invitation, il ne reçoit pas l'accès lui-même.
+   */
+  seats?: number;
 };
 
 export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
@@ -49,6 +55,26 @@ export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
     amountCents: 5900,
     interval: "one_time",
     grants: ["aiact"],
+  },
+  "aiact-pack-5": {
+    key: "aiact-pack-5",
+    name: "Pack équipe · 5 accès AI Act",
+    description:
+      "5 accès au parcours AI Act, une attestation nominative vérifiable par personne, liens d'invitation immédiats, facture unique.",
+    amountCents: 24900,
+    interval: "one_time",
+    grants: [],
+    seats: 5,
+  },
+  "aiact-pack-10": {
+    key: "aiact-pack-10",
+    name: "Pack équipe · 10 accès AI Act",
+    description:
+      "10 accès au parcours AI Act, une attestation nominative vérifiable par personne, liens d'invitation immédiats, facture unique.",
+    amountCents: 44900,
+    interval: "one_time",
+    grants: [],
+    seats: 10,
   },
   "cours-01": {
     key: "cours-01",

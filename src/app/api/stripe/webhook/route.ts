@@ -1,3 +1,4 @@
+import { randomBytes } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
 import type Stripe from "stripe";
 import { getStripe } from "@/lib/billing/stripe";
@@ -7,6 +8,19 @@ import {
 } from "@/lib/billing/catalog";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { sendAccessEmail } from "@/lib/billing/emails";
+
+/**
+ * Code d'invitation d'un siège de pack : 10 caractères en base32 Crockford
+ * (50 bits, sans lettres ambiguës I/L/O/U). 256 % 32 = 0 : chaque octet se
+ * réduit sans biais, comme les codes d'attestation de troie.app.
+ */
+function makeInviteCode(): string {
+  const alphabet = "0123456789ABCDEFGHJKMNPQRSTVWXYZ";
+  const bytes = randomBytes(10);
+  let out = "";
+  for (const b of bytes) out += alphabet[b % 32];
+  return out;
+}
 
 /**
  * POST /api/stripe/webhook
@@ -126,6 +140,44 @@ export async function POST(request: NextRequest) {
           );
           // Le resultat n'etait pas lu : l'acces pouvait echouer sans un mot.
           check(`upsert acces ${slug} pour ${userId}`, error);
+        }
+
+        // Pack équipe : pas d'accès personnel, un pack de sièges à codes.
+        // Idempotence par stripe_ref (unique) : au rejeu de l'event, le
+        // pack existe déjà et on ne recrée rien.
+        if (product.seats && product.seats > 0) {
+          const stripeRef = typeof session.id === "string" ? session.id : null;
+          const { data: existingPack, error: packReadError } = await admin
+            .from("team_packs")
+            .select("id")
+            .eq("stripe_ref", stripeRef)
+            .maybeSingle();
+          check(`lecture pack ${stripeRef}`, packReadError);
+
+          if (!packReadError && !existingPack) {
+            const { data: pack, error: packError } = await admin
+              .from("team_packs")
+              .insert({
+                owner_id: userId,
+                product_key: product.key,
+                seats: product.seats,
+                stripe_ref: stripeRef,
+              })
+              .select("id")
+              .single();
+            check(`creation pack ${product.key} pour ${userId}`, packError);
+
+            if (pack) {
+              const seats = Array.from({ length: product.seats }, () => ({
+                pack_id: pack.id,
+                invite_code: makeInviteCode(),
+              }));
+              const { error: seatsError } = await admin
+                .from("team_seats")
+                .insert(seats);
+              check(`creation ${product.seats} sieges pour ${userId}`, seatsError);
+            }
+          }
         }
       }
 
