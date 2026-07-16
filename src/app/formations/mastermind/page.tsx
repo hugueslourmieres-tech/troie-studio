@@ -104,7 +104,7 @@ const FAQ = [
   },
   {
     q: "Pour qui n'est-ce PAS fait ?",
-    a: "Pour quelqu'un qui veut juste un cours one-shot sans suivi : achetez Cours 01 ou 02 à l'unité. Pour quelqu'un qui veut une formation certifiante CPF : pas encore (Qualiopi en cours). Pour quelqu'un qui veut du coaching individuel : voir l'audit gratuit + accompagnement TROIE IA Pro.",
+    a: "Pour quelqu'un qui veut juste un cours one-shot sans suivi : achetez Cours 01 ou 02 à l'unité. Pour quelqu'un qui veut une formation finançable CPF : pas encore possible chez TROIE. Pour quelqu'un qui veut du coaching individuel : voir l'audit gratuit + accompagnement TROIE IA Pro.",
   },
   {
     q: "Combien êtes-vous à l'inscription ?",

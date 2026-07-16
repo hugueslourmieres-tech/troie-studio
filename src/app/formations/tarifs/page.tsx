@@ -152,8 +152,7 @@ export default function TarifsPage() {
             <h2 className="t-display mt-5 text-3xl">Formez toute l&apos;équipe.</h2>
             <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)]">
               Licences par siège, suivi de progression, formation intra avec
-              coach, agents IA déployés sur vos cas réels. Certification
-              Qualiopi en cours.
+              coach, agents IA déployés sur vos cas réels.
             </p>
             <ul className="mt-6 space-y-2.5">
               {[

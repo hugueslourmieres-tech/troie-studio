@@ -130,8 +130,7 @@ export function AiActControlable2Aout2026En() {
         TROIE Studio trains SMB teams on AI (online programs and ongoing
         supervision) and brings your documentation into compliance. The
         first step is a free 30-minute audit: we look at how you
-        actually use AI and tell you where you stand. Qualiopi
-        certification in progress.
+        actually use AI and tell you where you stand.
       </p>
 
       <p>

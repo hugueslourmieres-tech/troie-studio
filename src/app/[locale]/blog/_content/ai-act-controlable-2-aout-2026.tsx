@@ -144,7 +144,6 @@ export function AiActControlable2Aout2026() {
         ligne et supervision continue) et met votre documentation en
         conformité. Le premier pas est un audit gratuit de 30 minutes :
         on regarde vos usages réels et on vous dit où vous en êtes.
-        Certification Qualiopi en cours.
       </p>
 
       <p>

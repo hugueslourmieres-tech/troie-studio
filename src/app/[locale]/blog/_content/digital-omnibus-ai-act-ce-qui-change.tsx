@@ -261,7 +261,7 @@ export function DigitalOmnibusAiActCeQuiChange() {
         </Link>{" "}
         détaille le contenu d&apos;une démarche sérieuse. Premier pas
         simple : un audit gratuit de 30 minutes pour situer vos
-        obligations réelles. Certification Qualiopi en cours.
+        obligations réelles.
       </p>
 
       <p>

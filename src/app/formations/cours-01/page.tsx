@@ -151,7 +151,7 @@ const FAQ = [
   },
   {
     q: "Possibilité de financer via CPF / OPCO ?",
-    a: "Pas encore : la certification Qualiopi est en cours. Pour les CPF / OPCO, regardez le Cours 04 sur place (sur devis) qui passe via TROIE Studio en tant qu'organisme partenaire. Possible dès juillet 2026.",
+    a: "Pas encore : les cours en ligne TROIE ne sont pas éligibles CPF/OPCO à ce jour. Pour une session intra avec prise en charge, contactez-nous : nous étudions le montage via un organisme de formation certifié.",
   },
 ];
 

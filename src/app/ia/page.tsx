@@ -273,7 +273,7 @@ const FAQ = [
   },
   {
     q: "Vous êtes pris en charge par les OPCO ?",
-    a: "Pas en direct chez TROIE, nous travaillons avec un organisme certifié Qualiopi pour les sessions intra. Sur devis, nous indiquons le format éligible et le partenaire OF qui prend la prise en charge en main.",
+    a: "Pas en direct : TROIE n'est pas un organisme certifié Qualiopi à ce jour. Pour une session intra avec prise en charge, nous étudions sur devis le montage via un organisme de formation certifié.",
   },
 ];
 

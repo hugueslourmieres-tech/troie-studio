@@ -369,8 +369,7 @@ export default function FormationsPage() {
               <p className="mt-6 max-w-xl text-base leading-relaxed text-[#f5f0e6]/75 md:text-lg">
                 Formations intra sur vos cas réels dès 990 €, déploiement
                 d&apos;agents IA, conformité AI Act et supervision continue.
-                Certification Qualiopi en cours. Tout commence par un audit
-                gratuit de 30 minutes.
+                Tout commence par un audit gratuit de 30 minutes.
               </p>
               <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-[#f5f0e6]/60">
                 <Link
