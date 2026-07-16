@@ -6,16 +6,23 @@ import { Resend } from "resend";
  *
  * Receives the contact form and sends it to the inbox via Resend.
  *
- * Anti-spam, en couches (les 4 premieres sans aucune configuration) :
+ * Anti-spam, en couches (les 7 premieres sans aucune configuration) :
+ *   0a. Origin : un POST dont l'Origin n'est pas le site (ou absent) est
+ *       ignore en silence. Les bots qui POST l'API directement tombent la.
+ *   0b. Marqueur x-troie-form : envoye par le vrai formulaire uniquement.
+ *   0c. Filtre de contenu : les motifs de spam commerciaux recurrents
+ *       (backlinks, guest post, crypto...) sont ignores en silence.
  *   1. Honeypot : champ "website" invisible ; rempli = bot, on repond
  *      ok sans envoyer (le bot croit avoir reussi).
  *   2. Delai minimal : le formulaire envoie "elapsedMs" (temps passe
- *      sur la page) ; moins de 3 s = bot.
+ *      sur la page) ; moins de 3 s = bot. (Forgeable : les couches 0a-0c
+ *      existent precisement parce que celle-ci ne suffit pas.)
  *   3. Filtre a liens : plus de 2 URLs dans le message = spam.
  *   4. Limite par IP : 3 envois par heure (memoire de l'instance,
  *      best-effort en serverless mais suffisant contre les rafales).
  *   5. Cloudflare Turnstile (optionnel) : si TURNSTILE_SECRET_KEY est
  *      definie, le jeton "turnstileToken" est verifie cote serveur.
+ *      C'est la couche de fond si le spam persiste malgre tout.
  *
  * Required env vars on Vercel (Project Settings, Environment Variables):
  *   - RESEND_API_KEY : the API key from https://resend.com (free tier 100/day)
@@ -85,6 +92,31 @@ function countUrls(text: string): number {
   return (text.match(/https?:\/\//gi) ?? []).length;
 }
 
+/** Les hôtes légitimes du formulaire (prod + previews Vercel). */
+function allowedOrigin(origin: string | null): boolean {
+  if (!origin) return false;
+  try {
+    const host = new URL(origin).hostname;
+    return (
+      host === "troiestudio.fr" ||
+      host === "www.troiestudio.fr" ||
+      host === "localhost" ||
+      host.endsWith(".vercel.app")
+    );
+  } catch {
+    return false;
+  }
+}
+
+/*
+ * Motifs des spams de formulaire B2B qui reviennent en boucle (offres SEO,
+ * backlinks, crypto...). Volontairement court et grossier : un vrai
+ * prospect n'écrit aucune de ces expressions, et chaque motif ajouté est
+ * un faux positif possible. En cas de doute, NE PAS ajouter.
+ */
+const SPAM_PATTERNS =
+  /\b(backlinks?|guest post|link building|seo (service|package|expert)s?|boost your (ranking|traffic)|increase your (ranking|traffic|sales)|web design service|crypto (invest|trading)|bitcoin invest|loan offer|casino|viagra|escort)\b/i;
+
 async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET_KEY;
   if (!secret) return true; // pas configure : couche desactivee
@@ -116,6 +148,16 @@ export async function POST(request: Request) {
 
   const ip =
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+
+  // 0a + 0b. Un POST qui ne vient pas du formulaire du site (mauvaise
+  // origine, ou marqueur absent) est accepté en façade et jeté : le bot
+  // croit avoir réussi et ne s'adapte pas.
+  if (
+    !allowedOrigin(request.headers.get("origin")) ||
+    request.headers.get("x-troie-form") !== "1"
+  ) {
+    return NextResponse.json({ ok: true });
+  }
 
   // 1. Honeypot : on repond "ok" sans rien envoyer.
   if ((payload.website ?? "").trim() !== "") {
@@ -153,6 +195,17 @@ export async function POST(request: Request) {
   }
   if (message.length > 6000) {
     return NextResponse.json({ error: "Message too long" }, { status: 400 });
+  }
+  if (message.length < 12) {
+    return NextResponse.json(
+      { error: "Dites-nous en un peu plus : votre message est très court." },
+      { status: 400 },
+    );
+  }
+
+  // 0c. Motifs de spam commerciaux : acceptés en façade, jamais envoyés.
+  if (SPAM_PATTERNS.test(`${name} ${company} ${subject} ${message}`)) {
+    return NextResponse.json({ ok: true });
   }
 
   // 3. Filtre a liens : les spams commerciaux en collent partout.

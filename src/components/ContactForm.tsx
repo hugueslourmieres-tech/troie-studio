@@ -157,7 +157,9 @@ export function ContactForm() {
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        // x-troie-form : marqueur du VRAI formulaire. Les spammeurs qui
+        // POST l'API directement ne l'envoient pas ; le serveur les ignore.
+        headers: { "Content-Type": "application/json", "x-troie-form": "1" },
         body: JSON.stringify(payload),
       });
 
