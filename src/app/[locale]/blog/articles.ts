@@ -32,6 +32,7 @@ import { AccessibiliteSiteWebObligationEn } from "./_content/accessibilite-site-
 import { AiActControlable2Aout2026 } from "./_content/ai-act-controlable-2-aout-2026";
 import { AiActControlable2Aout2026En } from "./_content/ai-act-controlable-2-aout-2026.en";
 import { DigitalOmnibusAiActCeQuiChange } from "./_content/digital-omnibus-ai-act-ce-qui-change";
+import { TransparenceIaSignalerContenuGenere } from "./_content/transparence-ia-signaler-contenu-genere";
 
 export type Article = {
   slug: string;
@@ -82,6 +83,26 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "transparence-ia-signaler-contenu-genere",
+    title:
+      "Contenu généré par IA : ce que l'AI Act vous oblige à signaler le 2 août 2026",
+    cardTitle: "Signaler les contenus générés par IA",
+    description:
+      "Chatbots, images de synthèse, voix clonées, textes générés : l'article 50 de l'AI Act impose de rendre le recours à l'IA visible. Les cinq situations concernées, les exceptions, et ce que vous risquez.",
+    date: "2026-07-20",
+    category: "Conformité",
+    readingMinutes: 6,
+    cover: "/images/corpo/montpellier/DSC_7604.jpg",
+    keywords: [
+      "obligation transparence IA",
+      "signaler contenu généré par IA",
+      "article 50 AI Act",
+      "chatbot mention IA obligatoire",
+      "marquage contenu IA deepfake",
+    ],
+    Body: TransparenceIaSignalerContenuGenere,
+  },
   {
     slug: "digital-omnibus-ai-act-ce-qui-change",
     title:
