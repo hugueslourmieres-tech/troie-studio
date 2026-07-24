@@ -33,6 +33,7 @@ import { AiActControlable2Aout2026 } from "./_content/ai-act-controlable-2-aout-
 import { AiActControlable2Aout2026En } from "./_content/ai-act-controlable-2-aout-2026.en";
 import { DigitalOmnibusAiActCeQuiChange } from "./_content/digital-omnibus-ai-act-ce-qui-change";
 import { TransparenceIaSignalerContenuGenere } from "./_content/transparence-ia-signaler-contenu-genere";
+import { Article4AiActExemplesMesures } from "./_content/article-4-ai-act-exemples-mesures";
 
 export type Article = {
   slug: string;
@@ -83,6 +84,26 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "article-4-ai-act-exemples-mesures",
+    title:
+      "Article 4 de l'AI Act : des exemples concrets de mesures de littératie IA",
+    cardTitle: "Article 4 : exemples de mesures de littératie IA",
+    description:
+      "Quelles mesures concrètes prendre pour respecter l'article 4 de l'AI Act ? Sept exemples tirés des recommandations officielles de la Commission européenne : registre des usages, socle commun, formation par rôle, charte, preuve datée.",
+    date: "2026-07-24",
+    category: "Conformité",
+    readingMinutes: 7,
+    cover: "/images/corpo/montpellier/DSC_7616.jpg",
+    keywords: [
+      "article 4 AI Act exemple de mesures",
+      "mesures littératie IA",
+      "maîtrise de l'IA obligation",
+      "registre des usages IA modèle",
+      "attestation littératie IA",
+    ],
+    Body: Article4AiActExemplesMesures,
+  },
   {
     slug: "transparence-ia-signaler-contenu-genere",
     title:
