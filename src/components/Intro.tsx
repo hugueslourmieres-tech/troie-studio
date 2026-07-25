@@ -110,7 +110,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                 Clamp calé pour un rendu net sur ordinateur et téléphone. */}
             {asHero ? (
               <h1
-                className="t-display mx-auto mt-8 leading-[1.06] text-[var(--fg)] text-[clamp(1.3rem,6.3vw,3.4rem)] md:text-[clamp(3.3rem,5.2vw,5.9rem)]"
+                className="t-display mx-auto mt-8 leading-[1.06] text-[var(--fg)] text-[clamp(1.75rem,8.5vw,3.3rem)] md:text-[clamp(3.3rem,5.2vw,5.9rem)]"
                 aria-label={t("introTitle").replace(/\|/g, " ")}
               >
                 {t("introTitle")
