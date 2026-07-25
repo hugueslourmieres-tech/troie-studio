@@ -3,6 +3,7 @@ import { Intro } from "@/components/Intro";
 import { ManagerSection } from "@/components/ManagerSection";
 import { AudienceFork } from "@/components/AudienceFork";
 import { AiUrgency } from "@/components/AiUrgency";
+import { CampusBridge } from "@/components/CampusBridge";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
 import { McpSection } from "@/components/McpSection";
@@ -37,6 +38,11 @@ export default async function HomePage({
       {/* AI ACT : le hook conformité (échéance 2 août 2026), pousse à
           s'informer puis à se former. */}
       <AiUrgency locale={locale} />
+
+      {/* LE CAMPUS : la passerelle décisive vers troie.app. Après le hook AI
+          Act, on explique ce qu'est le campus et à quoi il sert (2 heures,
+          attestation, gratuit pour commencer), capture produit à l'appui. */}
+      <CampusBridge locale={locale} />
 
       {/* MANAGER : juste sous l'AI Act, le propos de Mensch (Mistral) sur
           la valeur ajoutée : l'IA exécute, vous pilotez (vidéo + article).
