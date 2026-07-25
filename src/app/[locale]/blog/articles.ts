@@ -34,6 +34,7 @@ import { AiActControlable2Aout2026En } from "./_content/ai-act-controlable-2-aou
 import { DigitalOmnibusAiActCeQuiChange } from "./_content/digital-omnibus-ai-act-ce-qui-change";
 import { TransparenceIaSignalerContenuGenere } from "./_content/transparence-ia-signaler-contenu-genere";
 import { Article4AiActExemplesMesures } from "./_content/article-4-ai-act-exemples-mesures";
+import { AiActSanctionsEntreprise } from "./_content/ai-act-sanctions-entreprise";
 
 export type Article = {
   slug: string;
@@ -84,6 +85,26 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "ai-act-sanctions-entreprise",
+    title:
+      "AI Act : les sanctions pour les entreprises, ce que vous risquez vraiment",
+    cardTitle: "AI Act : les sanctions pour les entreprises",
+    description:
+      "Jusqu'à 35 M€ ou 7 % du chiffre d'affaires mondial : les trois niveaux d'amende de l'AI Act, la règle inversée pour les PME, le cas de l'article 4, et qui contrôle à partir du 2 août 2026.",
+    date: "2026-07-25",
+    category: "Conformité",
+    readingMinutes: 6,
+    cover: "/images/blog/ai-act-2-aout.jpg",
+    keywords: [
+      "AI Act sanctions entreprise",
+      "amende AI Act",
+      "sanction AI Act PME",
+      "article 99 AI Act",
+      "AI Act 2 août 2026",
+    ],
+    Body: AiActSanctionsEntreprise,
+  },
   {
     slug: "article-4-ai-act-exemples-mesures",
     title:
