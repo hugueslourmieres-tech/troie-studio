@@ -35,6 +35,7 @@ import { DigitalOmnibusAiActCeQuiChange } from "./_content/digital-omnibus-ai-ac
 import { TransparenceIaSignalerContenuGenere } from "./_content/transparence-ia-signaler-contenu-genere";
 import { Article4AiActExemplesMesures } from "./_content/article-4-ai-act-exemples-mesures";
 import { AiActSanctionsEntreprise } from "./_content/ai-act-sanctions-entreprise";
+import { RegistreDesUsagesIaModele } from "./_content/registre-des-usages-ia-modele";
 
 export type Article = {
   slug: string;
@@ -85,6 +86,26 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "registre-des-usages-ia-modele",
+    title:
+      "Registre des usages de l'IA : le modèle à copier pour l'article 4",
+    cardTitle: "Registre des usages de l'IA : le modèle",
+    description:
+      "Le modèle en huit colonnes pour cartographier vos outils d'IA, un exemple rempli, et la méthode pour le faire en une heure. Ce que l'AI Act impose vraiment, et ce qu'il ne faut pas confondre avec le registre RGPD.",
+    date: "2026-07-27",
+    category: "Conformité",
+    readingMinutes: 7,
+    cover: "/images/corpo/mibi/DSC_7665.jpg",
+    keywords: [
+      "registre des usages IA modèle",
+      "cartographie des usages IA entreprise",
+      "inventaire systèmes IA AI Act",
+      "article 4 AI Act preuve",
+      "registre IA RGPD différence",
+    ],
+    Body: RegistreDesUsagesIaModele,
+  },
   {
     slug: "ai-act-sanctions-entreprise",
     title:
