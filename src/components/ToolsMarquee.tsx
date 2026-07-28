@@ -85,7 +85,7 @@ export function ToolsMarquee({ ariaLabel }: { ariaLabel: string }) {
               aria-hidden="true"
               className="text-[#f5f0e6]/45 select-none"
             >
-              ·
+              •
             </span>
           </span>
         ))}

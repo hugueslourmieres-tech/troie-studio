@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   const { slug } = await params;
   const course = MOCK_COURSES.find((c) => c.slug === slug);
   return {
-    title: course ? `${course.title} · Espace membre` : "Cours · Espace membre",
+    title: course ? `${course.title}, Espace membre` : "Cours, Espace membre",
     robots: { index: false, follow: false },
   };
 }
@@ -45,7 +45,7 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
           ← Tous les cours
         </Link>
         <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          {course.level === "free" ? "Gratuit" : course.level} · {course.modules_count} modules · {course.duration_min} min
+          {course.level === "free" ? "Gratuit" : course.level}, {course.modules_count} modules, {course.duration_min} min
         </p>
         <h1 className="t-display mt-4 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
           {course.title}
@@ -57,7 +57,10 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
             <BuyButton
               product={buyable.key}
-              label={`Débloquer · ${(course.price_cents / 100).toFixed(0)} € · accès à vie`}
+              /* Le prix affiché est celui du catalogue Stripe, la seule
+                 source qui DÉBITE : price_cents (base/mock) avait déjà
+                 divergé de 2 € et annonçait 299 € pour un débit de 297 €. */
+              label={`Débloquer, ${(buyable.amountCents / 100).toFixed(0)} €, accès à vie`}
               fallbackSubject={course.title}
               className="inline-flex items-center gap-3 bg-[var(--ink)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
             />
@@ -74,7 +77,7 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
             href={`/formations/${slug === "module-0" ? "module-0" : slug}`}
             className="mt-8 inline-flex items-center gap-3 bg-[var(--ink)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
           >
-            Débloquer · {(course.price_cents / 100).toFixed(0)} €
+            Débloquer, {(course.price_cents / 100).toFixed(0)} €
             <span aria-hidden="true">→</span>
           </Link>
         )}
@@ -82,7 +85,7 @@ export default async function CourseDetailPage({ params }: { params: Params }) {
 
       <section>
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Modules · {modules.length}
+          Modules, {modules.length}
         </p>
         <ol className="mt-6 space-y-3">
           {modules.map((m, i) => {
@@ -162,7 +165,7 @@ function ModuleHeader({
         )}
         {started && !completed && (
           <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]">
-            En cours · {progressPct} %
+            En cours, {progressPct} %
           </span>
         )}
       </div>

@@ -70,7 +70,7 @@
 Dans le dashboard Lemon Squeezy → **Products** :
 
 **Produit 1 : Pack Prompts Freelance**
-- Nom : "TROIE Prompts · Pack Freelance"
+- Nom : "TROIE Prompts, Pack Freelance"
 - Prix : 29 €
 - Type : One-time payment
 - Description : "5 system prompts métier prêts à coller"
@@ -82,28 +82,28 @@ Dans le dashboard Lemon Squeezy → **Products** :
 **...** (5 packs au total)
 
 **Produit 6 : Bundle Prompts complet**
-- Nom : "TROIE Prompts Vault · Bundle 5 packs"
+- Nom : "TROIE Prompts Vault, Bundle 5 packs"
 - Prix : 99 €
 - SKU : `PROMPTS-BUNDLE`
 
 **Produit 7 : Cours 01**
-- Nom : "TROIE Cours 01 · Maîtriser ChatGPT & Claude"
+- Nom : "TROIE Cours 01, Maîtriser ChatGPT & Claude"
 - Prix : 97 €
 - SKU : `COURS-01`
 
 **Produit 8 : Cours 02**
-- Nom : "TROIE Cours 02 · Workflows IA"
+- Nom : "TROIE Cours 02, Workflows IA"
 - Prix : 297 €
 - SKU : `COURS-02`
 
 **Produit 9 : Mastermind Mensuel**
-- Nom : "TROIE Mastermind · Abonnement"
+- Nom : "TROIE Mastermind, Abonnement"
 - Prix : 49 €/mois
 - Type : Subscription
 - SKU : `MASTERMIND-MONTHLY`
 
 **Produit 10 : Mastermind Annuel**
-- Nom : "TROIE Mastermind · Annuel"
+- Nom : "TROIE Mastermind, Annuel"
 - Prix : 490 €/an
 - Type : Subscription
 - SKU : `MASTERMIND-ANNUAL`

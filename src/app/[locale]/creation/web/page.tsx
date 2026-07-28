@@ -6,7 +6,7 @@ import { ContactCTA } from "@/components/ContactCTA";
 const PROJECTS: Project[] = [
   {
     name: "Bilber",
-    kind: "Web app · scan produits, scores & DPP",
+    kind: "Web app, scan produits, scores & DPP",
     href: "https://bilber.app",
     url: "bilber.app",
     label: "bilber.app",
@@ -15,7 +15,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: "LOIR Paris",
-    kind: "E-commerce · mode",
+    kind: "E-commerce, mode",
     href: "https://loirparis.fr",
     url: "loirparis.fr",
     label: "loirparis.fr",
@@ -24,7 +24,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: "Capefront Energies",
-    kind: "Site web corporate · énergie",
+    kind: "Site web corporate, énergie",
     href: "https://capefront-site.vercel.app/fr",
     url: "capefront-site.vercel.app",
     label: "capefront-site.vercel.app",
@@ -54,7 +54,7 @@ const PROJECTS: Project[] = [
   },
   {
     name: "Color Guesser",
-    kind: "Web app · jeu",
+    kind: "Web app, jeu",
     href: "https://playcolorguesser.com",
     url: "playcolorguesser.com",
     label: "playcolorguesser.com",
@@ -191,7 +191,7 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   return {
-    title: "Web · Création",
+    title: "Web, Création",
     description:
       "Sites, web apps et e-commerce sur mesure : notre processus et nos réalisations (LOIR Paris, Rutherford, PerPost).",
     alternates: {
@@ -212,7 +212,7 @@ export default async function WebPage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-20">
-        <p className="t-eyebrow">Création · Web</p>
+        <p className="t-eyebrow">Création, Web</p>
         <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
           Web.
         </h1>

@@ -8,7 +8,7 @@ const COPY = {
   fr: {
     metaTitle: "Création",
     metaDesc: "Vidéo, photographie et web : les contenus et produits digitaux qui incarnent votre marque, signés TROIE.",
-    label: "01 · Création",
+    label: "01, Création",
     title: "Création.",
     intro: "Les contenus et produits digitaux qui incarnent vos marques : vidéo, photographie, web.",
     cards: {
@@ -20,7 +20,7 @@ const COPY = {
   en: {
     metaTitle: "Creation",
     metaDesc: "Video, photography and web: the digital products and content that give shape to your brand, made by TROIE.",
-    label: "01 · Creation",
+    label: "01, Creation",
     title: "Creation.",
     intro: "The digital products and content that give shape to your brands: video, photography, web.",
     cards: {

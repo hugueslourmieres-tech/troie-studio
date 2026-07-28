@@ -4,7 +4,7 @@ import type { Profile } from "@/lib/types";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 
 export const metadata = {
-  title: "Profil · Espace membre TROIE",
+  title: "Profil, Espace membre TROIE",
   robots: { index: false, follow: false },
 };
 
@@ -76,7 +76,7 @@ export default async function ProfilePage() {
             <p className="mt-2 t-display text-2xl text-[var(--accent)] md:text-3xl">
               {profile.xp_total}{" "}
               <span className="text-[var(--fg-2)]/55 text-sm">
-                · Niveau {profile.level}
+               , Niveau {profile.level}
               </span>
             </p>
           </div>
@@ -87,7 +87,7 @@ export default async function ProfilePage() {
           disabled
           className="mt-8 inline-flex items-center gap-3 border border-[var(--rule)] px-6 py-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60 disabled:cursor-not-allowed"
         >
-          Modifier mon profil · bientôt
+          Modifier mon profil, bientôt
         </button>
       </section>
 

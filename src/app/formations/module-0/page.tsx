@@ -7,9 +7,9 @@ const MAIN_SITE = "https://troiestudio.fr";
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
 export const metadata = {
-  title: "Module 0 · La théorie LLM en 15 minutes, TROIE Formations",
+  title: "Module 0, La théorie LLM en 15 minutes, TROIE Formations",
   description:
-    "QCM gratuit · 10 questions pour comprendre comment fonctionne un LLM, pourquoi il hallucine, et comment lui parler. Sans inscription.",
+    "QCM gratuit, 10 questions pour comprendre comment fonctionne un LLM, pourquoi il hallucine, et comment lui parler. Sans inscription.",
   alternates: {
     canonical: "https://troiestudio.fr/formations/module-0",
   },
@@ -24,22 +24,22 @@ export const metadata = {
 
 const LECONS = [
   {
-    badge: "01 · Pre-training",
+    badge: "01, Pre-training",
     title: "Comment un modèle apprend à prédire.",
     body: "Le modèle est nourri de milliards de tokens. Il apprend à deviner le prochain mot. C'est tout. Pas de compréhension, pas de logique : juste des probabilités.",
   },
   {
-    badge: "02 · RLHF",
+    badge: "02, RLHF",
     title: "Pourquoi il devient sycophant.",
     body: "Après le pre-training, des humains notent ses réponses. Il apprend à vous plaire. Effet secondaire : il vous donne raison même quand vous avez tort.",
   },
   {
-    badge: "03 · Hallucinations",
+    badge: "03, Hallucinations",
     title: "D'où viennent les inventions.",
     body: "Comme c'est un prédicteur, il privilégie ce qui 'sonne juste'. Quand il n'a pas l'info exacte, il l'invente. Particulièrement sur chiffres, dates et citations.",
   },
   {
-    badge: "04 · Réflexes pro",
+    badge: "04, Réflexes pro",
     title: "Ne plus jamais vous faire avoir.",
     body: "Trois réflexes : forcer la sortie de secours 'je ne sais pas', exiger les sources, et toujours vérifier les chiffres à deux fois avant de publier.",
   },
@@ -53,7 +53,7 @@ export default function Module0Page() {
       <section className="relative border-b border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 pt-24 pb-24 md:px-12 md:pt-32 md:pb-32">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Module 0 · gratuit · 15 min · sans inscription
+            Module 0, gratuit, 15 min, sans inscription
           </p>
           <h1 className="t-display mt-8 max-w-4xl text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px]">
             Pourquoi un LLM hallucine{" "}
@@ -73,7 +73,7 @@ export default function Module0Page() {
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            La théorie · 4 leçons
+            La théorie, 4 leçons
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             Comprendre pour ne plus jamais subir.
@@ -101,7 +101,7 @@ export default function Module0Page() {
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-4xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            QCM · 10 questions · gratuit
+            QCM, 10 questions, gratuit
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             Validez votre compréhension.
@@ -125,7 +125,7 @@ export default function Module0Page() {
       <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Plus de questions ? · payant
+            Plus de questions ?, payant
           </p>
           <h2 className="t-display mt-8 max-w-4xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             Les Cours 01 et 02 embarquent 100+ questions.
@@ -142,7 +142,7 @@ export default function Module0Page() {
             <div className="relative overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--bg)] p-8 md:p-10">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                  Cours 01 · Entry · 97 €
+                  Cours 01, Entry, 97 €
                 </p>
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
                   Locked
@@ -152,13 +152,13 @@ export default function Module0Page() {
                 Maîtriser ChatGPT &amp; Claude
               </h3>
               <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
-                30 questions · 5 patterns · 25 prompts · accès à vie
+                30 questions, 5 patterns, 25 prompts, accès à vie
               </p>
 
               {/* Question preview floutee */}
               <div className="relative mt-6 rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  Question · extrait
+                  Question, extrait
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--fg)] md:text-base">
                   {COURSE_01_PREVIEW[0].prompt}
@@ -187,7 +187,7 @@ export default function Module0Page() {
                 href="/formations#paths"
                 className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--ink)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
               >
-                Débloquer · 97 €
+                Débloquer, 97 €
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
             </div>
@@ -196,7 +196,7 @@ export default function Module0Page() {
             <div className="relative overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--ink)] p-8 text-[#f5f0e6] md:p-10">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                  Cours 02 · Advanced · 297 €
+                  Cours 02, Advanced, 297 €
                 </p>
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/55">
                   Locked
@@ -206,12 +206,12 @@ export default function Module0Page() {
                 Workflows IA solo &amp; équipe
               </h3>
               <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/60">
-                70 questions · 100 prompts · 8 MCPs · 10 templates Make
+                70 questions, 100 prompts, 8 MCPs, 10 templates Make
               </p>
 
               <div className="relative mt-6 rounded-sm border border-[#f5f0e6]/15 bg-[#f5f0e6]/5 p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  Question · extrait
+                  Question, extrait
                 </p>
                 <p className="mt-3 text-sm leading-relaxed md:text-base">
                   {COURSE_02_PREVIEW[0].prompt}
@@ -239,7 +239,7 @@ export default function Module0Page() {
                 href="/formations#paths"
                 className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--accent)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
               >
-                Débloquer · 297 €
+                Débloquer, 297 €
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
             </div>

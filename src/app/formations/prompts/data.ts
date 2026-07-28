@@ -32,13 +32,13 @@ export type PromptPack = {
 
 export const PACKS: PromptPack[] = [
   // ─────────────────────────────────────────────────────────────────
-  // PACK 01 · FREELANCE INDEPENDANT
+  // PACK 01, FREELANCE INDEPENDANT
   // ─────────────────────────────────────────────────────────────────
   {
     slug: "freelance",
     badge: "Pack 01",
     title: "Freelance Indépendant.",
-    sub: "Sales · admin · com'",
+    sub: "Sales, admin, com'",
     body: "Le strict minimum pour ne plus perdre de temps sur la paperasse + la prospection + la com'. Tout dans votre voix.",
     theme: "light",
     prompts: [
@@ -77,7 +77,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si tu n'es pas sûr d'un point, tu réponds "je ne sais pas, voici ce qu'il me faut pour répondre : [liste]". Tu ne devines jamais un prix ou un délai.`,
-        outputHint: "Devis en Markdown · 3 sections · prix précis · conditions claires",
+        outputHint: "Devis en Markdown, 3 sections, prix précis, conditions claires",
       },
       {
         number: "02",
@@ -114,7 +114,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si le contexte cible est insuffisant, tu réponds : "il me manque [info spécifique]. Donnez-moi ça et je rédige."`,
-        outputHint: "DM LinkedIn en 4 phrases max · signal observé · ton pair-à-pair",
+        outputHint: "DM LinkedIn en 4 phrases max, signal observé, ton pair-à-pair",
       },
       {
         number: "03",
@@ -244,20 +244,20 @@ Si le contexte fourni est insuffisant pour produire un angle nouveau à chaque r
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // PACK 02 · MARKETING & GROWTH
+  // PACK 02, MARKETING & GROWTH
   // ─────────────────────────────────────────────────────────────────
   {
     slug: "marketing",
     badge: "Pack 02",
     title: "Marketing & Growth.",
-    sub: "Ads · contenu · perf",
+    sub: "Ads, contenu, perf",
     body: "Pour ceux qui font tourner les campagnes, les briefs et le reporting. Réduisez de 70 % le temps de prod créative.",
     theme: "warm",
     prompts: [
       {
         number: "01",
         title: "Campagne Meta Ads",
-        subtitle: "Angle · audience · copy · 3 variantes A/B en 1 prompt",
+        subtitle: "Angle, audience, copy, 3 variantes A/B en 1 prompt",
         forWho: "Growth marketer ou freelance qui lance des campagnes Meta toutes les 2 semaines.",
         whenToUse: "Vous avez un produit, un objectif (lead, achat, install), un budget. Vous voulez un kit de campagne complet prêt à lancer.",
         variables: ["MARQUE", "PRODUIT", "OBJECTIF", "BUDGET", "AUDIENCE CIBLE"],
@@ -327,7 +327,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si les refs ne sont pas fournies ou trop floues pour caler la direction artistique, tu refuses de brief et tu demandes 3 refs précises.`,
-        outputHint: "Brief créa complet · 7 sections · prompts Midjourney prêts à coller · critères de validation",
+        outputHint: "Brief créa complet, 7 sections, prompts Midjourney prêts à coller, critères de validation",
       },
       {
         number: "03",
@@ -365,7 +365,7 @@ Markdown léger compatible Slack (bold, italic, listes). Pas plus de 200 mots au
 
 SORTIE DE SECOURS
 Si la baseline n'est pas fournie ou si les données sont incomplètes, tu ne devines aucun chiffre et tu listes précisément ce qu'il manque.`,
-        outputHint: "Post Slack hebdo · bilan vert/orange/rouge · 3 insights · 1 action",
+        outputHint: "Post Slack hebdo, bilan vert/orange/rouge, 3 insights, 1 action",
       },
       {
         number: "04",
@@ -400,7 +400,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si les pillars ne sont pas définis ou si le persona est flou, tu ne devines pas et tu listes les 3 questions à clarifier.`,
-        outputHint: "Tableau 30 jours · post par jour · adaptation canal · rotation pillars",
+        outputHint: "Tableau 30 jours, post par jour, adaptation canal, rotation pillars",
       },
       {
         number: "05",
@@ -439,19 +439,19 @@ REGLES
 
 SORTIE DE SECOURS
 Si tu ne peux pas montrer une compréhension réelle du créateur (en 2 phrases citant son contenu), tu ne fais PAS de brief et tu demandes les références.`,
-        outputHint: "Brief influence en 8 sections · contraintes minimales · libertés explicites",
+        outputHint: "Brief influence en 8 sections, contraintes minimales, libertés explicites",
       },
     ],
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // PACK 03 · E-COMMERCE & SAAS
+  // PACK 03, E-COMMERCE & SAAS
   // ─────────────────────────────────────────────────────────────────
   {
     slug: "ecommerce",
     badge: "Pack 03",
     title: "E-commerce & SaaS.",
-    sub: "Support · sales · produit",
+    sub: "Support, sales, produit",
     body: "Pour les boîtes qui scalent. Support tier-1 automatique, notes de sales call structurées, briefs produit propres.",
     theme: "dark",
     prompts: [
@@ -531,7 +531,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si le transcript est trop court (< 5 minutes), trop bruyant, ou ne contient pas de signaux clairs, tu réponds : "transcript insuffisant pour qualifier. Listez : entreprise, rôle interlocuteur, point principal." et tu attends.`,
-        outputHint: "Note CRM structurée · 12 champs · pains verbatim · next steps datées",
+        outputHint: "Note CRM structurée, 12 champs, pains verbatim, next steps datées",
       },
       {
         number: "03",
@@ -570,7 +570,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si l'input ne contient pas de problème utilisateur identifiable (juste une idée de feature dans le vide), tu refuses de produire le brief et tu demandes au porteur de reformuler en partant du problème observé.`,
-        outputHint: "Brief produit 12 sections · scope V1 vs V2 · hypothèses falsifiables",
+        outputHint: "Brief produit 12 sections, scope V1 vs V2, hypothèses falsifiables",
       },
       {
         number: "04",
@@ -633,7 +633,7 @@ REGLES TRANSVERSES
 
 SORTIE DE SECOURS
 Si le signal d'activation n'est pas clair ou si les use cases ne sont pas fournis, tu ne devines pas et tu demandes : "Quel est le seul moment ou vos users 'pigent' votre produit ?"`,
-        outputHint: "Série 7 mails datées · 1 CTA par mail · max 150 mots · onboarding pur",
+        outputHint: "Série 7 mails datées, 1 CTA par mail, max 150 mots, onboarding pur",
       },
       {
         number: "05",
@@ -675,19 +675,19 @@ REGLES
 
 SORTIE DE SECOURS
 Si la définition du churn n'est pas précise (downgrade ou cancel ou inactivité ?), tu commences par poser la question.`,
-        outputHint: "Analyse churn 3 clusters · signaux + actions datées · 1 action systémique",
+        outputHint: "Analyse churn 3 clusters, signaux + actions datées, 1 action systémique",
       },
     ],
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // PACK 04 · DESIGN & CREATIF
+  // PACK 04, DESIGN & CREATIF
   // ─────────────────────────────────────────────────────────────────
   {
     slug: "design",
     badge: "Pack 04",
     title: "Design & Créatif.",
-    sub: "Brief · feedback · scope",
+    sub: "Brief, feedback, scope",
     body: "Pour ceux qui créent. Cadrer le brief, gérer les retours, éviter le scope creep, sans y passer la nuit.",
     theme: "linen",
     prompts: [
@@ -730,7 +730,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si moins de 4 sections sur 12 peuvent être remplies avec les inputs donnés, tu ne produis PAS le brief. Tu demandes les infos critiques avant.`,
-        outputHint: "Brief structuré · 12 sections · références obligatoires · validation client",
+        outputHint: "Brief structuré, 12 sections, références obligatoires, validation client",
       },
       {
         number: "02",
@@ -768,7 +768,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si les refs ne sont pas fournies ou sont trop floues (mots clés sans visuel), tu refuses et tu demandes 3 refs visuelles précises.`,
-        outputHint: "DA structurée · palette + typo + traitement · 5 prompts Midjourney prêts",
+        outputHint: "DA structurée, palette + typo + traitement, 5 prompts Midjourney prêts",
       },
       {
         number: "03",
@@ -818,7 +818,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si l'objet du deck est trop large (ex: "présenter la boite"), tu refuses et tu demandes "quelle décision précise vous attendez de l'audience à la fin ?".`,
-        outputHint: "Deck 20 slides · structure narrative · 1 idée par slide · notes speaker",
+        outputHint: "Deck 20 slides, structure narrative, 1 idée par slide, notes speaker",
       },
       {
         number: "04",
@@ -852,7 +852,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si le feedback est moins de 100 mots et très vague (ex: "ça me plait pas trop"), tu refuses de produire la note et tu suggères une relance ciblée : "donnez-moi 3 éléments que vous voulez voir changer, et 3 que vous voulez garder".`,
-        outputHint: "Note de feedback structurée · actions SMART · refus argumentés · hors-scope marqués",
+        outputHint: "Note de feedback structurée, actions SMART, refus argumentés, hors-scope marqués",
       },
       {
         number: "05",
@@ -888,19 +888,19 @@ REGLES
 
 SORTIE DE SECOURS
 Si le brief ou le devis n'est pas fourni, tu refuses d'analyser la demande et tu demandes les documents avant.`,
-        outputHint: "Classification + réponse mail · justification factuelle · options A/B avec avenants",
+        outputHint: "Classification + réponse mail, justification factuelle, options A/B avec avenants",
       },
     ],
   },
 
   // ─────────────────────────────────────────────────────────────────
-  // PACK 05 · CODING & TECH
+  // PACK 05, CODING & TECH
   // ─────────────────────────────────────────────────────────────────
   {
     slug: "coding",
     badge: "Pack 05",
     title: "Coding & Tech.",
-    sub: "Code review · architecture · docs",
+    sub: "Code review, architecture, docs",
     body: "Pour les devs solo ou en équipe. Code review pertinents, architecture documentée, PRs propres.",
     theme: "taupe",
     prompts: [
@@ -947,7 +947,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si le diff est trop volumineux (>500 lignes), tu refuses la revue et tu demandes au dev de diviser la PR. Si le contexte du projet n'est pas clair (pas de readme, pas de tests existants), tu signales que la revue sera limitée.`,
-        outputHint: "Revue structurée · 5 dimensions · remarques avec severite · décision merge",
+        outputHint: "Revue structurée, 5 dimensions, remarques avec severite, décision merge",
       },
       {
         number: "02",
@@ -987,7 +987,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si les contraintes (timeline, budget, team) ne sont pas précisées, tu ne devines pas et tu demandes ces inputs critiques.`,
-        outputHint: "Proposal d'archi · 2 options avec tradeoffs · décision + plan + risques + KPIs",
+        outputHint: "Proposal d'archi, 2 options avec tradeoffs, décision + plan + risques + KPIs",
       },
       {
         number: "03",
@@ -1027,7 +1027,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si les logs ou un repro précis ne sont pas fournis, tu marques "bug non triable en l'état" et tu listes les infos à obtenir.`,
-        outputHint: "Triage bug · severity + scope + 3 hypothèses RCA · actions datées",
+        outputHint: "Triage bug, severity + scope + 3 hypothèses RCA, actions datées",
       },
       {
         number: "04",
@@ -1069,7 +1069,7 @@ REGLES
 
 SORTIE DE SECOURS
 Si tu ne peux pas déterminer le scope du changement (diff trop gros ou trop vague), tu refuses et tu demandes au dev de fournir un résumé du changement principal.`,
-        outputHint: "PR description complète · what/why/how/test/checklist · format Conventional Commits",
+        outputHint: "PR description complète, what/why/how/test/checklist, format Conventional Commits",
       },
       {
         number: "05",
@@ -1104,7 +1104,7 @@ REGLES TRANSVERSES
 
 SORTIE DE SECOURS
 Si le brief technique est trop vague (pas d'exemples, pas de specs), tu refuses et tu demandes : "donnez-moi 1 exemple concret de [endpoint / commande / scénario]" avant de rédiger.`,
-        outputHint: "Doc selon format demandé · exemples concrets · sections claires · pitfalls listés",
+        outputHint: "Doc selon format demandé, exemples concrets, sections claires, pitfalls listés",
       },
     ],
   },

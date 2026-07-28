@@ -7,7 +7,7 @@ import {
 } from "../../quizzes";
 
 export const metadata = {
-  title: "Mes cours · Espace membre TROIE",
+  title: "Mes cours, Espace membre TROIE",
   robots: { index: false, follow: false },
 };
 
@@ -56,7 +56,7 @@ function QuizRow({ quiz, featured = false }: { quiz: Quiz; featured?: boolean })
             {quiz.description}
           </p>
           <div className="mt-auto flex items-baseline justify-between pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-            <span>{quiz.questions.length} questions · ~ {quiz.minutes} min</span>
+            <span>{quiz.questions.length} questions, ~ {quiz.minutes} min</span>
             <span className="text-[var(--accent)] transition-transform group-hover:translate-x-1">
               Lancer le QCM →
             </span>

@@ -135,7 +135,7 @@ export function QuizPlayer({
             {tier.label}
           </h3>
           <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
-            {score} / {total} · {Math.round(pct * 100)} % de bonnes réponses
+            {score} / {total}, {Math.round(pct * 100)} % de bonnes réponses
           </p>
 
           <Mascot
@@ -238,7 +238,7 @@ export function QuizPlayer({
                   </button>
                 </form>
                 <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                  RGPD · pas de revente · désinscription en 1 clic
+                  RGPD, pas de revente, désinscription en 1 clic
                 </p>
               </div>
             ) : (

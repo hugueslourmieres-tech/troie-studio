@@ -1,6 +1,6 @@
-# Module 9 · 10 workflows business clés-en-main
+# Module 9, 10 workflows business clés-en-main
 
-> **Durée lecture** : 18 min · **Durée vidéo NotebookLM cible** : 25-30 min
+> **Durée lecture** : 18 min, **Durée vidéo NotebookLM cible** : 25-30 min
 
 ## Pourquoi ce module
 
@@ -10,7 +10,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 01 · Lead-to-booking
+## Workflow 01, Lead-to-booking
 
 **Pour qui** : sales B2B, SaaS, freelance qui prend des RDV qualifiés.
 
@@ -24,7 +24,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 02 · Support client tier-1
+## Workflow 02, Support client tier-1
 
 **Pour qui** : SaaS, e-commerce qui scale.
 
@@ -40,7 +40,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 03 · Content engine (réseaux sociaux)
+## Workflow 03, Content engine (réseaux sociaux)
 
 **Pour qui** : marques, agences, freelance qui doit publier régulièrement.
 
@@ -56,7 +56,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 04 · Devis dynamique
+## Workflow 04, Devis dynamique
 
 **Pour qui** : freelance, agence, studio avec catalogue services structuré.
 
@@ -70,7 +70,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 05 · Veille concurrentielle
+## Workflow 05, Veille concurrentielle
 
 **Pour qui** : Product, Marketing, Strategy.
 
@@ -84,7 +84,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 06 · Reporting client mensuel
+## Workflow 06, Reporting client mensuel
 
 **Pour qui** : agences marketing, consultants data.
 
@@ -100,7 +100,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 07 · Transcription + minutes de réunion
+## Workflow 07, Transcription + minutes de réunion
 
 **Pour qui** : tout le monde qui passe 5+ h en meetings par semaine.
 
@@ -114,7 +114,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 08 · CRM auto-update
+## Workflow 08, CRM auto-update
 
 **Pour qui** : équipes sales qui détestent remplir le CRM.
 
@@ -128,7 +128,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 09 · Facturation conforme FR
+## Workflow 09, Facturation conforme FR
 
 **Pour qui** : freelance FR + SaaS européens.
 
@@ -144,7 +144,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 10 · SEO content factory
+## Workflow 10, SEO content factory
 
 **Pour qui** : marketing teams qui veulent scaler le contenu organique.
 
@@ -160,7 +160,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 11 (bonus) · Social listening
+## Workflow 11 (bonus), Social listening
 
 **Pour qui** : brand managers, comms teams.
 
@@ -174,7 +174,7 @@ Pour chacun : qui est concerné, gain typique, setup time.
 
 ---
 
-## Workflow 12 (bonus) · Recrutement first-screen
+## Workflow 12 (bonus), Recrutement first-screen
 
 **Pour qui** : HR avec volume CV.
 

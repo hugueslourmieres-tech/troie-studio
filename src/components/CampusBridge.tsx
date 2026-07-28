@@ -32,11 +32,11 @@ const COPY = {
   en: {
     label: "The campus, troie.app",
     title: "Compliant with the EU AI Act. In 2 hours.",
-    lede: "troie.app is our online campus. Short modules to understand AI, meet Article 4 of the EU AI Act, and walk away with a verifiable training certificate you can add to your LinkedIn profile.",
+    lede: "troie.app is our online campus. Short modules to understand AI, meet Article 4 of the EU AI Act, and walk away with a verifiable training attestation you can add to your LinkedIn profile.",
     points: [
       "Start for free, no credit card",
       "Five-minute lessons, at your own pace",
-      "A verifiable training certificate, ready for LinkedIn",
+      "A verifiable training attestation, ready for LinkedIn",
     ],
     deadline: "AI Act penalties, 2 August 2026",
     cta: "Explore troie.app",

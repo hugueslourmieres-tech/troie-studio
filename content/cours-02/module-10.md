@@ -1,6 +1,6 @@
-# Module 10 · Production, monitoring, sécurité
+# Module 10, Production, monitoring, sécurité
 
-> **Durée lecture** : 12 min · **Durée vidéo NotebookLM cible** : 15-18 min
+> **Durée lecture** : 12 min, **Durée vidéo NotebookLM cible** : 15-18 min
 
 ## Pourquoi ce module
 
@@ -11,7 +11,7 @@ Ce module dit ce qu'il faut mettre en place pour passer du POC au prod : logs st
 
 ---
 
-## Leçon 01 · Logs structurés (JSON)
+## Leçon 01, Logs structurés (JSON)
 
 ### Pourquoi
 Sans logs, vous ne savez pas pourquoi votre agent a foiré. Avec des logs **non structurés**, vous ne pouvez pas les parser et les analyser.
@@ -41,26 +41,26 @@ Pour chaque exécution d'agent :
 
 ---
 
-## Leçon 02 · 3 métriques minimales
+## Leçon 02, 3 métriques minimales
 
-### Métrique 1 · Success rate
+### Métrique 1, Success rate
 % de tâches finies correctement vs total.
 
 **Objectif** : > 95 %. Si < 90 %, votre agent n'est pas prod-ready.
 
-### Métrique 2 · Latence p95
+### Métrique 2, Latence p95
 Temps que met l'agent pour 95 % des tâches.
 
 **Objectif** : varie selon le use case. Pour un agent de réponse email : < 30 sec. Pour un agent batch overnight : < 10 min.
 
-### Métrique 3 · Coût par tâche
+### Métrique 3, Coût par tâche
 Coût API + infra divisé par nombre de tâches.
 
 **Objectif** : doit rester inférieur à 1 % du gain business. Si vous économisez 10 €/tâche en temps humain, votre coût IA doit rester < 0.10 €.
 
 ---
 
-## Leçon 03 · Prompt injection (sécurité)
+## Leçon 03, Prompt injection (sécurité)
 
 ### C'est quoi
 Un attaquant insère des instructions dans un input (mail, web, doc) pour détourner votre agent.
@@ -83,7 +83,7 @@ Sans défense : votre agent obéit.
 
 ---
 
-## Leçon 04 · Stocker les secrets
+## Leçon 04, Stocker les secrets
 
 ### NE FAITES JAMAIS
 - Clé API dans le code source (GitHub history = leak garanti)
@@ -103,7 +103,7 @@ Sans défense : votre agent obéit.
 
 ---
 
-## Leçon 05 · Hard cap + circuit breaker + kill switch
+## Leçon 05, Hard cap + circuit breaker + kill switch
 
 ### Hard cap cost
 Cote provider (Anthropic, OpenAI), fixez un cap mensuel et des alertes :
@@ -131,7 +131,7 @@ def kill_agent(agent_id):
 
 ---
 
-## Leçon 06 · RGPD : durée de conservation des logs
+## Leçon 06, RGPD : durée de conservation des logs
 
 ### Principe
 Durée justifiée par la finalité du traitement.
@@ -151,7 +151,7 @@ Durée justifiée par la finalité du traitement.
 
 ---
 
-## Leçon 07 · Déploiement progressif
+## Leçon 07, Déploiement progressif
 
 ### Anti-pattern : push direct en prod
 Vous codez un agent, vous le push en prod, vous croisez les doigts. Quand ça pète, ça pète au client.
@@ -180,7 +180,7 @@ Vous codez un agent, vous le push en prod, vous croisez les doigts. Quand ça p�
 
 ---
 
-## Leçon 08 · Quand ça pète : procédure d'incident
+## Leçon 08, Quand ça pète : procédure d'incident
 
 ### Détection
 Alerte Slack/PagerDuty quand un KPI dérive (success rate < seuil).

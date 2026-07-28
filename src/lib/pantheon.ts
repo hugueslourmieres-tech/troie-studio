@@ -49,7 +49,7 @@ export const HOUSES: Record<HouseSlug, House> = {
     accent: "#1a1714",
     offers: [
       { label: "Agent prospection & RDV", href: "/ia" },
-      { label: "Cours 01 · Maîtriser ChatGPT & Claude", href: "/formations/cours-01" },
+      { label: "Cours 01, Maîtriser ChatGPT & Claude", href: "/formations/cours-01" },
       { label: "Prompts métier vente", href: "/formations/prompts" },
     ],
     tasks: [
@@ -138,7 +138,7 @@ export const HOUSES: Record<HouseSlug, House> = {
     fg: "#f5f0e6",
     accent: "#f5f0e6",
     offers: [
-      { label: "Cours 02 · Workflows IA & agents", href: "/formations/cours-02" },
+      { label: "Cours 02, Workflows IA & agents", href: "/formations/cours-02" },
       { label: "Création médias & web", href: "/creation/site-conforme" },
       { label: "Prompts contenu & social", href: "/formations/prompts" },
     ],

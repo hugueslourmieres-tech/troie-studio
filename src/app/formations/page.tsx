@@ -10,30 +10,30 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
 /* Parcours pro, paiement unique ou abonnement. */
 const PRO_PATHS = [
   {
-    badge: "Cours 01 · Solo",
+    badge: "Cours 01, Solo",
     title: "Maîtriser une IA, niveau pro.",
-    duration: "4 modules · 25 prompts livrés",
+    duration: "4 modules, 25 prompts livrés",
     price: "Sur devis",
-    priceNote: "Paiement unique · accès à vie",
+    priceNote: "Paiement unique, accès à vie",
     body: "Claude ou ChatGPT, configuré pour votre métier : un preset, 25 prompts, les 3 connexions essentielles. À la fin, vous l'utilisez comme un pro.",
     href: "/formations/cours-01",
     icon: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M16 7a4 4 0 1 0-8 0 4 4 0 0 0 8 0",
   },
   {
-    badge: "Cours 02 · Avancé",
+    badge: "Cours 02, Avancé",
     title: "Quatre IA, automatisation.",
-    duration: "7 modules · 100 prompts + templates",
+    duration: "6 modules, 100 prompts + templates",
     price: "Sur devis",
-    priceNote: "Paiement unique · accès à vie",
+    priceNote: "Paiement unique, accès à vie",
     body: "Claude, ChatGPT, Gemini, Copilot. 100 prompts métier, agents, automatisations Make. Le bon outil pour la bonne tâche, à chaque fois.",
     href: "/formations/cours-02",
     featured: true,
     icon: "m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83zM2 12.18a1 1 0 0 0 .6.91l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.92M2 17.18a1 1 0 0 0 .6.91l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.92",
   },
   {
-    badge: "Cours 03 · Mastermind",
+    badge: "Cours 03, Mastermind",
     title: "Rester à jour, chaque mois.",
-    duration: "Abonnement · communauté",
+    duration: "Abonnement, communauté",
     price: "Sur devis",
     priceNote: "",
     body: "L'IA bouge vite. Nouveaux prompts chaque mois, office hours en direct, communauté privée. Vous restez au niveau sans effort.",
@@ -69,7 +69,7 @@ export default function FormationsPage() {
         <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 pt-36 pb-24 md:grid-cols-12 md:gap-16 md:px-12 md:pt-44 md:pb-32">
           <div className="md:col-span-7">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Cours en ligne IA · pro · perso · famille
+            Cours en ligne IA, pro, perso, famille
           </p>
           <h1 className="t-display mt-8 text-5xl leading-[1.0] md:text-6xl lg:text-7xl">
             Comprendre et intégrer l'IA
@@ -89,7 +89,7 @@ export default function FormationsPage() {
               href="/formations/quiz"
               className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f6ead4]"
             >
-              Se former perso · gratuit
+              Se former perso, gratuit
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </Link>
             <a
@@ -139,10 +139,10 @@ export default function FormationsPage() {
                 </span>
                 <div>
                   <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                    Cours en ligne · perso
+                    Cours en ligne, perso
                   </p>
                   <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                    Gratuit · pour tous, en famille
+                    Gratuit, pour tous, en famille
                   </p>
                 </div>
               </div>
@@ -235,10 +235,10 @@ export default function FormationsPage() {
             </span>
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Cours en ligne · pro
+                Cours en ligne, pro
               </p>
               <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                Accès à vie · indépendants et équipes
+                Accès à vie, indépendants et équipes
               </p>
             </div>
           </div>
@@ -387,7 +387,7 @@ export default function FormationsPage() {
                 rel="noreferrer"
                 className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6]"
               >
-                Audit gratuit · 30 min
+                Audit gratuit, 30 min
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
               <a

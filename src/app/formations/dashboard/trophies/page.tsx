@@ -2,7 +2,7 @@ import { MOCK_TROPHIES, MOCK_UNLOCKED_TROPHIES } from "@/lib/mock-data";
 import { TrophyIcon } from "../TrophyIcon";
 
 export const metadata = {
-  title: "Trophées · Espace membre TROIE",
+  title: "Trophées, Espace membre TROIE",
   robots: { index: false, follow: false },
 };
 
@@ -29,7 +29,7 @@ export default function TrophiesPage() {
     <div className="space-y-12 md:space-y-16">
       <section>
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Trophées · {unlocked.length} / {total} débloqués
+          Trophées, {unlocked.length} / {total} débloqués
         </p>
         <h1 className="t-display mt-4 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
           Votre vitrine.
@@ -105,7 +105,7 @@ export default function TrophiesPage() {
       {/* Locked */}
       <section>
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          À débloquer · {locked.length}
+          À débloquer, {locked.length}
         </p>
         <ul className="mt-6 grid gap-4 md:grid-cols-3 md:gap-6">
           {locked.map((t) => (

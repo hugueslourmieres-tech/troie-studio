@@ -17,7 +17,7 @@ import "../globals.css";
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://troiestudio.fr"),
-  title: "TROIE · Cours en ligne IA. Pro, perso et famille.",
+  title: "TROIE, Cours en ligne IA. Pro, perso et famille.",
   description:
     "Cours en ligne pour comprendre et intégrer l'IA au quotidien : pour vous, votre famille et vos équipes. Accès immédiat, à votre rythme. QCM gratuits pour commencer.",
   alternates: {
@@ -26,23 +26,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://troiestudio.fr/formations",
-    title: "TROIE · Cours en ligne IA",
+    title: "TROIE, Cours en ligne IA",
     description:
       "Cours en ligne IA pour comprendre et intégrer l'IA au quotidien. Pro, perso, famille. QCM gratuits pour commencer.",
-    siteName: "TROIE · Cours en ligne IA",
+    siteName: "TROIE, Cours en ligne IA",
     locale: "fr_FR",
     images: [
       {
         url: "/images/brand/og-image.png",
         width: 1200,
         height: 630,
-        alt: "TROIE · Formations IA",
+        alt: "TROIE, Formations IA",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TROIE · Cours en ligne IA",
+    title: "TROIE, Cours en ligne IA",
     description:
       "Comprendre et intégrer l'IA au quotidien. Pro, perso, famille. QCM gratuits.",
     images: ["/images/brand/og-image.png"],

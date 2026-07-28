@@ -53,7 +53,7 @@ export function AiActControlable2Aout2026() {
       <div className="not-prose my-8 flex flex-wrap items-center gap-4">
         <OfficialEmblems url={SOURCE_URL} />
         <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--fg-2)]/60">
-          Source : République française · Union européenne
+          Source : République française, Union européenne
         </span>
       </div>
 

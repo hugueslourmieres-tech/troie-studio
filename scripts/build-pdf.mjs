@@ -45,25 +45,25 @@ const HTML = `<!doctype html><html><head><meta charset="utf8">${FONTS}
 </div>
 
 <div class="page">
-  ${eyebrow("01 — Logo")}
+  ${eyebrow("01, Logo")}
   <h2>Le système de logo.</h2>
   <p class="sub">Quatre expressions d'une même identité. Le logotype est la référence ; le monogramme sert aux formats réduits ; l'emblème guerrier porte le récit de la marque ; le favicon décline le tout en icône.</p>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14mm">
-    <div><div class="card" style="height:46mm"><img src="${A("troie-logotype.png")}" style="height:20mm"/></div><div class="cap">01 · Logotype principal</div></div>
-    <div><div class="card" style="height:46mm"><img src="${A("troie-monogram.png")}" style="height:34mm"/></div><div class="cap">02 · Monogramme</div></div>
-    <div><div class="card" style="height:60mm"><img src="${A("troie-emblem.png")}" style="height:52mm"/></div><div class="cap">03 · Emblème guerrier</div></div>
-    <div><div class="card" style="height:60mm;flex-direction:column;gap:8mm"><img src="${A("favicon-512.png")}" style="height:24mm;border-radius:8px"/></div><div class="cap">04 · Favicon / app icon</div></div>
+    <div><div class="card" style="height:46mm"><img src="${A("troie-logotype.png")}" style="height:20mm"/></div><div class="cap">01, Logotype principal</div></div>
+    <div><div class="card" style="height:46mm"><img src="${A("troie-monogram.png")}" style="height:34mm"/></div><div class="cap">02, Monogramme</div></div>
+    <div><div class="card" style="height:60mm"><img src="${A("troie-emblem.png")}" style="height:52mm"/></div><div class="cap">03, Emblème guerrier</div></div>
+    <div><div class="card" style="height:60mm;flex-direction:column;gap:8mm"><img src="${A("favicon-512.png")}" style="height:24mm;border-radius:8px"/></div><div class="cap">04, Favicon / app icon</div></div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:8mm">
     <div class="card" style="height:26mm;background:#f5f0e6"><img src="${A("troie-logotype.png")}" style="height:11mm"/></div>
     <div class="card" style="height:26mm;background:#0f0b08"><img src="${A("troie-logotype-cream.png")}" style="height:11mm"/></div>
     <div class="card" style="height:26mm;background:#f37b22"><img src="${A("troie-logotype.png")}" style="height:11mm"/></div>
   </div>
-  <div class="foot"><span>TROIE Studio</span><span>01 — Logo</span></div>
+  <div class="foot"><span>TROIE Studio</span><span>01, Logo</span></div>
 </div>
 
 <div class="page">
-  ${eyebrow("02 — Couleurs")}
+  ${eyebrow("02, Couleurs")}
   <h2>La palette.</h2>
   <p class="sub">Crème et encre par défaut, terracotta en ponctuation. Le pétrole distingue l'univers professionnel. Contraste élevé, aplats francs, zéro dégradé.</p>
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14mm">
@@ -74,43 +74,43 @@ const HTML = `<!doctype html><html><head><meta charset="utf8">${FONTS}
     ${swatch("Noir profond", "#0F0B08", "Sections dramatiques, contraste.")}
     ${swatch("Pétrole", "#1F4D4A", "Univers pro / entreprise, à doser.")}
   </div>
-  <div class="foot"><span>TROIE Studio</span><span>02 — Couleurs</span></div>
+  <div class="foot"><span>TROIE Studio</span><span>02, Couleurs</span></div>
 </div>
 
 <div class="page">
-  ${eyebrow("03 — Typographie")}
+  ${eyebrow("03, Typographie")}
   <h2>Les caractères.</h2>
   <p class="sub">Une serif de couture pour le verbe, une mono pour la précision, une sans pour le confort de lecture.</p>
   <div style="margin-top:12mm;border-top:1px solid rgba(26,23,20,.12);padding-top:9mm">
     <div style="display:flex;align-items:baseline;gap:20px">
       <span style="font-family:'Bodoni Moda',serif;font-size:96px;line-height:.9">Aa</span>
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:#f37b22;text-transform:uppercase">Titrage — Bodoni Moda</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:#f37b22;text-transform:uppercase">Titrage, Bodoni Moda</div>
         <div style="font-family:'Bodoni Moda',serif;font-size:30px;margin-top:6px">Atelier digital, IA d'abord.</div>
         <div style="font-family:'Bodoni Moda',serif;font-size:15px;color:rgba(26,23,20,.6);margin-top:8px">ABCDEFGHIJKLMNOPQRSTUVWXYZ &nbsp; abcdefghijklm &nbsp; 0123456789</div>
       </div>
     </div>
   </div>
   <div style="margin-top:9mm;border-top:1px solid rgba(26,23,20,.12);padding-top:9mm">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:#f37b22;text-transform:uppercase">Labels — JetBrains Mono</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.26em;text-transform:uppercase;margin-top:8px">01 · Création &nbsp; 02 · Stratégie &nbsp; 03 · Formation</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:#f37b22;text-transform:uppercase">Labels, JetBrains Mono</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.26em;text-transform:uppercase;margin-top:8px">01, Création &nbsp; 02, Stratégie &nbsp; 03, Formation</div>
   </div>
   <div style="margin-top:9mm;border-top:1px solid rgba(26,23,20,.12);padding-top:9mm">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:#f37b22;text-transform:uppercase">Courant — Inter</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:#f37b22;text-transform:uppercase">Courant, Inter</div>
     <div style="font-family:'Inter';font-size:15px;line-height:1.7;margin-top:8px;max-width:150mm">Studio de création et d'IA basé à Nice. Site web, application, image, stratégie et formation : on remet la précision au cœur du métier, pour les marques comme pour les particuliers.</div>
   </div>
-  <div class="foot"><span>TROIE Studio</span><span>03 — Typographie</span></div>
+  <div class="foot"><span>TROIE Studio</span><span>03, Typographie</span></div>
 </div>
 
 <div class="page" style="background:#0f0b08;color:#f5f0e6">
-  ${eyebrow("04 — Emblème")}
+  ${eyebrow("04, Emblème")}
   <h2 style="color:#f5f0e6">Le guerrier.</h2>
   <p class="sub" style="color:rgba(245,240,230,.62)">Achille troyen, bouclier au bras. Issu du relief de marque, décliné en silhouette pleine. À utiliser en grand sur les couvertures, en filigrane, ou en tampon.</p>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14mm;align-items:center">
     <div style="border:1px solid rgba(245,240,230,.14);border-radius:10px;background:#15110d;display:flex;align-items:center;justify-content:center;height:120mm"><img src="${A("troie-warrior.png")}" style="height:104mm"/></div>
     <div style="border:1px solid rgba(245,240,230,.14);border-radius:10px;background:#f5f0e6;display:flex;align-items:center;justify-content:center;height:120mm"><img src="${A("troie-warrior-ink.png")}" style="height:104mm"/></div>
   </div>
-  <div class="foot" style="color:rgba(245,240,230,.4);border-top-color:rgba(245,240,230,.14)"><span>TROIE Studio</span><span>04 — Emblème</span></div>
+  <div class="foot" style="color:rgba(245,240,230,.4);border-top-color:rgba(245,240,230,.14)"><span>TROIE Studio</span><span>04, Emblème</span></div>
 </div>
 
 </body></html>`;

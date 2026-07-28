@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   const pack = PACKS.find((p) => p.slug === slug);
   if (!pack) return {};
   return {
-    title: `${pack.badge} · ${pack.title}, TROIE Prompts Vault`,
+    title: `${pack.badge}, ${pack.title}, TROIE Prompts Vault`,
     description: pack.body,
     alternates: {
       canonical: `https://troiestudio.fr/formations/prompts/${pack.slug}`,
@@ -132,7 +132,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
           <div className="grid gap-16 md:grid-cols-12 md:gap-12 lg:gap-20">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                {pack.badge} · {pack.sub} · accès à vie
+                {pack.badge}, {pack.sub}, accès à vie
               </p>
               <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px]">
                 {pack.title}
@@ -145,7 +145,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                   subject={subjectForPack(pack.badge)}
                   className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 >
-                  Acheter ce pack · 29 €
+                  Acheter ce pack, 29 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </ObfuscatedEmail>
                 <a
@@ -174,7 +174,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                     <path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4Z" />
                   </svg>
                   <span className="absolute bottom-3 right-3 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]/65">
-                    Item · pending
+                    Item, pending
                   </span>
                 </div>
                 <div className="p-6 md:p-8">
@@ -195,7 +195,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                           {p.title}
                           {p.freePreview && (
                             <span className={`ml-2 font-mono text-[9px] uppercase tracking-[0.22em] ${t.badgeText}`}>
-                              · preview gratuit
+                             , preview gratuit
                             </span>
                           )}
                         </span>
@@ -205,14 +205,14 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                   <div className={`mt-6 flex items-end justify-between border-t pt-5 ${t.rule}`}>
                     <p className="t-display text-3xl md:text-4xl">29 €</p>
                     <p className={`font-mono text-[10px] uppercase tracking-[0.22em] ${t.meta}`}>
-                      Accès à vie · MAJ libres
+                      Accès à vie, MAJ libres
                     </p>
                   </div>
                   <ObfuscatedEmail
                     subject={subjectForPack(pack.badge)}
                     className={`group mt-6 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
                   >
-                    Acheter · 29 €
+                    Acheter, 29 €
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                   </ObfuscatedEmail>
                 </div>
@@ -266,7 +266,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                           isFree ? "text-[var(--accent)]" : "text-[var(--fg-2)]/55"
                         }`}
                       >
-                        {isFree ? "Preview gratuit" : "Locked · 29 €"}
+                        {isFree ? "Preview gratuit" : "Locked, 29 €"}
                       </span>
                     </div>
                     <div className="mt-6 grid gap-6 md:grid-cols-2">
@@ -329,7 +329,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                             subject={subjectForPack(pack.badge)}
                             className="group mt-6 inline-flex w-full items-center justify-center gap-3 bg-[var(--ink)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                           >
-                            Acheter le pack · 29 €
+                            Acheter le pack, 29 €
                             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                           </ObfuscatedEmail>
                         </div>
@@ -362,7 +362,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
             Les autres packs
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Bundle des 5 packs · 99 € au lieu de 145 €.
+            Bundle des 5 packs, 99 € au lieu de 145 €.
           </h2>
 
           <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8 lg:grid-cols-4">
@@ -397,7 +397,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
               href="/formations/prompts#bundle"
               className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--accent)]"
             >
-              Voir le bundle complet · 99 €
+              Voir le bundle complet, 99 €
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </Link>
           </div>
@@ -425,7 +425,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
                   subject={subjectForPack(pack.badge)}
                   className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
-                  Acheter ce pack · 29 €
+                  Acheter ce pack, 29 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </ObfuscatedEmail>
                 <Link

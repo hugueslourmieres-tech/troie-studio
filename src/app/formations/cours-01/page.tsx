@@ -8,7 +8,7 @@ const COURSE_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Course",
   "@id": "https://troiestudio.fr/formations/cours-01#course",
-  name: "Cours 01 · Maîtriser ChatGPT & Claude",
+  name: "Cours 01, Maîtriser ChatGPT & Claude",
   description:
     "4 modules, 90 minutes de vidéo, 25 prompts livrés, accès à vie. Équipez votre premier héros IA en une soirée.",
   url: "https://troiestudio.fr/formations/cours-01",
@@ -37,9 +37,9 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
 const FALLBACK_SUBJECT = "Cours 01 - TROIE-START";
 
 export const metadata = {
-  title: "Cours 01 · Maîtriser ChatGPT & Claude, TROIE Formations",
+  title: "Cours 01, Maîtriser ChatGPT & Claude, TROIE Formations",
   description:
-    "4 modules · 90 min de vidéo · 25 prompts livrés · accès à vie. Équipez votre premier héros IA en 1 soirée. 99 €.",
+    "4 modules, 90 min de vidéo, 25 prompts livrés, accès à vie. Équipez votre premier héros IA en 1 soirée. 99 €.",
   alternates: {
     canonical: "https://troiestudio.fr/formations/cours-01",
   },
@@ -50,13 +50,13 @@ const MODULES = [
     badge: "Module 1",
     title: "Les 5 patterns de prompts qui marchent.",
     lecons: [
-      "Pattern RTCF (Role · Task · Context · Format)",
+      "Pattern RTCF (Role, Task, Context, Format)",
       "Few-shot prompting : 2-5 exemples qui calent la sortie",
       "Chain-of-thought : raisonner avant de répondre",
       "Constraint prompting : forcer un format strict",
       "Critique then iterate : auto-correction en 2 passes",
     ],
-    duree: "25 min · 8 démos pratiques",
+    duree: "25 min, 8 démos pratiques",
   },
   {
     badge: "Module 2",
@@ -68,7 +68,7 @@ const MODULES = [
       "Résister aux prompt injections",
       "5 templates prêts à coller dans votre Custom GPT",
     ],
-    duree: "30 min · 5 templates livrés",
+    duree: "30 min, 5 templates livrés",
   },
   {
     badge: "Module 3",
@@ -85,7 +85,7 @@ const MODULES = [
       "Compta simplifiée mensuelle",
       "Traduction de site en 5 langues sans perdre la voix",
     ],
-    duree: "25 min · 25 prompts bibliothèque",
+    duree: "25 min, 25 prompts bibliothèque",
   },
   {
     badge: "Module 4",
@@ -97,7 +97,7 @@ const MODULES = [
       "Quand redémarrer une conversation",
       "Calculer le ROI de votre stack au bout de 30 jours",
     ],
-    duree: "10 min · checklist sécurité",
+    duree: "10 min, checklist sécurité",
   },
 ];
 
@@ -166,7 +166,7 @@ export default function Cours01Page() {
           <div className="grid gap-16 md:grid-cols-12 md:gap-12 lg:gap-20">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Cours 01 · Entry · paiement unique · accès à vie
+                Cours 01, Entry, paiement unique, accès à vie
               </p>
               <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px]">
                 Maîtriser ChatGPT &{" "}
@@ -181,7 +181,7 @@ export default function Cours01Page() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <BuyButton
                   product="cours-01"
-                  label="Acheter · 99 € · accès à vie"
+                  label="Acheter, 99 €, accès à vie"
                   fallbackSubject={FALLBACK_SUBJECT}
                   className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 />
@@ -194,7 +194,7 @@ export default function Cours01Page() {
               </div>
             </div>
 
-            {/* Résumé produit · sticky-like card */}
+            {/* Résumé produit, sticky-like card */}
             <div className="md:col-span-5 md:pt-8">
               <div className="rounded-sm border border-[var(--fg)]/15 bg-[var(--bg-2)] p-6 md:p-8">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
@@ -204,11 +204,11 @@ export default function Cours01Page() {
                   99 €
                 </h2>
                 <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
-                  Paiement unique · accès à vie · garantie 14 j
+                  Paiement unique, accès à vie, garantie 14 j
                 </p>
                 <ul className="mt-6 space-y-2.5">
                   {[
-                    "4 modules · 90 min de vidéo",
+                    "4 modules, 90 min de vidéo",
                     "25 prompts métier livrés",
                     "5 templates System Prompts",
                     "30 questions QCM avec explications",
@@ -229,7 +229,7 @@ export default function Cours01Page() {
                 </ul>
                 <BuyButton
                   product="cours-01"
-                  label="Acheter · 99 €"
+                  label="Acheter, 99 €"
                   fallbackSubject={FALLBACK_SUBJECT}
                   className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--ink)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 />
@@ -257,32 +257,32 @@ export default function Cours01Page() {
           <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8">
             <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg)] p-8 md:p-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-2)]/65">
-                Avant · LV. 12
+                Avant, LV. 12
               </p>
               <h3 className="t-display mt-4 text-2xl text-[var(--fg)]/75 md:text-3xl">
                 Vous copiez des prompts d'internet.
               </h3>
               <ul className="mt-6 space-y-2.5 text-sm leading-relaxed text-[var(--fg-2)]/85">
-                <li>· Vous re-expliquez tout, à chaque fois.</li>
-                <li>· Le ton n'est jamais le votre.</li>
-                <li>· Vous corrigez plus que vous ne produisez.</li>
-                <li>· Les hallucinations vous piègent.</li>
-                <li>· Vous perdez 30 min à chaque tâche complexe.</li>
+                <li>– Vous re-expliquez tout, à chaque fois.</li>
+                <li>– Le ton n'est jamais le votre.</li>
+                <li>– Vous corrigez plus que vous ne produisez.</li>
+                <li>– Les hallucinations vous piègent.</li>
+                <li>– Vous perdez 30 min à chaque tâche complexe.</li>
               </ul>
             </div>
             <div className="rounded-sm border border-[var(--accent)] bg-[var(--ink)] p-8 text-[#f5f0e6] md:p-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Après · LV. 76+
+                Après, LV. 76+
               </p>
               <h3 className="t-display mt-4 text-2xl md:text-3xl">
                 Votre IA arrive déjà configurée.
               </h3>
               <ul className="mt-6 space-y-2.5 text-sm leading-relaxed text-[#f5f0e6]/85">
-                <li>· Vos Custom GPTs / Projects ont VOTRE ton.</li>
-                <li>· Vous savez quand utiliser quel pattern.</li>
-                <li>· Sortie de secours : zéro hallucination subie.</li>
-                <li>· Vous publiez en 5 min ce qui prenait 30 min.</li>
-                <li>· Vos données restent sécurisées.</li>
+                <li>– Vos Custom GPTs / Projects ont VOTRE ton.</li>
+                <li>– Vous savez quand utiliser quel pattern.</li>
+                <li>– Sortie de secours : zéro hallucination subie.</li>
+                <li>– Vous publiez en 5 min ce qui prenait 30 min.</li>
+                <li>– Vos données restent sécurisées.</li>
               </ul>
             </div>
           </div>
@@ -295,7 +295,7 @@ export default function Cours01Page() {
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Le programme · 4 modules + bonus 0
+            Le programme, 4 modules + bonus 0
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             Vous apprenez ce qui marche en pratique.
@@ -312,10 +312,10 @@ export default function Cours01Page() {
               <div className="grid gap-6 md:grid-cols-12 md:gap-10">
                 <div className="md:col-span-3">
                   <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                    Module 0 · Gratuit
+                    Module 0, Gratuit
                   </p>
                   <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                    15 min · sans inscription
+                    15 min, sans inscription
                   </p>
                 </div>
                 <div className="md:col-span-9">
@@ -460,7 +460,7 @@ export default function Cours01Page() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <BuyButton
                   product="cours-01"
-                  label="Acheter · 99 € · accès à vie"
+                  label="Acheter, 99 €, accès à vie"
                   fallbackSubject={FALLBACK_SUBJECT}
                   className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 />

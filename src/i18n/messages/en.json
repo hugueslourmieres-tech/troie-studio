@@ -29,12 +29,12 @@
     "heroToolsAriaLabel": "Tools used by TROIE",
     "introEyebrow": "AI ✦ digital studio",
     "introTitle": "Make AI your|best hire.",
-    "heroCtaAudit": "Free audit · 30 min",
+    "heroCtaAudit": "Free audit, 30 min",
     "heroCtaAttestation": "Your AI Act attestation",
     "heroCtaHouse": "Discover my house",
     "introBody": "Diagnostics, training and supervised AI agent deployment, EU AI Act compliance included, for French-speaking SMBs. And to embody your brands: media, websites and e-commerce, studio-made.",
     "introMore": "See the detail",
-    "creationEyebrow": "03 · Creative",
+    "creationEyebrow": "03, Creative",
     "creationTitle": "Web, app, image and video.",
     "creationBody": "We craft the digital products and visual content that give shape to your brand. Websites, mobile apps, web apps, graphic identity, photography, video, e-commerce and generative creation.",
     "creationItems": [
@@ -46,7 +46,7 @@
       "Visual identity, logo, complete graphic charter",
       "AI-generated creation (image, video, voice)"
     ],
-    "strategyEyebrow": "02 · Strategy",
+    "strategyEyebrow": "02, Strategy",
     "strategyTitle": "Communication and digital marketing.",
     "strategyBody": "We support your brand, market and acquisition decisions: from brand platform to media plan, from SEO to paid.",
     "strategyItems": [
@@ -57,7 +57,7 @@
       "Paid media: Meta, Google, LinkedIn, TikTok",
       "Social media, e-commerce, conversion"
     ],
-    "trainingEyebrow": "01 · Training",
+    "trainingEyebrow": "01, Training",
     "trainingTitle": "Mastering AI tools.",
     "trainingBody": "We train your teams on AI tools and deploy your autonomous agents. E-learning platform with quizzes and tracking, in-house or open enrollment, in France or remote.",
     "trainingItems": [
@@ -95,7 +95,7 @@
     "ctaTitle": "Let's talk about your project.",
     "ctaSubtitle": "A thirty-minute call to understand your need and propose an approach.",
     "ctaButton": "Book a call",
-    "agentsEyebrow": "04 · Agents",
+    "agentsEyebrow": "04, Agents",
     "agentsTitle": "Three agents born of Olympus.",
     "agentsIntro": "Hermes opens. Achilles conquers. Hestia tends. Three figures of antiquity at the service of your brand: one agent to win customers, one to produce without pause, one to tend your hearth.",
     "agentsCta": "Discover the agents",
@@ -247,7 +247,7 @@
   "formations": {
     "metaTitle": "AI training for teams. TROIE Atelier Digital",
     "metaDescription": "Short, hands-on training on AI tools. Three programs, in-house or open enrolment, in France or remote. Free 30-minute audit.",
-    "heroEyebrow": "03 · Training",
+    "heroEyebrow": "03, Training",
     "heroTitle": "Mastering AI tools.",
     "heroSubtitle": "Train your teams on a working level of AI, without losing the brand bar. Three programs, in-house or open enrolment, in France or remote.",
     "ctaPrimary": "Request an in-house quote",
@@ -392,7 +392,7 @@
     "stats": [
       {
         "value": "3 agents",
-        "label": "Sell · Produce · Retain"
+        "label": "Sell, Produce, Retain"
       },
       {
         "value": "24 / 7",
@@ -434,19 +434,19 @@
     "methodTitle": "Four steps, never more.",
     "methodSteps": [
       {
-        "title": "01 · Audit",
+        "title": "01, Audit",
         "body": "30 minutes on the phone to understand your volumes, your tools, your voice. No strings attached."
       },
       {
-        "title": "02 · Brief & setup",
+        "title": "02, Brief & setup",
         "body": "We write your brand brief, wire your tools, calibrate the agent. Two to four weeks depending on the agent."
       },
       {
-        "title": "03 · Go-live",
+        "title": "03, Go-live",
         "body": "The agent ships. TROIE human supervision for 30 days. Daily tuning."
       },
       {
-        "title": "04 · Autonomy",
+        "title": "04, Autonomy",
         "body": "You keep the keys, the workflow, the prompts. TROIE stays on subscription support, never lock-in."
       }
     ],

@@ -3,9 +3,9 @@
  * ─────────────────────────────────────────────────────────────────────
  * Trois figures de l'Antiquité au service des marques :
  *
- *   01 · HERMÈS  , messager / commerce / éloquence  →  agent commercial
- *   02 · ACHILLE , héros invincible de l'Iliade     →  agent éditorial
- *   03 · HESTIA  , déesse du foyer et de la flamme  →  agent SAV
+ *   01, HERMÈS  , messager / commerce / éloquence  →  agent commercial
+ *   02, ACHILLE , héros invincible de l'Iliade     →  agent éditorial
+ *   03, HESTIA  , déesse du foyer et de la flamme  →  agent SAV
  *
  * À éditer ici quand les valeurs réelles sont décidées :
  *

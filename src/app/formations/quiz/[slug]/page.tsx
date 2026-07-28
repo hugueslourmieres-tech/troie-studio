@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: { params: Params }) {
   const quiz = getQuiz(slug);
   return {
     title: quiz
-      ? `${quiz.title} · QCM gratuit · TROIE`
-      : "QCM · TROIE Formations",
+      ? `${quiz.title}, QCM gratuit, TROIE`
+      : "QCM, TROIE Formations",
     description: quiz?.description,
     alternates: {
       canonical: `https://troiestudio.fr/formations/quiz/${slug}`,
@@ -87,7 +87,7 @@ export default async function QuizPage({ params }: { params: Params }) {
       <header className="mt-6">
         <div className="flex flex-wrap items-center gap-3">
           <span className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            {quiz.category === "perso" ? "Perso" : "Pro"} · {quiz.tagline}
+            {quiz.category === "perso" ? "Perso" : "Pro"}, {quiz.tagline}
           </span>
           {quiz.locked && (
             <span className="border border-[var(--rule)] px-2 py-1 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">

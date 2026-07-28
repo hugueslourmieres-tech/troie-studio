@@ -19,7 +19,7 @@ const SOURCE_URL =
 
 const COPY = {
   fr: {
-    eyebrow: "Conformité · échéance 2 août 2026",
+    eyebrow: "Conformité, échéance 2 août 2026",
     title: "AI Act : vous êtes concerné.",
     body: "Le règlement européen sur l'IA concerne toute organisation qui fournit, importe, distribue ou déploie des systèmes d'IA, même via des outils gratuits. Depuis février 2025, il demande d'agir sur les compétences IA des équipes. Le 2 août 2026, les autorités peuvent contrôler et sanctionner.",
     ctaPrimary: "Se former sur l'AI Act",
@@ -30,7 +30,7 @@ const COPY = {
     articleSlug: "ai-act-controlable-2-aout-2026",
   },
   en: {
-    eyebrow: "Compliance · August 2, 2026",
+    eyebrow: "Compliance, August 2, 2026",
     title: "The EU AI Act concerns you.",
     body: "The EU AI regulation applies to any organisation that provides, imports, distributes or deploys AI systems, even through free tools. Since February 2025, it asks organisations to act on their teams' AI literacy. On August 2, 2026, authorities can audit and sanction.",
     ctaPrimary: "Train on the AI Act",
@@ -118,7 +118,7 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
                 <OfficialEmblems url={SOURCE_URL} />
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/45">
                   {c.meta}
-                  {" · "}
+                  {", "}
                   <a
                     href={SOURCE_URL}
                     target="_blank"

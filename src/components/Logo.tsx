@@ -9,7 +9,7 @@ import { Emblem } from "./Emblem";
  * Variants:
  *   - "wordmark"        : "TROIE" seul (header simple)
  *   - "wordmark-emblem" : guerrier + "TROIE" inline (header default)
- *   - "stack"           : guerrier au-dessus + "TROIE" + ligne + "STUDIO · PARIS" (footer / signature)
+ *   - "stack"           : guerrier au-dessus + "TROIE" + ligne + "STUDIO, PARIS" (footer / signature)
  *   - "mark"            : juste "TR" texte (favicon, très petit usage)
  */
 export function Logo({

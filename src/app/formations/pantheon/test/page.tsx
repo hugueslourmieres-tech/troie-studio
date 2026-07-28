@@ -27,7 +27,7 @@ export default function PantheonTestPage() {
       <div className="mx-auto max-w-7xl px-6 pb-24 md:px-12 md:pb-32">
         <header className="mx-auto max-w-3xl">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Le Panthéon · Test d&apos;ascension
+            Le Panthéon, Test d&apos;ascension
           </p>
           <h1 className="t-display mt-6 text-4xl leading-[1.05] text-[var(--fg)] md:text-6xl">
             Vous n&apos;allez pas apprendre l&apos;IA. Vous allez devenir un dieu.

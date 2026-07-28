@@ -1,5 +1,5 @@
 -- ────────────────────────────────────────────────────────────────────
--- TROIE Formations — Facturation Stripe
+-- TROIE Formations, Facturation Stripe
 --
 -- A exécuter dans le SQL Editor de Supabase APRES schema.sql.
 -- Ajoute : idempotence des webhooks + référence Stripe sur les accès.

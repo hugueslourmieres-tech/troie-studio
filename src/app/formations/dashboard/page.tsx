@@ -7,7 +7,7 @@ import { STARTER_QUIZZES } from "../quizzes";
 import { Mascot } from "@/components/Mascot";
 
 export const metadata = {
-  title: "Vue d'ensemble · Espace membre TROIE",
+  title: "Vue d'ensemble, Espace membre TROIE",
   robots: { index: false, follow: false },
 };
 
@@ -88,7 +88,7 @@ export default async function DashboardOverview() {
       <section className="flex items-start justify-between gap-6">
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Espace membre · vue d'ensemble
+            Espace membre, vue d'ensemble
           </p>
           <h1 className="t-display mt-4 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             {firstName ? `Bon retour, ${firstName}.` : "Bon retour."}
@@ -165,7 +165,7 @@ export default async function DashboardOverview() {
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="min-w-0 flex-1">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
-                  {startCourse.title} · {startCourse.price_cents === 0 ? "gratuit" : "inclus"}
+                  {startCourse.title}, {startCourse.price_cents === 0 ? "gratuit" : "inclus"}
                 </p>
                 <h2 className="t-display mt-3 text-2xl text-[var(--fg)] md:text-3xl">
                   {startModule.title}
@@ -188,7 +188,7 @@ export default async function DashboardOverview() {
       <section>
         <div className="flex items-baseline justify-between">
           <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Mes cours · {accessible.length} actifs
+            Mes cours, {accessible.length} actifs
           </p>
           <Link
             href="/formations/dashboard/courses"
@@ -226,7 +226,7 @@ export default async function DashboardOverview() {
                 <div className="mt-5">
                   <div className="flex items-baseline justify-between font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
                     <span>
-                      {prog.done}/{prog.total} modules · {c.duration_min} min
+                      {prog.done}/{prog.total} modules, {c.duration_min} min
                     </span>
                     <span className="text-[var(--accent)]">{pct} %</span>
                   </div>
@@ -275,7 +275,7 @@ export default async function DashboardOverview() {
       <section>
         <div className="flex items-baseline justify-between">
           <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Vos QCM · débloqués
+            Vos QCM, débloqués
           </p>
           <Link
             href="/formations/quiz"
@@ -321,7 +321,7 @@ export default async function DashboardOverview() {
       <section>
         <div className="flex items-baseline justify-between">
           <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Trophées · {recentTrophies.length} / 10 débloqués
+            Trophées, {recentTrophies.length} / 10 débloqués
           </p>
           <Link
             href="/formations/dashboard/trophies"
@@ -367,7 +367,7 @@ function TrophyCardInline({
         {trophy.description}
       </p>
       <p className="mt-3 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-        {trophy.tier} · {trophy.xp_reward} XP {unlocked ? "✓ obtenu" : ""}
+        {trophy.tier}, {trophy.xp_reward} XP {unlocked ? "✓ obtenu" : ""}
       </p>
     </div>
   );

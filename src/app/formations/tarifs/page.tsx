@@ -5,7 +5,7 @@ import { BILLING_PRODUCTS, formatEuros } from "@/lib/billing/catalog";
 import { JsonLd, ORG_ID } from "@/components/JsonLd";
 
 export const metadata = {
-  title: "Tarifs · TROIE Formations IA",
+  title: "Tarifs, TROIE Formations IA",
   description:
     "Cours en ligne IA à l'unité (accès à vie) ou en abonnement tout catalogue. QCM gratuits pour commencer, paiement sécurisé Stripe.",
   alternates: { canonical: "https://troiestudio.fr/formations/tarifs" },
@@ -63,13 +63,13 @@ export default function TarifsPage() {
           {/* Cours à l'unité */}
           <div className="flex flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-8 md:p-10">
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
-              À l&apos;unité · accès à vie
+              À l&apos;unité, accès à vie
             </p>
             <h2 className="t-display mt-5 text-3xl">Un cours, pour toujours.</h2>
             <div className="mt-8 space-y-6">
               <div className="border-t border-[var(--rule)] pt-6">
                 <div className="flex items-baseline justify-between gap-4">
-                  <p className="text-base font-medium">Cours 01 · ChatGPT &amp; Claude</p>
+                  <p className="text-base font-medium">Cours 01, ChatGPT &amp; Claude</p>
                   <p className="t-display text-2xl">{formatEuros(cours01.amountCents)}</p>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)]">
@@ -84,7 +84,7 @@ export default function TarifsPage() {
               </div>
               <div className="border-t border-[var(--rule)] pt-6">
                 <div className="flex items-baseline justify-between gap-4">
-                  <p className="text-base font-medium">Cours 02 · Workflows IA</p>
+                  <p className="text-base font-medium">Cours 02, Workflows IA</p>
                   <p className="t-display text-2xl">{formatEuros(cours02.amountCents)}</p>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)]">
@@ -103,7 +103,7 @@ export default function TarifsPage() {
           {/* Abonnement, mis en avant */}
           <div className="relative flex flex-col rounded-sm border border-[var(--accent)] bg-[var(--ink)] p-8 text-[var(--bg)] md:p-10">
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
-              Abonnement · 7 jours gratuits
+              Abonnement, 7 jours gratuits
             </p>
             <h2 className="t-display mt-5 text-3xl text-[var(--bg)]">
               Tout, en continu.
@@ -122,7 +122,7 @@ export default function TarifsPage() {
             </div>
             <BuyButton
               product={mensuel.key}
-              label="S'abonner · mensuel"
+              label="S'abonner, mensuel"
               fallbackSubject="Abonnement"
               className={`${CARD_BTN} bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--bg)] hover:text-[var(--fg)]`}
             />
@@ -137,7 +137,7 @@ export default function TarifsPage() {
               </div>
               <BuyButton
                 product={annuel.key}
-                label="S'abonner · annuel"
+                label="S'abonner, annuel"
                 fallbackSubject="Abonnement annuel"
                 className={`${CARD_BTN} border border-[var(--bg)]/30 text-[var(--bg)] hover:border-[var(--bg)] hover:bg-[var(--bg)] hover:text-[var(--fg)]`}
               />
@@ -173,7 +173,7 @@ export default function TarifsPage() {
               rel="noreferrer"
               className={`${CARD_BTN} mt-auto bg-[var(--ink)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#1a1714]`}
             >
-              Audit gratuit · 30 min
+              Audit gratuit, 30 min
             </a>
           </div>
         </div>

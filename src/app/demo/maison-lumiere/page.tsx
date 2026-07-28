@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Maison Lumière · Hôtel & Rooftop, Riviera",
+  title: "Maison Lumière, Hôtel & Rooftop, Riviera",
   robots: { index: false, follow: false },
 };
 
@@ -57,7 +57,7 @@ export default function MaisonLumiere() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/30 to-black/65" />
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
           <p className="text-[11px] uppercase tracking-[0.42em] text-white/80">
-            Hôtel & Rooftop · Riviera
+            Hôtel & Rooftop, Riviera
           </p>
           <h1 style={serif} className="mt-7 max-w-4xl text-5xl font-light leading-[1.04] md:text-7xl lg:text-[5.25rem]">
             Le luxe, en bord de mer.
@@ -232,7 +232,7 @@ export default function MaisonLumiere() {
           <div>
             <p style={serif} className="text-lg tracking-[0.18em] text-[#22201b]">MAISON LUMIÈRE</p>
             <p className="mt-3 text-sm font-light text-[#6a6356]">
-              12 promenade des Anglais · Nice · Riviera française
+              12 promenade des Anglais, Nice, Riviera française
             </p>
           </div>
           <div className="text-sm font-light text-[#6a6356]">
@@ -242,7 +242,7 @@ export default function MaisonLumiere() {
         </div>
         <div className="border-t border-[#22201b]/10">
           <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-[11px] uppercase tracking-[0.2em] text-[#9a9183] md:flex-row md:items-center md:justify-between md:px-10">
-            <span>Démonstration · Marque fictive · Images Unsplash</span>
+            <span>Démonstration, Marque fictive, Images Unsplash</span>
             <a href="https://troiestudio.fr" className="transition hover:text-[#b08d57]">
               Site réalisé par TROIE Studio →
             </a>

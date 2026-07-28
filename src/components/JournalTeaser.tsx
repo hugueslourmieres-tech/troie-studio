@@ -74,7 +74,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
                   {/* Texte à droite */}
                   <div>
                     <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                      {a.readingMinutes} min · {formatDate(a.date, locale)}{c.frOnly}
+                      {a.readingMinutes} min, {formatDate(a.date, locale)}{c.frOnly}
                     </p>
                     <h3 className="t-display mt-3 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-3xl lg:text-[34px]">
                       {a.cardTitle ?? a.title}

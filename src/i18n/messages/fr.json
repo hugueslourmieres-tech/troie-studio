@@ -30,11 +30,11 @@
     "introEyebrow": "Atelier digital ✦ IA",
     "introTitle": "Faites de l'IA votre|meilleure recrue.",
     "introBody": "Diagnostic, formation et déploiement d'agents IA supervisés, conformité AI Act incluse, pour les PME francophones. Et pour incarner vos marques : médias, sites web et e-commerce, faits en atelier.",
-    "heroCtaAudit": "Audit gratuit · 30 min",
+    "heroCtaAudit": "Audit gratuit, 30 min",
     "heroCtaAttestation": "Votre attestation AI Act",
     "heroCtaHouse": "Découvrir ma maison",
     "introMore": "Voir le détail",
-    "creationEyebrow": "03 · Création",
+    "creationEyebrow": "03, Création",
     "creationTitle": "Web, app, image et vidéo.",
     "creationBody": "Nous fabriquons les contenus et produits digitaux qui incarnent vos marques. Site web, application mobile, web app, identité graphique, photographie, vidéo, e-commerce et création générative.",
     "creationItems": [
@@ -46,7 +46,7 @@
       "Identité visuelle, logo, charte graphique complète",
       "Création par intelligence artificielle (image, vidéo, voix)"
     ],
-    "strategyEyebrow": "02 · Stratégie",
+    "strategyEyebrow": "02, Stratégie",
     "strategyTitle": "Communication et marketing digital.",
     "strategyBody": "Nous accompagnons vos décisions de marque, de marché et d'acquisition : de la plateforme de marque au plan media, du SEO au paid.",
     "strategyItems": [
@@ -57,7 +57,7 @@
       "Paid media : Meta, Google, LinkedIn, TikTok",
       "Réseaux sociaux, e-commerce, conversion"
     ],
-    "trainingEyebrow": "01 · Formation",
+    "trainingEyebrow": "01, Formation",
     "trainingTitle": "Maîtriser les outils IA.",
     "trainingBody": "Nous formons vos équipes aux outils d'IA et déployons vos agents autonomes. Plateforme e-learning avec QCM et suivi, format intra ou inter, en France ou en remote.",
     "trainingItems": [
@@ -95,7 +95,7 @@
     "ctaTitle": "Parlons de votre projet.",
     "ctaSubtitle": "Un échange de trente minutes pour comprendre votre besoin et vous proposer une approche.",
     "ctaButton": "Prendre rendez-vous",
-    "agentsEyebrow": "04 · Agents",
+    "agentsEyebrow": "04, Agents",
     "agentsTitle": "Trois agents nés de l'Olympe.",
     "agentsIntro": "Hermès ouvre. Achille conquiert. Hestia veille. Trois figures de l'Antiquité au service de votre marque : un agent pour gagner des clients, un pour produire sans relâche, un pour veiller sur votre foyer.",
     "agentsCta": "Découvrir les agents",
@@ -247,7 +247,7 @@
   "formations": {
     "metaTitle": "Formations IA pour entreprise. TROIE Atelier Digital",
     "metaDescription": "Formations courtes et opérationnelles aux outils d'intelligence artificielle. Trois programmes, format intra ou inter, en France ou en remote. Audit gratuit 30 minutes.",
-    "heroEyebrow": "03 · Formation",
+    "heroEyebrow": "03, Formation",
     "heroTitle": "Maîtriser les outils IA.",
     "heroSubtitle": "Former vos équipes à une intelligence artificielle opérationnelle, sans dégrader le niveau de marque. Trois programmes, format intra ou inter, en France ou en remote.",
     "ctaPrimary": "Demander un devis intra",
@@ -392,7 +392,7 @@
     "stats": [
       {
         "value": "3 agents",
-        "label": "Vendre · Produire · Fidéliser"
+        "label": "Vendre, Produire, Fidéliser"
       },
       {
         "value": "24 / 7",
@@ -434,19 +434,19 @@
     "methodTitle": "Quatre étapes, jamais plus.",
     "methodSteps": [
       {
-        "title": "01 · Audit",
+        "title": "01, Audit",
         "body": "30 minutes au téléphone pour comprendre vos volumes, vos outils, votre ton. Sans engagement."
       },
       {
-        "title": "02 · Brief & setup",
+        "title": "02, Brief & setup",
         "body": "On rédige votre brief de marque, on connecte vos outils, on calibre l'agent. Deux à quatre semaines selon l'agent."
       },
       {
-        "title": "03 · Mise en route",
+        "title": "03, Mise en route",
         "body": "L'agent passe en production. Supervision humaine TROIE pendant 30 jours. Ajustements quotidiens."
       },
       {
-        "title": "04 · Autonomie",
+        "title": "04, Autonomie",
         "body": "Vous gardez la main, le workflow, les prompts. TROIE reste en support sur abonnement, jamais en lock-in."
       }
     ],

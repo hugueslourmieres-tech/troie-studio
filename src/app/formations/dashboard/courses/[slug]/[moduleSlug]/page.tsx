@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Params }) {
   const course = MOCK_COURSES.find((c) => c.slug === slug);
   const mod = MOCK_MODULES[slug]?.find((m) => m.slug === moduleSlug);
   return {
-    title: mod ? `${mod.title} · ${course?.title}` : "Module · TROIE",
+    title: mod ? `${mod.title}, ${course?.title}` : "Module, TROIE",
     robots: { index: false, follow: false },
   };
 }
@@ -74,7 +74,7 @@ export default async function ModuleViewerPage({ params }: { params: Params }) {
           ← {course.title}
         </Link>
         <p className="mt-8 font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Module {String(idx + 1).padStart(2, "0")} · {mod.duration_min} min
+          Module {String(idx + 1).padStart(2, "0")}, {mod.duration_min} min
         </p>
         <h1 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-5xl">
           {mod.title}
@@ -104,7 +104,7 @@ export default async function ModuleViewerPage({ params }: { params: Params }) {
               <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" />
             </svg>
             <p className="font-mono text-[10px] uppercase tracking-[0.32em]">
-              Vidéo · à venir
+              Vidéo, à venir
             </p>
           </div>
         </div>

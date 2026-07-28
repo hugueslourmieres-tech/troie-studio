@@ -41,7 +41,7 @@ export async function sendAccessEmail({
             Connectez-vous avec l'adresse utilisée pour l'achat
             (${to}). Une question ? Répondez simplement à cet email.
           </p>
-          <p style="font-size: 12px; color: #8a8470;">TROIE Studio · Nice, Côte d'Azur · troiestudio.fr</p>
+          <p style="font-size: 12px; color: #8a8470;">TROIE Studio, Nice, Côte d'Azur, troiestudio.fr</p>
         </div>
       `,
     });

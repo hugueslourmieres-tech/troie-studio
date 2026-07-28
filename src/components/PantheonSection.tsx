@@ -19,10 +19,10 @@ const ORDER: HouseSlug[] = ["hermes", "athena", "achille", "hestia"];
 
 /** Canal principal que chaque maison fait grandir. */
 const CHANNELS: Record<HouseSlug, string> = {
-  hermes: "CRM · Prospection",
-  athena: "SEO · SEA",
+  hermes: "CRM, Prospection",
+  athena: "SEO, SEA",
   achille: "Réseaux sociaux",
-  hestia: "Support · Opérations",
+  hestia: "Support, Opérations",
 };
 
 /** Un chiffre par maison, repris des tâches déjà publiées et sourcées sur /ia. */
@@ -162,7 +162,7 @@ export function PantheonSection() {
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </Link>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/65">
-            5 questions · votre sésame par email
+            5 questions, votre sésame par email
           </p>
         </div>
       </div>
@@ -184,10 +184,10 @@ function GrowthChart() {
     endY: number;
     color: string;
   }[] = [
-    { slug: "hermes", label: "CRM · Hermès", d: "M44 254 C 330 251, 545 190, 598 40", endY: 40, color: "#f37b22" },
-    { slug: "achille", label: "Réseaux sociaux · Achille", d: "M44 254 C 330 251, 550 208, 598 85", endY: 85, color: "#b4552d" },
-    { slug: "athena", label: "SEO / SEA · Athéna", d: "M44 254 C 335 252, 555 222, 598 130", endY: 130, color: "#1a1714" },
-    { slug: "hestia", label: "Support · Hestia", d: "M44 254 C 340 253, 560 236, 598 175", endY: 175, color: "#1f3a34" },
+    { slug: "hermes", label: "CRM, Hermès", d: "M44 254 C 330 251, 545 190, 598 40", endY: 40, color: "#f37b22" },
+    { slug: "achille", label: "Réseaux sociaux, Achille", d: "M44 254 C 330 251, 550 208, 598 85", endY: 85, color: "#b4552d" },
+    { slug: "athena", label: "SEO / SEA, Athéna", d: "M44 254 C 335 252, 555 222, 598 130", endY: 130, color: "#1a1714" },
+    { slug: "hestia", label: "Support, Hestia", d: "M44 254 C 340 253, 560 236, 598 175", endY: 175, color: "#1f3a34" },
   ];
 
   return (

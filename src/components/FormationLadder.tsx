@@ -43,7 +43,7 @@ const PACKS: Pack[] = [
     title: "Abonnement",
     strike: "29 €",
     price: "Gratuit",
-    unit: "7 jours, puis 29 € / mois · sans engagement",
+    unit: "7 jours, puis 29 € / mois, sans engagement",
     body: "L'accès complet à la plateforme pour apprendre l'IA à votre rythme, sur de vrais cas.",
     bullets: [
       "Tous les cours, actuels et à venir",
@@ -72,11 +72,11 @@ const PACKS: Pack[] = [
     step: "02",
     title: "Cours à vie",
     price: "dès 99 €",
-    unit: "paiement unique · accès à vie",
+    unit: "paiement unique, accès à vie",
     body: "Un cours complet, à vous pour toujours, mises à jour incluses. Sans abonnement.",
     bullets: [
-      "Maîtriser ChatGPT & Claude · 99 €",
-      "Workflows IA & agents · 297 €",
+      "Maîtriser ChatGPT & Claude, 99 €",
+      "Workflows IA & agents, 297 €",
       "25 à 100 prompts métier livrés",
       "Garantie satisfait ou remboursé 14 jours",
     ],
@@ -101,7 +101,7 @@ const PACKS: Pack[] = [
     step: "03",
     title: "Équipes & entreprises",
     price: "dès 990 €",
-    unit: "formation intra · agents IA · AI Act",
+    unit: "formation intra, agents IA, AI Act",
     body: "On forme vos équipes sur leurs cas réels et on déploie vos agents, conformité incluse.",
     bullets: [
       "Formation intra, en France ou remote",

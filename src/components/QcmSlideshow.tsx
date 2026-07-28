@@ -84,7 +84,7 @@ export function QcmSlideshow({ quizzes }: { quizzes: QcmSlide[] }) {
         </p>
         <h3 className="t-display mt-2 text-2xl text-[#f6ead4]">{active.title}</h3>
         <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[#f6ead4]/55">
-          {active.level} · {active.minutes} min
+          {active.level}, {active.minutes} min
         </p>
 
         <div className="mt-5 flex items-center justify-between">

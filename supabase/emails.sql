@@ -1,5 +1,5 @@
 -- ────────────────────────────────────────────────────────────────────
--- TROIE Formations — Journal des emails de cycle de vie
+-- TROIE Formations, Journal des emails de cycle de vie
 --
 -- A exécuter dans le SQL Editor de Supabase APRES schema.sql.
 -- Garantit qu'un email d'un type donné n'est envoyé qu'une fois par

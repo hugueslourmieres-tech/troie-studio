@@ -51,7 +51,7 @@ export default function PantheonOverviewPage() {
             href="/formations/pantheon/test"
             className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
           >
-            Faire le test · gratuit
+            Faire le test, gratuit
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </Link>
           <a
@@ -78,8 +78,8 @@ export default function PantheonOverviewPage() {
             ))}
           </div>
           <p className="mt-10 font-mono text-[9px] uppercase tracking-[0.18em] text-[#f5f0e6]/45">
-            Études marketing solopreneurs 2026 (Mirra, AgentMinds, Enrich Labs) ·
-            Nielsen Norman Group · AgencyAnalytics 2026
+            Études marketing solopreneurs 2026 (Mirra, AgentMinds, Enrich Labs),
+            Nielsen Norman Group, AgencyAnalytics 2026
           </p>
         </div>
       </section>

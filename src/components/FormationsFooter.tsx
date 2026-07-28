@@ -13,7 +13,7 @@ const INSTAGRAM_URL = "https://www.instagram.com/troiestudio/";
 export function FormationsFooter() {
   const COLS: { title: string; links: { label: string; href: string }[] }[] = [
     {
-      title: "Se former · perso",
+      title: "Se former, perso",
       links: [
         { label: "QCM gratuits", href: "/formations/quiz" },
         { label: "Boutique de prompts", href: "/formations/prompts" },
@@ -21,9 +21,9 @@ export function FormationsFooter() {
       ],
     },
     {
-      title: "Se former · entreprise",
+      title: "Se former, entreprise",
       links: [
-        { label: "TROIE · IA Pro", href: "/ia" },
+        { label: "TROIE, IA Pro", href: "/ia" },
         { label: "Parcours pro", href: "/formations#pro" },
       ],
     },
@@ -129,11 +129,11 @@ export function FormationsFooter() {
 
         <div className="mt-14 flex flex-wrap items-baseline justify-between gap-4 border-t border-[var(--rule)] pt-6">
           <a href={MAIN_SITE} className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/75 transition hover:text-[var(--accent)] md:text-[11px]">
-            Studio créatif · troiestudio.fr
+            Studio créatif, troiestudio.fr
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </a>
           <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-            © 2026 TROIE Studio · Atelier digital
+            © 2026 TROIE Studio, Atelier digital
           </p>
         </div>
       </div>

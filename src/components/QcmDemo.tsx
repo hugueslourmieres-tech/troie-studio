@@ -10,7 +10,7 @@ export function QcmDemo() {
       {/* Carte QCM */}
       <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 shadow-[0_30px_60px_-30px_rgba(26,23,20,0.35)] md:p-8">
         <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--fg-2)]/60">
-          <span>QCM · Comprendre l&apos;IA</span>
+          <span>QCM, Comprendre l&apos;IA</span>
           <span>Question 3 / 10</span>
         </div>
 

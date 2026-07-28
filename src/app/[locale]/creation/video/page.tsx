@@ -3,8 +3,8 @@ import { ContactCTA } from "@/components/ContactCTA";
 import { VIDEOS } from "@/lib/data/videos";
 
 const REELS = [
-  { src: "/images/creation/video/gs.mp4", label: "Grand Sud · reel" },
-  { src: "/images/creation/video/monaco.mp4", label: "Monaco · présentation" },
+  { src: "/images/creation/video/gs.mp4", label: "Grand Sud, reel" },
+  { src: "/images/creation/video/monaco.mp4", label: "Monaco, présentation" },
   { src: "/images/creation/video/exact2.mp4", label: "X-Rite eXact 2" },
   { src: "/images/creation/video/ferrari.mp4", label: "Ferrari Auctions" },
 ];
@@ -20,7 +20,7 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   return {
-    title: "Vidéo · Création",
+    title: "Vidéo, Création",
     description:
       "Production vidéo B2B pour marques et industries : films de marque, reels, présentations produit, captations d'événements et témoignages clients.",
     alternates: {
@@ -41,7 +41,7 @@ export default async function VideoPage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-20">
-        <p className="t-eyebrow">Création · Vidéo</p>
+        <p className="t-eyebrow">Création, Vidéo</p>
         <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
           Vidéo.
         </h1>

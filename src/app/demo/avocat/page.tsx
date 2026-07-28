@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cabinet Vasseur & Associés · Avocats",
+  title: "Cabinet Vasseur & Associés, Avocats",
   robots: { index: false, follow: false },
 };
 
@@ -175,7 +175,7 @@ export default function Avocat() {
               recontactons sous 24 heures pour fixer un premier entretien.
             </p>
             <div className="mt-10 space-y-3 text-sm font-light text-[#46505f]">
-              <p>14 rue de France · 06000 Nice</p>
+              <p>14 rue de France, 06000 Nice</p>
               <p>+33 4 00 00 00 00</p>
               <p>contact@vasseur-associes.fr</p>
             </div>
@@ -198,11 +198,11 @@ export default function Avocat() {
       <footer className="border-t border-[#1a2230]/12 bg-[#f6f3ec]">
         <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between md:px-10">
           <span style={serif} className="text-lg tracking-[0.12em] text-[#1a2230]">VASSEUR &amp; ASSOCIÉS</span>
-          <p className="text-sm font-light text-[#56606f]">Avocats · Barreau de Nice · 06000</p>
+          <p className="text-sm font-light text-[#56606f]">Avocats, Barreau de Nice, 06000</p>
         </div>
         <div className="border-t border-[#1a2230]/10">
           <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-5 text-[11px] uppercase tracking-[0.2em] text-[#8a8470] md:flex-row md:items-center md:justify-between md:px-10">
-            <span>Exemple · Marque fictive · Images Unsplash</span>
+            <span>Exemple, Marque fictive, Images Unsplash</span>
             <a href="https://troiestudio.fr" className="transition hover:text-[#a8843f]">Site réalisé par TROIE Studio →</a>
           </div>
         </div>

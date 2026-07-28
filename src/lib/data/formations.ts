@@ -77,7 +77,7 @@ export const PROGRAMMES: Programme[] = [
     },
     deliverables: {
       fr: "Bibliothèque de prompts prête à l'emploi, attestation de formation.",
-      en: "Ready-to-use prompt library, training certificate.",
+      en: "Ready-to-use prompt library, training attestation.",
     },
     prerequisites: {
       fr: "Aucun. Apporter un ordinateur portable.",
@@ -131,7 +131,7 @@ export const PROGRAMMES: Programme[] = [
     },
     deliverables: {
       fr: "Workflow documenté, presets et settings, attestation.",
-      en: "Documented workflow, presets and settings, certificate.",
+      en: "Documented workflow, presets and settings, attestation.",
     },
     prerequisites: {
       fr: "Niveau Découverte ou usage régulier d'un outil IA texte.",
@@ -185,7 +185,7 @@ export const PROGRAMMES: Programme[] = [
     },
     deliverables: {
       fr: "Feuille de route, 1 à 2 automatisations en production, attestation.",
-      en: "Roadmap, 1 to 2 automations in production, certificate.",
+      en: "Roadmap, 1 to 2 automations in production, attestation.",
     },
     prerequisites: {
       fr: "Niveau Pratique. Accès aux outils internes ciblés.",

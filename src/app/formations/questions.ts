@@ -195,7 +195,7 @@ export const COURSE_01_PREVIEW: QuizQuestion[] = [
    ───────────────────────────────────────────────────────────────────── */
 
 export const COURSE_01_FULL: QuizQuestion[] = [
-  // ── Module 1 · 5 patterns de prompts reutilisables ──────────────
+  // ── Module 1, 5 patterns de prompts reutilisables ──────────────
   {
     id: "c01-m1-q1",
     prompt: "Le pattern 'role + contexte + tâche + format' s'appelle ?",
@@ -265,7 +265,7 @@ export const COURSE_01_FULL: QuizQuestion[] = [
       "Pattern puissant : 'réponds, puis liste 3 problèmes potentiels de ta réponse, puis refais-la en corrigeant ces problèmes'. Le modèle produit souvent une v2 nettement meilleure. Équivalent du 'réfléchir avant de parler' mais sur le rendu final.",
   },
 
-  // ── Module 2 · System prompts a coller ──────────────────────────
+  // ── Module 2, System prompts a coller ──────────────────────────
   {
     id: "c01-m2-q1",
     prompt: "Le system prompt est :",
@@ -376,7 +376,7 @@ export const COURSE_01_FULL: QuizQuestion[] = [
       "Température contrôle la créativité. 0 = déterministe (mathématique, code). 0.7-0.9 = sweet spot pour contenu (varié mais cohérent). 1+ = peut partir en cacahuètes. Sur Claude il n'y a pas de température explicite dans l'app web mais le modèle est calé à un équivalent ~0.7.",
   },
 
-  // ── Module 3 · 10 cas d'usage solo ──────────────────────────────
+  // ── Module 3, 10 cas d'usage solo ──────────────────────────────
   {
     id: "c01-m3-q1",
     prompt:
@@ -515,7 +515,7 @@ export const COURSE_01_FULL: QuizQuestion[] = [
       "Traduction qualité éditoriale : Claude (meilleur que GPT et Gemini sur la nuance) + system prompt 'voix de marque' + un glossaire de 50 termes (vos mots clés, vos noms propres, votre style) + 3 pages bilingues de référence. Résultat publiable à 90 %, édition humaine sur les 10 % restants.",
   },
 
-  // ── Module 4 · Limites & sécurité ────────────────────────────────
+  // ── Module 4, Limites & sécurité ────────────────────────────────
   {
     id: "c01-m4-q1",
     prompt: "Ne JAMAIS coller dans un LLM en mode chat web :",
@@ -571,7 +571,7 @@ export const COURSE_01_FULL: QuizQuestion[] = [
       "Un contexte pollué (longue conversation, plusieurs corrections successives) fait souvent boucler le modèle. Réflexe pro : repartir d'une conversation neuve, avec le bon system prompt et un seul prompt clair. Souvent la réponse est meilleure en 30 sec qu'après 1 h de tâtonnement.",
   },
 
-  // ── Module 5 · Pratique ──────────────────────────────────────────
+  // ── Module 5, Pratique ──────────────────────────────────────────
   {
     id: "c01-m5-q1",
     prompt:
@@ -655,7 +655,7 @@ export const COURSE_02_PREVIEW: QuizQuestion[] = [
    ───────────────────────────────────────────────────────────────────── */
 
 export const COURSE_02_FULL: QuizQuestion[] = [
-  // ── Module 5 · Make & Zapier basics (10 q) ──────────────────────
+  // ── Module 5, Make & Zapier basics (10 q) ──────────────────────
   {
     id: "c02-m5-q1",
     prompt: "Un 'scénario' dans Make c'est :",
@@ -790,7 +790,7 @@ export const COURSE_02_FULL: QuizQuestion[] = [
       "L'IA peut produire du texte mal formaté (JSON cassé, longueur dépasse la limite). Un module de validation (regex, parsing JSON safe) avant le 'send' évite d'envoyer du n'importe quoi à vos clients.",
   },
 
-  // ── Module 6 · Agents persistants (12 q) ─────────────────────────
+  // ── Module 6, Agents persistants (12 q) ─────────────────────────
   {
     id: "c02-m6-q1",
     prompt: "Un 'agent IA persistant' (vs un simple chatbot) c'est :",
@@ -953,7 +953,7 @@ export const COURSE_02_FULL: QuizQuestion[] = [
       "Mettez du code partout où la règle est claire (format email validé, montant > 0, statut = 'payé'). Réservez le LLM pour ce qui demande du jugement. Cette discipline fait passer la fiabilité de 80 % à 99 %.",
   },
 
-  // ── Module 7 · Pipeline lead → mail → relance (15 q) ───────────
+  // ── Module 7, Pipeline lead → mail → relance (15 q) ───────────
   {
     id: "c02-m7-q1",
     prompt:
@@ -1159,7 +1159,7 @@ export const COURSE_02_FULL: QuizQuestion[] = [
       "ROI honnête : combien de RDV NETS (sans le pipeline) en moins, x taux de closing, x ticket. Moins ce que vous payez (API, Make, votre temps de setup). Résultat positif sous 60-90 jours = pipeline réussi.",
   },
 
-  // ── Module 8 · MCPs essentiels (12 q) ────────────────────────────
+  // ── Module 8, MCPs essentiels (12 q) ────────────────────────────
   {
     id: "c02-m8-q1",
     prompt: "MCP = Model Context Protocol. Inventeur :",
@@ -1318,7 +1318,7 @@ export const COURSE_02_FULL: QuizQuestion[] = [
       "Règle d'or : un agent qui peut LIRE n'importe quoi mais ÉCRIRE/AGIR via 1 seul canal validable. Réduit drastiquement le blast radius si l'agent hallucine ou est détourné.",
   },
 
-  // ── Module 9 · Workflows business complets (15 q) ───────────────
+  // ── Module 9, Workflows business complets (15 q) ───────────────
   {
     id: "c02-m9-q1",
     prompt: "Workflow 'lead-to-booking' :",
@@ -1515,7 +1515,7 @@ export const COURSE_02_FULL: QuizQuestion[] = [
       "Surveillance temps réel des mentions sur 4-5 plateformes, analyse de sentiment (pos/neg/neutre), alerte sur les négatives, réponse semi-auto sur les positives. Brand management moderne.",
   },
 
-  // ── Module 10 · Monitoring & sécurité (8 q) ─────────────────────
+  // ── Module 10, Monitoring & sécurité (8 q) ─────────────────────
   {
     id: "c02-m10-q1",
     prompt: "Pour monitorer la santé d'un agent persistant :",

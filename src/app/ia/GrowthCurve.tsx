@@ -74,7 +74,7 @@ export function GrowthCurve() {
       {/* Growth curve SVG */}
       <div className="mt-8 border-t border-[var(--fg)]/15 pt-6">
         <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80">
-          <span>Sans IA / Avec IA · 12 mois</span>
+          <span>Sans IA / Avec IA, 12 mois</span>
           <span className="text-[var(--accent)]">+ 156 % bénéfices</span>
         </div>
 
@@ -164,7 +164,7 @@ export function GrowthCurve() {
       {/* Verified study stats, consolides */}
       <div className="mt-6 border-t border-[var(--fg)]/15 pt-6">
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Chiffres vérifiés · etudes 2026
+          Chiffres vérifiés, etudes 2026
         </p>
         <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 md:grid-cols-4">
           {VERIFIED.map((v) => (

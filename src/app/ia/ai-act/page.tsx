@@ -130,7 +130,7 @@ export default function AiActPage() {
             href="/ia"
             className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
           >
-            ← TROIE · IA Pro
+            ← TROIE, IA Pro
           </Link>
           <a
             href={CAL_URL}
@@ -138,7 +138,7 @@ export default function AiActPage() {
             rel="noreferrer"
             className="inline-flex items-center gap-2.5 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
-            Audit gratuit · 30 min
+            Audit gratuit, 30 min
           </a>
         </div>
       </header>
@@ -150,7 +150,7 @@ export default function AiActPage() {
       <section className="mx-auto max-w-7xl px-6 pt-20 pb-16 md:px-12 md:pt-28 md:pb-24">
         <GreekMark
           letter="Α"
-          label="Conformité · Règlement (UE) 2024/1689"
+          label="Conformité, Règlement (UE) 2024/1689"
           letterClassName="text-[2.4rem] leading-[0.7] md:text-[2.9rem] text-[var(--accent)]"
           labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]"
         />
@@ -171,7 +171,7 @@ export default function AiActPage() {
             rel="noreferrer"
             className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
           >
-            Vérifier ma situation · gratuit
+            Vérifier ma situation, gratuit
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </a>
           <Link
@@ -257,7 +257,7 @@ export default function AiActPage() {
               </div>
             ))}
             <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#f5f0e6]/50 md:col-span-3">
-              Pour les PME, le montant retenu est le moindre des deux. La bonne nouvelle : la conformité coûte deux ordres de grandeur de moins.
+              Pour les PME, le montant retenu est le moindre des deux. L&apos;article 4 (littératie) n&apos;est pas dans cette liste : l&apos;article 99 ne prévoit pas d&apos;amende dédiée. La bonne nouvelle : la conformité coûte deux ordres de grandeur de moins.
             </p>
           </div>
         </div>
@@ -379,7 +379,7 @@ export default function AiActPage() {
             une analyse opposable, consultez votre conseil.
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/55">
-            TROIE Studio · Nice · <Link href="/ia" className="underline underline-offset-4 hover:text-[var(--accent)]">ia.troiestudio.fr</Link>
+            TROIE Studio, Nice, <Link href="/ia" className="underline underline-offset-4 hover:text-[var(--accent)]">ia.troiestudio.fr</Link>
           </p>
         </div>
       </footer>

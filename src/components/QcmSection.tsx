@@ -69,7 +69,7 @@ export function QcmSection() {
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </span>
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
-                  Gratuit · {quiz.minutes} min
+                  Gratuit, {quiz.minutes} min
                 </span>
               </div>
             </div>

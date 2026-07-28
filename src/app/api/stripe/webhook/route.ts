@@ -225,7 +225,13 @@ export async function POST(request: NextRequest) {
     case "customer.subscription.deleted": {
       const sub = event.data.object;
       const userId = sub.metadata?.user_id ?? null;
-      if (!userId) break;
+      if (!userId) {
+        // Un abonnement résilié depuis le dashboard Stripe peut arriver sans
+        // nos métadonnées : l'accès courrait alors jusqu'à expires_at sans
+        // qu'on le sache. Au moins le dire, comme pour la session orpheline.
+        console.error("[stripe] resiliation sans user_id", { event: event.id, sub: sub.id });
+        break;
+      }
 
       const { error: cutError } = await admin
         .from("user_course_access")
@@ -281,6 +287,59 @@ export async function POST(request: NextRequest) {
           .eq("course_slug", slug)
           .eq("source", "purchase");
         check(`revocation apres remboursement ${slug} pour ${userId}`, error);
+      }
+
+      /*
+       * Pack équipe remboursé : le même trou que l'unitaire, en 4 à 8 fois
+       * plus cher. `grants` est vide pour les packs, la boucle ci-dessus ne
+       * touche donc rien : il faut désamorcer ce que le pack a distribué.
+       * Ordre : couper les accès des membres (source = "team", posés par
+       * /api/equipe/rejoindre), puis supprimer les sièges (les codes
+       * d'invitation cessent d'exister), puis le pack. Rejouable : au
+       * second passage le pack est introuvable et on ne fait rien.
+       */
+      if (product.seats && product.seats > 0) {
+        const stripeRef = typeof session.id === "string" ? session.id : null;
+        const { data: pack, error: packReadError } = await admin
+          .from("team_packs")
+          .select("id")
+          .eq("stripe_ref", stripeRef)
+          .maybeSingle();
+        check(`lecture pack rembourse ${stripeRef}`, packReadError);
+
+        if (pack) {
+          const { data: seats, error: seatsReadError } = await admin
+            .from("team_seats")
+            .select("claimed_by")
+            .eq("pack_id", pack.id)
+            .not("claimed_by", "is", null);
+          check(`lecture sieges du pack rembourse ${pack.id}`, seatsReadError);
+
+          const members = (seats ?? [])
+            .map((s) => s.claimed_by)
+            .filter((x): x is string => typeof x === "string");
+          for (const memberId of members) {
+            const { error } = await admin
+              .from("user_course_access")
+              .update({ expires_at: new Date().toISOString() })
+              .eq("user_id", memberId)
+              .eq("course_slug", "aiact")
+              .eq("source", "team");
+            check(`revocation siege rembourse pour ${memberId}`, error);
+          }
+
+          const { error: seatsDelError } = await admin
+            .from("team_seats")
+            .delete()
+            .eq("pack_id", pack.id);
+          check(`suppression sieges du pack ${pack.id}`, seatsDelError);
+
+          const { error: packDelError } = await admin
+            .from("team_packs")
+            .delete()
+            .eq("id", pack.id);
+          check(`suppression pack rembourse ${pack.id}`, packDelError);
+        }
       }
       break;
     }

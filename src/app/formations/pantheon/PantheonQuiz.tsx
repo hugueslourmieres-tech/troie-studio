@@ -113,7 +113,7 @@ export function PantheonQuiz() {
           {saveState === "saved" && (
             <p className="text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                Sésame envoyé ·
+                Sésame envoyé,
               </span>{" "}
               Votre sésame pour l&apos;Olympe arrive par email, et votre blason
               est accroché dans{" "}

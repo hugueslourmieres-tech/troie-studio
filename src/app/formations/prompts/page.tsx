@@ -10,7 +10,7 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
 const SUBJECT_BUNDLE = "TROIE Prompts Vault - Bundle 5 packs 99";
 
 export const metadata = {
-  title: "System Prompts · La boutique TROIE, 5 packs métier, prêts à coller",
+  title: "System Prompts, La boutique TROIE, 5 packs métier, prêts à coller",
   description:
     "25 system prompts métier prêts à coller dans ChatGPT, Claude, Gemini. 5 packs de 5 prompts. 29 € le pack, 99 € le bundle complet.",
   alternates: {
@@ -29,7 +29,7 @@ const PACKS = [
     slug: "freelance",
     badge: "Pack 01",
     title: "Freelance Indépendant.",
-    sub: "Sales · admin · com'",
+    sub: "Sales, admin, com'",
     body: "Le strict minimum pour ne plus perdre de temps sur la paperasse + la prospection + la com'. Tout dans votre voix.",
     prompts: [
       "Devis personnalisé, généré à partir d'un brief client + votre grille",
@@ -45,7 +45,7 @@ const PACKS = [
     slug: "marketing",
     badge: "Pack 02",
     title: "Marketing & Growth.",
-    sub: "Ads · contenu · perf",
+    sub: "Ads, contenu, perf",
     body: "Pour ceux qui font tourner les campagnes, les briefs et le reporting. Réduisez de 70 % le temps de prod créative.",
     prompts: [
       "Campagne Meta Ads, angle, audience, copy, 3 variantes A/B",
@@ -61,7 +61,7 @@ const PACKS = [
     slug: "ecommerce",
     badge: "Pack 03",
     title: "E-commerce & SaaS.",
-    sub: "Support · sales · produit",
+    sub: "Support, sales, produit",
     body: "Pour les boîtes qui scalent. Support tier-1 automatique, notes de sales call structurées, briefs produit propres.",
     prompts: [
       "Support client tier-1, 5 langues, première réponse propre",
@@ -77,7 +77,7 @@ const PACKS = [
     slug: "design",
     badge: "Pack 04",
     title: "Design & Créatif.",
-    sub: "Brief · feedback · scope",
+    sub: "Brief, feedback, scope",
     body: "Pour ceux qui créent. Cadrer le brief, gérer les retours, éviter le scope creep, sans y passer la nuit.",
     prompts: [
       "Brief créatif structuré, du dump client à un brief signable",
@@ -93,7 +93,7 @@ const PACKS = [
     slug: "coding",
     badge: "Pack 05",
     title: "Coding & Tech.",
-    sub: "Code review · architecture · docs",
+    sub: "Code review, architecture, docs",
     body: "Pour les devs solo ou en équipe. Code review pertinents, architecture documentée, PRs propres.",
     prompts: [
       "Code review TROIE, vrai feedback, pas du 'lgtm'",
@@ -184,7 +184,7 @@ export default function PromptsPage() {
       <section className="relative border-b border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 pt-24 pb-24 md:px-12 md:pt-32 md:pb-32">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            La boutique · system prompts · capital pour démarrer
+            La boutique, system prompts, capital pour démarrer
           </p>
           <h1 className="t-display mt-8 max-w-5xl text-5xl text-[var(--fg)] md:text-7xl lg:text-[88px]">
             Le system prompt. Le{" "}
@@ -250,7 +250,7 @@ export default function PromptsPage() {
       <section id="packs" className="border-t border-[var(--rule)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Catalogue · 5 packs métier
+            Catalogue, 5 packs métier
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             Cinq packs. Une mission par métier.
@@ -346,7 +346,7 @@ export default function PromptsPage() {
                         <path d={p.icon} />
                       </svg>
                       <span className="absolute bottom-3 right-3 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--accent)]/65">
-                        Item · pending
+                        Item, pending
                       </span>
                     </div>
                   )}
@@ -386,14 +386,14 @@ export default function PromptsPage() {
                       <div className="flex items-end justify-between">
                         <p className="t-display text-2xl md:text-3xl">29 €</p>
                         <p className={`font-mono text-[9px] uppercase tracking-[0.22em] ${t.meta}`}>
-                          Accès à vie · MAJ libres
+                          Accès à vie, MAJ libres
                         </p>
                       </div>
                       <Link
                         href={`/formations/prompts/${p.slug}`}
                         className={`group mt-5 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
                       >
-                        Voir le détail · 29 €
+                        Voir le détail, 29 €
                         <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                       </Link>
                     </div>
@@ -430,7 +430,7 @@ export default function PromptsPage() {
               </div>
               <div className="flex flex-col p-8 md:col-span-7 md:p-12">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/85">
-                  Bundle complet · 5 packs
+                  Bundle complet, 5 packs
                 </p>
                 <h3 className="t-display mt-4 text-4xl md:text-5xl lg:text-6xl">
                   Toute la bibliothèque. 25 prompts. 1 prix.
@@ -442,7 +442,7 @@ export default function PromptsPage() {
                   </p>
                 </div>
                 <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/70">
-                  Économie de 46 € · accès à vie · MAJ libres
+                  Économie de 46 €, accès à vie, MAJ libres
                 </p>
                 <p className="mt-6 text-base leading-relaxed text-[#1a1714]/85 md:text-lg">
                   Les 5 packs ensemble. 25 system prompts couvrant
@@ -469,7 +469,7 @@ export default function PromptsPage() {
                     subject={SUBJECT_BUNDLE}
                     className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                   >
-                    Acheter le bundle · 99 €
+                    Acheter le bundle, 99 €
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                   </ObfuscatedEmail>
                 </div>
@@ -495,7 +495,7 @@ export default function PromptsPage() {
             {HOW.map((s) => (
               <li key={s.title} className="border-t border-[var(--rule)] pt-6">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  {s.n} ·
+                  {s.n}.
                 </p>
                 <h3 className="t-display mt-4 text-2xl text-[var(--fg)] md:text-[28px]">
                   {s.title}
@@ -567,14 +567,14 @@ export default function PromptsPage() {
                   subject={SUBJECT_BUNDLE}
                   className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 >
-                  Acheter le bundle · 99 €
+                  Acheter le bundle, 99 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </ObfuscatedEmail>
                 <Link
                   href="/formations/cours-01"
                   className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:text-[var(--bg)]"
                 >
-                  Ou aller plus loin avec Cours 01 (97 €) →
+                  Ou aller plus loin avec Cours 01 (99 €) →
                 </Link>
               </div>
             </div>

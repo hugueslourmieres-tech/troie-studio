@@ -69,7 +69,7 @@ export async function generateMetadata({
     metadataBase: new URL("https://troiestudio.fr"),
     title: {
       default: title,
-      template: `%s · ${t("name")}`,
+      template: `%s, ${t("name")}`,
     },
     description,
     keywords: isFr

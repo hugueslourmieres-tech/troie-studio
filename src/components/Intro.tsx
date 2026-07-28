@@ -196,7 +196,7 @@ function MetierBox({ metier, index }: { metier: Métier; index: number }) {
         href={metier.path.startsWith("/") ? metier.path : `/${locale}/${metier.path}`}
         className="group relative flex h-full flex-col bg-[var(--bg)] p-8 transition-colors hover:bg-[var(--bg-2)] md:p-10"
       >
-        {/* Index + label (re-using the eyebrow which already reads "01 · Création") */}
+        {/* Index + label (re-using the eyebrow which already reads "01, Création") */}
         <span className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)]/60">
           {t(`${metier.slug}Eyebrow`)}
         </span>

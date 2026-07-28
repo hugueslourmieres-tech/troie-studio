@@ -67,7 +67,7 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
     }
     return {
       primary: {
-        label: "Cours 02 · Workflows IA",
+        label: "Cours 02, Workflows IA",
         sub: "MCPs, agents persistants, pipelines",
         href: "/formations/cours-02",
         price: "Sur devis",
@@ -93,7 +93,7 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
     }
     return {
       primary: {
-        label: "Cours 01 · Maîtriser ChatGPT & Claude",
+        label: "Cours 01, Maîtriser ChatGPT & Claude",
         sub: "4 modules + 25 prompts + 5 templates",
         href: "/formations/cours-01",
         price: "Sur devis",
@@ -107,7 +107,7 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
     if (goal === "workflow") {
       return {
         primary: {
-          label: "Cours 02 · Workflows IA",
+          label: "Cours 02, Workflows IA",
           sub: "MCPs, agents persistants, automatisation",
           href: "/formations/cours-02",
           price: "Sur devis",
@@ -143,7 +143,7 @@ function getReco(profile: Profile, level: Level, goal: Goal): Reco {
   }
   return {
     primary: {
-      label: "Cours 02 · Workflows IA",
+      label: "Cours 02, Workflows IA",
       sub: "Si vous maîtrisez déjà les prompts pro",
       href: "/formations/cours-02",
       price: "Sur devis",
@@ -189,7 +189,7 @@ export function FormationFitting() {
     <div className="relative rounded-sm border border-[var(--fg)]/15 bg-[var(--bg)]/40 p-6 md:p-8">
       <div className="flex items-center justify-between">
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Fitting personnalisé · 3 questions
+          Fitting personnalisé, 3 questions
         </p>
         {allAnswered && (
           <button
@@ -214,7 +214,7 @@ export function FormationFitting() {
             {/* Q1, Profil */}
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-2)]/70">
-                01 · Votre profil
+                01, Votre profil
               </p>
               <div className="mt-3 grid gap-2 md:grid-cols-3">
                 {PROFILE_OPTS.map((o) => (
@@ -242,7 +242,7 @@ export function FormationFitting() {
             {/* Q2, Niveau */}
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-2)]/70">
-                02 · Votre niveau IA
+                02, Votre niveau IA
               </p>
               <div className="mt-3 grid gap-2 md:grid-cols-3">
                 {LEVEL_OPTS.map((o) => (
@@ -270,7 +270,7 @@ export function FormationFitting() {
             {/* Q3, Objectif */}
             <div>
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-2)]/70">
-                03 · Votre objectif
+                03, Votre objectif
               </p>
               <div className="mt-3 grid gap-2 md:grid-cols-3">
                 {GOAL_OPTS.map((o) => (

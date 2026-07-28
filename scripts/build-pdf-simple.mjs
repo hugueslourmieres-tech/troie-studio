@@ -60,15 +60,15 @@ const HTML = `<!doctype html><html><head><meta charset="utf8">${FONTS}
 
   <p class="eyebrow" style="margin-top:13mm">Typographie</p>
   <div style="border-top:1px solid rgba(26,23,20,.12);padding-top:6mm">
-    <div class="label">Titrage — Bodoni Moda</div>
+    <div class="label">Titrage, Bodoni Moda</div>
     <div style="font-family:'Bodoni Moda',serif;font-size:40px;margin-top:6px">Atelier digital, IA d'abord.</div>
   </div>
   <div style="border-top:1px solid rgba(26,23,20,.12);padding-top:5mm;margin-top:5mm">
-    <div class="label">Labels — JetBrains Mono</div>
-    <div style="font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.24em;text-transform:uppercase;margin-top:6px">01 · Création &nbsp; 02 · Stratégie &nbsp; 03 · Formation</div>
+    <div class="label">Labels, JetBrains Mono</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.24em;text-transform:uppercase;margin-top:6px">01, Création &nbsp; 02, Stratégie &nbsp; 03, Formation</div>
   </div>
   <div style="border-top:1px solid rgba(26,23,20,.12);padding-top:5mm;margin-top:5mm">
-    <div class="label">Courant — Inter</div>
+    <div class="label">Courant, Inter</div>
     <div style="font-family:'Inter';font-size:15px;line-height:1.7;margin-top:6px;max-width:150mm">Studio de création et d'IA basé à Nice. Site web, application, image, stratégie et formation.</div>
   </div>
 </div>

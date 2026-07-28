@@ -12,7 +12,7 @@
  *
  * Montants abonnement : [estimation] à valider par Hugues avant mise
  * en avant marketing. Les one-shot reprennent les prix déjà publiés
- * (97 € / 297 €, seed Supabase et pages cours).
+ * (99 € / 297 €, seed Supabase et pages cours).
  */
 
 export type BillingProduct = {
@@ -49,7 +49,7 @@ export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
    */
   "aiact-unitaire": {
     key: "aiact-unitaire",
-    name: "Conformité AI Act · accès à vie",
+    name: "Conformité AI Act, accès à vie",
     description:
       "Le parcours AI Act complet, l'examen et l'attestation nominative. Accès permanent, sans abonnement.",
     amountCents: 5900,
@@ -58,7 +58,7 @@ export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
   },
   "aiact-pack-5": {
     key: "aiact-pack-5",
-    name: "Pack équipe · 5 accès AI Act",
+    name: "Pack équipe, 5 accès AI Act",
     description:
       "5 accès au parcours AI Act, une attestation nominative vérifiable par personne, liens d'invitation immédiats, facture unique.",
     amountCents: 24900,
@@ -68,7 +68,7 @@ export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
   },
   "aiact-pack-10": {
     key: "aiact-pack-10",
-    name: "Pack équipe · 10 accès AI Act",
+    name: "Pack équipe, 10 accès AI Act",
     description:
       "10 accès au parcours AI Act, une attestation nominative vérifiable par personne, liens d'invitation immédiats, facture unique.",
     amountCents: 44900,
@@ -78,7 +78,7 @@ export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
   },
   "cours-01": {
     key: "cours-01",
-    name: "Cours 01 · Maîtriser ChatGPT & Claude",
+    name: "Cours 01, Maîtriser ChatGPT & Claude",
     description: "4 modules, 90 min, 25 prompts livrés. Accès à vie.",
     amountCents: 9900,
     interval: "one_time",
@@ -86,15 +86,15 @@ export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
   },
   "cours-02": {
     key: "cours-02",
-    name: "Cours 02 · Workflows IA",
-    description: "7 modules, 3 h, Make, MCPs, agents persistants. Accès à vie.",
+    name: "Cours 02, Workflows IA",
+    description: "6 modules, 3 h, Make, MCPs, agents persistants. Accès à vie.",
     amountCents: 29700,
     interval: "one_time",
     grants: ["cours-02"],
   },
   "abo-mensuel": {
     key: "abo-mensuel",
-    name: "Abonnement TROIE Formations · mensuel",
+    name: "Troie Pro, mensuel",
     description: "Tout le catalogue, QCM, prompts et nouveautés. 7 jours d'essai gratuit.",
     amountCents: 2900,
     interval: "month",
@@ -102,7 +102,7 @@ export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
   },
   "abo-annuel": {
     key: "abo-annuel",
-    name: "Abonnement TROIE Formations · annuel",
+    name: "Troie Pro, annuel",
     description: "Tout le catalogue, 2 mois offerts par rapport au mensuel.",
     amountCents: 29000,
     interval: "year",

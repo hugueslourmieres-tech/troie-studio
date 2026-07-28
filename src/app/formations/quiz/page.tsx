@@ -2,7 +2,7 @@ import Link from "next/link";
 import { PERSO_QUIZZES, PRO_QUIZZES, type Quiz } from "../quizzes";
 
 export const metadata = {
-  title: "QCM gratuits · Comprendre et utiliser l'IA · TROIE",
+  title: "QCM gratuits, Comprendre et utiliser l'IA, TROIE",
   description:
     "Des QCM gratuits pour comprendre l'IA, l'utiliser au quotidien et en famille sans danger, puis aller plus loin côté pro. Dès la création de compte.",
   alternates: { canonical: "https://troiestudio.fr/formations/quiz" },
@@ -42,7 +42,7 @@ function QuizCard({ quiz }: { quiz: Quiz }) {
             {quiz.description}
           </p>
           <div className="mt-auto flex items-baseline justify-between pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-            <span>{quiz.audience} · {quiz.questions.length} questions</span>
+            <span>{quiz.audience}, {quiz.questions.length} questions</span>
             <span className="text-[var(--accent)] transition-transform group-hover:translate-x-1">
               Lancer →
             </span>
@@ -58,7 +58,7 @@ export default function QuizCatalogPage() {
     <main className="mx-auto min-h-screen max-w-6xl px-6 pt-28 pb-24 md:px-12 md:pt-36 md:pb-32">
       <header className="max-w-3xl">
         <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          QCM gratuits · sans vidéo, on teste tout de suite
+          QCM gratuits, sans vidéo, on teste tout de suite
         </p>
         <h1 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
           Évaluez, puis apprenez.
@@ -78,7 +78,7 @@ export default function QuizCatalogPage() {
             01
           </span>
           <h2 className="t-display text-3xl text-[var(--fg)] md:text-4xl">
-            Perso · comprendre & utiliser
+            Perso, comprendre & utiliser
           </h2>
         </div>
         <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
@@ -100,7 +100,7 @@ export default function QuizCatalogPage() {
             02
           </span>
           <h2 className="t-display text-3xl text-[var(--fg)] md:text-4xl">
-            Pro · aller plus loin
+            Pro, aller plus loin
           </h2>
         </div>
         <p className="mt-5 max-w-2xl text-sm leading-relaxed text-[var(--fg-2)] md:text-base">

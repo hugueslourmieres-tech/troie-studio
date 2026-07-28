@@ -16,7 +16,7 @@ import { gfsDidot } from "@/lib/greek-font";
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://troiestudio.fr"),
-  title: "TROIE · IA Pro. Formations & agents IA pour vos équipes.",
+  title: "TROIE, IA Pro. Formations & agents IA pour vos équipes.",
   description:
     "Formations courtes, agents IA clés en main, audit gratuit de 30 minutes. L'atelier qui forme et déploie l'IA dans vos équipes, en France et à l'international.",
   alternates: {
@@ -25,23 +25,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://troiestudio.fr/ia",
-    title: "TROIE · IA Pro",
+    title: "TROIE, IA Pro",
     description:
       "Formations courtes et agents IA clés en main pour vos équipes.",
-    siteName: "TROIE · IA Pro",
+    siteName: "TROIE, IA Pro",
     locale: "fr_FR",
     images: [
       {
         url: "/images/brand/og-image.png",
         width: 1200,
         height: 630,
-        alt: "TROIE · IA Pro",
+        alt: "TROIE, IA Pro",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TROIE · IA Pro",
+    title: "TROIE, IA Pro",
     description:
       "Formations courtes et agents IA clés en main pour vos équipes.",
     images: ["/images/brand/og-image.png"],

@@ -1,6 +1,6 @@
-# Module 6 · Agents persistants : mémoire, contexte, garde-fous
+# Module 6, Agents persistants : mémoire, contexte, garde-fous
 
-> **Durée lecture** : 16 min · **Durée vidéo NotebookLM cible** : 20-25 min
+> **Durée lecture** : 16 min, **Durée vidéo NotebookLM cible** : 20-25 min
 
 ## Pourquoi ce module
 
@@ -11,7 +11,7 @@ C'est le passage de "automatisation" à "délégation". Beaucoup plus puissant. 
 
 ---
 
-## Leçon 01 · La différence chatbot vs agent persistant
+## Leçon 01, La différence chatbot vs agent persistant
 
 **Chatbot** : répond à une question, oublie tout après.
 **Agent** : tourne en arrière-plan, mémoire active, peut prendre des initiatives.
@@ -26,7 +26,7 @@ L'agent c'est **8 h × 7 jours** de "présence" intelligente. Le chatbot c'est *
 
 ---
 
-## Leçon 02 · Mémoire d'agent : vectorielle + relationnelle
+## Leçon 02, Mémoire d'agent : vectorielle + relationnelle
 
 ### Mémoire courte (contexte conversation)
 - Stockée dans le context window du LLM
@@ -52,7 +52,7 @@ Combinez les deux :
 
 ---
 
-## Leçon 03 · Pattern ReAct (Reasoning + Acting)
+## Leçon 03, Pattern ReAct (Reasoning + Acting)
 
 ReAct fait alterner le LLM entre raisonnement explicite et action concrète, en plusieurs étapes.
 
@@ -79,7 +79,7 @@ Beaucoup plus précis, beaucoup plus debuggable.
 
 ---
 
-## Leçon 04 · Garde-fous : human-in-the-loop sur l'irréversible
+## Leçon 04, Garde-fous : human-in-the-loop sur l'irréversible
 
 **Règle d'or absolue** : un agent qui peut envoyer un email externe / supprimer une donnée / faire un paiement DOIT avoir un humain dans la boucle pour les 30 premiers jours minimum.
 
@@ -106,7 +106,7 @@ Après 30 jours et un taux d'erreur < 2 %, vous pouvez progressivement loosen (a
 
 ---
 
-## Leçon 05 · Tool use : déclarer des fonctions au modèle
+## Leçon 05, Tool use : déclarer des fonctions au modèle
 
 C'est le **coeur** d'un agent moderne. Vous déclarez des fonctions (search_client, send_mail, read_pdf) au modèle. Lui décide laquelle appeler.
 
@@ -140,7 +140,7 @@ Un MCP = un connecteur réutilisable. Slack, Notion, Gmail, GitHub, etc. ont leu
 
 ---
 
-## Leçon 06 · Pattern plan-then-execute
+## Leçon 06, Pattern plan-then-execute
 
 Pour les tâches longues (50+ étapes), l'agent doit d'abord faire un **plan complet**, puis l'exécuter étape par étape.
 
@@ -173,7 +173,7 @@ Si l'étape 6 échoue, vous savez exactement où reprendre. Pas de "fuck it, on 
 
 ---
 
-## Leçon 07 · La règle 70 code / 30 LLM
+## Leçon 07, La règle 70 code / 30 LLM
 
 Pour qu'un agent soit fiable à 99 %, déléguez au LLM uniquement ce qui demande **vrai jugement**. Mettez du code déterministe partout ailleurs.
 
@@ -200,7 +200,7 @@ C'est la discipline qui sépare un proof-of-concept d'un agent production.
 
 ---
 
-## Leçon 08 · Monitorer un agent en prod
+## Leçon 08, Monitorer un agent en prod
 
 Un agent qui tourne en silence sans monitoring = bombe à retardement.
 

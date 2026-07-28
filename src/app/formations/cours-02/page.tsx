@@ -8,9 +8,9 @@ const COURSE_JSONLD = {
   "@context": "https://schema.org",
   "@type": "Course",
   "@id": "https://troiestudio.fr/formations/cours-02#course",
-  name: "Cours 02 · Workflows IA pour solo & équipe",
+  name: "Cours 02, Workflows IA pour solo & équipe",
   description:
-    "7 modules, 3 h de vidéo, 100 prompts, 10 templates Make, accès à vie. Connectez vos IA à vos outils et construisez des agents persistants.",
+    "6 modules, 3 h de vidéo, 100 prompts, 10 templates Make, accès à vie. Connectez vos IA à vos outils et construisez des agents persistants.",
   url: "https://troiestudio.fr/formations/cours-02",
   inLanguage: "fr",
   provider: { "@id": ORG_ID },
@@ -37,9 +37,9 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
 const FALLBACK_SUBJECT = "Cours 02 - TROIE-MULTI";
 
 export const metadata = {
-  title: "Cours 02 · Workflows IA pour solo & équipe, TROIE Formations",
+  title: "Cours 02, Workflows IA pour solo & équipe, TROIE Formations",
   description:
-    "7 modules · 3 h de vidéo · 100 prompts · 10 templates Make · accès à vie. Connectez vos IA à vos outils, construisez des agents persistants. 297 €.",
+    "6 modules, 3 h de vidéo, 100 prompts, 10 templates Make, accès à vie. Connectez vos IA à vos outils, construisez des agents persistants. 297 €.",
   alternates: {
     canonical: "https://troiestudio.fr/formations/cours-02",
   },
@@ -56,7 +56,7 @@ const MODULES = [
       "Iterators et boucles : traiter 50 leads en 1 scénario",
       "Coût & debugging : faire tourner serein",
     ],
-    duree: "30 min · 5 scénarios livrés",
+    duree: "30 min, 5 scénarios livrés",
   },
   {
     badge: "Module 6",
@@ -69,7 +69,7 @@ const MODULES = [
       "Tool use : déclarer des fonctions au modèle",
       "Code 70 / LLM 30 : la règle de fiabilité",
     ],
-    duree: "40 min · 3 agents templates",
+    duree: "40 min, 3 agents templates",
   },
   {
     badge: "Module 7",
@@ -82,31 +82,31 @@ const MODULES = [
       "Mesurer le ROI : reply rate, RDV, deals closed",
       "Stop-rules : quand sortir un lead du pipeline",
     ],
-    duree: "35 min · pipeline complet livré",
+    duree: "35 min, pipeline complet livré",
   },
   {
     badge: "Module 8",
     title: "Les 8 MCPs stratégiques.",
     lecons: [
       "MCP : ce que c'est, pourquoi ça change tout",
-      "Slack · Notion · Gmail · Figma · GitHub · GA4 · Stripe · Make",
+      "Slack, Notion, Gmail, Figma, GitHub, GA4, Stripe, Make",
       "Scope des permissions : la règle du minimum",
       "Read-only sur 90 %, write sur 1 canal validable",
       "Self-hosted vs SaaS : RGPD strict mode",
     ],
-    duree: "35 min · 8 MCPs setup pas-à-pas",
+    duree: "35 min, 8 MCPs setup pas-à-pas",
   },
   {
     badge: "Module 9",
     title: "10 workflows business clés-en-main.",
     lecons: [
-      "Lead-to-booking · Support tier-1 · Content engine",
-      "Devis dynamique · Veille concurrentielle",
-      "Reporting client mensuel · Transcription meetings",
-      "CRM auto-update · Facturation conforme FR",
-      "SEO content factory · Social listening",
+      "Lead-to-booking, Support tier-1, Content engine",
+      "Devis dynamique, Veille concurrentielle",
+      "Reporting client mensuel, Transcription meetings",
+      "CRM auto-update, Facturation conforme FR",
+      "SEO content factory, Social listening",
     ],
-    duree: "40 min · 10 workflows livrés",
+    duree: "40 min, 10 workflows livrés",
   },
   {
     badge: "Module 10",
@@ -118,7 +118,7 @@ const MODULES = [
       "Déploiement progressif (shadow > A/B > full)",
       "RGPD : durée de conservation des logs",
     ],
-    duree: "25 min · checklist prod complète",
+    duree: "25 min, checklist prod complète",
   },
 ];
 
@@ -187,7 +187,7 @@ export default function Cours02Page() {
           <div className="grid gap-16 md:grid-cols-12 md:gap-12 lg:gap-20">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Cours 02 · Advanced · paiement unique · accès à vie
+                Cours 02, Advanced, paiement unique, accès à vie
               </p>
               <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px]">
                 Workflows IA{" "}
@@ -200,7 +200,7 @@ export default function Cours02Page() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <BuyButton
                   product="cours-02"
-                  label="Acheter · 297 € · accès à vie"
+                  label="Acheter, 297 €, accès à vie"
                   fallbackSubject={FALLBACK_SUBJECT}
                   className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 />
@@ -222,11 +222,11 @@ export default function Cours02Page() {
                   297 €
                 </h2>
                 <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
-                  Paiement unique · accès à vie · garantie 14 j
+                  Paiement unique, accès à vie, garantie 14 j
                 </p>
                 <ul className="mt-6 space-y-2.5">
                   {[
-                    "7 modules · 3 h de vidéo",
+                    "6 modules, 3 h de vidéo",
                     "100 prompts métier livrés",
                     "10 templates Make / n8n",
                     "8 MCPs configurés pas-à-pas",
@@ -248,7 +248,7 @@ export default function Cours02Page() {
                 </ul>
                 <BuyButton
                   product="cours-02"
-                  label="Acheter · 297 €"
+                  label="Acheter, 297 €"
                   fallbackSubject={FALLBACK_SUBJECT}
                   className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--ink)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)]"
                 />
@@ -276,32 +276,32 @@ export default function Cours02Page() {
           <div className="mt-16 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8">
             <div className="rounded-sm border border-[var(--rule)] bg-[var(--bg)] p-8 md:p-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--fg-2)]/65">
-                Avant · LV. 30
+                Avant, LV. 30
               </p>
               <h3 className="t-display mt-4 text-2xl text-[var(--fg)]/75 md:text-3xl">
                 Vous chattez avec votre IA, manuellement.
               </h3>
               <ul className="mt-6 space-y-2.5 text-sm leading-relaxed text-[var(--fg-2)]/85">
-                <li>· Vous copiez-collez entre 5 onglets.</li>
-                <li>· Aucun pipeline qui tourne sans vous.</li>
-                <li>· Vous oubliez les relances.</li>
-                <li>· Le reporting prend votre lundi.</li>
-                <li>· Votre IA ne sait rien de vos outils.</li>
+                <li>– Vous copiez-collez entre 5 onglets.</li>
+                <li>– Aucun pipeline qui tourne sans vous.</li>
+                <li>– Vous oubliez les relances.</li>
+                <li>– Le reporting prend votre lundi.</li>
+                <li>– Votre IA ne sait rien de vos outils.</li>
               </ul>
             </div>
             <div className="rounded-sm border border-[var(--accent)] bg-[var(--ink)] p-8 text-[#f5f0e6] md:p-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Après · LV. 92+
+                Après, LV. 92+
               </p>
               <h3 className="t-display mt-4 text-2xl md:text-3xl">
                 Vos workflows tournent sans vous.
               </h3>
               <ul className="mt-6 space-y-2.5 text-sm leading-relaxed text-[#f5f0e6]/85">
-                <li>· 3 agents persistants gèrent vos tâches récurrentes.</li>
-                <li>· Brief quotidien dans Slack à 8h.</li>
-                <li>· Leads scorés et contactés auto.</li>
-                <li>· Reporting client généré en 5 min.</li>
-                <li>· Votre IA agit dans vos outils 24/7.</li>
+                <li>– 3 agents persistants gèrent vos tâches récurrentes.</li>
+                <li>– Brief quotidien dans Slack à 8h.</li>
+                <li>– Leads scorés et contactés auto.</li>
+                <li>– Reporting client généré en 5 min.</li>
+                <li>– Votre IA agit dans vos outils 24/7.</li>
               </ul>
             </div>
           </div>
@@ -314,7 +314,7 @@ export default function Cours02Page() {
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Le programme · 6 modules avancés
+            Le programme, 6 modules avancés
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             De Make à la prod, sans saut technique.
@@ -445,7 +445,7 @@ export default function Cours02Page() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <BuyButton
                   product="cours-02"
-                  label="Acheter · 297 € · accès à vie"
+                  label="Acheter, 297 €, accès à vie"
                   fallbackSubject={FALLBACK_SUBJECT}
                   className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
                 />

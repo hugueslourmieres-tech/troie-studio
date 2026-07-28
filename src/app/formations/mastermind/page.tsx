@@ -35,7 +35,7 @@ const SUBJECT_MONTHLY = "Mastermind TROIE - Mensuel 49";
 const SUBJECT_ANNUAL = "Mastermind TROIE - Annuel 490";
 
 export const metadata = {
-  title: "Mastermind TROIE · L'abo qui garde votre stack IA à jour, TROIE",
+  title: "Mastermind TROIE, L'abo qui garde votre stack IA à jour, TROIE",
   description:
     "49 €/mois ou 490 €/an. Cours 01 + Cours 02 inclus. Nouveaux prompts mensuels, office hours live, communauté Discord. Restez top tier.",
   alternates: {
@@ -64,12 +64,12 @@ const RYTHMES = [
 
 const INCLUDED = [
   {
-    title: "Cours 01 · Maîtriser ChatGPT & Claude",
-    body: "97 € inclus. 4 modules + 25 prompts livrés. Accès à vie.",
+    title: "Cours 01, Maîtriser ChatGPT & Claude",
+    body: "99 € inclus. 4 modules + 25 prompts livrés. Accès à vie.",
   },
   {
-    title: "Cours 02 · Workflows IA solo & équipe",
-    body: "297 € inclus. 7 modules + 100 prompts + 10 templates + 3 agents. Accès à vie.",
+    title: "Cours 02, Workflows IA solo & équipe",
+    body: "297 € inclus. 6 modules + 100 prompts + 10 templates + 3 agents. Accès à vie.",
   },
   {
     title: "Bibliothèque vivante de prompts",
@@ -92,7 +92,7 @@ const INCLUDED = [
 const FAQ = [
   {
     q: "Quel est l'avantage du Mastermind vs acheter les cours séparés ?",
-    a: "Vous économisez déjà 97 + 297 = 394 € avec le cumul des deux cours (vs 588 € si pris à l'unité). Le plus important : vous restez aligné sur la meta du moment. L'IA bouge vite, un cours acheté il y a 6 mois peut être dépassé sur certains outils. Le Mastermind garantit que votre stack reste pertinente.",
+    a: "Les deux cours valent 99 + 297 = 396 € à l'unité, et ils sont inclus dès le premier mois. Le plus important : vous restez aligné sur la meta du moment. L'IA bouge vite, un cours acheté il y a 6 mois peut être dépassé sur certains outils. Le Mastermind garantit que votre stack reste pertinente.",
   },
   {
     q: "Puis-je annuler quand je veux ?",
@@ -123,7 +123,7 @@ export default function MastermindPage() {
           <div className="grid gap-16 md:grid-cols-12 md:gap-12 lg:gap-20">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Mastermind · abo mensuel · communauté limitée
+                Mastermind, abo mensuel, communauté limitée
               </p>
               <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px]">
                 L'abo qui garde{" "}
@@ -160,11 +160,11 @@ export default function MastermindPage() {
                   49 € / mois
                 </h2>
                 <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714]/70">
-                  ou 490 € / an · 2 mois offerts
+                  ou 490 € / an, 2 mois offerts
                 </p>
                 <ul className="mt-6 space-y-2.5">
                   {[
-                    "Cours 01 (97 €) inclus",
+                    "Cours 01 (99 €) inclus",
                     "Cours 02 (297 €) inclus",
                     "Bibliothèque 500+ prompts vivante",
                     "Office hours 1x / mois live",

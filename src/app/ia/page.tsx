@@ -60,7 +60,7 @@ const SOLO_PACKS = [
   {
     badge: "Pack 01",
     title: "Découverte solo.",
-    duration: "1/2 journée · 4 h",
+    duration: "1/2 journée, 4 h",
     price: "900 €",
     body:
       "Vous partez de zéro. On installe les bons outils, on apprend la méthode, on construit ensemble votre première bibliothèque de prompts adaptée à votre activité.",
@@ -73,7 +73,7 @@ const SOLO_PACKS = [
   {
     badge: "Pack 02",
     title: "Atelier perso.",
-    duration: "1 journée · 7 h",
+    duration: "1 journée, 7 h",
     price: "1 800 €",
     body:
       "Un workflow IA construit avec vous, sur votre activité réelle. Vous repartez avec votre boîte à outils, pas une présentation générique.",
@@ -86,7 +86,7 @@ const SOLO_PACKS = [
   {
     badge: "Pack 03",
     title: "Suivi 30 jours.",
-    duration: "1 mois · 8 h de coaching",
+    duration: "1 mois, 8 h de coaching",
     price: "2 400 €",
     body:
       "Un agent IA dédié sur votre cas + 2 sessions de 1 h par semaine pour ajuster. Vous passez de l'expérimentation à la maîtrise sereine.",
@@ -103,7 +103,7 @@ const PRO_PACKS = [
     badge: "Formation 01",
     icon: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M13 7a4 4 0 1 0-8 0 4 4 0 0 0 8 0M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75",
     title: "Découverte équipe.",
-    duration: "1/2 journée · jusqu'à 10 pers.",
+    duration: "1/2 journée, jusqu'à 10 pers.",
     price: "990 €",
     body:
       "Fondamentaux IA pour toute l'équipe. ChatGPT, Claude, Gemini. Méthode de prompting, hygiène des données, bibliothèque de prompts partagée.",
@@ -118,7 +118,7 @@ const PRO_PACKS = [
     badge: "Formation 02",
     icon: "m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z",
     title: "Pratique créative.",
-    duration: "1 journée · jusqu'à 8 pers.",
+    duration: "1 journée, jusqu'à 8 pers.",
     price: "1 800 €",
     body:
       "Production & création IA pour les équipes marketing, com', création. Midjourney, Sora, Veo, Runway. Vous repartez avec un workflow reproductible.",
@@ -133,7 +133,7 @@ const PRO_PACKS = [
     badge: "Formation 03",
     icon: "M12 8V4H8M4 8h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2zM2 14h2M20 14h2M15 13v2M9 13v2",
     title: "Agents IA & automatisation.",
-    duration: "2 journées · jusqu'à 6 pers.",
+    duration: "2 journées, jusqu'à 6 pers.",
     price: "3 600 €",
     body:
       "Make, n8n, Zapier. Conception et déploiement d'agents IA sur vos cas réels. 1 a 2 automatisations en production à la sortie de la formation.",
@@ -283,7 +283,7 @@ const IA_JSONLD = {
     {
       "@type": "Service",
       "@id": "https://troiestudio.fr/ia#service",
-      name: "TROIE · IA Pro",
+      name: "TROIE, IA Pro",
       serviceType: "Formation IA et déploiement d'agents IA en entreprise",
       url: "https://troiestudio.fr/ia",
       areaServed: "FR",
@@ -331,7 +331,7 @@ export default function IaLandingPage() {
             <div className="md:col-span-6">
               <GreekMark
                 letter="Γ"
-                label="Pour solo · équipes · entreprises"
+                label="Pour solo, équipes, entreprises"
                 letterClassName="text-[2.4rem] leading-[0.7] md:text-[2.9rem] text-[var(--accent)]"
                 labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]"
               />
@@ -418,7 +418,7 @@ export default function IaLandingPage() {
           <div className="grid gap-12 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Pour les indeps · micro · auto-entrepreneurs
+                Pour les indeps, micro, auto-entrepreneurs
               </p>
               <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
                 Concentrez-vous sur le geste.
@@ -487,7 +487,7 @@ export default function IaLandingPage() {
                       <path d="M10 18h4" />
                     </svg>
                     <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                      SAS · SASU
+                      SAS, SASU
                     </p>
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
@@ -610,13 +610,13 @@ export default function IaLandingPage() {
               </div>
               <div className="flex flex-col p-8 md:col-span-7 md:p-12">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/85">
-                  Pack 04 · Le complet
+                  Pack 04, Le complet
                 </p>
                 <h3 className="t-display mt-4 text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
                   Tout en un. Solo, formation &amp; agent.
                 </h3>
                 <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/65">
-                  1 mois · 12 h de coaching · agent inclus
+                  1 mois, 12 h de coaching, agent inclus
                 </p>
                 <p className="mt-6 text-base leading-relaxed text-[#1a1714]/85 md:text-lg">
                   La formule la plus complète : audit, formation, bibliothèque de 100 prompts, un agent IA configuré sur votre cas réel, et 12 h de coaching reparties sur 30 jours.
@@ -662,7 +662,7 @@ export default function IaLandingPage() {
           <div className="grid gap-12 md:grid-cols-12 md:gap-20">
             <div className="md:col-span-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-                Pour les marques · équipes · entreprises
+                Pour les marques, équipes, entreprises
               </p>
               <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
                 Multipliez votre précision.
@@ -790,20 +790,20 @@ export default function IaLandingPage() {
               </div>
               <div className="flex flex-col p-8 md:col-span-7 md:p-12">
                 <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)]">
-                  Formation 04 · Le complet
+                  Formation 04, Le complet
                 </p>
                 <h3 className="t-display mt-4 text-4xl md:text-5xl lg:text-6xl">
                   Déploiement IA équipe & agents.
                 </h3>
                 <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6]/60">
-                  3 jours · jusqu'à 15 pers. · 3 agents inclus
+                  3 jours, jusqu'à 15 pers., 3 agents inclus
                 </p>
                 <p className="mt-6 text-base leading-relaxed text-[#f5f0e6]/85 md:text-lg">
                   Le programme complet pour une équipe : formation collective, audit de vos processus, déploiement de 3 agents IA (Hermès, Achille, Hestia ou personnalisés), workflows et gouvernance.
                 </p>
                 <ul className="mt-6 grid gap-2.5 md:grid-cols-2">
                   {[
-                    "Formation 3 j · 15 personnes max",
+                    "Formation 3 j, 15 personnes max",
                     "Audit complet de vos processus",
                     "3 agents IA configurés et livrés",
                     "Workflows Make / Zapier / n8n",
@@ -986,7 +986,7 @@ export default function IaLandingPage() {
                 }`}
               >
                 <p className={`font-mono text-[11px] uppercase tracking-[0.28em] ${o.featured ? "text-[var(--accent)]" : "text-[var(--accent)]"}`}>
-                  {o.step}{o.featured ? " · Recommandé" : ""}
+                  {o.step}{o.featured ? ", Recommandé" : ""}
                 </p>
                 <h3 className={`t-display mt-4 text-2xl md:text-[26px] ${o.featured ? "text-[#f5f0e6]" : "text-[var(--fg)]"}`}>
                   {o.title}
@@ -1015,7 +1015,7 @@ export default function IaLandingPage() {
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </a>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/65">
-              Prix HT · devis détaillé sous 48 h après l&apos;audit
+              Prix HT, devis détaillé sous 48 h après l&apos;audit
             </p>
           </div>
         </div>
@@ -1065,7 +1065,7 @@ export default function IaLandingPage() {
           <div className="grid items-center gap-12 md:grid-cols-12 md:gap-16">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--fg)]/70">
-                Audit gratuit · sans engagement
+                Audit gratuit, sans engagement
               </p>
               <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-6xl lg:text-7xl">
                 Trente minutes pour parler de votre cas.

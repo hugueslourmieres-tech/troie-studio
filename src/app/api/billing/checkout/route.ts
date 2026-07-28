@@ -45,8 +45,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "auth_required" }, { status: 401 });
   }
 
+  /*
+   * L'origine ne vient PAS du header `Origin` : il est fourni par l'appelant,
+   * donc n'importe quel site pourrait faire renvoyer nos clients chez lui
+   * après paiement. On la prend de la configuration, et on ne tolère le
+   * header qu'en développement, où il vaut localhost. Même durcissement que
+   * troie-app (checkout/route.ts), corrigé là-bas en premier.
+   */
   const origin =
-    request.headers.get("origin") ?? "https://troiestudio.fr";
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.NODE_ENV === "development"
+      ? (request.headers.get("origin") ?? "http://localhost:3000")
+      : "https://troiestudio.fr");
   const isSubscription = product.interval !== "one_time";
 
   const session = await stripe.checkout.sessions.create({
@@ -80,6 +90,17 @@ export async function POST(request: NextRequest) {
         }
       : {}),
     allow_promotion_codes: true,
+    /*
+     * Consentement explicite au moment de payer : contenu numérique fourni
+     * immédiatement, donc la renonciation au droit de rétractation doit être
+     * expresse (art. L221-28 C. conso). Même clause que côté troie.app.
+     */
+    custom_text: {
+      submit: {
+        message:
+          "En payant, vous acceptez les CGV (troiestudio.fr/cgv) et demandez l'accès immédiat au contenu, ce qui vaut renonciation expresse au droit de rétractation.",
+      },
+    },
     success_url: `${origin}/formations/dashboard?paiement=ok&produit=${product.key}`,
     cancel_url: `${origin}/formations/tarifs?paiement=annule`,
   });

@@ -65,7 +65,7 @@ export const QUIZZES: Quiz[] = [
     cover: "/images/quiz/niveau-ia-v2.jpg",
     icon: "M12 2a4.5 4.5 0 0 0-4.5 4.5v.5A3.5 3.5 0 0 0 5 10.5 3.5 3.5 0 0 0 7 14a3.5 3.5 0 0 0 .5 5 3.5 3.5 0 0 0 4.5 1.5M12 2a4.5 4.5 0 0 1 4.5 4.5v.5A3.5 3.5 0 0 1 19 10.5 3.5 3.5 0 0 1 17 14a3.5 3.5 0 0 1-.5 5 3.5 3.5 0 0 1-4.5 1.5M12 2v18.5",
     title: "Connaître mon niveau en IA",
-    tagline: "10 questions · 3 niveaux",
+    tagline: "10 questions, 3 niveaux",
     description:
       "10 questions, des bases jusqu'aux agents et au MCP, pour situer votre niveau en IA et savoir par où continuer. Pour tous, particuliers comme pros.",
     category: "perso",
@@ -187,7 +187,7 @@ export const QUIZZES: Quiz[] = [
     cover: "/images/quiz/ci-7.jpg",
     icon: "M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M16 7a4 4 0 1 0-8 0 4 4 0 0 0 8 0",
     title: "Prompting pro",
-    tagline: "Parcours 01 · aperçu",
+    tagline: "Parcours 01, aperçu",
     description:
       "Structurer ses prompts, créer des system prompts, automatiser ses tâches solo. Aperçu du Parcours 01.",
     category: "pro",
@@ -206,7 +206,7 @@ export const QUIZZES: Quiz[] = [
     cover: "/images/quiz/sec-3.jpg",
     icon: "m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83zM2 12.18a1 1 0 0 0 .6.91l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.92M2 17.18a1 1 0 0 0 .6.91l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 .6-.92",
     title: "Agents & automatisation",
-    tagline: "Parcours 02 · aperçu",
+    tagline: "Parcours 02, aperçu",
     description:
       "Agents persistants, MCP, workflows Make. Aperçu du Parcours 02 pour aller plus loin.",
     category: "pro",

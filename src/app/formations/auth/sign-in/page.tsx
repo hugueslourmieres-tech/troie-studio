@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SignInForm } from "./SignInForm";
 
 export const metadata = {
-  title: "Connexion · TROIE Formations",
+  title: "Connexion, TROIE Formations",
   description:
     "Connectez-vous à votre espace membre TROIE Formations. Magic link, sans mot de passe.",
   robots: { index: false, follow: false },
@@ -18,7 +18,7 @@ export default async function SignInPage({
     <section className="border-b border-[var(--rule)]">
       <div className="mx-auto max-w-xl px-6 pt-32 pb-32 md:px-12 md:pt-40 md:pb-40">
         <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Espace membre · connexion
+          Espace membre, connexion
         </p>
         <h1 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl">
           Bon retour.

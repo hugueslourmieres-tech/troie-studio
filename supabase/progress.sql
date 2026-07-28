@@ -1,5 +1,5 @@
 -- ────────────────────────────────────────────────────────────────────
--- TROIE Formations — Progression des modules (contenu statique)
+-- TROIE Formations, Progression des modules (contenu statique)
 --
 -- A exécuter dans le SQL Editor de Supabase APRES schema.sql.
 --

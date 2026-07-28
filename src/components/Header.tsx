@@ -16,9 +16,9 @@ export type NavGroup = { label: string; href?: string; items: NavItem[] };
  * light, simplement glassy + bordure douce qui apparaît au scroll.
  *
  * Nav éditoriale avec menus déroulants :
- *   Création   ▾  Création · Réalisation (film & vidéo)
- *   Stratégie  ▾  Marketing · IA · Communication
- *   Formations ▾  Agents IA · Formation perso · Formation entreprise
+ *   Création   ▾  Création, Réalisation (film & vidéo)
+ *   Stratégie  ▾  Marketing, IA, Communication
+ *   Formations ▾  Agents IA, Formation perso, Formation entreprise
  *
  * À droite : login + LinkedIn.
  */
@@ -122,7 +122,7 @@ export function Header({
               rel="noopener"
               className="inline-flex items-center gap-2 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors duration-300 hover:bg-[var(--ink)] hover:text-[var(--bg)]"
             >
-              {locale === "en" ? "Learn · troie.app" : "Se former · troie.app"}
+              {locale === "en" ? "Learn, troie.app" : "Se former, troie.app"}
             </a>
             <Link
               href={`/${locale}/contact`}

@@ -22,7 +22,7 @@ const sans = Jost({
  * noindex : ce sont des démonstrations, pas des pages à référencer.
  */
 export const metadata: Metadata = {
-  title: "Démo · TROIE Studio",
+  title: "Démo, TROIE Studio",
   robots: { index: false, follow: false },
 };
 

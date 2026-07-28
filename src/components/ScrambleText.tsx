@@ -33,7 +33,7 @@ export function ScrambleText({
   delay = 0,
   duration = 1.6,
   revealWindow = 0.35,
-  charset = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω∴⋅◇·/,|",
+  charset = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω∴◇/,|",
 }: Props) {
   const ref = useRef<HTMLSpanElement | null>(null);
   // Réservés visual layout even before first frame (avoids layout shift)

@@ -114,7 +114,7 @@ export default function SiteConformePage() {
             href="/"
             className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
           >
-            ← TROIE · Studio
+            ← TROIE, Studio
           </Link>
           <a
             href={CAL_URL}
@@ -122,7 +122,7 @@ export default function SiteConformePage() {
             rel="noreferrer"
             className="inline-flex items-center gap-2.5 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
-            Audit gratuit · 30 min
+            Audit gratuit, 30 min
           </a>
         </div>
       </header>
@@ -130,7 +130,7 @@ export default function SiteConformePage() {
       {/* Hero */}
       <section className="mx-auto max-w-7xl px-6 pt-20 pb-16 md:px-12 md:pt-28 md:pb-24">
         <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Création · Pack site conforme
+          Création, Pack site conforme
         </p>
         <h1 className="t-display mt-8 max-w-4xl text-5xl leading-[1.02] text-[var(--fg)] md:text-7xl">
           Votre site, aux normes, une bonne fois pour toutes.
@@ -148,7 +148,7 @@ export default function SiteConformePage() {
             rel="noreferrer"
             className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
           >
-            Demander mon prix fixe · gratuit
+            Demander mon prix fixe, gratuit
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </a>
           <Link
@@ -247,7 +247,7 @@ export default function SiteConformePage() {
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
               <p className="mt-4 text-center font-mono text-[9px] uppercase tracking-[0.2em] text-[#f5f0e6]/50">
-                30 minutes · réponse écrite sous 48 h
+                30 minutes, réponse écrite sous 48 h
               </p>
             </div>
           </div>
@@ -304,7 +304,7 @@ export default function SiteConformePage() {
             juridique.
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/55">
-            TROIE Studio · Nice · <Link href="/" className="underline underline-offset-4 hover:text-[var(--accent)]">troiestudio.fr</Link>
+            TROIE Studio, Nice, <Link href="/" className="underline underline-offset-4 hover:text-[var(--accent)]">troiestudio.fr</Link>
           </p>
         </div>
       </footer>
