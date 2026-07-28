@@ -38,6 +38,7 @@ import { AiActSanctionsEntreprise } from "./_content/ai-act-sanctions-entreprise
 import { RegistreDesUsagesIaModele } from "./_content/registre-des-usages-ia-modele";
 import { DeployerIaPme5Erreurs } from "./_content/deployer-ia-pme-5-erreurs";
 import { AgentQualificationLeadsCasUsage } from "./_content/agent-qualification-leads-cas-usage";
+import { SiteWebIa2026Creation } from "./_content/site-web-ia-2026-creation";
 
 export type Article = {
   slug: string;
@@ -88,6 +89,24 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "site-web-ia-2026-creation",
+    title: "Site web et IA en 2026 : ce qui change dans la création, ce qui ne change pas",
+    cardTitle: "Site web et IA : ce qui change, ce qui reste",
+    description:
+      "Votre site a un deuxième lecteur (les IA qui citent leurs sources), produire est devenu facile donc la barre monte, et le site devient le premier employé. Ce qui ne bouge pas : la marque, la technique propre, la clarté de l'offre.",
+    date: "2026-07-28",
+    category: "Création",
+    readingMinutes: 5,
+    cover: "/images/corpo/barcelona/13Hugues-Nikon-35mm.jpg",
+    keywords: [
+      "création site web IA",
+      "site web 2026",
+      "site internet intelligence artificielle",
+      "refonte site IA",
+    ],
+    Body: SiteWebIa2026Creation,
+  },
   {
     slug: "agent-qualification-leads-cas-usage",
     title: "Cas d'usage : un agent de qualification des leads, de l'email au CRM",
