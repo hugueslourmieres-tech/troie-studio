@@ -56,10 +56,18 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "brand" });
   const isFr = locale === "fr";
 
+  /*
+   * La formation passe en tête du titre : c'est la porte d'entrée commerciale
+   * (troie.app) ET la pièce qui manquait à Google Business pour accepter la
+   * catégorie « Centre de formation » (refus du 28 juil., motif « identité
+   * de l'établissement modifiée » : Google recoupe la fiche avec le site, et
+   * le site ne parlait que d'atelier digital). On décrit des OFFRES, pas un
+   * statut : jamais « organisme de formation » sans NDA.
+   */
   const title = `${t("name")}. ${
     isFr
-      ? "Atelier digital, création & IA à Nice"
-      : "Digital studio, creative & AI in Nice, France"
+      ? "Formations IA & AI Act, création digitale à Nice"
+      : "AI & AI Act training, digital studio in Nice, France"
   }`;
   // SEO description (long form), différent from the in-page `tagline`
   // which is kept short for visual use in the footer.
