@@ -36,6 +36,7 @@ import { TransparenceIaSignalerContenuGenere } from "./_content/transparence-ia-
 import { Article4AiActExemplesMesures } from "./_content/article-4-ai-act-exemples-mesures";
 import { AiActSanctionsEntreprise } from "./_content/ai-act-sanctions-entreprise";
 import { RegistreDesUsagesIaModele } from "./_content/registre-des-usages-ia-modele";
+import { DeployerIaPme5Erreurs } from "./_content/deployer-ia-pme-5-erreurs";
 
 export type Article = {
   slug: string;
@@ -86,6 +87,24 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "deployer-ia-pme-5-erreurs",
+    title: "Déployer l'IA dans une PME : les 5 erreurs qu'on voit partout",
+    cardTitle: "Déployer l'IA en PME : les 5 erreurs",
+    description:
+      "Commencer par l'outil, déployer sans règles ni formation, automatiser un processus cassé, zéro garde-fou, ne rien mesurer : les 5 erreurs des déploiements IA en PME, et quoi faire à la place.",
+    date: "2026-07-28",
+    category: "L'IA au travail",
+    readingMinutes: 6,
+    cover: "/images/corpo/strategie/DSC_5552-4.jpg",
+    keywords: [
+      "déployer IA PME",
+      "projet IA entreprise erreurs",
+      "intégrer IA entreprise",
+      "agent IA garde-fous",
+    ],
+    Body: DeployerIaPme5Erreurs,
+  },
   {
     slug: "registre-des-usages-ia-modele",
     title:
