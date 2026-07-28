@@ -37,6 +37,7 @@ import { Article4AiActExemplesMesures } from "./_content/article-4-ai-act-exempl
 import { AiActSanctionsEntreprise } from "./_content/ai-act-sanctions-entreprise";
 import { RegistreDesUsagesIaModele } from "./_content/registre-des-usages-ia-modele";
 import { DeployerIaPme5Erreurs } from "./_content/deployer-ia-pme-5-erreurs";
+import { AgentQualificationLeadsCasUsage } from "./_content/agent-qualification-leads-cas-usage";
 
 export type Article = {
   slug: string;
@@ -87,6 +88,24 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "agent-qualification-leads-cas-usage",
+    title: "Cas d'usage : un agent de qualification des leads, de l'email au CRM",
+    cardTitle: "Cas d'usage : l'agent qui qualifie vos leads",
+    description:
+      "Une demande entre, l'agent enrichit, qualifie selon vos critères, prépare la réponse et tient le CRM à jour, avec validation humaine sur chaque envoi. Le cas d'usage détaillé, étape par étape.",
+    date: "2026-07-28",
+    category: "L'IA au travail",
+    readingMinutes: 6,
+    cover: "/images/corpo/mibi/DSC_7665.jpg",
+    keywords: [
+      "agent IA prospection",
+      "qualification leads IA",
+      "agent IA CRM",
+      "automatisation prospection PME",
+    ],
+    Body: AgentQualificationLeadsCasUsage,
+  },
   {
     slug: "deployer-ia-pme-5-erreurs",
     title: "Déployer l'IA dans une PME : les 5 erreurs qu'on voit partout",
