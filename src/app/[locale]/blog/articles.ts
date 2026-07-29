@@ -39,6 +39,7 @@ import { RegistreDesUsagesIaModele } from "./_content/registre-des-usages-ia-mod
 import { DeployerIaPme5Erreurs } from "./_content/deployer-ia-pme-5-erreurs";
 import { AgentQualificationLeadsCasUsage } from "./_content/agent-qualification-leads-cas-usage";
 import { SiteWebIa2026Creation } from "./_content/site-web-ia-2026-creation";
+import { AttestationLitteratieIa } from "./_content/attestation-litteratie-ia";
 
 export type Article = {
   slug: string;
@@ -89,6 +90,26 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "attestation-litteratie-ia",
+    title:
+      "Attestation de littératie IA : ce qu'elle prouve, ce qu'elle ne prouve pas",
+    cardTitle: "Attestation de littératie IA : ce qu'elle vaut",
+    description:
+      "Aucun certificat n'est exigé par l'AI Act, la Commission européenne le dit noir sur blanc. L'attestation reste pourtant la preuve la plus simple à produire au titre de l'article 4 : voici les sept mentions qu'elle doit porter et ce qu'elle ne prouve pas.",
+    date: "2026-07-29",
+    category: "Conformité",
+    readingMinutes: 6,
+    cover: "/images/corpo/mibi/_DSC7503.jpg",
+    keywords: [
+      "attestation littératie IA",
+      "attestation formation AI Act",
+      "certificat AI Act",
+      "article 4 AI Act preuve",
+      "attestation formation IA entreprise",
+    ],
+    Body: AttestationLitteratieIa,
+  },
   {
     slug: "site-web-ia-2026-creation",
     title: "Site web et IA en 2026 : ce qui change dans la création, ce qui ne change pas",
