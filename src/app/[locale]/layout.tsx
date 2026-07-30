@@ -1,7 +1,6 @@
 import "../globals.css";
 import type { Metadata } from "next";
 import { Bodoni_Moda, Fraunces, Inter, JetBrains_Mono } from "next/font/google";
-import { gfsDidot } from "@/lib/greek-font";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale, getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -112,6 +111,11 @@ export async function generateMetadata({
       languages: {
         fr: "/fr",
         en: "/en",
+        // Version servie quand aucune langue déclarée ne correspond, par
+        // exemple un visiteur italien ou allemand. Sans x-default, Google
+        // choisit seul, et il choisit souvent /en alors que le marché visé
+        // est francophone. On pointe donc explicitement sur /fr.
+        "x-default": "/fr",
       },
     },
     openGraph: {
@@ -266,7 +270,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${bodoni.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable} ${gfsDidot.variable}`}
+      className={`${bodoni.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}
     >
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
         <script

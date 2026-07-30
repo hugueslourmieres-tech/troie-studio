@@ -29,7 +29,7 @@
     "heroToolsAriaLabel": "Outils utilisés par TROIE",
     "introEyebrow": "Atelier digital ✦ IA",
     "introTitle": "Faites de l'IA votre|meilleure recrue.",
-    "introBody": "Diagnostic, formation et déploiement d'agents IA supervisés, conformité AI Act incluse, pour les PME francophones. Et pour incarner vos marques : médias, sites web et e-commerce, faits en atelier.",
+    "introBody": "Diagnostic, formation et déploiement d'agents IA supervisés, conformité AI Act incluse, pour les PME francophones. Et pour incarner vos marques : médias, sites web et e-commerce, faits en atelier. Basés à Nice, nous intervenons en France, à Monaco et à distance.",
     "heroCtaAudit": "Audit gratuit, 30 min",
     "heroCtaAttestation": "Votre attestation AI Act",
     "heroCtaHouse": "Découvrir ma maison",
@@ -92,6 +92,8 @@
     "packsTitle": "Des forfaits clairs.",
     "packsIntro": "Des packs forfaitaires pour les besoins récurrents. Sur-mesure pour le reste, après un audit gratuit de trente minutes.",
     "packsTerms": "Tous les tarifs sont indiqués hors taxes. Règlement standard : 50 % à la commande, solde à la livraison. Devis détaillé établi sous 48 heures après brief.",
+    "bandText": "Une question sur l'IA, l'AI Act ou un projet digital ? Trente minutes suffisent pour y voir clair.",
+    "bandCta": "Réserver 30 min",
     "ctaTitle": "Parlons de votre projet.",
     "ctaSubtitle": "Un échange de trente minutes pour comprendre votre besoin et vous proposer une approche.",
     "ctaButton": "Prendre rendez-vous",
@@ -491,6 +493,6 @@
     "rights": "Tous droits réservés.",
     "privacy": "Confidentialité",
     "terms": "Mentions légales",
-    "based": "Atelier Digital, France"
+    "based": "Atelier digital, Nice, France"
   }
 }

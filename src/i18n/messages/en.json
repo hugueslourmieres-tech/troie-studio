@@ -32,7 +32,7 @@
     "heroCtaAudit": "Free audit, 30 min",
     "heroCtaAttestation": "Your AI Act attestation",
     "heroCtaHouse": "Discover my house",
-    "introBody": "Diagnostics, training and supervised AI agent deployment, EU AI Act compliance included, for French-speaking SMBs. And to embody your brands: media, websites and e-commerce, studio-made.",
+    "introBody": "Diagnostics, training and supervised AI agent deployment, EU AI Act compliance included, for French-speaking SMBs. And to embody your brands: media, websites and e-commerce, studio-made. Based in Nice, we work across France, Monaco and remotely.",
     "introMore": "See the detail",
     "creationEyebrow": "03, Creative",
     "creationTitle": "Web, app, image and video.",
@@ -92,6 +92,8 @@
     "packsTitle": "Clear packages.",
     "packsIntro": "Fixed-price packages for recurring needs. Custom quotes for everything else, after a free 30-minute audit.",
     "packsTerms": "All prices excluding VAT. Standard terms: 50 % on order, balance on delivery. Detailed quote within 48 hours of briefing.",
+    "bandText": "A question about AI, the EU AI Act or a digital project? Thirty minutes is enough to see clearly.",
+    "bandCta": "Book 30 min",
     "ctaTitle": "Let's talk about your project.",
     "ctaSubtitle": "A thirty-minute call to understand your need and propose an approach.",
     "ctaButton": "Book a call",
@@ -491,6 +493,6 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Legal",
-    "based": "Digital Atelier, France"
+    "based": "Digital atelier, Nice, France"
   }
 }
