@@ -41,16 +41,12 @@ export async function Footer({ locale }: { locale: string }) {
                   {tNav("strategy")}
                 </Link>
               </li>
-              <li>
-                <a
-                  href="https://troie.app/formation"
-                  target="_blank"
-                  rel="noopener"
-                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  {tNav("training")}
-                </a>
-              </li>
+              {/* L'entrée « Formations » a été retirée de cette colonne le
+                  29/07/2026 : elle pointait sur troie.app/formation, exactement
+                  comme « Attestation article 4 » dans la colonne « Le campus »,
+                  soit deux libellés pour une même page. Cette colonne liste les
+                  pages du studio, la colonne campus liste celles de troie.app,
+                  et chaque destination n'a plus qu'un seul libellé. */}
               <li>
                 <Link
                   href="/ia"

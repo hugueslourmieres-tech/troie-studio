@@ -234,7 +234,7 @@ function BurgerButton({
       aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
       aria-expanded={open}
       onClick={onClick}
-      className="group relative z-50 h-10 w-10 lg:hidden"
+      className="group relative z-50 h-11 w-11 lg:hidden"
     >
       <span
         className="absolute left-1/2 top-1/2 block h-px w-7 -translate-x-1/2 -translate-y-[6px] bg-[var(--ink)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"

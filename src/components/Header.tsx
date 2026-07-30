@@ -122,7 +122,7 @@ export function Header({
               rel="noopener"
               className="inline-flex items-center gap-2 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors duration-300 hover:bg-[var(--ink)] hover:text-[var(--bg)]"
             >
-              {locale === "en" ? "Learn, troie.app" : "Se former, troie.app"}
+              troie.app
             </a>
             <Link
               href={`/${locale}/contact`}
@@ -131,6 +131,13 @@ export function Header({
               Contact
             </Link>
           </div>
+
+          {/* Pas de bouton Contact sous `lg` : essayé le 29/07/2026, retiré le
+              jour même. À 375 px le wordmark occupe 178 px et le bloc de droite
+              démarrait 2 px après, donc le pavé noir venait se coller au « E »
+              de TROIE. L'en-tête mobile reste au logo et au burger, qui contient
+              Contact. Si le sujet revient, la piste est un CTA en tête du
+              panneau du burger, pas un bouton de plus dans la barre. */}
 
           {/* Mobile : burger */}
           <MobileMenu locale={locale} groups={groups} showLang={showLang} />
