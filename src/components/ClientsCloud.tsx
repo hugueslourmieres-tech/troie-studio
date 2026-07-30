@@ -49,7 +49,6 @@ export function ClientsCloud() {
           />
         </div>
         <GreekMark
-          letter="Ε"
           label="Ils nous font confiance"
           className="justify-center"
           labelClassName="t-eyebrow text-center"

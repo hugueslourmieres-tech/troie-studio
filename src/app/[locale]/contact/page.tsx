@@ -52,7 +52,7 @@ async function ContactView({ locale }: { locale: string }) {
       <article className="mx-auto max-w-6xl px-6 pt-28 pb-24 md:px-10 md:pt-36 md:pb-32">
         {/* En-tête */}
         <header className="max-w-3xl">
-          <GreekMark letter="Ζ" label="/ Contact" />
+          <GreekMark label="/ Contact" />
           <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
             {t("heroTitle")}
           </h1>

@@ -1,35 +1,35 @@
 import type { ReactNode } from "react";
 
 /**
- * Sigle grec : une capitale Didone (GFS Didot) posee en index devant
- * l'eyebrow d'une section. Taxonomie de marque partagee avec troie.app.
- *   Α = AI Act   Β = Le campus   Γ = Agence IA
- *   Δ = Creation Ε = Avis        Ζ = Demarrer
+ * Eyebrow de section.
+ *
+ * ⚠️ LES SIGLES GRECS ONT ÉTÉ RETIRÉS (29/07/2026). Une capitale Didone
+ * (Α = AI Act, Β = Le campus, Γ = Agence IA, Δ = Création, Ε = Avis,
+ * Ζ = Démarrer) précédait chaque surtitre. Ils avaient déjà été retirés de
+ * troie.app en juillet, remplacés par des numéros ; troiestudio.fr s'aligne
+ * à son tour, pour que les deux sites racontent la même chose.
+ *
+ * Le composant garde son nom et sa signature : `letter` et `letterClassName`
+ * sont acceptés mais IGNORÉS, ce qui évite de toucher aux vingt-cinq appels
+ * d'un coup. Ils pourront disparaître des appels puis du type au prochain
+ * passage. Les sigles restent en revanche sur les couvertures Instagram, qui
+ * ne sont pas dans ce dépôt.
  */
 export function GreekMark({
-  letter,
   label,
   className = "",
-  letterClassName = "text-[2.4rem] leading-[0.7] md:text-[2.9rem] text-[var(--accent)]",
   labelClassName = "t-eyebrow",
 }: {
-  letter: string;
+  /** @deprecated Ignoré depuis le retrait des sigles grecs. */
+  letter?: string;
   label: ReactNode;
   className?: string;
+  /** @deprecated Ignoré depuis le retrait des sigles grecs. */
   letterClassName?: string;
   labelClassName?: string;
 }) {
   return (
-    <div className={`flex items-center gap-3 ${className}`}>
-      <span
-        aria-hidden
-        className={`select-none ${letterClassName}`}
-        style={{
-          fontFamily: "var(--font-greek), 'GFS Didot', 'Didot', Georgia, serif",
-        }}
-      >
-        {letter}
-      </span>
+    <div className={`flex items-center ${className}`}>
       <span className={labelClassName}>{label}</span>
     </div>
   );

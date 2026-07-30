@@ -60,7 +60,7 @@ export function CampusBridge({ locale }: { locale: string }) {
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:gap-16 md:px-12 md:py-32">
         {/* Colonne texte : ce que c'est, à quoi ça sert, l'échéance, les CTA */}
         <Reveal>
-          <GreekMark letter="Β" label={c.label} />
+          <GreekMark label={c.label} />
           <h2 className="t-display mt-6 max-w-xl text-4xl leading-[1.02] text-[var(--fg)] md:text-5xl lg:text-6xl">
             {c.title}
           </h2>

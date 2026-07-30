@@ -330,9 +330,7 @@ export default function IaLandingPage() {
             {/* Col gauche : punchline */}
             <div className="md:col-span-6">
               <GreekMark
-                letter="Γ"
                 label="Pour solo, équipes, entreprises"
-                letterClassName="text-[2.4rem] leading-[0.7] md:text-[2.9rem] text-[var(--accent)]"
                 labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]"
               />
               <h1 className="t-display mt-8 text-5xl text-[var(--fg)] md:text-6xl lg:text-[80px] xl:text-[92px]">

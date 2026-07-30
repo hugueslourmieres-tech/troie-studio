@@ -72,9 +72,7 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
           <div className="md:col-span-7">
             <Reveal>
               <GreekMark
-                letter="Α"
                 label={c.eyebrow}
-                letterClassName="text-[2.4rem] leading-[0.7] md:text-[2.9rem] text-[var(--accent)]"
                 labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]"
               />
             </Reveal>

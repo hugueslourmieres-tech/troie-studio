@@ -13,7 +13,7 @@ export function MediasSection({ locale }: { locale: string }) {
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         <Reveal>
           <div className="max-w-3xl">
-            <GreekMark letter="Δ" label="Atelier" />
+            <GreekMark label="Atelier" />
             <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
               Création.
             </h2>

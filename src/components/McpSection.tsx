@@ -40,7 +40,7 @@ export function McpSection({ locale = "fr" }: { locale?: string }) {
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <Reveal>
           <div className="max-w-3xl">
-            <GreekMark letter="Γ" label={c.label} />
+            <GreekMark label={c.label} />
             <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
               {c.title}
             </h2>

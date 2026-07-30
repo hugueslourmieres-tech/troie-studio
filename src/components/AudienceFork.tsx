@@ -176,7 +176,7 @@ export function AudienceFork({ locale }: { locale: string }) {
     <section className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <Reveal>
-          <GreekMark letter="Ζ" label={c.sectionLabel} />
+          <GreekMark label={c.sectionLabel} />
           <h2 className="t-display mt-6 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             {c.title}
           </h2>

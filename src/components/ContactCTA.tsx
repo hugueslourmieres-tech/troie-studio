@@ -18,10 +18,8 @@ export function ContactCTA(_props: { locale: string }) {
         <div className="mx-auto max-w-3xl text-center">
           <div>
             <GreekMark
-              letter="Ζ"
               label="Contact"
               className="justify-center"
-              letterClassName="text-[2.4rem] leading-[0.7] md:text-[2.9rem] text-[#1a1714]"
               labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[#1a1714]/55"
             />
             <h2 className="t-display mt-6 text-4xl text-[#1a1714] md:text-6xl">

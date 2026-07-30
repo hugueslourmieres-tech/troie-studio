@@ -66,7 +66,7 @@ export default async function CreationPage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-24">
-        <GreekMark letter="Δ" label={c.label} />
+        <GreekMark label={c.label} />
         <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
           {c.title}
         </h1>

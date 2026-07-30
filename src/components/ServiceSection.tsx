@@ -79,7 +79,7 @@ export function ServiceSection({
           <div className="md:col-span-5">
             <W direction={reverse ? "right" : "left"}>
               {marker ? (
-                <GreekMark letter={marker} label={eyebrow} />
+                <GreekMark label={eyebrow} />
               ) : (
                 <p className="t-eyebrow">{eyebrow}</p>
               )}
