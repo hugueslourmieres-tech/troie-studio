@@ -40,6 +40,7 @@ import { DeployerIaPme5Erreurs } from "./_content/deployer-ia-pme-5-erreurs";
 import { AgentQualificationLeadsCasUsage } from "./_content/agent-qualification-leads-cas-usage";
 import { SiteWebIa2026Creation } from "./_content/site-web-ia-2026-creation";
 import { AttestationLitteratieIa } from "./_content/attestation-litteratie-ia";
+import { FormationAiActGratuite } from "./_content/formation-ai-act-gratuite";
 
 export type Article = {
   slug: string;
@@ -90,6 +91,27 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "formation-ai-act-gratuite",
+    title:
+      "Formation AI Act gratuite : ce qui existe vraiment, et ce que le gratuit ne couvre pas",
+    cardTitle: "Formation AI Act gratuite : ce qui existe",
+    description:
+      "Il n'existe aucun MOOC officiel sur l'AI Act, mais quatre ressources gratuites solides, dont trois publiées par la Commission européenne. Ce qu'elles couvrent, ce qu'elles ne produisent pas, et pourquoi la CNIL n'est pas l'autorité de contrôle de l'AI Act.",
+    date: "2026-07-31",
+    category: "Conformité",
+    readingMinutes: 7,
+    cover: "/images/blog/ai-act-2-aout.jpg",
+    keywords: [
+      "formation AI Act gratuite",
+      "MOOC IA Act gratuit",
+      "se former gratuitement AI Act",
+      "formation IA Act en ligne gratuite",
+      "littératie IA ressources gratuites",
+      "formation AI Act CPF OPCO",
+    ],
+    Body: FormationAiActGratuite,
+  },
   {
     slug: "attestation-litteratie-ia",
     title:
