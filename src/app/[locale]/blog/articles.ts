@@ -41,6 +41,7 @@ import { AgentQualificationLeadsCasUsage } from "./_content/agent-qualification-
 import { SiteWebIa2026Creation } from "./_content/site-web-ia-2026-creation";
 import { AttestationLitteratieIa } from "./_content/attestation-litteratie-ia";
 import { FormationAiActGratuite } from "./_content/formation-ai-act-gratuite";
+import { AiActPmeChecklist } from "./_content/ai-act-pme-checklist";
 
 export type Article = {
   slug: string;
@@ -91,6 +92,27 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "ai-act-pme-checklist",
+    title:
+      "AI Act pour les PME : la checklist en 10 points, à jour du 2 août 2026",
+    cardTitle: "AI Act PME : la checklist en 10 points",
+    description:
+      "Trois obligations concernent réellement une PME utilisatrice d'IA : former, ne pas franchir les interdits, signaler ce qui est généré. Le reste, dont l'IA à haut risque, est reporté à décembre 2027. La checklist point par point, avec la preuve à produire pour chacun.",
+    date: "2026-08-03",
+    category: "Conformité",
+    readingMinutes: 9,
+    cover: "/images/corpo/mibi/04.jpg",
+    keywords: [
+      "AI Act PME checklist",
+      "checklist conformité AI Act",
+      "AI Act PME obligations",
+      "AI Act 2 août 2026 que faire",
+      "mise en conformité AI Act entreprise",
+      "article 4 AI Act PME",
+    ],
+    Body: AiActPmeChecklist,
+  },
   {
     slug: "formation-ai-act-gratuite",
     title:
