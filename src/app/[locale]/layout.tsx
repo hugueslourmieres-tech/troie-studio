@@ -228,6 +228,7 @@ export default async function LocaleLayout({
         sameAs: [
           "https://www.linkedin.com/company/troiestudio",
           "https://www.instagram.com/troiestudio/",
+          "https://www.youtube.com/@troiestudio",
         ],
         subOrganization: {
           "@type": ["Organization", "EducationalOrganization"],

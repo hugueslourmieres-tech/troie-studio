@@ -15,6 +15,7 @@ type Props = {
 
 const LINKEDIN_URL = "https://www.linkedin.com/company/troiestudio";
 const INSTAGRAM_URL = "https://www.instagram.com/troiestudio/";
+const YOUTUBE_URL = "https://www.youtube.com/@troiestudio";
 
 /**
  * MobileMenu, burger + full-screen overlay.
@@ -178,6 +179,18 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                       <rect x="3" y="3" width="18" height="18" rx="5" />
                       <circle cx="12" cy="12" r="4" />
                       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                    </svg>
+                  </a>
+                  <a
+                    href={YOUTUBE_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="YouTube"
+                    className="text-[var(--fg)] transition hover:text-[var(--accent)]"
+                  >
+                    <svg viewBox="0 0 24 24" className="h-[20px] w-[20px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <rect x="2" y="5" width="20" height="14" rx="4.5" />
+                      <path d="M10.2 9.3 15 12l-4.8 2.7z" fill="currentColor" stroke="none" />
                     </svg>
                   </a>
                   {showLang && <LangSwitch locale={locale} />}
