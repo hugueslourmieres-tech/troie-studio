@@ -102,9 +102,8 @@ export function AttestationLitteratieIa() {
           <li>
             Elle ne suffit jamais seule. Un dossier crédible associe des
             attestations nominatives, un registre des usages de l&apos;IA et
-            une charte interne, avant le 2 août 2026, date à laquelle les
-            autorités nationales de surveillance du marché commencent à
-            contrôler.
+            une charte interne. Les autorités nationales de surveillance du
+            marché contrôlent depuis le 2 août 2026.
           </li>
         </ul>
       </div>
@@ -258,7 +257,7 @@ export function AttestationLitteratieIa() {
         formation nominative, datée, téléchargeable en PDF et vérifiable par un
         lien public. Elle documente la mesure prise au titre de l&apos;article 4
         du règlement (UE) 2024/1689 sur la littératie IA, applicable depuis le 2
-        février 2025 et contrôlable à partir du 2 août 2026. L&apos;abonnement
+        février 2025 et contrôlable depuis le 2 août 2026. L&apos;abonnement
         est à 29 euros par mois ou 290 euros par an, avec un essai de 7 jours.
       </p>
 
@@ -335,7 +334,7 @@ export function AttestationLitteratieIa() {
         </Link>{" "}
         précise ce que vous risquez vraiment, et TROIE Studio propose un{" "}
         <Link href="/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
-        pour situer vos obligations réelles avant le 2 août 2026.
+        pour situer vos obligations réelles.
       </p>
 
       <p>

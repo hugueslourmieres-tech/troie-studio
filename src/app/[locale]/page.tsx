@@ -46,7 +46,7 @@ export default async function HomePage({
         <Intro asHero />
       </div>
 
-      {/* AI ACT : le hook conformité (échéance 2 août 2026), pousse à
+      {/* AI ACT : le hook conformité (en vigueur depuis le 2 août 2026), pousse à
           s'informer puis à se former. */}
       <AiUrgency locale={locale} />
 

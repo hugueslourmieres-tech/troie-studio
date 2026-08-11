@@ -35,7 +35,7 @@ const TIMELINE = [
   },
   {
     date: "2 août 2026",
-    title: "L'AI Act devient contrôlable",
+    title: "L’AI Act est contrôlable",
     body: "Les autorités nationales peuvent contrôler et sanctionner. Si votre site utilise un chatbot ou publie des contenus générés par IA, la transparence devient exigible.",
     status: "now",
   },

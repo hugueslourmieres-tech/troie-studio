@@ -27,14 +27,14 @@ import Link from "next/link";
  */
 const COPY = {
   fr: {
-    text: "L'AI Act devient contrôlable le 2 août 2026",
-    short: "AI Act contrôlable le 2 août 2026",
+    text: "L'AI Act est contrôlable depuis le 2 août 2026",
+    short: "AI Act contrôlable depuis août 2026",
     cta: "S'informer →",
     href: "/fr/blog/ai-act-controlable-2-aout-2026",
   },
   en: {
-    text: "The EU AI Act becomes enforceable on August 2, 2026",
-    short: "AI Act enforced on 2 Aug 2026",
+    text: "The EU AI Act has been enforceable since 2 August 2026",
+    short: "AI Act enforceable since Aug 2026",
     cta: "Learn more →",
     href: "/en/blog/ai-act-controlable-2-aout-2026",
   },

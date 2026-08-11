@@ -62,7 +62,7 @@ const OBLIGATIONS = [
   },
   {
     q: "Un chatbot parle à vos clients ?",
-    a: "Transparence : l'utilisateur doit savoir qu'il parle à une IA. Applicable à l'échéance d'août 2026.",
+    a: "Transparence : l'utilisateur doit savoir qu'il parle à une IA. Applicable depuis août 2026.",
   },
   {
     q: "Vous publiez des contenus générés par IA ?",
@@ -307,7 +307,7 @@ export default function AiActPage() {
               href="/fr/blog/ai-act-controlable-2-aout-2026"
               className="underline underline-offset-4 transition hover:text-[var(--accent)]"
             >
-              AI Act : ce qui devient contrôlable le 2 août 2026
+              AI Act : ce qui est contrôlable depuis le 2 août 2026
             </Link>
             .
           </p>

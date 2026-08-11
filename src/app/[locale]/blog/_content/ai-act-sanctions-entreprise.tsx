@@ -11,7 +11,7 @@ import { OfficialEmblems } from "@/components/OfficialEmblems";
  * "le montant le plus ELEVE des deux" pour une entreprise, MAIS "le plus
  * FAIBLE" pour les PME et jeunes pousses (art. 99, para. 6). L'article 4
  * (litteratie IA) n'a PAS d'amende dediee dans le reglement. Le regime de
- * sanctions devient applicable le 2 aout 2026 ; le controle releve des
+ * sanctions est applicable depuis le 2 aout 2026 ; le controle releve des
  * autorites nationales de surveillance du marche (JAMAIS la CNIL, qui
  * reste sur le RGPD). ZERO em-dash.
  */
@@ -29,7 +29,7 @@ const FAQ = [
   },
   {
     q: "Risque-t-on une amende si on n'a pas formé ses équipes à l'IA ?",
-    a: "L'obligation de littératie IA de l'article 4 n'a pas d'amende dédiée dans le règlement, contrairement aux pratiques interdites ou à la transparence. En cas de manquement, l'autorité nationale de surveillance du marché peut ordonner des mesures correctives à partir du 2 août 2026. Le vrai risque est indirect : sans équipes formées, les autres manquements sanctionnables deviennent bien plus probables.",
+    a: "L'obligation de littératie IA de l'article 4 n'a pas d'amende dédiée dans le règlement, contrairement aux pratiques interdites ou à la transparence. En cas de manquement, l'autorité nationale de surveillance du marché peut ordonner des mesures correctives depuis le 2 août 2026. Le vrai risque est indirect : sans équipes formées, les autres manquements sanctionnables deviennent bien plus probables.",
   },
 ];
 
@@ -57,7 +57,7 @@ export function AiActSanctionsEntreprise() {
         d&apos;affaires mondial pour les usages d&apos;IA interdits, 15 millions
         d&apos;euros ou 3 % pour les autres manquements, et 7,5 millions
         d&apos;euros ou 1 % pour de fausses informations aux autorités. Ce
-        régime de sanctions du règlement (UE) 2024/1689 devient applicable le
+        régime de sanctions du règlement (UE) 2024/1689 est applicable depuis le
         2 août 2026. Voici les trois niveaux, qui les prononce, et pourquoi les
         montants affichés ne racontent qu&apos;une partie de l&apos;histoire.
       </p>
@@ -83,7 +83,7 @@ export function AiActSanctionsEntreprise() {
             mesures correctives, pas une amende directe.
           </li>
           <li>
-            Le régime devient applicable le 2 août 2026. Le contrôle relève des
+            Le régime est applicable depuis le 2 août 2026. Le contrôle relève des
             autorités nationales de surveillance du marché, pas de la CNIL.
           </li>
         </ul>
@@ -156,7 +156,7 @@ export function AiActSanctionsEntreprise() {
 
       <h2>Qui contrôle, et depuis quand</h2>
       <p>
-        Le régime de sanctions devient applicable le 2 août 2026. À partir de
+        Le régime de sanctions est applicable depuis le 2 août 2026. À partir de
         cette date, les autorités nationales de surveillance du marché,
         désignées par chaque État membre, peuvent contrôler et sanctionner. La
         CNIL n&apos;est pas cette autorité pour l&apos;AI Act : elle reste

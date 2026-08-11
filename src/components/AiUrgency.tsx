@@ -19,9 +19,9 @@ const SOURCE_URL =
 
 const COPY = {
   fr: {
-    eyebrow: "Conformité, échéance 2 août 2026",
+    eyebrow: "Conformité, en vigueur depuis le 2 août 2026",
     title: "AI Act : vous êtes concerné.",
-    body: "Le règlement européen sur l'IA concerne toute organisation qui fournit, importe, distribue ou déploie des systèmes d'IA, même via des outils gratuits. Depuis février 2025, il demande d'agir sur les compétences IA des équipes. Le 2 août 2026, les autorités peuvent contrôler et sanctionner.",
+    body: "Le règlement européen sur l'IA concerne toute organisation qui fournit, importe, distribue ou déploie des systèmes d'IA, même via des outils gratuits. Depuis février 2025, il demande d'agir sur les compétences IA des équipes. Depuis le 2 août 2026, les autorités peuvent contrôler et sanctionner.",
     ctaPrimary: "Se former sur l'AI Act",
     ctaSecondary: "S'informer sur l'AI Act",
     meta: "Obligation en vigueur depuis février 2025",
@@ -44,7 +44,7 @@ const COPY = {
 
 /**
  * Section "AI Act" : le hook conformité, fond noir dramatique. Rappelle
- * l'obligation de former les équipes à l'IA (échéance 2 août 2026) et
+ * l'obligation de former les équipes à l'IA (en vigueur depuis le 2 août 2026) et
  * pousse à s'informer puis à se former. Ton TROIE : phrases courtes.
  */
 export function AiUrgency({ locale = "fr" }: { locale?: string }) {

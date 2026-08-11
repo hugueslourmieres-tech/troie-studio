@@ -30,7 +30,7 @@ const FAQ = [
   },
   {
     q: "Quelle amende en cas de non-respect de l'article 4 ?",
-    a: "L'article 4 n'a pas d'amende administrative dédiée dans le règlement sur l'IA, contrairement aux pratiques interdites ou aux obligations de transparence. Le risque réel est un manquement constaté par l'autorité nationale de surveillance du marché, compétente à partir du 2 août 2026, qui peut ordonner des mesures correctives. Un défaut de maîtrise de l'IA aggrave aussi le risque sur les autres obligations de l'AI Act.",
+    a: "L'article 4 n'a pas d'amende administrative dédiée dans le règlement sur l'IA, contrairement aux pratiques interdites ou aux obligations de transparence. Le risque réel est un manquement constaté par l'autorité nationale de surveillance du marché, compétente depuis le 2 août 2026, qui peut ordonner des mesures correctives. Un défaut de maîtrise de l'IA aggrave aussi le risque sur les autres obligations de l'AI Act.",
   },
 ];
 
@@ -85,7 +85,7 @@ export function Article4AiActExemplesMesures() {
           </li>
           <li>
             Le contrôle relève des autorités nationales de surveillance du
-            marché à partir du 2 août 2026. La preuve des mesures prises, une
+            marché depuis le 2 août 2026. La preuve des mesures prises, une
             attestation de formation datée par exemple, devient l&apos;enjeu
             central.
           </li>

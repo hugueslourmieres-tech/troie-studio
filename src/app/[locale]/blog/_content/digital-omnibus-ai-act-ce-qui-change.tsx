@@ -26,7 +26,7 @@ const FAQ = [
   },
   {
     q: "Qui contrôle l'application de l'AI Act, et à partir de quand ?",
-    a: "Les autorités nationales de surveillance du marché désignées par chaque État membre, à partir du 2 août 2026. La CNIL, elle, reste compétente sur le RGPD, c'est-à-dire sur les données personnelles, ce qui est un sujet distinct.",
+    a: "Les autorités nationales de surveillance du marché désignées par chaque État membre, depuis le 2 août 2026. La CNIL, elle, reste compétente sur le RGPD, c'est-à-dire sur les données personnelles, ce qui est un sujet distinct.",
   },
 ];
 
@@ -232,7 +232,7 @@ export function DigitalOmnibusAiActCeQuiChange() {
       <p>
         <strong>Le calendrier ne bouge pas.</strong>{" "}
         L&apos;article 4 s&apos;applique depuis le 2 février 2025. Les autorités
-        nationales peuvent contrôler à partir du 2 août 2026. Une
+        nationales peuvent contrôler depuis le 2 août 2026. Une
         obligation qui aura alors dix-huit mois d&apos;ancienneté.
       </p>
 

@@ -35,8 +35,8 @@ export function AiActEntreprise2026() {
         avec ChatGPT, sans cadre ni formation, n’est plus une option neutre.
       </p>
       <p>
-        Et l’échéance se rapproche : des sanctions nationales deviennent
-        applicables en 2026 en cas de non-conformité. La bonne nouvelle, c’est
+        L’échéance est passée : les sanctions nationales sont
+        applicables depuis le 2 août 2026 en cas de non-conformité. La bonne nouvelle, c’est
         que se mettre en règle sur ce volet n’a rien d’insurmontable : il s’agit
         surtout de <strong>cadrer et former</strong>.
       </p>

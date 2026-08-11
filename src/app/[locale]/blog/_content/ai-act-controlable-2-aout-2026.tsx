@@ -109,7 +109,7 @@ export function AiActControlable2Aout2026() {
         18 mois d&apos;ancienneté.
       </p>
 
-      <h2>Le minimum vital avant le 2 août : un plan réaliste en quatre semaines</h2>
+      <h2>Le minimum vital : un plan réaliste en quatre semaines</h2>
       <ol>
         <li>
           <strong>Cartographier :</strong> lister les outils d&apos;IA

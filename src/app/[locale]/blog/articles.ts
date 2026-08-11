@@ -234,7 +234,7 @@ export const ARTICLES: Article[] = [
       "AI Act : les sanctions pour les entreprises, ce que vous risquez vraiment",
     cardTitle: "AI Act : les sanctions pour les entreprises",
     description:
-      "Jusqu'à 35 M€ ou 7 % du chiffre d'affaires mondial : les trois niveaux d'amende de l'AI Act, la règle inversée pour les PME, le cas de l'article 4, et qui contrôle à partir du 2 août 2026.",
+      "Jusqu'à 35 M€ ou 7 % du chiffre d'affaires mondial : les trois niveaux d'amende de l'AI Act, la règle inversée pour les PME, le cas de l'article 4, et qui contrôle depuis le 2 août 2026.",
     date: "2026-07-25",
     category: "Conformité",
     readingMinutes: 6,
@@ -311,10 +311,10 @@ export const ARTICLES: Article[] = [
   {
     slug: "ai-act-controlable-2-aout-2026",
     title:
-      "AI Act : ce qui devient contrôlable le 2 août 2026",
+      "AI Act : ce qui est contrôlable depuis le 2 août 2026",
     cardTitle: "AI Act : contrôlable le 2 août 2026",
     description:
-      "Le 2 août 2026, les autorités peuvent contrôler et sanctionner. L'obligation de former vos équipes existe depuis février 2025. Qui est concerné, ce que vous risquez, et le minimum vital en 4 semaines.",
+      "Depuis le 2 août 2026, les autorités peuvent contrôler et sanctionner. L'obligation de former vos équipes existe depuis février 2025. Qui est concerné, ce que vous risquez, et le minimum vital en 4 semaines.",
     date: "2026-07-06",
     category: "Conformité",
     readingMinutes: 6,
@@ -327,8 +327,8 @@ export const ARTICLES: Article[] = [
       "sanction AI Act",
     ],
     titleEn:
-      "The EU AI Act becomes enforceable on August 2, 2026: what your SMB must have done by then",
-    cardTitleEn: "EU AI Act: enforceable August 2, 2026",
+      "The EU AI Act has been enforceable since 2 August 2026: what your SMB must have done",
+    cardTitleEn: "EU AI Act: enforceable since August 2026",
     descriptionEn:
       "On August 2, 2026, national supervisory authorities can inspect and fine. The obligation to train your teams has applied since February 2025. Who is affected, what you risk, and the bare minimum in 4 weeks.",
     Body: AiActControlable2Aout2026,

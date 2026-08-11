@@ -376,7 +376,7 @@ export default function FormationsPage() {
                   href="/fr/blog/ai-act-controlable-2-aout-2026"
                   className="transition hover:text-[var(--accent)]"
                 >
-                  Le 2 août 2026, l&apos;AI Act devient contrôlable : ce que votre PME doit avoir fait →
+                  Depuis le 2 août 2026, l&apos;AI Act est contrôlable : ce que votre PME doit avoir fait →
                 </Link>
               </p>
             </div>

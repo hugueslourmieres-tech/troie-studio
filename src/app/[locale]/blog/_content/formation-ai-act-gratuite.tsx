@@ -283,7 +283,7 @@ export function FormationAiActGratuite() {
         vérifiable en ligne par un lien public. Elle documente la mesure prise
         au titre de l&apos;article 4 du règlement (UE) 2024/1689 sur la
         littératie IA, applicable depuis le 2 février 2025 et contrôlable par
-        les autorités nationales de surveillance du marché à partir du 2 août
+        les autorités nationales de surveillance du marché depuis le 2 août
         2026. L&apos;abonnement est à 29 euros par mois ou 290 euros par an,
         avec un essai de 7 jours.
       </p>
@@ -315,7 +315,7 @@ export function FormationAiActGratuite() {
         impose ni format, ni durée, ni référencement particulier. Le
         financement est une question de trésorerie, pas de conformité, et
         confondre les deux fait perdre des semaines à beaucoup d&apos;
-        entreprises avant le 2 août 2026.
+        entreprises.
       </p>
 
       <h2>Questions fréquentes</h2>

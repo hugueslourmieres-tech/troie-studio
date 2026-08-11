@@ -28,7 +28,7 @@ const FAQ = [
   },
   {
     q: "La CNIL contrôle-t-elle l'obligation de transparence de l'AI Act ?",
-    a: "Non. Le contrôle de l'AI Act, article 50 compris, relève des autorités nationales de surveillance du marché, à partir du 2 août 2026. La CNIL reste compétente sur le RGPD, c'est-à-dire sur les données personnelles, ce qui est un sujet distinct.",
+    a: "Non. Le contrôle de l'AI Act, article 50 compris, relève des autorités nationales de surveillance du marché, depuis le 2 août 2026. La CNIL reste compétente sur le RGPD, c'est-à-dire sur les données personnelles, ce qui est un sujet distinct.",
   },
 ];
 
@@ -52,7 +52,7 @@ export function TransparenceIaSignalerContenuGenere() {
 
       <p>
         À partir du 2 août 2026, une nouvelle règle de l&apos;AI Act
-        devient contrôlable et concerne beaucoup plus d&apos;entreprises
+        est contrôlable et concerne beaucoup plus d&apos;entreprises
         qu&apos;on ne le croit : l&apos;obligation de transparence de
         l&apos;article 50. En clair, quand une IA parle à un humain ou
         fabrique un contenu, cela doit se voir. Chatbots, images de
@@ -67,7 +67,7 @@ export function TransparenceIaSignalerContenuGenere() {
         <ul className="mt-4">
           <li>
             L&apos;article 50 de l&apos;AI Act impose de rendre visible le
-            recours à l&apos;IA. Il devient contrôlable le 2 août 2026.
+            recours à l&apos;IA. Il est contrôlable depuis le 2 août 2026.
           </li>
           <li>
             Cinq situations sont visées : agents conversationnels, contenus
@@ -192,7 +192,7 @@ export function TransparenceIaSignalerContenuGenere() {
       </p>
       <p>
         Le contrôle relève des autorités nationales de surveillance du
-        marché, désignées par chaque État membre, à partir du 2 août 2026.
+        marché, désignées par chaque État membre, depuis le 2 août 2026.
         La CNIL n&apos;est pas cette autorité : elle reste compétente sur le
         RGPD, donc sur les données personnelles, ce qui est un sujet
         distinct de la transparence des contenus.
@@ -221,7 +221,7 @@ export function TransparenceIaSignalerContenuGenere() {
       <h2>Par où commencer</h2>
       <p>
         La transparence n&apos;est qu&apos;une des obligations qui
-        deviennent exigibles le 2 août 2026, et elle suppose que vos
+        sont exigibles depuis le 2 août 2026, et elle suppose que vos
         équipes sachent reconnaître un usage concerné. Nos{" "}
         <a href="https://troie.app" target="_blank" rel="noopener">
           formations en ligne sur troie.app
@@ -232,7 +232,7 @@ export function TransparenceIaSignalerContenuGenere() {
         l&apos;<Link href="/ia/ai-act">AI Act</Link> résume toutes les
         échéances à jour, et notre article sur{" "}
         <Link href="/blog/ai-act-controlable-2-aout-2026">
-          ce qui devient contrôlable le 2 août 2026
+          ce qui est contrôlable depuis le 2 août 2026
         </Link>{" "}
         replace la transparence dans le calendrier d&apos;ensemble. Premier
         pas simple : un audit gratuit de 30 minutes pour situer vos

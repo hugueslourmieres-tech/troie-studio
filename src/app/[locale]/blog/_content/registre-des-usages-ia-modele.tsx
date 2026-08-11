@@ -38,7 +38,7 @@ const FAQ = [
   },
   {
     q: "Comment prouver qu'on a pris des mesures au titre de l'article 4 ?",
-    a: "La preuve attendue est un ensemble daté : un registre des usages de l'IA, une charte d'usage interne et une trace des formations suivies par les équipes. Sur troie.app, chaque parcours se termine par un QCM et délivre une attestation de formation vérifiable en ligne, qui documente la mesure prise au titre de l'article 4 du règlement (UE) 2024/1689. TROIE Studio propose par ailleurs un audit gratuit de 30 minutes pour situer vos obligations réelles avant le 2 août 2026.",
+    a: "La preuve attendue est un ensemble daté : un registre des usages de l'IA, une charte d'usage interne et une trace des formations suivies par les équipes. Sur troie.app, chaque parcours se termine par un QCM et délivre une attestation de formation vérifiable en ligne, qui documente la mesure prise au titre de l'article 4 du règlement (UE) 2024/1689. TROIE Studio propose par ailleurs un audit gratuit de 30 minutes pour situer vos obligations réelles.",
   },
 ];
 
@@ -97,7 +97,7 @@ export function RegistreDesUsagesIaModele() {
           <li>
             Un registre seul ne suffit pas. Il doit s&apos;accompagner de
             formations datées, car le contrôle de l&apos;article 4 relève des
-            autorités nationales de surveillance du marché à partir du 2 août
+            autorités nationales de surveillance du marché depuis le 2 août
             2026.
           </li>
         </ul>
@@ -286,7 +286,7 @@ export function RegistreDesUsagesIaModele() {
         Une fois la carte dressée, il reste à former les personnes qui figurent
         dessus et à en garder la trace. C&apos;est le coeur de l&apos;article 4
         du règlement (UE) 2024/1689 sur la littératie IA, applicable depuis le 2
-        février 2025 et contrôlable à partir du 2 août 2026. Sur{" "}
+        février 2025 et contrôlable depuis le 2 août 2026. Sur{" "}
         <a href="https://troie.app" target="_blank" rel="noopener">
           troie.app
         </a>
