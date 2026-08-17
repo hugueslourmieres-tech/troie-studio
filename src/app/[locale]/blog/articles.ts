@@ -42,6 +42,7 @@ import { SiteWebIa2026Creation } from "./_content/site-web-ia-2026-creation";
 import { AttestationLitteratieIa } from "./_content/attestation-litteratie-ia";
 import { FormationAiActGratuite } from "./_content/formation-ai-act-gratuite";
 import { AiActPmeChecklist } from "./_content/ai-act-pme-checklist";
+import { ConsultationCseIntelligenceArtificielle } from "./_content/consultation-cse-intelligence-artificielle";
 
 export type Article = {
   slug: string;
@@ -92,6 +93,27 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "consultation-cse-intelligence-artificielle",
+    title:
+      "Déployer l'IA sans consulter le CSE : quatre décisions ont déjà suspendu des projets",
+    cardTitle: "IA et CSE : la consultation qui suspend les projets",
+    description:
+      "Entre février 2025 et janvier 2026, quatre ordonnances de référé ont jugé que déployer un outil d'IA relève de l'introduction d'une nouvelle technologie au sens de l'article L. 2312-8 du code du travail. Trois ont suspendu le projet, phase pilote comprise, dont une sous astreinte de 500 euros par jour. La procédure, les délais et le dossier à préparer.",
+    date: "2026-08-17",
+    category: "Conformité",
+    readingMinutes: 8,
+    cover: "/images/corpo/montpellier/DSC_7573.jpg",
+    keywords: [
+      "consultation CSE intelligence artificielle",
+      "CSE IA obligatoire",
+      "déploiement IA consultation CSE",
+      "L2312-8 nouvelles technologies IA",
+      "jurisprudence IA CSE suspension",
+      "informer le CSE outil IA",
+    ],
+    Body: ConsultationCseIntelligenceArtificielle,
+  },
   {
     slug: "ai-act-pme-checklist",
     title:
