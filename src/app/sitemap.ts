@@ -9,8 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   // /fr|/en/formation(s) redirige (301) vers /formations : exclu du sitemap.
-  const staticPaths = ["", "/creation", "/creation/web", "/strategie", "/diagnostic-ia", "/medias", "/blog", "/contact", "/privacy", "/terms"];
-  const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/diagnostic-ia"]);
+  const staticPaths = ["", "/creation", "/creation/web", "/strategie", "/diagnostic-ia", "/scan-ia", "/medias", "/blog", "/contact", "/privacy", "/terms"];
+  const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/diagnostic-ia", "/scan-ia"]);
 
   const entries: MetadataRoute.Sitemap = [];
 
