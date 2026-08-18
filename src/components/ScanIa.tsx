@@ -38,9 +38,9 @@ const COPY = {
     errRate: "Limite atteinte : 10 scans par heure. Revenez un peu plus tard.",
     errGeneric: "Le scan a échoué. Réessayez dans un instant.",
     scoreOf: "sur 100",
-    gradeHigh: "Bien préparé pour les moteurs IA",
-    gradeMid: "Lisible, mais des trous importants",
-    gradeLow: "Mal préparé : les moteurs IA lisent peu de choses",
+    gradeHigh: "Prêt à être cité par les moteurs IA",
+    gradeMid: "Lisible, mais peu citable",
+    gradeLow: "Les moteurs IA vous survolent",
     gradeZero: "Quasi invisible pour les moteurs IA",
     scannedPrefix: "Analyse de",
     ctaTitle: "On corrige tout ça en une semaine.",
@@ -62,9 +62,9 @@ const COPY = {
     errRate: "Limit reached: 10 scans per hour. Come back a little later.",
     errGeneric: "The scan failed. Try again in a moment.",
     scoreOf: "out of 100",
-    gradeHigh: "Well prepared for AI engines",
-    gradeMid: "Readable, but with significant gaps",
-    gradeLow: "Poorly prepared: AI engines read very little",
+    gradeHigh: "Ready to be cited by AI engines",
+    gradeMid: "Readable, but hardly citable",
+    gradeLow: "AI engines skim past you",
     gradeZero: "Nearly invisible to AI engines",
     scannedPrefix: "Analysis of",
     ctaTitle: "We fix all of it in a week.",
@@ -79,9 +79,9 @@ const COPY = {
 } as const;
 
 function grade(score: number, c: (typeof COPY)[keyof typeof COPY]) {
-  if (score >= 80) return c.gradeHigh;
-  if (score >= 60) return c.gradeMid;
-  if (score >= 40) return c.gradeLow;
+  if (score >= 75) return c.gradeHigh;
+  if (score >= 50) return c.gradeMid;
+  if (score >= 30) return c.gradeLow;
   return c.gradeZero;
 }
 

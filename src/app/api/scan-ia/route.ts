@@ -307,7 +307,16 @@ export async function POST(req: Request) {
   const text = visibleText(html);
   const lower = html.toLowerCase();
 
-  /* A. Accès des robots IA, 25 points */
+  /* ── Barème v2, recalibré le 18/08/2026 ──────────────────────────
+     Le v1 mesurait l'hygiène technique : tout site correct tapait 80+ et
+     le score ne disait rien (constaté sur 8 prospects réels : 82 à 95).
+     Le v2 mesure la CITABILITÉ : l'hygiène pèse peu (elle est banale),
+     les critères qui gouvernent la reprise par les moteurs IA pèsent
+     lourd (identité complète, FAQ balisée, llms.txt, fraîcheur datée),
+     et presque aucun site français ne les passe aujourd'hui. Un site
+     "propre" ordinaire doit atterrir vers 45-60, pas 85. */
+
+  /* A. Accès des moteurs IA, 15 points : indispensable mais banal */
   const robotsOk = robots.ok && !robots.contentType.includes("html");
   const { groups, sitemaps } = robotsOk
     ? parseRobots(robots.text)
@@ -326,51 +335,62 @@ export async function POST(req: Request) {
   const catA: Category = {
     id: "acces",
     label: "Accès des moteurs IA",
-    points: 25 - blockedCount * 5,
-    max: 25,
+    points: Math.max(0, 15 - blockedCount * 3),
+    max: 15,
     items: botItems,
   };
 
-  /* B. Contenu lisible sans JavaScript, 20 points */
+  /* B. Contenu servi sans JavaScript, 15 points, seuils relevés */
   const textLen = text.length;
-  const bPoints = textLen >= 1500 ? 20 : textLen >= 600 ? 12 : 0;
+  const bPoints = textLen >= 3000 ? 15 : textLen >= 1500 ? 10 : textLen >= 600 ? 5 : 0;
   const catB: Category = {
     id: "contenu",
     label: "Contenu lisible sans JavaScript",
     points: bPoints,
-    max: 20,
+    max: 15,
     items: [
       {
         label: "Texte servi dans le HTML initial",
-        status: textLen >= 1500 ? "pass" : textLen >= 600 ? "warn" : "fail",
+        status: textLen >= 3000 ? "pass" : textLen >= 1500 ? "warn" : "fail",
         detail:
-          textLen >= 1500
+          textLen >= 3000
             ? `${textLen.toLocaleString("fr-FR")} caractères lisibles sans exécuter JavaScript.`
-            : textLen >= 600
-              ? `Seulement ${textLen.toLocaleString("fr-FR")} caractères lisibles : une partie du contenu n'existe qu'après JavaScript, que la plupart des robots IA n'exécutent pas.`
-              : "Le HTML initial est quasiment vide : pour un robot IA, ce site n'a pas de contenu.",
+            : textLen >= 1500
+              ? `${textLen.toLocaleString("fr-FR")} caractères seulement : les moteurs IA préfèrent citer les pages qui portent une vraie substance dès le HTML.`
+              : textLen >= 600
+                ? `${textLen.toLocaleString("fr-FR")} caractères : trop peu pour qu'un moteur IA trouve quoi que ce soit à reprendre.`
+                : "Le HTML initial est quasiment vide : pour un robot IA, ce site n'a pas de contenu.",
       },
     ],
   };
 
-  /* C. Données structurées, 20 points */
+  /* C. Identité pour les IA, 25 points : ce qui permet de vous DÉCRIRE */
+  const jsonLdBlocks: string[] = [];
+  {
+    const reLd = /<script[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+    let mLd: RegExpExecArray | null;
+    while ((mLd = reLd.exec(html))) jsonLdBlocks.push(mLd[1]);
+  }
+  const ldRaw = jsonLdBlocks.join(" ");
   const types = extractJsonLdTypes(html);
   const hasIdentity = types.some((t) =>
     ["Organization", "LocalBusiness", "Corporation", "Store", "ProfessionalService"].some((k) =>
       t.includes(k),
     ),
   );
-  const richTypes = types.filter((t) =>
-    ["FAQPage", "Product", "Service", "Article", "BlogPosting", "Course", "Event", "BreadcrumbList"].some(
-      (k) => t.includes(k),
-    ),
-  );
-  const cPoints = (types.length > 0 ? 8 : 0) + (hasIdentity ? 6 : 0) + (richTypes.length > 0 ? 6 : 0);
+  const identityComplete =
+    hasIdentity && /"address"/i.test(ldRaw) && /"(sameAs|telephone)"/i.test(ldRaw);
+  const identityLogo = hasIdentity && /"logo"/i.test(ldRaw);
+  const cPoints =
+    (types.length > 0 ? 5 : 0) +
+    (hasIdentity ? 6 : 0) +
+    (identityComplete ? 8 : 0) +
+    (identityLogo ? 6 : 0);
   const catC: Category = {
-    id: "schema",
-    label: "Données structurées (Schema.org)",
+    id: "identite",
+    label: "Identité pour les moteurs IA",
     points: cPoints,
-    max: 20,
+    max: 25,
     items: [
       {
         label: "Balisage JSON-LD",
@@ -381,24 +401,80 @@ export async function POST(req: Request) {
             : "Aucun JSON-LD : les moteurs IA doivent deviner qui vous êtes.",
       },
       {
-        label: "Identité de l'entreprise (Organization, LocalBusiness)",
+        label: "Entité entreprise (Organization, LocalBusiness)",
         status: hasIdentity ? "pass" : "fail",
         detail: hasIdentity
-          ? "L'entreprise est décrite formellement."
-          : "Rien ne décrit formellement l'entreprise, son adresse, son activité.",
+          ? "L'entreprise est déclarée formellement."
+          : "Rien ne déclare formellement l'entreprise : un moteur IA ne peut pas confirmer qui vous êtes.",
       },
       {
-        label: "Contenus riches (FAQ, produits, articles)",
-        status: richTypes.length > 0 ? "pass" : "warn",
-        detail:
-          richTypes.length > 0
-            ? `Présents : ${[...new Set(richTypes)].join(", ")}.`
-            : "Aucun contenu riche balisé : les FAQ balisées sont le format le plus repris par les moteurs IA.",
+        label: "Identité complète (adresse + téléphone ou profils sameAs)",
+        status: identityComplete ? "pass" : "fail",
+        detail: identityComplete
+          ? "Adresse et rattachements présents : l'entité est vérifiable."
+          : "Sans adresse ni rattachements (sameAs, téléphone), les moteurs IA ne peuvent pas relier votre site à une entreprise réelle. C'est le critère qui gouverne la confiance, et presque personne ne le remplit.",
+      },
+      {
+        label: "Logo déclaré dans l'entité",
+        status: identityLogo ? "pass" : "fail",
+        detail: identityLogo
+          ? "Présent."
+          : "Absent : votre marque apparaît sans visage dans les résultats enrichis.",
       },
     ],
   };
 
-  /* D. Fondamentaux, 15 points */
+  /* D. Contenu citable, 25 points : ce que les moteurs IA REPRENNENT */
+  const hasFaq = types.some((t) => t.includes("FAQPage"));
+  const richTypes = types.filter((t) =>
+    ["Product", "Service", "Article", "BlogPosting", "Course", "Event", "HowTo", "Review"].some(
+      (k) => t.includes(k),
+    ),
+  );
+  const h2Count = (html.match(/<h2[\s>]/gi) ?? []).length;
+  const llmsOk = llms.ok && !llms.contentType.includes("html") && llms.text.trim().length > 0;
+  const dPoints =
+    (hasFaq ? 8 : 0) + (richTypes.length > 0 ? 5 : 0) + (h2Count >= 4 ? 4 : 0) + (llmsOk ? 8 : 0);
+  const catD: Category = {
+    id: "citable",
+    label: "Contenu citable",
+    points: dPoints,
+    max: 25,
+    items: [
+      {
+        label: "FAQ balisée (FAQPage)",
+        status: hasFaq ? "pass" : "fail",
+        detail: hasFaq
+          ? "Présente : c'est le format le plus repris par les moteurs IA."
+          : "Absente : les questions-réponses balisées sont le format que les moteurs IA reprennent le plus, et presque aucun site ne l'a.",
+      },
+      {
+        label: "Contenus riches balisés (produits, articles, services)",
+        status: richTypes.length > 0 ? "pass" : "fail",
+        detail:
+          richTypes.length > 0
+            ? `Présents : ${[...new Set(richTypes)].join(", ")}.`
+            : "Aucun : vos offres n'existent pas en tant qu'objets pour les moteurs IA.",
+      },
+      {
+        label: "Structure de titres (H2)",
+        status: h2Count >= 4 ? "pass" : "fail",
+        detail:
+          h2Count >= 4
+            ? `${h2Count} sections H2 : le contenu est découpable et citable.`
+            : `${h2Count} H2 seulement : un contenu sans sections est difficile à découper, donc à citer.`,
+      },
+      {
+        label: "Fichier llms.txt",
+        status: llmsOk ? "pass" : "fail",
+        detail: llmsOk
+          ? "Présent : le site guide explicitement les moteurs IA."
+          : "Absent : le standard qui indique aux moteurs IA quoi lire en priorité. Le fournir vous place devant la quasi-totalité des sites français.",
+      },
+    ],
+  };
+
+  /* E. Fondamentaux et fraîcheur, 20 points, fraîcheur STRICTE */
   const title = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim() ?? "";
   const description = metaContent(html, "description");
   const ogTitle = metaContent(html, "og:title");
@@ -406,50 +482,34 @@ export async function POST(req: Request) {
   const langAttr = html.match(/<html[^>]*\slang\s*=\s*["']([^"']+)["']/i)?.[1] ?? "";
   const canonical = /<link[^>]+rel\s*=\s*["']canonical["']/i.test(html);
   const h1Count = (html.match(/<h1[\s>]/gi) ?? []).length;
-  const dChecks: [boolean, number, string, string][] = [
-    [title.length > 3, 3, "Balise titre", title ? `« ${title.slice(0, 80)} »` : "Absente."],
-    [description.length > 20, 3, "Méta description", description ? "Présente." : "Absente ou vide."],
-    [Boolean(langAttr), 2, "Langue déclarée", langAttr ? `lang="${langAttr}"` : "Absente."],
-    [canonical, 2, "URL canonique", canonical ? "Présente." : "Absente."],
-    [Boolean(ogTitle && ogDesc), 3, "Balises Open Graph", ogTitle && ogDesc ? "Présentes." : "Incomplètes ou absentes."],
-    [h1Count === 1, 2, "Un titre H1 unique", h1Count === 1 ? "Présent." : h1Count === 0 ? "Aucun H1." : `${h1Count} H1 concurrents.`],
-  ];
-  const catD: Category = {
-    id: "fondamentaux",
-    label: "Fondamentaux techniques",
-    points: dChecks.reduce((s, [ok, pts]) => s + (ok ? pts : 0), 0),
-    max: 15,
-    items: dChecks.map(([ok, , label, detail]) => ({
-      label,
-      status: ok ? "pass" : "fail",
-      detail,
-    })),
-  };
-
-  /* E. Signaux de citabilité, 20 points */
+  const basicsPts =
+    (title.length > 3 && description.length > 20 ? 2 : 0) +
+    (Boolean(ogTitle && ogDesc) ? 2 : 0) +
+    (canonical && Boolean(langAttr) ? 2 : 0) +
+    (h1Count === 1 ? 2 : 0);
   const sitemapOk =
     sitemaps.length > 0 ||
     (sitemapProbe.ok && sitemapProbe.text.trimStart().startsWith("<"));
-  const llmsOk = llms.ok && !llms.contentType.includes("html") && llms.text.trim().length > 0;
   const contactOk = /href\s*=\s*["'][^"']*contact/i.test(html) || /tel:|mailto:/i.test(html);
-  const freshOk =
-    /datemodified|datepublished/i.test(lower) ||
-    /<time[\s>]/i.test(html) ||
-    /\b20(2[5-9])\b/.test(text);
-  const eChecks: [boolean, string, string, string][] = [
-    [sitemapOk, "Plan du site (sitemap.xml)", "Présent.", "Introuvable : les robots découvrent les pages au hasard."],
-    [llmsOk, "Fichier llms.txt", "Présent : le site guide explicitement les moteurs IA.", "Absent. Standard émergent : le fournir vous distingue, son absence n'est pas encore pénalisante."],
-    [contactOk, "Coordonnées visibles (contact, téléphone)", "Présentes.", "Introuvables sur la page d'accueil : un moteur IA ne peut pas vous rattacher à un lieu ou un contact."],
-    [freshOk, "Signaux de fraîcheur (dates)", "Présents.", "Aucune date détectée : impossible de juger si le contenu est à jour."],
+  const freshOk = /"date(Modified|Published)"/i.test(ldRaw) || /<time[\s>]/i.test(html);
+  const eChecks: [boolean, number, string, string, string][] = [
+    [basicsPts === 8, 0, "Fondamentaux (titre, description, OG, canonique, H1)", "Complets.", `Incomplets (${basicsPts / 2}/4) : titre, méta description, Open Graph, canonique + langue, H1 unique.`],
+    [sitemapOk, 4, "Plan du site (sitemap.xml)", "Présent.", "Introuvable : les robots découvrent les pages au hasard."],
+    [contactOk, 4, "Coordonnées lisibles (contact, téléphone)", "Présentes.", "Introuvables : un moteur IA ne peut pas vous rattacher à un lieu ou un contact."],
+    [freshOk, 4, "Fraîcheur datée (dateModified, time)", "Présente : le contenu est daté machine.", "Aucune date lisible par les machines : les moteurs IA privilégient les sources datées, et un simple millésime dans le texte ne suffit pas."],
   ];
   const catE: Category = {
-    id: "citabilite",
-    label: "Signaux de citabilité",
-    points: eChecks.reduce((s, [ok]) => s + (ok ? 5 : 0), 0),
+    id: "fondamentaux",
+    label: "Fondamentaux et fraîcheur",
+    points:
+      basicsPts +
+      (sitemapOk ? 4 : 0) +
+      (contactOk ? 4 : 0) +
+      (freshOk ? 4 : 0),
     max: 20,
-    items: eChecks.map(([ok, label, passDetail, failDetail]) => ({
+    items: eChecks.map(([ok, , label, passDetail, failDetail]) => ({
       label,
-      status: ok ? "pass" : label.includes("llms") ? "warn" : "fail",
+      status: ok ? "pass" : label.includes("Fondamentaux") && basicsPts >= 4 ? "warn" : "fail",
       detail: ok ? passDetail : failDetail,
     })),
   };
