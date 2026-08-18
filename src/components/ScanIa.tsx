@@ -55,12 +55,16 @@ const COPY = {
     prioTitle: "Les corrections prioritaires",
     prioNone: "Rien de bloquant : les points restants sont du perfectionnement.",
     detailTitle: "Le détail des vérifications",
-    ctaTitle: "On corrige tout ça en une semaine.",
+    stakes:
+      "Ce que ça engage : quand un résumé IA s'affiche, les clics vers les sites chutent de 61 %. Et un visiteur venu d'un moteur IA convertit 4,4 fois mieux qu'un visiteur classique. Le potentiel exact dépend de votre trafic et de votre panier : on le chiffre ensemble, gratuitement.",
+    ctaTitle: "L'audit complet est gratuit.",
     ctaBody:
-      "L'audit-fix reprend chaque point en échec ci-dessus et le corrige : balisage Schema.org, llms.txt, restructuration des contenus, coordonnées, puis un rapport daté qui prouve le travail. Prix fixe, livrables définis.",
+      "Trente minutes en visio : on passe votre rapport en revue point par point, on chiffre le potentiel de visites et de ventes selon votre trafic réel, et vous repartez avec les corrections prioritaires expliquées. Sans engagement.",
+    ctaAfter:
+      "Ensuite, si vous préférez que ce soit fait pour vous : l'audit-fix corrige tout (Schema.org, llms.txt, contenus, coordonnées) avec un rapport daté qui prouve le travail.",
     ctaPrice: "890 €",
-    ctaPriceNote: "prix fixe, déductible pour votre entreprise",
-    ctaBook: "Réserver 30 minutes, gratuitement",
+    ctaPriceNote: "prix fixe, déductible, seulement si vous nous confiez les corrections",
+    ctaBook: "Réserver mon audit gratuit",
     honesty:
       "Ce scan mesure la lisibilité de votre site par les moteurs de recherche et les moteurs IA (ChatGPT, Perplexity, résumés IA de Google). Personne ne peut garantir une position ni une citation, et ceux qui le promettent vous trompent. Ce que ce rapport liste, en revanche, se corrige et se vérifie.",
   },
@@ -85,12 +89,16 @@ const COPY = {
     prioTitle: "Priority fixes",
     prioNone: "Nothing blocking: what remains is refinement.",
     detailTitle: "Every check in detail",
-    ctaTitle: "We fix all of it in a week.",
+    stakes:
+      "What is at stake: when an AI summary appears, clicks to websites drop by 61%. And a visitor coming from an AI engine converts 4.4 times better than a classic one. The exact potential depends on your traffic and basket: we quantify it together, for free.",
+    ctaTitle: "The full audit is free.",
     ctaBody:
-      "The audit-fix takes every failing check above and corrects it: Schema.org markup, llms.txt, content restructuring, contact signals, then a dated report that proves the work. Fixed price, defined deliverables.",
+      "Thirty minutes on a call: we walk through your report point by point, quantify the visit and sales potential based on your real traffic, and you leave with the priority fixes explained. No commitment.",
+    ctaAfter:
+      "Then, if you would rather have it done for you: the audit-fix corrects everything (Schema.org, llms.txt, content, contact signals) with a dated report that proves the work.",
     ctaPrice: "€890",
-    ctaPriceNote: "fixed price, tax-deductible for your company",
-    ctaBook: "Book 30 minutes, free",
+    ctaPriceNote: "fixed price, deductible, only if you hand us the fixes",
+    ctaBook: "Book my free audit",
     honesty:
       "This scan measures how readable your site is for search engines and AI engines (ChatGPT, Perplexity, Google AI Overviews). Nobody can guarantee a ranking or a citation, and anyone promising that is misleading you. What this report lists, however, can be fixed and verified.",
   },
@@ -315,15 +323,14 @@ export function ScanIa({ locale }: { locale: string }) {
             ))}
           </div>
 
-          {/* CTA audit */}
-          <div className="mt-10 rounded-2xl border border-[var(--accent)] bg-[var(--accent)]/5 p-8">
-            <div className="flex flex-wrap items-baseline justify-between gap-4">
-              <h3 className="t-display text-2xl md:text-3xl">{c.ctaTitle}</h3>
-              <p className="font-mono text-2xl font-semibold tabular-nums">
-                {c.ctaPrice}
-                <span className="ml-2 align-middle font-sans text-[12px] font-normal text-[var(--fg-2)]">{c.ctaPriceNote}</span>
-              </p>
-            </div>
+          {/* Enjeu chiffre (donnees de marche verifiees, jamais de promesse par site) */}
+          <p className="mt-8 max-w-2xl border-l-2 border-[var(--accent)] pl-5 text-[15px] leading-relaxed text-[var(--fg-2)]">
+            {c.stakes}
+          </p>
+
+          {/* CTA : audit complet gratuit d'abord, le prix vient apres */}
+          <div className="mt-8 rounded-2xl border border-[var(--accent)] bg-[var(--accent)]/5 p-8">
+            <h3 className="t-display text-2xl md:text-3xl">{c.ctaTitle}</h3>
             <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-[var(--fg-2)]">{c.ctaBody}</p>
             <a
               href={CAL_URL}
@@ -334,6 +341,11 @@ export function ScanIa({ locale }: { locale: string }) {
               {c.ctaBook}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </a>
+            <p className="mt-6 max-w-2xl border-t border-[var(--fg)]/10 pt-5 text-[13.5px] leading-relaxed text-[var(--fg-2)]">
+              {c.ctaAfter}{" "}
+              <span className="font-mono font-semibold tabular-nums text-[var(--fg)]">{c.ctaPrice}</span>
+              <span className="text-[var(--fg-2)]/80">, {c.ctaPriceNote}.</span>
+            </p>
           </div>
 
           <p className="mt-8 max-w-2xl border-l-2 border-[var(--fg)]/15 pl-5 text-[13px] leading-relaxed text-[var(--fg-2)]/75">
