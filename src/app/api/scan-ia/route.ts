@@ -517,11 +517,37 @@ export async function POST(req: Request) {
   const categories = [catA, catB, catC, catD, catE];
   const score = categories.reduce((s, c) => s + c.points, 0);
 
+  /* Deux notes derivees des memes verifications, ponderees par pertinence :
+     l'identite et le contenu citable pesent surtout en GEO, les
+     fondamentaux surtout en SEO, l'acces et le contenu servi comptent
+     pour les deux. */
+  const W: Record<string, { seo: number; geo: number }> = {
+    acces: { seo: 1, geo: 1 },
+    contenu: { seo: 1, geo: 1 },
+    identite: { seo: 0.3, geo: 1 },
+    citable: { seo: 0.3, geo: 1 },
+    fondamentaux: { seo: 1, geo: 0.4 },
+  };
+  const weighted = (k: "seo" | "geo") => {
+    let pts = 0;
+    let max = 0;
+    for (const c of categories) {
+      const w = W[c.id]?.[k] ?? 1;
+      pts += c.points * w;
+      max += c.max * w;
+    }
+    return Math.round((pts / max) * 100);
+  };
+  const seoScore = weighted("seo");
+  const geoScore = weighted("geo");
+
   return NextResponse.json({
     ok: true,
     url: home.finalUrl,
     https: home.finalUrl.startsWith("https:"),
     score,
+    seoScore,
+    geoScore,
     categories,
     fetchedAt: new Date().toISOString(),
     durationMs: Date.now() - started,

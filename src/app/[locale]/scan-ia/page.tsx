@@ -24,16 +24,16 @@ const COPY = {
     eyebrow: "Scan IA gratuit",
     title: "ChatGPT parle-t-il de votre entreprise ?",
     intro:
-      "Depuis le 22 juillet 2026, Google affiche ses résumés IA en France, et vos clients posent leurs questions à ChatGPT. Quand un résumé IA s'affiche, les clics vers les sites chutent de moitié. La question n'est plus d'être bien classé : c'est d'être lisible, et cité, par les moteurs IA. Ce scan vous dit en 60 secondes où vous en êtes, gratuitement, sans inscription.",
-    how: "Le scan lit votre site comme le ferait un robot de moteur IA : accès autorisés, contenu réellement servi, données structurées, signaux de citabilité. Cinq familles de vérifications, un score sur 100, et le détail de ce qui bloque.",
+      "Depuis le 22 juillet 2026, Google affiche ses résumés IA en France, et vos clients posent leurs questions à ChatGPT. Quand un résumé IA s'affiche, les clics vers les sites chutent de moitié. La question n'est plus d'être bien classé : c'est d'être lisible, et cité, par les moteurs IA. Ce scan vous donne en 60 secondes deux notes, SEO et GEO, gratuitement, sans inscription.",
+    how: "Le scan lit votre site comme le ferait un robot de moteur IA : accès autorisés, contenu réellement servi, données structurées, signaux de citabilité. Cinq familles de vérifications, deux notes sur 100 (SEO pour Google, GEO pour les moteurs IA), les corrections prioritaires, et le détail complet.",
     diagLink: "Voir aussi le diagnostic IA complet",
   },
   en: {
     eyebrow: "Free AI scan",
     title: "Does ChatGPT know your company exists?",
     intro:
-      "Since 22 July 2026, Google shows AI Overviews in France, and your customers ask ChatGPT directly. When an AI summary appears, clicks to websites drop by half. The question is no longer ranking well: it is being readable, and citable, by AI engines. This scan tells you where you stand in 60 seconds, free, no sign-up.",
-    how: "The scan reads your site the way an AI engine's crawler would: allowed access, content actually served, structured data, citability signals. Five families of checks, a score out of 100, and the detail of what blocks you.",
+      "Since 22 July 2026, Google shows AI Overviews in France, and your customers ask ChatGPT directly. When an AI summary appears, clicks to websites drop by half. The question is no longer ranking well: it is being readable, and citable, by AI engines. This scan gives you two scores in 60 seconds, SEO and GEO, free, no sign-up.",
+    how: "The scan reads your site the way an AI engine's crawler would: allowed access, content actually served, structured data, citability signals. Five families of checks, two scores out of 100 (SEO for Google, GEO for AI engines), the priority fixes, and the full detail.",
     diagLink: "See also the full AI assessment",
   },
 } as const;
