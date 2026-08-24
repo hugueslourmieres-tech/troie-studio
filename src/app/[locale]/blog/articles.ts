@@ -43,6 +43,7 @@ import { AttestationLitteratieIa } from "./_content/attestation-litteratie-ia";
 import { FormationAiActGratuite } from "./_content/formation-ai-act-gratuite";
 import { AiActPmeChecklist } from "./_content/ai-act-pme-checklist";
 import { ConsultationCseIntelligenceArtificielle } from "./_content/consultation-cse-intelligence-artificielle";
+import { CharteUsageIaEntrepriseModele } from "./_content/charte-usage-ia-entreprise-modele";
 
 export type Article = {
   slug: string;
@@ -93,6 +94,27 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "charte-usage-ia-entreprise-modele",
+    title:
+      "Charte d'usage de l'IA en entreprise : le modèle en dix règles, et ce qui la rend opposable",
+    cardTitle: "Charte d'usage de l'IA : le modèle en dix règles",
+    description:
+      "Aucun texte n'impose de charte IA, mais c'est la mesure la plus simple à produire au titre de l'article 4 de l'AI Act. Encore faut-il l'écrire comme un document de droit du travail : une charte disciplinaire est une adjonction au règlement intérieur au sens de l'article L. 1321-5. Les dix règles, la procédure d'adoption et les trois formulations à ne pas écrire.",
+    date: "2026-08-24",
+    category: "Conformité",
+    readingMinutes: 9,
+    cover: "/images/corpo/montpellier/DSC_7603.jpg",
+    keywords: [
+      "charte usage IA entreprise",
+      "charte intelligence artificielle modèle",
+      "charte IA salariés",
+      "politique usage IA entreprise",
+      "charte IA règlement intérieur",
+      "article 4 AI Act charte",
+    ],
+    Body: CharteUsageIaEntrepriseModele,
+  },
   {
     slug: "consultation-cse-intelligence-artificielle",
     title:
