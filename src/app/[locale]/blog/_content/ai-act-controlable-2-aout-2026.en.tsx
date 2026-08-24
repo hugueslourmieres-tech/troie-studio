@@ -40,8 +40,8 @@ export function AiActControlable2Aout2026En() {
 
       <p>
         On August 2, 2026, the EU AI Act enters its enforcement phase. The
-        obligation to train your teams on AI, however, has been in force
-        since February 2025. Here is what changes, who is affected, and
+        obligation to ensure your teams a sufficient level of AI literacy,
+        however, has been in force since February 2025. Here is what changes, who is affected, and
         the bare minimum you need to put in place.
       </p>
 

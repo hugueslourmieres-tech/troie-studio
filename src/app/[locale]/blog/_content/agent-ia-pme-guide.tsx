@@ -66,7 +66,8 @@ export function AgentIaPmeGuide() {
         <strong>Une équipe formée.</strong> L&apos;agent travaille avec vos
         salariés, pas à leur place. S&apos;ils ne savent pas le piloter, le
         corriger et le superviser, il finira débranché dans trois mois. (Et
-        depuis 2025, former les équipes qui utilisent l&apos;IA est une{" "}
+        depuis 2025, garantir aux équipes qui utilisent l&apos;IA un niveau
+        de maîtrise suffisant est une{" "}
         <Link href="/blog/formation-ia-obligatoire-entreprise">
           obligation légale
         </Link>

@@ -44,9 +44,9 @@ export function AiActControlable2Aout2026() {
 
       <p>
         Le 2 août 2026, le règlement européen sur l&apos;intelligence
-        artificielle entre dans sa phase de contrôle. L&apos;obligation de
-        former vos équipes à l&apos;IA, elle, existe déjà depuis février
-        2025. Voici ce qui change, qui est concerné, et le minimum vital à
+        artificielle entre dans sa phase de contrôle. L&apos;obligation d&apos;assurer à
+        vos équipes un niveau suffisant de maîtrise de l&apos;IA, elle,
+        existe déjà depuis février 2025. Voici ce qui change, qui est concerné, et le minimum vital à
         mettre en place.
       </p>
 

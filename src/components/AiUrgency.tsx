@@ -44,7 +44,7 @@ const COPY = {
 
 /**
  * Section "AI Act" : le hook conformité, fond noir dramatique. Rappelle
- * l'obligation de former les équipes à l'IA (en vigueur depuis le 2 août 2026) et
+ * l'obligation de littératie IA de l'article 4 (applicable depuis février 2025, contrôlable depuis le 2 août 2026) et
  * pousse à s'informer puis à se former. Ton TROIE : phrases courtes.
  */
 export function AiUrgency({ locale = "fr" }: { locale?: string }) {

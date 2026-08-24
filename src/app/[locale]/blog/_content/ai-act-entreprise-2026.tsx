@@ -26,7 +26,7 @@ export function AiActEntreprise2026() {
         minimal pour manipuler ces outils.
       </p>
 
-      <h2>L’obligation qui vous concerne vraiment : former vos équipes</h2>
+      <h2>L’obligation qui vous concerne vraiment : la maîtrise de l’IA de vos équipes</h2>
       <p>
         C’est le point que beaucoup de dirigeants ratent. Le règlement demande
         que les personnes qui utilisent des systèmes d’IA dans le cadre

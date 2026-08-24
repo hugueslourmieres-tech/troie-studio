@@ -177,6 +177,9 @@ export default async function LocaleLayout({
         alternateName: "TROIE Atelier Digital",
         url: "https://troiestudio.fr",
         logo: "https://troiestudio.fr/images/brand/og-image.png",
+        /* Fraîcheur machine : figée au build, rafraîchie à chaque deploy
+           (critère GEO : les moteurs IA privilégient les sources datées). */
+        dateModified: new Date().toISOString().slice(0, 10),
         description: tBrand("organizationDescription"),
         founder: { "@id": "https://troiestudio.fr/#hugues" },
         founders: [{ "@id": "https://troiestudio.fr/#hugues" }],
