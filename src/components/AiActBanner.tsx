@@ -25,18 +25,25 @@ import Link from "next/link";
  * c'est-à-dire la seule information qui donne son urgence au bandeau. La
  * version courte tient sans points de suspension à côté du lien.
  */
+/*
+ * Campagne de rentrée 2026 (24/08) : le bandeau porte l'offre « La rentrée
+ * qui se prouve » jusqu'à fin décembre. Le message AI Act précédent est
+ * conservé ci-dessous en commentaire : un revert suffit à le rétablir.
+ * Ancien message : « L'AI Act est contrôlable depuis le 2 août 2026 »
+ * (href /fr/blog/ai-act-controlable-2-aout-2026).
+ */
 const COPY = {
   fr: {
-    text: "L'AI Act est contrôlable depuis le 2 août 2026",
-    short: "AI Act contrôlable depuis août 2026",
-    cta: "S'informer →",
-    href: "/fr/blog/ai-act-controlable-2-aout-2026",
+    text: "La rentrée qui se prouve : SEO, visibilité IA, agents, prix publics",
+    short: "Offre de rentrée : la preuve, prix publics",
+    cta: "Voir l'offre →",
+    href: "/fr/rentree",
   },
   en: {
-    text: "The EU AI Act has been enforceable since 2 August 2026",
-    short: "AI Act enforceable since Aug 2026",
-    cta: "Learn more →",
-    href: "/en/blog/ai-act-controlable-2-aout-2026",
+    text: "Back-to-business offer: SEO, AI visibility, agents, public prices",
+    short: "Back-to-business offer, public prices",
+    cta: "See the offer →",
+    href: "/en/rentree",
   },
 } as const;
 

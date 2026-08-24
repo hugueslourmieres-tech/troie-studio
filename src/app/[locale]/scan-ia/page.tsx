@@ -27,6 +27,7 @@ const COPY = {
       "Depuis le 22 juillet 2026, Google affiche ses résumés IA en France, et vos clients posent leurs questions à ChatGPT. Quand un résumé IA s'affiche, les clics vers les sites chutent de moitié. La question n'est plus d'être bien classé : c'est d'être lisible, et cité, par les moteurs IA. Ce scan vous donne en 60 secondes deux notes, SEO et GEO, gratuitement, sans inscription.",
     how: "Le scan lit votre site comme le ferait un robot de moteur IA : accès autorisés, contenu réellement servi, données structurées, signaux de citabilité. Cinq familles de vérifications, deux notes sur 100 (SEO pour Google, GEO pour les moteurs IA), les corrections prioritaires, et le détail complet.",
     diagLink: "Voir aussi le diagnostic IA complet",
+    rentreeLink: "L'offre de rentrée complète, prix publics",
   },
   en: {
     eyebrow: "Free AI scan",
@@ -35,6 +36,7 @@ const COPY = {
       "Since 22 July 2026, Google shows AI Overviews in France, and your customers ask ChatGPT directly. When an AI summary appears, clicks to websites drop by half. The question is no longer ranking well: it is being readable, and citable, by AI engines. This scan gives you two scores in 60 seconds, SEO and GEO, free, no sign-up.",
     how: "The scan reads your site the way an AI engine's crawler would: allowed access, content actually served, structured data, citability signals. Five families of checks, two scores out of 100 (SEO for Google, GEO for AI engines), the priority fixes, and the full detail.",
     diagLink: "See also the full AI assessment",
+    rentreeLink: "The full back-to-business offer, public prices",
   },
 } as const;
 
@@ -89,12 +91,20 @@ export default async function ScanIaPage({
         <p className="mt-16 max-w-2xl text-[15px] leading-relaxed text-[var(--fg-2)]/85">
           {c.how}
         </p>
-        <Link
-          href={`/${locale}/diagnostic-ia`}
-          className="mt-4 inline-flex font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg-2)]/70 underline-offset-4 hover:underline"
-        >
-          {c.diagLink}
-        </Link>
+        <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2">
+          <Link
+            href={`/${locale}/rentree`}
+            className="inline-flex font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg-2)]/70 underline-offset-4 hover:underline"
+          >
+            {c.rentreeLink}
+          </Link>
+          <Link
+            href={`/${locale}/diagnostic-ia`}
+            className="inline-flex font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg-2)]/70 underline-offset-4 hover:underline"
+          >
+            {c.diagLink}
+          </Link>
+        </div>
       </section>
 
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
