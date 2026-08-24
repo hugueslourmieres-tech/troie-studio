@@ -33,6 +33,12 @@ export type BillingProduct = {
    * distribue des codes d'invitation, il ne reçoit pas l'accès lui-même.
    */
   seats?: number;
+  /**
+   * Prestation de service (audit, conseil) : rien à débloquer dans l'espace
+   * membre, donc achat SANS compte autorisé. Le webhook n'accorde aucun
+   * accès : il notifie l'équipe et confirme la commande à l'acheteur.
+   */
+  service?: boolean;
 };
 
 export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
@@ -75,6 +81,22 @@ export const BILLING_PRODUCTS: Record<string, BillingProduct> = {
     interval: "one_time",
     grants: [],
     seats: 10,
+  },
+  /**
+   * L'audit-fix visibilité IA vendu au bout du scan gratuit (/scan-ia).
+   * Prestation réalisée par le studio : le paiement déclenche une prise de
+   * contact, pas un accès. Prix affiché sur /scan-ia : les deux doivent
+   * bouger ensemble.
+   */
+  "audit-geo": {
+    key: "audit-geo",
+    name: "Audit-fix visibilité IA (GEO + SEO)",
+    description:
+      "Corrections de citabilité réalisées pour vous : Schema.org, llms.txt, contenus, coordonnées, avec un rapport avant/après daté qui prouve le travail.",
+    amountCents: 89000,
+    interval: "one_time",
+    grants: [],
+    service: true,
   },
   "cours-01": {
     key: "cours-01",

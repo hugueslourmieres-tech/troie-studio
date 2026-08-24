@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import { BuyServiceButton } from "@/components/BuyServiceButton";
+
 /**
  * Le scan de visibilité : formulaire + rapport à deux notes, SEO et GEO.
  *
@@ -65,6 +67,9 @@ const COPY = {
     ctaPrice: "890 €",
     ctaPriceNote: "prix fixe, déductible, seulement si vous nous confiez les corrections",
     ctaBook: "Réserver mon audit gratuit",
+    orderButton: "Commander l'audit-fix, 890 €",
+    orderNote:
+      "Paiement sécurisé Stripe. Prise de contact sous 48 h ouvrées pour valider le périmètre, rapport avant/après daté sous 10 jours ouvrés.",
     honesty:
       "Ce scan mesure la lisibilité de votre site par les moteurs de recherche et les moteurs IA (ChatGPT, Perplexity, résumés IA de Google). Personne ne peut garantir une position ni une citation, et ceux qui le promettent vous trompent. Ce que ce rapport liste, en revanche, se corrige et se vérifie.",
   },
@@ -99,6 +104,9 @@ const COPY = {
     ctaPrice: "€890",
     ctaPriceNote: "fixed price, deductible, only if you hand us the fixes",
     ctaBook: "Book my free audit",
+    orderButton: "Order the audit-fix, €890",
+    orderNote:
+      "Secure Stripe payment. We reach out within 48 working hours to confirm the scope, dated before/after report within 10 working days.",
     honesty:
       "This scan measures how readable your site is for search engines and AI engines (ChatGPT, Perplexity, Google AI Overviews). Nobody can guarantee a ranking or a citation, and anyone promising that is misleading you. What this report lists, however, can be fixed and verified.",
   },
@@ -345,6 +353,17 @@ export function ScanIa({ locale }: { locale: string }) {
               {c.ctaAfter}{" "}
               <span className="font-mono font-semibold tabular-nums text-[var(--fg)]">{c.ctaPrice}</span>
               <span className="text-[var(--fg-2)]/80">, {c.ctaPriceNote}.</span>
+            </p>
+            <BuyServiceButton
+              product="audit-geo"
+              site={report.url?.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+              locale={locale}
+              label={c.orderButton}
+              fallbackSubject={c.orderButton}
+              className="mt-5 inline-flex items-center gap-3 rounded-full border border-[var(--ink)] px-7 py-3.5 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6] disabled:opacity-60"
+            />
+            <p className="mt-3 max-w-2xl text-[12.5px] leading-relaxed text-[var(--fg-2)]/75">
+              {c.orderNote}
             </p>
           </div>
 

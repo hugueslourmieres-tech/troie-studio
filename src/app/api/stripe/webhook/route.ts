@@ -7,7 +7,7 @@ import {
   SUBSCRIPTION_ACCESS_SLUG,
 } from "@/lib/billing/catalog";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { sendAccessEmail } from "@/lib/billing/emails";
+import { sendAccessEmail, sendServiceOrderEmails } from "@/lib/billing/emails";
 
 /**
  * Code d'invitation d'un siège de pack : 10 caractères en base32 Crockford
@@ -108,6 +108,23 @@ export async function POST(request: NextRequest) {
         session.metadata?.user_id ?? session.client_reference_id ?? null;
       const productKey = session.metadata?.product_key ?? null;
       const product = productKey ? BILLING_PRODUCTS[productKey] : null;
+
+      /*
+       * Prestation de service (audit-fix) : achat sans compte possible,
+       * aucun accès à ouvrir. On notifie l'équipe et on confirme au client,
+       * puis on sort AVANT le contrôle userId (un invité n'en a pas).
+       */
+      if (product?.service && session.mode === "payment") {
+        await sendServiceOrderEmails({
+          buyerEmail:
+            session.customer_details?.email ?? session.customer_email ?? null,
+          productName: product.name,
+          site: session.metadata?.site ?? null,
+          amountLabel: `${((session.amount_total ?? product.amountCents) / 100).toFixed(0)} €`,
+        });
+        break;
+      }
+
       if (!userId || !product) {
         /*
          * Rien a rejouer : une metadonnee absente n'apparaitra pas au retry.

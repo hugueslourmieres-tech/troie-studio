@@ -20,9 +20,13 @@ export async function POST(request: NextRequest) {
   }
 
   let productKey = "";
+  let siteRaw = "";
+  let localeRaw = "";
   try {
     const body = await request.json();
     productKey = String(body?.product ?? "");
+    siteRaw = String(body?.site ?? "");
+    localeRaw = String(body?.locale ?? "");
   } catch {
     return NextResponse.json({ error: "invalid_body" }, { status: 400 });
   }
@@ -32,18 +36,31 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "unknown_product" }, { status: 400 });
   }
 
-  // Utilisateur connecté obligatoire : l'accès est rattaché au compte.
+  /*
+   * Utilisateur connecté obligatoire pour tout ce qui débloque un accès :
+   * l'accès est rattaché au compte. Les prestations de service (audit)
+   * s'achètent SANS compte : Stripe collecte l'email, le webhook notifie.
+   */
   let user = null;
   try {
     const supabase = await createClient();
     const { data } = await supabase.auth.getUser();
     user = data.user;
   } catch {
-    return NextResponse.json({ error: "auth_not_configured" }, { status: 503 });
+    if (!product.service) {
+      return NextResponse.json({ error: "auth_not_configured" }, { status: 503 });
+    }
   }
-  if (!user) {
+  if (!user && !product.service) {
     return NextResponse.json({ error: "auth_required" }, { status: 401 });
   }
+
+  /* Contexte de la commande de service : site scanné, langue de retour. */
+  const locale = localeRaw === "en" ? "en" : "fr";
+  const site = siteRaw
+    .replace(/^https?:\/\//, "")
+    .replace(/[^a-zA-Z0-9.:_\/-]/g, "")
+    .slice(0, 120);
 
   /*
    * L'origine ne vient PAS du header `Origin` : il est fourni par l'appelant,
@@ -61,8 +78,8 @@ export async function POST(request: NextRequest) {
 
   const session = await stripe.checkout.sessions.create({
     mode: isSubscription ? "subscription" : "payment",
-    client_reference_id: user.id,
-    customer_email: user.email ?? undefined,
+    client_reference_id: user?.id ?? undefined,
+    customer_email: user?.email ?? undefined,
     line_items: [
       {
         quantity: 1,
@@ -79,11 +96,15 @@ export async function POST(request: NextRequest) {
         },
       },
     ],
-    metadata: { user_id: user.id, product_key: product.key },
+    metadata: {
+      ...(user ? { user_id: user.id } : {}),
+      product_key: product.key,
+      ...(product.service && site ? { site } : {}),
+    },
     ...(isSubscription
       ? {
           subscription_data: {
-            metadata: { user_id: user.id, product_key: product.key },
+            metadata: { user_id: user!.id, product_key: product.key },
             // Essai gratuit : 7 jours, carte demandée, annulable avant débit.
             trial_period_days: 7,
           },
@@ -97,12 +118,17 @@ export async function POST(request: NextRequest) {
      */
     custom_text: {
       submit: {
-        message:
-          "En payant, vous acceptez les CGV (troiestudio.fr/cgv) et demandez l'accès immédiat au contenu, ce qui vaut renonciation expresse au droit de rétractation.",
+        message: product.service
+          ? "En payant, vous acceptez les CGV (troiestudio.fr/cgv). Nous vous contactons sous 48 h ouvrées pour valider le périmètre avant de démarrer la prestation."
+          : "En payant, vous acceptez les CGV (troiestudio.fr/cgv) et demandez l'accès immédiat au contenu, ce qui vaut renonciation expresse au droit de rétractation.",
       },
     },
-    success_url: `${origin}/formations/dashboard?paiement=ok&produit=${product.key}`,
-    cancel_url: `${origin}/formations/tarifs?paiement=annule`,
+    success_url: product.service
+      ? `${origin}/${locale}/scan-ia/merci`
+      : `${origin}/formations/dashboard?paiement=ok&produit=${product.key}`,
+    cancel_url: product.service
+      ? `${origin}/${locale}/scan-ia?paiement=annule`
+      : `${origin}/formations/tarifs?paiement=annule`,
   });
 
   return NextResponse.json({ url: session.url });
