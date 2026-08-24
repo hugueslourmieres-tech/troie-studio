@@ -76,7 +76,9 @@ export async function POST(request: NextRequest) {
       : "https://troiestudio.fr");
   const isSubscription = product.interval !== "one_time";
 
-  const session = await stripe.checkout.sessions.create({
+  let session;
+  try {
+    session = await stripe.checkout.sessions.create({
     mode: isSubscription ? "subscription" : "payment",
     client_reference_id: user?.id ?? undefined,
     customer_email: user?.email ?? undefined,
@@ -129,7 +131,20 @@ export async function POST(request: NextRequest) {
     cancel_url: product.service
       ? `${origin}/${locale}/scan-ia?paiement=annule`
       : `${origin}/formations/tarifs?paiement=annule`,
-  });
+    });
+  } catch (err) {
+    /*
+     * Clé Stripe invalide ou API indisponible : on répond 503 comme quand
+     * Stripe n'est pas configuré, les boutons d'achat basculent en mailto
+     * et aucune intention n'est perdue. Le détail part dans les logs.
+     */
+    console.error(
+      "[billing] création de session échouée",
+      product.key,
+      err instanceof Error ? err.message : err,
+    );
+    return NextResponse.json({ error: "billing_unavailable" }, { status: 503 });
+  }
 
   return NextResponse.json({ url: session.url });
 }
