@@ -126,6 +126,27 @@ const COPY = {
       internal: false,
     },
   ],
+  accelTitle: "Vos idées deviennent possibles, à moindre coût",
+  accelBody:
+    "C'est le deuxième effet de l'IA, et on le vit tous les jours : le temps d'exécution s'effondre. Ce qui demandait des mois et des budgets d'agence se construit en jours ou en semaines. Une plateforme de formation complète, une application, une marque, une landing page : nous les avons construites pour nous-mêmes, elles sont publiques, vous pouvez les toucher. Cet accélérateur, mettez-le sur VOS projets.",
+  accelPoints: [
+    {
+      t: "Un audit gratuit pour commencer",
+      e: "30 minutes avec un expert : on écoute votre problématique ou votre idée, et vous repartez avec une marche à suivre précise, chiffrée, actionnable. Même si vous ne travaillez jamais avec nous.",
+    },
+    {
+      t: "Du lancement d'idée au business qui tourne",
+      e: "Étude de la demande réelle, marque, site ou application, premiers clients : nous accompagnons les créations et les lancements de bout en bout, au rythme que l'IA permet désormais.",
+    },
+    {
+      t: "Des preuves publiques, pas un portfolio verrouillé",
+      e: "troie.app (plateforme complète avec paiements et attestations vérifiables) et bilber.app (application produit) ont été conçues, construites et lancées par ce studio. Ce qu'on vous vend, on se l'applique d'abord.",
+    },
+  ],
+  accelCta: "Réserver mon audit gratuit",
+  ethicsTitle: "Des humains, des outils, une éthique",
+  ethicsBody:
+    "Nous sommes de vrais humains qui utilisons les outils IA de manière éthique, pour accompagner des clients qui partagent cette exigence : transparence sur ce que fait la machine et ce que fait la main, respect des données, conformité au règlement européen sur l'IA. Et nous nous réservons le droit de refuser un contrat qui ne serait pas en accord avec nos valeurs.",
   workshopTitle: "Et vos équipes, dans tout ça ?",
   workshopBody:
     "Une journée d'atelier IA dans vos locaux : vos cas réels, vos outils, vos données. 1 900 € la journée, préparation en ligne sur troie.app incluse pour chaque participant. L'article 4 du règlement européen demande un niveau suffisant de maîtrise de l'IA : c'est une obligation de moyens, et l'atelier plus les attestations nominatives vérifiables en sont la preuve la plus simple.",
@@ -170,6 +191,10 @@ const COPY = {
     {
       q: "La formation de mes équipes est-elle obligatoire ?",
       a: "L'article 4 du règlement européen sur l'IA impose depuis février 2025 une obligation de moyens : garantir un niveau suffisant de maîtrise de l'IA. Aucune formation type ni certificat n'est imposé. Une journée d'atelier et des attestations nominatives vérifiables sont simplement la façon la plus directe de prouver l'effort le jour où on vous le demande.",
+    },
+    {
+      q: "Je n'ai qu'une idée, pas encore d'entreprise. Vous accompagnez ?",
+      a: "Oui, c'est même là que l'accélérateur IA change tout : étude de la demande réelle, marque, landing page ou application, premiers clients. L'audit gratuit de 30 minutes sert exactement à ça : vous repartez avec une marche à suivre précise et chiffrée, que vous la déroulez avec nous ou seul.",
     },
     {
       q: "Comment on démarre ?",
@@ -437,6 +462,46 @@ export default async function RentreePage({
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* ===== Accélérateur de projets (message perso de Hugues, 24/08) ===== */}
+      <section className="mx-auto max-w-6xl px-6 pt-20 md:px-10">
+        <h2 className="max-w-3xl text-3xl font-extrabold tracking-tight md:text-4xl">
+          {c.accelTitle}
+        </h2>
+        <p className="mt-4 max-w-3xl text-[15.5px] leading-relaxed text-[#3f3d3a]">
+          {c.accelBody}
+        </p>
+        <div className="mt-7 grid gap-4 md:grid-cols-3">
+          {c.accelPoints.map((a) => (
+            <div
+              key={a.t}
+              className="rounded-2xl border-2 border-[#0a0a0a] bg-[#f0fbd6] p-6 shadow-[0_5px_0_0_#0a0a0a]"
+            >
+              <h3 className="text-[15.5px] font-extrabold leading-snug">{a.t}</h3>
+              <p className="mt-2 text-[13.5px] leading-relaxed text-[#3f3d3a]">
+                {a.e}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-7">
+          <Pill href={CAL_URL} dark external>
+            {c.accelCta} →
+          </Pill>
+        </div>
+      </section>
+
+      {/* ===== Manifeste éthique ===== */}
+      <section className="mx-auto max-w-6xl px-6 pt-14 md:px-10">
+        <div className="rounded-2xl border-2 border-[#0a0a0a] bg-white px-7 py-6 shadow-[0_5px_0_0_#0a0a0a]">
+          <span className="text-[10.5px] font-extrabold uppercase tracking-[0.22em] text-[#6b6a67]">
+            {c.ethicsTitle}
+          </span>
+          <p className="mt-2.5 max-w-3xl text-[15px] font-semibold leading-relaxed">
+            {c.ethicsBody}
+          </p>
         </div>
       </section>
 
