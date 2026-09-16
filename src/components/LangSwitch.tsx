@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { routing } from "@/i18n/routing";
 
 /**
@@ -12,14 +12,7 @@ import { routing } from "@/i18n/routing";
  * Swaps the leading /fr or /en in the current path without losing the
  * rest of the route. Closes on outside click and Escape.
  */
-export function LangSwitch({
-  locale,
-  variant = "menu",
-}: {
-  locale: string;
-  /** « inline » : les deux langues visibles, FR / EN (en-tête depuis le 16/09/2026). */
-  variant?: "menu" | "inline";
-}) {
+export function LangSwitch({ locale }: { locale: string }) {
   const pathname = usePathname() ?? `/${locale}`;
   const otherLocales = routing.locales.filter((l) => l !== locale);
   const [open, setOpen] = useState(false);
@@ -51,35 +44,6 @@ export function LangSwitch({
     }
     return `/${target}`;
   };
-
-  if (variant === "inline") {
-    return (
-      <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em]">
-        {routing.locales.map((l, i) => (
-          <Fragment key={l}>
-            {i > 0 && (
-              <span aria-hidden="true" className="text-[var(--fg)]/35">
-                /
-              </span>
-            )}
-            {l === locale ? (
-              <span aria-current="true" className="text-[var(--fg)]">
-                {l}
-              </span>
-            ) : (
-              <Link
-                href={swap(l)}
-                hrefLang={l}
-                className="text-[var(--fg)]/50 transition hover:text-[var(--accent)]"
-              >
-                {l}
-              </Link>
-            )}
-          </Fragment>
-        ))}
-      </div>
-    );
-  }
 
   return (
     <div ref={ref} className="relative">

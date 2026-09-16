@@ -5,12 +5,11 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "motion/react";
 import { LangSwitch } from "./LangSwitch";
-import type { NavItem } from "./Header";
+import type { NavGroup } from "./Header";
 
 type Props = {
   locale: string;
-  links: NavItem[];
-  cta: NavItem;
+  groups: NavGroup[];
   showLang?: boolean;
 };
 
@@ -29,8 +28,7 @@ const YOUTUBE_URL = "https://www.youtube.com/@troiestudio";
  * z-[60] sits above the header. Background is hard-coded cream, no
  * variable, no opacity, so it cannot ever be tinted by parent tones.
  */
-export function MobileMenu({ locale, links, cta, showLang = true }: Props) {
-  const en = locale === "en";
+export function MobileMenu({ locale, groups, showLang = true }: Props) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
@@ -67,7 +65,7 @@ export function MobileMenu({ locale, links, cta, showLang = true }: Props) {
           {/* Close button, overlays burger, same position, X icon */}
           <button
             type="button"
-            aria-label={en ? "Close menu" : "Fermer le menu"}
+            aria-label="Fermer le menu"
             onClick={() => setOpen(false)}
             className="absolute right-6 top-5 z-10 flex h-10 w-10 items-center justify-center text-[var(--fg)]"
           >
@@ -81,9 +79,9 @@ export function MobileMenu({ locale, links, cta, showLang = true }: Props) {
 
             <div className="mx-auto flex min-h-full w-full max-w-xl flex-col">
               <ul className="flex flex-col">
-                {links.map((l, i) => (
+                {groups.map((group, i) => (
                   <motion.li
-                    key={l.href}
+                    key={group.label}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
@@ -92,61 +90,54 @@ export function MobileMenu({ locale, links, cta, showLang = true }: Props) {
                       delay: 0.08 + i * 0.05,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="border-b border-[var(--rule-strong)]"
+                    className="border-b border-[var(--rule-strong)] py-6"
                   >
-                    <Link
-                      href={l.href}
-                      onClick={() => setOpen(false)}
-                      className="group/it flex items-center justify-between gap-4 py-6"
-                    >
-                      <span className="t-display text-[34px] leading-none text-[var(--fg)] transition-colors group-hover/it:text-[var(--accent)]">
-                        {l.label}
-                      </span>
-                      <ArrowRight />
-                    </Link>
+                    <p className="t-display text-[26px] leading-none text-[var(--fg)]">
+                      {group.label}
+                    </p>
+                    <ul className="mt-3 flex flex-col">
+                      {group.items.map((item) => (
+                        <li key={item.label}>
+                          <Link
+                            href={item.href}
+                            onClick={() => setOpen(false)}
+                            className="group/it -mx-3 flex items-center justify-between gap-4 rounded-lg px-3 py-4 transition-colors hover:bg-[var(--accent-soft)] active:bg-[var(--accent-soft)]"
+                          >
+                            <span className="flex items-baseline gap-3">
+                              {item.meta && (
+                                <span className="font-mono text-[12px] tracking-[0.1em] text-[var(--accent)]">
+                                  {item.meta}
+                                </span>
+                              )}
+                              <span className="font-mono text-[16px] uppercase tracking-[0.1em] text-[var(--fg)] transition-colors group-hover/it:text-[var(--accent)]">
+                                {item.label}
+                              </span>
+                            </span>
+                            <ArrowRight />
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </motion.li>
                 ))}
               </ul>
 
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 8 }}
-                transition={{
-                  duration: 0.45,
-                  delay: 0.08 + links.length * 0.05,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="mt-8"
-              >
-                <Link
-                  href={cta.href}
-                  onClick={() => setOpen(false)}
-                  className="group flex w-full items-center justify-between bg-[var(--ink)] px-6 py-5 font-mono text-[12px] uppercase tracking-[0.2em] text-[var(--bg)]"
-                >
-                  {cta.label}
-                  <span aria-hidden="true" className="transition group-hover:translate-x-1">
-                    →
-                  </span>
-                </Link>
-              </motion.div>
-
-              {/* Pied du panneau : journal, troie.app, réseaux et langue */}
+              {/* Footer : Blog/Contact discrets + réseaux + langue + se connecter */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{
                   duration: 0.4,
-                  delay: 0.08 + links.length * 0.05 + 0.1,
+                  delay: 0.08 + groups.length * 0.05 + 0.05,
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 className="mt-auto pt-5"
               >
                 <ul className="flex flex-col">
                   {[
-                    { href: `/${en ? "en" : "fr"}/blog`, label: en ? "Journal" : "Journal" },
-                    { href: "https://troie.app", label: "troie.app" },
+                    { href: `/${locale}/blog`, label: "Blog" },
+                    { href: `/${locale}/contact`, label: "Contact" },
                   ].map((l) => (
                     <li key={l.label}>
                       <Link
@@ -202,7 +193,7 @@ export function MobileMenu({ locale, links, cta, showLang = true }: Props) {
                       <path d="M10.2 9.3 15 12l-4.8 2.7z" fill="currentColor" stroke="none" />
                     </svg>
                   </a>
-                  {showLang && <LangSwitch locale={locale} variant="inline" />}
+                  {showLang && <LangSwitch locale={locale} />}
                 </div>
               </div>
               </motion.div>

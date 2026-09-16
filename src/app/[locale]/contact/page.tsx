@@ -1,5 +1,5 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
-import { ProjectForm } from "@/components/ProjectForm";
+import { ContactForm } from "@/components/ContactForm";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { GreekMark } from "@/components/GreekMark";
 
@@ -63,7 +63,7 @@ async function ContactView({ locale }: { locale: string }) {
 
         {/* Formulaire + photo atelier + coordonnées */}
         <div className="mt-14 grid gap-10 md:mt-16 md:grid-cols-12 md:gap-12">
-          <ProjectForm locale={locale} className="md:col-span-7" />
+          <ContactForm />
 
           <aside className="space-y-6 md:col-span-5">
             <div className="rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-8">

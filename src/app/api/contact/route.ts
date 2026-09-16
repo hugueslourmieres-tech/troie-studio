@@ -34,12 +34,6 @@ import { Resend } from "resend";
  *
  * Field shape (JSON body):
  *   { name, email, company?, subject?, message, website?, elapsedMs?, turnstileToken? }
- *
- * Formulaire de projet (accueil et /contact, depuis le 16/09/2026) :
- *   { kind: "projet", need, needLabel, outcome, situation?, budget?, deadline?,
- *     name, email, company?, phone?, locale?, website?, elapsedMs?, turnstileToken? }
- * Le « message » contrôlé par les filtres est alors le résultat souhaité,
- * suivi de la situation actuelle.
  */
 
 export const runtime = "nodejs";
@@ -56,16 +50,6 @@ type Payload = {
   elapsedMs?: number;
   /** Jeton Cloudflare Turnstile (si le widget est actif). */
   turnstileToken?: string;
-  /** Formulaire de projet. */
-  kind?: string;
-  need?: string;
-  needLabel?: string;
-  outcome?: string;
-  situation?: string;
-  budget?: string;
-  deadline?: string;
-  phone?: string;
-  locale?: string;
 };
 
 function isEmail(value: string) {
@@ -194,30 +178,15 @@ export async function POST(request: Request) {
     );
   }
 
-  const isProject = payload.kind === "projet";
-  const clip = (value: unknown, max: number) => String(value ?? "").trim().slice(0, max);
+  const name = payload.name?.trim() ?? "";
+  const email = payload.email?.trim() ?? "";
+  const company = payload.company?.trim() ?? "";
+  const subject = payload.subject?.trim() ?? "";
+  const message = payload.message?.trim() ?? "";
 
-  const name = clip(payload.name, 200);
-  const email = clip(payload.email, 200);
-  const company = clip(payload.company, 200);
-  const phone = clip(payload.phone, 40);
-  const outcome = clip(payload.outcome, 3000);
-  const situation = clip(payload.situation, 3000);
-  const needLabel = clip(payload.needLabel, 120);
-  const budget = clip(payload.budget, 60);
-  const deadline = clip(payload.deadline, 60);
-  const subject = isProject ? needLabel : (payload.subject?.trim() ?? "");
-  const message = isProject
-    ? [outcome, situation].filter(Boolean).join("\n\n")
-    : (payload.message?.trim() ?? "");
-
-  if (!name || !email || !message || (isProject && !outcome)) {
+  if (!name || !email || !message) {
     return NextResponse.json(
-      {
-        error: isProject
-          ? "Indiquez le résultat souhaité, votre nom et votre email."
-          : "name, email and message are required",
-      },
+      { error: "name, email and message are required" },
       { status: 400 },
     );
   }
@@ -269,26 +238,7 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
 
-  const row = (label: string, value: string, long = false) =>
-    value
-      ? `<p><strong>${label} :</strong>${long ? "<br/>" : " "}<span style="white-space:pre-wrap;line-height:1.6">${escapeHtml(value)}</span></p>`
-      : "";
-
-  const projectLines = [
-    row("Besoin", needLabel || "À définir"),
-    row("Résultat souhaité", outcome, true),
-    row("Situation actuelle", situation || "Non précisée", true),
-    row("Budget envisagé", budget || "À définir"),
-    row("Échéance", deadline || "À définir"),
-    `<hr/>`,
-    row("Nom", name),
-    `<p><strong>Email :</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>`,
-    row("Entreprise", company),
-    row("Téléphone", phone),
-    row("Langue du site", payload.locale === "en" ? "anglais" : "français"),
-  ].filter(Boolean);
-
-  const contactLines = [
+  const lines = [
     `<p><strong>Nom :</strong> ${escapeHtml(name)}</p>`,
     `<p><strong>Email :</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>`,
     company ? `<p><strong>Entreprise :</strong> ${escapeHtml(company)}</p>` : "",
@@ -297,13 +247,9 @@ export async function POST(request: Request) {
     `<p style="white-space:pre-wrap;line-height:1.6">${escapeHtml(message)}</p>`,
   ].filter(Boolean);
 
-  const lines = isProject ? projectLines : contactLines;
-
-  const subjectLine = isProject
-    ? `[TROIE] Projet : ${needLabel || "à définir"}, ${name}`
-    : subject
-      ? `[TROIE] ${subject}, ${name}`
-      : `[TROIE] Nouveau message de ${name}`;
+  const subjectLine = subject
+    ? `[TROIE] ${subject}, ${name}`
+    : `[TROIE] Nouveau message de ${name}`;
 
   try {
     const { error } = await resend.emails.send({

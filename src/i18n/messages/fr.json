@@ -3,7 +3,7 @@
     "name": "TROIE Studio",
     "domain": "troiestudio.fr",
     "tagline": "Site web, app, design, photo, vidéo et IA.",
-    "metaDescription": "Équipe créative et technique à Nice : sites et applications, contenus, automatisation et visibilité. Décrivez votre projet, recevez une proposition adaptée.",
+    "metaDescription": "Une équipe créative et technique à Nice. Agents IA, sites et applications, référencement sur Google et dans les IA, photo et vidéo. Audit gratuit, 30 min.",
     "organizationDescription": "TROIE Studio, équipe créative et technique basée à Nice, fondée par Hugues Lourmieres. Agents IA et automatisation, sites web et applications, référencement sur Google et dans les IA, identité de marque, photographie et vidéo. Pour les entreprises en France, à Monaco et à l'international.",
     "jobTitle": "Fondateur et directeur marketing"
   },
@@ -347,7 +347,7 @@
   },
   "contact": {
     "pageTitle": "Contact",
-    "pageSubtitle": "Décrivez votre projet : site, contenus, automatisation ou visibilité. Nous revenons vers vous avec une proposition adaptée.",
+    "pageSubtitle": "Pour discuter d'un projet, demander un devis ou réserver un audit gratuit.",
     "name": "Nom",
     "email": "Email",
     "company": "Entreprise",
@@ -361,8 +361,8 @@
     "bookingTitle": "Réservez un appel de 30 minutes",
     "bookingText": "Réservez un créneau de 30 minutes pour discuter de votre projet.",
     "bookingCta": "Prendre un rendez-vous",
-    "heroTitle": "Décrivez votre projet.",
-    "heroIntro": "Dites-nous ce que vous voulez obtenir. Nous étudions votre demande et revenons vers vous avec une proposition adaptée.",
+    "heroTitle": "Parlons de votre projet.",
+    "heroIntro": "Un atelier digital basé à Nice, IA d'abord. Décrivez votre besoin ou réservez directement un créneau : on revient vers vous rapidement.",
     "direct": "Direct",
     "location": "Nice, Côte d'Azur",
     "bookingIntro": "Choisissez un créneau directement dans le calendrier. On fait le point sur votre besoin et on vous propose une approche.",
@@ -379,7 +379,7 @@
     "what2Title": "Stratégie",
     "what2Body": "Marque, contenu et acquisition : SEO, SEA, GEO.",
     "what3Title": "Intelligence artificielle",
-    "what3Body": "Agents IA et automatisation sur mesure."
+    "what3Body": "Formation des équipes et déploiement d'agents sur mesure."
   },
   "agents": {
     "metaTitle": "Agents IA, TROIE Atelier Digital",

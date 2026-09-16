@@ -1,22 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatedWordmark } from "./AnimatedWordmark";
+import { AiActBanner } from "./AiActBanner";
 import { LangSwitch } from "./LangSwitch";
 import { MobileMenu } from "./MobileMenu";
 
-export type NavItem = { href: string; label: string };
+
+export type NavItem = { href: string; label: string; meta?: string };
+export type NavGroup = { label: string; href?: string; items: NavItem[] };
 
 /**
- * Header, barre crème fixe, glassy au scroll.
+ * Header, fixed cream bar, signature Hermès. Reste toujours dans le tone
+ * light, simplement glassy + bordure douce qui apparaît au scroll.
  *
- * Refonte du 16/09/2026, un seul parcours : Expertises, Réalisations,
- * Le studio, puis le bouton « Décrire mon projet », avec FR / EN visible.
- * Plus de menus déroulants, plus de bandeau promotionnel sous la barre
- * (AiActBanner n'est plus monté) et plus de bouton troie.app, dont le lien
- * vit dans le pied de page.
+ * Nav éditoriale avec menus déroulants :
+ *   Création   ▾  Création, Réalisation (film & vidéo)
+ *   Stratégie  ▾  Marketing, IA, Communication
+ *   Formations ▾  Agents IA, Formation perso, Formation entreprise
+ *
+ * À droite : login + LinkedIn.
  */
 export function Header({
   locale,
@@ -29,7 +33,6 @@ export function Header({
   /** Affiche le sélecteur de langue (off hors des routes [locale]). */
   showLang?: boolean;
 }) {
-  const pathname = usePathname() ?? "";
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -40,64 +43,220 @@ export function Header({
   }, []);
 
   const barSolid = scrolled || solid;
-  const en = locale === "en";
-  const home = `/${en ? "en" : "fr"}`;
-  const onHome = pathname === home || pathname === `${home}/`;
 
-  const links: NavItem[] = [
-    { href: `${home}#expertises`, label: en ? "Expertise" : "Expertises" },
-    { href: `${home}/medias`, label: en ? "Our work" : "Réalisations" },
-    { href: `${home}#studio`, label: en ? "The studio" : "Le studio" },
+  // Ordre arbitré (juillet 2026) : Formation et agents IA d'abord,
+  // la Création descend en dernier (cross-sell). Libellés bilingues : le menu
+  // restait français sur /en alors que tout le reste de la page était traduit.
+  const nav = locale === "en"
+    ? {
+        training: "Training", online: "Learn online", corporate: "Corporate training",
+        strategy: "Strategy", aiStrategy: "AI strategy", marketing: "Marketing strategy",
+        creation: "Creative", medias: "Media", web: "Web",
+      }
+    : {
+        training: "Formation", online: "Se former en ligne", corporate: "Formation entreprise",
+        strategy: "Stratégie", aiStrategy: "Stratégie IA", marketing: "Stratégie marketing",
+        creation: "Création", medias: "Médias", web: "Web",
+      };
+
+  const groups: NavGroup[] = [
+    {
+      label: nav.training,
+      href: `https://troie.app`,
+      items: [
+        { href: `https://troie.app`, label: nav.online, meta: "01" },
+        { href: `/ia`, label: nav.corporate, meta: "02" },
+      ],
+    },
+    {
+      label: nav.strategy,
+      href: `/${locale}/strategie`,
+      items: [
+        { href: `/ia`, label: nav.aiStrategy, meta: "01" },
+        { href: `/${locale}/strategie`, label: nav.marketing, meta: "02" },
+      ],
+    },
+    {
+      label: nav.creation,
+      href: `/${locale}/creation`,
+      items: [
+        { href: `/${locale}/medias`, label: nav.medias, meta: "01" },
+        { href: `/${locale}/creation/web`, label: nav.web, meta: "02" },
+      ],
+    },
   ];
-  // Sur l'accueil, le formulaire est sur la page : on y descend.
-  const cta: NavItem = {
-    href: onHome ? "#projet" : `${home}/contact`,
-    label: en ? "Tell us about your project" : "Décrire mon projet",
-  };
 
   return (
     <header
       className={`tone-light fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter] duration-500 ${
-        barSolid ? "bg-[var(--bg)]/95 backdrop-blur-xl" : "bg-transparent"
+        barSolid
+          ? "bg-[var(--bg)]/95 backdrop-blur-xl"
+          : "bg-transparent"
       }`}
     >
       <div className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
         <Link
-          href={home}
+          href={`/${locale}`}
           aria-label="TROIE, Studio France"
           className="block text-[var(--fg)] transition hover:text-[var(--accent)]"
         >
           <AnimatedWordmark className="text-[28px] md:text-[34px]" />
         </Link>
 
-        <nav aria-label={en ? "Main" : "Principal"} className="hidden items-center gap-9 lg:flex">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
-            >
-              {l.label}
-            </Link>
+        {/* Éditorial nav avec menus déroulants (desktop large uniquement) */}
+        <nav className="hidden items-center gap-7 lg:flex lg:gap-9">
+          {groups.map((group, i) => (
+            <NavDropdown key={group.label} group={group} index={i} />
           ))}
         </nav>
 
         <div className="flex items-center gap-4 md:gap-5">
-          <div className="hidden items-center gap-6 lg:flex">
-            {showLang && <LangSwitch locale={locale} variant="inline" />}
+          {/* Desktop right cluster : langswitch + Contact (plus de connexion :
+              l'apprentissage et le compte vivent sur troie.app). */}
+          <div className="hidden items-center gap-4 lg:flex">
+            {showLang && <LangSwitch locale={locale} />}
+            {/* Passerelle produit : le campus vit sur troie.app */}
+            <a
+              href="https://troie.app"
+              target="_blank"
+              rel="noopener"
+              className="inline-flex items-center gap-2 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors duration-300 hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            >
+              troie.app
+            </a>
             <Link
-              href={cta.href}
+              href={`/${locale}/contact`}
               className="inline-flex items-center gap-2.5 bg-[var(--ink)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors duration-300 hover:bg-[var(--accent)] hover:text-[#1a1714]"
             >
-              {cta.label}
+              Contact
             </Link>
           </div>
 
-          {/* Mobile : burger (le bouton de projet vit dans le panneau, pas
-              dans la barre, où il viendrait se coller au wordmark). */}
-          <MobileMenu locale={locale} links={links} cta={cta} showLang={showLang} />
+          {/* Pas de bouton Contact sous `lg` : essayé le 29/07/2026, retiré le
+              jour même. À 375 px le wordmark occupe 178 px et le bloc de droite
+              démarrait 2 px après, donc le pavé noir venait se coller au « E »
+              de TROIE. L'en-tête mobile reste au logo et au burger, qui contient
+              Contact. Si le sujet revient, la piste est un CTA en tête du
+              panneau du burger, pas un bouton de plus dans la barre. */}
+
+          {/* Mobile : burger */}
+          <MobileMenu locale={locale} groups={groups} showLang={showLang} />
         </div>
       </div>
+
+      {/* Annonce AI Act : bandeau noir defilant, sous la navbar */}
+      <AiActBanner locale={locale} />
     </header>
   );
 }
+
+/**
+ * NavDropdown, top-level label + panneau déroulant éditorial.
+ * Ouvre au survol (desktop) et au clic/clavier. Ferme au mouseleave,
+ * Escape, ou clic à l'extérieur.
+ */
+function NavDropdown({ group, index }: { group: NavGroup; index: number }) {
+  const [open, setOpen] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelClose = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+  const scheduleClose = () => {
+    cancelClose();
+    closeTimer.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    const onClick = (e: MouseEvent) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("mousedown", onClick);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("mousedown", onClick);
+    };
+  }, [open]);
+
+  useEffect(() => () => cancelClose(), []);
+
+  return (
+    <div
+      ref={wrapRef}
+      className="relative"
+      onMouseEnter={() => {
+        cancelClose();
+        setOpen(true);
+      }}
+      onMouseLeave={scheduleClose}
+    >
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => setOpen((v) => !v)}
+        className="group inline-flex items-baseline gap-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+      >
+        <span className="text-[var(--accent)] transition group-hover:opacity-70">
+          {String(index + 1).padStart(2, "0")}.
+        </span>
+        <span>{group.label}</span>
+        <svg
+          viewBox="0 0 24 24"
+          className={`h-3 w-3 translate-y-px transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </button>
+
+      {/* Panneau */}
+      <div
+        className={`absolute left-0 top-full pt-4 transition-all duration-300 ${
+          open
+            ? "pointer-events-auto translate-y-0 opacity-100"
+            : "pointer-events-none -translate-y-1 opacity-0"
+        }`}
+      >
+        <div className="min-w-[248px] border border-[var(--rule)] bg-[var(--bg)] p-2 shadow-[0_24px_60px_-24px_rgba(26,23,20,0.35)]">
+          {group.items.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className="group/item flex items-baseline gap-3 px-4 py-3 transition-colors hover:bg-[var(--accent-soft)]"
+            >
+              {item.meta && (
+                <span className="font-mono text-[10px] tracking-[0.22em] text-[var(--accent)]">
+                  {item.meta}
+                </span>
+              )}
+              <span className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--fg)] transition-colors group-hover/item:text-[var(--accent)]">
+                {item.label}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+

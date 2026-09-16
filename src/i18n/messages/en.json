@@ -3,7 +3,7 @@
     "name": "TROIE Studio",
     "domain": "troiestudio.fr",
     "tagline": "Web, app, design, photo, video and AI.",
-    "metaDescription": "A creative and technical team in Nice, France: websites and apps, content, automation and visibility. Tell us about your project, get a proposal that fits.",
+    "metaDescription": "A creative and technical team in Nice, France. AI agents, websites and apps, visibility on Google and in AI answers, photo and video. Free 30-minute audit.",
     "organizationDescription": "TROIE Studio, a creative and technical team based in Nice, France, founded by Hugues Lourmieres. AI agents and automation, websites and apps, visibility on Google and in AI answers, brand identity, photography and video. For companies in France, Monaco and abroad.",
     "jobTitle": "Founder and marketing director"
   },
@@ -347,7 +347,7 @@
   },
   "contact": {
     "pageTitle": "Contact",
-    "pageSubtitle": "Tell us about your project: website, content, automation or visibility. We come back to you with a proposal that fits.",
+    "pageSubtitle": "To discuss a project, request a quote or book a free audit.",
     "name": "Name",
     "email": "Email",
     "company": "Company",
@@ -361,8 +361,8 @@
     "bookingTitle": "Book a 30-minute call",
     "bookingText": "Book a 30-minute slot to discuss your project.",
     "bookingCta": "Book a time",
-    "heroTitle": "Tell us about your project.",
-    "heroIntro": "Tell us what you want to achieve. We review your request and come back to you with a proposal that fits.",
+    "heroTitle": "Let's talk about your project.",
+    "heroIntro": "An AI-first digital studio based in Nice, France. Describe your needs or book a slot directly: we get back to you quickly.",
     "direct": "Direct",
     "location": "Nice, French Riviera",
     "bookingIntro": "Pick a slot directly in the calendar. We review your needs and suggest an approach.",
@@ -379,7 +379,7 @@
     "what2Title": "Strategy",
     "what2Body": "Brand, content and acquisition: SEO, SEA, GEO.",
     "what3Title": "Artificial intelligence",
-    "what3Body": "Custom AI agents and automation."
+    "what3Body": "Team training and custom agent deployment."
   },
   "agents": {
     "metaTitle": "AI Agents, TROIE Digital Atelier",
