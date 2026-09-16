@@ -44,6 +44,7 @@ import { FormationAiActGratuite } from "./_content/formation-ai-act-gratuite";
 import { AiActPmeChecklist } from "./_content/ai-act-pme-checklist";
 import { ConsultationCseIntelligenceArtificielle } from "./_content/consultation-cse-intelligence-artificielle";
 import { CharteUsageIaEntrepriseModele } from "./_content/charte-usage-ia-entreprise-modele";
+import { FormationAiActCpfOpcoFinancement } from "./_content/formation-ai-act-cpf-opco-financement";
 
 export type Article = {
   slug: string;
@@ -94,6 +95,27 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "formation-ai-act-cpf-opco-financement",
+    title:
+      "Formation AI Act : ce que le CPF et les OPCO financent vraiment en 2026",
+    cardTitle: "Formation AI Act : CPF, OPCO, ce qui se finance",
+    description:
+      "Le CPF ne finance qu'une formation qui prépare une certification enregistrée, l'OPCO qu'un organisme certifié qualité, et l'article 4 de l'AI Act n'exige ni l'un ni l'autre. Participation CPF à 150 euros depuis avril, fin du paiement direct des OPCO au 1er octobre 2026 : les règles, les prix et la méthode pour choisir.",
+    date: "2026-09-16",
+    category: "Conformité",
+    readingMinutes: 8,
+    cover: "/images/corpo/strategie/DSC_5552-4.jpg",
+    keywords: [
+      "formation AI Act CPF",
+      "formation IA Act OPCO",
+      "formation AI Act prix",
+      "financement formation AI Act",
+      "subrogation OPCO 1er octobre 2026",
+      "participation forfaitaire CPF 150 euros",
+    ],
+    Body: FormationAiActCpfOpcoFinancement,
+  },
   {
     slug: "charte-usage-ia-entreprise-modele",
     title:
