@@ -13,11 +13,14 @@ export function LetterReveal({
   text,
   className,
   stagger = 0.045,
+  delay = 0,
 }: {
   text: string;
   className?: string;
   /** Décalage entre chaque lettre, en secondes. */
   stagger?: number;
+  /** Départ de la cascade, en secondes (pour enchaîner plusieurs segments). */
+  delay?: number;
 }) {
   const words = text.split(" ");
   let n = 0;
@@ -28,12 +31,12 @@ export function LetterReveal({
         <Fragment key={wi}>
           <span aria-hidden="true" className="inline-block whitespace-nowrap">
             {[...word].map((ch, ci) => {
-              const delay = (n++ * stagger).toFixed(3);
+              const letterDelay = (delay + n++ * stagger).toFixed(3);
               return (
                 <span
                   key={ci}
                   className="hero-letter inline-block"
-                  style={{ animationDelay: `${delay}s` }}
+                  style={{ animationDelay: `${letterDelay}s` }}
                 >
                   {ch}
                 </span>
