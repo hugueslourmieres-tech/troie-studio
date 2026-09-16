@@ -48,7 +48,9 @@ export async function generateMetadata({
   const { locale } = await params;
   const c = COPY[locale === "en" ? "en" : "fr"];
   return {
-    title: c.title.replace(/\?$/, ""),
+    // Le titre garde son point d'interrogation : le gabarit « , TROIE Studio »
+    // laissait « entreprise , TROIE Studio » une fois le « ? » retiré.
+    title: { absolute: `${c.title} | TROIE Studio` },
     description: c.intro,
     alternates: {
       canonical: `/${locale}/scan-ia`,

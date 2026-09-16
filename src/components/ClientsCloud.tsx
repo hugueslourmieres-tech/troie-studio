@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { useLocale } from "next-intl";
 import { gsap } from "gsap";
 import { GreekMark } from "./GreekMark";
 
@@ -16,11 +17,14 @@ const CLIENTS = [
 ];
 
 /**
- * ClientsCloud, wordmarks des marques accompagnées dans un marquee infini
+ * ClientsCloud, wordmarks des marques avec lesquelles l'équipe a travaillé,
+ * en studio ou en interne (CHANEL : expérience salariée, pas un client du
+ * studio, d'où le libellé « L'équipe a travaillé avec »), dans un marquee infini
  * horizontal piloté par GSAP. Inspiration luxe / Hermès : un seul "ruban"
  * qui défile lentement sans coupure.
  */
 export function ClientsCloud() {
+  const locale = useLocale();
   const trackRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -49,7 +53,7 @@ export function ClientsCloud() {
           />
         </div>
         <GreekMark
-          label="Ils nous font confiance"
+          label={locale === "fr" ? "L'équipe a travaillé avec" : "Our team has worked with"}
           className="justify-center"
           labelClassName="t-eyebrow text-center"
         />

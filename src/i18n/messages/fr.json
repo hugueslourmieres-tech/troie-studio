@@ -3,9 +3,9 @@
     "name": "TROIE Studio",
     "domain": "troiestudio.fr",
     "tagline": "Site web, app, design, photo, vidéo et IA.",
-    "metaDescription": "Formations IA et AI Act avec attestation vérifiable (campus troie.app), et atelier digital à Nice : agents IA, sites web, design, stratégie de marque. Pour les professionnels en France, à Monaco et dans toute la francophonie. Dix ans d'expérience.",
-    "organizationDescription": "TROIE Studio, atelier digital basé à Nice (Côte d'Azur), fondé par Hugues Lourmieres. Création de site web, application mobile, web app, design, e-commerce, photographie, vidéo, identité de marque, formations IA et déploiement d'agents IA. Nice, France, Monaco et pays francophones, dix ans d'expérience auprès des marques exigeantes.",
-    "jobTitle": "Directeur artistique, web et app designer, photographe et vidéaste"
+    "metaDescription": "Une équipe créative et technique à Nice. Agents IA, sites et applications, référencement sur Google et dans les IA, photo et vidéo. Audit gratuit, 30 min.",
+    "organizationDescription": "TROIE Studio, équipe créative et technique basée à Nice, fondée par Hugues Lourmieres. Agents IA et automatisation, sites web et applications, référencement sur Google et dans les IA, identité de marque, photographie et vidéo. Pour les entreprises en France, à Monaco et à l'international.",
+    "jobTitle": "Fondateur et directeur marketing"
   },
   "nav": {
     "home": "Accueil",
@@ -140,7 +140,7 @@
       "chanel": {
         "title": "CHANEL",
         "subtitle": "Boutiques du Sud, équipes, ambiance et savoir-faire",
-        "scope": "Reportage corporate, boutiques, équipes, mise en avant produits",
+        "scope": "Reportage réalisé en interne",
         "description": "Une série réalisée en interne pour la Maison, autour des boutiques du Sud. Photographier les équipes dans leur quotidien, gestes, regards, lumière des espaces de vente, au service du bien-être interne autant que de la mise en valeur des produits. Un reportage intimiste qui révèle l'ADN de la marque à travers celles et ceux qui l'incarnent au jour le jour."
       },
       "monaco": {
@@ -347,7 +347,7 @@
   },
   "contact": {
     "pageTitle": "Contact",
-    "pageSubtitle": "Pour discuter d'un projet, demander un devis ou réserver une formation.",
+    "pageSubtitle": "Pour discuter d'un projet, demander un devis ou réserver un audit gratuit.",
     "name": "Nom",
     "email": "Email",
     "company": "Entreprise",

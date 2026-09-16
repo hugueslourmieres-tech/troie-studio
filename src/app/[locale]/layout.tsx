@@ -56,17 +56,15 @@ export async function generateMetadata({
   const isFr = locale === "fr";
 
   /*
-   * La formation passe en tête du titre : c'est la porte d'entrée commerciale
-   * (troie.app) ET la pièce qui manquait à Google Business pour accepter la
-   * catégorie « Centre de formation » (refus du 28 juil., motif « identité
-   * de l'établissement modifiée » : Google recoupe la fiche avec le site, et
-   * le site ne parlait que d'atelier digital). On décrit des OFFRES, pas un
-   * statut : jamais « organisme de formation » sans NDA.
+   * Le titre dit ce que le studio réalise pour un client, en peu de mots
+   * (16/09/2026). Plus de « formations » : le studio vend du conseil et de
+   * la réalisation, pas de la formation (ni NDA ni Qualiopi). La catégorie
+   * Google Business « Centre de formation » n'est donc plus un objectif.
    */
   const title = `${t("name")}. ${
     isFr
-      ? "Formations IA & AI Act, création digitale à Nice"
-      : "AI & AI Act training, digital studio in Nice, France"
+      ? "Agents IA, sites web et SEO à Nice"
+      : "AI agents, websites and SEO in Nice, France"
   }`;
   // SEO description (long form), différent from the in-page `tagline`
   // which is kept short for visual use in the footer.
@@ -82,29 +80,23 @@ export async function generateMetadata({
     keywords: isFr
       ? [
           "agence IA Nice",
-          "atelier digital Nice",
-          "formation IA Nice",
-          "agence intelligence artificielle Côte d'Azur",
-          "formation ChatGPT Nice",
-          "consultant IA Nice",
-          "agents IA entreprise",
-          "automatisation IA",
-          "agence communication Nice",
-          "direction artistique Nice",
-          "stratégie de marque",
-          "création de site web Nice",
-          "formation intelligence artificielle France",
-          "IA pour entreprises francophones",
-          "agence digitale Provence-Alpes-Côte d'Azur",
+          "agent IA sur mesure",
+          "automatisation IA entreprise",
+          "création site internet Nice",
+          "agence SEO Nice",
+          "SEO IA",
+          "référencement ChatGPT",
+          "production vidéo entreprise Nice",
+          "photographe corporate Nice",
         ]
       : [
           "AI agency Nice France",
-          "AI training",
-          "ChatGPT training",
-          "AI agents for business",
-          "automation",
-          "brand strategy",
-          "digital studio French Riviera",
+          "custom AI agents",
+          "AI automation for business",
+          "website development France",
+          "SEO agency France",
+          "AI search optimization",
+          "corporate video production",
         ],
     alternates: {
       canonical: `/${locale}`,
@@ -171,7 +163,7 @@ export default async function LocaleLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["Organization", "EducationalOrganization", "ProfessionalService"],
+        "@type": ["Organization", "ProfessionalService"],
         "@id": "https://troiestudio.fr/#organization",
         name: tBrand("name"),
         alternateName: "TROIE Atelier Digital",
@@ -184,16 +176,16 @@ export default async function LocaleLayout({
         founder: { "@id": "https://troiestudio.fr/#hugues" },
         founders: [{ "@id": "https://troiestudio.fr/#hugues" }],
         knowsAbout: [
-          "Intelligence artificielle générative",
-          "ChatGPT",
-          "Claude",
-          "Gemini",
-          "Prompt engineering",
           "Agents IA",
           "Automatisation (Make, n8n)",
-          "Formation IA",
-          "Direction artistique",
+          "Intelligence artificielle générative",
+          "Création de sites web et d'applications",
+          "SEO",
+          "Référencement dans les moteurs IA (GEO)",
           "Identité de marque",
+          "Direction artistique",
+          "Photographie",
+          "Vidéo",
         ],
         address: {
           "@type": "PostalAddress",
@@ -234,12 +226,14 @@ export default async function LocaleLayout({
           "https://www.youtube.com/@troiestudio",
         ],
         subOrganization: {
-          "@type": ["Organization", "EducationalOrganization"],
+          "@type": "Organization",
           name: "TROIE",
           alternateName: "troie.app",
           url: "https://troie.app",
           description:
-            "Le campus IA de TROIE Studio : des cours d'IA de 5 minutes et l'attestation de formation qui répond à l'article 4 de l'AI Act.",
+            locale === "fr"
+              ? "Les outils IA gratuits et les cours en ligne de TROIE Studio."
+              : "Free AI tools and online courses by TROIE Studio.",
         },
       },
       {
@@ -250,12 +244,12 @@ export default async function LocaleLayout({
         worksFor: { "@id": "https://troiestudio.fr/#organization" },
         url: "https://troiestudio.fr",
         knowsAbout: [
-          "Intelligence artificielle générative",
-          "Prompt engineering",
-          "Agents IA",
-          "Automatisation",
+          "Stratégie marketing",
+          "Acquisition",
+          "SEO",
+          "Référencement dans les moteurs IA (GEO)",
+          "Agents IA et automatisation",
           "Direction artistique",
-          "Stratégie de marque",
         ],
         sameAs: ["https://www.linkedin.com/in/hugueslourmieres/"],
       },

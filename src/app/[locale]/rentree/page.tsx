@@ -220,10 +220,9 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   return {
-    title:
-      "Agence SEO, GEO et création à Nice : la rentrée qui se prouve | TROIE Studio",
+    title: "Agence SEO, GEO et création à Nice",
     description:
-      "Audit SEO et GEO 890 € corrections comprises, premier agent IA d'entreprise 2 900 €, création de landing page en 7 jours à 1 500 €, contenus et réseaux 790 €/mois. Prix publics, rapports datés, scan gratuit en 60 secondes.",
+      "Audit SEO et GEO à 890 €, premier agent IA à 2 900 €, landing page à 1 500 € en 7 jours, contenus à 790 €/mois. Prix publics, scan gratuit en 60 secondes.",
     alternates: {
       canonical: `/${locale}/rentree`,
       languages: { fr: "/fr/rentree", en: "/en/rentree" },

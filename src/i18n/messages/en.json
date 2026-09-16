@@ -3,9 +3,9 @@
     "name": "TROIE Studio",
     "domain": "troiestudio.fr",
     "tagline": "Web, app, design, photo, video and AI.",
-    "metaDescription": "AI and AI Act training with a verifiable attestation (troie.app campus), plus a digital studio in Nice, France: AI agents, websites, design, brand strategy. For professionals across France and Monaco. Ten years of experience.",
-    "organizationDescription": "TROIE Studio, digital atelier based in Nice (French Riviera), founded by Hugues Lourmieres. Web design, mobile and web app development, e-commerce, photography, video, brand identity, AI training and agent deployment. Nice, France, Monaco and French-speaking countries, ten years working with demanding brands.",
-    "jobTitle": "Art director, web and app designer, photographer and videographer"
+    "metaDescription": "A creative and technical team in Nice, France. AI agents, websites and apps, visibility on Google and in AI answers, photo and video. Free 30-minute audit.",
+    "organizationDescription": "TROIE Studio, a creative and technical team based in Nice, France, founded by Hugues Lourmieres. AI agents and automation, websites and apps, visibility on Google and in AI answers, brand identity, photography and video. For companies in France, Monaco and abroad.",
+    "jobTitle": "Founder and marketing director"
   },
   "nav": {
     "home": "Home",
@@ -140,7 +140,7 @@
       "chanel": {
         "title": "CHANEL",
         "subtitle": "Southern boutiques, teams, atmosphere and craft",
-        "scope": "Corporate reportage, boutiques, teams, product showcase",
+        "scope": "In-house reportage",
         "description": "An in-house series for the House, focused on the boutiques of the South. Photographing the teams in their daily life, gestures, glances, the light of the sales floor, serving internal well-being as much as elevating the products themselves. An intimate reportage that reveals the brand's DNA through the people who embody it day after day."
       },
       "monaco": {
@@ -347,7 +347,7 @@
   },
   "contact": {
     "pageTitle": "Contact",
-    "pageSubtitle": "To discuss a project, request a quote or book a training session.",
+    "pageSubtitle": "To discuss a project, request a quote or book a free audit.",
     "name": "Name",
     "email": "Email",
     "company": "Company",
