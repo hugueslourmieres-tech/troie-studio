@@ -256,7 +256,7 @@ export function DigitalOmnibusAiActCeQuiChange() {
         formation qui documente les mesures prises. Notre page dédiée à
         l&apos;<Link href="/ia/ai-act">AI Act</Link> résume toutes les
         échéances à jour, et notre article sur{" "}
-        <Link href="/blog/formation-ia-obligatoire-entreprise">
+        <Link href="/fr/blog/formation-ia-obligatoire-entreprise">
           ce que dit vraiment l&apos;article 4
         </Link>{" "}
         détaille le contenu d&apos;une démarche sérieuse. Premier pas

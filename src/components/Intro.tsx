@@ -10,6 +10,8 @@ import type { Locale, TermId } from "@/lib/glossaire";
 import { LetterReveal } from "./LetterReveal";
 import { AiToolsMarquee } from "./AiToolsMarquee";
 import { Parallax } from "./Parallax";
+import { Fragment } from "react";
+import { LazyVideo } from "./LazyVideo";
 
 type Tool = { src: string; label: string };
 
@@ -34,7 +36,9 @@ const METIERS: Métier[] = [
     slug: "training",
     video: "/images/videos/formation.mp4",
     videoAlt: "Formation, vidéo d'illustration",
-    path: "/formations",
+    // Lien direct : /formations redirigeait vers troie.app, et le préchargement
+    // de next/link se heurtait au CORS (erreur console sur l'accueil).
+    path: "https://troie.app/formation",
     tools: [
       { src: "/images/logos/chatgpt.svg", label: "ChatGPT" },
       { src: "/images/logos/claude.svg", label: "Claude" },
@@ -82,6 +86,7 @@ const METIERS: Métier[] = [
 export function Intro({ asHero = false }: { asHero?: boolean }) {
   const t = useTranslations("home");
   const locale = useLocale() as Locale;
+  const HeroWrap = asHero ? Fragment : Reveal;
 
   return (
     <section className="relative">
@@ -90,8 +95,11 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
           asHero ? "pt-36 pb-28 md:pt-52 md:pb-40" : "py-28 md:py-40"
         }`}
       >
-        {/* Header centré, intro éditoriale */}
-        <Reveal>
+        {/* Header centré, intro éditoriale. En héros, pas de fondu d'entrée
+            (24/09/2026) : peint à opacité 0 puis révélé après le chargement
+            du JavaScript, le texte d'accroche retardait le plus grand
+            élément affiché (LCP) à 6,4 s sur mobile. */}
+        <HeroWrap>
           <div className="mx-auto max-w-3xl text-center">
             {/* Embossed Greek warrior relief, tone-on-tone seal at the top */}
             <Parallax strength={28} className="mx-auto mb-12 flex w-full max-w-[220px] justify-center md:max-w-[260px]">
@@ -160,7 +168,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
               </div>
             )}
           </div>
-        </Reveal>
+        </HeroWrap>
 
         {/* Slider infini : les outils IA sur lesquels on forme */}
         {asHero && <AiToolsMarquee label="On vous forme sur ces outils" />}
@@ -203,7 +211,7 @@ function MetierBox({ metier, index }: { metier: Métier; index: number }) {
 
         {/* Vidéo, autoplay loop muted, N&B */}
         <div className="relative mt-8 aspect-square w-full overflow-hidden bg-[var(--bg-2)]">
-          <video
+          <LazyVideo
             src={metier.video}
             autoPlay
             loop

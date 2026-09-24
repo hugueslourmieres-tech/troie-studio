@@ -77,8 +77,8 @@ export function ChatgptClaudeGeminiLeChat() {
       </p>
       <p>
         Pour apprendre à les utiliser vraiment, pour vous ou vos équipes,
-        commencez par le <Link href="/formations/quiz">QCM gratuit</Link> puis
-        nos <Link href="/formations">cours en ligne</Link>.
+        commencez par le <Link href="https://troie.app/niveau">QCM gratuit</Link> puis
+        nos <Link href="https://troie.app/formation">cours en ligne</Link>.
       </p>
     </>
   );

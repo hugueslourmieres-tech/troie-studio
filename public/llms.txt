@@ -1,31 +1,33 @@
 # TROIE Studio (troiestudio.fr)
 
-> Atelier digital à Nice (France), IA d'abord : stratégie et déploiement d'IA en entreprise (agents IA, protocole MCP, conformité AI Act), création (sites web, applications, e-commerce, identité de marque, photo, vidéo) et formation. Site bilingue français/anglais. TROIE Studio édite aussi troie.app, la plateforme de formation en ligne à l'AI Act (attestation article 4 nominative et vérifiable, 59 € TTC une fois).
+> Équipe créative et technique basée à Nice (France), fondée par Hugues Lourmieres. Agents IA et automatisation, sites web et applications, référencement sur Google et dans les moteurs IA (SEO et GEO), identité de marque, photographie et vidéo. Pour les entreprises en France, à Monaco et à l'international. Site bilingue français et anglais. TROIE Studio édite aussi troie.app : des outils IA gratuits et des cours en ligne.
 
 ## À propos
 
-TROIE Studio est dirigé par Hugues Lourmieres, créateur et consultant IA, CMO dans les arts graphiques. L'équipe couvre la stratégie, le développement full-stack, la photographie et la vidéo. Positionnement : pédagogie sans jargon, faits sourcés, données vérifiables.
+TROIE Studio est dirigé par Hugues Lourmieres, fondateur et directeur marketing. L'équipe réunit le conseil en IA et en communication, le développement de sites, d'applications et d'agents, la vidéo et la photographie. Méthode : des faits sourcés, des résultats mesurables, pas de jargon.
 
 ## Pages principales
 
-- [Accueil](https://troiestudio.fr/fr) : les trois métiers de l'atelier.
-- [IA pour les entreprises](https://troiestudio.fr/fr/ia) : audit gratuit de 30 minutes, formation d'équipe, déploiement d'agents IA, conformité AI Act.
-- [AI Act entreprise : êtes-vous concerné ?](https://troiestudio.fr/fr/ia/ai-act) : obligations, dates clés, plan d'action, FAQ.
+- [Accueil](https://troiestudio.fr/fr) : ce que l'équipe réalise.
+- [Scan de visibilité IA gratuit](https://troiestudio.fr/fr/scan-ia) : note un site sur ce que lisent Google et les moteurs IA, en 60 secondes.
+- [Diagnostic IA](https://troiestudio.fr/fr/diagnostic-ia) : savoir en une journée où en est l'entreprise avec l'IA, et quoi faire ensuite.
+- [IA pour les entreprises](https://troiestudio.fr/ia) : audit, déploiement d'agents IA, conformité AI Act.
+- [AI Act entreprise : êtes-vous concerné ?](https://troiestudio.fr/ia/ai-act) : obligations, dates clés, plan d'action, FAQ.
 - [Création](https://troiestudio.fr/fr/creation) : sites, applications, identité, médias.
-- [Réalisations](https://troiestudio.fr/fr/works) : sites, identités, films et photographies.
+- [Réalisations photo et vidéo](https://troiestudio.fr/fr/medias) : maisons de luxe, hôtellerie, industrie, nature.
 - [Contact](https://troiestudio.fr/fr/contact) : basé à Nice, réponse rapide.
 
 ## Le Journal (blog)
 
-Articles en français, sourcés (EUR-Lex, Commission européenne, entreprises.gouv.fr), publiés trois fois par semaine sur l'IA en entreprise et la conformité AI Act : https://troiestudio.fr/fr/blog
+Articles sourcés (EUR-Lex, Commission européenne, entreprises.gouv.fr) sur l'IA en entreprise, la conformité AI Act et la visibilité dans les moteurs IA, en français, une partie traduite en anglais : https://troiestudio.fr/fr/blog
 
-## Se former en ligne
+## Outils et cours en ligne
 
-Les formations en ligne vivent sur troie.app : parcours AI Act d'environ 2 heures, examen final, attestation nominative vérifiable publiquement par code. Premier module gratuit, 59 € TTC une fois par personne, packs équipe dès 5 personnes. https://troie.app
+troie.app réunit les outils IA gratuits du studio (charte d'usage de l'IA en PDF, registre des usages, diagnostic AI Act, calendrier à jour) et des cours courts, dont un parcours AI Act d'environ 2 heures avec attestation nominative vérifiable par code : https://troie.app
 
 ## Repères juridiques appliqués sur les deux sites
 
-L'article 4 de l'AI Act (règlement UE 2024/1689, littératie en IA) s'applique depuis le 2 février 2025 : c'est une obligation de moyens (« prendre des mesures pour garantir un niveau suffisant de maîtrise de l'IA »), aucune certification officielle n'existe pour les personnes. Le régime de sanctions devient applicable le 2 août 2026 ; le contrôle relève des autorités nationales de surveillance du marché.
+L'article 4 de l'AI Act (règlement UE 2024/1689, littératie en IA) s'applique depuis le 2 février 2025 : c'est une obligation de moyens (« prendre des mesures pour garantir un niveau suffisant de maîtrise de l'IA »), et aucune certification officielle n'existe pour les personnes. Le régime de sanctions et les obligations de transparence de l'article 50 s'appliquent depuis le 2 août 2026, sous le contrôle des autorités nationales de surveillance du marché. Le règlement (UE) 2026/1744 a reporté les obligations des systèmes à haut risque au 2 décembre 2027 (annexe III) et au 2 août 2028 (annexe I). L'article 4 et l'article 50 ne sont pas concernés par ce report.
 
 ## Contact
 

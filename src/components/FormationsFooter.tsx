@@ -15,17 +15,19 @@ export function FormationsFooter() {
   const COLS: { title: string; links: { label: string; href: string }[] }[] = [
     {
       title: "Se former, perso",
+      // Boutique de prompts et Mastermind n'existent plus (24/09/2026) :
+      // tout l'apprentissage en ligne vit sur troie.app.
       links: [
-        { label: "QCM gratuits", href: "/formations/quiz" },
-        { label: "Boutique de prompts", href: "/formations/prompts" },
-        { label: "Mastermind", href: "/formations/mastermind" },
+        { label: "Test de niveau gratuit", href: "https://troie.app/niveau" },
+        { label: "Outils IA gratuits", href: "https://troie.app/outils" },
+        { label: "Cours en ligne", href: "https://troie.app/formation" },
       ],
     },
     {
       title: "Se former, entreprise",
       links: [
         { label: "TROIE, IA Pro", href: "/ia" },
-        { label: "Parcours pro", href: "/formations#pro" },
+        { label: "Prompts système", href: "https://troie.app/formation/systeme" },
       ],
     },
   ];
@@ -41,14 +43,14 @@ export function FormationsFooter() {
             </h2>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
-                href="/formations/quiz"
+                href="https://troie.app/niveau"
                 className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
               >
                 Essayez le QCM gratuit
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </Link>
               <Link
-                href="/formations/prompts"
+                href="https://troie.app/formation/systeme"
                 className="group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
               >
                 Obtenir les prompts système
@@ -70,7 +72,7 @@ export function FormationsFooter() {
               vos équipes. On commence par un QCM, pas par des heures de vidéo.
             </p>
             <Link
-              href="/formations/auth/sign-in"
+              href="https://troie.app/connexion"
               className="group mt-7 inline-flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
             >
               <svg viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

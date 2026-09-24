@@ -144,9 +144,9 @@ export function ManagerPasRemplaceEn() {
         Not with hours of theoretical videos. With an honest assessment of
         where you actually stand. That&apos;s exactly how TROIE works: you
         start with a{" "}
-        <Link href="/formations/quiz">free quiz</Link> to gauge your reflexes,
+        <Link href="https://troie.app/niveau">free quiz</Link> to gauge your reflexes,
         then move at your own pace through clear{" "}
-        <Link href="/formations">online courses</Link> built on real cases.
+        <Link href="https://troie.app/formation">online courses</Link> built on real cases.
       </p>
       <p>
         On the business side, we help you frame AI use across your teams, on

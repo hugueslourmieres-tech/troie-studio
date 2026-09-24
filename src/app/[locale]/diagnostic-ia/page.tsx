@@ -2,6 +2,7 @@ import { setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 import { ContactCTA } from "@/components/ContactCTA";
 import { GreekMark } from "@/components/GreekMark";
+import { metaDescription, seoTitle } from "@/lib/seo";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
@@ -161,8 +162,8 @@ export async function generateMetadata({
   const { locale } = await params;
   const c = COPY[locale === "en" ? "en" : "fr"];
   return {
-    title: c.title.replace(/\.$/, ""),
-    description: c.intro,
+    title: seoTitle(c.title.replace(/\.$/, "")),
+    description: metaDescription(c.intro),
     alternates: {
       canonical: `/${locale}/diagnostic-ia`,
       languages: { fr: "/fr/diagnostic-ia", en: "/en/diagnostic-ia" },

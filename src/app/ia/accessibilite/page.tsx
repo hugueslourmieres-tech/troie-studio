@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     title: "Accessibilité web : ce que votre entreprise doit faire, sans paniquer",
     description:
       "Dates clés, obligations réelles pour les PME, sanctions, et un plan d'action en 4 briques à prix publiés.",
+    images: ["/images/brand/og-image.png"],
   },
 };
 

@@ -70,8 +70,8 @@ export function IaEthique() {
       </p>
       <p>
         Curieux d’où vous en êtes ? Le{" "}
-        <Link href="/formations/quiz">QCM gratuit</Link> est fait pour ça, et nos{" "}
-        <Link href="/formations">cours en ligne</Link> prennent le relais.
+        <Link href="https://troie.app/niveau">QCM gratuit</Link> est fait pour ça, et nos{" "}
+        <Link href="https://troie.app/formation">cours en ligne</Link> prennent le relais.
       </p>
     </>
   );

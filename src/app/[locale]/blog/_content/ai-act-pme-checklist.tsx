@@ -175,7 +175,7 @@ export function AiActPmeChecklist() {
           Pas ceux que vous avez achetés, ceux que vos équipes ouvrent le
           matin. Le décalage entre les deux est la première surprise de tout
           audit. Preuve produite : un{" "}
-          <Link href="/blog/registre-des-usages-ia-modele">
+          <Link href="/fr/blog/registre-des-usages-ia-modele">
             registre des usages de l&apos;IA
           </Link>{" "}
           en huit colonnes, tenu dans un simple tableur.
@@ -211,7 +211,7 @@ export function AiActPmeChecklist() {
           2 décembre 2026, ramené de six à trois mois par le Digital Omnibus.
           Le détail des cinq situations concernées figure dans notre article
           sur la{" "}
-          <Link href="/blog/transparence-ia-signaler-contenu-genere">
+          <Link href="/fr/blog/transparence-ia-signaler-contenu-genere">
             transparence des contenus générés
           </Link>
           . Preuve produite : une règle éditoriale écrite.
@@ -281,7 +281,7 @@ export function AiActPmeChecklist() {
         pas de liste, pas de dates, pas de contenu identifiable. Une obligation
         de moyens se juge sur les moyens démontrés. Le détail de ce qui compte
         comme mesure recevable figure dans notre article sur les{" "}
-        <Link href="/blog/article-4-ai-act-exemples-mesures">
+        <Link href="/fr/blog/article-4-ai-act-exemples-mesures">
           exemples concrets de mesures de littératie IA
         </Link>
         .
@@ -306,7 +306,7 @@ export function AiActPmeChecklist() {
         constater le manquement et ordonner des mesures correctives. Le risque
         réel est indirect : une équipe non formée déclenche les manquements
         qui, eux, sont sanctionnés. Notre article sur les{" "}
-        <Link href="/blog/ai-act-sanctions-entreprise">
+        <Link href="/fr/blog/ai-act-sanctions-entreprise">
           sanctions de l&apos;AI Act
         </Link>{" "}
         détaille les trois tranches et leur mécanique.
@@ -391,12 +391,12 @@ export function AiActPmeChecklist() {
         reste de la checklist découle de cet inventaire, et vous saurez en
         trente minutes si votre sujet est la formation, la transparence ou les
         deux. Notre article sur{" "}
-        <Link href="/blog/ai-act-controlable-2-aout-2026">
+        <Link href="/fr/blog/ai-act-controlable-2-aout-2026">
           ce qui a changé le 2 août 2026
         </Link>{" "}
         replace l&apos;échéance dans le calendrier complet, et TROIE Studio
         propose un{" "}
-        <Link href="/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
+        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
         pour situer vos obligations réelles et éliminer celles qui ne vous
         concernent pas.
       </p>

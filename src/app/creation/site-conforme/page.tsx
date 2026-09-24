@@ -111,7 +111,7 @@ export default function SiteConformePage() {
       <header className="border-b border-[var(--rule)]">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
           <Link
-            href="/"
+            href="/fr"
             className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
           >
             ← TROIE, Studio
@@ -285,7 +285,7 @@ export default function SiteConformePage() {
               Le détail de l&apos;AI Act →
             </Link>
             <Link
-              href="/formations"
+              href="https://troie.app/formation"
               className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
             >
               Former vos équipes à l&apos;IA →
@@ -304,7 +304,7 @@ export default function SiteConformePage() {
             juridique.
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/55">
-            TROIE Studio, Nice, <Link href="/" className="underline underline-offset-4 hover:text-[var(--accent)]">troiestudio.fr</Link>
+            TROIE Studio, Nice, <Link href="/fr" className="underline underline-offset-4 hover:text-[var(--accent)]">troiestudio.fr</Link>
           </p>
         </div>
       </footer>

@@ -322,17 +322,17 @@ export function RegistreDesUsagesIaModele() {
         Ouvrez un tableur, créez les huit colonnes, remplissez les trois outils
         que vous utilisez le plus souvent. Vous aurez fait, en une demi-heure,
         la première mesure attendue par l&apos;article 4. Notre article sur les{" "}
-        <Link href="/blog/article-4-ai-act-exemples-mesures">
+        <Link href="/fr/blog/article-4-ai-act-exemples-mesures">
           exemples concrets de mesures de littératie IA
         </Link>{" "}
         détaille les six autres, celui sur{" "}
-        <Link href="/blog/ai-act-sanctions-entreprise">
+        <Link href="/fr/blog/ai-act-sanctions-entreprise">
           les sanctions de l&apos;AI Act
         </Link>{" "}
         précise ce que vous risquez vraiment, et notre page sur l&apos;
         <Link href="/ia/ai-act">AI Act</Link> résume les échéances. Pour situer
         vos obligations réelles, TROIE Studio propose un{" "}
-        <Link href="/contact?subject=ai-act">audit gratuit de 30 minutes</Link>.
+        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>.
       </p>
 
       <p>

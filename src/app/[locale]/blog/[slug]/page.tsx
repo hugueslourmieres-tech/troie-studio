@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { ARTICLES, getArticle, localizeArticle } from "../articles";
 import { JsonLd, ORG_ID } from "@/components/JsonLd";
+import Image from "next/image";
+import { metaDescription, seoTitle } from "@/lib/seo";
 
 const BASE = "https://troiestudio.fr";
 
@@ -20,8 +22,8 @@ export async function generateMetadata({
   // canonique unique vers /fr (sinon Google signale un duplicata).
   const canonicalLocale = L.hasEn ? locale : "fr";
   return {
-    title: L.title,
-    description: L.description,
+    title: seoTitle(L.title),
+    description: metaDescription(L.description),
     alternates: {
       canonical: `/${canonicalLocale}/blog/${slug}`,
       ...(L.hasEn
@@ -110,7 +112,12 @@ export default async function ArticlePage({
   };
 
   return (
-    <article className="mx-auto max-w-3xl px-6 py-24 md:px-8 md:py-32">
+    <article
+      className="mx-auto max-w-3xl px-6 py-24 md:px-8 md:py-32"
+      /* Article non traduit servi sous /en : le texte reste en français,
+         on le déclare comme tel aux lecteurs d'écran et aux moteurs. */
+      lang={locale === "en" && !L.hasEn ? "fr" : undefined}
+    >
       <JsonLd data={jsonLd} />
 
       <Link
@@ -133,12 +140,19 @@ export default async function ArticlePage({
 
       {/* Bannière : photo en duotone orange (traitement maison) */}
       <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-sm bg-[#1a0f08]">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        {/* next/image (24/09/2026) : l'image de tête était le plus grand
+            élément affiché, servie en JPEG plein format. Elle part désormais
+            en AVIF/WebP à la bonne largeur, en priorité (fetchPriority : `priority`
+            est déprécié depuis Next 16). */}
+        <Image
           src={a.cover}
           alt=""
           aria-hidden="true"
-          className="h-full w-full object-cover"
+          fill
+          loading="eager"
+          fetchPriority="high"
+          sizes="(max-width: 768px) 100vw, 768px"
+          className="object-cover"
           style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
         />
       </div>

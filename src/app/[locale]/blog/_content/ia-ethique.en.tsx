@@ -68,8 +68,8 @@ export function IaEthiqueEn() {
       </p>
       <p>
         Curious where you stand? The{" "}
-        <Link href="/formations/quiz">free quiz</Link> is made for exactly
-        that, and our <Link href="/formations">online courses</Link> take it
+        <Link href="https://troie.app/niveau">free quiz</Link> is made for exactly
+        that, and our <Link href="https://troie.app/formation">online courses</Link> take it
         from there.
       </p>
     </>

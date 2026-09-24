@@ -226,16 +226,16 @@ export function Article4AiActExemplesMesures() {
         toutes les autres et se fait en une heure. Formez ensuite votre équipe
         avec un socle commun, puis gardez la trace de ce que vous avez fait.
         Notre article sur{" "}
-        <Link href="/blog/formation-ia-obligatoire-entreprise">
+        <Link href="/fr/blog/formation-ia-obligatoire-entreprise">
           ce que dit vraiment l&apos;article 4
         </Link>{" "}
         détaille l&apos;obligation, et celui sur{" "}
-        <Link href="/blog/digital-omnibus-ai-act-ce-qui-change">
+        <Link href="/fr/blog/digital-omnibus-ai-act-ce-qui-change">
           le Digital Omnibus
         </Link>{" "}
         explique comment le texte a été réécrit en juin 2026. Pour situer vos
         obligations réelles, TROIE Studio propose un{" "}
-        <Link href="/contact?subject=ai-act">audit gratuit de 30 minutes</Link>.
+        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>.
         Premier pas simple, et sans engagement.
       </p>
 

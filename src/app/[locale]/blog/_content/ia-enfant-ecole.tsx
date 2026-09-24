@@ -61,8 +61,8 @@ export function IaEnfantEcole() {
       </p>
       <p>
         Pour apprendre en famille, sans jargon, commencez par le{" "}
-        <Link href="/formations/quiz">QCM gratuit</Link> (pensé pour tous les
-        âges), puis nos <Link href="/formations">cours en ligne</Link>.
+        <Link href="https://troie.app/niveau">QCM gratuit</Link> (pensé pour tous les
+        âges), puis nos <Link href="https://troie.app/formation">cours en ligne</Link>.
       </p>
     </>
   );

@@ -110,10 +110,10 @@ export function GlossaireIa() {
       <p>
         Connaître les mots, c’est déjà ne plus avoir peur. Pour passer à la
         pratique, testez vos réflexes avec le{" "}
-        <Link href="/formations/quiz">QCM gratuit</Link>, ou apprenez à{" "}
+        <Link href="https://troie.app/niveau">QCM gratuit</Link>, ou apprenez à{" "}
         <Link href="/fr/blog/comment-ecrire-un-prompt">écrire un bon prompt</Link>
         . Et pour aller plus loin, nos{" "}
-        <Link href="/formations">cours en ligne</Link> vous accompagnent pas à
+        <Link href="https://troie.app/formation">cours en ligne</Link> vous accompagnent pas à
         pas.
       </p>
     </>

@@ -188,11 +188,11 @@ export function AiActSanctionsEntreprise() {
         prises au titre de l&apos;article 4. Notre page sur l&apos;
         <Link href="/ia/ai-act">AI Act</Link> résume les échéances, notre
         article sur les{" "}
-        <Link href="/blog/article-4-ai-act-exemples-mesures">
+        <Link href="/fr/blog/article-4-ai-act-exemples-mesures">
           mesures concrètes de l&apos;article 4
         </Link>{" "}
         détaille quoi faire, et celui sur{" "}
-        <Link href="/blog/transparence-ia-signaler-contenu-genere">
+        <Link href="/fr/blog/transparence-ia-signaler-contenu-genere">
           les contenus à signaler
         </Link>{" "}
         couvre la tranche des 15 M€. Premier pas simple : un audit gratuit de 30

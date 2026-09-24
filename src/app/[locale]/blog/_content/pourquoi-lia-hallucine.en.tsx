@@ -72,8 +72,8 @@ export function PourquoiLiaHallucineEn() {
       </p>
       <p>
         To sharpen these habits (a full module is devoted to them), start with
-        the <Link href="/formations/quiz">free quiz</Link>, then our{" "}
-        <Link href="/formations">online courses</Link>.
+        the <Link href="https://troie.app/niveau">free quiz</Link>, then our{" "}
+        <Link href="https://troie.app/formation">online courses</Link>.
       </p>
     </>
   );

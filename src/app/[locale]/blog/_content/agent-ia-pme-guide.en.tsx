@@ -67,7 +67,7 @@ export function AgentIaPmeGuideEn() {
         employees, not instead of them. If they cannot steer it, correct it
         and supervise it, it will be unplugged within three months. (And
         since 2025, training the teams who use AI is a{" "}
-        <Link href="/blog/formation-ia-obligatoire-entreprise">
+        <Link href="/en/blog/formation-ia-obligatoire-entreprise">
           legal obligation
         </Link>
         .)

@@ -9,6 +9,7 @@ import {
   embedUrl,
   thumbnailUrl,
 } from "@/lib/data/videos";
+import { useNearViewport } from "./LazyVideo";
 
 /**
  * VideoCarousel, corporate films + YouTube testimonials.
@@ -173,6 +174,8 @@ function LocalMedia({
   activé: boolean;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
+  // Téléchargée seulement à l'approche de l'écran (voir LazyVideo).
+  const near = useNearViewport(ref);
 
   useEffect(() => {
     const el = ref.current;
@@ -194,7 +197,7 @@ function LocalMedia({
   return (
     <video
       ref={ref}
-      src={vidéo.src}
+      src={near ? vidéo.src : undefined}
       autoPlay
       loop
       muted

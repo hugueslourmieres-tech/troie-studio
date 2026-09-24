@@ -76,8 +76,8 @@ export function IaViePriveeDonneesEn() {
       </p>
       <p>
         To build the right reflexes (for you and your family), start with the{" "}
-        <Link href="/formations/quiz">free quiz</Link>, then our{" "}
-        <Link href="/formations">online courses</Link>.
+        <Link href="https://troie.app/niveau">free quiz</Link>, then our{" "}
+        <Link href="https://troie.app/formation">online courses</Link>.
       </p>
     </>
   );

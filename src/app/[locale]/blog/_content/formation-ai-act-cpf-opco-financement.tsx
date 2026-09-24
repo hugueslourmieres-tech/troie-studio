@@ -262,7 +262,7 @@ export function FormationAiActCpfOpcoFinancement() {
         <strong>1. Cartographier les usages.</strong> Qui utilise quels outils,
         avec quelles données. Sans cette carte, impossible de savoir qui doit
         aller plus loin qu&apos;un socle commun. Notre{" "}
-        <Link href="/blog/registre-des-usages-ia-modele">
+        <Link href="/fr/blog/registre-des-usages-ia-modele">
           modèle de registre des usages de l&apos;IA
         </Link>{" "}
         fait ce travail en une heure.
@@ -320,19 +320,19 @@ export function FormationAiActCpfOpcoFinancement() {
         Avant de chercher un financement, fixez le besoin : qui utilise
         l&apos;IA, pour quoi, et qui doit aller au-delà du socle. Notre article
         sur les{" "}
-        <Link href="/blog/formation-ai-act-gratuite">
+        <Link href="/fr/blog/formation-ai-act-gratuite">
           formations AI Act gratuites
         </Link>{" "}
         recense ce qui existe sans budget, celui sur les{" "}
-        <Link href="/blog/article-4-ai-act-exemples-mesures">
+        <Link href="/fr/blog/article-4-ai-act-exemples-mesures">
           exemples concrets de mesures de littératie IA
         </Link>{" "}
         détaille ce qu&apos;on attend de vous, et la{" "}
-        <Link href="/blog/ai-act-pme-checklist">checklist AI Act PME</Link>{" "}
+        <Link href="/fr/blog/ai-act-pme-checklist">checklist AI Act PME</Link>{" "}
         met tout en ordre. La page <Link href="/ia/ai-act">AI Act</Link>{" "}
         résume les échéances. Pour situer vos obligations réelles avant
         d&apos;engager un budget, TROIE Studio propose un{" "}
-        <Link href="/contact?subject=ai-act">audit gratuit de 30 minutes</Link>.
+        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>.
       </p>
 
       <p>

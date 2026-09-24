@@ -58,7 +58,7 @@ export default async function CreationPage({
   const c = COPY[locale === "en" ? "en" : "fr"];
 
   const cards = [
-    { href: `/${locale}/creation/video`, ...c.cards.video, img: "/images/creation/video/poster.jpg" },
+    { href: `/${locale}/medias`, ...c.cards.video, img: "/images/creation/video/poster.jpg" },
     { href: `/${locale}/works`, ...c.cards.photos, img: "/images/works/CHANEL/cover.jpg" },
     { href: `/${locale}/creation/web`, ...c.cards.web, img: "/images/creation-section/mockup-desktop.jpg" },
   ];

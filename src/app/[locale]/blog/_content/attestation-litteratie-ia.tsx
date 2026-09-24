@@ -292,7 +292,7 @@ export function AttestationLitteratieIa() {
         <strong>Le registre des usages de l&apos;IA</strong>, qui liste les
         outils, les services concernés, les données saisies et le niveau de
         risque. Notre{" "}
-        <Link href="/blog/registre-des-usages-ia-modele">
+        <Link href="/fr/blog/registre-des-usages-ia-modele">
           modèle de registre en huit colonnes
         </Link>{" "}
         se remplit en une heure.
@@ -307,7 +307,7 @@ export function AttestationLitteratieIa() {
         seule question qui sera posée : pouvez-vous démontrer que vous avez pris
         des mesures. Le détail des mesures acceptables figure dans notre article
         sur les{" "}
-        <Link href="/blog/article-4-ai-act-exemples-mesures">
+        <Link href="/fr/blog/article-4-ai-act-exemples-mesures">
           exemples concrets de mesures de littératie IA
         </Link>
         .
@@ -329,11 +329,11 @@ export function AttestationLitteratieIa() {
         plutôt qu&apos;en quelques mois. Notre page sur l&apos;
         <Link href="/ia/ai-act">AI Act</Link> résume les échéances, notre
         article sur{" "}
-        <Link href="/blog/ai-act-sanctions-entreprise">
+        <Link href="/fr/blog/ai-act-sanctions-entreprise">
           les sanctions de l&apos;AI Act
         </Link>{" "}
         précise ce que vous risquez vraiment, et TROIE Studio propose un{" "}
-        <Link href="/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
+        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
         pour situer vos obligations réelles.
       </p>
 

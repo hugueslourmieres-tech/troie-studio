@@ -54,8 +54,10 @@ function TermsFr() {
         <p>
           TROIE, atelier digital
           <br />
-          Exploité par Hugues Lourmieres, entrepreneur individuel établi en
-          France.
+          Exploité par Hugues Lourmieres, entrepreneur individuel (EI) établi
+          en France.
+          <br />
+          Immatriculation : RCS Nice 507 815 322.
           <br />
           Contact : <ObfuscatedEmail className="underline" />
         </p>
@@ -115,7 +117,9 @@ function TermsEn() {
         <p>
           TROIE, digital studio
           <br />
-          Operated by Hugues Lourmieres, sole proprietor based in France.
+          Operated by Hugues Lourmieres, sole proprietor (EI) based in France.
+          <br />
+          Registered with the Nice Trade and Companies Register: RCS Nice 507 815 322.
           <br />
           Contact: <ObfuscatedEmail className="underline" />
         </p>

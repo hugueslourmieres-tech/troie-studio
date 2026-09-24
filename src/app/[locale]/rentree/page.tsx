@@ -223,10 +223,9 @@ export async function generateMetadata({
     title: "Agence SEO, GEO et création à Nice",
     description:
       "Audit SEO et GEO à 890 €, premier agent IA à 2 900 €, landing page à 1 500 € en 7 jours, contenus à 790 €/mois. Prix publics, scan gratuit en 60 secondes.",
-    alternates: {
-      canonical: `/${locale}/rentree`,
-      languages: { fr: "/fr/rentree", en: "/en/rentree" },
-    },
+    /* Offre écrite pour le marché français, en français seulement :
+       /en/rentree est une copie, canonique vers /fr, sans hreflang anglais. */
+    alternates: { canonical: "/fr/rentree" },
   };
 }
 

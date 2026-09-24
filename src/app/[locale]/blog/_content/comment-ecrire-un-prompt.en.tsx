@@ -76,8 +76,8 @@ export function CommentEcrireUnPromptEn() {
       </p>
       <p>
         Want to make real progress? Test your instincts with the{" "}
-        <Link href="/formations/quiz">free quiz</Link>, then keep going with our{" "}
-        <Link href="/formations">online courses</Link>.
+        <Link href="https://troie.app/niveau">free quiz</Link>, then keep going with our{" "}
+        <Link href="https://troie.app/formation">online courses</Link>.
       </p>
     </>
   );

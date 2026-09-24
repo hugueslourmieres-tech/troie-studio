@@ -77,7 +77,7 @@ export function ClientsCloud() {
           {loopList.map((c, i) => (
             <span
               key={`${c}-${i}`}
-              className="whitespace-nowrap font-mono text-xs uppercase tracking-[0.28em] text-[var(--fg-2)]/60 transition-colors hover:text-[var(--fg)] md:text-sm"
+              className="whitespace-nowrap font-mono text-xs uppercase tracking-[0.28em] text-[var(--fg-2)]/85 transition-colors hover:text-[var(--fg)] md:text-sm"
             >
               {c}
             </span>

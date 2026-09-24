@@ -76,8 +76,8 @@ export function CommentEcrireUnPrompt() {
       </p>
       <p>
         Envie de vraiment progresser ? Testez vos réflexes avec le{" "}
-        <Link href="/formations/quiz">QCM gratuit</Link>, puis avancez avec nos{" "}
-        <Link href="/formations">cours en ligne</Link>.
+        <Link href="https://troie.app/niveau">QCM gratuit</Link>, puis avancez avec nos{" "}
+        <Link href="https://troie.app/formation">cours en ligne</Link>.
       </p>
     </>
   );

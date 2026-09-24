@@ -147,9 +147,9 @@ export function ManagerPasRemplace() {
         Pas par des heures de vidéo théorique. Par un point honnête sur votre
         niveau réel. C&apos;est exactement la logique de TROIE : on commence par
         un{" "}
-        <Link href="/formations/quiz">QCM gratuit</Link> pour situer vos
+        <Link href="https://troie.app/niveau">QCM gratuit</Link> pour situer vos
         réflexes, puis on avance à votre rythme avec des{" "}
-        <Link href="/formations">cours en ligne</Link> clairs et des cas réels.
+        <Link href="https://troie.app/formation">cours en ligne</Link> clairs et des cas réels.
       </p>
       <p>
         Côté entreprise, on cadre l&apos;usage de l&apos;IA dans vos équipes,

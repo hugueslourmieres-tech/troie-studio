@@ -262,7 +262,7 @@ export function ConsultationCseIntelligenceArtificielle() {
         l&apos;intelligence artificielle, dont l&apos;article 4 sur la littératie
         IA s&apos;applique à toutes les entreprises sans seuil d&apos;effectif.
         Notre{" "}
-        <Link href="/blog/ai-act-pme-checklist">
+        <Link href="/fr/blog/ai-act-pme-checklist">
           checklist AI Act pour les PME
         </Link>{" "}
         détaille ce qui s&apos;applique réellement à une structure de moins de
@@ -299,7 +299,7 @@ export function ConsultationCseIntelligenceArtificielle() {
         Cinq pièces suffisent, et elles servent bien au-delà du CSE. La
         description de l&apos;outil et de son fournisseur. La liste des postes
         et des tâches concernés, tirée d&apos;un{" "}
-        <Link href="/blog/registre-des-usages-ia-modele">
+        <Link href="/fr/blog/registre-des-usages-ia-modele">
           registre des usages de l&apos;IA
         </Link>{" "}
         tenu dans un simple tableur. Le sort des données traitées, leur
@@ -363,11 +363,11 @@ export function ConsultationCseIntelligenceArtificielle() {
         établissements, et est-ce qu&apos;une phase pilote est déjà lancée. Si la
         réponse est oui à l&apos;une des trois, la consultation se prépare
         maintenant, pas après. Notre article sur les{" "}
-        <Link href="/blog/deployer-ia-pme-5-erreurs">
+        <Link href="/fr/blog/deployer-ia-pme-5-erreurs">
           cinq erreurs des déploiements d&apos;IA en PME
         </Link>{" "}
         détaille les autres angles morts, et TROIE Studio propose un{" "}
-        <Link href="/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
+        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
         pour cadrer le dossier avant la réunion.
       </p>
 

@@ -128,9 +128,9 @@ export function CommentUtiliserChatgptDebutantEn() {
       </p>
       <p>
         The easiest way to find out where you stand: take the{" "}
-        <Link href="/formations/quiz">free quiz</Link>, it takes 8 minutes and
+        <Link href="https://troie.app/niveau">free quiz</Link>, it takes 8 minutes and
         gauges your reflexes. Then move at your own pace through clear{" "}
-        <Link href="/formations">online courses</Link>, for yourself, your
+        <Link href="https://troie.app/formation">online courses</Link>, for yourself, your
         family or your teams.
       </p>
     </>

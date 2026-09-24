@@ -108,9 +108,9 @@ export function ArnaqueIaVoixCloneeEn() {
         Learning how AI works means learning how not to get fooled,
         at any age. It is also something you can pass on to your parents and
         your children. Test your reflexes with our{" "}
-        <Link href="/formations/quiz">free quiz</Link> (an entire module is
+        <Link href="https://troie.app/niveau">free quiz</Link> (an entire module is
         devoted to security and common traps), then go further with our{" "}
-        <Link href="/formations">online courses</Link>, designed for you and your
+        <Link href="https://troie.app/formation">online courses</Link>, designed for you and your
         family. And for the bigger picture, read{" "}
         <Link href="/fr/blog/ia-remplacer-mon-metier-manager-pas-remplace">
           Manager, not replaced

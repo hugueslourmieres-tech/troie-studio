@@ -4,6 +4,18 @@ import { notFound } from "next/navigation";
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { WORKS, findWork } from "@/lib/works";
+import { metaDescription, seoTitle } from "@/lib/seo";
+
+/** Nom du projet + première partie de son périmètre, en minuscule initiale. */
+function workTitle(name: string, scope: string, locale: string): string {
+  const parts = scope.split(",").map((x) => x.trim()).filter(Boolean);
+  const first = parts[0] ?? "";
+  const detail = first.toLowerCase() === name.toLowerCase() ? parts.slice(1).join(", ") : first;
+  if (!detail) return name;
+  // Deux-points précédé d'une espace en français, collé en anglais.
+  const sep = locale === "fr" ? " : " : ": ";
+  return `${name}${sep}${detail.charAt(0).toLowerCase()}${detail.slice(1)}`;
+}
 
 export async function generateMetadata({
   params,
@@ -14,8 +26,10 @@ export async function generateMetadata({
   if (!findWork(slug)) return {};
   const t = await getTranslations({ locale, namespace: "works" });
   return {
-    title: t(`items.${slug}.title`),
-    description: t(`items.${slug}.description`),
+    /* « CHANEL : reportage réalisé en interne » plutôt que « CHANEL » seul :
+       le titre dit ce qu'est la réalisation, et diffère entre FR et EN. */
+    title: seoTitle(workTitle(t(`items.${slug}.title`), t(`items.${slug}.scope`), locale)),
+    description: metaDescription(t(`items.${slug}.description`)),
     alternates: {
       canonical: `/${locale}/works/${slug}`,
       languages: {
@@ -101,7 +115,7 @@ function CaseView({
         {/* Mobile text block */}
         <div className="mx-auto mt-10 max-w-7xl px-6 pb-16 md:hidden">
           <Link
-            href={`/${locale}/works`}
+            href={`/${locale}/medias`}
             className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
           >
             ← {locale === "fr" ? "Retour" : "Back"}
@@ -134,7 +148,7 @@ function CaseView({
           <div className="absolute inset-x-0 top-0 z-10">
             <div className="mx-auto max-w-7xl px-6 pt-32 md:px-12 md:pt-36">
               <Link
-                href={`/${locale}/works`}
+                href={`/${locale}/medias`}
                 className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:text-[var(--accent)]"
               >
                 ← {locale === "fr" ? "Retour" : "Back"}

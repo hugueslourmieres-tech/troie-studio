@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     title: "AI Act : ce que votre entreprise doit faire, sans paniquer",
     description:
       "Dates clés, obligations réelles pour les PME, sanctions, et un plan d'action en 4 briques à prix publiés.",
+    images: ["/images/brand/og-image.png"],
   },
 };
 
@@ -48,9 +49,9 @@ const TIMELINE = [
     status: "now",
   },
   {
-    date: "2027 et après",
-    title: "Haut risque (calendrier en ajustement)",
-    body: "RH, crédit, éducation, infrastructures : exigences renforcées. Le paquet Digital Omnibus (2026) allège et décale une partie de ces échéances, mais ne touche pas à ce qui est déjà en vigueur.",
+    date: "2 décembre 2027",
+    title: "Haut risque, reporté",
+    body: "RH, crédit, éducation, infrastructures : exigences renforcées. Le règlement (UE) 2026/1744 les a reportées au 2 décembre 2027 (annexe III) et au 2 août 2028 (annexe I). L'article 4 et la transparence ne bougent pas.",
     status: "future",
   },
 ];

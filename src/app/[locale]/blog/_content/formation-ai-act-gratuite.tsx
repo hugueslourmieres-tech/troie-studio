@@ -249,13 +249,13 @@ export function FormationAiActGratuite() {
         aussi, si vous êtes rigoureux. Trois pièces suffisent : la liste
         nominative des personnes exposées aux outils d&apos;IA avec la date et
         le contenu suivi, le{" "}
-        <Link href="/blog/registre-des-usages-ia-modele">
+        <Link href="/fr/blog/registre-des-usages-ia-modele">
           registre des usages de l&apos;IA
         </Link>{" "}
         qui cartographie vos outils et les données qui y transitent, et une
         charte interne d&apos;une page. Le détail de ce qui compte réellement
         comme mesure figure dans notre article sur les{" "}
-        <Link href="/blog/article-4-ai-act-exemples-mesures">
+        <Link href="/fr/blog/article-4-ai-act-exemples-mesures">
           exemples concrets de mesures de littératie IA
         </Link>
         .
@@ -291,7 +291,7 @@ export function FormationAiActGratuite() {
         Ne payez pas pour un mot. Il n&apos;existe aucune « certification AI
         Act », ni pour les personnes, ni pour les entreprises : le vocabulaire
         exact est « attestation de formation », et notre article sur{" "}
-        <Link href="/blog/attestation-litteratie-ia">
+        <Link href="/fr/blog/attestation-litteratie-ia">
           ce que vaut une attestation de littératie IA
         </Link>{" "}
         détaille les sept mentions qu&apos;elle doit porter. Pour situer les
@@ -335,11 +335,11 @@ export function FormationAiActGratuite() {
         chemin le moins cher qui produise quelque chose de démontrable. Notre
         page sur l&apos;<Link href="/ia/ai-act">AI Act</Link> résume les
         échéances, notre article sur{" "}
-        <Link href="/blog/ai-act-controlable-2-aout-2026">
+        <Link href="/fr/blog/ai-act-controlable-2-aout-2026">
           ce qui change le 2 août 2026
         </Link>{" "}
         détaille le calendrier, et TROIE Studio propose un{" "}
-        <Link href="/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
+        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
         pour situer vos obligations avant l&apos;échéance.
       </p>
 

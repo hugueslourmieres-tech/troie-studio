@@ -60,8 +60,8 @@ export function IaEnfantEcoleEn() {
       </p>
       <p>
         To learn as a family, jargon-free, start with the{" "}
-        <Link href="/formations/quiz">free quiz</Link> (designed for all ages),
-        then move on to our <Link href="/formations">online courses</Link>.
+        <Link href="https://troie.app/niveau">free quiz</Link> (designed for all ages),
+        then move on to our <Link href="https://troie.app/formation">online courses</Link>.
       </p>
     </>
   );

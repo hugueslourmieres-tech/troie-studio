@@ -189,15 +189,14 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  await params;
   return {
-    title: "Web, Création",
+    title: "Création de sites web et d'applications",
     description:
       "Sites, web apps et e-commerce sur mesure : notre processus et nos réalisations (LOIR Paris, Rutherford, PerPost).",
-    alternates: {
-      canonical: `/${locale}/creation/web`,
-      languages: { fr: "/fr/creation/web", en: "/en/creation/web" },
-    },
+    /* Page rédigée en français seulement : /en/creation/web en est une copie,
+       la canonique pointe vers /fr et aucun hreflang anglais n'est annoncé. */
+    alternates: { canonical: "/fr/creation/web" },
   };
 }
 

@@ -79,8 +79,8 @@ export function ChatgptClaudeGeminiLeChatEn() {
       </p>
       <p>
         To learn how to really use them, for yourself or your teams, start with
-        the <Link href="/formations/quiz">free quiz</Link>, then explore our{" "}
-        <Link href="/formations">online courses</Link>.
+        the <Link href="https://troie.app/niveau">free quiz</Link>, then explore our{" "}
+        <Link href="https://troie.app/formation">online courses</Link>.
       </p>
     </>
   );

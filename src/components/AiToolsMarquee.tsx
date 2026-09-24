@@ -28,7 +28,7 @@ export function AiToolsMarquee({ label }: { label?: string }) {
   return (
     <div className="mt-16 md:mt-20">
       {label && (
-        <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-[var(--fg)]/55">
+        <p className="text-center font-mono text-[10px] uppercase tracking-[0.3em] text-[var(--fg)]/80">
           {label}
         </p>
       )}
@@ -48,7 +48,7 @@ export function AiToolsMarquee({ label }: { label?: string }) {
           {loop.map((tool, i) => (
             <li
               key={`${tool.name}-${i}`}
-              className="mr-12 flex shrink-0 items-center gap-3 opacity-60 transition-opacity duration-300 hover:opacity-100 md:mr-16"
+              className="mr-12 flex shrink-0 items-center gap-3 opacity-80 transition-opacity duration-300 hover:opacity-100 md:mr-16"
               aria-hidden={i >= AI_TOOLS.length}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -109,10 +109,10 @@ export function GlossaireIaEn() {
       <p>
         Knowing the words is the first step to losing the fear. To put it into
         practice, test your reflexes with the{" "}
-        <Link href="/formations/quiz">free quiz</Link>, or learn how to{" "}
+        <Link href="https://troie.app/niveau">free quiz</Link>, or learn how to{" "}
         <Link href="/fr/blog/comment-ecrire-un-prompt">write a good prompt</Link>
         . And to go further, our{" "}
-        <Link href="/formations">online courses</Link> guide you step by
+        <Link href="https://troie.app/formation">online courses</Link> guide you step by
         step.
       </p>
     </>

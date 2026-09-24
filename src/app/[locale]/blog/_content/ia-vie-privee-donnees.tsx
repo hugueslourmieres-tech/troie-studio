@@ -76,8 +76,8 @@ export function IaViePriveeDonnees() {
       </p>
       <p>
         Pour acquérir les bons réflexes (vous et votre famille), commencez par le{" "}
-        <Link href="/formations/quiz">QCM gratuit</Link>, puis nos{" "}
-        <Link href="/formations">cours en ligne</Link>.
+        <Link href="https://troie.app/niveau">QCM gratuit</Link>, puis nos{" "}
+        <Link href="https://troie.app/formation">cours en ligne</Link>.
       </p>
     </>
   );

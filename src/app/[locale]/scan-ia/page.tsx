@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ContactCTA } from "@/components/ContactCTA";
 import { GreekMark } from "@/components/GreekMark";
 import { ScanIa } from "@/components/ScanIa";
+import { metaDescription } from "@/lib/seo";
 
 /**
  * Page « Scan IA » : le produit d'appel de l'offre visibilité IA.
@@ -51,7 +52,7 @@ export async function generateMetadata({
     // Le titre garde son point d'interrogation : le gabarit « , TROIE Studio »
     // laissait « entreprise , TROIE Studio » une fois le « ? » retiré.
     title: { absolute: `${c.title} | TROIE Studio` },
-    description: c.intro,
+    description: metaDescription(c.intro),
     alternates: {
       canonical: `/${locale}/scan-ia`,
       languages: { fr: "/fr/scan-ia", en: "/en/scan-ia" },

@@ -108,9 +108,9 @@ export function ArnaqueIaVoixClonee() {
         Apprendre comment l’IA fonctionne, c’est apprendre à ne plus se faire
         avoir, à tout âge. C’est aussi ce qu’on peut transmettre à ses parents et
         à ses enfants. Testez vos réflexes avec notre{" "}
-        <Link href="/formations/quiz">QCM gratuit</Link> (un module entier est
+        <Link href="https://troie.app/niveau">QCM gratuit</Link> (un module entier est
         consacré à la sécurité et aux pièges), puis allez plus loin avec nos{" "}
-        <Link href="/formations">cours en ligne</Link>, pensés pour vous et votre
+        <Link href="https://troie.app/formation">cours en ligne</Link>, pensés pour vous et votre
         famille. Et pour comprendre le tableau d’ensemble, lisez{" "}
         <Link href="/fr/blog/ia-remplacer-mon-metier-manager-pas-remplace">
           Manager, pas remplacé

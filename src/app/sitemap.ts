@@ -9,24 +9,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   // /fr|/en/formation(s) redirige (301) vers /formations : exclu du sitemap.
-  const staticPaths = ["", "/creation", "/creation/web", "/strategie", "/diagnostic-ia", "/scan-ia", "/rentree", "/medias", "/blog", "/contact", "/privacy", "/terms"];
+  // /privacy et /terms sont en noindex : hors du sitemap (24/09/2026).
+  const staticPaths = ["", "/creation", "/creation/web", "/strategie", "/diagnostic-ia", "/scan-ia", "/rentree", "/medias", "/blog", "/contact"];
+  // Rédigées en français seulement : la copie /en porte une canonique vers /fr.
+  const FR_ONLY = new Set(["/creation/web", "/rentree"]);
   const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/diagnostic-ia", "/scan-ia", "/rentree"]);
 
   const entries: MetadataRoute.Sitemap = [];
 
   for (const locale of routing.locales) {
     for (const path of staticPaths) {
+      if (FR_ONLY.has(path) && locale !== "fr") continue;
       entries.push({
         url: `${BASE}/${locale}${path}`,
         lastModified: now,
         changeFrequency:
           path === "" ? "weekly" : HIGH_PRIORITY.has(path) ? "monthly" : "yearly",
         priority: path === "" ? 1 : HIGH_PRIORITY.has(path) ? 0.9 : 0.5,
-        alternates: {
-          languages: Object.fromEntries(
-            routing.locales.map((alt) => [alt, `${BASE}/${alt}${path}`]),
-          ),
-        },
+        ...(FR_ONLY.has(path)
+          ? {}
+          : {
+              alternates: {
+                languages: Object.fromEntries(
+                  routing.locales.map((alt) => [alt, `${BASE}/${alt}${path}`]),
+                ),
+              },
+            }),
       });
     }
 

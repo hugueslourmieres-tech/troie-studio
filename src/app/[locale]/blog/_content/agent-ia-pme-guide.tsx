@@ -68,7 +68,7 @@ export function AgentIaPmeGuide() {
         corriger et le superviser, il finira débranché dans trois mois. (Et
         depuis 2025, garantir aux équipes qui utilisent l&apos;IA un niveau
         de maîtrise suffisant est une{" "}
-        <Link href="/blog/formation-ia-obligatoire-entreprise">
+        <Link href="/fr/blog/formation-ia-obligatoire-entreprise">
           obligation légale
         </Link>
         .)

@@ -13,7 +13,7 @@ export async function generateMetadata({
   const { locale } = await params;
   const isFr = locale === "fr";
   return {
-    title: "Médias",
+    title: isFr ? "Médias : photo et vidéo" : "Media: photo and video",
     description: isFr
       ? "Réalisations photo et productions vidéo : maisons de luxe, hôtellerie, sport, industrie et nature."
       : "Photography and video productions: luxury houses, hospitality, sport, industry and nature.",

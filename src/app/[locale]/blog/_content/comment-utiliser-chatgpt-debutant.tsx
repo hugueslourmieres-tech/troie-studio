@@ -130,9 +130,9 @@ export function CommentUtiliserChatgptDebutant() {
       </p>
       <p>
         Le plus simple pour savoir où vous en êtes : faites le{" "}
-        <Link href="/formations/quiz">QCM gratuit</Link>, ça prend 8 minutes et
+        <Link href="https://troie.app/niveau">QCM gratuit</Link>, ça prend 8 minutes et
         ça situe vos réflexes. Ensuite, avancez à votre rythme avec des{" "}
-        <Link href="/formations">cours en ligne</Link> clairs, pour vous, votre
+        <Link href="https://troie.app/formation">cours en ligne</Link> clairs, pour vous, votre
         famille ou vos équipes.
       </p>
     </>

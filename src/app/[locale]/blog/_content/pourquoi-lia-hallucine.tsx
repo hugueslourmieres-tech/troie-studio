@@ -72,8 +72,8 @@ export function PourquoiLiaHallucine() {
       </p>
       <p>
         Pour muscler ces réflexes (un module entier y est consacré), commencez
-        par le <Link href="/formations/quiz">QCM gratuit</Link>, puis nos{" "}
-        <Link href="/formations">cours en ligne</Link>.
+        par le <Link href="https://troie.app/niveau">QCM gratuit</Link>, puis nos{" "}
+        <Link href="https://troie.app/formation">cours en ligne</Link>.
       </p>
     </>
   );

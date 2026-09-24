@@ -231,7 +231,7 @@ export function TransparenceIaSignalerContenuGenere() {
         prises au titre de l&apos;article 4. Notre page dédiée à
         l&apos;<Link href="/ia/ai-act">AI Act</Link> résume toutes les
         échéances à jour, et notre article sur{" "}
-        <Link href="/blog/ai-act-controlable-2-aout-2026">
+        <Link href="/fr/blog/ai-act-controlable-2-aout-2026">
           ce qui est contrôlable depuis le 2 août 2026
         </Link>{" "}
         replace la transparence dans le calendrier d&apos;ensemble. Premier

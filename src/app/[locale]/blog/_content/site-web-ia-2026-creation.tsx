@@ -87,7 +87,7 @@ export function SiteWebIa2026Creation() {
         De l&apos;artisanat côté marque, de la rigueur côté machine : un
         site qui a une voix, qui répond vite, et que les IA peuvent citer
         sans se tromper. C&apos;est ce que nous construisons à{" "}
-        <Link href="/creation">l&apos;atelier création</Link>, et si vos
+        <Link href="/fr/creation">l&apos;atelier création</Link>, et si vos
         équipes veulent comprendre le versant SEO de ce nouveau monde, la
         formation dédiée du campus est sur{" "}
         <a href="https://troie.app/formation/seo">troie.app</a>.

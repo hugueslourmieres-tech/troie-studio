@@ -395,21 +395,21 @@ export function CharteUsageIaEntrepriseModele() {
         Ouvrez un document, écrivez les trois premières règles, périmètre,
         outils autorisés, données interdites, et datez-le. Vous aurez la moitié
         de la charte en une heure. Notre modèle de{" "}
-        <Link href="/blog/registre-des-usages-ia-modele">
+        <Link href="/fr/blog/registre-des-usages-ia-modele">
           registre des usages de l&apos;IA
         </Link>{" "}
         fournit la pièce qui l&apos;accompagne, celui sur les{" "}
-        <Link href="/blog/article-4-ai-act-exemples-mesures">
+        <Link href="/fr/blog/article-4-ai-act-exemples-mesures">
           exemples concrets de mesures de littératie IA
         </Link>{" "}
         détaille les autres mesures attendues, et notre article sur la{" "}
-        <Link href="/blog/consultation-cse-intelligence-artificielle">
+        <Link href="/fr/blog/consultation-cse-intelligence-artificielle">
           consultation du CSE avant un déploiement d&apos;IA
         </Link>{" "}
         décrit la procédure parallèle à ne pas oublier. La page{" "}
         <Link href="/ia/ai-act">AI Act</Link> résume les échéances. Pour situer
         vos obligations réelles, TROIE Studio propose un{" "}
-        <Link href="/contact?subject=ai-act">audit gratuit de 30 minutes</Link>.
+        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>.
       </p>
 
       <p>
