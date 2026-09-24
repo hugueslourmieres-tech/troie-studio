@@ -139,7 +139,7 @@ export function FormationsFooter() {
         </div>
 
         <div className="mt-14 flex flex-wrap items-baseline justify-between gap-4 border-t border-[var(--rule)] pt-6">
-          <a href={MAIN_SITE} className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/75 transition hover:text-[var(--accent)] md:text-[11px]">
+          <a href={`${MAIN_SITE}/fr`} className="group inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/75 transition hover:text-[var(--accent)] md:text-[11px]">
             Studio créatif, troiestudio.fr
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </a>

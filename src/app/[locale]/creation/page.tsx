@@ -59,7 +59,7 @@ export default async function CreationPage({
 
   const cards = [
     { href: `/${locale}/medias`, ...c.cards.video, img: "/images/creation/video/poster.jpg" },
-    { href: `/${locale}/works`, ...c.cards.photos, img: "/images/works/CHANEL/cover.jpg" },
+    { href: `/${locale}/medias`, ...c.cards.photos, img: "/images/works/CHANEL/cover.jpg" },
     { href: `/${locale}/creation/web`, ...c.cards.web, img: "/images/creation-section/mockup-desktop.jpg" },
   ];
 

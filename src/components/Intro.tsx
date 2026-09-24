@@ -201,7 +201,7 @@ function MetierBox({ metier, index }: { metier: Métier; index: number }) {
       className="relative"
     >
       <Link
-        href={metier.path.startsWith("/") ? metier.path : `/${locale}/${metier.path}`}
+        href={/^(\/|https?:)/.test(metier.path) ? metier.path : `/${locale}/${metier.path}`}
         className="group relative flex h-full flex-col bg-[var(--bg)] p-8 transition-colors hover:bg-[var(--bg-2)] md:p-10"
       >
         {/* Index + label (re-using the eyebrow which already reads "01, Création") */}
