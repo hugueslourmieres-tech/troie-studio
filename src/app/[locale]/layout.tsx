@@ -251,7 +251,10 @@ export default async function LocaleLayout({
           "Agents IA et automatisation",
           "Direction artistique",
         ],
-        sameAs: ["https://www.linkedin.com/in/hugueslourmieres/"],
+        sameAs: [
+          "https://www.linkedin.com/in/hugueslourmieres/",
+          "https://www.instagram.com/hugueslourmieres/",
+        ],
       },
       {
         "@type": "WebSite",

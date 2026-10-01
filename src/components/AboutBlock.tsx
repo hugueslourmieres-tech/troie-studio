@@ -10,7 +10,7 @@ type Member = {
   img: string;
   /** Cadrage object-position pour bien centrer le visage. */
   pos: string;
-  link?: { href: string; label: string };
+  links?: { href: string; label: string }[];
 };
 
 /* Portraits : identiques dans les deux langues, seuls rôle et note changent. */
@@ -19,19 +19,24 @@ const TEAM_MEDIA = {
     name: "Hugues Lourmieres",
     img: "/images/about/hugues-studio.jpg",
     pos: "center 14%",
-    link: { href: "https://www.linkedin.com/in/hugueslourmieres/", label: "LinkedIn" },
+    /* Instagram en premier (1er/10/2026) : c'est le compte qui fait venir les
+       visiteurs, le site doit y renvoyer. */
+    links: [
+      { href: "https://www.instagram.com/hugueslourmieres/", label: "Instagram" },
+      { href: "https://www.linkedin.com/in/hugueslourmieres/", label: "LinkedIn" },
+    ],
   },
   vanessa: {
     name: "Vanessa Nobrega",
     img: "/images/about/vanessa-v2.jpg",
     pos: "center 12%",
-    link: { href: "https://vanessanobrega.com", label: "vanessanobrega.com" },
+    links: [{ href: "https://vanessanobrega.com", label: "vanessanobrega.com" }],
   },
   gilles: {
     name: "Gilles Pons",
     img: "/images/about/gilles-pons.jpg",
     pos: "center",
-    link: { href: "https://www.linkedin.com/in/gilles-pons-370569b9/", label: "LinkedIn" },
+    links: [{ href: "https://www.linkedin.com/in/gilles-pons-370569b9/", label: "LinkedIn" }],
   },
   thibaud: {
     name: "Thibaud Lourmieres",
@@ -98,7 +103,10 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
   const scrollerRef = useRef<HTMLUListElement>(null);
 
   const TEAM: Member[] = (Object.keys(TEAM_MEDIA) as (keyof typeof TEAM_MEDIA)[]).map(
-    (k) => ({ ...TEAM_MEDIA[k], ...c.team[k] }),
+    (k) => {
+      const m = TEAM_MEDIA[k];
+      return { ...m, ...c.team[k], links: "links" in m ? m.links.map((l) => ({ ...l })) : undefined };
+    },
   );
 
   const slide = (dir: 1 | -1) => {
@@ -197,16 +205,21 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
               <p className="mt-3 max-w-sm text-sm leading-relaxed text-[var(--fg-2)]">
                 {m.note}
               </p>
-              {m.link && (
-                <a
-                  href={m.link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group/link mt-auto inline-flex w-fit items-center gap-2 self-start border-b border-[var(--fg)] pb-1 pt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                >
-                  {m.link.label}
-                  <span aria-hidden="true" className="transition group-hover/link:translate-x-1">→</span>
-                </a>
+              {m.links && m.links.length > 0 && (
+                <div className="mt-auto flex flex-wrap gap-x-6 gap-y-2 pt-6">
+                  {m.links.map((l) => (
+                    <a
+                      key={l.href}
+                      href={l.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group/link inline-flex w-fit items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                    >
+                      {l.label}
+                      <span aria-hidden="true" className="transition group-hover/link:translate-x-1">→</span>
+                    </a>
+                  ))}
+                </div>
               )}
             </li>
           ))}
