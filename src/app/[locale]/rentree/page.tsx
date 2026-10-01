@@ -424,7 +424,7 @@ export default async function RentreePage({
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <div className="flex items-baseline gap-2.5">
-                    <span className="text-4xl font-extrabold tabular-nums">
+                    <span className="whitespace-nowrap text-4xl font-extrabold tabular-nums">
                       {pack.headline}
                     </span>
                     <span className="text-[13px] font-semibold text-[#6b6a67]">
