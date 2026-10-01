@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { AnimatedNumber } from "./AnimatedNumber";
 import { HeroVideoBg } from "./HeroVideoBg";
 import { GrowthCurve } from "./GrowthCurve";
 import { Header } from "@/components/Header";
@@ -27,34 +26,6 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
    - Adoption freelance 2026 : 84 % utilisent l'IA (vs 41 % en 2023)
    ───────────────────────────────────────────────────────────────────── */
 
-const STATS = [
-  {
-    value: 2,
-    prefix: "× ",
-    suffix: "",
-    label: "Impact par collaborateur sur les tâches automatisables",
-    détail: "Médiane études marketing solopreneurs 2026",
-  },
-  {
-    value: 60,
-    prefix: "+",
-    suffix: " %",
-    label: "De capacité équipe sans recruter un seul poste",
-    détail: "3 jours par semaine gagnés par membre",
-  },
-  {
-    value: 21,
-    suffix: " h",
-    label: "Libérées par semaine, par poste",
-    détail: "Pour la stratégie, la création, la décision",
-  },
-  {
-    value: -70,
-    suffix: " %",
-    label: "Sur le temps de production des créatifs",
-    détail: "Nielsen Norman Group, design assisté IA",
-  },
-];
 
 const SOLO_PACKS = [
   {
@@ -255,7 +226,7 @@ const FAQ = [
   },
   {
     q: "Combien de temps avant que ça serve vraiment ?",
-    a: "Pour les solos : utilisable dès le soir même de la formation. Résultats mesurables sous 2 semaines. Pour les équipes : 14 jours pour les premiers contenus publiés via Achille, 21 jours pour passer 60 % des tickets en mode autonome via Hestia, 30 jours pour les premiers RDV qualifiés via Hermès.",
+    a: "Cela dépend du cas. Pour un solo, les premiers usages servent souvent dès le lendemain de l'atelier. Pour une équipe, on fixe ensemble les indicateurs au diagnostic (temps gagné, contenus publiés, tickets traités, rendez-vous obtenus) et on les mesure à date fixe.",
   },
   {
     q: "Mes données restent en Union européenne ?",
@@ -333,10 +304,10 @@ export default function IaLandingPage() {
               </h1>
               <p className="mt-10 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/90 md:text-lg">
                 <strong className="text-[var(--fg)]">Vos équipes deviennent des super-héros.</strong>{" "}
-                Solo, freelance, équipe ou entreprise : trois jours par semaine
-                récupérés, capacité doublée sans embaucher. Formations courtes
-                et agents IA prêts à l'emploi. Sans changer de métier, sans
-                grosse facture.
+                Solo, freelance, équipe ou entreprise : on repère les tâches
+                qui vous prennent le plus de temps, et on les confie à
+                l&apos;IA. Ateliers courts et agents IA prêts à l&apos;emploi.
+                Sans changer de métier.
               </p>
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <a
@@ -685,12 +656,6 @@ export default function IaLandingPage() {
                       Organique
                     </span>
                   </div>
-                  <p className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">
-                    <AnimatedNumber value={180} prefix="+" suffix=" %" duration={1500} />
-                  </p>
-                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                    Trafic en 6 mois
-                  </p>
                   {/* Logos */}
                   <div className="mt-5 flex items-center gap-4">
                     {/* eslint-disable-next-line @next/next/no-img-élément */}
@@ -714,12 +679,6 @@ export default function IaLandingPage() {
                       Payant
                     </span>
                   </div>
-                  <p className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">
-                    <AnimatedNumber value={3} prefix="× " duration={1500} />
-                  </p>
-                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                    ROAS sur 90 jours
-                  </p>
                   <div className="mt-5 flex items-center gap-4">
                     {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img src="/images/logos/google-ads.svg" alt="Google Ads" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />
@@ -742,12 +701,6 @@ export default function IaLandingPage() {
                       LLM
                     </span>
                   </div>
-                  <p className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">
-                    <AnimatedNumber value={42} prefix="+" suffix=" %" duration={1500} />
-                  </p>
-                  <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65">
-                    Visibilité dans les LLM
-                  </p>
                   <div className="mt-5 flex items-center gap-4">
                     {/* eslint-disable-next-line @next/next/no-img-élément */}
                     <img src="/images/logos/chatgpt.svg" alt="ChatGPT" className="h-5 w-auto opacity-80" style={{ filter: "grayscale(1)" }} />

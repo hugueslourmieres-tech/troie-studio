@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import { AnimatedNumber } from "./AnimatedNumber";
 
 /**
  * GrowthCurve, visual "before vs after" pour le hero.
@@ -13,9 +12,10 @@ import { AnimatedNumber } from "./AnimatedNumber";
  *  2. Un mini-graphique SVG avec deux courbes animees à l'apparition :
  *     - "Sans IA" : ligne plate pointillee, beige fonce
  *     - "Avec IA" : courbe exponentielle orange Hermes
- *  3. Une ligne compacte "Chiffres vérifiés, etudes 2026" qui consolide
- *     les 4 stats macro (x2 impact, +60 % capacite, 21 h libérées, -70 %
- *     production créatifs).
+ *
+ * 1er/10/2026 : « + 156 % bénéfices » et le bloc « Chiffres vérifiés »
+ * (x2, +60 %, 21 h, -70 %) retirés, faute de source solide. La courbe
+ * reste une illustration, sans chiffre.
  */
 
 const TOOLS = [
@@ -29,12 +29,6 @@ const TOOLS = [
   { src: "/images/logos/figma.svg", alt: "Figma" },
 ];
 
-const VERIFIED = [
-  { value: 2, prefix: "× ", suffix: "", label: "Impact / collaborateur" },
-  { value: 60, prefix: "+", suffix: " %", label: "Capacite équipe" },
-  { value: 21, prefix: "", suffix: " h", label: "Libérées / sem / poste" },
-  { value: -70, prefix: "", suffix: " %", label: "Production créatifs" },
-];
 
 export function GrowthCurve() {
   const ref = useRef<HTMLDivElement>(null);
@@ -74,8 +68,8 @@ export function GrowthCurve() {
       {/* Growth curve SVG */}
       <div className="mt-8 border-t border-[var(--fg)]/15 pt-6">
         <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/80">
-          <span>Sans IA / Avec IA, 12 mois</span>
-          <span className="text-[var(--accent)]">+ 156 % bénéfices</span>
+          <span>Sans IA / Avec IA</span>
+          <span className="text-[var(--fg-2)]/60">Illustration</span>
         </div>
 
         <svg
@@ -161,29 +155,6 @@ export function GrowthCurve() {
         </svg>
       </div>
 
-      {/* Verified study stats, consolides */}
-      <div className="mt-6 border-t border-[var(--fg)]/15 pt-6">
-        <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
-          Chiffres vérifiés, etudes 2026
-        </p>
-        <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5 md:grid-cols-4">
-          {VERIFIED.map((v) => (
-            <div key={v.label} className="flex flex-col">
-              <span className="t-display text-2xl text-[var(--fg)] md:text-[28px]">
-                <AnimatedNumber
-                  value={v.value}
-                  prefix={v.prefix}
-                  suffix={v.suffix}
-                  duration={1600}
-                />
-              </span>
-              <span className="mt-1.5 font-mono text-[9px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
-                {v.label}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
