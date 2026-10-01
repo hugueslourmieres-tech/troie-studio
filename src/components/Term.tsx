@@ -1,11 +1,19 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 import { GLOSSAIRE, type Locale, type TermId } from "@/lib/glossaire";
 
 /** Marge minimale gardée entre l'infobulle et le bord de l'écran. */
 const EDGE = 8;
+
+/**
+ * Le placement se calcule AVANT l'affichage (useLayoutEffect côté
+ * navigateur) : calculé après, la carte s'affichait une image centrée sur le
+ * mot, débordait à droite, et ce seul instant suffisait à élargir la page
+ * sur mobile. Côté serveur, useEffect évite l'avertissement de React.
+ */
+const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 /**
  * Un mot de jargon avec sa définition.
@@ -46,7 +54,7 @@ export function Term({
    * donc hors de l'écran à gauche, un mot en fin de ligne à droite. On la
    * ramène juste assez pour qu'elle tienne, sans la décrocher du mot.
    */
-  useEffect(() => {
+  useIsoLayoutEffect(() => {
     if (!open) {
       setShift(0);
       return;
@@ -130,8 +138,15 @@ export function Term({
            pose déjà `translate` pour ses utilitaires, et les deux propriétés
            s'additionneraient au lieu de se remplacer. */
         style={{ translate: `calc(-50% + ${shift}px)` }}
-        className={`pointer-events-none absolute bottom-[calc(100%+10px)] left-1/2 z-50 block w-[min(21rem,78vw)] border border-[var(--rule-strong)] bg-[var(--bg-2)] px-4 py-3 text-left shadow-[0_18px_44px_-18px_rgba(0,0,0,0.45)] transition-opacity duration-150 ${
-          open ? "visible opacity-100" : "invisible opacity-0"
+        /* Fermée, la carte garde son texte dans le DOM mais se réduit à un
+           point d'un pixel, sans bordure ni marge (1er/10/2026). Avant, elle
+           gardait ses 21rem même invisible : un mot proche du bord droit
+           élargissait la page à 473 px sur un téléphone de 390 px, et le
+           bouton du menu fixe sortait de l'écran. */
+        className={`pointer-events-none absolute bottom-[calc(100%+10px)] z-50 block bg-[var(--bg-2)] text-left transition-opacity duration-150 ${
+          open
+            ? "visible left-1/2 w-[min(21rem,78vw)] border border-[var(--rule-strong)] px-4 py-3 opacity-100 shadow-[0_18px_44px_-18px_rgba(0,0,0,0.45)]"
+            : "invisible left-0 h-px w-px overflow-hidden opacity-0 [clip-path:inset(50%)]"
         }`}
       >
         <span className="block font-mono text-[9.5px] uppercase tracking-[0.18em] text-[var(--accent-2)]">
