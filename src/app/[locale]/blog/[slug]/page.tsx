@@ -56,25 +56,34 @@ function formatDate(iso: string, locale: string) {
   });
 }
 
-/** Textes d'interface de la page article, par locale. */
+const CAL_URL = "https://cal.com/troiestudio/30min";
+
+/**
+ * Textes d'interface de la page article, par locale. Le bloc de fin
+ * d'article reprend le contact de clôture du studio (deck du 1er/10/2026) :
+ * « Réserver 30 min » en action principale, « Lancer un projet » ensuite.
+ * Le bloc ne pousse plus troie.app (son lien vit dans le pied de page), ni
+ * l'ancienne promesse d'une attestation « qui met en règle » : l'article 4
+ * de l'AI Act est une obligation de moyens, sans certificat.
+ */
 const UI = {
   fr: {
     back: "← Le Journal",
-    ctaEyebrow: "Passez à l'action",
-    ctaTitle: "Formez-vous à l'IA, et prouvez-le.",
+    ctaEyebrow: "Contact",
+    ctaTitle: "Parlons de votre projet.",
     ctaBody:
-      "Des cours de 5 minutes, un QCM par module et l'attestation qui met votre entreprise en règle avec l'AI Act, sur troie.app. Ou parlons de votre projet en 30 minutes.",
-    ctaQuiz: "Se former sur troie.app",
-    ctaCall: "Réserver un appel",
+      "Trente minutes pour comprendre où vous en êtes et ce que vous visez. Ensuite, nous vous envoyons une proposition écrite et un devis.",
+    ctaBook: "Réserver 30 min",
+    ctaProject: "Lancer un projet",
   },
   en: {
     back: "← The Journal",
-    ctaEyebrow: "Take action",
-    ctaTitle: "Train on AI, and prove it.",
+    ctaEyebrow: "Contact",
+    ctaTitle: "Let's talk about your project.",
     ctaBody:
-      "Five-minute lessons, a quiz per module and the attestation that makes your company AI Act compliant, on troie.app. Or let's talk about your project for 30 minutes.",
-    ctaQuiz: "Train on troie.app",
-    ctaCall: "Book a call",
+      "Thirty minutes to understand where you stand and what you aim for. Then we send you a written proposal and a quote.",
+    ctaBook: "Book 30 min",
+    ctaProject: "Start a project",
   },
 } as const;
 
@@ -174,27 +183,19 @@ export default async function ArticlePage({
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <a
-            href="https://troie.app"
+            href={CAL_URL}
             target="_blank"
-            rel="noopener"
-            className="group relative inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-7 py-4 pr-14 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#ff8c33]"
+            rel="noreferrer"
+            className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#ff8c33]"
           >
-            {ui.ctaQuiz}
+            {ui.ctaBook}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/brand/certif-badge.png"
-              alt=""
-              aria-hidden="true"
-              className="pointer-events-none absolute right-2.5 top-1/2 h-8 w-auto -translate-y-1/2"
-            />
           </a>
           <Link
-            href={`/${locale}/contact`}
+            href={`/${locale}/contact#projet`}
             className="group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
-            {ui.ctaCall}
-            <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            {ui.ctaProject}
           </Link>
         </div>
       </aside>

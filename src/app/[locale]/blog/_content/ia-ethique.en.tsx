@@ -58,7 +58,7 @@ export function IaEthiqueEn() {
 
       <h2>Where TROIE stands</h2>
       <p>
-        We teach AI that is useful and honest: no magic promises, no hype, just
+        We stand for AI that is useful and honest: no magic promises, no hype, just
         concrete cases and real teaching. The goal isn’t to scare you or sell
         you a dream, but to make you{" "}
         <Link href="/fr/blog/ia-remplacer-mon-metier-manager-pas-remplace">

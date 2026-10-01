@@ -60,7 +60,7 @@ export function IaEthique() {
 
       <h2>Notre parti pris chez TROIE</h2>
       <p>
-        On forme à une IA utile et honnête : pas de promesse magique, pas de
+        Nous défendons une IA utile et honnête : pas de promesse magique, pas de
         survente, des cas concrets et de la pédagogie. L’objectif n’est pas de
         vous faire peur ni de vous vendre du rêve, mais de vous rendre{" "}
         <Link href="/fr/blog/ia-remplacer-mon-metier-manager-pas-remplace">

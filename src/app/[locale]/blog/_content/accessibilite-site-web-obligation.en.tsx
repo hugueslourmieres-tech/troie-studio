@@ -114,7 +114,7 @@ export function AccessibiliteSiteWebObligationEn() {
         <li>
           <strong>An audit of your key pages:</strong> homepage, product
           page, cart, contact form. That is where everything is decided,
-          and it is what we offer free of charge.
+          and it is where we start.
         </li>
         <li>
           <strong>A phased plan:</strong> fix whatever blocks the
@@ -124,10 +124,10 @@ export function AccessibiliteSiteWebObligationEn() {
       </ol>
       <p>
         At TROIE, accessibility is the second pillar of our compliance
-        offer, alongside the AI Act: a free audit, a full RGAA
+        offer, alongside the AI Act: a first call, a full RGAA
         assessment (quoted upfront), remediation by our developers,
         and ongoing monitoring so every release stays compliant. The
-        first step takes 30 minutes and costs nothing.
+        first step is a 30-minute call.
       </p>
     </>
   );

@@ -109,11 +109,12 @@ export function FormationIaObligatoireEntreprise() {
         (il y en a toujours plus que ce que la direction imagine), définissez
         vos règles d&apos;usage, puis formez par métier en gardant une trace.
         Si vous voulez gagner du temps,{" "}
-        <Link href="/ia">nos formations IA pour équipes</Link> couvrent
-        exactement ce périmètre, avec la preuve de formation incluse, et notre
-        page dédiée à l&apos;<Link href="/ia/ai-act">AI Act</Link> résume
-        toutes les échéances. Premier pas simple : un audit gratuit de 30
-        minutes pour situer vos obligations réelles.
+        <Link href="/ia">notre accompagnement des équipes</Link>{" "}
+        couvre exactement ce périmètre, avec une trace écrite pour chaque
+        participant, et notre page dédiée à l&apos;
+        <Link href="/ia/ai-act">AI Act</Link> résume toutes les échéances.
+        Premier pas simple : un échange de 30 minutes pour situer vos
+        obligations réelles.
       </p>
 
       <p>

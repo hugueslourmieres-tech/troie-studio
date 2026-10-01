@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import { ARTICLES_SORTED, localizeArticle } from "./articles";
+import { pageSocial } from "@/lib/og";
 
 const META = {
   fr: {
@@ -35,6 +36,14 @@ export async function generateMetadata({
       canonical: `/${locale}/blog`,
       languages: { fr: "/fr/blog", en: "/en/blog" },
     },
+    // Partage social propre au Journal (sinon il hérite du titre et de
+    // l'URL de l'accueil).
+    ...pageSocial({
+      locale,
+      path: "/blog",
+      title: m.title,
+      description: m.description,
+    }),
   };
 }
 

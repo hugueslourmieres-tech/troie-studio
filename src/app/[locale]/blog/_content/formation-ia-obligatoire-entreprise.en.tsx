@@ -104,10 +104,10 @@ export function FormationIaObligatoireEntrepriseEn() {
         (there is always more of it than leadership imagines), define your
         usage rules, then train by role and keep a record. If you want to
         save time,{" "}
-        <Link href="/ia">our AI training for teams</Link> covers exactly this
-        scope, with proof of training included, and our dedicated{" "}
+        <Link href="/ia">our team support</Link> covers exactly this scope,
+        with a written record for each participant, and our dedicated{" "}
         <Link href="/ia/ai-act">EU AI Act</Link> page sums up every deadline.
-        A simple first step: a free 30-minute audit to map out your actual
+        A simple first step: a 30-minute call to map out your actual
         obligations.
       </p>
 

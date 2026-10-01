@@ -87,8 +87,8 @@ export function AgentIaPmeGuide() {
         des données. Chez nous, il est précédé d&apos;un diagnostic qui
         cartographie vos processus et priorise les cas d&apos;usage, puis
         suivi d&apos;une supervision mensuelle, sans engagement. Chaque étape
-        fait l&apos;objet d&apos;un devis écrit. Le premier pas, l&apos;audit
-        de 30 minutes, est gratuit :{" "}
+        fait l&apos;objet d&apos;un devis écrit. Le premier pas est un
+        échange de 30 minutes :{" "}
         <Link href="/ia#tarifs">le détail des étapes est ici</Link>.
       </p>
 
@@ -115,7 +115,7 @@ export function AgentIaPmeGuide() {
         celles qui touchent à des décisions sensibles. Sur ce qui reste,
         choisissez la plus fréquente : c&apos;est votre premier agent. Si vous
         voulez un regard extérieur, on fait ce tri avec vous en{" "}
-        <Link href="/ia">30 minutes, gratuitement</Link>, chiffres à
+        <Link href="/ia">30 minutes</Link>, chiffres à
         l&apos;appui.
       </p>
     </>

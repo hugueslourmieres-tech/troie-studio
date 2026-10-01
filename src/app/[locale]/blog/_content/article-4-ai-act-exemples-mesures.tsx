@@ -235,7 +235,7 @@ export function Article4AiActExemplesMesures() {
         </Link>{" "}
         explique comment le texte a été réécrit en juin 2026. Pour situer vos
         obligations réelles, TROIE Studio propose un{" "}
-        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>.
+        <Link href="/fr/contact?subject=ai-act">échange de 30 minutes</Link>.
         Premier pas simple, et sans engagement.
       </p>
 

@@ -140,10 +140,10 @@ export function AiActControlable2Aout2026() {
 
       <h2>Par où commencer</h2>
       <p>
-        TROIE Studio forme les équipes des PME à l&apos;IA (parcours en
-        ligne et supervision continue) et met votre documentation en
-        conformité. Le premier pas est un audit gratuit de 30 minutes :
-        on regarde vos usages réels et on vous dit où vous en êtes.
+        TROIE Studio accompagne les équipes des PME dans leurs usages de
+        l&apos;IA (ateliers et suivi) et met votre documentation en
+        conformité. Le premier pas est un échange de 30 minutes : on
+        regarde vos usages réels et on vous dit où vous en êtes.
       </p>
 
       <p>

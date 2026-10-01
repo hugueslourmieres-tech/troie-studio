@@ -112,7 +112,7 @@ export function AccessibiliteSiteWebObligation() {
         <li>
           <strong>Un audit des pages clés :</strong> accueil, fiche produit,
           panier, formulaire de contact. C&apos;est là que tout se joue, et
-          c&apos;est ce que nous offrons gratuitement.
+          c&apos;est par là que nous commençons.
         </li>
         <li>
           <strong>Un plan par lots :</strong> corriger d&apos;abord ce qui
@@ -122,10 +122,10 @@ export function AccessibiliteSiteWebObligation() {
       </ol>
       <p>
         Chez TROIE, l&apos;accessibilité est le deuxième volet de notre offre
-        conformité, avec l&apos;AI Act : audit gratuit, diagnostic RGAA
+        conformité, avec l&apos;AI Act : premier échange, diagnostic RGAA
         complet sur devis, mise en conformité par nos développeurs,
         et supervision continue pour que chaque mise en production reste
-        conforme. Le premier pas prend 30 minutes et ne coûte rien.
+        conforme. Le premier pas est un échange de 30 minutes.
       </p>
     </>
   );

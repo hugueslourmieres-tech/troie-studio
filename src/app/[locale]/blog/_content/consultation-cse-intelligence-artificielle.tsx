@@ -367,7 +367,7 @@ export function ConsultationCseIntelligenceArtificielle() {
           cinq erreurs des déploiements d&apos;IA en PME
         </Link>{" "}
         détaille les autres angles morts, et TROIE Studio propose un{" "}
-        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
+        <Link href="/fr/contact?subject=ai-act">échange de 30 minutes</Link>{" "}
         pour cadrer le dossier avant la réunion.
       </p>
 

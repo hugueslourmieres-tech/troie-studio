@@ -339,7 +339,7 @@ export function FormationAiActGratuite() {
           ce qui change le 2 août 2026
         </Link>{" "}
         détaille le calendrier, et TROIE Studio propose un{" "}
-        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
+        <Link href="/fr/contact?subject=ai-act">échange de 30 minutes</Link>{" "}
         pour situer vos obligations avant l&apos;échéance.
       </p>
 

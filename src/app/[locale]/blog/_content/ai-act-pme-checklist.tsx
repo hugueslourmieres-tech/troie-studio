@@ -396,7 +396,7 @@ export function AiActPmeChecklist() {
         </Link>{" "}
         replace l&apos;échéance dans le calendrier complet, et TROIE Studio
         propose un{" "}
-        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>{" "}
+        <Link href="/fr/contact?subject=ai-act">échange de 30 minutes</Link>{" "}
         pour situer vos obligations réelles et éliminer celles qui ne vous
         concernent pas.
       </p>

@@ -38,7 +38,7 @@ const FAQ = [
   },
   {
     q: "Comment prouver qu'on a pris des mesures au titre de l'article 4 ?",
-    a: "La preuve attendue est un ensemble daté : un registre des usages de l'IA, une charte d'usage interne et une trace des formations suivies par les équipes. Sur troie.app, chaque parcours se termine par un QCM et délivre une attestation de formation vérifiable en ligne, qui documente la mesure prise au titre de l'article 4 du règlement (UE) 2024/1689. TROIE Studio propose par ailleurs un audit gratuit de 30 minutes pour situer vos obligations réelles.",
+    a: "La preuve attendue est un ensemble daté : un registre des usages de l'IA, une charte d'usage interne et une trace des formations suivies par les équipes. Sur troie.app, chaque parcours se termine par un QCM et délivre une attestation de formation vérifiable en ligne, qui documente la mesure prise au titre de l'article 4 du règlement (UE) 2024/1689. TROIE Studio propose par ailleurs un échange de 30 minutes pour situer vos obligations réelles.",
   },
 ];
 
@@ -332,7 +332,7 @@ export function RegistreDesUsagesIaModele() {
         précise ce que vous risquez vraiment, et notre page sur l&apos;
         <Link href="/ia/ai-act">AI Act</Link> résume les échéances. Pour situer
         vos obligations réelles, TROIE Studio propose un{" "}
-        <Link href="/fr/contact?subject=ai-act">audit gratuit de 30 minutes</Link>.
+        <Link href="/fr/contact?subject=ai-act">échange de 30 minutes</Link>.
       </p>
 
       <p>
