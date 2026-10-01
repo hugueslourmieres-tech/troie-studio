@@ -1,4 +1,5 @@
-import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
 import { GreekMark } from "@/components/GreekMark";
 
@@ -7,10 +8,15 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
 /**
  * Section de contact en clôture de page : simple et directe, sur le fond
  * orange (hérité du wrapper tone-accent). Accroche, réservation d'un créneau
- * (cal.com), email, et la mascotte Troyie.
+ * (cal.com, bouton plein noir), lancement d'un projet (bouton contour vers le
+ * formulaire de /contact), puis l'email masqué.
+ *
+ * Partagé par l'accueil, /strategie, /creation, /creation/web,
+ * /diagnostic-ia, /scan-ia et /accompagnement.
  */
 export function ContactCTA(_props: { locale: string }) {
   const t = useTranslations("home");
+  const locale = useLocale();
 
   return (
     <section className="border-t border-[#1a1714]/15">
@@ -35,9 +41,15 @@ export function ContactCTA(_props: { locale: string }) {
                 rel="noreferrer"
                 className="group inline-flex items-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#f5f0e6] transition hover:bg-[#15120f]"
               >
-                Réserver un créneau de 30 min
+                {t("ctaBook")}
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
+              <Link
+                href={`/${locale}/contact#projet`}
+                className="group inline-flex items-center gap-3 rounded-full border border-[#1a1714] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]"
+              >
+                {t("ctaProject")}
+              </Link>
               <ObfuscatedEmail className="border-b border-[#1a1714]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#1a1714]/75 transition hover:text-[#1a1714]" />
             </div>
           </div>

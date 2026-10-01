@@ -46,54 +46,70 @@ const TEAM_MEDIA = {
 } as const;
 
 /* La section codait tout en français et le servait sur /en : 10 chaînes
-   fuyaient (titres, prestations, rôles de l'équipe). */
+   fuyaient (titres, prestations, rôles de l'équipe).
+   Réécrite le 1er/10/2026 : stratégie d'abord, l'IA n'apparaît que dans la
+   dernière prestation. Le rôle de Vanessa reste un repère visible dans le
+   proto, à remplacer par l'intitulé qu'elle aura validé avant toute
+   publication. */
 const COPY = {
   fr: {
-    eyebrow: "Qui sommes-nous",
-    title: "L'Atelier TROIE vous accompagne.",
-    sub: "Une équipe pluridisciplinaire pour tous vos projets digitaux.",
+    eyebrow: "Le studio",
+    title: "Les personnes derrière vos projets.",
+    sub: "Une petite équipe, à Nice. Vous parlez directement à celles et ceux qui pensent et fabriquent votre projet. Nous intervenons en France, à Monaco et à distance.",
     prestations: [
-      "Sites web & applications",
-      "Design & identité de marque",
-      "E-commerce",
-      "Photographie & vidéo",
-      "Stratégie & communication",
-      "Formations IA",
-      "Formations outils digitaux",
-      "Agents IA & automatisation",
+      "Stratégie de marque et positionnement",
+      "Conseil en communication",
+      "Direction artistique",
+      "Photographie et vidéo",
+      "Sites web, applications et e-commerce",
+      "Référencement et acquisition",
+      "Direction marketing à temps partagé",
+      "Ateliers et prise en main des outils, IA comprise",
     ],
     teamLabel: "L'équipe",
     prev: "Précédent",
     next: "Suivant",
     team: {
-      hugues: { role: "Fondateur & CEO", note: "CMO dans les arts graphiques. Créateur et consultant IA." },
-      vanessa: { role: "Consultante IA & Communication", note: "Anciennement à la Maison de l'Intelligence Artificielle." },
-      gilles: { role: "Lead développeur", note: "Développement fullstack : sites, applications et agents IA." },
-      thibaud: { role: "Créateur de médias", note: "Réalisateur de films, vidéos et photographie." },
+      hugues: {
+        role: "Fondateur",
+        note: "Stratégie, direction artistique, photo et vidéo. Directeur marketing dans les arts graphiques.",
+      },
+      vanessa: {
+        role: "[À COMPLÉTER : intitulé validé par Vanessa]",
+        note: "Anciennement à la Maison de l'Intelligence Artificielle.",
+      },
+      gilles: { role: "Lead développeur", note: "Sites, applications et outils sur mesure." },
+      thibaud: { role: "Réalisateur", note: "Films, vidéo et photographie." },
     },
   },
   en: {
-    eyebrow: "Who we are",
-    title: "The TROIE studio, at your side.",
-    sub: "A multidisciplinary team for all your digital projects.",
+    eyebrow: "The studio",
+    title: "The people behind your projects.",
+    sub: "A small team in Nice, France. You talk directly to the people who think up and make your project. We work across France, Monaco and remotely.",
     prestations: [
-      "Websites & apps",
-      "Design & brand identity",
-      "E-commerce",
-      "Photography & video",
-      "Strategy & communication",
-      "AI training",
-      "Digital tools training",
-      "AI agents & automation",
+      "Brand strategy and positioning",
+      "Communication consulting",
+      "Art direction",
+      "Photography and video",
+      "Websites, apps and e-commerce",
+      "Search and acquisition",
+      "Fractional marketing direction",
+      "Workshops and getting started with tools, AI included",
     ],
     teamLabel: "The team",
     prev: "Previous",
     next: "Next",
     team: {
-      hugues: { role: "Founder & CEO", note: "CMO in the graphic arts industry. AI builder and consultant." },
-      vanessa: { role: "AI & Communication consultant", note: "Formerly at the Maison de l'Intelligence Artificielle." },
-      gilles: { role: "Lead developer", note: "Full-stack development: websites, apps and AI agents." },
-      thibaud: { role: "Media creator", note: "Film director, video and photography." },
+      hugues: {
+        role: "Founder",
+        note: "Strategy, art direction, photo and video. Marketing director in the graphic arts industry.",
+      },
+      vanessa: {
+        role: "[TO COMPLETE]",
+        note: "Formerly at the Maison de l'Intelligence Artificielle.",
+      },
+      gilles: { role: "Lead developer", note: "Websites, apps and custom tools." },
+      thibaud: { role: "Director", note: "Films, video and photography." },
     },
   },
 } as const;
@@ -196,9 +212,9 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
                   style={{ filter: "grayscale(1) contrast(1.03)", objectPosition: m.pos }}
                 />
               </div>
-              <h4 className="t-display mt-6 text-2xl text-[var(--fg)] md:text-[26px]">
+              <h3 className="t-display mt-6 text-2xl text-[var(--fg)] md:text-[26px]">
                 {m.name}
-              </h4>
+              </h3>
               <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.26em] text-[var(--accent)]">
                 {m.role}
               </p>

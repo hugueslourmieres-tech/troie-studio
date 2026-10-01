@@ -9,6 +9,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { Analytics } from "@vercel/analytics/next";
+import { OG_IMAGE } from "@/lib/og";
 
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
@@ -56,18 +57,16 @@ export async function generateMetadata({
   const isFr = locale === "fr";
 
   /*
-   * Le titre dit ce que le studio réalise pour un client, en peu de mots
-   * (16/09/2026). Plus de « formations » : le studio vend du conseil et de
-   * la réalisation, pas de la formation (ni NDA ni Qualiopi). La catégorie
-   * Google Business « Centre de formation » n'est donc plus un objectif.
+   * Le titre dit le savoir-faire du studio (1er/10/2026). L'IA n'apparaît
+   * plus dans le titre ni la description.
    */
   const title = `${t("name")}. ${
     isFr
-      ? "Agents IA, sites web et SEO à Nice"
-      : "AI agents, websites and SEO in Nice, France"
+      ? "Stratégie, création et accompagnement à Nice"
+      : "Strategy, creative and ongoing support in Nice"
   }`;
-  // SEO description (long form), différent from the in-page `tagline`
-  // which is kept short for visual use in the footer.
+  // Description SEO (forme longue), distincte de la `tagline` courte
+  // affichée dans le pied de page.
   const description = t("metaDescription");
 
   return {
@@ -79,24 +78,23 @@ export async function generateMetadata({
     description,
     keywords: isFr
       ? [
-          "agence IA Nice",
-          "agent IA sur mesure",
-          "automatisation IA entreprise",
-          "création site internet Nice",
-          "agence SEO Nice",
-          "SEO IA",
-          "référencement ChatGPT",
+          "agence de communication Nice",
+          "stratégie de marque Nice",
+          "direction marketing à temps partagé",
           "production vidéo entreprise Nice",
           "photographe corporate Nice",
+          "création site internet Nice",
+          "direction artistique",
+          "agence SEO Nice",
         ]
       : [
-          "AI agency Nice France",
-          "custom AI agents",
-          "AI automation for business",
-          "website development France",
-          "SEO agency France",
-          "AI search optimization",
+          "brand strategy Nice France",
+          "fractional marketing director",
           "corporate video production",
+          "corporate photographer Nice",
+          "website design France",
+          "art direction",
+          "SEO agency Nice",
         ],
     alternates: {
       canonical: `/${locale}`,
@@ -118,20 +116,13 @@ export async function generateMetadata({
       siteName: t("name"),
       locale: isFr ? "fr_FR" : "en_US",
       alternateLocale: isFr ? ["en_US"] : ["fr_FR"],
-      images: [
-        {
-          url: "/images/brand/og-image.png",
-          width: 1200,
-          height: 630,
-          alt: t("name"),
-        },
-      ],
+      images: [OG_IMAGE],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/brand/og-image.png"],
+      images: [OG_IMAGE.url],
     },
     robots: {
       index: true,
@@ -157,8 +148,12 @@ export default async function LocaleLayout({
   const messages = await getMessages();
   const tBrand = await getTranslations({ locale, namespace: "brand" });
 
-  // Global JSON-LD : Organization + Person (Hugues), rendered on every
-  // page so Google attaches the brand entity to the whole site.
+  const isFr = locale === "fr";
+
+  // JSON-LD global : Organization + Person (Hugues), rendu sur chaque page
+  // pour que Google rattache l'entité de marque à tout le site.
+  // Les savoir-faire suivent le positionnement du 1er/10/2026 : stratégie,
+  // création, accompagnement. L'IA n'y figure plus que comme outil.
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -175,18 +170,29 @@ export default async function LocaleLayout({
         description: tBrand("organizationDescription"),
         founder: { "@id": "https://troiestudio.fr/#hugues" },
         founders: [{ "@id": "https://troiestudio.fr/#hugues" }],
-        knowsAbout: [
-          "Agents IA",
-          "Automatisation (Make, n8n)",
-          "Intelligence artificielle générative",
-          "Création de sites web et d'applications",
-          "SEO",
-          "Référencement dans les moteurs IA (GEO)",
-          "Identité de marque",
-          "Direction artistique",
-          "Photographie",
-          "Vidéo",
-        ],
+        knowsAbout: isFr
+          ? [
+              "Stratégie de marque",
+              "Stratégie de communication et marketing",
+              "Direction artistique",
+              "Production vidéo",
+              "Photographie",
+              "Création de sites web et d'applications",
+              "SEO",
+              "Direction marketing à temps partagé",
+              "Automatisation et outils IA",
+            ]
+          : [
+              "Brand strategy",
+              "Communication and marketing strategy",
+              "Art direction",
+              "Video production",
+              "Photography",
+              "Website and app development",
+              "SEO",
+              "Fractional marketing direction",
+              "Automation and AI tools",
+            ],
         address: {
           "@type": "PostalAddress",
           addressLocality: "Nice",
@@ -215,25 +221,26 @@ export default async function LocaleLayout({
         contactPoint: {
           "@type": "ContactPoint",
           // Email volontairement absent (anti-moisson) : le formulaire
-          // de contact est le canal public.
-          url: "https://troiestudio.fr/fr/contact",
+          // de contact est le canal public, dans la langue de la page.
+          url: `https://troiestudio.fr/${locale}/contact`,
           contactType: "customer service",
           availableLanguage: ["French", "English"],
         },
         sameAs: [
           "https://www.linkedin.com/company/troiestudio",
           "https://www.instagram.com/troiestudio/",
-          "https://www.youtube.com/@troiestudio",
         ],
+        // La chaîne YouTube s'appelle encore « TROIE, le campus IA » : elle
+        // est rattachée à troie.app, pas au studio.
         subOrganization: {
           "@type": "Organization",
           name: "TROIE",
           alternateName: "troie.app",
           url: "https://troie.app",
-          description:
-            locale === "fr"
-              ? "Les outils IA gratuits et les cours en ligne de TROIE Studio."
-              : "Free AI tools and online courses by TROIE Studio.",
+          description: isFr
+            ? "Les outils en ligne et l'espace d'apprentissage de TROIE Studio."
+            : "TROIE Studio's online tools and learning space.",
+          sameAs: ["https://www.youtube.com/@troiestudio"],
         },
       },
       {
@@ -243,14 +250,25 @@ export default async function LocaleLayout({
         jobTitle: tBrand("jobTitle"),
         worksFor: { "@id": "https://troiestudio.fr/#organization" },
         url: "https://troiestudio.fr",
-        knowsAbout: [
-          "Stratégie marketing",
-          "Acquisition",
-          "SEO",
-          "Référencement dans les moteurs IA (GEO)",
-          "Agents IA et automatisation",
-          "Direction artistique",
-        ],
+        knowsAbout: isFr
+          ? [
+              "Stratégie de marque",
+              "Stratégie marketing",
+              "Acquisition",
+              "Direction artistique",
+              "Photographie",
+              "Vidéo",
+              "SEO",
+            ]
+          : [
+              "Brand strategy",
+              "Marketing strategy",
+              "Acquisition",
+              "Art direction",
+              "Photography",
+              "Video",
+              "SEO",
+            ],
         sameAs: [
           "https://www.linkedin.com/in/hugueslourmieres/",
           "https://www.instagram.com/hugueslourmieres/",

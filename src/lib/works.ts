@@ -2,12 +2,16 @@
  * Works data, single source of truth for case study covers, galleries
  * and metadata used by both the /works index and /works/[slug] pages.
  *
- * 12 projets, regroupés en marques clients + séries personnelles :
+ * 11 projets, regroupés en marques clients + séries personnelles :
  *   - Clients luxe / event : CHANEL, Monaco
  *   - Clients corporate / industrie : Veoria, MIBI 2026, Cartonajes Pans,
  *     Wauters B'Pack, Capefront, Eshuis
- *   - Contenu & direction : Social Media, Formation IA
+ *   - Contenu et direction : Social Media
  *   - Séries personnelles : Valberg (Mercantour), Animaux (faune sauvage)
+ *
+ * La fiche « formation-ia » est supprimée (1er/10/2026) : l'URL
+ * /:locale/works/formation-ia est redirigée en 301 vers /:locale/accompagnement
+ * (next.config.ts).
  */
 
 export type WorkSlug =
@@ -20,7 +24,6 @@ export type WorkSlug =
   | "capefront"
   | "eshuis"
   | "social-media"
-  | "formation-ia"
   | "valberg"
   | "animaux";
 
@@ -140,7 +143,7 @@ export const WORKS: Work[] = [
     ],
   },
   // ─────────────────────────────────────────────────────────────
-  // Contenu, direction artistique, formation
+  // Contenu et direction artistique
   {
     slug: "social-media",
     cover: file("Social Media", "cover.jpg"),
@@ -154,22 +157,6 @@ export const WORKS: Work[] = [
       file("Social Media", "IMG_8071.jpg"),
       file("Social Media", "IMG_8076.jpg"),
       file("Social Media", "IMG_8518.jpg"),
-    ],
-  },
-  {
-    slug: "formation-ia",
-    cover: file("Formation IA", "cover.jpg"),
-    coverPosition: "center 42%",
-    gallery: [
-      file("Formation IA", "01.jpg"),
-      file("Formation IA", "02.jpg"),
-      file("Formation IA", "04.jpg"),
-      file("Formation IA", "05.jpg"),
-      file("Formation IA", "06.jpg"),
-      file("Formation IA", "07.jpg"),
-      file("Formation IA", "08.jpg"),
-      file("Formation IA", "10.jpg"),
-      file("Formation IA", "11.jpg"),
     ],
   },
   // ─────────────────────────────────────────────────────────────

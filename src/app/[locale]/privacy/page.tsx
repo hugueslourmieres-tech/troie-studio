@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
+import { pageSocial } from "@/lib/og";
 
 export async function generateMetadata({
   params,
@@ -7,17 +8,21 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const title = locale === "fr" ? "Confidentialité" : "Privacy";
+  const description =
+    locale === "fr"
+      ? "Politique de confidentialité et traitement des données personnelles chez TROIE Studio."
+      : "Privacy policy and personal data handling at TROIE Studio.";
   return {
-    title: locale === "fr" ? "Confidentialité" : "Privacy",
-    description:
-      locale === "fr"
-        ? "Politique de confidentialité et traitement des données personnelles chez TROIE Studio."
-        : "Privacy policy and personal data handling at TROIE Studio.",
+    title,
+    description,
     alternates: {
       canonical: `/${locale}/privacy`,
       languages: { fr: "/fr/privacy", en: "/en/privacy" },
     },
     robots: { index: false, follow: true },
+    // Partage social propre à la page (sinon titre et URL de l'accueil).
+    ...pageSocial({ locale, path: "/privacy", title, description }),
   };
 }
 

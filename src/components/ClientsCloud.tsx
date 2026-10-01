@@ -1,11 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { useLocale } from "next-intl";
 import { gsap } from "gsap";
 import { GreekMark } from "./GreekMark";
 
+// GS MONACO, VEORIA, STUDIO DE LA ROCHE, MEASURECOLOR seulement après accord
+// de Hugues.
 const CLIENTS = [
   "CHANEL",
   "X-RITE",
@@ -22,6 +23,10 @@ const CLIENTS = [
  * studio, d'où le libellé « L'équipe a travaillé avec »), dans un marquee infini
  * horizontal piloté par GSAP. Inspiration luxe / Hermès : un seul "ruban"
  * qui défile lentement sans coupure.
+ *
+ * Rendu sur fond crème depuis le 1er/10/2026 (hors wrapper orange) : les
+ * dégradés des bords lisent var(--bg) et suivent donc le ton crème. Plus de
+ * sceau ici, il est déjà dans le héros (un seul par page).
  */
 export function ClientsCloud() {
   const locale = useLocale();
@@ -40,18 +45,7 @@ export function ClientsCloud() {
 
   return (
     <section className="border-t border-[var(--rule)]">
-      <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-        {/* Sceau de cire, signature des marques accompagnées */}
-        <div className="mx-auto mb-10 flex w-full max-w-[180px] justify-center md:max-w-[220px]">
-          <Image
-            src="/images/brand/emboss.png"
-            alt=""
-            width={2000}
-            height={2000}
-            sizes="(max-width: 768px) 180px, 220px"
-            className="h-auto w-full"
-          />
-        </div>
+      <div className="mx-auto max-w-7xl px-6 pt-20 pb-6 md:px-12 md:pt-24 md:pb-8">
         <GreekMark
           label={locale === "fr" ? "L'équipe a travaillé avec" : "Our team has worked with"}
           className="justify-center"

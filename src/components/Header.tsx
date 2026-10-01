@@ -3,24 +3,21 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AnimatedWordmark } from "./AnimatedWordmark";
-import { AiActBanner } from "./AiActBanner";
 import { LangSwitch } from "./LangSwitch";
 import { MobileMenu } from "./MobileMenu";
 
+export type NavItem = { href: string; label: string };
+export type NavGroup = { label: string; href: string; items: NavItem[] };
 
-export type NavItem = { href: string; label: string; meta?: string };
-export type NavGroup = { label: string; href?: string; items: NavItem[] };
+/** Prise de rendez-vous : action principale du site, partout. */
+const BOOKING_URL = "https://cal.com/troiestudio/30min";
 
 /**
- * Header, fixed cream bar, signature Hermès. Reste toujours dans le tone
- * light, simplement glassy + bordure douce qui apparaît au scroll.
- *
- * Nav éditoriale avec menus déroulants :
- *   Création   ▾  Création, Réalisation (film & vidéo)
- *   Stratégie  ▾  Marketing, IA, Communication
- *   Formations ▾  Agents IA, Formation perso, Formation entreprise
- *
- * À droite : login + LinkedIn.
+ * Barre fixe crème. Menus : Stratégie, Création, Accompagnement (titres
+ * cliquables), puis Journal. À droite : langue, Lancer un projet (à partir
+ * de xl), Réserver 30 min. Ordre du 1er/10/2026 : le savoir-faire d'abord,
+ * l'IA est un moyen. Plus de bandeau ni de bouton troie.app (lien dans le
+ * pied de page).
  */
 export function Header({
   locale,
@@ -43,48 +40,75 @@ export function Header({
   }, []);
 
   const barSolid = scrolled || solid;
+  const isEn = locale === "en";
 
-  // Ordre arbitré (juillet 2026) : Formation et agents IA d'abord,
-  // la Création descend en dernier (cross-sell). Libellés bilingues : le menu
-  // restait français sur /en alors que tout le reste de la page était traduit.
-  const nav = locale === "en"
+  // Libellés bilingues du menu, posés ici (composant client) pour ne pas
+  // dépendre des messages côté serveur.
+  const nav = isEn
     ? {
-        training: "Training", online: "Learn online", corporate: "Corporate training",
-        strategy: "Strategy", aiStrategy: "AI strategy", marketing: "Marketing strategy",
-        creation: "Creative", medias: "Media", web: "Web",
+        strategy: "Strategy",
+        brand: "Brand strategy",
+        visibility: "Visibility and acquisition",
+        creation: "Creative",
+        media: "Photo and video",
+        web: "Websites",
+        support: "Support",
+        direction: "Fractional marketing director",
+        workshops: "Workshops and tools",
+        diagnostic: "Diagnostic",
+        journal: "Journal",
+        book: "Book 30 min",
+        project: "Start a project",
+        works: "Work",
+        studio: "The studio",
       }
     : {
-        training: "Formation", online: "Se former en ligne", corporate: "Formation entreprise",
-        strategy: "Stratégie", aiStrategy: "Stratégie IA", marketing: "Stratégie marketing",
-        creation: "Création", medias: "Médias", web: "Web",
+        strategy: "Stratégie",
+        brand: "Stratégie de marque",
+        visibility: "Visibilité et acquisition",
+        creation: "Création",
+        media: "Photo et vidéo",
+        web: "Sites web",
+        support: "Accompagnement",
+        direction: "Direction marketing à temps partagé",
+        workshops: "Ateliers et outils",
+        diagnostic: "Diagnostic",
+        journal: "Journal",
+        book: "Réserver 30 min",
+        project: "Lancer un projet",
+        works: "Réalisations",
+        studio: "Le studio",
       };
 
   const groups: NavGroup[] = [
     {
-      label: nav.training,
-      href: `https://troie.app`,
-      items: [
-        { href: `https://troie.app`, label: nav.online, meta: "01" },
-        { href: `/ia`, label: nav.corporate, meta: "02" },
-      ],
-    },
-    {
       label: nav.strategy,
       href: `/${locale}/strategie`,
       items: [
-        { href: `/ia`, label: nav.aiStrategy, meta: "01" },
-        { href: `/${locale}/strategie`, label: nav.marketing, meta: "02" },
+        { href: `/${locale}/strategie`, label: nav.brand },
+        { href: `/${locale}/strategie#acquisition`, label: nav.visibility },
       ],
     },
     {
       label: nav.creation,
       href: `/${locale}/creation`,
       items: [
-        { href: `/${locale}/medias`, label: nav.medias, meta: "01" },
-        { href: `/${locale}/creation/web`, label: nav.web, meta: "02" },
+        { href: `/${locale}/medias`, label: nav.media },
+        { href: `/${locale}/creation/web`, label: nav.web },
+      ],
+    },
+    {
+      label: nav.support,
+      href: `/${locale}/accompagnement`,
+      items: [
+        { href: `/${locale}/accompagnement#direction`, label: nav.direction },
+        { href: `/${locale}/accompagnement#ateliers`, label: nav.workshops },
+        { href: `/${locale}/diagnostic-ia`, label: nav.diagnostic },
       ],
     },
   ];
+
+  const projectHref = `/${locale}/contact#projet`;
 
   return (
     <header
@@ -100,62 +124,87 @@ export function Header({
           aria-label="TROIE, Studio France"
           className="block text-[var(--fg)] transition hover:text-[var(--accent)]"
         >
-          <AnimatedWordmark className="text-[28px] md:text-[34px]" />
+          {/* Logo un peu plus petit entre 1024 et 1279 px : ouvert au scroll, il
+              touchait « Stratégie » à 1024 px (1er/10/2026). */}
+          <AnimatedWordmark className="text-[28px] md:text-[34px] lg:text-[28px] xl:text-[30px] 2xl:text-[34px]" />
         </Link>
 
-        {/* Éditorial nav avec menus déroulants (desktop large uniquement) */}
-        <nav className="hidden items-center gap-7 lg:flex lg:gap-9">
-          {groups.map((group, i) => (
-            <NavDropdown key={group.label} group={group} index={i} />
+        {/* Menus déroulants (ordinateur, lg et plus) puis Journal */}
+        <nav className="hidden items-center gap-4 lg:flex xl:gap-7 2xl:gap-9">
+          {groups.map((group) => (
+            <NavDropdown
+              key={group.href}
+              group={group}
+              toggleLabel={
+                isEn
+                  ? `Open the ${group.label} submenu`
+                  : `Ouvrir le sous-menu ${group.label}`
+              }
+            />
           ))}
+          <Link
+            href={`/${locale}/blog`}
+            className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+          >
+            {nav.journal}
+          </Link>
         </nav>
 
         <div className="flex items-center gap-4 md:gap-5">
-          {/* Desktop right cluster : langswitch + Contact (plus de connexion :
-              l'apprentissage et le compte vivent sur troie.app). */}
+          {/* Bloc de droite (ordinateur) : langue, Lancer un projet (xl),
+              Réserver 30 min. */}
           <div className="hidden items-center gap-4 lg:flex">
             {showLang && <LangSwitch locale={locale} />}
-            {/* Passerelle produit : le campus vit sur troie.app */}
-            <a
-              href="https://troie.app"
-              target="_blank"
-              rel="noopener"
-              className="inline-flex items-center gap-2 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors duration-300 hover:bg-[var(--ink)] hover:text-[var(--bg)]"
-            >
-              troie.app
-            </a>
             <Link
-              href={`/${locale}/contact`}
-              className="inline-flex items-center gap-2.5 bg-[var(--ink)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors duration-300 hover:bg-[var(--accent)] hover:text-[#1a1714]"
+              href={projectHref}
+              className="hidden items-center gap-2 whitespace-nowrap border border-[var(--ink)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)] xl:inline-flex"
             >
-              Contact
+              {nav.project}
             </Link>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 whitespace-nowrap border border-[var(--accent)] bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors duration-300 hover:border-[var(--ink)] hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            >
+              {nav.book}
+            </a>
           </div>
 
-          {/* Pas de bouton Contact sous `lg` : essayé le 29/07/2026, retiré le
-              jour même. À 375 px le wordmark occupe 178 px et le bloc de droite
-              démarrait 2 px après, donc le pavé noir venait se coller au « E »
-              de TROIE. L'en-tête mobile reste au logo et au burger, qui contient
-              Contact. Si le sujet revient, la piste est un CTA en tête du
-              panneau du burger, pas un bouton de plus dans la barre. */}
+          {/* Pas de bouton dans la barre sous `lg` : à 375 px le wordmark
+              occupe 178 px et un bouton venait se coller au « E » de TROIE.
+              Les deux actions sont en tête du panneau du burger. */}
 
           {/* Mobile : burger */}
-          <MobileMenu locale={locale} groups={groups} showLang={showLang} />
+          <MobileMenu
+            locale={locale}
+            groups={groups}
+            showLang={showLang}
+            extraLinks={[
+              { href: `/${locale}/medias`, label: nav.works },
+              { href: `/${locale}#about`, label: nav.studio },
+              { href: `/${locale}/blog`, label: nav.journal },
+            ]}
+            ctas={{ book: nav.book, project: nav.project, projectHref }}
+          />
         </div>
       </div>
-
-      {/* Annonce AI Act : bandeau noir defilant, sous la navbar */}
-      <AiActBanner locale={locale} />
     </header>
   );
 }
 
 /**
- * NavDropdown, top-level label + panneau déroulant éditorial.
- * Ouvre au survol (desktop) et au clic/clavier. Ferme au mouseleave,
- * Escape, ou clic à l'extérieur.
+ * NavDropdown : le libellé est un lien vers la page du groupe, le chevron
+ * à côté ouvre le panneau. Ouverture aussi au survol. Fermeture au
+ * mouseleave, Escape, ou clic à l'extérieur.
  */
-function NavDropdown({ group, index }: { group: NavGroup; index: number }) {
+function NavDropdown({
+  group,
+  toggleLabel,
+}: {
+  group: NavGroup;
+  toggleLabel: string;
+}) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -194,27 +243,31 @@ function NavDropdown({ group, index }: { group: NavGroup; index: number }) {
   return (
     <div
       ref={wrapRef}
-      className="relative"
+      className="relative flex items-center"
       onMouseEnter={() => {
         cancelClose();
         setOpen(true);
       }}
       onMouseLeave={scheduleClose}
     >
+      <Link
+        href={group.href}
+        onClick={() => setOpen(false)}
+        className="whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+      >
+        {group.label}
+      </Link>
       <button
         type="button"
         aria-expanded={open}
         aria-haspopup="true"
+        aria-label={toggleLabel}
         onClick={() => setOpen((v) => !v)}
-        className="group inline-flex items-baseline gap-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+        className="-my-2 ml-0.5 inline-flex h-8 w-6 items-center justify-center text-[var(--fg)] transition hover:text-[var(--accent)]"
       >
-        <span className="text-[var(--accent)] transition group-hover:opacity-70">
-          {String(index + 1).padStart(2, "0")}.
-        </span>
-        <span>{group.label}</span>
         <svg
           viewBox="0 0 24 24"
-          className={`h-3 w-3 translate-y-px transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`h-3 w-3 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -226,28 +279,25 @@ function NavDropdown({ group, index }: { group: NavGroup; index: number }) {
         </svg>
       </button>
 
-      {/* Panneau */}
+      {/* Panneau. Fermé, il est aussi invisible pour les lecteurs d'écran
+          (visibility), en plus de l'opacité et du tabIndex des liens. */}
       <div
         className={`absolute left-0 top-full pt-4 transition-all duration-300 ${
           open
-            ? "pointer-events-auto translate-y-0 opacity-100"
-            : "pointer-events-none -translate-y-1 opacity-0"
+            ? "pointer-events-auto visible translate-y-0 opacity-100"
+            : "pointer-events-none invisible -translate-y-1 opacity-0"
         }`}
       >
         <div className="min-w-[248px] border border-[var(--rule)] bg-[var(--bg)] p-2 shadow-[0_24px_60px_-24px_rgba(26,23,20,0.35)]">
           {group.items.map((item) => (
             <Link
-              key={item.label}
+              key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="group/item flex items-baseline gap-3 px-4 py-3 transition-colors hover:bg-[var(--accent-soft)]"
+              tabIndex={open ? 0 : -1}
+              className="group/item flex items-baseline px-4 py-3 transition-colors hover:bg-[var(--accent-soft)]"
             >
-              {item.meta && (
-                <span className="font-mono text-[10px] tracking-[0.22em] text-[var(--accent)]">
-                  {item.meta}
-                </span>
-              )}
-              <span className="font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--fg)] transition-colors group-hover/item:text-[var(--accent)]">
+              <span className="whitespace-nowrap font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--fg)] transition-colors group-hover/item:text-[var(--accent)]">
                 {item.label}
               </span>
             </Link>
@@ -257,6 +307,3 @@ function NavDropdown({ group, index }: { group: NavGroup; index: number }) {
     </div>
   );
 }
-
-
-

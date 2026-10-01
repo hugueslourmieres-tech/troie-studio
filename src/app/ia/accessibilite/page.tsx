@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { OG_IMAGE } from "@/lib/og";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
@@ -7,15 +8,26 @@ export const metadata: Metadata = {
   title:
     "Accessibilité web obligatoire : votre site est-il conforme ? RGAA, sanctions, plan d'action",
   description:
-    "Depuis le 28 juin 2025, l'accessibilité numérique est obligatoire pour l'e-commerce et les services en ligne. Carrefour vient d'être condamné. Qui est concerné, ce que dit le RGAA, et ce que TROIE prend en charge : audit gratuit, diagnostic, mise en conformité.",
+    "Depuis le 28 juin 2025, l'accessibilité numérique est obligatoire pour l'e-commerce et les services en ligne. Carrefour a été condamné en juin 2026. Qui est concerné, ce que dit le RGAA, et ce que TROIE prend en charge : premier échange, diagnostic, mise en conformité.",
   alternates: { canonical: "https://troiestudio.fr/ia/accessibilite" },
+  // openGraph et twitter déclarés en entier : sinon la page hérite de ceux
+  // du layout /ia (titre et texte de la page Organisation et outils).
   openGraph: {
     type: "article",
     url: "https://troiestudio.fr/ia/accessibilite",
     title: "Accessibilité web : ce que votre entreprise doit faire, sans paniquer",
     description:
       "Dates clés, obligations réelles pour les PME, sanctions, et un plan d'action en 4 étapes.",
-    images: ["/images/brand/og-image.png"],
+    siteName: "TROIE Studio",
+    locale: "fr_FR",
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Accessibilité web : ce que votre entreprise doit faire, sans paniquer",
+    description:
+      "Dates clés, obligations réelles pour les PME, sanctions, et un plan d'action en 4 étapes.",
+    images: [OG_IMAGE.url],
   },
 };
 
@@ -83,9 +95,9 @@ const OBLIGATIONS = [
 const BRIQUES = [
   {
     step: "01",
-    title: "Audit accessibilité gratuit",
-    terms: "Offert, verdict sous 48 h",
-    body: "Scan automatisé + revue manuelle de vos pages clés (accueil, produit, panier, contact). Verdict écrit sous 48 h : concerné ou pas, et les 5 blocages les plus graves.",
+    title: "Premier échange",
+    terms: "30 minutes",
+    body: "Nous regardons vos pages clés (accueil, produit, panier, contact) avec un outil automatique et une revue manuelle. Vous savez si vous êtes concerné, et quels blocages traiter d'abord.",
   },
   {
     step: "02",
@@ -97,13 +109,13 @@ const BRIQUES = [
     step: "03",
     title: "Mise en conformité",
     terms: "Sur devis, par lots",
-    body: "Nos développeurs corrigent : structure, contrastes, formulaires, navigation clavier, alternatives. Par lots priorisés, avec re-test à chaque livraison.",
+    body: "Gilles Pons, notre lead développeur, et l'équipe corrigent : structure, contrastes, formulaires, navigation clavier, alternatives. Par lots, avec un nouveau test à chaque livraison.",
   },
   {
     step: "04",
     title: "Supervision continue",
     terms: "Chaque mois",
-    body: "Monitoring de votre conformité numérique (accessibilité + AI Act) : chaque mise en production est re-testée, votre déclaration reste à jour. La conformité qui ne se périme pas.",
+    body: "Monitoring de votre conformité numérique (accessibilité + AI Act) : chaque mise en production est re-testée, votre déclaration reste à jour.",
   },
 ];
 
@@ -130,22 +142,22 @@ export default function AccessibilitePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JSONLD) }}
       />
 
-      {/* Mini header, retour IA Pro */}
+      {/* Mini header, retour vers la création web du studio */}
       <header className="border-b border-[var(--rule)]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-12">
           <Link
-            href="/ia"
-            className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+            href="/fr/creation/web"
+            className="inline-flex min-h-[44px] items-center font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
           >
-            ← TROIE, IA Pro
+            ← TROIE Studio, création web
           </Link>
           <a
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2.5 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            className="inline-flex min-h-[44px] items-center gap-2.5 whitespace-nowrap bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
-            Audit gratuit, 30 min
+            Réserver 30 min
           </a>
         </div>
       </header>
@@ -163,25 +175,24 @@ export default function AccessibilitePage() {
           sous 6 mois, sous astreinte. L&apos;obligation vaut pour tout
           e-commerce et service en ligne au-delà de 10 salariés ou 2 M€ de
           chiffre d&apos;affaires. La mise en conformité d&apos;une PME est un
-          chantier court quand il est bien cadré, et un cauchemar quand il se
-          fait sous astreinte.
+          chantier court quand il est bien cadré.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
           <a
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+            className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
-            Vérifier ma situation, gratuit
+            Réserver 30 min
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </a>
-          <Link
-            href="/ia#tarifs"
+          <a
+            href="#plan"
             className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
             Voir la méthode
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -265,8 +276,8 @@ export default function AccessibilitePage() {
         </div>
       </section>
 
-      {/* Plan d'action TROIE */}
-      <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
+      {/* Plan d'action TROIE (ancre #plan, cible du lien « Voir la méthode ») */}
+      <section id="plan" className="scroll-mt-24 border-t border-[var(--rule)] bg-[var(--bg-2)]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
             Le plan d&apos;action
@@ -291,7 +302,7 @@ export default function AccessibilitePage() {
               rel="noreferrer"
               className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
             >
-              Commencer par l&apos;audit gratuit
+              Réserver 30 min
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </a>
             <Link
@@ -320,7 +331,7 @@ export default function AccessibilitePage() {
             juridique : pour une analyse opposable, consultez votre conseil.
           </p>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/55">
-            TROIE Studio, Nice, <Link href="/ia" className="underline underline-offset-4 hover:text-[var(--accent)]">ia.troiestudio.fr</Link>
+            TROIE Studio, Nice, <Link href="/fr" className="underline underline-offset-4 hover:text-[var(--accent)]">troiestudio.fr</Link>
           </p>
         </div>
       </footer>

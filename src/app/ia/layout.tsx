@@ -4,45 +4,43 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { Analytics } from "@vercel/analytics/next";
 
 /**
- * Layout dedie au sous-domaine ia.troiestudio.fr.
- *
- * Pas de Header / Footer du site principal : on positionne la landing
- * comme une sous-marque B2B claire. Le seul retour vers le studio
- * createur se fait via le footer minimal de la page elle-même.
+ * Layout racine du segment /ia (page Organisation et outils, rangée sous
+ * Accompagnement). Plus de sous-marque IA Pro.
  *
  * Le layout root [locale] ne s'applique pas à cette route puisque /ia
- * vit en dehors du segment [locale].
+ * vit en dehors du segment [locale] : la page apporte elle-même le Header
+ * et le Footer du studio, en français.
  */
 export const metadata: Metadata = {
   metadataBase: new URL("https://troiestudio.fr"),
-  title: "TROIE, IA Pro. Formations & agents IA pour vos équipes.",
+  title: "Organisation et outils IA pour PME à Nice, TROIE Studio",
   description:
-    "Formations courtes, agents IA clés en main, audit gratuit de 30 minutes. L'atelier qui forme et déploie l'IA dans vos équipes, en France et à l'international.",
+    "Nous partons de votre stratégie et de votre façon de travailler. Puis nous mettons en place les outils utiles, IA comprise, et accompagnons leur prise en main.",
   alternates: {
     canonical: "https://troiestudio.fr/ia",
   },
   openGraph: {
     type: "website",
     url: "https://troiestudio.fr/ia",
-    title: "TROIE, IA Pro",
+    title: "Organisation et outils IA pour PME, TROIE Studio",
     description:
-      "Formations courtes et agents IA clés en main pour vos équipes.",
-    siteName: "TROIE, IA Pro",
+      "D'abord votre stratégie, ensuite les outils. Diagnostic, ateliers et mise en place, avec un premier échange de 30 minutes.",
+    siteName: "TROIE Studio",
     locale: "fr_FR",
     images: [
       {
         url: "/images/brand/og-image.png",
         width: 1200,
         height: 630,
-        alt: "TROIE, IA Pro",
+        alt: "TROIE Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "TROIE, IA Pro",
+    title: "Organisation et outils IA pour PME, TROIE Studio",
     description:
-      "Formations courtes et agents IA clés en main pour vos équipes.",
+      "D'abord votre stratégie, ensuite les outils. Diagnostic, ateliers et mise en place, avec un premier échange de 30 minutes.",
     images: ["/images/brand/og-image.png"],
   },
   robots: { index: true, follow: true },

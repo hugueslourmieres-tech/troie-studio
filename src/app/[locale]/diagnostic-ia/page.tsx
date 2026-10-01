@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ContactCTA } from "@/components/ContactCTA";
 import { GreekMark } from "@/components/GreekMark";
 import { metaDescription, seoTitle } from "@/lib/seo";
+import { pageSocial } from "@/lib/og";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
@@ -34,7 +35,7 @@ const COPY = {
     eyebrow: "Diagnostic IA",
     title: "Savoir où vous en êtes avec l'IA, en une journée.",
     intro:
-      "Vos équipes utilisent déjà des outils d'intelligence artificielle, souvent plus que vous ne le pensez. Depuis le 2 août 2026, cet usage vous engage. Le diagnostic répond à trois questions concrètes : ce qui tourne vraiment chez vous, ce que vous risquez, et le premier chantier qui vous fera gagner du temps.",
+      "Vos équipes utilisent déjà des outils d'intelligence artificielle, souvent plus que vous ne le pensez. Depuis le 2 août 2026, cet usage vous engage. Le diagnostic répond à trois questions concrètes : ce qui tourne vraiment chez vous, ce que vous risquez, et le premier chantier qui fera gagner du temps à votre équipe, avec ou sans IA.",
     offersEyebrow: "Trois formats",
     offers: [
       {
@@ -63,13 +64,14 @@ const COPY = {
       {
         name: "L'accompagnement",
         duration: "2 jours par mois, engagement 6 mois",
-        body: "Une direction marketing et IA à temps partagé. Le format qui s'est imposé en 2026 pour les PME qui veulent un profil senior sans en porter le salaire.",
+        body: "Une direction marketing et IA à temps partagé, pour les PME qui veulent un profil senior à leurs côtés.",
         items: [
           "Pilotage des chantiers IA et acquisition",
-          "Montée en compétence continue des équipes",
+          "Accompagnement continu des équipes",
           "Veille réglementaire et mise à jour des usages",
           "Un interlocuteur unique, joignable",
         ],
+        moreHref: "/accompagnement#direction",
       },
     ],
     costEyebrow: "Ce que ça coûte vraiment",
@@ -79,17 +81,18 @@ const COPY = {
     aidEyebrow: "Financements publics",
     aidTitle: "Vous êtes peut-être éligible à des aides. On vous le dit.",
     aidBody:
-      "La Région Sud, Bpifrance et les OPCO portent plusieurs dispositifs destinés aux PME qui intègrent l'IA, certains couvrant tout ou partie d'une prestation de conseil. Les critères changent au fil des votes de budget et tous ne sont pas cumulables. Nous ne sommes pas prescripteurs de ces aides et nous ne les instruisons pas : lors du premier échange, nous vous indiquons ceux auxquels votre entreprise semble éligible et vers qui vous tourner. C'est gratuit et ça ne vous engage à rien.",
+      "La Région Sud, Bpifrance et les OPCO portent plusieurs dispositifs destinés aux PME qui intègrent l'IA, certains couvrant tout ou partie d'une prestation de conseil. Les critères changent au fil des votes de budget et tous ne sont pas cumulables. Nous ne sommes pas prescripteurs de ces aides et nous ne les instruisons pas : lors du premier échange, nous vous indiquons ceux auxquels votre entreprise semble éligible et vers qui vous tourner. Cela ne vous engage à rien.",
     aidNote:
       "TROIE Studio délivre du conseil et de l'accompagnement. Nous ne sommes pas un organisme de formation déclaré et nos prestations n'entrent pas dans le champ de la formation professionnelle continue.",
-    ctaLabel: "Réserver 30 minutes, gratuitement",
+    ctaLabel: "Réserver 30 min",
     ctaBack: "Voir tous les services",
+    moreLabel: "En savoir plus",
   },
   en: {
     eyebrow: "AI assessment",
     title: "Know exactly where you stand with AI, in a single day.",
     intro:
-      "Your teams already use AI tools, usually more than you think. Since 2 August 2026, that use carries obligations. The assessment answers three concrete questions: what is actually running in your company, what you are exposed to, and the first project that will save you real time.",
+      "Your teams already use AI tools, usually more than you think. Since 2 August 2026, that use carries obligations. The assessment answers three concrete questions: what is actually running in your company, what you are exposed to, and the first project that will save your team time, with or without AI.",
     offersEyebrow: "Three formats",
     offers: [
       {
@@ -118,13 +121,14 @@ const COPY = {
       {
         name: "Ongoing support",
         duration: "Two days a month, six-month term",
-        body: "A fractional marketing and AI director. The format that became standard in 2026 for SMEs who want a senior profile without carrying the salary.",
+        body: "A fractional marketing and AI director, for SMEs who want a senior profile at their side.",
         items: [
           "Running your AI and acquisition projects",
-          "Continuous upskilling for your teams",
+          "Continuous support for your teams",
           "Regulatory watch and policy updates",
           "One person to call, who answers",
         ],
+        moreHref: "/accompagnement#direction",
       },
     ],
     costEyebrow: "What it actually costs",
@@ -134,11 +138,12 @@ const COPY = {
     aidEyebrow: "Public funding",
     aidTitle: "You may be eligible for public support. We will tell you.",
     aidBody:
-      "Région Sud, Bpifrance and the OPCOs run several schemes for SMEs adopting AI, some covering all or part of a consulting engagement. Criteria shift with each budget vote and not all of them combine. We are not an approved provider for these schemes and we do not process applications: during the first conversation we tell you which ones your company appears eligible for, and who to contact. It is free and commits you to nothing.",
+      "Région Sud, Bpifrance and the OPCOs run several schemes for SMEs adopting AI, some covering all or part of a consulting engagement. Criteria shift with each budget vote and not all of them combine. We are not an approved provider for these schemes and we do not process applications: during the first conversation we tell you which ones your company appears eligible for, and who to contact. It commits you to nothing.",
     aidNote:
       "TROIE Studio delivers consulting and advisory work. We are not a registered training body and our services fall outside the scope of French regulated vocational training.",
-    ctaLabel: "Book 30 minutes, free",
+    ctaLabel: "Book 30 min",
     ctaBack: "See all services",
+    moreLabel: "Learn more",
   },
 } as const;
 
@@ -149,13 +154,17 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const c = COPY[locale === "en" ? "en" : "fr"];
+  const title = c.title.replace(/\.$/, "");
+  const description = metaDescription(c.intro);
   return {
-    title: seoTitle(c.title.replace(/\.$/, "")),
-    description: metaDescription(c.intro),
+    title: seoTitle(title),
+    description,
     alternates: {
       canonical: `/${locale}/diagnostic-ia`,
       languages: { fr: "/fr/diagnostic-ia", en: "/en/diagnostic-ia" },
     },
+    // Partage social : l'intro complète (la meta description est coupée).
+    ...pageSocial({ locale, path: "/diagnostic-ia", title, description: c.intro }),
   };
 }
 
@@ -173,9 +182,10 @@ export default async function DiagnosticIaPage({
       <div aria-hidden="true" className="h-16 md:h-20" />
 
       {/* Accroche */}
-      {/* `pt` généreux : l'en-tête fixe et la banderole AI Act occupent déjà
-          le haut de l'écran, l'eyebrow passait sous la banderole sans ça. */}
-      <section className="mx-auto max-w-7xl px-6 pt-24 pb-20 md:px-12 md:pt-32 md:pb-28">
+      {/* L'espaceur ci-dessus compense l'en-tête fixe. Le bandeau AI Act a
+          été retiré le 1er/10/2026 : la marge du haut se resserre d'autant,
+          pour garder le bouton visible à 375 x 812. */}
+      <section className="mx-auto max-w-7xl px-6 pt-12 pb-20 md:px-12 md:pt-20 md:pb-28">
         <div className="max-w-3xl">
           <GreekMark
             label={c.eyebrow}
@@ -191,7 +201,7 @@ export default async function DiagnosticIaPage({
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group mt-10 inline-flex items-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#f5f0e6] transition hover:opacity-90"
+            className="group mt-10 inline-flex min-h-[52px] items-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]"
           >
             {c.ctaLabel}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">
@@ -240,6 +250,16 @@ export default async function DiagnosticIaPage({
                       </li>
                     ))}
                   </ul>
+
+                  {"moreHref" in o && o.moreHref ? (
+                    <Link
+                      href={`/${locale}${o.moreHref}`}
+                      className="group mt-6 inline-flex min-h-[44px] items-center gap-2 self-start font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg)] underline-offset-4 transition hover:text-[var(--accent)] hover:underline"
+                    >
+                      {c.moreLabel}
+                      <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+                    </Link>
+                  ) : null}
                 </div>
               );
             })}

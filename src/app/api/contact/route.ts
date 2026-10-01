@@ -34,6 +34,15 @@ import { Resend } from "resend";
  *
  * Field shape (JSON body):
  *   { name, email, company?, subject?, message, website?, elapsedMs?, turnstileToken? }
+ *
+ * Formulaire de projet (bouton « Lancer un projet », /contact#projet,
+ * depuis le 1er/10/2026, sans champ budget) :
+ *   { kind: "projet", need, needLabel, outcome, situation?, deadline?,
+ *     name, email, company?, phone?, locale?, website?, elapsedMs?, turnstileToken? }
+ * Le « message » contrôlé par les filtres est alors ce que la personne veut
+ * obtenir, suivi de l'endroit où elle en est. Les erreurs lui sont
+ * renvoyées dans la langue de la page (locale). Le formulaire de contact
+ * classique (kind absent) reste accepté.
  */
 
 export const runtime = "nodejs";
@@ -50,6 +59,15 @@ type Payload = {
   elapsedMs?: number;
   /** Jeton Cloudflare Turnstile (si le widget est actif). */
   turnstileToken?: string;
+  /** Formulaire de projet. */
+  kind?: string;
+  need?: string;
+  needLabel?: string;
+  outcome?: string;
+  situation?: string;
+  deadline?: string;
+  phone?: string;
+  locale?: string;
 };
 
 function isEmail(value: string) {
@@ -170,35 +188,84 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  // Messages d'erreur lus par le visiteur. Le formulaire de projet les
+  // reçoit dans la langue de la page (locale), le formulaire classique
+  // garde les siens.
+  const isProject = payload.kind === "projet";
+  const en = isProject && payload.locale === "en";
+  const say = (fr: string, english: string) => (en ? english : fr);
+
   // 4. Limite par IP.
   if (rateLimited(ip)) {
     return NextResponse.json(
-      { error: "Trop de messages. Réessayez dans une heure." },
+      {
+        error: say(
+          "Trop de messages. Réessayez dans une heure.",
+          "Too many messages. Please try again in an hour.",
+        ),
+      },
       { status: 429 },
     );
   }
 
-  const name = payload.name?.trim() ?? "";
-  const email = payload.email?.trim() ?? "";
-  const company = payload.company?.trim() ?? "";
-  const subject = payload.subject?.trim() ?? "";
-  const message = payload.message?.trim() ?? "";
+  const clip = (value: unknown, max: number) => String(value ?? "").trim().slice(0, max);
 
-  if (!name || !email || !message) {
+  const name = clip(payload.name, 200);
+  const email = clip(payload.email, 200);
+  const company = clip(payload.company, 200);
+  const phone = clip(payload.phone, 40);
+  const outcome = clip(payload.outcome, 3000);
+  const situation = clip(payload.situation, 3000);
+  const needLabel = clip(payload.needLabel, 120);
+  const deadline = clip(payload.deadline, 60);
+  const subject = isProject ? needLabel : (payload.subject?.trim() ?? "");
+  const message = isProject
+    ? [outcome, situation].filter(Boolean).join("\n\n")
+    : (payload.message?.trim() ?? "");
+
+  if (!name || !email || !message || (isProject && !outcome)) {
     return NextResponse.json(
-      { error: "name, email and message are required" },
+      {
+        error: isProject
+          ? say(
+              "Indiquez ce que vous voulez obtenir, votre nom et votre email.",
+              "Please add what you want to achieve, your name and your email.",
+            )
+          : "name, email and message are required",
+      },
       { status: 400 },
     );
   }
   if (!isEmail(email)) {
-    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
+    return NextResponse.json(
+      {
+        error: isProject
+          ? say("Vérifiez votre adresse email.", "Please check your email address.")
+          : "Invalid email",
+      },
+      { status: 400 },
+    );
   }
   if (message.length > 6000) {
-    return NextResponse.json({ error: "Message too long" }, { status: 400 });
+    return NextResponse.json(
+      {
+        error: isProject
+          ? say("Votre message est trop long.", "Your message is too long.")
+          : "Message too long",
+      },
+      { status: 400 },
+    );
   }
   if (message.length < 12) {
     return NextResponse.json(
-      { error: "Dites-nous en un peu plus : votre message est très court." },
+      {
+        error: isProject
+          ? say(
+              "Dites-nous-en un peu plus sur ce que vous voulez obtenir.",
+              "Tell us a little more about what you want to achieve.",
+            )
+          : "Dites-nous-en un peu plus : votre message est très court.",
+      },
       { status: 400 },
     );
   }
@@ -211,7 +278,12 @@ export async function POST(request: Request) {
   // 3. Filtre a liens : les spams commerciaux en collent partout.
   if (countUrls(`${message} ${subject} ${company}`) > 2) {
     return NextResponse.json(
-      { error: "Message refusé (trop de liens). Retirez les URLs et réessayez." },
+      {
+        error: say(
+          "Message refusé (trop de liens). Retirez les adresses web et réessayez.",
+          "Message refused (too many links). Remove the web addresses and try again.",
+        ),
+      },
       { status: 400 },
     );
   }
@@ -220,7 +292,12 @@ export async function POST(request: Request) {
   const turnstileOk = await verifyTurnstile(payload.turnstileToken ?? "", ip);
   if (!turnstileOk) {
     return NextResponse.json(
-      { error: "Vérification anti-robot échouée. Rechargez la page." },
+      {
+        error: say(
+          "Vérification anti-robot échouée. Réessayez, ou rechargez la page.",
+          "Anti-robot check failed. Try again, or reload the page.",
+        ),
+      },
       { status: 400 },
     );
   }
@@ -238,7 +315,25 @@ export async function POST(request: Request) {
 
   const resend = new Resend(apiKey);
 
-  const lines = [
+  const row = (label: string, value: string, long = false) =>
+    value
+      ? `<p><strong>${label} :</strong>${long ? "<br/>" : " "}<span style="white-space:pre-wrap;line-height:1.6">${escapeHtml(value)}</span></p>`
+      : "";
+
+  const projectLines = [
+    row("Besoin", needLabel || "À définir"),
+    row("Ce que la personne veut obtenir", outcome, true),
+    row("Où elle en est", situation || "Non précisé", true),
+    row("Échéance", deadline || "À définir"),
+    `<hr/>`,
+    row("Nom", name),
+    `<p><strong>Email :</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>`,
+    row("Entreprise", company),
+    row("Téléphone", phone),
+    row("Langue du site", payload.locale === "en" ? "anglais" : "français"),
+  ].filter(Boolean);
+
+  const contactLines = [
     `<p><strong>Nom :</strong> ${escapeHtml(name)}</p>`,
     `<p><strong>Email :</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>`,
     company ? `<p><strong>Entreprise :</strong> ${escapeHtml(company)}</p>` : "",
@@ -247,9 +342,13 @@ export async function POST(request: Request) {
     `<p style="white-space:pre-wrap;line-height:1.6">${escapeHtml(message)}</p>`,
   ].filter(Boolean);
 
-  const subjectLine = subject
-    ? `[TROIE] ${subject}, ${name}`
-    : `[TROIE] Nouveau message de ${name}`;
+  const lines = isProject ? projectLines : contactLines;
+
+  const subjectLine = isProject
+    ? `[TROIE] Projet : ${needLabel || "à définir"}, ${name}`
+    : subject
+      ? `[TROIE] ${subject}, ${name}`
+      : `[TROIE] Nouveau message de ${name}`;
 
   try {
     const { error } = await resend.emails.send({

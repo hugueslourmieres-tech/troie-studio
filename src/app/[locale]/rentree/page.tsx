@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
+import { pageSocial } from "@/lib/og";
 
 /**
  * Landing « La rentrée qui se prouve » : l'offre de rentrée 2026 complète
@@ -21,6 +22,12 @@ import { setRequestLocale } from "next-intl/server";
  * affiché (décision de Hugues du 1er/10/2026 : tout passe par un devis écrit
  * après l'appel de 30 min), article 4 = obligation de moyens, pas d'em-dash,
  * accents complets.
+ *
+ * Depuis le 1er/10/2026, la page est sortie du menu et du bandeau. Elle
+ * reste en ligne pour les annonces Google Ads jusqu'à la fin du bonus.
+ * Après le 31 octobre, et après vérification des URL des annonces : 301
+ * de /fr/rentree et /en/rentree vers /strategie (next.config.ts), et
+ * retrait de /rentree du sitemap.
  */
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
@@ -31,13 +38,19 @@ const COPY = {
   intro:
     "Depuis le 22 juillet 2026, Google affiche ses résumés IA en France : les domaines exposés ont perdu 23,1 % de clics en neuf jours (Ahrefs). La moitié des acheteurs B2B commencent désormais par un assistant IA. À la rentrée, on ne choisit plus l'agence qui promet : on choisit celle qui prouve.",
   ctaScan: "Scanner mon site gratuitement",
-  ctaCall: "Réserver 30 minutes",
+  ctaCall: "Réserver 30 min",
   proofTitle: "Des résultats, pas des promesses",
+  /* Preuves (1er/10/2026) : « +100 % de trafic » et « +40 % de leads »
+     retirés, non confirmés. [À COMPLÉTER] accord écrit de Rutherford pour
+     publier le chiffre de ventes et le nom Autajon. Espaces insécables dans
+     le montant pour qu'il ne se coupe pas à 375 px. */
   proofs: [
     { k: "100/100", t: "au scan SEO et GEO", e: "notre propre site troie.app, vérifiable en 60 secondes" },
-    { k: "+100 %", t: "de trafic organique en 6 mois", e: "refonte SEO multilingue d'un groupe industriel B2B" },
-    { k: "175 k€", t: "de commandes générées", e: "avec 5 000 € de budget contenu, mesuré et documenté" },
-    { k: "+40 %", t: "de leads entrants", e: "même client, même méthode, chiffres suivis dans le temps" },
+    {
+      k: "Environ 175\u00a0000\u00a0€",
+      t: "de ventes pour le groupe Rutherford",
+      e: "grâce à une vidéo réalisée pour Autajon, montée par Hugues avec son équipe",
+    },
   ],
   momentTitle: "Ce qui a changé cet été",
   momentSub:
@@ -88,7 +101,7 @@ const COPY = {
       features: [
         "Un agent qui travaille sur VOS documents : devis, relances, tri d'emails, contenu",
         "Monté avec vos outils réels (Claude, n8n, Make), pas une démo générique",
-        "Équipe formée à le piloter, le corriger, le superviser",
+        "Équipe accompagnée pour le piloter, le corriger, le superviser",
         "Cadre AI Act et RGPD posé d'entrée : usages, limites, registre",
       ],
       cta: "Identifier mon premier agent",
@@ -130,10 +143,10 @@ const COPY = {
   ],
   accelTitle: "Vos idées deviennent possibles, à moindre coût",
   accelBody:
-    "C'est le deuxième effet de l'IA, et on le vit tous les jours : le temps d'exécution s'effondre. Ce qui demandait des mois et des budgets d'agence se construit en jours ou en semaines. Une plateforme de formation complète, une application, une marque, une landing page : nous les avons construites pour nous-mêmes, elles sont publiques, vous pouvez les toucher. Cet accélérateur, mettez-le sur VOS projets.",
+    "C'est le deuxième effet de l'IA, et on le vit tous les jours : le temps d'exécution s'effondre. Ce qui demandait des mois et des budgets d'agence se construit en jours ou en semaines. Une plateforme d'apprentissage en ligne, une application, une marque, une landing page : nous les avons construites pour nous-mêmes, elles sont publiques, vous pouvez les toucher. Cet accélérateur, mettez-le sur VOS projets.",
   accelPoints: [
     {
-      t: "Un audit gratuit pour commencer",
+      t: "Un échange de 30 minutes pour commencer",
       e: "30 minutes avec un expert : on écoute votre problématique ou votre idée, et vous repartez avec une marche à suivre précise, chiffrée, actionnable. Même si vous ne travaillez jamais avec nous.",
     },
     {
@@ -145,7 +158,7 @@ const COPY = {
       e: "troie.app (plateforme complète avec paiements et attestations vérifiables) et bilber.app (application produit) ont été conçues, construites et lancées par ce studio. Ce qu'on vous vend, on se l'applique d'abord.",
     },
   ],
-  accelCta: "Réserver mon audit gratuit",
+  accelCta: "Réserver 30 min",
   ethicsTitle: "Des humains, des outils, une éthique",
   ethicsBody:
     "Nous sommes de vrais humains qui utilisons les outils IA de manière éthique, pour accompagner des clients qui partagent cette exigence : transparence sur ce que fait la machine et ce que fait la main, respect des données, conformité au règlement européen sur l'IA. Et nous nous réservons le droit de refuser un contrat qui ne serait pas en accord avec nos valeurs.",
@@ -191,12 +204,12 @@ const COPY = {
       a: "Les corrections techniques sont livrées sous 10 jours ouvrés et vérifiables immédiatement au re-scan. L'effet sur les citations et le trafic prend généralement 3 à 6 mois : c'est le rythme réel du marché, et quiconque annonce plus court sans preuve vous vend du vent. D'où le re-scan de contrôle à 90 jours.",
     },
     {
-      q: "La formation de mes équipes est-elle obligatoire ?",
-      a: "L'article 4 du règlement européen sur l'IA impose depuis février 2025 une obligation de moyens : garantir un niveau suffisant de maîtrise de l'IA. Aucune formation type ni certificat n'est imposé. Une journée d'atelier et des attestations nominatives vérifiables sont simplement la façon la plus directe de prouver l'effort le jour où on vous le demande.",
+      q: "Faut-il sensibiliser mes équipes à l'IA ?",
+      a: "L'article 4 du règlement européen sur l'IA impose depuis février 2025 une obligation de moyens : garantir un niveau suffisant de maîtrise de l'IA. Aucun format ni certificat n'est imposé. Une journée d'atelier et des attestations nominatives vérifiables sont la façon la plus directe de prouver l'effort, le jour où on vous le demande.",
     },
     {
       q: "Je n'ai qu'une idée, pas encore d'entreprise. Vous accompagnez ?",
-      a: "Oui, c'est même là que l'accélérateur IA change tout : étude de la demande réelle, marque, landing page ou application, premiers clients. L'audit gratuit de 30 minutes sert exactement à ça : vous repartez avec une marche à suivre précise et chiffrée, que vous la déroulez avec nous ou seul.",
+      a: "Oui, c'est même là que l'accélérateur IA change tout : étude de la demande réelle, marque, landing page ou application, premiers clients. L'échange de 30 minutes sert exactement à ça : vous repartez avec une marche à suivre précise et chiffrée, que vous la déroulez avec nous ou seul.",
     },
     {
       q: "Comment on démarre ?",
@@ -220,14 +233,19 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  await params;
+  const title = "Agence SEO, GEO et création à Nice";
+  const description =
+    "Audit SEO et GEO, premier agent IA, landing page en 7 jours, contenus chaque mois. Scan gratuit en 60 secondes, devis écrit sous 48 h.";
   return {
-    title: "Agence SEO, GEO et création à Nice",
-    description:
-      "Audit SEO et GEO, premier agent IA, landing page en 7 jours, contenus chaque mois. Scan gratuit en 60 secondes, devis écrit sous 48 h.",
+    title,
+    description,
     /* Offre écrite pour le marché français, en français seulement :
        /en/rentree est une copie, canonique vers /fr, sans hreflang anglais. */
     alternates: { canonical: "/fr/rentree" },
+    // Partage social propre à la page (sinon titre et URL de l'accueil).
+    // Toujours l'URL française, comme la canonique.
+    ...pageSocial({ locale: "fr", path: "/rentree", title, description }),
   };
 }
 
@@ -357,7 +375,7 @@ export default async function RentreePage({
         <p className="text-[11px] font-extrabold uppercase tracking-[0.28em] text-[#6b6a67]">
           {c.proofTitle}
         </p>
-        <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-4 grid gap-4 sm:grid-cols-2">
           {c.proofs.map((p) => (
             <div
               key={p.k}

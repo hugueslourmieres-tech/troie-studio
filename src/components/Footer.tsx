@@ -2,17 +2,44 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { Logo } from "./Logo";
 
+const BOOKING_URL = "https://cal.com/troiestudio/30min";
+
+const linkClass =
+  "inline-block py-1.5 text-[var(--fg-2)] transition hover:text-[var(--accent)]";
+
+/**
+ * Pied de page du studio. Trois colonnes : Studio (les pages du studio),
+ * Ressources (diagnostic, scan, pages AI Act et accessibilité, troie.app),
+ * Contact (les deux actions, les réseaux, l'adresse). troie.app n'a plus
+ * qu'un lien, ici. YouTube retiré tant que la chaîne porte l'ancien nom du
+ * campus IA.
+ */
 export async function Footer({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "footer" });
   const tNav = await getTranslations({ locale, namespace: "nav" });
   const tBrand = await getTranslations({ locale, namespace: "brand" });
   const year = new Date().getFullYear();
 
+  const studioLinks = [
+    { href: `/${locale}/strategie`, label: tNav("strategy") },
+    { href: `/${locale}/creation`, label: tNav("creation") },
+    { href: `/${locale}/accompagnement`, label: tNav("support") },
+    { href: `/${locale}/medias`, label: tNav("works") },
+    { href: `/${locale}/blog`, label: tNav("journal") },
+  ];
+
+  const resourceLinks = [
+    { href: `/${locale}/diagnostic-ia`, label: t("diagnostic") },
+    { href: `/${locale}/scan-ia`, label: t("scan") },
+    { href: "/ia/ai-act", label: t("aiAct") },
+    { href: "/ia/accessibilite", label: t("accessibility") },
+  ];
+
   return (
     <footer className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-        <div className="grid gap-16 md:grid-cols-12 md:gap-20">
-          <div className="md:col-span-4">
+        <div className="grid gap-14 sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-12 lg:gap-x-12 xl:gap-x-20">
+          <div className="sm:col-span-2 lg:col-span-3">
             <Logo
               variant="stack"
               className="w-44 text-[var(--fg)]"
@@ -22,104 +49,69 @@ export async function Footer({ locale }: { locale: string }) {
             </p>
           </div>
 
-          <div className="md:col-span-3">
-            <p className="t-eyebrow">Studio</p>
-            <ul className="mt-6 space-y-3 text-sm">
-              <li>
-                <Link
-                  href={`/${locale}/creation`}
-                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  {tNav("creation")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`/${locale}/strategie`}
-                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  {tNav("strategy")}
-                </Link>
-              </li>
-              {/* L'entrée « Formations » a été retirée de cette colonne le
-                  29/07/2026 : elle pointait sur troie.app/formation, exactement
-                  comme « Attestation article 4 » dans la colonne « Le campus »,
-                  soit deux libellés pour une même page. Cette colonne liste les
-                  pages du studio, la colonne campus liste celles de troie.app,
-                  et chaque destination n'a plus qu'un seul libellé. */}
-              <li>
-                <Link
-                  href="/ia"
-                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  {tNav("agents")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`/${locale}/medias`}
-                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  {tNav("works")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href={`/${locale}/blog`}
-                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  Journal
-                </Link>
-              </li>
+          <div className="lg:col-span-3">
+            <p className="t-eyebrow">{t("studio")}</p>
+            <ul className="mt-5 space-y-1 text-sm">
+              {studioLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className={linkClass}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div className="md:col-span-3">
-            <p className="t-eyebrow">Le campus</p>
-            <ul className="mt-6 space-y-3 text-sm">
+          <div className="lg:col-span-3">
+            <p className="t-eyebrow">{t("resources")}</p>
+            <ul className="mt-5 space-y-1 text-sm">
+              {resourceLinks.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className={linkClass}>
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <a
                   href="https://troie.app"
                   target="_blank"
                   rel="noopener"
-                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                  className={linkClass}
                 >
-                  troie.app
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://troie.app/ai-act"
-                  target="_blank"
-                  rel="noopener"
-                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  Formation AI Act
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://troie.app/formation"
-                  target="_blank"
-                  rel="noopener"
-                  className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  Attestation article 4
+                  {t("app")}
                 </a>
               </li>
             </ul>
           </div>
 
-          <div className="md:col-span-2">
-            <p className="t-eyebrow">Contact</p>
-            <ul className="mt-6 flex items-center gap-5">
+          <div className="lg:col-span-3">
+            <p className="t-eyebrow">{t("contact")}</p>
+            <ul className="mt-5 space-y-1 text-sm">
+              <li>
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={linkClass}
+                >
+                  {tNav("book")}
+                </a>
+              </li>
+              <li>
+                <Link href={`/${locale}/contact#projet`} className={linkClass}>
+                  {tNav("project")}
+                </Link>
+              </li>
+            </ul>
+            <ul className="mt-4 flex items-center gap-2">
               <li>
                 <a
                   href="https://www.linkedin.com/company/troiestudio"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="LinkedIn"
-                  className="flex h-9 w-9 items-center justify-center text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                  aria-label="LinkedIn TROIE Studio"
+                  className="-ml-3 flex h-11 w-11 items-center justify-center text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
                   <LinkedInIcon />
                 </a>
@@ -129,25 +121,14 @@ export async function Footer({ locale }: { locale: string }) {
                   href="https://www.instagram.com/troiestudio/"
                   target="_blank"
                   rel="noreferrer"
-                  aria-label="Instagram"
-                  className="flex h-9 w-9 items-center justify-center text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                  aria-label="Instagram @troiestudio"
+                  className="flex h-11 w-11 items-center justify-center text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
                   <InstagramIcon />
                 </a>
               </li>
-              <li>
-                <a
-                  href="https://www.youtube.com/@troiestudio"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="YouTube"
-                  className="flex h-9 w-9 items-center justify-center text-[var(--fg-2)] transition hover:text-[var(--accent)]"
-                >
-                  <YouTubeIcon />
-                </a>
-              </li>
             </ul>
-            <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
+            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
               {t("based")}
             </p>
           </div>
@@ -157,18 +138,18 @@ export async function Footer({ locale }: { locale: string }) {
       <div className="border-t border-[var(--rule)]">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-3 px-6 py-6 text-[11px] text-[var(--fg-2)]/60 md:flex-row md:items-center md:justify-between md:px-12">
           <p className="font-mono uppercase tracking-[0.22em]">
-            © {year}TROIE.studio, {t("rights")}
+            © {year} TROIE Studio. {t("rights")}
           </p>
           <div className="flex gap-6 font-mono uppercase tracking-[0.22em]">
             <Link
               href={`/${locale}/privacy`}
-              className="hover:text-[var(--fg)]"
+              className="inline-block py-2 hover:text-[var(--fg)]"
             >
               {t("privacy")}
             </Link>
             <Link
               href={`/${locale}/terms`}
-              className="hover:text-[var(--fg)]"
+              className="inline-block py-2 hover:text-[var(--fg)]"
             >
               {t("terms")}
             </Link>
@@ -179,7 +160,7 @@ export async function Footer({ locale }: { locale: string }) {
   );
 }
 
-/** LinkedIn, square with "in" mark, single-color. */
+/** LinkedIn, carré avec la marque « in », une seule couleur. */
 function LinkedInIcon() {
   return (
     <svg
@@ -193,26 +174,7 @@ function LinkedInIcon() {
   );
 }
 
-/** YouTube, rounded screen + play triangle. Same weight as the two others. */
-function YouTubeIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-[19px] w-[19px]"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <rect x="2" y="5" width="20" height="14" rx="4.5" />
-      <path d="M10.2 9.3 15 12l-4.8 2.7z" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-/** Instagram, rounded square + lens. */
+/** Instagram, carré arrondi et objectif. */
 function InstagramIcon() {
   return (
     <svg
@@ -231,4 +193,3 @@ function InstagramIcon() {
     </svg>
   );
 }
-

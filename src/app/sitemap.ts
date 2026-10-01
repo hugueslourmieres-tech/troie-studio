@@ -8,12 +8,16 @@ const BASE = "https://troiestudio.fr";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // /fr|/en/formation(s) redirige (301) vers /formations : exclu du sitemap.
+  // /fr|/en/formation(s) redirige (301) vers troie.app/formation : exclu du sitemap.
   // /privacy et /terms sont en noindex : hors du sitemap (24/09/2026).
-  const staticPaths = ["", "/creation", "/creation/web", "/strategie", "/diagnostic-ia", "/scan-ia", "/rentree", "/medias", "/blog", "/contact"];
+  // /hello (lien en bio Instagram) est en noindex : hors du sitemap.
+  // /rentree reste listée jusqu'à sa 301 vers /strategie (après le 31 octobre).
+  // /works/formation-ia sort seule du sitemap : la fiche n'est plus dans WORKS
+  // et redirige en permanence vers /accompagnement (next.config.ts).
+  const staticPaths = ["", "/strategie", "/creation", "/creation/web", "/accompagnement", "/diagnostic-ia", "/scan-ia", "/rentree", "/medias", "/blog", "/contact"];
   // Rédigées en français seulement : la copie /en porte une canonique vers /fr.
   const FR_ONLY = new Set(["/creation/web", "/rentree"]);
-  const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/diagnostic-ia", "/scan-ia", "/rentree"]);
+  const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/accompagnement", "/diagnostic-ia", "/scan-ia", "/rentree"]);
 
   const entries: MetadataRoute.Sitemap = [];
 

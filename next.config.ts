@@ -21,9 +21,10 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["motion", "gsap", "@gsap/react", "lucide-react"],
   },
-  // Redirections SEO : les anciennes vitrines formation localisees
-  // pointent vers le hub unique /formations (plateforme + offres +
-  // bloc entreprises qui renvoie vers /ia). Consolidation du 02/07/2026.
+  // Redirections SEO. Le studio fait du conseil et de la création,
+  // l'apprentissage vit sur troie.app : les anciennes URL formation y
+  // renvoient directement. Les fiches et pages retirées du studio pointent
+  // vers la page qui les remplace (1er/10/2026).
   async redirects() {
     return [
       // ─── E-learning déplacé sur troie.app (la plateforme d'apprentissage) ───
@@ -57,6 +58,21 @@ const nextConfig: NextConfig = {
         source: "/:locale(fr|en)/creation/video",
         destination: "/:locale/medias",
         permanent: true,
+      },
+      // Fiche réalisation « formation-ia » supprimée (elle était indexée) :
+      // son sujet vit désormais sur la page Accompagnement.
+      {
+        source: "/:locale(fr|en)/works/formation-ia",
+        destination: "/:locale/accompagnement",
+        permanent: true,
+      },
+      // Lien court du compte Instagram @hugueslourmieres (lien en bio).
+      // Temporaire (307) pour pouvoir changer la destination plus tard.
+      {
+        source: "/ig",
+        destination:
+          "/fr/hello?utm_source=instagram&utm_medium=bio&utm_campaign=hugueslourmieres",
+        permanent: false,
       },
     ];
   },

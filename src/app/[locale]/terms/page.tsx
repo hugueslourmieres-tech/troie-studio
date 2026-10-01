@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from "next-intl/server";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
+import { pageSocial } from "@/lib/og";
 
 export async function generateMetadata({
   params,
@@ -7,17 +8,21 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const title = locale === "fr" ? "Mentions légales" : "Legal notice";
+  const description =
+    locale === "fr"
+      ? "Mentions légales et informations sur l'éditeur du site TROIE Studio."
+      : "Legal notice and publisher information for the TROIE Studio website.";
   return {
-    title: locale === "fr" ? "Mentions légales" : "Legal notice",
-    description:
-      locale === "fr"
-        ? "Mentions légales et informations sur l'éditeur du site TROIE Studio."
-        : "Legal notice and publisher information for the TROIE Studio website.",
+    title,
+    description,
     alternates: {
       canonical: `/${locale}/terms`,
       languages: { fr: "/fr/terms", en: "/en/terms" },
     },
     robots: { index: false, follow: true },
+    // Partage social propre à la page (sinon titre et URL de l'accueil).
+    ...pageSocial({ locale, path: "/terms", title, description }),
   };
 }
 
@@ -143,8 +148,8 @@ function TermsEn() {
       </Block>
       <Block title="Intellectual property">
         <p>
-          All content on this site (text, images, vidéos, logos, graphic
-          identity) is protected by copyright. Any reproduction, représentation
+          All content on this site (text, images, videos, logos, graphic
+          identity) is protected by copyright. Any reproduction, representation
           or exploitation without prior authorisation is forbidden.
         </p>
       </Block>

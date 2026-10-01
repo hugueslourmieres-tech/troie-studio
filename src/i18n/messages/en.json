@@ -2,135 +2,69 @@
   "brand": {
     "name": "TROIE Studio",
     "domain": "troiestudio.fr",
-    "tagline": "Web, app, design, photo, video and AI.",
-    "metaDescription": "A creative and technical team in Nice, France. AI agents, websites and apps, visibility on Google and in AI answers, photo and video. Free 30-minute audit.",
-    "organizationDescription": "TROIE Studio, a creative and technical team based in Nice, France, founded by Hugues Lourmieres. AI agents and automation, websites and apps, visibility on Google and in AI answers, brand identity, photography and video. For companies in France, Monaco and abroad.",
+    "tagline": "Strategy, creative and ongoing support, in Nice.",
+    "metaDescription": "Strategy and creative studio in Nice, France. We shape your brand with you, then our team makes the photos, videos and websites. First 30-minute call.",
+    "organizationDescription": "TROIE Studio is a strategy and creative studio based in Nice, France, founded by Hugues Lourmieres. Brand strategy, art direction, photography, video, websites and ongoing support for businesses in France, Monaco and abroad.",
     "jobTitle": "Founder and marketing director"
   },
   "nav": {
     "home": "Home",
     "creation": "Creative",
     "strategy": "Strategy",
-    "training": "Training",
-    "agents": "Agents",
-    "works": "Works",
+    "works": "Work",
     "about": "Studio",
     "contact": "Contact",
-    "letsTalk": "Get in touch"
+    "letsTalk": "Get in touch",
+    "support": "Ongoing support",
+    "journal": "Journal",
+    "book": "Book 30 min",
+    "project": "Start a project"
   },
   "home": {
-    "heroEyebrow": "Digital Atelier",
-    "heroTitle": "Everything digital,\nfrom strategy to AI.",
-    "heroSubtitle": "Strategy, creative, SEO, web design, apps, AI agents and online courses. TROIE handles your entire digital, from the first brief to launch.",
-    "heroCtaPrimary": "Start a project",
-    "heroCtaSecondary": "See our work",
-    "heroVideoCta": "See the atelier in motion",
-    "heroVideoMeta": "Atelier, 2026",
-    "heroToolsAriaLabel": "Tools used by TROIE",
-    "introEyebrow": "AI ✦ digital studio",
-    "introTitle": "Make AI your|best hire.",
-    "heroCtaAudit": "Free audit, 30 min",
-    "heroCtaAttestation": "Your AI Act attestation",
-    "heroCtaHouse": "Discover my house",
-    "introBody": "Diagnostics, training and supervised AI agent deployment, EU AI Act compliance included, for French-speaking SMBs. And to embody your brands: media, websites and e-commerce, studio-made. Based in Nice, we work across France, Monaco and remotely.",
-    "introMore": "See the detail",
-    "creationEyebrow": "03, Creative",
-    "creationTitle": "Web, app, image and video.",
-    "creationBody": "We craft the digital products and visual content that give shape to your brand. Websites, mobile apps, web apps, graphic identity, photography, video, e-commerce and generative creation.",
-    "creationItems": [
-      "Websites, web apps, landing pages, bespoke applications",
-      "Mobile applications (iOS and Android)",
-      "E-commerce: Shopify, checkout flows and conversion",
-      "Photography: product, fashion, corporate, events",
-      "Video, brand films, reels, motion design",
-      "Visual identity, logo, complete graphic charter",
-      "AI-generated creation (image, video, voice)"
-    ],
-    "strategyEyebrow": "02, Strategy",
-    "strategyTitle": "Communication and digital marketing.",
-    "strategyBody": "We support your brand, market and acquisition decisions: from brand platform to media plan, from SEO to paid.",
-    "strategyItems": [
-      "Brand strategy and positioning",
-      "Communication and art direction consulting",
-      "Digital marketing and media plan",
-      "SEO, SEA, GEO (Generative Engine Optimization)",
-      "Paid media: Meta, Google, LinkedIn, TikTok",
-      "Social media, e-commerce, conversion"
-    ],
-    "trainingEyebrow": "01, Training",
-    "trainingTitle": "Mastering AI tools.",
-    "trainingBody": "We train your teams on AI tools and deploy your autonomous agents. E-learning platform with quizzes and tracking, in-house or open enrollment, in France or remote.",
-    "trainingItems": [
-      "ChatGPT, Claude, Gemini: advanced use and prompting",
-      "AI visual creation: Midjourney, Sora, Veo, Runway",
-      "Automation: Make, n8n, Zapier",
-      "AI agents: design, deployment, supervision",
-      "Custom in-house programs",
-      "AI audit and roadmap"
-    ],
-    "creationCta": "Start a creative project",
-    "strategyCta": "Request a strategy audit",
-    "trainingCta": "Book an AI training",
+    "introEyebrow": "Strategy, creative, ongoing support",
+    "introTitle": "We decide with you.|We make it for you.",
+    "introBody": "A studio in Nice, France. We get to know your brand and your market, then decide with you what to say, to whom and where. Then our team makes it happen: photo, video, websites, content. And we stay by your side.",
     "worksEyebrow": "Works",
     "worksTitle": "Our projects.",
     "worksIntro": "Luxury houses, hospitality, sport, industry, technology. Project details available on request.",
     "worksCta": "View all works",
     "videosEyebrow": "Corporate films",
     "videosTitle": "Films.",
-    "videosIntro": "Client testimonials, brand films and storytelling. A selection of video productions for Rutherford, GS Monaco × Forbes, Autajon, Avery Dennison and others.",
-    "clientsTitle": "Brands we've worked with",
-    "aboutEyebrow": "The studio",
-    "aboutTitle": "Hugues Lourmieres.",
-    "aboutBody": "Creation, strategy, training, deployment. Media production, web design, websites and apps; brand strategy and acquisition (SEO, SEA, GEO); helping your teams adopt AI tools. A precision studio that adapts to your needs.",
-    "aboutBullets": [
-      "10 years working with international brands",
-      "50 companies supported",
-      "200 professionals trained on AI",
-      "Studio based in France, missions worldwide"
-    ],
-    "packsEyebrow": "Packages and pricing",
-    "packsTitle": "Clear packages.",
-    "packsIntro": "Fixed-price packages for recurring needs. Custom quotes for everything else, after a free 30-minute audit.",
-    "packsTerms": "All prices excluding VAT. Standard terms: 50 % on order, balance on delivery. Detailed quote within 48 hours of briefing.",
-    "bandText": "A question about AI, the EU AI Act or a digital project? Thirty minutes is enough to see clearly.",
+    "videosIntro": "Client testimonials, brand films and storytelling. A selection of video productions for Rutherford, GS Monaco × Forbes, Autajon, LEFRANCQ and others.",
+    "bandText": "A project, a question about your brand or your website? Let's talk for thirty minutes.",
     "bandCta": "Book 30 min",
     "ctaTitle": "Let's talk about your project.",
-    "ctaSubtitle": "A thirty-minute call to understand your need and propose an approach.",
-    "ctaButton": "Book a call",
-    "agentsEyebrow": "04, Agents",
-    "agentsTitle": "Three agents born of Olympus.",
-    "agentsIntro": "Hermes opens. Achilles conquers. Hestia tends. Three figures of antiquity at the service of your brand: one agent to win customers, one to produce without pause, one to tend your hearth.",
-    "agentsCta": "Discover the agents",
-    "agentsCard01Title": "The agent who opens doors.",
-    "agentsCard01Bullets": [
-      "Qualified, identified prospects",
-      "Personalised messages, on-brand",
-      "Meetings booked into your calendar",
-      "CRM updated in real time"
-    ],
-    "agentsCard02Title": "The agent who never stops.",
-    "agentsCard02Bullets": [
-      "SEO articles, LinkedIn and Instagram posts",
-      "Newsletters and on-brand AI imagery",
-      "One topic, five outbound formats",
-      "Human sign-off before every publish"
-    ],
-    "agentsCard03Title": "The agent who tends the hearth.",
-    "agentsCard03Bullets": [
-      "First reply in under 60 seconds",
-      "Customer care 24/7 in five languages",
-      "Order tracking, returns, refunds",
-      "Human escalation with full context"
-    ],
-    "agentsToolsLabel": "Tools",
-    "agentsCardCta": "Choose",
-    "heroCtaTrain": "Train with AI, now",
-    "heroLead": "Individual or professional?",
-    "heroCtaIndividuals": "Individuals",
-    "heroCtaPros": "Professionals",
-    "heroMicro": "Ten years alongside brands, from independents to large accounts.",
-    "heroCtaProject": "Get trained",
-    "heroCtaCourses": "Train my team"
+    "ctaSubtitle": "Thirty minutes to understand where you stand and what you aim for. Then we send you a written proposal and a quote.",
+    "heroBook": "Book 30 min",
+    "heroProject": "Start a project",
+    "heroNote": "A first 30-minute call. Then a written proposal and a quote.",
+    "heroSignature": "Hugues Lourmieres, founder. Marketing director, photographer and filmmaker.",
+    "metiersTitle": "Three crafts, one team",
+    "cardStrategyEyebrow": "01, Strategy",
+    "cardStrategyTitle": "Know what to say, and to whom.",
+    "cardStrategyBody": "Positioning, message, choice of channels, acquisition plan. We read your market with the eye of a working marketing director. Then we decide with you where to put the effort.",
+    "cardStrategyCta": "Strategy",
+    "cardStrategyImageAlt": "Building facade, black and white photograph",
+    "cardCreationEyebrow": "02, Creative",
+    "cardCreationTitle": "Photo, video, design and web.",
+    "cardCreationBody": "We shoot, photograph and edit ourselves, in the studio and on location. We design and build your websites. AI speeds up the making. It decides nothing.",
+    "cardCreationCta": "Our work",
+    "cardCreationImageAlt": "The Mercantour, a series by Hugues Lourmieres",
+    "cardSupportEyebrow": "03, Support",
+    "cardSupportTitle": "By your side, over time.",
+    "cardSupportBody": "Fractional marketing direction, workshops with your teams, getting started with your tools. We follow your projects after delivery, with you and your suppliers.",
+    "cardSupportCta": "Ongoing support",
+    "cardSupportImageAlt": "Hands on a laptop during a workshop",
+    "bandProject": "Start a project",
+    "ctaBook": "Book 30 min",
+    "ctaProject": "Start a project",
+    "mediasEyebrow": "Work",
+    "mediasTitle": "What we have made.",
+    "mediasBody": "Photo, video and art direction for luxury houses, manufacturers and Riviera brands. Some projects were made by Hugues in-house, at CHANEL and Rutherford.",
+    "mediasPhoto": "Photography",
+    "mediasVideo": "Video",
+    "mediasPersonal": "Valberg and Wildlife are Hugues's personal series. He shares more on Instagram,",
+    "mediasPersonalLink": "@hugueslourmieres"
   },
   "works": {
     "pageTitle": "Works",
@@ -147,7 +81,7 @@
         "title": "Monaco",
         "subtitle": "Premium evenings and events on the Riviera",
         "scope": "Event photography, hospitality, lifestyle",
-        "description": "Private event coverage in Monaco and on the French Riviera: galas, launches, exceptional evenings. Deliverables ready for communication and social the same night."
+        "description": "Private event coverage in Monaco and on the French Riviera: galas, launches, exceptional evenings."
       },
       "veoria": {
         "title": "Veoria",
@@ -159,7 +93,7 @@
         "title": "MIBI 2026",
         "subtitle": "National convention, event coverage",
         "scope": "Event photography, convention, keynotes",
-        "description": "Full coverage of the MIBI 2026 convention: keynotes, workshops, off moments, portraits. Deliverables ready the same evening for post-event communication."
+        "description": "Full coverage of the MIBI 2026 convention: keynotes, workshops, off moments, portraits."
       },
       "cartonajes-pans": {
         "title": "Cartonajes Pans",
@@ -191,12 +125,6 @@
         "scope": "Social-media art direction, daily content",
         "description": "A grounded brand aesthetic and social-media content tailored to each platform. Art direction, stories, posts, reels."
       },
-      "formation-ia": {
-        "title": "AI Training",
-        "subtitle": "In-house sessions and workshops",
-        "scope": "AI training, prompting, autonomous agents",
-        "description": "Training sessions on AI tools for marketing and communication teams. Hands-on use cases, automation, agent deployment."
-      },
       "valberg": {
         "title": "Valberg",
         "subtitle": "Mercantour landscapes",
@@ -211,143 +139,9 @@
       }
     }
   },
-  "creation": {
-    "pageTitle": "Creative",
-    "pageSubtitle": "Web, app, design, photo, video, under one roof."
-  },
-  "strategy": {
-    "pageTitle": "Strategy",
-    "pageSubtitle": "Communication, digital marketing and consulting."
-  },
-  "training": {
-    "pageTitle": "Training",
-    "pageSubtitle": "AI tools, automation, agents.",
-    "level1": {
-      "label": "Level 1",
-      "duration": "3 hours",
-      "title": "ChatGPT, Claude and Gemini",
-      "deliverable": "Create 30 LinkedIn and Instagram posts in under twenty minutes."
-    },
-    "level2": {
-      "label": "Level 2",
-      "duration": "1 day",
-      "title": "Make, n8n and Zapier",
-      "deliverable": "Set up an autonomous LinkedIn to email to CRM pipeline."
-    },
-    "level3": {
-      "label": "Level 3",
-      "duration": "1 day",
-      "title": "AI Agents, build and deploy",
-      "deliverable": "Your agents run autonomously by the end of the day."
-    },
-    "custom": {
-      "label": "Custom",
-      "title": "In-house program",
-      "body": "Audit, tool selection, transformation plan, team training, three-month follow-up."
-    }
-  },
-  "formations": {
-    "metaTitle": "AI training for teams. TROIE Atelier Digital",
-    "metaDescription": "Short, hands-on training on AI tools. Three programs, in-house or open enrolment, in France or remote. Free 30-minute audit.",
-    "heroEyebrow": "03, Training",
-    "heroTitle": "Mastering AI tools.",
-    "heroSubtitle": "Train your teams on a working level of AI, without losing the brand bar. Three programs, in-house or open enrolment, in France or remote.",
-    "ctaPrimary": "Request an in-house quote",
-    "ctaSecondary": "Join an open session",
-    "ctaAudit": "Free AI audit, 30 min",
-    "downloadProgramme": "Download the program (PDF)",
-    "stats": [
-      {
-        "value": "200",
-        "label": "Professionals trained on AI"
-      },
-      {
-        "value": "50",
-        "label": "Companies supported"
-      },
-      {
-        "value": "10 years",
-        "label": "Alongside brands"
-      }
-    ],
-    "programmesEyebrow": "Three packs",
-    "programmesTitle": "Pick your level.",
-    "programmesIntro": "From getting comfortable with text tools to shipping agents in production. Each pack is built around real-world cases from your day-to-day.",
-    "packCtaPrimary": "Book this pack",
-    "packCtaSecondary": "Request a quote",
-    "packIncludes": "Included in this pack",
-    "packProgrammeLabel": "Program",
-    "packDeliverablesShort": "Deliverables",
-    "packPriceFromLabel": "From",
-    "packPriceQuoted": "On request",
-    "packPriceQuoteHint": "Priced on scope, team size and duration.",
-    "packToolsLabel": "Tools you'll master",
-    "packBadgePopular": "Most popular",
-    "audienceLabel": "Audience",
-    "objectiveLabel": "Objective",
-    "programmeLabel": "Program",
-    "deliverablesLabel": "Deliverables",
-    "prerequisitesLabel": "Prerequisites",
-    "formatsLabel": "Formats",
-    "sessionsEyebrow": "Upcoming sessions",
-    "sessionsEmpty": "No open session scheduled yet. To be notified about upcoming dates, get in touch.",
-    "spotsLeft": "seats",
-    "tableEyebrow": "Comparison",
-    "tableTitle": "Which format for which need.",
-    "tableHeaders": {
-      "programme": "Program",
-      "duration": "Duration",
-      "audience": "Audience",
-      "formats": "Formats",
-      "price": "Price"
-    },
-    "customEyebrow": "Custom",
-    "customTitle": "AI audit & roadmap.",
-    "customBody": "A scoping mission to map out what can be automated at your company, choose the right tools, and build a six-month transformation plan. Quoted after a first call.",
-    "customCta": "Request an audit",
-    "financementEyebrow": "Funding",
-    "financementBody": "We can review training funding with your French OPCO. For Qualiopi-certified bodies, we can partner with a certified provider.",
-    "financementQualiopiBody": "TROIE training is not CPF-eligible to date. For French OPCO funding needs, talk to us: we will look into the right setup for your industry.",
-    "auditBandEyebrow": "Free audit",
-    "auditBandTitle": "Thirty minutes to scope your need.",
-    "auditBandSubtitle": "A straight, no-strings conversation. Leave with a first read of what could be automated or taught at your company.",
-    "auditBandCta": "Book a slot",
-    "faqEyebrow": "FAQ",
-    "faqTitle": "Frequently asked questions.",
-    "faqItems": [
-      {
-        "q": "How soon can we start an in-house training?",
-        "a": "Plan two to three weeks between the first call and the session, enough time to align the program on your cases and to handle logistics."
-      },
-      {
-        "q": "Are remote sessions just as good?",
-        "a": "Yes. The remote format is built to stay hands-on: live workshops, screen sharing, breakout exercises, and access to the post-session prompt library."
-      },
-      {
-        "q": "Can you adapt the content to our industry?",
-        "a": "Always. Before the session we discuss your priority use cases and we build the exercises from your real material."
-      },
-      {
-        "q": "What about funding?",
-        "a": "We can review the funding with your OPCO and, if needed, route the agreement through a Qualiopi partner. The detail depends on your industry."
-      },
-      {
-        "q": "How many people per session?",
-        "a": "Six to twelve for Discovery and Practice. Four to eight for Agents & automation, where we keep close support."
-      }
-    ],
-    "finalCtaTitle": "Let's talk about your training need.",
-    "finalCtaSubtitle": "A session to plan, an audit to run, or just a first conversation. Thirty minutes is enough.",
-    "finalCtaPrimary": "Request an in-house quote",
-    "finalCtaSecondary": "Book the free audit"
-  },
-  "about": {
-    "pageTitle": "Studio",
-    "pageSubtitle": "Hugues Lourmieres, art director, web and app designer, photographer and videographer."
-  },
   "contact": {
-    "pageTitle": "Contact",
-    "pageSubtitle": "To discuss a project, request a quote or book a free audit.",
+    "pageTitle": "Contact and quote",
+    "pageSubtitle": "Book 30 minutes or describe your project in a few lines. Then you receive a written proposal and a quote.",
     "name": "Name",
     "email": "Email",
     "company": "Company",
@@ -356,16 +150,16 @@
     "send": "Send",
     "or": "Or directly",
     "callDirect": "Book a call",
-    "thanks": "Thanks. We'll get back to you within 24 business hours.",
+    "thanks": "Thank you. Hugues reads your message and gets back to you.",
     "bookingEyebrow": "Book a call",
     "bookingTitle": "Book a 30-minute call",
     "bookingText": "Book a 30-minute slot to discuss your project.",
     "bookingCta": "Book a time",
     "heroTitle": "Let's talk about your project.",
-    "heroIntro": "An AI-first digital studio based in Nice, France. Describe your needs or book a slot directly: we get back to you quickly.",
+    "heroIntro": "Two ways to start. Book 30 minutes to talk it through. Or describe your project in a few lines. Either way, you then receive a written proposal and a quote.",
     "direct": "Direct",
     "location": "Nice, French Riviera",
-    "bookingIntro": "Pick a slot directly in the calendar. We review your needs and suggest an approach.",
+    "bookingIntro": "Pick a slot in the calendar. We review your needs, then send you a written proposal and a quote.",
     "bookingOpen": "Open the calendar",
     "calTitle": "Book a slot, TROIE calendar",
     "studioEyebrow": "The studio",
@@ -374,125 +168,33 @@
     "mapsCta": "Open in Google Maps",
     "mapsTitle": "TROIE, Nice",
     "whatEyebrow": "What we do",
-    "what1Title": "Creation",
-    "what1Body": "Photo, video, graphic design, web design, websites and apps.",
-    "what2Title": "Strategy",
-    "what2Body": "Brand, content and acquisition: SEO, SEA, GEO.",
-    "what3Title": "Artificial intelligence",
-    "what3Body": "Team training and custom agent deployment."
-  },
-  "agents": {
-    "metaTitle": "AI Agents, TROIE Digital Atelier",
-    "metaDescription": "Three AI agents for demanding brands. Hermes prospects, Achilles produces, Hestia tends. Turnkey setup, human supervision, clean exit.",
-    "heroEyebrow": "AI Agents",
-    "heroTitle": "Three figures for your brand.",
-    "heroSubtitle": "Hermes opens. Achilles conquers. Hestia tends. Three figures of antiquity at the service of your brand. One agent to win customers, one to produce without pause, one to tend your hearth.",
-    "ctaPrimary": "Deploy an agent",
-    "ctaSecondary": "See details",
-    "ctaAudit": "Book a free audit",
-    "downloadBrief": "Download the brief",
-    "stats": [
-      {
-        "value": "3 agents",
-        "label": "Sell, Produce, Retain"
-      },
-      {
-        "value": "24 / 7",
-        "label": "Always present"
-      },
-      {
-        "value": "30 days",
-        "label": "TROIE human supervision"
-      }
-    ],
-    "introEyebrow": "Olympus at work",
-    "introTitle": "Three agents born of Olympus.",
-    "introBody": "TROIE agents take the repetitive, measurable and time-eating workloads. They prospect, write, reply. Always in your brand voice. Always under human supervision. Always reversible: at the end of the contract, you keep the workflows and the prompts.",
-    "packCtaPrimary": "Deploy this agent",
-    "packIncludes": "Included",
-    "packMissionLabel": "Mission",
-    "packSkillsLabel": "Capabilities",
-    "packDeliverablesLabel": "Deliverables",
-    "packKpisLabel": "Metrics",
-    "packStackLabel": "Tech stack",
-    "packBestForLabel": "Best for",
-    "packSignatureLabel": "Signature",
-    "packMythLabel": "Mythology",
-    "packSetupLabel": "Setup",
-    "packMonthlyLabel": "Subscription",
-    "packBadgePopular": "Most universal",
-    "packPriceQuoted": "On request",
-    "packPriceQuoteHint": "Setup and subscription calibrated on your volume, stack and quality bar. Pricing shared after the 30-minute free audit.",
-    "tableEyebrow": "At a glance",
-    "tableTitle": "Three agents, three missions.",
-    "tableHeaders": {
-      "agent": "Agent",
-      "mission": "Mission",
-      "bestFor": "Best for",
-      "stack": "Stack",
-      "price": "Pricing"
-    },
-    "methodEyebrow": "The method",
-    "methodTitle": "Four steps, never more.",
-    "methodSteps": [
-      {
-        "title": "01, Audit",
-        "body": "30 minutes on the phone to understand your volumes, your tools, your voice. No strings attached."
-      },
-      {
-        "title": "02, Brief & setup",
-        "body": "We write your brand brief, wire your tools, calibrate the agent. Two to four weeks depending on the agent."
-      },
-      {
-        "title": "03, Go-live",
-        "body": "The agent ships. TROIE human supervision for 30 days. Daily tuning."
-      },
-      {
-        "title": "04, Autonomy",
-        "body": "You keep the keys, the workflow, the prompts. TROIE stays on subscription support, never lock-in."
-      }
-    ],
-    "customEyebrow": "Bespoke",
-    "customTitle": "An agent that isn't on the list?",
-    "customBody": "Application screening, financial ops, community moderation, market intelligence, multimodal agent on your patents: we design and ship made-to-order, same grammar, brief, workflow, supervision, clean exit.",
-    "customCta": "Describe your need",
-    "auditBandEyebrow": "Before you commit",
-    "auditBandTitle": "Thirty minutes to tell you if an agent pays off in your shop.",
-    "auditBandSubtitle": "Free audit. No strings. A clear, numbered, written answer. Even if the answer is no.",
-    "auditBandCta": "Book the audit",
-    "faqEyebrow": "Frequently asked",
-    "faqTitle": "What you often ask.",
-    "faqItems": [
-      {
-        "q": "Does my data leave the European Union?",
-        "a": "Not by default. All agents run on EU-hosted models (Mistral, Claude via European region) or via gateways with contractual guarantees. A fully sovereign variant is available on request."
-      },
-      {
-        "q": "What happens at the end of the contract?",
-        "a": "You keep your Make / n8n workflows, your prompt library, your accesses. No lock-in. No proprietary SaaS to abandon. You can carry on alone or with another partner."
-      },
-      {
-        "q": "How long before it actually helps?",
-        "a": "Hermes: 30 days for the first qualified meetings. Achilles: 14 days for the first publishable contents. Hestia: 21 days to push 60 % of tickets into autonomous mode."
-      },
-      {
-        "q": "Can an agent replace my team?",
-        "a": "No. An agent absorbs the repetitive, measurable load. It frees your team for what needs judgment, relationship, creation. On TROIE's side, it stays boutique, always."
-      },
-      {
-        "q": "What if the agent says something off-brand to a customer?",
-        "a": "Hestia runs strict guardrails: allowed topics, escalation topics, fenced brand voice. During the first 4 weeks, a TROIE human validates edge cases before send. Beyond that, error rate is tracked continuously."
-      }
-    ],
-    "finalCtaTitle": "Olympus is ready. Are you?",
-    "finalCtaSubtitle": "Pick your agent, or start with a free 30-minute audit. The answer will be clear either way.",
-    "finalCtaPrimary": "Deploy an agent",
-    "finalCtaSecondary": "Free 30-min audit"
+    "what1Title": "Strategy",
+    "what1Body": "Positioning, message, media plan and visibility on Google.",
+    "what2Title": "Creative",
+    "what2Body": "Photo, video, design, websites and apps.",
+    "what3Title": "Ongoing support",
+    "what3Body": "Long-term follow-up, alongside your teams and suppliers.",
+    "chooseBookTitle": "Book 30 min",
+    "chooseBookText": "A call, at a time that suits you.",
+    "chooseProjectTitle": "Start a project",
+    "chooseProjectText": "A short form. Answer “not sure yet” if you hesitate.",
+    "projectEyebrow": "Your project",
+    "projectTitle": "Tell us about your project.",
+    "projectIntro": "Tell us what you want to achieve, not how to do it. If you are unsure about a point, answer “not sure yet”.",
+    "directNote": "Hugues reads every request."
   },
   "footer": {
     "rights": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Legal",
-    "based": "Digital atelier, Nice, France"
+    "based": "Studio in Nice, France",
+    "studio": "Studio",
+    "resources": "Resources",
+    "contact": "Contact",
+    "diagnostic": "Diagnostic",
+    "scan": "Scan your website",
+    "aiAct": "The EU AI Act (page in French)",
+    "accessibility": "Web accessibility (page in French)",
+    "app": "troie.app, our online tools"
   }
 }

@@ -11,26 +11,43 @@ type Props = {
   locale: string;
   groups: NavGroup[];
   showLang?: boolean;
+  /** Liens simples sous les groupes : Réalisations, Le studio, Journal. */
+  extraLinks: { href: string; label: string }[];
+  /** Les deux actions en tête du panneau. */
+  ctas: { book: string; project: string; projectHref: string };
 };
 
+const BOOKING_URL = "https://cal.com/troiestudio/30min";
 const LINKEDIN_URL = "https://www.linkedin.com/company/troiestudio";
 const INSTAGRAM_URL = "https://www.instagram.com/troiestudio/";
-const YOUTUBE_URL = "https://www.youtube.com/@troiestudio";
+const HUGUES_INSTAGRAM_URL = "https://www.instagram.com/hugueslourmieres/";
 
 /**
- * MobileMenu, burger + full-screen overlay.
+ * MobileMenu, burger + overlay plein écran.
  *
- * The overlay is rendered via createPortal directly to document.body so it
- * escapes the Header's z-50 fixed stacking context. Without the portal the
- * overlay was trapped inside Header and the scrolled header (95% opaque +
- * backdrop blur) bled through, making the menu look transparent.
+ * L'overlay est rendu par createPortal directement dans document.body pour
+ * sortir du contexte d'empilement fixe du Header (z-50). Sans le portail,
+ * l'en-tête au défilement (95 % opaque + flou) transparaissait et le menu
+ * paraissait transparent.
  *
- * z-[60] sits above the header. Background is hard-coded cream, no
- * variable, no opacity, so it cannot ever be tinted by parent tones.
+ * z-[60] passe au-dessus de l'en-tête. Fond crème en dur, sans variable ni
+ * opacité, pour ne jamais être teinté par un ton parent.
+ *
+ * De haut en bas : Réserver 30 min et Lancer un projet, puis les groupes
+ * Stratégie, Création, Accompagnement (titres cliquables), puis Réalisations,
+ * Le studio, Journal, puis les réseaux et la langue.
  */
-export function MobileMenu({ locale, groups, showLang = true }: Props) {
+export function MobileMenu({
+  locale,
+  groups,
+  showLang = true,
+  extraLinks,
+  ctas,
+}: Props) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const isEn = locale === "en";
+  const close = () => setOpen(false);
 
   useEffect(() => {
     setMounted(true);
@@ -62,12 +79,12 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
           className="tone-light fixed inset-0 z-[60] lg:hidden"
           style={{ backgroundColor: "#f5f0e6" }}
         >
-          {/* Close button, overlays burger, same position, X icon */}
+          {/* Bouton de fermeture, à la place du burger, en croix */}
           <button
             type="button"
-            aria-label="Fermer le menu"
-            onClick={() => setOpen(false)}
-            className="absolute right-6 top-5 z-10 flex h-10 w-10 items-center justify-center text-[var(--fg)]"
+            aria-label={isEn ? "Close menu" : "Fermer le menu"}
+            onClick={close}
+            className="absolute right-6 top-5 z-10 flex h-11 w-11 items-center justify-center text-[var(--fg)]"
           >
             <span className="absolute block h-px w-7 rotate-45 bg-[var(--ink)]" />
             <span className="absolute block h-px w-7 -rotate-45 bg-[var(--ink)]" />
@@ -78,10 +95,36 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
             <div className="absolute inset-x-6 top-[68px] h-px bg-[var(--rule-strong)]" />
 
             <div className="mx-auto flex min-h-full w-full max-w-xl flex-col">
-              <ul className="flex flex-col">
+              {/* Les deux actions, en tête du panneau */}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 8 }}
+                transition={{ duration: 0.45, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col gap-3 pt-6"
+              >
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={close}
+                  className="flex h-14 w-full items-center justify-center bg-[var(--accent)] px-4 text-center font-mono text-[12px] uppercase tracking-[0.2em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+                >
+                  {ctas.book}
+                </a>
+                <Link
+                  href={ctas.projectHref}
+                  onClick={close}
+                  className="flex h-14 w-full items-center justify-center border border-[var(--ink)] px-4 text-center font-mono text-[12px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+                >
+                  {ctas.project}
+                </Link>
+              </motion.div>
+
+              <ul className="mt-2 flex flex-col">
                 {groups.map((group, i) => (
                   <motion.li
-                    key={group.label}
+                    key={group.href}
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 8 }}
@@ -92,26 +135,23 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                     }}
                     className="border-b border-[var(--rule-strong)] py-6"
                   >
-                    <p className="t-display text-[26px] leading-none text-[var(--fg)]">
+                    <Link
+                      href={group.href}
+                      onClick={close}
+                      className="t-display -my-2 inline-block py-2 text-[26px] leading-none text-[var(--fg)] transition-colors hover:text-[var(--accent)]"
+                    >
                       {group.label}
-                    </p>
+                    </Link>
                     <ul className="mt-3 flex flex-col">
                       {group.items.map((item) => (
-                        <li key={item.label}>
+                        <li key={item.href}>
                           <Link
                             href={item.href}
-                            onClick={() => setOpen(false)}
+                            onClick={close}
                             className="group/it -mx-3 flex items-center justify-between gap-4 rounded-lg px-3 py-4 transition-colors hover:bg-[var(--accent-soft)] active:bg-[var(--accent-soft)]"
                           >
-                            <span className="flex items-baseline gap-3">
-                              {item.meta && (
-                                <span className="font-mono text-[12px] tracking-[0.1em] text-[var(--accent)]">
-                                  {item.meta}
-                                </span>
-                              )}
-                              <span className="font-mono text-[16px] uppercase tracking-[0.1em] text-[var(--fg)] transition-colors group-hover/it:text-[var(--accent)]">
-                                {item.label}
-                              </span>
+                            <span className="font-mono text-[16px] uppercase tracking-[0.1em] text-[var(--fg)] transition-colors group-hover/it:text-[var(--accent)]">
+                              {item.label}
                             </span>
                             <ArrowRight />
                           </Link>
@@ -122,7 +162,8 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                 ))}
               </ul>
 
-              {/* Footer : Blog/Contact discrets + réseaux + langue + se connecter */}
+              {/* Bas du panneau : Réalisations, Le studio, Journal, puis
+                  réseaux et langue */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -135,14 +176,11 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                 className="mt-auto pt-5"
               >
                 <ul className="flex flex-col">
-                  {[
-                    { href: `/${locale}/blog`, label: "Blog" },
-                    { href: `/${locale}/contact`, label: "Contact" },
-                  ].map((l) => (
-                    <li key={l.label}>
+                  {extraLinks.map((l) => (
+                    <li key={l.href}>
                       <Link
                         href={l.href}
-                        onClick={() => setOpen(false)}
+                        onClick={close}
                         className="group/ft flex items-center justify-between border-t border-[var(--rule-strong)] py-4"
                       >
                         <span className="font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover/ft:text-[var(--accent)]">
@@ -154,48 +192,45 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
                   ))}
                 </ul>
 
-              {/* Réseaux + langue (plus de connexion : compte sur troie.app) */}
-              <div className="mt-5 flex items-center justify-between border-t border-[var(--rule-strong)] pt-5">
-                <div className="flex items-center gap-4">
-                  <a
-                    href={LINKEDIN_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="LinkedIn"
-                    className="text-[var(--fg)] transition hover:text-[var(--accent)]"
-                  >
-                    <svg viewBox="0 0 24 24" className="h-[19px] w-[19px]" fill="currentColor" aria-hidden="true">
-                      <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0z" />
-                    </svg>
-                  </a>
-                  <a
-                    href={INSTAGRAM_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Instagram"
-                    className="text-[var(--fg)] transition hover:text-[var(--accent)]"
-                  >
-                    <svg viewBox="0 0 24 24" className="h-[19px] w-[19px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <rect x="3" y="3" width="18" height="18" rx="5" />
-                      <circle cx="12" cy="12" r="4" />
-                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-                    </svg>
-                  </a>
-                  <a
-                    href={YOUTUBE_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="YouTube"
-                    className="text-[var(--fg)] transition hover:text-[var(--accent)]"
-                  >
-                    <svg viewBox="0 0 24 24" className="h-[20px] w-[20px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <rect x="2" y="5" width="20" height="14" rx="4.5" />
-                      <path d="M10.2 9.3 15 12l-4.8 2.7z" fill="currentColor" stroke="none" />
-                    </svg>
-                  </a>
+                {/* Réseaux, photos de Hugues, langue. YouTube retiré tant que
+                    la chaîne porte l'ancien nom du campus IA. */}
+                <div className="mt-5 flex flex-wrap items-center justify-between gap-x-4 gap-y-3 border-t border-[var(--rule-strong)] pt-5">
+                  <div className="flex items-center gap-1">
+                    <a
+                      href={LINKEDIN_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="LinkedIn TROIE Studio"
+                      className="-ml-3 flex h-11 w-11 items-center justify-center text-[var(--fg)] transition hover:text-[var(--accent)]"
+                    >
+                      <svg viewBox="0 0 24 24" className="h-[19px] w-[19px]" fill="currentColor" aria-hidden="true">
+                        <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0z" />
+                      </svg>
+                    </a>
+                    <a
+                      href={INSTAGRAM_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="Instagram @troiestudio"
+                      className="flex h-11 w-11 items-center justify-center text-[var(--fg)] transition hover:text-[var(--accent)]"
+                    >
+                      <svg viewBox="0 0 24 24" className="h-[19px] w-[19px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                      </svg>
+                    </a>
+                    <a
+                      href={HUGUES_INSTAGRAM_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ml-2 inline-flex min-h-11 items-center font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg)] underline decoration-[var(--rule-strong)] underline-offset-4 transition hover:text-[var(--accent)]"
+                    >
+                      {isEn ? "Hugues's photos" : "Les photos de Hugues"}
+                    </a>
+                  </div>
                   {showLang && <LangSwitch locale={locale} />}
                 </div>
-              </div>
               </motion.div>
             </div>
           </nav>
@@ -206,13 +241,17 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
 
   return (
     <>
-      <BurgerButton open={open} onClick={() => setOpen((v) => !v)} />
+      <BurgerButton
+        open={open}
+        locale={locale}
+        onClick={() => setOpen((v) => !v)}
+      />
       {mounted ? createPortal(overlay, document.body) : null}
     </>
   );
 }
 
-/** Flèche fine, glisse vers la droite au survol/contact. */
+/** Flèche fine, glisse vers la droite au survol ou au toucher. */
 function ArrowRight() {
   return (
     <svg
@@ -232,19 +271,29 @@ function ArrowRight() {
 }
 
 /**
- * BurgerButton, 3 thin lines that fold into a cross.
+ * BurgerButton, trois traits fins qui se replient en croix.
  */
 function BurgerButton({
   open,
+  locale,
   onClick,
 }: {
   open: boolean;
+  locale: string;
   onClick: () => void;
 }) {
+  const isEn = locale === "en";
+  const label = open
+    ? isEn
+      ? "Close menu"
+      : "Fermer le menu"
+    : isEn
+      ? "Open menu"
+      : "Ouvrir le menu";
   return (
     <button
       type="button"
-      aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+      aria-label={label}
       aria-expanded={open}
       onClick={onClick}
       className="group relative z-50 h-11 w-11 lg:hidden"

@@ -2,11 +2,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import { ContactCTA } from "@/components/ContactCTA";
+import { pageSocial } from "@/lib/og";
+import { metaDescription, seoTitle } from "@/lib/seo";
 
+const CAL_URL = "https://cal.com/troiestudio/30min";
+
+/* Boutons (règle du 1er/10/2026, fond crème) : « Réserver 30 min » en orange
+   plein, « Lancer un projet » en lien souligné avec le besoin « site »
+   présélectionné. Le lien vise /fr/contact : la page est rédigée en français
+   seulement. */
+const BTN_BOOK =
+  "group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]";
+const BTN_LINK =
+  "group inline-flex min-h-[48px] items-center font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]";
+
+/* [À COMPLÉTER par Hugues] Pour chaque site : « La demande » (demande) et
+   « Ce que nous avons fait » (realise). Les deux lignes restent masquées tant
+   qu'elles sont vides. À confirmer aussi : le cadre exact du site Rutherford
+   (piloté en poste ou réalisé par TROIE), le statut des adresses
+   capefront-site.vercel.app et perpost-web.vercel.app, la nature de PerPost
+   et de Color Guesser. */
 const PROJECTS: Project[] = [
   {
     name: "Bilber",
-    kind: "Web app, scan produits, scores & DPP",
+    kind: "Produit maison : web app, scan produits, scores et DPP",
     href: "https://bilber.app",
     url: "bilber.app",
     label: "bilber.app",
@@ -73,6 +92,10 @@ type Project = {
   mobile: string;
   /** Aperçu video du hero (lit en boucle, fallback sur l'image desktop). */
   video?: string;
+  /** « La demande » : ce que le client voulait. [À COMPLÉTER par Hugues] */
+  demande?: string;
+  /** « Ce que nous avons fait » : la part réelle de TROIE. [À COMPLÉTER par Hugues] */
+  realise?: string;
 };
 
 /** Carte projet : fenêtre navigateur desktop + fenêtre mobile en superposition. */
@@ -152,6 +175,22 @@ function ProjectCard({ p }: { p: Project }) {
           {p.name}
         </h3>
         <p className="mt-1 text-sm text-[var(--fg-2)]">{p.kind}</p>
+        {p.demande && (
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--fg-2)]">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg)]">
+              La demande
+            </span>{" "}
+            {p.demande}
+          </p>
+        )}
+        {p.realise && (
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--fg-2)]">
+            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg)]">
+              Ce que nous avons fait
+            </span>{" "}
+            {p.realise}
+          </p>
+        )}
         <span className="mt-3 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
           {p.label}
           <span aria-hidden="true" className="transition group-hover:translate-x-1">↗</span>
@@ -165,24 +204,28 @@ const PROCESS = [
   {
     step: "01",
     title: "Cadrage",
-    body: "Objectifs, audience, périmètre et contraintes. On aligne la marque et la conversion avant la première maquette.",
+    body: "Objectifs, public, périmètre et contraintes. Nous alignons la marque et ce que le site doit produire, avant la première maquette.",
   },
   {
     step: "02",
     title: "Design",
-    body: "Direction artistique, maquettes et prototype interactif (Figma). On valide l'expérience avant de coder.",
+    body: "Direction artistique, maquettes et prototype. Vous validez l'expérience avant le développement.",
   },
   {
     step: "03",
     title: "Développement",
-    body: "Sites, web apps et e-commerce sur mesure (Next.js, Shopify), responsive, rapides, et connectés à vos outils.",
+    body: "Sites, applications web et e-commerce sur mesure, rapides, lisibles sur téléphone et reliés à vos outils.",
   },
   {
     step: "04",
     title: "Lancement",
-    body: "Mise en ligne, référencement (SEO, SEA, GEO), mesure et itérations. On reste là après le go-live.",
+    body: "Mise en ligne, référencement, mesure. Nous restons là après la mise en ligne.",
   },
 ];
+
+const META_TITLE = "Création de sites web et d'applications à Nice";
+const META_DESC =
+  "Sites vitrines, e-commerce et applications web sur mesure, du cadrage à la mise en ligne. Direction artistique et développement par l'équipe TROIE.";
 
 export async function generateMetadata({
   params,
@@ -191,12 +234,17 @@ export async function generateMetadata({
 }) {
   await params;
   return {
-    title: "Création de sites web et d'applications",
-    description:
-      "Sites, web apps et e-commerce sur mesure : notre processus et nos réalisations (LOIR Paris, Rutherford, PerPost).",
+    title: seoTitle(META_TITLE),
+    description: metaDescription(META_DESC),
     /* Page rédigée en français seulement : /en/creation/web en est une copie,
        la canonique pointe vers /fr et aucun hreflang anglais n'est annoncé. */
     alternates: { canonical: "/fr/creation/web" },
+    ...pageSocial({
+      locale: "fr",
+      path: "/creation/web",
+      title: META_TITLE,
+      description: META_DESC,
+    }),
   };
 }
 
@@ -211,19 +259,20 @@ export default async function WebPage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-20">
-        <p className="t-eyebrow">Création, Web</p>
-        <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
-          Web.
+        <p className="t-eyebrow">Création, sites web</p>
+        <h1 className="t-display mt-6 text-4xl leading-[1.05] text-[var(--fg)] sm:text-5xl md:text-7xl">
+          Sites web et applications.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]/85 md:text-xl">
-          Sites, web apps et e-commerce sur mesure. Des produits digitaux pensés
-          pour la marque comme pour la conversion, du cadrage à la mise en ligne.
+          Des sites pensés pour votre marque et pour vos clients, du cadrage à la
+          mise en ligne. Hugues Lourmieres assure la direction artistique, Gilles
+          Pons le développement.
         </p>
 
         {/* Processus */}
-        <p className="mt-16 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)] md:mt-20">
+        <h2 className="mt-16 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)] md:mt-20">
           Le processus
-        </p>
+        </h2>
         <ol className="mt-8 grid gap-px overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--rule)] md:grid-cols-4">
           {PROCESS.map((p) => (
             <li key={p.step} className="flex flex-col bg-[var(--bg)] p-7 md:p-8">
@@ -257,13 +306,18 @@ export default async function WebPage({
             ))}
           </ul>
 
-          <Link
-            href={`/${locale}/contact?subject=web`}
-            className="group mt-14 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
-          >
-            Démarrer un projet web
-            <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-          </Link>
+          <div className="mt-20 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
+            <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
+              Réserver 30 min
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </a>
+            <Link href="/fr/contact?besoin=site#projet" className={BTN_LINK}>
+              <span className="inline-flex items-center gap-2.5 border-b-2 border-current pb-1.5">
+                Lancer un projet
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
 

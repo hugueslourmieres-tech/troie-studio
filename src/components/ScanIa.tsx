@@ -48,8 +48,8 @@ const COPY = {
     seoSub: "Google, Bing",
     geoLabel: "Note GEO",
     geoSub: "ChatGPT, Perplexity, résumés IA",
-    gradeHigh: "Prêt à être cité par les moteurs IA",
-    gradeMid: "Lisible, mais peu citable",
+    gradeHigh: "Bien lisible par les moteurs IA",
+    gradeMid: "Lisible, à renforcer",
     gradeLow: "Les moteurs IA vous survolent",
     gradeZero: "Quasi invisible pour les moteurs IA",
     scannedPrefix: "Analyse de",
@@ -57,15 +57,14 @@ const COPY = {
     prioNone: "Rien de bloquant : les points restants sont du perfectionnement.",
     detailTitle: "Le détail des vérifications",
     stakes:
-      "Ce que ça engage : quand un résumé IA s'affiche, les clics vers les sites chutent de 61 %. Et un visiteur venu d'un moteur IA convertit 4,4 fois mieux qu'un visiteur classique. Le potentiel exact dépend de votre trafic et de votre panier : on le chiffre ensemble, gratuitement.",
-    ctaTitle: "L'audit complet est gratuit.",
+      "Ce que ça engage : sur les requêtes d'information, quand un résumé IA s'affiche, les clics vers les sites baissent de 61 % (Seer Interactive). Le potentiel exact dépend de votre trafic : nous le regardons ensemble.",
+    ctaTitle: "Parlons de votre rapport.",
     ctaBody:
-      "Trente minutes en visio : on passe votre rapport en revue point par point, on chiffre le potentiel de visites et de ventes selon votre trafic réel, et vous repartez avec les corrections prioritaires expliquées. Sans engagement.",
+      "Trente minutes en visio : nous passons votre rapport en revue point par point, et vous repartez avec les corrections prioritaires expliquées.",
     ctaAfter:
-      "Ensuite, si vous préférez que ce soit fait pour vous : l'audit-fix corrige tout (Schema.org, llms.txt, contenus, coordonnées) avec un rapport daté qui prouve le travail.",
-    ctaPriceNote:
-      "Prix fixe sur devis, déductible, seulement si vous nous confiez les corrections. Rapport avant/après daté sous 10 jours ouvrés.",
-    ctaBook: "Réserver mon audit gratuit",
+      "Ensuite, si vous préférez que ce soit fait pour vous, nous corrigeons les points relevés (Schema.org, llms.txt, contenus, coordonnées), avec un rapport daté.",
+    ctaPriceNote: "Sur devis, après l'appel.",
+    ctaBook: "Réserver 30 min",
     honesty:
       "Ce scan mesure la lisibilité de votre site par les moteurs de recherche et les moteurs IA (ChatGPT, Perplexity, résumés IA de Google). Personne ne peut garantir une position ni une citation, et ceux qui le promettent vous trompent. Ce que ce rapport liste, en revanche, se corrige et se vérifie.",
   },
@@ -82,8 +81,8 @@ const COPY = {
     seoSub: "Google, Bing",
     geoLabel: "GEO score",
     geoSub: "ChatGPT, Perplexity, AI Overviews",
-    gradeHigh: "Ready to be cited by AI engines",
-    gradeMid: "Readable, but hardly citable",
+    gradeHigh: "Easy for AI engines to read",
+    gradeMid: "Readable, needs work",
     gradeLow: "AI engines skim past you",
     gradeZero: "Nearly invisible to AI engines",
     scannedPrefix: "Analysis of",
@@ -91,15 +90,14 @@ const COPY = {
     prioNone: "Nothing blocking: what remains is refinement.",
     detailTitle: "Every check in detail",
     stakes:
-      "What is at stake: when an AI summary appears, clicks to websites drop by 61%. And a visitor coming from an AI engine converts 4.4 times better than a classic one. The exact potential depends on your traffic and basket: we quantify it together, for free.",
-    ctaTitle: "The full audit is free.",
+      "What is at stake: on informational queries, when an AI summary appears, clicks to websites drop by 61% (Seer Interactive). The exact potential depends on your traffic: we look at it together.",
+    ctaTitle: "Let's go through your report.",
     ctaBody:
-      "Thirty minutes on a call: we walk through your report point by point, quantify the visit and sales potential based on your real traffic, and you leave with the priority fixes explained. No commitment.",
+      "Thirty minutes on a call: we walk through your report point by point, and you leave with the priority fixes explained.",
     ctaAfter:
-      "Then, if you would rather have it done for you: the audit-fix corrects everything (Schema.org, llms.txt, content, contact signals) with a dated report that proves the work.",
-    ctaPriceNote:
-      "Fixed price, quoted upfront, deductible, only if you hand us the fixes. Dated before/after report within 10 working days.",
-    ctaBook: "Book my free audit",
+      "Then, if you would rather have it done for you, we fix the issues found (Schema.org, llms.txt, content, contact signals), with a dated report.",
+    ctaPriceNote: "Quoted after the call.",
+    ctaBook: "Book 30 min",
     honesty:
       "This scan measures how readable your site is for search engines and AI engines (ChatGPT, Perplexity, Google AI Overviews). Nobody can guarantee a ranking or a citation, and anyone promising that is misleading you. What this report lists, however, can be fixed and verified.",
   },
@@ -329,7 +327,8 @@ export function ScanIa({ locale }: { locale: string }) {
             {c.stakes}
           </p>
 
-          {/* CTA : l'appel de 30 min, le devis vient après */}
+          {/* CTA : l'appel de 30 min, le devis vient après. Sur fond crème,
+              le bouton plein est orange (règle du 1er/10/2026). */}
           <div className="mt-8 rounded-2xl border border-[var(--accent)] bg-[var(--accent)]/5 p-8">
             <h3 className="t-display text-2xl md:text-3xl">{c.ctaTitle}</h3>
             <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-[var(--fg-2)]">{c.ctaBody}</p>
@@ -337,7 +336,7 @@ export function ScanIa({ locale }: { locale: string }) {
               href={CAL_URL}
               target="_blank"
               rel="noreferrer"
-              className="group mt-6 inline-flex items-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#f5f0e6] transition hover:opacity-90"
+              className="group mt-6 inline-flex min-h-[52px] items-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]"
             >
               {c.ctaBook}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

@@ -1,29 +1,36 @@
 # TROIE Studio (troiestudio.fr)
 
-> Équipe créative et technique basée à Nice (France), fondée par Hugues Lourmieres. Agents IA et automatisation, sites web et applications, référencement sur Google et dans les moteurs IA (SEO et GEO), identité de marque, photographie et vidéo. Pour les entreprises en France, à Monaco et à l'international. Site bilingue français et anglais. TROIE Studio édite aussi troie.app : des outils IA gratuits et des cours en ligne.
+> Studio de stratégie et de création basé à Nice (France), fondé par Hugues Lourmieres. Stratégie de marque, direction artistique, photographie, vidéo, sites web et accompagnement des entreprises dans la durée. Pour les entreprises en France, à Monaco et à l'international. Site bilingue français et anglais. TROIE Studio édite aussi troie.app, un site séparé d'outils en ligne et de cours courts.
 
 ## À propos
 
-TROIE Studio est dirigé par Hugues Lourmieres, fondateur et directeur marketing. L'équipe réunit le conseil en IA et en communication, le développement de sites, d'applications et d'agents, la vidéo et la photographie. Méthode : des faits sourcés, des résultats mesurables, pas de jargon.
+TROIE Studio est dirigé par Hugues Lourmieres, fondateur. Il exerce la direction marketing depuis 2018. Il est aussi photographe, vidéaste et directeur artistique. L'équipe réunit la stratégie, la réalisation vidéo et photo, le design et le développement de sites et d'applications. L'IA fait partie des outils de l'équipe. Les idées, les choix et la relation avec les clients restent humains. Chaque projet commence par un appel de 30 minutes, puis une proposition écrite et un devis.
 
 ## Pages principales
 
-- [Accueil](https://troiestudio.fr/fr) : ce que l'équipe réalise.
-- [Scan de visibilité IA gratuit](https://troiestudio.fr/fr/scan-ia) : note un site sur ce que lisent Google et les moteurs IA, en 60 secondes.
-- [Diagnostic IA](https://troiestudio.fr/fr/diagnostic-ia) : savoir en une journée où en est l'entreprise avec l'IA, et quoi faire ensuite.
-- [IA pour les entreprises](https://troiestudio.fr/ia) : audit, déploiement d'agents IA, conformité AI Act.
-- [AI Act entreprise : êtes-vous concerné ?](https://troiestudio.fr/ia/ai-act) : obligations, dates clés, plan d'action, FAQ.
-- [Création](https://troiestudio.fr/fr/creation) : sites, applications, identité, médias.
-- [Réalisations photo et vidéo](https://troiestudio.fr/fr/medias) : maisons de luxe, hôtellerie, industrie, nature.
-- [Contact](https://troiestudio.fr/fr/contact) : basé à Nice, réponse rapide.
+- [Accueil](https://troiestudio.fr/fr) : ce que fait le studio, l'équipe, un exemple de réalisation.
+- [Stratégie](https://troiestudio.fr/fr/strategie) : positionnement, message, choix des canaux, plan d'acquisition, référencement.
+- [Création](https://troiestudio.fr/fr/creation) : photo, vidéo, design, sites web.
+- [Réalisations photo et vidéo](https://troiestudio.fr/fr/medias) : reportages et films tournés sur le terrain.
+- [Sites web](https://troiestudio.fr/fr/creation/web) : méthode et sites réalisés.
+- [Accompagnement](https://troiestudio.fr/fr/accompagnement) : direction marketing à temps partagé, ateliers avec les équipes, suivi après livraison.
+- [Contact](https://troiestudio.fr/fr/contact) : réserver 30 minutes ou décrire un projet.
+
+## Ressources
+
+- [Diagnostic](https://troiestudio.fr/fr/diagnostic-ia) : faire le point sur l'organisation, les outils et les priorités.
+- [Organisation et outils IA](https://troiestudio.fr/ia) : ateliers et mise en place d'outils, au service de la stratégie.
+- [AI Act entreprise : êtes-vous concerné ?](https://troiestudio.fr/ia/ai-act) : obligations, dates clés, plan d'action.
+- [Accessibilité web](https://troiestudio.fr/ia/accessibilite) : obligations et plan d'action.
+- [Scan de site](https://troiestudio.fr/fr/scan-ia) : lisibilité d'un site par Google et par les moteurs IA, en 60 secondes.
 
 ## Le Journal (blog)
 
-Articles sourcés (EUR-Lex, Commission européenne, entreprises.gouv.fr) sur l'IA en entreprise, la conformité AI Act et la visibilité dans les moteurs IA, en français, une partie traduite en anglais : https://troiestudio.fr/fr/blog
+Articles sourcés (EUR-Lex, Commission européenne, entreprises.gouv.fr) sur l'IA en entreprise, la conformité AI Act, le web et la visibilité en ligne, en français, une partie traduite en anglais : https://troiestudio.fr/fr/blog
 
-## Outils et cours en ligne
+## troie.app
 
-troie.app réunit les outils IA gratuits du studio (charte d'usage de l'IA en PDF, registre des usages, diagnostic AI Act, calendrier à jour) et des cours courts, dont un parcours AI Act d'environ 2 heures avec attestation nominative vérifiable par code : https://troie.app
+troie.app est un site séparé : des outils en ligne (charte d'usage de l'IA, registre des usages, calendrier AI Act) et des cours courts : https://troie.app
 
 ## Repères juridiques appliqués sur les deux sites
 
@@ -31,4 +38,4 @@ L'article 4 de l'AI Act (règlement UE 2024/1689, littératie en IA) s'applique 
 
 ## Contact
 
-https://troiestudio.fr/fr/contact, https://www.linkedin.com/company/troiestudio
+https://troiestudio.fr/fr/contact, https://www.linkedin.com/company/troiestudio, https://www.instagram.com/troiestudio/

@@ -5,6 +5,17 @@ import { setRequestLocale, getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import { WORKS, findWork } from "@/lib/works";
 import { metaDescription, seoTitle } from "@/lib/seo";
+import { pageSocial } from "@/lib/og";
+
+const CAL_URL = "https://cal.com/troiestudio/30min";
+
+/* Boutons de clôture (règle du 1er/10/2026, fond crème) : « Réserver 30 min »
+   en orange plein, « Lancer un projet » en lien souligné. La zone cliquable
+   garde 48 px de haut pour le pouce. */
+const BTN_BOOK =
+  "group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]";
+const BTN_PROJECT =
+  "group inline-flex min-h-[48px] items-center justify-center font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]";
 
 /** Nom du projet + première partie de son périmètre, en minuscule initiale. */
 function workTitle(name: string, scope: string, locale: string): string {
@@ -25,11 +36,13 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   if (!findWork(slug)) return {};
   const t = await getTranslations({ locale, namespace: "works" });
+  /* « CHANEL : reportage réalisé en interne » plutôt que « CHANEL » seul :
+     le titre dit ce qu'est la réalisation, et diffère entre FR et EN. */
+  const title = workTitle(t(`items.${slug}.title`), t(`items.${slug}.scope`), locale);
+  const description = t(`items.${slug}.description`);
   return {
-    /* « CHANEL : reportage réalisé en interne » plutôt que « CHANEL » seul :
-       le titre dit ce qu'est la réalisation, et diffère entre FR et EN. */
-    title: seoTitle(workTitle(t(`items.${slug}.title`), t(`items.${slug}.scope`), locale)),
-    description: metaDescription(t(`items.${slug}.description`)),
+    title: seoTitle(title),
+    description: metaDescription(description),
     alternates: {
       canonical: `/${locale}/works/${slug}`,
       languages: {
@@ -37,6 +50,7 @@ export async function generateMetadata({
         en: `/en/works/${slug}`,
       },
     },
+    ...pageSocial({ locale, path: `/works/${slug}`, title, description }),
   };
 }
 
@@ -106,7 +120,8 @@ function CaseView({
             alt={t(`items.${slug}.title`)}
             width={1600}
             height={2000}
-            priority
+            loading="eager"
+            fetchPriority="high"
             sizes="100vw"
             className="t-photo h-auto w-full"
           />
@@ -136,7 +151,8 @@ function CaseView({
             src={cover}
             alt={t(`items.${slug}.title`)}
             fill
-            priority
+            loading="eager"
+            fetchPriority="high"
             sizes="100vw"
             className="t-photo object-cover"
             style={{ objectPosition: coverPosition ?? "center" }}
@@ -192,7 +208,10 @@ function CaseView({
       {/* Next project, keeps visitors deep in the work */}
       <NextProject locale={locale} nextSlug={nextSlug} nextCover={nextCover} nextCoverPosition={nextCoverPosition} />
 
-      {/* Closing CTA, Book a call */}
+      {/* Clôture : réserver un appel ou décrire son projet.
+          [À COMPLÉTER par Hugues] Les blocs « La demande », « Ce que nous
+          avons fait » et « Ce que ça a changé » s'ajouteront au-dessus quand
+          les textes de chaque fiche seront fournis. */}
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center md:px-12 md:py-28">
           <p className="t-eyebrow">
@@ -203,12 +222,18 @@ function CaseView({
               ? "Parlons-en pendant trente minutes."
               : "Let's talk for thirty minutes."}
           </h2>
-          <Link
-            href={`/${locale}/contact`}
-            className="mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-          >
-            {locale === "fr" ? "Prendre rendez-vous" : "Book a call"} →
-          </Link>
+          <div className="mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-center sm:gap-8">
+            <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
+              {locale === "fr" ? "Réserver 30 min" : "Book 30 min"}
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+            </a>
+            <Link href={`/${locale}/contact#projet`} className={BTN_PROJECT}>
+              <span className="inline-flex items-center gap-2.5 border-b-2 border-current pb-1.5">
+                {locale === "fr" ? "Lancer un projet" : "Start a project"}
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </span>
+            </Link>
+          </div>
         </div>
       </section>
     </article>

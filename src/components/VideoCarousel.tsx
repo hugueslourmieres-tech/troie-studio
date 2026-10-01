@@ -19,10 +19,21 @@ import { useNearViewport } from "./LazyVideo";
  *   iframe with autoplay + sound, starting at 10s by default.
  * - Same 3:4 portrait crop for everything so the carousel stays
  *   visually consistent.
- * - Only one card can be activé at a time.
+ * - Only one card can be active at a time.
+ * - `exclude` : identifiants YouTube à masquer (la video Autajon est déjà
+ *   montrée par ProofCase sur l'accueil et /medias).
  */
-export function VideoCarousel({ locale }: { locale: string }) {
+export function VideoCarousel({
+  locale,
+  exclude,
+}: {
+  locale: string;
+  exclude?: string[];
+}) {
   const lang = (locale === "en" ? "en" : "fr") as "fr" | "en";
+  const items = VIDEOS.filter(
+    (v) => !(v.kind === "youtube" && exclude?.includes(v.youtubeId)),
+  );
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: false,
@@ -55,16 +66,16 @@ export function VideoCarousel({ locale }: { locale: string }) {
     <div className="relative">
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex touch-pan-y gap-6">
-          {VIDEOS.map((v, i) => (
+          {items.map((v, i) => (
             <div
               key={i}
               className="min-w-0 flex-[0_0_85%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%]"
             >
               <VideoCard
-                vidéo={v}
+                video={v}
                 index={i}
                 lang={lang}
-                activé={activeIdx === i}
+                active={activeIdx === i}
                 onActivate={() => setActiveIdx(i)}
                 onDeactivate={() => setActiveIdx(null)}
               />
@@ -76,7 +87,7 @@ export function VideoCarousel({ locale }: { locale: string }) {
       <div className="mt-10 flex items-center justify-end gap-3">
         <button
           type="button"
-          aria-label="Previous"
+          aria-label={lang === "en" ? "Previous" : "Précédent"}
           onClick={scrollPrev}
           disabled={!canPrev}
           className="flex h-11 w-11 items-center justify-center border border-[var(--fg)] text-[var(--fg)] transition disabled:opacity-30 enabled:hover:border-[var(--accent)] enabled:hover:text-[var(--accent)]"
@@ -85,7 +96,7 @@ export function VideoCarousel({ locale }: { locale: string }) {
         </button>
         <button
           type="button"
-          aria-label="Next"
+          aria-label={lang === "en" ? "Next" : "Suivant"}
           onClick={scrollNext}
           disabled={!canNext}
           className="flex h-11 w-11 items-center justify-center border border-[var(--fg)] text-[var(--fg)] transition disabled:opacity-30 enabled:hover:border-[var(--accent)] enabled:hover:text-[var(--accent)]"
@@ -98,17 +109,17 @@ export function VideoCarousel({ locale }: { locale: string }) {
 }
 
 function VideoCard({
-  vidéo,
+  video,
   index,
   lang,
-  activé,
+  active,
   onActivate,
   onDeactivate,
 }: {
-  vidéo: VideoItem;
+  video: VideoItem;
   index: number;
   lang: "fr" | "en";
-  activé: boolean;
+  active: boolean;
   onActivate: () => void;
   onDeactivate: () => void;
 }) {
@@ -116,27 +127,27 @@ function VideoCard({
     <article className="flex flex-col">
       <div
         className="group relative aspect-[3/4] cursor-pointer overflow-hidden bg-[var(--bg-2)]"
-        onClick={() => (activé ? onDeactivate() : onActivate())}
+        onClick={() => (active ? onDeactivate() : onActivate())}
         role="button"
         tabIndex={0}
-        aria-label={vidéo.title[lang]}
+        aria-label={video.title[lang]}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
             e.preventDefault();
-            activé ? onDeactivate() : onActivate();
+            active ? onDeactivate() : onActivate();
           }
         }}
       >
-        {vidéo.kind === "local" ? (
-          <LocalMedia vidéo={vidéo} activé={activé} />
+        {video.kind === "local" ? (
+          <LocalMedia video={video} active={active} />
         ) : (
-          <YouTubeMedia vidéo={vidéo} activé={activé} title={vidéo.title[lang]} />
+          <YouTubeMedia video={video} active={active} title={video.title[lang]} />
         )}
 
-        {activé && (
+        {active && (
           <button
             type="button"
-            aria-label="Close"
+            aria-label={lang === "en" ? "Close" : "Fermer"}
             onClick={(e) => {
               e.stopPropagation();
               onDeactivate();
@@ -150,14 +161,14 @@ function VideoCard({
 
       <div className="mt-5 flex items-baseline justify-between gap-4">
         <h3 className="t-display text-xl text-[var(--fg)] md:text-2xl">
-          {vidéo.client}
+          {video.client}
         </h3>
         <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
       <p className="mt-2 max-w-md text-sm text-[var(--fg-2)]/70">
-        {vidéo.title[lang]}
+        {video.title[lang]}
       </p>
     </article>
   );
@@ -167,11 +178,11 @@ function VideoCard({
  * LocalMedia, autoplay muted B&W loop preview; click toggles colour + sound.
  */
 function LocalMedia({
-  vidéo,
-  activé,
+  video,
+  active,
 }: {
-  vidéo: Extract<VideoItem, { kind: "local" }>;
-  activé: boolean;
+  video: Extract<VideoItem, { kind: "local" }>;
+  active: boolean;
 }) {
   const ref = useRef<HTMLVideoElement>(null);
   // Téléchargée seulement à l'approche de l'écran (voir LazyVideo).
@@ -180,7 +191,7 @@ function LocalMedia({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (activé) {
+    if (active) {
       el.muted = false;
       el.loop = false;
       el.currentTime = 0;
@@ -192,12 +203,12 @@ function LocalMedia({
       el.loop = true;
       if (!el.paused) el.pause();
     }
-  }, [activé]);
+  }, [active]);
 
   return (
     <video
       ref={ref}
-      src={near ? vidéo.src : undefined}
+      src={near ? video.src : undefined}
       autoPlay
       loop
       muted
@@ -205,7 +216,7 @@ function LocalMedia({
       preload="metadata"
       className="h-full w-full object-cover transition-[filter] duration-700"
       style={{
-        filter: activé
+        filter: active
           ? "none"
           : "grayscale(1) brightness(0.96) contrast(1.06)",
       }}
@@ -215,23 +226,23 @@ function LocalMedia({
 
 /**
  * YouTubeMedia, thumbnail B&W with a play overlay, swaps to a
- * youtube-nocookie iframe when activé.
+ * youtube-nocookie iframe when active.
  */
 function YouTubeMedia({
-  vidéo,
-  activé,
+  video,
+  active,
   title,
 }: {
-  vidéo: Extract<VideoItem, { kind: "youtube" }>;
-  activé: boolean;
+  video: Extract<VideoItem, { kind: "youtube" }>;
+  active: boolean;
   title: string;
 }) {
-  if (activé) {
+  if (active) {
     return (
       <iframe
-        src={embedUrl(vidéo.youtubeId, vidéo.start)}
+        src={embedUrl(video.youtubeId, video.start)}
         title={title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-média; gyroscope; picture-in-picture; web-share"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
         className="h-full w-full"
       />
@@ -241,7 +252,7 @@ function YouTubeMedia({
   return (
     <>
       <Image
-        src={thumbnailUrl(vidéo.youtubeId)}
+        src={thumbnailUrl(video.youtubeId)}
         alt={title}
         fill
         sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"

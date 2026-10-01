@@ -14,16 +14,23 @@ import { WORKS } from "@/lib/works";
  * Carrousel 3-visibles (desktop), drag/swipe + flèches.
  * `embedded` : rendu sans <section> ni gros header (utilisé dans la section
  * "Médias" qui chapeaute photo + vidéo).
+ * `label` : surtitre du header embedded. `exclude` : slugs à masquer (la
+ * numérotation des cartes suit la liste filtrée).
  */
 export function WorksGallery({
   locale,
   embedded = false,
+  label,
+  exclude = [],
 }: {
   locale: string;
   embedded?: boolean;
+  label?: string;
+  exclude?: string[];
 }) {
   const t = useTranslations("home");
   const tw = useTranslations("works");
+  const items = WORKS.filter((w) => !exclude.includes(w.slug));
 
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
@@ -53,7 +60,7 @@ export function WorksGallery({
   }, [emblaApi]);
 
   const header = embedded ? (
-    <p className="t-eyebrow">Photographie</p>
+    <p className="t-eyebrow">{label ?? t("worksEyebrow")}</p>
   ) : (
     <Reveal>
       <div className="max-w-3xl">
@@ -72,7 +79,7 @@ export function WorksGallery({
     <div className={embedded ? "mt-10" : "mt-20"}>
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex touch-pan-y gap-6">
-          {WORKS.map((w, i) => (
+          {items.map((w, i) => (
             <motion.div
               key={w.slug}
               initial={{ opacity: 0, y: 24 }}
@@ -128,7 +135,7 @@ export function WorksGallery({
         <div className="flex items-center gap-3">
           <button
             type="button"
-            aria-label="Previous"
+            aria-label={locale === "en" ? "Previous" : "Précédent"}
             onClick={scrollPrev}
             disabled={!canPrev}
             className="flex h-11 w-11 items-center justify-center border border-[var(--fg)] text-[var(--fg)] transition disabled:opacity-30 enabled:hover:border-[var(--accent)] enabled:hover:text-[var(--accent)]"
@@ -137,7 +144,7 @@ export function WorksGallery({
           </button>
           <button
             type="button"
-            aria-label="Next"
+            aria-label={locale === "en" ? "Next" : "Suivant"}
             onClick={scrollNext}
             disabled={!canNext}
             className="flex h-11 w-11 items-center justify-center border border-[var(--fg)] text-[var(--fg)] transition disabled:opacity-30 enabled:hover:border-[var(--accent)] enabled:hover:text-[var(--accent)]"

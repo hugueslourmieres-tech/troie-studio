@@ -1,20 +1,24 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { OG_IMAGE } from "@/lib/og";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
 export const metadata: Metadata = {
   title:
-    "Pack site conforme : site vitrine + accessibilité (RGAA) + AI Act, prix fixe",
+    "Pack site conforme : site vitrine + accessibilité (RGAA) + AI Act, sur devis",
   description:
-    "Création ou refonte de votre site vitrine avec la conformité incluse : accessibilité (EAA/RGAA), mentions et charte IA (AI Act). Prix fixe annoncé à l'avance, livré par l'atelier TROIE à Nice.",
+    "Création ou refonte de votre site vitrine avec la conformité incluse : accessibilité (EAA/RGAA), mentions et charte IA (AI Act). Un devis écrit avant de commencer, réalisé par l'équipe TROIE à Nice.",
   alternates: { canonical: "https://troiestudio.fr/creation/site-conforme" },
   openGraph: {
     type: "website",
     url: "https://troiestudio.fr/creation/site-conforme",
     title: "Pack site conforme : votre site aux normes, une bonne fois",
     description:
-      "Site vitrine + accessibilité RGAA + volet AI Act, prix fixe annoncé avant de commencer. L'offre productisée de TROIE Studio.",
+      "Site vitrine, accessibilité RGAA et volet AI Act, avec un devis écrit avant de commencer.",
+    siteName: "TROIE Studio",
+    locale: "fr_FR",
+    images: [OG_IMAGE],
   },
 };
 
@@ -37,7 +41,7 @@ const TIMELINE = [
     date: "2 août 2026",
     title: "L’AI Act est contrôlable",
     body: "Les autorités nationales peuvent contrôler et sanctionner. Si votre site utilise un chatbot ou publie des contenus générés par IA, la transparence devient exigible.",
-    status: "now",
+    status: "past",
   },
 ];
 
@@ -67,11 +71,11 @@ const INCLUS = [
 const FAQ = [
   {
     q: "Combien coûte le pack site conforme ?",
-    a: "Le prix dépend du périmètre : nombre de pages, vitrine ou e-commerce, contenus à reprendre. Il est fixé par écrit après l'audit gratuit et ne bouge plus. Pas de facturation au temps passé.",
+    a: "Le prix dépend du périmètre : nombre de pages, vitrine ou e-commerce, contenus à reprendre. Il est fixé par écrit après un premier échange de 30 minutes et ne bouge plus. Pas de facturation au temps passé.",
   },
   {
     q: "Mon site actuel peut-il être mis en conformité sans refonte ?",
-    a: "Souvent, oui. L'audit gratuit le détermine : si la base technique est saine, on corrige par lots. Si elle ne l'est pas, la refonte conforme coûte souvent moins cher que la rustine.",
+    a: "Souvent, oui. Le premier échange le détermine : si la base technique est saine, on corrige par lots. Si elle ne l'est pas, la refonte conforme coûte souvent moins cher que la rustine.",
   },
   {
     q: "Suis-je concerné par l'obligation d'accessibilité ?",
@@ -94,8 +98,9 @@ const JSONLD = {
 };
 
 /**
- * Offre productisee "pack site conforme" : creation/refonte de site
- * vitrine + accessibilite (EAA/RGAA) + volet AI Act, prix fixe.
+ * Offre "pack site conforme" : création ou refonte de site vitrine
+ * + accessibilité (EAA/RGAA) + volet AI Act, sur devis écrit après un
+ * premier échange de 30 minutes (aucun prix affiché).
  * Pont officiel entre l'univers conformite (/ia/accessibilite,
  * /ia/ai-act) et la creation (cross-sell assume).
  */
@@ -109,20 +114,20 @@ export default function SiteConformePage() {
 
       {/* Mini header */}
       <header className="border-b border-[var(--rule)]">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 md:px-12">
           <Link
             href="/fr"
-            className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+            className="inline-flex min-h-[44px] items-center font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
           >
-            ← TROIE, Studio
+            ← TROIE Studio
           </Link>
           <a
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-2.5 bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            className="inline-flex min-h-[44px] items-center gap-2.5 whitespace-nowrap bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
-            Audit gratuit, 30 min
+            Réserver 30 min
           </a>
         </div>
       </header>
@@ -139,18 +144,24 @@ export default function SiteConformePage() {
           Un site vitrine créé ou refondu par l&apos;atelier, avec la
           conformité incluse dès la conception : accessibilité (RGAA),
           transparence IA (AI Act), et le dossier de preuve qui va avec.
-          Prix fixe annoncé avant de commencer.
+          Un devis écrit avant de commencer, qui ne bouge plus.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
           <a
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+            className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
-            Demander mon prix fixe, gratuit
+            Réserver 30 min
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </a>
+          <Link
+            href="/fr/contact?besoin=site#projet"
+            className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+          >
+            Lancer un projet
+          </Link>
           <Link
             href="/ia/accessibilite"
             className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
@@ -220,19 +231,19 @@ export default function SiteConformePage() {
             ))}
           </div>
 
-          {/* Prix */}
+          {/* Sur devis (aucun prix affiché) */}
           <div className="mt-12 grid gap-8 rounded-sm bg-[var(--ink)] p-8 text-[#f5f0e6] md:grid-cols-12 md:items-center md:p-12">
             <div className="md:col-span-7">
               <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
-                Prix fixe, annoncé avant de commencer
+                Sur devis
               </p>
               <p className="t-display mt-4 text-4xl md:text-5xl">
-                Un prix, par écrit.
+                Un devis écrit, qui ne bouge plus.
               </p>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#f5f0e6]/75 md:text-base">
                 Le prix dépend du périmètre : nombre de pages, vitrine ou
                 e-commerce, contenus à reprendre. Il est posé par écrit après
-                l&apos;audit gratuit, et il ne bouge plus.
+                un premier échange de 30 minutes, et il ne bouge plus.
               </p>
             </div>
             <div className="md:col-span-5">
@@ -242,12 +253,9 @@ export default function SiteConformePage() {
                 rel="noreferrer"
                 className="group inline-flex w-full items-center justify-center gap-3 bg-[var(--accent)] px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6]"
               >
-                Obtenir mon prix fixe
+                Réserver 30 min
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
-              <p className="mt-4 text-center font-mono text-[9px] uppercase tracking-[0.2em] text-[#f5f0e6]/50">
-                30 minutes, réponse écrite sous 48 h
-              </p>
             </div>
           </div>
         </div>
@@ -282,12 +290,6 @@ export default function SiteConformePage() {
               className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
             >
               Le détail de l&apos;AI Act →
-            </Link>
-            <Link
-              href="https://troie.app/formation"
-              className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
-            >
-              Former vos équipes à l&apos;IA →
             </Link>
           </div>
         </div>
