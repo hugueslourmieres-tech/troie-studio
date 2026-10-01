@@ -453,7 +453,7 @@ export const ARTICLES: Article[] = [
     title: "Agent IA pour PME : le guide pour démarrer sans se tromper",
     cardTitle: "Agent IA pour PME : le guide pour démarrer",
     description:
-      "Ce qu'un agent IA fait vraiment, les trois familles qui rapportent en PME, les prix réels (publiés), et les erreurs à éviter. Le guide concret, sans jargon.",
+      "Ce qu'un agent IA fait vraiment, les trois familles qui rapportent en PME, ce qui fait varier le prix, et les erreurs à éviter. Le guide concret, sans jargon.",
     date: "2026-07-02",
     category: "L'IA au travail",
     readingMinutes: 7,
@@ -466,7 +466,7 @@ export const ARTICLES: Article[] = [
     ],
     titleEn: "AI agents for SMBs: the guide to getting started right",
     cardTitleEn: "AI agents for SMBs: the getting-started guide",
-    descriptionEn: "What an AI agent really does, the three use cases that pay off for SMBs, the actual prices (published), and the mistakes to avoid. The practical, jargon-free guide.",
+    descriptionEn: "What an AI agent really does, the three use cases that pay off for SMBs, what drives the price, and the mistakes to avoid. The practical, jargon-free guide.",
     Body: AgentIaPmeGuide,
     BodyEn: AgentIaPmeGuideEn,
   },
