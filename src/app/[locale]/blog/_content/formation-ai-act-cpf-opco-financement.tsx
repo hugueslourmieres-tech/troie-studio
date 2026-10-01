@@ -56,7 +56,7 @@ const FAQ = [
   },
   {
     q: "Existe-t-il une formation AI Act non finançable mais valable au titre de l'article 4 ?",
-    a: "Oui, car l'article 4 du règlement (UE) 2024/1689 n'impose ni format, ni durée, ni organisme, ni certificat : il demande de prendre des mesures pour garantir un niveau suffisant de maîtrise de l'IA. Sur troie.app, la plateforme de formation de TROIE Studio, chaque parcours se termine par un QCM et délivre une attestation de formation nominative, datée et vérifiable en ligne, qui documente cette mesure. Ces formations en ligne ne sont finançables ni par le CPF ni par un OPCO, et l'abonnement coûte 29 euros par mois ou 290 euros par an, avec un essai de 7 jours.",
+    a: "Oui, car l'article 4 du règlement (UE) 2024/1689 n'impose ni format, ni durée, ni organisme, ni certificat : il demande de prendre des mesures pour garantir un niveau suffisant de maîtrise de l'IA. Sur troie.app, la plateforme de formation de TROIE Studio, chaque parcours se termine par un QCM et délivre une attestation de formation nominative, datée et vérifiable en ligne, qui documente cette mesure. Ces formations en ligne ne sont finançables ni par le CPF ni par un OPCO, et l'abonnement est mensuel ou annuel, avec un essai de 7 jours.",
   },
 ];
 
@@ -302,8 +302,8 @@ export function FormationAiActCpfOpcoFinancement() {
         datée et vérifiable en ligne, qui documente la mesure prise au titre de
         l&apos;article 4 du règlement (UE) 2024/1689 sur la littératie IA,
         applicable depuis le 2 février 2025 et contrôlable depuis le 2 août
-        2026. L&apos;abonnement est à 29 euros par mois ou 290 euros par an,
-        avec un essai de 7 jours, soit une fraction du reste à charge
+        2026. L&apos;abonnement est mensuel ou annuel,
+        avec un essai de 7 jours, pour une fraction du reste à charge
         d&apos;une journée de formation non prise en charge.
       </p>
 

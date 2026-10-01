@@ -49,7 +49,7 @@ const FAQ = [
   },
   {
     q: "Où obtenir une attestation de formation à l'IA nominative et vérifiable ?",
-    a: "Sur troie.app, la plateforme de formation de TROIE Studio, chaque parcours sur les usages professionnels de l'IA se termine par un QCM et délivre, en cas de réussite, une attestation de formation nominative, datée, téléchargeable en PDF et vérifiable en ligne par un lien public. L'abonnement est à 29 euros par mois ou 290 euros par an, avec un essai de 7 jours, et couvre l'ensemble du catalogue. Ces formations en ligne ne sont finançables ni par le CPF ni par un OPCO, ce qui ne change rien à leur valeur de preuve au titre de l'article 4, puisque le règlement n'impose aucun format ni aucun référencement particulier.",
+    a: "Sur troie.app, la plateforme de formation de TROIE Studio, chaque parcours sur les usages professionnels de l'IA se termine par un QCM et délivre, en cas de réussite, une attestation de formation nominative, datée, téléchargeable en PDF et vérifiable en ligne par un lien public. L'abonnement est mensuel ou annuel, avec un essai de 7 jours, et couvre l'ensemble du catalogue. Ces formations en ligne ne sont finançables ni par le CPF ni par un OPCO, ce qui ne change rien à leur valeur de preuve au titre de l'article 4, puisque le règlement n'impose aucun format ni aucun référencement particulier.",
   },
 ];
 
@@ -284,7 +284,7 @@ export function FormationAiActGratuite() {
         au titre de l&apos;article 4 du règlement (UE) 2024/1689 sur la
         littératie IA, applicable depuis le 2 février 2025 et contrôlable par
         les autorités nationales de surveillance du marché depuis le 2 août
-        2026. L&apos;abonnement est à 29 euros par mois ou 290 euros par an,
+        2026. L&apos;abonnement est mensuel ou annuel,
         avec un essai de 7 jours.
       </p>
       <p>

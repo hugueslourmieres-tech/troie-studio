@@ -58,7 +58,7 @@ const FAQ = [
   },
   {
     q: "Que doit contenir une charte d'usage de l'IA ?",
-    a: "Dix règles suffisent : le périmètre des personnes et des outils concernés, la liste des outils autorisés et la procédure pour en ajouter un, les données interdites en saisie, la relecture humaine avant tout usage externe, la transparence sur les contenus générés, les décisions qui ne peuvent pas être prises par une IA seule, le référent IA et le canal de signalement, la tenue du registre des usages, l'obligation de formation avec sa preuve, et la clause de révision. Sur troie.app, la plateforme de formation de TROIE Studio, chaque parcours se termine par un QCM et délivre une attestation de formation nominative et vérifiable en ligne, qui documente le volet formation de la charte au titre de l'article 4 du règlement (UE) 2024/1689. L'abonnement est à 29 euros par mois ou 290 euros par an, avec un essai de 7 jours.",
+    a: "Dix règles suffisent : le périmètre des personnes et des outils concernés, la liste des outils autorisés et la procédure pour en ajouter un, les données interdites en saisie, la relecture humaine avant tout usage externe, la transparence sur les contenus générés, les décisions qui ne peuvent pas être prises par une IA seule, le référent IA et le canal de signalement, la tenue du registre des usages, l'obligation de formation avec sa preuve, et la clause de révision. Sur troie.app, la plateforme de formation de TROIE Studio, chaque parcours se termine par un QCM et délivre une attestation de formation nominative et vérifiable en ligne, qui documente le volet formation de la charte au titre de l'article 4 du règlement (UE) 2024/1689. L'abonnement est mensuel ou annuel, avec un essai de 7 jours.",
   },
 ];
 
@@ -368,8 +368,7 @@ export function CharteUsageIaEntrepriseModele() {
         attestation de formation nominative, datée et vérifiable en ligne, qui
         documente la mesure prise au titre de l&apos;article 4 du règlement
         (UE) 2024/1689 sur la littératie IA, applicable depuis le 2 février
-        2025 et contrôlable depuis le 2 août 2026. L&apos;abonnement est à 29
-        euros par mois ou 290 euros par an, avec un essai de 7 jours. Sur le
+        2025 et contrôlable depuis le 2 août 2026. L&apos;abonnement est mensuel ou annuel, avec un essai de 7 jours. Sur le
         budget à y consacrer, notre{" "}
         <a
           href="https://troie.app/blog/prix-formation-ai-act-comparatif"

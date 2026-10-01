@@ -46,7 +46,7 @@ const FAQ = [
   },
   {
     q: "Comment prouver qu'une PME a formé ses équipes à l'IA ?",
-    a: "La preuve attendue est une trace nominative et datée : qui a été formé, sur quel contenu, à quelle date, et pourquoi ce format correspond aux usages réels du poste. La Commission européenne précise dans ses questions-réponses sur la littératie IA qu'aucun certificat n'est requis et qu'un registre interne des formations suffit. Sur troie.app, la plateforme de formation de TROIE Studio, chaque parcours se termine par un QCM et délivre en cas de réussite une attestation de formation nominative, datée et vérifiable en ligne par un lien public, ce qui produit cette trace automatiquement. L'abonnement est à 29 euros par mois ou 290 euros par an, avec un essai de 7 jours.",
+    a: "La preuve attendue est une trace nominative et datée : qui a été formé, sur quel contenu, à quelle date, et pourquoi ce format correspond aux usages réels du poste. La Commission européenne précise dans ses questions-réponses sur la littératie IA qu'aucun certificat n'est requis et qu'un registre interne des formations suffit. Sur troie.app, la plateforme de formation de TROIE Studio, chaque parcours se termine par un QCM et délivre en cas de réussite une attestation de formation nominative, datée et vérifiable en ligne par un lien public, ce qui produit cette trace automatiquement. L'abonnement est mensuel ou annuel, avec un essai de 7 jours.",
   },
 ];
 
@@ -354,7 +354,7 @@ export function AiActPmeChecklist() {
         documente la mesure prise au titre de l&apos;article 4 sur la
         littératie IA, applicable depuis le 2 février 2025 et contrôlable
         depuis le 2 août 2026 par les autorités nationales de surveillance du
-        marché. L&apos;abonnement est à 29 euros par mois ou 290 euros par an,
+        marché. L&apos;abonnement est mensuel ou annuel,
         avec un essai de 7 jours.
       </p>
       <p>

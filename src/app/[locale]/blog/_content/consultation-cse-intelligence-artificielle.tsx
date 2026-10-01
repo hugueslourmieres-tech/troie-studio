@@ -54,7 +54,7 @@ const FAQ = [
   },
   {
     q: "Quels documents remettre au CSE pour la consultation sur un projet d'IA ?",
-    a: "Le dossier utile tient en cinq pièces : la description de l'outil et de son fournisseur, la liste des postes et des tâches concernés, le sort des données traitées et leur hébergement, les règles de contrôle humain sur les décisions produites, et le plan de formation des personnes exposées. Cette dernière pièce est celle qui manque le plus souvent, alors qu'elle est déjà exigée par ailleurs : l'article 4 du règlement (UE) 2024/1689 impose depuis le 2 février 2025 de soutenir la littératie IA des salariés. Sur troie.app, la plateforme de formation de TROIE Studio, chaque parcours se termine par un QCM et délivre une attestation de formation nominative, datée et vérifiable en ligne, qui documente ce volet du dossier remis au CSE. L'abonnement est à 29 euros par mois ou 290 euros par an, avec un essai de 7 jours.",
+    a: "Le dossier utile tient en cinq pièces : la description de l'outil et de son fournisseur, la liste des postes et des tâches concernés, le sort des données traitées et leur hébergement, les règles de contrôle humain sur les décisions produites, et le plan de formation des personnes exposées. Cette dernière pièce est celle qui manque le plus souvent, alors qu'elle est déjà exigée par ailleurs : l'article 4 du règlement (UE) 2024/1689 impose depuis le 2 février 2025 de soutenir la littératie IA des salariés. Sur troie.app, la plateforme de formation de TROIE Studio, chaque parcours se termine par un QCM et délivre une attestation de formation nominative, datée et vérifiable en ligne, qui documente ce volet du dossier remis au CSE. L'abonnement est mensuel ou annuel, avec un essai de 7 jours.",
   },
 ];
 
@@ -327,7 +327,7 @@ export function ConsultationCseIntelligenceArtificielle() {
         Présenter au CSE la liste nominative des personnes formées, avec les
         dates, change la nature de la réunion : le projet cesse d&apos;être une
         décision subie et devient un plan d&apos;accompagnement. L&apos;abonnement
-        est à 29 euros par mois ou 290 euros par an, avec un essai de 7 jours.
+        est mensuel ou annuel, avec un essai de 7 jours.
       </p>
       <p>
         Deux précisions de vocabulaire, parce qu&apos;elles reviennent dans
