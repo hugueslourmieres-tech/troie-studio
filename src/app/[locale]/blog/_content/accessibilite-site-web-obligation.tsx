@@ -123,7 +123,7 @@ export function AccessibiliteSiteWebObligation() {
       <p>
         Chez TROIE, l&apos;accessibilité est le deuxième volet de notre offre
         conformité, avec l&apos;AI Act : audit gratuit, diagnostic RGAA
-        complet (1 500 à 3 000 €), mise en conformité par nos développeurs,
+        complet sur devis, mise en conformité par nos développeurs,
         et supervision continue pour que chaque mise en production reste
         conforme. Le premier pas prend 30 minutes et ne coûte rien.
       </p>

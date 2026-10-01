@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://troiestudio.fr/ia/accessibilite",
     title: "Accessibilité web : ce que votre entreprise doit faire, sans paniquer",
     description:
-      "Dates clés, obligations réelles pour les PME, sanctions, et un plan d'action en 4 briques à prix publiés.",
+      "Dates clés, obligations réelles pour les PME, sanctions, et un plan d'action en 4 étapes.",
     images: ["/images/brand/og-image.png"],
   },
 };
@@ -84,25 +84,25 @@ const BRIQUES = [
   {
     step: "01",
     title: "Audit accessibilité gratuit",
-    price: "0 €",
+    terms: "Offert, verdict sous 48 h",
     body: "Scan automatisé + revue manuelle de vos pages clés (accueil, produit, panier, contact). Verdict écrit sous 48 h : concerné ou pas, et les 5 blocages les plus graves.",
   },
   {
     step: "02",
     title: "Diagnostic RGAA complet",
-    price: "1 500 à 3 000 €",
+    terms: "Sur devis, selon périmètre",
     body: "Audit sur le référentiel officiel (106 critères), tests lecteur d'écran, registre des non-conformités, plan d'action daté et chiffré. Le document qui prouve votre démarche.",
   },
   {
     step: "03",
     title: "Mise en conformité",
-    price: "Sur devis",
+    terms: "Sur devis, par lots",
     body: "Nos développeurs corrigent : structure, contrastes, formulaires, navigation clavier, alternatives. Par lots priorisés, avec re-test à chaque livraison.",
   },
   {
     step: "04",
     title: "Supervision continue",
-    price: "500 à 1 500 € / mois",
+    terms: "Chaque mois",
     body: "Monitoring de votre conformité numérique (accessibilité + AI Act) : chaque mise en production est re-testée, votre déclaration reste à jour. La conformité qui ne se périme pas.",
   },
 ];
@@ -180,7 +180,7 @@ export default function AccessibilitePage() {
             href="/ia#tarifs"
             className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
-            Voir les tarifs
+            Voir la méthode
           </Link>
         </div>
       </section>
@@ -272,14 +272,14 @@ export default function AccessibilitePage() {
             Le plan d&apos;action
           </p>
           <h2 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl">
-            Quatre briques, prix publiés.
+            Quatre étapes, un devis clair.
           </h2>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {BRIQUES.map((b) => (
               <div key={b.step} className="flex flex-col rounded-sm border border-[var(--rule)] bg-[var(--bg)] p-8">
                 <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">{b.step}</p>
                 <h3 className="t-display mt-4 text-xl text-[var(--fg)] md:text-2xl">{b.title}</h3>
-                <p className="t-display mt-4 text-2xl text-[var(--fg)]">{b.price}</p>
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/70">{b.terms}</p>
                 <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">{b.body}</p>
               </div>
             ))}
@@ -304,7 +304,7 @@ export default function AccessibilitePage() {
               href="/creation/site-conforme"
               className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
             >
-              Refonte + conformité en un pack : site conforme dès 1 500 € →
+              Refonte + conformité en un pack : le site conforme →
             </Link>
           </div>
         </div>

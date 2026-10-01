@@ -5,7 +5,7 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
 
 export const metadata: Metadata = {
   title:
-    "Pack site conforme : site vitrine + accessibilité (RGAA) + AI Act, à partir de 1 500 €",
+    "Pack site conforme : site vitrine + accessibilité (RGAA) + AI Act, prix fixe",
   description:
     "Création ou refonte de votre site vitrine avec la conformité incluse : accessibilité (EAA/RGAA), mentions et charte IA (AI Act). Prix fixe annoncé à l'avance, livré par l'atelier TROIE à Nice.",
   alternates: { canonical: "https://troiestudio.fr/creation/site-conforme" },
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     url: "https://troiestudio.fr/creation/site-conforme",
     title: "Pack site conforme : votre site aux normes, une bonne fois",
     description:
-      "Site vitrine + accessibilité RGAA + volet AI Act, à partir de 1 500 €. L'offre productisée de TROIE Studio.",
+      "Site vitrine + accessibilité RGAA + volet AI Act, prix fixe annoncé avant de commencer. L'offre productisée de TROIE Studio.",
   },
 };
 
@@ -67,7 +67,7 @@ const INCLUS = [
 const FAQ = [
   {
     q: "Combien coûte le pack site conforme ?",
-    a: "À partir de 1 500 €, avec un prix fixe annoncé avant de commencer (fourchette 1 500 à 3 500 € selon le périmètre : nombre de pages, e-commerce ou vitrine, contenus à reprendre). Pas de facturation au temps passé.",
+    a: "Le prix dépend du périmètre : nombre de pages, vitrine ou e-commerce, contenus à reprendre. Il est fixé par écrit après l'audit gratuit et ne bouge plus. Pas de facturation au temps passé.",
   },
   {
     q: "Mon site actuel peut-il être mis en conformité sans refonte ?",
@@ -79,7 +79,7 @@ const FAQ = [
   },
   {
     q: "Que se passe-t-il après la livraison ?",
-    a: "Votre site évolue, la conformité doit suivre. Notre supervision mensuelle (500 à 1 500 € par mois) re-teste chaque mise en production, accessibilité et IA comprises, et tient votre documentation à jour.",
+    a: "Votre site évolue, la conformité doit suivre. Notre supervision mensuelle re-teste chaque mise en production, accessibilité et IA comprises, et tient votre documentation à jour.",
   },
 ];
 
@@ -139,7 +139,7 @@ export default function SiteConformePage() {
           Un site vitrine créé ou refondu par l&apos;atelier, avec la
           conformité incluse dès la conception : accessibilité (RGAA),
           transparence IA (AI Act), et le dossier de preuve qui va avec.
-          Prix fixe annoncé avant de commencer, à partir de 1 500 €.
+          Prix fixe annoncé avant de commencer.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
           <a
@@ -227,13 +227,12 @@ export default function SiteConformePage() {
                 Prix fixe, annoncé avant de commencer
               </p>
               <p className="t-display mt-4 text-4xl md:text-5xl">
-                à partir de 1 500 €
+                Un prix, par écrit.
               </p>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#f5f0e6]/75 md:text-base">
-                Fourchette 1 500 à 3 500 € selon le périmètre (nombre de
-                pages, vitrine ou e-commerce, contenus à reprendre). Le prix
-                exact est posé par écrit après l&apos;audit gratuit, et il ne
-                bouge plus.
+                Le prix dépend du périmètre : nombre de pages, vitrine ou
+                e-commerce, contenus à reprendre. Il est posé par écrit après
+                l&apos;audit gratuit, et il ne bouge plus.
               </p>
             </div>
             <div className="md:col-span-5">

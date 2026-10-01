@@ -81,14 +81,15 @@ export function AgentIaPmeGuide() {
 
       <h2>Combien ça coûte ?</h2>
       <p>
-        Chez nous, les prix sont publiés : un{" "}
-        <strong>déploiement d&apos;agent se situe entre 5 000 et 15 000 €</strong>{" "}
-        selon la complexité (connecteurs, volumes, sensibilité des données),
-        précédé d&apos;un diagnostic entre 1 500 et 3 000 € qui cartographie
-        vos processus et priorise les cas d&apos;usage. La supervision
-        mensuelle va de 500 à 1 500 € par mois, sans engagement. Et le premier
-        pas, l&apos;audit de 30 minutes, est gratuit :{" "}
-        <Link href="/ia#tarifs">le détail des offres est ici</Link>.
+        Le prix d&apos;un{" "}
+        <strong>déploiement d&apos;agent dépend surtout de trois choses</strong>{" "}
+        : les connecteurs à brancher, les volumes traités et la sensibilité
+        des données. Chez nous, il est précédé d&apos;un diagnostic qui
+        cartographie vos processus et priorise les cas d&apos;usage, puis
+        suivi d&apos;une supervision mensuelle, sans engagement. Chaque étape
+        fait l&apos;objet d&apos;un devis écrit. Le premier pas, l&apos;audit
+        de 30 minutes, est gratuit :{" "}
+        <Link href="/ia#tarifs">le détail des étapes est ici</Link>.
       </p>
 
       <h2>Les trois erreurs qu&apos;on voit partout</h2>

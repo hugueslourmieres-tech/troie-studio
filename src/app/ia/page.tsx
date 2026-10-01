@@ -61,7 +61,6 @@ const SOLO_PACKS = [
     badge: "Pack 01",
     title: "Découverte solo.",
     duration: "1/2 journée, 4 h",
-    price: "900 €",
     body:
       "Vous partez de zéro. On installe les bons outils, on apprend la méthode, on construit ensemble votre première bibliothèque de prompts adaptée à votre activité.",
     bullets: [
@@ -74,7 +73,6 @@ const SOLO_PACKS = [
     badge: "Pack 02",
     title: "Atelier perso.",
     duration: "1 journée, 7 h",
-    price: "1 800 €",
     body:
       "Un workflow IA construit avec vous, sur votre activité réelle. Vous repartez avec votre boîte à outils, pas une présentation générique.",
     bullets: [
@@ -87,7 +85,6 @@ const SOLO_PACKS = [
     badge: "Pack 03",
     title: "Suivi 30 jours.",
     duration: "1 mois, 8 h de coaching",
-    price: "2 400 €",
     body:
       "Un agent IA dédié sur votre cas + 2 sessions de 1 h par semaine pour ajuster. Vous passez de l'expérimentation à la maîtrise sereine.",
     bullets: [
@@ -104,7 +101,6 @@ const PRO_PACKS = [
     icon: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M13 7a4 4 0 1 0-8 0 4 4 0 0 0 8 0M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75",
     title: "Découverte équipe.",
     duration: "1/2 journée, jusqu'à 10 pers.",
-    price: "990 €",
     body:
       "Fondamentaux IA pour toute l'équipe. ChatGPT, Claude, Gemini. Méthode de prompting, hygiène des données, bibliothèque de prompts partagée.",
     bullets: [
@@ -119,7 +115,6 @@ const PRO_PACKS = [
     icon: "m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z",
     title: "Pratique créative.",
     duration: "1 journée, jusqu'à 8 pers.",
-    price: "1 800 €",
     body:
       "Production & création IA pour les équipes marketing, com', création. Midjourney, Sora, Veo, Runway. Vous repartez avec un workflow reproductible.",
     bullets: [
@@ -134,7 +129,6 @@ const PRO_PACKS = [
     icon: "M12 8V4H8M4 8h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2zM2 14h2M20 14h2M15 13v2M9 13v2",
     title: "Agents IA & automatisation.",
     duration: "2 journées, jusqu'à 6 pers.",
-    price: "3 600 €",
     body:
       "Make, n8n, Zapier. Conception et déploiement d'agents IA sur vos cas réels. 1 a 2 automatisations en production à la sortie de la formation.",
     bullets: [
@@ -579,12 +573,11 @@ export default function IaLandingPage() {
                     </ul>
                     <div className="flex-1" />
                     <div className={`mt-10 border-t pt-6 ${t.rule}`}>
-                      <p className="t-display text-2xl md:text-3xl">{p.price}</p>
                       <a
                         href={CAL_URL}
                         target="_blank"
                         rel="noreferrer"
-                        className={`group mt-6 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
+                        className={`group inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
                       >
                         Réserver
                         <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -635,7 +628,7 @@ export default function IaLandingPage() {
                   ))}
                 </ul>
                 <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#1a1714]/20 pt-6">
-                  <p className="t-display text-3xl md:text-4xl">4 900 €</p>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/70">Sur devis, après un appel de 30 min</p>
                   <a
                     href={CAL_URL}
                     target="_blank"
@@ -815,7 +808,7 @@ export default function IaLandingPage() {
                   ))}
                 </ul>
                 <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#f5f0e6]/15 pt-6">
-                  <p className="t-display text-3xl md:text-4xl">5 000 à 15 000 €</p>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6]/60">Sur devis, selon votre équipe</p>
                   <Link
                     href={`${MAIN_SITE}/fr/contact`}
                     className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
@@ -904,10 +897,9 @@ export default function IaLandingPage() {
                   </ul>
                   <div className="flex-1" />
                   <div className={`mt-10 border-t pt-6 ${t.rule}`}>
-                    <p className="t-display text-2xl md:text-3xl">{p.price}</p>
                     <Link
                       href={p.cta.href}
-                      className={`group mt-6 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
+                      className={`group inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${t.cta}`}
                     >
                       {p.cta.label}
                       <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -924,20 +916,22 @@ export default function IaLandingPage() {
 
 
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-          TARIFS, les 4 offres packagées (fourchettes publiées)
+          COMMENT ON AVANCE, les 4 étapes. Ancre #tarifs gardée : des articles
+          de blog et /ia/ai-act y renvoient. Prix retirés le 1er/10/2026 à la
+          demande de Hugues : tout se fait sur devis après l'appel de 30 min.
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="tarifs" className="border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
           <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
-            Tarifs
+            Comment on avance
           </p>
           <h2 className="t-display mt-8 max-w-3xl text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
-            Des prix publiés, pas de surprise.
+            Quatre étapes, un devis clair.
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             Quatre briques, dans l&apos;ordre où on les active. Tout commence
-            par l&apos;audit gratuit ; tout devient serein avec la supervision
-            en continu.
+            par un appel de 30 minutes. Le prix se fixe ensuite sur devis,
+            une fois votre cas compris.
           </p>
 
           <div className="mt-14 grid gap-6 md:mt-16 lg:grid-cols-4">
@@ -945,32 +939,28 @@ export default function IaLandingPage() {
               {
                 step: "01",
                 title: "Audit IA",
-                price: "Gratuit",
-                unit: "30 minutes",
+                unit: "30 minutes, offert",
                 body: "On regarde vos tâches réelles et on vous dit où l'IA rapporte. Réponse écrite et chiffrée sous 48 h.",
                 featured: false,
               },
               {
                 step: "02",
                 title: "Diagnostic IA",
-                price: "1 500 à 3 000 €",
-                unit: "selon périmètre",
+                unit: "Sur devis, selon périmètre",
                 body: "Cartographie de vos processus, cas d'usage priorisés, feuille de route chiffrée et plan de conformité (AI Act, accessibilité).",
                 featured: false,
               },
               {
                 step: "03",
                 title: "Déploiement d'agent",
-                price: "5 000 à 15 000 €",
-                unit: "par agent, selon complexité",
+                unit: "Sur devis, selon complexité",
                 body: "Un agent IA construit sur votre cas réel, connecté à vos outils, testé, documenté, avec votre équipe formée.",
                 featured: false,
               },
               {
                 step: "04",
                 title: "Supervision continue",
-                price: "500 à 1 500 €",
-                unit: "/ mois, sans engagement",
+                unit: "Chaque mois, sans engagement",
                 body: "Vos agents surveillés, maintenus et améliorés chaque mois. Rapport mensuel, ajustements, hotline. L'assurance que ça tourne.",
                 featured: true,
               },
@@ -989,10 +979,7 @@ export default function IaLandingPage() {
                 <h3 className={`t-display mt-4 text-2xl md:text-[26px] ${o.featured ? "text-[#f5f0e6]" : "text-[var(--fg)]"}`}>
                   {o.title}
                 </h3>
-                <p className={`t-display mt-5 text-3xl ${o.featured ? "text-[var(--accent)]" : "text-[var(--fg)]"}`}>
-                  {o.price}
-                </p>
-                <p className={`mt-1 font-mono text-[10px] uppercase tracking-[0.18em] ${o.featured ? "text-[#f5f0e6]/60" : "text-[var(--fg-2)]/65"}`}>
+                <p className={`mt-3 font-mono text-[10px] uppercase tracking-[0.18em] ${o.featured ? "text-[var(--accent)]" : "text-[var(--fg-2)]/65"}`}>
                   {o.unit}
                 </p>
                 <p className={`mt-4 text-sm leading-relaxed ${o.featured ? "text-[#f5f0e6]/80" : "text-[var(--fg-2)]"}`}>
@@ -1013,7 +1000,7 @@ export default function IaLandingPage() {
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </a>
             <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg-2)]/65">
-              Prix HT, devis détaillé sous 48 h après l&apos;audit
+              Devis détaillé sous 48 h après l&apos;appel
             </p>
           </div>
         </div>

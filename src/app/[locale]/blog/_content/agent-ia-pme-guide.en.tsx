@@ -80,14 +80,14 @@ export function AgentIaPmeGuideEn() {
 
       <h2>How much does it cost?</h2>
       <p>
-        Our prices are public: an{" "}
-        <strong>agent deployment runs from €5,000 to €15,000</strong>{" "}
-        depending on complexity (connectors, volumes, data sensitivity),
-        preceded by a €1,500 to €3,000 assessment that maps your
-        processes and prioritises the use cases. Monthly supervision runs
-        from €500 to €1,500 per month, with no lock-in. And the first
-        step, the 30-minute audit, is free:{" "}
-        <Link href="/ia#tarifs">the full pricing is here</Link>.
+        The price of an{" "}
+        <strong>agent deployment depends mostly on three things</strong>:
+        the connectors to plug in, the volumes processed and how sensitive
+        the data is. With us, it comes after an assessment that maps your
+        processes and prioritises the use cases, then monthly supervision
+        with no lock-in. Every step gets a written quote. The first step,
+        the 30-minute audit, is free:{" "}
+        <Link href="/ia#tarifs">the steps are detailed here</Link>.
       </p>
 
       <h2>The three mistakes we see everywhere</h2>

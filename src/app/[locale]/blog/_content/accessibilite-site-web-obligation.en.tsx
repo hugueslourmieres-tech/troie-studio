@@ -125,7 +125,7 @@ export function AccessibiliteSiteWebObligationEn() {
       <p>
         At TROIE, accessibility is the second pillar of our compliance
         offer, alongside the AI Act: a free audit, a full RGAA
-        assessment (1,500 to 3,000 €), remediation by our developers,
+        assessment (quoted upfront), remediation by our developers,
         and ongoing monitoring so every release stays compliant. The
         first step takes 30 minutes and costs nothing.
       </p>
