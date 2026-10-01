@@ -34,7 +34,7 @@ export const VIDEOS: VideoItem[] = [
     client: "GS Monaco",
     title: {
       fr: "GS Monaco, vidéo de présentation",
-      en: "GS Monaco, présentation film",
+      en: "GS Monaco, presentation film",
     },
   },
   {
@@ -79,37 +79,13 @@ export const VIDEOS: VideoItem[] = [
 
   // ─────────────────────────────────────────────────────────────
   // YouTube testimonials, playlist PLr1x4-E5afOkvOVTLw5iidVcos_-MN7NB
-  // Titles aligned with the actual YouTube titles.
+  // Titres revérifiés le 1er/10/2026 via l'oEmbed YouTube : les libellés
+  // étaient décalés d'une vidéo (Autajon était posé sur la vidéo Viappiani,
+  // GS Monaco sur LEFRANCQ, etc.). Toujours vérifier l'identifiant avant de
+  // changer un libellé.
   {
     kind: "youtube",
     youtubeId: "78a006Kulok",
-    client: "GS Monaco × Forbes",
-    title: {
-      fr: "Témoignage, GS Monaco & Forbes Monaco",
-      en: "Testimonial, GS Monaco & Forbes Monaco",
-    },
-  },
-  {
-    kind: "youtube",
-    youtubeId: "yAZbtKzN_j0",
-    client: "Wauters B'Pack",
-    title: {
-      fr: "Wauters B'Pack, précision colorimétrique en imprimerie",
-      en: "Wauters B'Pack, advancing color précision in printing",
-    },
-  },
-  {
-    kind: "youtube",
-    youtubeId: "r7_4EdplcdE",
-    client: "Autajon × Rutherford",
-    title: {
-      fr: "Autajon Packaging × Rutherford",
-      en: "Autajon Packaging × Rutherford",
-    },
-  },
-  {
-    kind: "youtube",
-    youtubeId: "FTjkGK2K-wI",
     client: "LEFRANCQ Packaging",
     title: {
       fr: "LEFRANCQ Packaging, « We can't run the press without it »",
@@ -118,16 +94,52 @@ export const VIDEOS: VideoItem[] = [
   },
   {
     kind: "youtube",
-    youtubeId: "XjgKPUguTfw",
-    client: "Moderna Printing × Rutherford",
+    youtubeId: "yAZbtKzN_j0",
+    client: "Wauters B'Pack",
     title: {
-      fr: "Moderna Printing, moins de gâche, mises en route plus rapides",
-      en: "Moderna Printing, reduced waste, smarter startups with Rutherford",
+      fr: "Wauters B'Pack, précision colorimétrique en imprimerie",
+      en: "Wauters B'Pack, advancing color precision in printing",
+    },
+  },
+  {
+    kind: "youtube",
+    youtubeId: "r7_4EdplcdE",
+    client: "Viappiani Printing",
+    title: {
+      fr: "Viappiani Printing, précision, vitesse et moins de gâche",
+      en: "Viappiani Printing, precision, speed and less waste",
+    },
+  },
+  {
+    kind: "youtube",
+    youtubeId: "FTjkGK2K-wI",
+    client: "Autajon Packaging Milan",
+    title: {
+      fr: "Autajon Packaging Milan, régularité des couleurs et efficacité",
+      en: "Autajon Packaging Milan, colour consistency and efficiency",
+    },
+  },
+  {
+    kind: "youtube",
+    youtubeId: "XjgKPUguTfw",
+    client: "GS Monaco × Forbes",
+    title: {
+      fr: "Témoignage, GS Monaco & Forbes Monaco",
+      en: "Testimonial, GS Monaco & Forbes Monaco",
     },
   },
   {
     kind: "youtube",
     youtubeId: "vYN1mjCK9VU",
+    client: "Moderna Printing",
+    title: {
+      fr: "Moderna Printing, moins de gâche, mises en route plus rapides",
+      en: "Moderna Printing, reduced waste, smarter startups",
+    },
+  },
+  {
+    kind: "youtube",
+    youtubeId: "w4sA1QzEvOs",
     client: "ColorConsulting Italy",
     title: {
       fr: "Témoignage, ColorConsulting Italy",
@@ -136,20 +148,11 @@ export const VIDEOS: VideoItem[] = [
   },
   {
     kind: "youtube",
-    youtubeId: "w4sA1QzEvOs",
+    youtubeId: "ut247z4ren8",
     client: "Printwell USA",
     title: {
       fr: "Témoignage, Printwell USA",
       en: "Testimonial, Printwell USA",
-    },
-  },
-  {
-    kind: "youtube",
-    youtubeId: "ut247z4ren8",
-    client: "Avery Dennison Querétaro",
-    title: {
-      fr: "Témoignage, Avery Dennison, Querétaro",
-      en: "Testimonial, Avery Dennison, Querétaro",
     },
   },
 ];
