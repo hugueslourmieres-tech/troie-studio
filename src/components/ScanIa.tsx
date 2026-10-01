@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 
-import { BuyServiceButton } from "@/components/BuyServiceButton";
-
 /**
  * Le scan de visibilité : formulaire + rapport à deux notes, SEO et GEO.
  *
@@ -13,8 +11,9 @@ import { BuyServiceButton } from "@/components/BuyServiceButton";
  * Sous les anneaux, les trois corrections prioritaires (premiers échecs
  * des catégories les plus lourdes) avant le détail complet.
  *
- * Tout est affiché sans inscription : la conversion se joue sur le bloc
- * audit à 890 €, pas sur une barrière à l'email.
+ * Tout est affiché sans inscription : la conversion se joue sur l'appel
+ * de 30 min, pas sur une barrière à l'email. Prix et paiement en ligne
+ * retirés le 1er/10/2026 (décision de Hugues : tout passe par un devis).
  *
  * Registre honnête, non négociable : on mesure la lisibilité par les
  * moteurs, on ne promet jamais une position ni une citation.
@@ -64,12 +63,9 @@ const COPY = {
       "Trente minutes en visio : on passe votre rapport en revue point par point, on chiffre le potentiel de visites et de ventes selon votre trafic réel, et vous repartez avec les corrections prioritaires expliquées. Sans engagement.",
     ctaAfter:
       "Ensuite, si vous préférez que ce soit fait pour vous : l'audit-fix corrige tout (Schema.org, llms.txt, contenus, coordonnées) avec un rapport daté qui prouve le travail.",
-    ctaPrice: "890 €",
-    ctaPriceNote: "prix fixe, déductible, seulement si vous nous confiez les corrections",
+    ctaPriceNote:
+      "Prix fixe sur devis, déductible, seulement si vous nous confiez les corrections. Rapport avant/après daté sous 10 jours ouvrés.",
     ctaBook: "Réserver mon audit gratuit",
-    orderButton: "Commander l'audit-fix, 890 €",
-    orderNote:
-      "Paiement sécurisé Stripe. Prise de contact sous 48 h ouvrées pour valider le périmètre, rapport avant/après daté sous 10 jours ouvrés.",
     honesty:
       "Ce scan mesure la lisibilité de votre site par les moteurs de recherche et les moteurs IA (ChatGPT, Perplexity, résumés IA de Google). Personne ne peut garantir une position ni une citation, et ceux qui le promettent vous trompent. Ce que ce rapport liste, en revanche, se corrige et se vérifie.",
   },
@@ -101,12 +97,9 @@ const COPY = {
       "Thirty minutes on a call: we walk through your report point by point, quantify the visit and sales potential based on your real traffic, and you leave with the priority fixes explained. No commitment.",
     ctaAfter:
       "Then, if you would rather have it done for you: the audit-fix corrects everything (Schema.org, llms.txt, content, contact signals) with a dated report that proves the work.",
-    ctaPrice: "€890",
-    ctaPriceNote: "fixed price, deductible, only if you hand us the fixes",
+    ctaPriceNote:
+      "Fixed price, quoted upfront, deductible, only if you hand us the fixes. Dated before/after report within 10 working days.",
     ctaBook: "Book my free audit",
-    orderButton: "Order the audit-fix, €890",
-    orderNote:
-      "Secure Stripe payment. We reach out within 48 working hours to confirm the scope, dated before/after report within 10 working days.",
     honesty:
       "This scan measures how readable your site is for search engines and AI engines (ChatGPT, Perplexity, Google AI Overviews). Nobody can guarantee a ranking or a citation, and anyone promising that is misleading you. What this report lists, however, can be fixed and verified.",
   },
@@ -336,7 +329,7 @@ export function ScanIa({ locale }: { locale: string }) {
             {c.stakes}
           </p>
 
-          {/* CTA : audit complet gratuit d'abord, le prix vient apres */}
+          {/* CTA : l'appel de 30 min, le devis vient après */}
           <div className="mt-8 rounded-2xl border border-[var(--accent)] bg-[var(--accent)]/5 p-8">
             <h3 className="t-display text-2xl md:text-3xl">{c.ctaTitle}</h3>
             <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-[var(--fg-2)]">{c.ctaBody}</p>
@@ -351,19 +344,7 @@ export function ScanIa({ locale }: { locale: string }) {
             </a>
             <p className="mt-6 max-w-2xl border-t border-[var(--fg)]/10 pt-5 text-[13.5px] leading-relaxed text-[var(--fg-2)]">
               {c.ctaAfter}{" "}
-              <span className="font-mono font-semibold tabular-nums text-[var(--fg)]">{c.ctaPrice}</span>
-              <span className="text-[var(--fg-2)]/80">, {c.ctaPriceNote}.</span>
-            </p>
-            <BuyServiceButton
-              product="audit-geo"
-              site={report.url?.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-              locale={locale}
-              label={c.orderButton}
-              fallbackSubject={c.orderButton}
-              className="mt-5 inline-flex items-center gap-3 rounded-full border border-[var(--ink)] px-7 py-3.5 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6] disabled:opacity-60"
-            />
-            <p className="mt-3 max-w-2xl text-[12.5px] leading-relaxed text-[var(--fg-2)]/75">
-              {c.orderNote}
+              <span className="text-[var(--fg-2)]/80">{c.ctaPriceNote}</span>
             </p>
           </div>
 

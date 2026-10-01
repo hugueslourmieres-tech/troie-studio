@@ -34,14 +34,14 @@ import Link from "next/link";
  */
 const COPY = {
   fr: {
-    text: "La rentrée qui se prouve : SEO, visibilité IA, agents, prix publics",
-    short: "Offre de rentrée : la preuve, prix publics",
+    text: "La rentrée qui se prouve : SEO, visibilité IA, agents, création",
+    short: "Offre de rentrée : la preuve d'abord",
     cta: "Voir l'offre →",
     href: "/fr/rentree",
   },
   en: {
-    text: "Back-to-business offer: SEO, AI visibility, agents, public prices",
-    short: "Back-to-business offer, public prices",
+    text: "Back-to-business offer: SEO, AI visibility, agents, design",
+    short: "Back-to-business offer: proof first",
     cta: "See the offer →",
     href: "/en/rentree",
   },

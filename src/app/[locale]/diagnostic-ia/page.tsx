@@ -40,8 +40,6 @@ const COPY = {
       {
         name: "Le diagnostic",
         duration: "1 journée sur site",
-        price: "900 €",
-        net: "soit 675 € après déduction, à titre indicatif",
         body: "L'état des lieux complet. On cartographie les outils utilisés, officiels et officieux, on regarde vos données, et on repart avec un plan d'action chiffré et un premier cas d'usage identifié.",
         items: [
           "Cartographie des usages réels, service par service",
@@ -53,8 +51,6 @@ const COPY = {
       {
         name: "La mise en œuvre",
         duration: "5 jours, étalés sur 6 semaines",
-        price: "4 200 €",
-        net: "soit 3 150 € après déduction, à titre indicatif",
         body: "Le cas d'usage identifié au diagnostic est construit, mis en service et pris en main par vos équipes. Vous ne repartez pas avec un rapport, vous repartez avec quelque chose qui tourne.",
         items: [
           "Le cas d'usage prioritaire livré et en service",
@@ -67,8 +63,6 @@ const COPY = {
       {
         name: "L'accompagnement",
         duration: "2 jours par mois, engagement 6 mois",
-        price: "1 700 € / mois",
-        net: "soit 1 275 € après déduction, à titre indicatif",
         body: "Une direction marketing et IA à temps partagé. Le format qui s'est imposé en 2026 pour les PME qui veulent un profil senior sans en porter le salaire.",
         items: [
           "Pilotage des chantiers IA et acquisition",
@@ -81,7 +75,7 @@ const COPY = {
     costEyebrow: "Ce que ça coûte vraiment",
     costTitle: "Une charge déductible, pas un investissement à fonds perdus.",
     costBody:
-      "Une prestation de conseil engagée dans l'intérêt de l'entreprise est intégralement déductible du résultat imposable. Pour une société à l'impôt sur les sociétés, une facture de 4 200 € pèse réellement 3 150 € au taux normal de 25 %, et 3 570 € au taux réduit de 15 % applicable sur les premiers 42 500 € de bénéfice. Les montants indiqués sur cette page le sont à titre indicatif : votre expert-comptable reste seul juge de votre situation.",
+      "Une prestation de conseil engagée dans l'intérêt de l'entreprise est intégralement déductible du résultat imposable. Pour une société à l'impôt sur les sociétés, chaque euro facturé ne pèse réellement que 75 centimes au taux normal de 25 %, et 85 centimes au taux réduit de 15 % applicable sur les premiers 42 500 € de bénéfice. Ces repères sont indicatifs : votre expert-comptable reste seul juge de votre situation. Le prix de chaque format est fixé sur devis, après un premier échange de 30 minutes.",
     aidEyebrow: "Financements publics",
     aidTitle: "Vous êtes peut-être éligible à des aides. On vous le dit.",
     aidBody:
@@ -101,8 +95,6 @@ const COPY = {
       {
         name: "The assessment",
         duration: "One day on site",
-        price: "€900",
-        net: "roughly €675 after tax deduction, indicative",
         body: "The full picture. We map the tools in use, sanctioned and unsanctioned, review your data, and leave you with a costed action plan and a first use case identified.",
         items: [
           "A map of actual usage, team by team",
@@ -114,8 +106,6 @@ const COPY = {
       {
         name: "The build",
         duration: "Five days across six weeks",
-        price: "€4,200",
-        net: "roughly €3,150 after tax deduction, indicative",
         body: "The use case identified during the assessment gets built, shipped and handed over to your teams. You do not leave with a report, you leave with something that runs.",
         items: [
           "The priority use case, live and in service",
@@ -128,8 +118,6 @@ const COPY = {
       {
         name: "Ongoing support",
         duration: "Two days a month, six-month term",
-        price: "€1,700 / month",
-        net: "roughly €1,275 after tax deduction, indicative",
         body: "A fractional marketing and AI director. The format that became standard in 2026 for SMEs who want a senior profile without carrying the salary.",
         items: [
           "Running your AI and acquisition projects",
@@ -142,7 +130,7 @@ const COPY = {
     costEyebrow: "What it actually costs",
     costTitle: "A deductible expense, not money out the window.",
     costBody:
-      "Consulting engaged in the company's interest is fully deductible from taxable profit. For a company subject to French corporate tax, a €4,200 invoice really costs €3,150 at the standard 25 % rate, and €3,570 at the reduced 15 % rate applying to the first €42,500 of profit. Figures on this page are indicative: your accountant remains the only judge of your situation.",
+      "Consulting engaged in the company's interest is fully deductible from taxable profit. For a company subject to French corporate tax, each euro invoiced really costs 75 cents at the standard 25 % rate, and 85 cents at the reduced 15 % rate applying to the first €42,500 of profit. These figures are indicative: your accountant remains the only judge of your situation. Each format is quoted after a first 30-minute conversation.",
     aidEyebrow: "Public funding",
     aidTitle: "You may be eligible for public support. We will tell you.",
     aidBody:
@@ -235,13 +223,6 @@ export default async function DiagnosticIaPage({
                   <h2 className="t-display text-2xl md:text-3xl">{o.name}</h2>
                   <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg-2)]/60">
                     {o.duration}
-                  </p>
-
-                  <p className="mt-6 text-3xl font-semibold tabular-nums md:text-4xl">
-                    {o.price}
-                  </p>
-                  <p className="mt-1.5 text-[13px] leading-snug text-[var(--fg-2)]/70">
-                    {o.net}
                   </p>
 
                   <p className="mt-6 text-[15px] leading-relaxed text-[var(--fg-2)]">

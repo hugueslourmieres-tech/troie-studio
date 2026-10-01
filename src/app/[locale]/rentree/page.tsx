@@ -17,8 +17,10 @@ import { setRequestLocale } from "next-intl/server";
  * seo ia, geo seo, audit seo, agent ia entreprise, création landing page,
  * agence google ads. Bannis : « visibilité ia » en nommage, « agence geo ».
  *
- * Règles maison : jamais de promesse de citation par une IA, prix publics,
- * article 4 = obligation de moyens, pas d'em-dash, accents complets.
+ * Règles maison : jamais de promesse de citation par une IA, AUCUN prix
+ * affiché (décision de Hugues du 1er/10/2026 : tout passe par un devis écrit
+ * après l'appel de 30 min), article 4 = obligation de moyens, pas d'em-dash,
+ * accents complets.
  */
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
@@ -57,21 +59,21 @@ const COPY = {
       e: "G2 Research, avril 2026. Et 69 % ont changé de fournisseur sur recommandation d'une IA.",
     },
   ],
-  offersTitle: "Quatre offres fermées, prix publics",
+  offersTitle: "Quatre offres, un périmètre clair",
   offersSub:
-    "Pas de devis à rallonge : un périmètre, un prix, un délai, un livrable qui prouve le travail. On assemble ensuite selon vos priorités.",
+    "Un périmètre, un délai, un livrable qui prouve le travail. Le prix est fixé par écrit après un appel de 30 minutes. On assemble ensuite selon vos priorités.",
   packs: [
     {
       tone: "yellow",
       tag: "Tête d'affiche",
       title: "Visibilité IA, GEO et SEO",
-      price: "890 €",
-      priceNote: "l'audit-fix, corrections comprises",
+      headline: "10 jours",
+      headlineNote: "ouvrés pour l'audit-fix, corrections comprises",
       features: [
         "Scan gratuit en 60 secondes : deux notes, SEO et GEO, sans inscription",
-        "Audit-fix 890 € : Schema.org, llms.txt, contenus, coordonnées, corrigés pour vous",
+        "Audit-fix : Schema.org, llms.txt, contenus, coordonnées, corrigés pour vous",
         "Rapport avant/après daté : chaque correction est vérifiable",
-        "Suivi mensuel 590 €, ou Production 990 € avec contenus citables livrés",
+        "Suivi mensuel, ou Production avec contenus citables livrés",
       ],
       cta: "Commencer par le scan gratuit",
       href: "/scan-ia",
@@ -81,8 +83,8 @@ const COPY = {
       tone: "sky",
       tag: "Le gain de temps",
       title: "Votre premier agent IA utile",
-      price: "2 900 €",
-      priceNote: "clé en main, maintenance 300 €/mois",
+      headline: "1 agent",
+      headlineNote: "clé en main, maintenance mensuelle en option",
       features: [
         "Un agent qui travaille sur VOS documents : devis, relances, tri d'emails, contenu",
         "Monté avec vos outils réels (Claude, n8n, Make), pas une démo générique",
@@ -97,11 +99,11 @@ const COPY = {
       tone: "coral",
       tag: "La vitesse",
       title: "Création : landing, site, web app",
-      price: "1 500 €",
-      priceNote: "la landing page, livrée en 7 jours ouvrés",
+      headline: "7 jours",
+      headlineNote: "ouvrés pour livrer la landing page",
       features: [
         "Landing page orientée conversion : copywriting, design, mesure incluse",
-        "Site vitrine complet dès 2 900 €, lisible par Google ET par les moteurs IA",
+        "Site vitrine complet, lisible par Google ET par les moteurs IA",
         "Web app sur mesure : troie.app et bilber.app sont nos preuves publiques",
         "Le marché livre en 2 à 5 semaines. Nous, en 7 jours, et c'est écrit",
       ],
@@ -113,8 +115,8 @@ const COPY = {
       tone: "lime",
       tag: "La régularité",
       title: "Contenus et réseaux sociaux",
-      price: "790 €",
-      priceNote: "par mois, système de contenu complet",
+      headline: "3 posts",
+      headlineNote: "par semaine, système de contenu complet",
       features: [
         "3 publications par semaine, calendrier éditorial et carrousels compris",
         "Pensé pour la portée : formats qui performent, liens au bon endroit",
@@ -149,7 +151,7 @@ const COPY = {
     "Nous sommes de vrais humains qui utilisons les outils IA de manière éthique, pour accompagner des clients qui partagent cette exigence : transparence sur ce que fait la machine et ce que fait la main, respect des données, conformité au règlement européen sur l'IA. Et nous nous réservons le droit de refuser un contrat qui ne serait pas en accord avec nos valeurs.",
   workshopTitle: "Et vos équipes, dans tout ça ?",
   workshopBody:
-    "Une journée d'atelier IA dans vos locaux : vos cas réels, vos outils, vos données. 1 900 € la journée, préparation en ligne sur troie.app incluse pour chaque participant. L'article 4 du règlement européen demande un niveau suffisant de maîtrise de l'IA : c'est une obligation de moyens, et l'atelier plus les attestations nominatives vérifiables en sont la preuve la plus simple.",
+    "Une journée d'atelier IA dans vos locaux : vos cas réels, vos outils, vos données. Préparation en ligne sur troie.app incluse pour chaque participant. L'article 4 du règlement européen demande un niveau suffisant de maîtrise de l'IA : c'est une obligation de moyens, et l'atelier plus les attestations nominatives vérifiables en sont la preuve la plus simple.",
   workshopCta: "Organiser une journée",
   workshopCampus: "Découvrir le campus troie.app",
   bonusTitle: "Le bonus de rentrée, jusqu'au 31 octobre",
@@ -162,8 +164,8 @@ const COPY = {
       e: "Personne ne peut la garantir, et ceux qui le promettent vous trompent. Nous montrons notre propre score et des rapports datés, requête par requête.",
     },
     {
-      t: "Les prix sont publics et fermés",
-      e: "890 €, 1 500 €, 1 900 €, 2 900 €. Sur ce marché, la plupart des agences renvoient au devis. Vous savez où vous allez avant le premier appel.",
+      t: "Un prix fixe, écrit avant de commencer",
+      e: "Après 30 minutes d'échange, vous recevez un devis écrit sous 48 h ouvrées. Pas de facturation au temps passé : vous savez où vous allez avant de signer.",
     },
     {
       t: "Les délais sont écrits, donc tenus",
@@ -222,7 +224,7 @@ export async function generateMetadata({
   return {
     title: "Agence SEO, GEO et création à Nice",
     description:
-      "Audit SEO et GEO à 890 €, premier agent IA à 2 900 €, landing page à 1 500 € en 7 jours, contenus à 790 €/mois. Prix publics, scan gratuit en 60 secondes.",
+      "Audit SEO et GEO, premier agent IA, landing page en 7 jours, contenus chaque mois. Scan gratuit en 60 secondes, devis écrit sous 48 h.",
     /* Offre écrite pour le marché français, en français seulement :
        /en/rentree est une copie, canonique vers /fr, sans hreflang anglais. */
     alternates: { canonical: "/fr/rentree" },
@@ -230,7 +232,7 @@ export async function generateMetadata({
 }
 
 /* JSON-LD : la FAQ visible, balisée (le format le plus repris par les
-   moteurs IA), et le catalogue d'offres avec ses prix publics. */
+   moteurs IA), et le catalogue d'offres, sans prix (devis après l'appel). */
 function jsonLd() {
   return [
     {
@@ -250,34 +252,24 @@ function jsonLd() {
       itemListElement: [
         {
           "@type": "Offer",
-          name: "Audit-fix visibilité IA (GEO + SEO)",
-          price: "890",
-          priceCurrency: "EUR",
+          itemOffered: { "@type": "Service", name: "Audit-fix visibilité IA (GEO + SEO)" },
           url: "https://troiestudio.fr/fr/scan-ia",
         },
         {
           "@type": "Offer",
-          name: "Premier agent IA d'entreprise, clé en main",
-          price: "2900",
-          priceCurrency: "EUR",
+          itemOffered: { "@type": "Service", name: "Premier agent IA d'entreprise, clé en main" },
         },
         {
           "@type": "Offer",
-          name: "Landing page orientée conversion, livrée en 7 jours ouvrés",
-          price: "1500",
-          priceCurrency: "EUR",
+          itemOffered: { "@type": "Service", name: "Landing page orientée conversion, livrée en 7 jours ouvrés" },
         },
         {
           "@type": "Offer",
-          name: "Système de contenu et réseaux sociaux, mensuel",
-          price: "790",
-          priceCurrency: "EUR",
+          itemOffered: { "@type": "Service", name: "Système de contenu et réseaux sociaux, mensuel" },
         },
         {
           "@type": "Offer",
-          name: "Journée d'atelier IA en entreprise, préparation en ligne incluse",
-          price: "1900",
-          priceCurrency: "EUR",
+          itemOffered: { "@type": "Service", name: "Journée d'atelier IA en entreprise, préparation en ligne incluse" },
         },
       ],
     },
@@ -433,10 +425,10 @@ export default async function RentreePage({
                 <div className="flex flex-1 flex-col p-6">
                   <div className="flex items-baseline gap-2.5">
                     <span className="text-4xl font-extrabold tabular-nums">
-                      {pack.price}
+                      {pack.headline}
                     </span>
                     <span className="text-[13px] font-semibold text-[#6b6a67]">
-                      {pack.priceNote}
+                      {pack.headlineNote}
                     </span>
                   </div>
                   <ul className="mt-5 flex flex-col gap-2.5">

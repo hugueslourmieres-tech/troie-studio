@@ -12,8 +12,8 @@ import { metaDescription } from "@/lib/seo";
  * France le 22 juillet 2026 ; quand un résumé IA s'affiche, le CTR organique
  * chute de 61 % sur les requêtes informationnelles (Seer Interactive,
  * 3 119 requêtes). Le scan gratuit montre au dirigeant si son site est
- * lisible par les moteurs IA, et l'audit-fix à 890 € corrige ce qui ne
- * l'est pas.
+ * lisible par les moteurs IA, et l'audit-fix (sur devis depuis le
+ * 1er/10/2026) corrige ce qui ne l'est pas.
  *
  * Même cadre éditorial que /diagnostic-ia : on vend du conseil, jamais de
  * la « formation », et on ne promet JAMAIS une citation par une IA (personne
@@ -28,7 +28,7 @@ const COPY = {
       "Depuis le 22 juillet 2026, Google affiche ses résumés IA en France, et vos clients posent leurs questions à ChatGPT. Quand un résumé IA s'affiche, les clics vers les sites chutent de moitié. La question n'est plus d'être bien classé : c'est d'être lisible, et cité, par les moteurs IA. Ce scan vous donne en 60 secondes deux notes, SEO et GEO, gratuitement, sans inscription.",
     how: "Le scan lit votre site comme le ferait un robot de moteur IA : accès autorisés, contenu réellement servi, données structurées, signaux de citabilité. Cinq familles de vérifications, deux notes sur 100 (SEO pour Google, GEO pour les moteurs IA), les corrections prioritaires, et le détail complet.",
     diagLink: "Voir aussi le diagnostic IA complet",
-    rentreeLink: "L'offre de rentrée complète, prix publics",
+    rentreeLink: "L'offre de rentrée complète",
   },
   en: {
     eyebrow: "Free AI scan",
@@ -37,7 +37,7 @@ const COPY = {
       "Since 22 July 2026, Google shows AI Overviews in France, and your customers ask ChatGPT directly. When an AI summary appears, clicks to websites drop by half. The question is no longer ranking well: it is being readable, and citable, by AI engines. This scan gives you two scores in 60 seconds, SEO and GEO, free, no sign-up.",
     how: "The scan reads your site the way an AI engine's crawler would: allowed access, content actually served, structured data, citability signals. Five families of checks, two scores out of 100 (SEO for Google, GEO for AI engines), the priority fixes, and the full detail.",
     diagLink: "See also the full AI assessment",
-    rentreeLink: "The full back-to-business offer, public prices",
+    rentreeLink: "The full back-to-business offer",
   },
 } as const;
 
