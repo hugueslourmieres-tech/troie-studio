@@ -11,8 +11,12 @@ export async function Footer({ locale }: { locale: string }) {
   return (
     <footer className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-        <div className="grid gap-16 md:grid-cols-12 md:gap-20">
-          <div className="md:col-span-4">
+        {/* Grille du pied (9/10/2026) : en 12 colonnes avec 80 px d'écart, la
+            colonne Contact tombait à 80 px pour trois icônes de 36 px et la page
+            débordait sur tablette. Deux colonnes sur tablette, puis quatre dont
+            la dernière prend la largeur de son contenu. */}
+        <div className="grid gap-14 sm:grid-cols-2 sm:gap-x-12 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)_auto] lg:gap-16">
+          <div>
             <Logo
               variant="stack"
               className="w-44 text-[var(--fg)]"
@@ -22,7 +26,7 @@ export async function Footer({ locale }: { locale: string }) {
             </p>
           </div>
 
-          <div className="md:col-span-3">
+          <div>
             <p className="t-eyebrow">Studio</p>
             <ul className="mt-6 space-y-3 text-sm">
               <li>
@@ -43,9 +47,9 @@ export async function Footer({ locale }: { locale: string }) {
               </li>
               {/* L'entrée « Formations » a été retirée de cette colonne le
                   29/07/2026 : elle pointait sur troie.app/formation, exactement
-                  comme « Attestation article 4 » dans la colonne « Le campus »,
+                  comme « Attestation article 4 » dans la colonne troie.app,
                   soit deux libellés pour une même page. Cette colonne liste les
-                  pages du studio, la colonne campus liste celles de troie.app,
+                  pages du studio, la colonne troie.app liste celles de troie.app,
                   et chaque destination n'a plus qu'un seul libellé. */}
               <li>
                 <Link
@@ -74,8 +78,8 @@ export async function Footer({ locale }: { locale: string }) {
             </ul>
           </div>
 
-          <div className="md:col-span-3">
-            <p className="t-eyebrow">Le campus</p>
+          <div>
+            <p className="t-eyebrow">troie.app</p>
             <ul className="mt-6 space-y-3 text-sm">
               <li>
                 <a
@@ -84,7 +88,7 @@ export async function Footer({ locale }: { locale: string }) {
                   rel="noopener"
                   className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
-                  troie.app
+                  Quiz IA gratuits
                 </a>
               </li>
               <li>
@@ -94,7 +98,7 @@ export async function Footer({ locale }: { locale: string }) {
                   rel="noopener"
                   className="text-[var(--fg-2)] transition hover:text-[var(--accent)]"
                 >
-                  Formation AI Act
+                  AI Act expliqué
                 </a>
               </li>
               <li>
@@ -110,7 +114,7 @@ export async function Footer({ locale }: { locale: string }) {
             </ul>
           </div>
 
-          <div className="md:col-span-2">
+          <div>
             <p className="t-eyebrow">Contact</p>
             <ul className="mt-6 flex items-center gap-5">
               <li>

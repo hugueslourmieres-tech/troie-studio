@@ -71,7 +71,7 @@ export function ServiceSection({
     >
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         <div
-          className={`grid gap-16 md:grid-cols-12 md:gap-20 ${
+          className={`grid gap-16 md:grid-cols-12 md:gap-x-8 md:gap-y-20 lg:gap-x-20 ${
             reverse ? "md:[&>*:first-child]:order-2" : ""
           }`}
         >

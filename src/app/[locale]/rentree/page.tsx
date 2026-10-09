@@ -151,9 +151,9 @@ const COPY = {
     "Nous sommes de vrais humains qui utilisons les outils IA de manière éthique, pour accompagner des clients qui partagent cette exigence : transparence sur ce que fait la machine et ce que fait la main, respect des données, conformité au règlement européen sur l'IA. Et nous nous réservons le droit de refuser un contrat qui ne serait pas en accord avec nos valeurs.",
   workshopTitle: "Et vos équipes, dans tout ça ?",
   workshopBody:
-    "Une journée d'atelier IA dans vos locaux : vos cas réels, vos outils, vos données. Préparation en ligne sur troie.app incluse pour chaque participant. L'article 4 du règlement européen demande un niveau suffisant de maîtrise de l'IA : c'est une obligation de moyens, et l'atelier plus les attestations nominatives vérifiables en sont la preuve la plus simple.",
+    "Une journée d'atelier IA dans vos locaux : vos cas réels, vos outils, vos données. Chaque participant garde ensuite les quiz gratuits de troie.app pour s'entraîner. L'article 4 du règlement européen demande un niveau suffisant de maîtrise de l'IA : c'est une obligation de moyens, et l'atelier plus les attestations nominatives vérifiables en sont la preuve la plus simple.",
   workshopCta: "Organiser une journée",
-  workshopCampus: "Découvrir le campus troie.app",
+  workshopCampus: "Découvrir les quiz gratuits troie.app",
   bonusTitle: "Le bonus de rentrée, jusqu'au 31 octobre",
   bonusBody:
     "Pour toute commande d'un audit-fix ou d'un agent avant le 31 octobre : un re-scan de contrôle à 90 jours, offert, avec rapport comparatif daté. Pas de remise : une preuve de plus.",

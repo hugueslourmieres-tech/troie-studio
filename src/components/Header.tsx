@@ -115,7 +115,7 @@ export function Header({
               l'apprentissage et le compte vivent sur troie.app). */}
           <div className="hidden items-center gap-4 lg:flex">
             {showLang && <LangSwitch locale={locale} />}
-            {/* Passerelle produit : le campus vit sur troie.app */}
+            {/* Passerelle : les quiz gratuits vivent sur troie.app */}
             <a
               href="https://troie.app"
               target="_blank"

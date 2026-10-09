@@ -378,7 +378,7 @@ export default function IaLandingPage() {
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="solo" className="border-t border-[var(--rule)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
-          <div className="grid gap-12 md:grid-cols-12 md:gap-20">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-x-8 lg:gap-x-20">
             <div className="md:col-span-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
                 Pour les indeps, micro, auto-entrepreneurs
@@ -621,7 +621,7 @@ export default function IaLandingPage() {
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="pro" className="relative isolate overflow-hidden border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
         <div className="relative mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
-          <div className="grid gap-12 md:grid-cols-12 md:gap-20">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-x-8 lg:gap-x-20">
             <div className="md:col-span-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
                 Pour les marques, équipes, entreprises
@@ -962,7 +962,7 @@ export default function IaLandingPage() {
       {/* FAQ */}
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
-          <div className="grid gap-12 md:grid-cols-12 md:gap-20">
+          <div className="grid gap-12 md:grid-cols-12 md:gap-x-8 lg:gap-x-20">
             <div className="md:col-span-5">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
                 Questions fréquentes

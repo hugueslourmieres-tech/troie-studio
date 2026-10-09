@@ -3,7 +3,7 @@ import { Intro } from "@/components/Intro";
 import { ManagerSection } from "@/components/ManagerSection";
 import { AudienceFork } from "@/components/AudienceFork";
 import { AiUrgency } from "@/components/AiUrgency";
-import { CampusBridge } from "@/components/CampusBridge";
+import { QuizBridge } from "@/components/QuizBridge";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { AboutBlock } from "@/components/AboutBlock";
 import { McpSection } from "@/components/McpSection";
@@ -23,7 +23,7 @@ import { WriteOnScroll } from "@/components/WriteOnScroll";
  * arrivaient trop tard.
  *
  * Séquence actuelle : on pose le studio (héros), on ouvre par l'urgence AI Act,
- * on montre le campus, on oriente (fork), PUIS on prouve (clients) et on offre
+ * on signale les quiz gratuits de troie.app, on oriente (fork), PUIS on prouve (clients) et on offre
  * la sortie (bande de contact). Le reste du bloc IA suit (MCP, Mensch), et
  * l'atelier création vient ensuite comme preuve de fabrication, avant l'équipe,
  * le journal et le contact de clôture.
@@ -50,14 +50,14 @@ export default async function HomePage({
           s'informer puis à se former. */}
       <AiUrgency locale={locale} />
 
-      {/* LE CAMPUS : la passerelle décisive vers troie.app. Après le hook AI
-          Act, on explique ce qu'est le campus et à quoi il sert (2 heures,
-          attestation, gratuit pour commencer), capture produit à l'appui. */}
-      <CampusBridge locale={locale} />
+      {/* TROIE.APP : depuis le 9/10/2026, une bande courte et un seul lien,
+          « Nos quiz gratuits ». Le grand bloc « Le campus » est retiré :
+          troie.app n'est plus un campus payant mais des quiz sans compte. */}
+      <QuizBridge locale={locale} />
 
       {/* FORK Pro / Perso : oriente le visiteur. Le volet Particuliers
           (apprentissage) renvoie vers troie.app ; le volet Pro reste sur
-          les services agence (audit, IA Pro). Remonté juste après le campus :
+          les services agence (audit, IA Pro). Remonté juste après les quiz :
           c'est la décision d'orientation, elle suit l'offre, elle ne se
           découvre pas après le portfolio. */}
       <AudienceFork locale={locale} />

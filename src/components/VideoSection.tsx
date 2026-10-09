@@ -21,7 +21,7 @@ export function VideoSection({
     <p className="t-eyebrow">Vidéo</p>
   ) : (
     <Reveal>
-      <div className="grid gap-12 md:grid-cols-12 md:gap-20">
+      <div className="grid gap-12 md:grid-cols-12 md:gap-x-8 md:gap-y-20 lg:gap-x-20">
         <div className="md:col-span-4">
           <p className="t-eyebrow">{t("videosEyebrow")}</p>
           <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
