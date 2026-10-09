@@ -65,7 +65,7 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
           {/* Close button, overlays burger, same position, X icon */}
           <button
             type="button"
-            aria-label="Fermer le menu"
+            aria-label={locale === "en" ? "Close menu" : "Fermer le menu"}
             onClick={() => setOpen(false)}
             className="absolute right-6 top-5 z-10 flex h-10 w-10 items-center justify-center text-[var(--fg)]"
           >
@@ -206,7 +206,7 @@ export function MobileMenu({ locale, groups, showLang = true }: Props) {
 
   return (
     <>
-      <BurgerButton open={open} onClick={() => setOpen((v) => !v)} />
+      <BurgerButton open={open} en={locale === "en"} onClick={() => setOpen((v) => !v)} />
       {mounted ? createPortal(overlay, document.body) : null}
     </>
   );
@@ -236,15 +236,17 @@ function ArrowRight() {
  */
 function BurgerButton({
   open,
+  en = false,
   onClick,
 }: {
   open: boolean;
+  en?: boolean;
   onClick: () => void;
 }) {
   return (
     <button
       type="button"
-      aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+      aria-label={en ? (open ? "Close menu" : "Open menu") : open ? "Fermer le menu" : "Ouvrir le menu"}
       aria-expanded={open}
       onClick={onClick}
       className="group relative z-50 h-11 w-11 lg:hidden"

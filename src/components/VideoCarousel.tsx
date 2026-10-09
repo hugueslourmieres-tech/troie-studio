@@ -231,7 +231,7 @@ function YouTubeMedia({
       <iframe
         src={embedUrl(vidéo.youtubeId, vidéo.start)}
         title={title}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-média; gyroscope; picture-in-picture; web-share"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
         className="h-full w-full"
       />

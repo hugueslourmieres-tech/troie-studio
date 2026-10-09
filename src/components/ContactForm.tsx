@@ -138,10 +138,27 @@ export function ContactForm() {
     // event and `event.currentTarget` becomes null after the await, which
     // was making the success path throw and fall into the error branch.
     const form = event.currentTarget;
+    const en = window.location.pathname.startsWith("/en");
+    const formData = new FormData(form);
+
+    // Vérification avant envoi (9/10/2026) : le formulaire coupe la
+    // validation du navigateur, un clic à vide partait vers l'API et
+    // affichait son message d'erreur en anglais.
+    const filled = (k: string) => String(formData.get(k) ?? "").trim() !== "";
+    if (!filled("name") || !filled("email") || !filled("message")) {
+      setErrorMsg(en ? "Please fill in your name, email and message." : "Indiquez votre nom, votre email et votre message.");
+      setStatus("error");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(formData.get("email")).trim())) {
+      setErrorMsg(en ? "Please check your email address." : "Vérifiez votre adresse email.");
+      setStatus("error");
+      return;
+    }
+
     setStatus("sending");
     setErrorMsg(null);
 
-    const formData = new FormData(form);
     const payload = {
       name: String(formData.get("name") ?? ""),
       email: String(formData.get("email") ?? ""),
@@ -165,7 +182,11 @@ export function ContactForm() {
 
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        setErrorMsg(body?.error ?? "Une erreur est survenue. Réessayez.");
+        setErrorMsg(
+          res.status === 400 && /required/i.test(String(body?.error ?? ""))
+            ? en ? "Please fill in your name, email and message." : "Indiquez votre nom, votre email et votre message."
+            : (body?.error ?? (en ? "Something went wrong. Please try again." : "Une erreur est survenue. Réessayez.")),
+        );
         setStatus("error");
         return;
       }
