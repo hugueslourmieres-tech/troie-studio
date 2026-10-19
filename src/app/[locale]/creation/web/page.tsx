@@ -6,12 +6,21 @@ import { ContactCTA } from "@/components/ContactCTA";
 const PROJECTS: Project[] = [
   {
     name: "Bilber",
-    kind: "Web app, scan produits, scores & DPP",
+    kind: "Jeu web quotidien : la course au code-barres",
     href: "https://bilber.app",
     url: "bilber.app",
     label: "bilber.app",
     desktop: "/images/creation/web/bilber-desktop.jpg",
     mobile: "/images/creation/web/bilber-mobile.jpg",
+  },
+  {
+    name: "Color Guesser",
+    kind: "Jeu web en 7 langues, 466 défis de couleurs",
+    href: "https://playcolorguesser.com",
+    url: "playcolorguesser.com",
+    label: "playcolorguesser.com",
+    desktop: "/images/creation/web/colorguesser-desktop.jpg",
+    mobile: "/images/creation/web/colorguesser-mobile.jpg",
   },
   {
     name: "LOIR Paris",
@@ -51,15 +60,6 @@ const PROJECTS: Project[] = [
     desktop: "/images/creation/web/rutherford-desktop.jpg",
     video: "/videos/creation/web/rutherford.mp4",
     mobile: "/images/creation/web/rutherford-mobile.jpg",
-  },
-  {
-    name: "Color Guesser",
-    kind: "Web app, jeu",
-    href: "https://playcolorguesser.com",
-    url: "playcolorguesser.com",
-    label: "playcolorguesser.com",
-    desktop: "/images/creation/web/colorguesser-desktop.jpg",
-    mobile: "/images/creation/web/colorguesser-login.jpg",
   },
 ];
 
