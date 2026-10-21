@@ -27,7 +27,7 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
 
 const COPY = {
   fr: {
-    metaTitle: "Communication, SEO et Google Ads à Nice",
+    metaTitle: "Communication, SEO et Google Ads qui font vendre",
     metaDesc:
       "Positionnement, réseaux sociaux, référencement Google, campagnes Google Ads et Meta. Nous clarifions votre message, puis nous vous rendons visible auprès des bons clients.",
     eyebrow: "Communication et visibilité",
@@ -113,7 +113,7 @@ const COPY = {
     ],
   },
   en: {
-    metaTitle: "Communication, SEO and Google Ads in Nice",
+    metaTitle: "Communication, SEO and Google Ads that sell",
     metaDesc:
       "Positioning, social media, Google search, Google Ads and Meta campaigns. We make your message clear, then get you in front of the right customers.",
     eyebrow: "Communication and visibility",
