@@ -2,39 +2,40 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
-import { LOIR_MONTHS, LOIR_ORDERS_12M, LOIR_SALES, LOIR_VISITS } from "@/lib/results";
+import { LOIR_MONTHS, LOIR_ORDERS_PCT, LOIR_SALES_PCT, LOIR_VISITS_PCT } from "@/lib/results";
 
 /**
  * Tableau de bord LOIR Paris (21/10/2026), dans l'esprit des rapports
  * Shopify : trois indicateurs en onglets, une courbe qui se trace, une
- * infobulle au survol. Données réelles, 12 mois glissants, septembre 2023
- * à septembre 2026 (src/lib/results.ts).
+ * infobulle au survol. Données réelles, 12 mois glissants, septembre 2024
+ * à septembre 2026 (src/lib/results.ts). UNIQUEMENT des évolutions en %,
+ * jamais de montant ni de volume (décision de Hugues, 21/10/2026).
  */
 
 type Metric = "sales" | "orders" | "visits";
 
 const SERIES: Record<Metric, number[]> = {
-  sales: LOIR_SALES,
-  orders: LOIR_ORDERS_12M,
-  visits: LOIR_VISITS,
+  sales: LOIR_SALES_PCT,
+  orders: LOIR_ORDERS_PCT,
+  visits: LOIR_VISITS_PCT,
 };
 
 const COPY = {
   fr: {
     title: "LOIR Paris",
-    subtitle: "Boutique de mode en ligne. Cumul sur 12 mois glissants.",
-    period: "Sept. 2023 à sept. 2026",
+    subtitle: "Boutique de mode en ligne. Évolution depuis septembre 2024, sur 12 mois glissants.",
+    period: "Sept. 2024 à sept. 2026",
     metrics: { sales: "Ventes nettes", orders: "Commandes", visits: "Visites" },
-    vs: "en trois ans",
+    vs: "en deux ans",
     source: "Données réelles, lues dans la boutique Shopify de LOIR Paris.",
     months: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."],
   },
   en: {
     title: "LOIR Paris",
-    subtitle: "Online fashion store. Rolling 12-month totals.",
-    period: "Sep 2023 to Sep 2026",
+    subtitle: "Online fashion store. Change since September 2024, rolling 12 months.",
+    period: "Sep 2024 to Sep 2026",
     metrics: { sales: "Net sales", orders: "Orders", visits: "Visits" },
-    vs: "in three years",
+    vs: "in two years",
     source: "Real data, read in the LOIR Paris Shopify store.",
     months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
   },
@@ -66,23 +67,6 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
   const en = locale === "en";
   const c = COPY[en ? "en" : "fr"];
   const nf = useMemo(() => new Intl.NumberFormat(en ? "en-GB" : "fr-FR"), [en]);
-  const money = useMemo(
-    () =>
-      new Intl.NumberFormat(en ? "en-GB" : "fr-FR", {
-        style: "currency",
-        currency: "EUR",
-        maximumFractionDigits: 0,
-      }),
-    [en],
-  );
-  const compact = useMemo(
-    () =>
-      new Intl.NumberFormat(en ? "en-GB" : "fr-FR", {
-        notation: "compact",
-        maximumFractionDigits: 0,
-      }),
-    [en],
-  );
 
   const [metric, setMetric] = useState<Metric>("sales");
   const [hover, setHover] = useState<number | null>(null);
@@ -91,11 +75,12 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
   const reduce = useReducedMotion();
   const show = inView || !!reduce;
 
-  const fmt = (m: Metric, v: number) => (m === "sales" ? money.format(v) : nf.format(v));
-  const growth = (m: Metric) => {
-    const s = SERIES[m];
-    return Math.round((s[s.length - 1] / s[0] - 1) * 100);
+  /** « +132 % », signe toujours affiché, espace insécable en français. */
+  const pct = (v: number) => {
+    const n = Math.round(v);
+    return `${n > 0 ? "+" : n < 0 ? "−" : ""}${nf.format(Math.abs(n))}${en ? "%" : "\u00a0%"}`;
   };
+  const growth = (m: Metric) => SERIES[m][SERIES[m].length - 1];
   const monthLabel = (i: number) => {
     const [y, mo] = LOIR_MONTHS[i].split("-");
     return `${c.months[Number(mo) - 1]} ${y}`;
@@ -116,12 +101,13 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
   const pad = { l: W < 560 ? 64 : 76, r: 12, t: 12, b: 30 };
   const data = SERIES[metric];
   const max = niceMax(Math.max(...data) * 1.05);
+  const min = Math.min(0, ...data);
   const ticks = [0, max / 4, max / 2, (3 * max) / 4, max];
   const x = (i: number) => pad.l + (i / (data.length - 1)) * (W - pad.l - pad.r);
-  const y = (v: number) => pad.t + (1 - v / max) * (H - pad.t - pad.b);
+  const y = (v: number) => pad.t + (1 - (v - min) / (max - min)) * (H - pad.t - pad.b);
   const pts = data.map((v, i) => [x(i), y(v)] as [number, number]);
   const line = smoothPath(pts);
-  const area = `${line} L${x(data.length - 1)},${H - pad.b} L${x(0)},${H - pad.b} Z`;
+  const area = `${line} L${x(data.length - 1)},${y(min)} L${x(0)},${y(min)} Z`;
   const janIdx = LOIR_MONTHS.map((m, i) => (m.endsWith("-01") ? i : -1)).filter((i) => i >= 0);
   const active = hover ?? data.length - 1;
 
@@ -149,7 +135,6 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
       {/* Indicateurs en onglets */}
       <div role="tablist" className="mt-5 grid grid-cols-3 border-y border-[var(--rule)]">
         {(Object.keys(SERIES) as Metric[]).map((m) => {
-          const s = SERIES[m];
           const selected = m === metric;
           return (
             <button
@@ -166,12 +151,10 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
               } ${m !== "visits" ? "border-r border-[var(--rule)]" : ""}`}
             >
               <span className="block text-xs text-[var(--fg-2)] md:text-sm">{c.metrics[m]}</span>
-              <span className="mt-1 block font-mono text-base font-medium tabular-nums text-[var(--fg)] md:text-2xl">
-                {m === "sales" ? (en ? `€${compact.format(s[s.length - 1])}` : `${compact.format(s[s.length - 1])} €`) : nf.format(s[s.length - 1])}
+              <span className="mt-1 block font-mono text-lg font-medium tabular-nums text-[var(--accent)] md:text-3xl">
+                {pct(growth(m))}
               </span>
-              <span className="mt-1 block font-mono text-xs tabular-nums text-[var(--accent)] md:text-sm">
-                {`+${nf.format(growth(m))}${en ? "%" : "\u00a0%"}`}<span className="hidden text-[var(--fg-2)] sm:inline"> {c.vs}</span>
-              </span>
+              <span className="mt-0.5 block text-xs text-[var(--fg-2)] md:text-sm">{c.vs}</span>
               {selected && (
                 <motion.span
                   layoutId="analytics-tab"
@@ -199,7 +182,7 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
         >
           <p className="whitespace-nowrap font-mono text-[11px] text-[var(--fg-2)]">{monthLabel(active)}</p>
           <p className="whitespace-nowrap font-mono text-sm font-medium tabular-nums text-[var(--fg)]">
-            {fmt(metric, data[active])}
+            {pct(data[active])}
           </p>
         </div>
 
@@ -207,7 +190,7 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
           viewBox={`0 0 ${W} ${H}`}
           className="mt-14 h-auto w-full"
           role="img"
-          aria-label={`${c.title}, ${c.metrics[metric]} : ${fmt(metric, data[0])} en ${monthLabel(0)}, ${fmt(metric, data[data.length - 1])} en ${monthLabel(data.length - 1)}.`}
+          aria-label={`${c.title}, ${c.metrics[metric]} : ${pct(data[data.length - 1])} entre ${monthLabel(0)} et ${monthLabel(data.length - 1)}.`}
         >
           <defs>
             <linearGradient id="analytics-area" x1="0" x2="0" y1="0" y2="1">
@@ -227,7 +210,7 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
                 fontSize="11"
                 fontFamily="var(--font-mono)"
               >
-                {metric === "sales" ? (en ? `€${compact.format(t)}` : `${compact.format(t)} €`) : compact.format(t)}
+                {pct(t)}
               </text>
             </g>
           ))}

@@ -275,7 +275,8 @@ export function GrowBars({
   locale = "fr",
   className,
 }: {
-  bars: { label: string; value: number }[];
+  /** `display` remplace la valeur affichée au-dessus de la barre. */
+  bars: { label: string; value: number; display?: string }[];
   ariaLabel: string;
   locale?: string;
   className?: string;
@@ -295,7 +296,7 @@ export function GrowBars({
           return (
             <div key={b.label} className="flex h-full flex-1 flex-col items-center justify-end">
               <span className="mb-2 font-mono text-xs tabular-nums text-[var(--fg-2)]">
-                {b.value.toLocaleString(locale === "en" ? "en-GB" : "fr-FR")}
+                {b.display ?? b.value.toLocaleString(locale === "en" ? "en-GB" : "fr-FR")}
               </span>
               <motion.div
                 className={`w-full origin-bottom rounded-t-md ${isLast ? "bg-[var(--accent)]" : "bg-[var(--fg)]/12"}`}

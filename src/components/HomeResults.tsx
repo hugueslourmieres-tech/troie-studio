@@ -1,5 +1,5 @@
 import { CompareBars, CountUp, GrowBars } from "./ResultsMotion";
-import { LOIR_ORDERS } from "@/lib/results";
+import { LOIR_ORDERS_YEARLY_PCT } from "@/lib/results";
 
 /**
  * Résultats clients (21/10/2026) : une boutique en ligne, une PME
@@ -15,10 +15,11 @@ const COPY = {
       loir: {
         kind: "E-commerce",
         name: "LOIR Paris",
-        lead: "Une marque de mode qui vend en ligne. Commandes par année, de 2022 à 2025.",
-        big: { from: 1, to: 2.7, decimals: 1, prefix: "×", suffix: "" },
-        bigLabel: "de commandes en trois ans",
-        chart: "Commandes de LOIR Paris par année : 1 542 en 2022, 1 767 en 2023, 3 181 en 2024, 4 124 en 2025.",
+        lead: "Une marque de mode qui vend en ligne. Évolution des commandes par année, par rapport à 2023.",
+        big: { from: 0, to: 133, decimals: 0, prefix: "+", suffix: "\u00a0%" },
+        bigLabel: "de commandes entre 2023 et 2025",
+        base: "réf.",
+        chart: "Commandes de LOIR Paris par rapport à 2023 : +80 % en 2024, +133 % en 2025.",
       },
       rutherford: {
         kind: "PME industrielle, B2B",
@@ -58,10 +59,11 @@ const COPY = {
       loir: {
         kind: "E-commerce",
         name: "LOIR Paris",
-        lead: "A fashion brand selling online. Orders per year, from 2022 to 2025.",
-        big: { from: 1, to: 2.7, decimals: 1, prefix: "×", suffix: "" },
-        bigLabel: "orders in three years",
-        chart: "LOIR Paris orders per year: 1,542 in 2022, 1,767 in 2023, 3,181 in 2024, 4,124 in 2025.",
+        lead: "A fashion brand selling online. Change in yearly orders compared with 2023.",
+        big: { from: 0, to: 133, decimals: 0, prefix: "+", suffix: "%" },
+        bigLabel: "orders between 2023 and 2025",
+        base: "base",
+        chart: "LOIR Paris orders compared with 2023: +80% in 2024, +133% in 2025.",
       },
       rutherford: {
         kind: "Industrial SME, B2B",
@@ -158,7 +160,11 @@ export function HomeResults({ locale }: { locale: string }) {
             <CaseHead kind={loir.kind} name={loir.name} lead={loir.lead} />
             <Big big={loir.big} label={loir.bigLabel} locale={locale} />
             <GrowBars
-              bars={LOIR_ORDERS.map((o) => ({ label: o.year, value: o.value }))}
+              bars={LOIR_ORDERS_YEARLY_PCT.map((o) => ({
+                label: o.year,
+                value: 100 + o.pct,
+                display: o.pct === 0 ? loir.base : `+${o.pct}${en ? "%" : "\u00a0%"}`,
+              }))}
               ariaLabel={loir.chart}
               locale={locale}
               className="mt-auto h-48 pt-10"
