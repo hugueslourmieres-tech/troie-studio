@@ -9,7 +9,7 @@ import { LOIR_ORDERS_YEARLY_PCT } from "@/lib/results";
 const COPY = {
   fr: {
     eyebrow: "Résultats",
-    title: "Trois clients, des ventes mesurées.",
+    title: "Trois clients, des résultats mesurés.",
     intro: "Des chiffres réels, lus dans les outils de nos clients. Pas d'estimation, pas de promesse.",
     cases: {
       loir: {
@@ -24,18 +24,19 @@ const COPY = {
       rutherford: {
         kind: "PME industrielle, B2B",
         name: "Rutherford",
-        lead: "Des solutions pour l'imprimerie et l'emballage. Nous avons fait le site multilingue, le SEO, la publicité, les contenus et le CRM.",
-        big: { from: 0, to: 400, decimals: 0, prefix: "+", suffix: "\u00a0%" },
-        bigLabel: "d'unités vendues par an",
+        lead: "Des solutions pour l'imprimerie et l'emballage. Nous faisons vivre leurs réseaux sociaux : contenus, vidéos, publications.",
+        big: { from: 0, to: 87, decimals: 0, prefix: "+", suffix: "\u00a0%" },
+        bigLabel: "d'abonnés sur LinkedIn, Instagram et TikTok depuis février 2025",
         kpis: [
-          { to: 100, prefix: "+", suffix: "\u00a0%", label: "de trafic naturel en 6 mois" },
-          { to: 40, prefix: "+", suffix: "\u00a0%", label: "de demandes entrantes via le nouveau site" },
+          { to: 711, prefix: "+", suffix: "\u00a0%", label: "d'abonnés TikTok depuis mars 2024" },
+          { to: 202, prefix: "+", suffix: "\u00a0%", label: "de nouveaux abonnés LinkedIn par mois" },
         ],
         bars: [
-          { label: "Avant", value: 100, display: "réf." },
-          { label: "Après", value: 500, display: "+400\u00a0%" },
+          { label: "févr. 2025", value: 100, display: "réf." },
+          { label: "juin 2026", value: 166, display: "+66\u00a0%" },
+          { label: "sept. 2026", value: 187, display: "+87\u00a0%" },
         ],
-        chart: "Unités vendues par an chez Rutherford : +400 %.",
+        chart: "Abonnés de Rutherford sur LinkedIn, Instagram et TikTok par rapport à février 2025 : +66 % en juin 2026, +87 % en septembre 2026.",
       },
       autajon: {
         kind: "Grand groupe, emballage",
@@ -53,7 +54,7 @@ const COPY = {
   },
   en: {
     eyebrow: "Results",
-    title: "Three clients, measured sales.",
+    title: "Three clients, measured results.",
     intro: "Real numbers, read in our clients' own tools. No estimates, no promises.",
     cases: {
       loir: {
@@ -68,18 +69,19 @@ const COPY = {
       rutherford: {
         kind: "Industrial SME, B2B",
         name: "Rutherford",
-        lead: "Solutions for printing and packaging. We built the multilingual website, SEO, advertising, content and CRM.",
-        big: { from: 0, to: 400, decimals: 0, prefix: "+", suffix: "%" },
-        bigLabel: "units sold per year",
+        lead: "Solutions for printing and packaging. We run their social media: content, videos, posts.",
+        big: { from: 0, to: 87, decimals: 0, prefix: "+", suffix: "%" },
+        bigLabel: "followers on LinkedIn, Instagram and TikTok since February 2025",
         kpis: [
-          { to: 100, prefix: "+", suffix: "%", label: "organic traffic in 6 months" },
-          { to: 40, prefix: "+", suffix: "%", label: "inbound leads from the new website" },
+          { to: 711, prefix: "+", suffix: "%", label: "TikTok followers since March 2024" },
+          { to: 202, prefix: "+", suffix: "%", label: "new LinkedIn followers per month" },
         ],
         bars: [
-          { label: "Before", value: 100, display: "base" },
-          { label: "After", value: 500, display: "+400%" },
+          { label: "Feb 2025", value: 100, display: "base" },
+          { label: "Jun 2026", value: 166, display: "+66%" },
+          { label: "Sep 2026", value: 187, display: "+87%" },
         ],
-        chart: "Units sold per year at Rutherford: +400%.",
+        chart: "Rutherford followers on LinkedIn, Instagram and TikTok compared with February 2025: +66% in June 2026, +87% in September 2026.",
       },
       autajon: {
         kind: "Large group, packaging",

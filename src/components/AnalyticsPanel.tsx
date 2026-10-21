@@ -7,11 +7,11 @@ import {
   LOIR_ORDERS_PCT,
   LOIR_SALES_PCT,
   LOIR_VISITS_PCT,
-  RUTHERFORD_LEADS_INDEX,
-  RUTHERFORD_ORGANIC_INDEX,
-  RUTHERFORD_SALES_INDEX,
+  RUTHERFORD_INSTAGRAM_PCT,
+  RUTHERFORD_LINKEDIN_RATE_INDEX,
   RUTHERFORD_SOCIAL_PCT,
   RUTHERFORD_TIKTOK_PCT,
+  RUTHERFORD_YOUTUBE_PCT,
 } from "@/lib/results";
 
 /**
@@ -47,11 +47,14 @@ function buildClients(en: boolean): Client[] {
     kind: "line",
     points: vals.map((v, i) => ({ d: `${LOIR_MONTHS[i]}-15`, v })),
   });
-  const beforeAfter = (idx: { before: number; after: number }): BarsData => ({
+  const beforeAfter = (
+    idx: { before: number; after: number },
+    labels: [string, string] = [u.before, u.after],
+  ): BarsData => ({
     kind: "bars",
     bars: [
-      { label: u.before, v: idx.before, display: u.base },
-      { label: u.after, v: idx.after, display: pctTxt(idx.after - idx.before) },
+      { label: labels[0], v: idx.before, display: u.base },
+      { label: labels[1], v: idx.after, display: pctTxt(idx.after - idx.before) },
     ],
   });
   const last = (p: Point[]) => p[p.length - 1].v;
@@ -79,17 +82,17 @@ function buildClients(en: boolean): Client[] {
       name: "Rutherford",
       sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B",
       note: en
-        ? "Printing and packaging. Website, SEO, advertising, content, social media and CRM."
-        : "Imprimerie et emballage. Site, SEO, publicité, contenus, réseaux sociaux et CRM.",
+        ? "Printing and packaging. Social media growth, network by network."
+        : "Imprimerie et emballage. L'évolution des réseaux sociaux, réseau par réseau.",
       source: en
-        ? "Dated readings from LinkedIn, TikTok and Meta exports. Sales, search and leads: before and after."
-        : "Relevés datés des exports LinkedIn, TikTok et Meta. Ventes, Google et demandes : avant et après.",
+        ? "Dated readings from TikTok, LinkedIn, Meta and YouTube exports and public pages."
+        : "Relevés datés des exports TikTok, LinkedIn, Meta et YouTube, et des pages publiques.",
       metrics: [
-        { id: "sales", label: en ? "Sales" : "Ventes", headline: RUTHERFORD_SALES_INDEX.after - 100, sub: en ? "units sold per year" : "unités vendues par an", data: beforeAfter(RUTHERFORD_SALES_INDEX) },
-        { id: "leads", label: en ? "Inbound leads" : "Demandes entrantes", headline: RUTHERFORD_LEADS_INDEX.after - 100, sub: en ? "from the new website" : "via le nouveau site", data: beforeAfter(RUTHERFORD_LEADS_INDEX) },
-        { id: "organic", label: en ? "Google traffic" : "Trafic Google", headline: RUTHERFORD_ORGANIC_INDEX.after - 100, sub: en ? "in six months" : "en six mois", data: beforeAfter(RUTHERFORD_ORGANIC_INDEX) },
-        { id: "social", label: en ? "Social followers" : "Abonnés réseaux", headline: last(RUTHERFORD_SOCIAL_PCT), sub: en ? "since February 2025" : "depuis février 2025", data: { kind: "line", points: RUTHERFORD_SOCIAL_PCT } },
+        { id: "social", label: en ? "All networks" : "Tous réseaux", headline: last(RUTHERFORD_SOCIAL_PCT), sub: en ? "followers since Feb. 2025" : "abonnés depuis févr. 2025", data: { kind: "line", points: RUTHERFORD_SOCIAL_PCT } },
         { id: "tiktok", label: "TikTok", headline: last(RUTHERFORD_TIKTOK_PCT), sub: en ? "followers since March 2024" : "abonnés depuis mars 2024", data: { kind: "line", points: RUTHERFORD_TIKTOK_PCT } },
+        { id: "linkedin", label: "LinkedIn", headline: RUTHERFORD_LINKEDIN_RATE_INDEX.after - 100, sub: en ? "new followers per month" : "nouveaux abonnés par mois", data: beforeAfter(RUTHERFORD_LINKEDIN_RATE_INDEX, en ? ["Mar 2024 to Jan 2025", "Feb to Aug 2025"] : ["mars 2024 à janv. 2025", "févr. à août 2025"]) },
+        { id: "instagram", label: "Instagram", headline: last(RUTHERFORD_INSTAGRAM_PCT), sub: en ? "followers since Feb. 2025" : "abonnés depuis févr. 2025", data: { kind: "line", points: RUTHERFORD_INSTAGRAM_PCT } },
+        { id: "youtube", label: "YouTube", headline: last(RUTHERFORD_YOUTUBE_PCT), sub: en ? "subscribers since April 2022" : "abonnés depuis avril 2022", data: { kind: "line", points: RUTHERFORD_YOUTUBE_PCT } },
       ],
     },
   ];

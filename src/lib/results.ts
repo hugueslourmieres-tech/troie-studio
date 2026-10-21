@@ -30,13 +30,14 @@ export const LOIR_VISITS_PCT = [0.0, -0.2, 1.2, 0.4, 9.6, 10.8, 14.1, 18.0, 21.7
 export const LOIR_ORDERS_YEARLY_PCT = [{"year": "2023", "pct": 0}, {"year": "2024", "pct": 80}, {"year": "2025", "pct": 133}];
 
 /**
- * Rutherford, en pourcentages uniquement. Abonnés : rapport « Réseaux
- * Rutherford.fr, 2018 à 2026 » (relevé du 28/09/2026, sources datées :
- * exports TikTok, LinkedIn, Meta, Loomly, pages publiques). Février 2025 =
- * point de bascule et base des réseaux. Le point « juin 2026 » additionne
- * des relevés du 22 au 24 juin. Ventes, trafic naturel et demandes
- * entrantes : CV 2026 de Hugues (pas de série datée, seulement avant/après).
- * Aucune série de visites du site n'existe (GA4 jamais relevé).
+ * Rutherford : réseaux sociaux uniquement, en pourcentages (décision de
+ * Hugues, 21/10/2026 : pas les ventes). Sources : rapport « Réseaux
+ * Rutherford.fr, 2018 à 2026 » (relevé du 28/09/2026, exports TikTok,
+ * LinkedIn, Meta, Loomly, pages publiques, Wayback Machine) et exports
+ * LinkedIn quotidiens du SSD (nouveaux abonnés, févr. 2024 à sept. 2025,
+ * recalculés : 53,3 par mois de mars 2024 à janv. 2025, 160,7 de févr. à
+ * août 2025). Le point « juin 2026 » du total additionne des relevés du
+ * 22 au 24 juin. Aucune série de visites du site (GA4 jamais relevé).
  */
 export const RUTHERFORD_SOCIAL_PCT = [
   { d: "2025-02-28", v: 0 },
@@ -52,14 +53,19 @@ export const RUTHERFORD_TIKTOK_PCT = [
   { d: "2026-09-28", v: 710.8 },
 ];
 
-export const RUTHERFORD_LINKEDIN_PCT = [
+export const RUTHERFORD_INSTAGRAM_PCT = [
   { d: "2025-02-28", v: 0 },
-  { d: "2026-05-27", v: 25.0 },
-  { d: "2026-06-23", v: 26.9 },
-  { d: "2026-09-28", v: 36.0 },
+  { d: "2026-05-27", v: 25.1 },
+  { d: "2026-05-31", v: 28.6 },
+  { d: "2026-06-24", v: 41.9 },
+  { d: "2026-09-28", v: 60.3 },
 ];
 
-/** Avant / après, en indice (avant = 100). */
-export const RUTHERFORD_SALES_INDEX = { before: 100, after: 500 };
-export const RUTHERFORD_ORGANIC_INDEX = { before: 100, after: 200 };
-export const RUTHERFORD_LEADS_INDEX = { before: 100, after: 140 };
+export const RUTHERFORD_YOUTUBE_PCT = [
+  { d: "2022-04-06", v: 0 },
+  { d: "2026-06-24", v: 456.2 },
+  { d: "2026-09-28", v: 494.5 },
+];
+
+/** Nouveaux abonnés LinkedIn par mois, en indice (avant = 100). */
+export const RUTHERFORD_LINKEDIN_RATE_INDEX = { before: 100, after: 302 };
