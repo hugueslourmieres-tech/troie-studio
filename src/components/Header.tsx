@@ -267,7 +267,7 @@ function NavDropdown({
             : "pointer-events-none invisible -translate-y-1 opacity-0"
         }`}
       >
-        <div className="min-w-[248px] border border-[var(--rule)] bg-[var(--bg)] p-2 shadow-[0_24px_60px_-24px_rgba(26,23,20,0.35)]">
+        <div className="min-w-[248px] rounded-2xl border border-[var(--rule)] bg-white p-2 shadow-[0_24px_60px_-24px_rgba(17,19,24,0.3)]">
           {group.items.map((item) => (
             <Link
               key={item.href}

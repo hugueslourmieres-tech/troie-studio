@@ -233,7 +233,7 @@ body {
 .t-photo:hover,
 .group:hover .t-photo,
 [data-photo-hover]:hover .t-photo {
-  filter: grayscale(1);
+  filter: none;
 }
 
 /* ─────────────────────────────────────────────────────────────────

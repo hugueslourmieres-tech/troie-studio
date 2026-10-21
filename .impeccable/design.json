@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T00:00:00Z",
+  "title": "Design System: TROIE Studio",
+  "extensions": {
+    "colorMeta": {
+      "canvas": { "role": "neutral", "displayName": "Blanc froid", "canonical": "#fcfcfd", "cssVar": "--bg", "tonalRamp": ["oklch(15% 0.003 265)", "oklch(27% 0.003 265)", "oklch(39% 0.003 265)", "oklch(51% 0.003 265)", "oklch(63% 0.003 265)", "oklch(75% 0.003 265)", "oklch(87% 0.003 265)", "oklch(99% 0.002 265)"] },
+      "band": { "role": "neutral", "displayName": "Gris bande", "canonical": "#f3f4f6", "cssVar": "--bg-2 (tone-light) / --bg (tone-accent)", "tonalRamp": ["oklch(15% 0.004 265)", "oklch(27% 0.004 265)", "oklch(39% 0.004 265)", "oklch(51% 0.004 265)", "oklch(63% 0.004 265)", "oklch(75% 0.004 265)", "oklch(87% 0.004 265)", "oklch(97% 0.003 265)"] },
+      "band-deep": { "role": "neutral", "displayName": "Gris bande appuyé", "canonical": "#e9ebef", "cssVar": "--bg-2 (tone-accent)", "tonalRamp": ["oklch(15% 0.006 265)", "oklch(27% 0.006 265)", "oklch(39% 0.006 265)", "oklch(51% 0.006 265)", "oklch(63% 0.006 265)", "oklch(75% 0.006 265)", "oklch(87% 0.006 265)", "oklch(94% 0.006 265)"] },
+      "surface": { "role": "neutral", "displayName": "Blanc pur", "canonical": "#ffffff", "tonalRamp": ["oklch(15% 0 0)", "oklch(27% 0 0)", "oklch(39% 0 0)", "oklch(51% 0 0)", "oklch(63% 0 0)", "oklch(75% 0 0)", "oklch(87% 0 0)", "oklch(100% 0 0)"] },
+      "ink": { "role": "neutral", "displayName": "Encre", "canonical": "#111318", "cssVar": "--fg / --ink", "tonalRamp": ["oklch(15% 0.008 265)", "oklch(19% 0.008 265)", "oklch(30% 0.008 265)", "oklch(42% 0.008 265)", "oklch(55% 0.008 265)", "oklch(68% 0.008 265)", "oklch(82% 0.008 265)", "oklch(95% 0.008 265)"] },
+      "ink-hover": { "role": "neutral", "displayName": "Encre de survol", "canonical": "#2a2e37", "tonalRamp": ["oklch(15% 0.014 265)", "oklch(29% 0.014 265)", "oklch(40% 0.014 265)", "oklch(51% 0.014 265)", "oklch(62% 0.014 265)", "oklch(73% 0.014 265)", "oklch(84% 0.014 265)", "oklch(95% 0.014 265)"] },
+      "graphite": { "role": "neutral", "displayName": "Graphite", "canonical": "#4f5562", "cssVar": "--fg-2", "tonalRamp": ["oklch(15% 0.02 265)", "oklch(27% 0.02 265)", "oklch(39% 0.02 265)", "oklch(46% 0.02 265)", "oklch(58% 0.02 265)", "oklch(70% 0.02 265)", "oklch(82% 0.02 265)", "oklch(95% 0.02 265)"] },
+      "cobalt": { "role": "primary", "displayName": "Bleu cobalt", "canonical": "#2f5bd3", "cssVar": "--accent", "tonalRamp": ["oklch(22% 0.1 264)", "oklch(32% 0.14 264)", "oklch(42% 0.17 264)", "oklch(52% 0.19 264)", "oklch(62% 0.16 264)", "oklch(72% 0.12 264)", "oklch(84% 0.07 264)", "oklch(95% 0.02 264)"] },
+      "cobalt-wash": { "role": "primary", "displayName": "Voile cobalt", "canonical": "rgba(47, 91, 211, 0.08)", "cssVar": "--accent-soft" },
+      "rule": { "role": "neutral", "displayName": "Filet", "canonical": "rgba(17, 19, 24, 0.09)", "cssVar": "--rule" },
+      "rule-strong": { "role": "neutral", "displayName": "Filet appuyé", "canonical": "rgba(17, 19, 24, 0.22)", "cssVar": "--rule-strong" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Le titre du premier écran, un seul par page, sur toute la largeur. Classe .t-display." },
+      "headline": { "displayName": "Headline", "purpose": "Titres de section, noms de projets et de membres. Classe .t-display." },
+      "title": { "displayName": "Title", "purpose": "Intitulé d'un service, nom d'un client dans une carte." },
+      "figure": { "displayName": "Figure", "purpose": "Chiffre d'une carte de résultat, en cobalt, chasse fixe." },
+      "figure-small": { "displayName": "Figure small", "purpose": "Chiffre d'un onglet du tableau de bord, en cobalt, chasse fixe." },
+      "body-lead": { "displayName": "Body lead", "purpose": "Phrase d'appui sous un titre, 34rem maximum." },
+      "body": { "displayName": "Body", "purpose": "Descriptions, légendes, textes de services." },
+      "label": { "displayName": "Label", "purpose": "Navigation, boutons, liens de suite." },
+      "data-mono": { "displayName": "Data mono", "purpose": "Étiquettes d'axes et info-bulles des graphiques, et rien d'autre." },
+      "wordmark": { "displayName": "Logo-mot", "purpose": "TROIE uniquement. L'approche s'ouvre de 0.04em à 0.8em sur les 240 premiers pixels de défilement." }
+    },
+    "shadows": [
+      { "name": "card-lift", "value": "0 18px 40px -24px rgba(17,19,24,0.35)", "purpose": "Survol d'une carte de résultat, avec une montée de 2px." },
+      { "name": "panel", "value": "0 1px 2px rgba(17,19,24,0.04), 0 24px 60px -32px rgba(17,19,24,0.18)", "purpose": "Panneau du tableau de bord, au repos." },
+      { "name": "tooltip", "value": "0 8px 24px -12px rgba(17,19,24,0.3)", "purpose": "Info-bulle des graphiques." },
+      { "name": "control-selected", "value": "0 1px 2px rgba(17,19,24,0.06)", "purpose": "Client choisi dans la colonne du tableau de bord, avec anneau de 1px au filet." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Courbe par défaut des entrées, des survols et du trait d'onglet." },
+      { "name": "ease-draw", "value": "cubic-bezier(0.65, 0, 0.35, 1)", "purpose": "Tracé des courbes de résultats." },
+      { "name": "entry", "value": "opacity 0 to 1, translateY 16px to 0, 0.7s, décalage 0.1s par élément", "purpose": "Entrée des cartes, une seule fois à l'arrivée à l'écran." },
+      { "name": "curve-draw-card", "value": "pathLength 0 to 1, 1.2s, décalage 0.35s par carte", "purpose": "Mini-courbes du premier écran, l'une après l'autre." },
+      { "name": "curve-draw-dashboard", "value": "pathLength 0 to 1, 1.4s", "purpose": "Courbe du tableau de bord, rejouée au changement de client ou d'indicateur." },
+      { "name": "tab-indicator", "value": "0.3s ease-out (layoutId)", "purpose": "Glissement du trait cobalt entre onglets." },
+      { "name": "grayscale-to-colour", "value": "filter 500ms (sites), 700ms avec scale 1.02 (films)", "purpose": "Retour de la couleur au survol des travaux." },
+      { "name": "button", "value": "background-color 200ms, active scale 0.98", "purpose": "Boutons en pilule." },
+      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce", "purpose": "Courbes affichées tracées, aucune entrée, films à l'arrêt." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton principal",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Action principale (Réserver 30 min), noire en pilule.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Réserver 30 min</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; height: 48px; padding: 0 24px; border-radius: 9999px; background: var(--ink, #111318); color: #fff; font-family: Geist, ui-sans-serif, system-ui, sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; transition: background-color 200ms, transform 200ms; } .ds-btn-primary:hover { background: #2a2e37; } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #2f5bd3); outline-offset: 3px; }"
+    },
+    {
+      "name": "Bouton à contour",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Action secondaire (Décrire mon projet) dans la section d'appel.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">Décrire mon projet</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; height: 48px; padding: 0 24px; border-radius: 9999px; border: 1px solid var(--rule-strong, rgba(17,19,24,0.22)); background: transparent; color: var(--fg, #111318); font-family: Geist, ui-sans-serif, system-ui, sans-serif; font-size: 15px; font-weight: 500; text-decoration: none; transition: border-color 200ms; } .ds-btn-outline:hover { border-color: var(--fg, #111318); } .ds-btn-outline:focus-visible { outline: 2px solid var(--accent, #2f5bd3); outline-offset: 3px; }"
+    },
+    {
+      "name": "Lien de suite",
+      "kind": "custom",
+      "refersTo": "link-accent",
+      "description": "Lien cobalt avec flèche qui avance au survol (Voir les sites, Tous les films).",
+      "html": "<a class=\"ds-link-accent\" href=\"#\">Voir les sites <span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-link-accent { display: inline-flex; align-items: center; gap: 6px; color: var(--accent, #2f5bd3); font-family: Geist, ui-sans-serif, system-ui, sans-serif; font-size: 14px; font-weight: 500; text-decoration: none; } .ds-link-accent span { transition: transform 200ms; } .ds-link-accent:hover span { transform: translateX(2px); } .ds-link-accent:focus-visible { outline: 2px solid var(--accent, #2f5bd3); outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Carte de résultat",
+      "kind": "card",
+      "refersTo": "result-card",
+      "description": "Client, chiffre en cobalt, contexte et mini-courbe bord à bord. Signature du premier écran.",
+      "html": "<a class=\"ds-result-card\" href=\"#\"><div class=\"ds-result-body\"><p class=\"ds-result-client\">LOIR Paris</p><p class=\"ds-result-sector\">E-commerce</p><p class=\"ds-result-figure\">+164 %</p><p class=\"ds-result-label\">de ventes en ligne en deux ans</p></div><svg class=\"ds-result-curve\" viewBox=\"0 0 400 96\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M0,90 L60,72 L120,64 L180,52 L240,40 L300,22 L360,18 L400,6 L400,96 L0,96 Z\" fill=\"#2f5bd3\" fill-opacity=\"0.08\"/><path d=\"M0,90 L60,72 L120,64 L180,52 L240,40 L300,22 L360,18 L400,6\" fill=\"none\" stroke=\"#2f5bd3\" stroke-width=\"2.5\" vector-effect=\"non-scaling-stroke\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-result-card { display: flex; flex-direction: column; overflow: hidden; width: 320px; border: 1px solid var(--rule, rgba(17,19,24,0.09)); border-radius: 16px; background: #fff; color: var(--fg, #111318); text-decoration: none; font-family: Geist, ui-sans-serif, system-ui, sans-serif; transition: box-shadow 300ms, transform 300ms; } .ds-result-card:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -24px rgba(17,19,24,0.35); } .ds-result-card:focus-visible { outline: 2px solid var(--accent, #2f5bd3); outline-offset: 2px; } .ds-result-body { padding: 28px 28px 0; } .ds-result-client { margin: 0; font-size: 18px; font-weight: 500; letter-spacing: -0.01em; } .ds-result-sector { margin: 2px 0 0; font-size: 14px; color: var(--fg-2, #4f5562); } .ds-result-figure { margin: 24px 0 0; font-size: 52px; font-weight: 500; line-height: 1; letter-spacing: -0.035em; font-variant-numeric: tabular-nums; color: var(--accent, #2f5bd3); } .ds-result-label { margin: 8px 0 0; font-size: 15px; color: var(--fg-2, #4f5562); } .ds-result-curve { display: block; width: 100%; height: 96px; margin-top: 24px; }"
+    },
+    {
+      "name": "Onglet d'indicateur",
+      "kind": "custom",
+      "refersTo": "analytics-tab-selected",
+      "description": "Onglet du tableau de bord : libellé, chiffre cobalt, précision, trait cobalt quand il est choisi.",
+      "html": "<div class=\"ds-tabs\"><button class=\"ds-tab is-selected\"><span class=\"ds-tab-label\">Ventes</span><span class=\"ds-tab-value\">+164 %</span><span class=\"ds-tab-sub\">sept. 2024 à sept. 2026</span></button><button class=\"ds-tab\"><span class=\"ds-tab-label\">Commandes</span><span class=\"ds-tab-value\">+121 %</span><span class=\"ds-tab-sub\">12 mois glissants</span></button></div>",
+      "css": ".ds-tabs { display: flex; border-top: 1px solid var(--rule, rgba(17,19,24,0.09)); border-bottom: 1px solid var(--rule, rgba(17,19,24,0.09)); font-family: Geist, ui-sans-serif, system-ui, sans-serif; } .ds-tab { position: relative; flex: 1; min-width: 132px; padding: 16px 24px; text-align: left; border: 0; border-right: 1px solid var(--rule, rgba(17,19,24,0.09)); background: rgba(243,244,246,0.6); cursor: pointer; transition: background-color 200ms; } .ds-tab:last-child { border-right: 0; } .ds-tab:hover { background: #f3f4f6; } .ds-tab.is-selected { background: #fff; } .ds-tab.is-selected::before { content: \"\"; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--accent, #2f5bd3); } .ds-tab:focus-visible { outline: 2px solid var(--accent, #2f5bd3); outline-offset: -2px; } .ds-tab-label, .ds-tab-sub { display: block; font-size: 12px; color: var(--fg-2, #4f5562); } .ds-tab-value { display: block; margin: 4px 0 2px; font-size: 28px; font-weight: 500; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--accent, #2f5bd3); }"
+    },
+    {
+      "name": "Info-bulle de graphique",
+      "kind": "custom",
+      "refersTo": "chart-tooltip",
+      "description": "Seul usage de Geist Mono hors des axes : date et valeur du point survolé.",
+      "html": "<div class=\"ds-tooltip\"><p class=\"ds-tooltip-label\">sept. 2026</p><p class=\"ds-tooltip-value\">+163,6 %</p></div>",
+      "css": ".ds-tooltip { display: inline-block; padding: 8px 12px; border: 1px solid var(--rule, rgba(17,19,24,0.09)); border-radius: 8px; background: #fff; box-shadow: 0 8px 24px -12px rgba(17,19,24,0.3); font-family: \"Geist Mono\", ui-monospace, Menlo, monospace; } .ds-tooltip-label { margin: 0; font-size: 11px; color: var(--fg-2, #4f5562); } .ds-tooltip-value { margin: 0; font-size: 14px; font-weight: 500; font-variant-numeric: tabular-nums; color: var(--fg, #111318); }"
+    },
+    {
+      "name": "Aperçu de travail",
+      "kind": "card",
+      "refersTo": "surface",
+      "description": "Image de travail en noir et blanc, couleur au survol.",
+      "html": "<figure class=\"ds-work\"><div class=\"ds-work-frame\"><div class=\"ds-work-img\"></div></div><figcaption class=\"ds-work-caption\">X-Rite, lancement de l'eXact 2 à Paris</figcaption></figure>",
+      "css": ".ds-work { margin: 0; width: 200px; font-family: Geist, ui-sans-serif, system-ui, sans-serif; } .ds-work-frame { overflow: hidden; border-radius: 16px; background: #f3f4f6; } .ds-work-img { aspect-ratio: 9 / 16; background: linear-gradient(160deg, #2f5bd3, #f2b84b 60%, #c4462d); filter: grayscale(1); transition: filter 700ms, transform 700ms; } .ds-work:hover .ds-work-img { filter: grayscale(0); transform: scale(1.02); } .ds-work-caption { margin-top: 12px; font-size: 15px; color: var(--fg-2, #4f5562); }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Barre fixe : logo-mot Bodoni, liens Geist 14px, bouton compact noir.",
+      "html": "<header class=\"ds-nav\"><span class=\"ds-nav-logo\">TROIE</span><nav class=\"ds-nav-links\"><a href=\"#\">Création</a><a href=\"#\">Stratégie</a><a href=\"#\">Journal</a></nav><a class=\"ds-nav-cta\" href=\"#\">Réserver 30 min</a></header>",
+      "css": ".ds-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 20px 48px; background: rgba(252,252,253,0.95); backdrop-filter: blur(24px); font-family: Geist, ui-sans-serif, system-ui, sans-serif; } .ds-nav-logo { font-family: \"Bodoni Moda\", ui-serif, Georgia, serif; font-size: 30px; font-weight: 400; line-height: 1; letter-spacing: 0.04em; color: var(--fg, #111318); } .ds-nav-links { display: flex; gap: 28px; } .ds-nav-links a { font-size: 14px; font-weight: 500; color: var(--fg, #111318); text-decoration: none; transition: color 150ms; } .ds-nav-links a:hover { color: var(--accent, #2f5bd3); } .ds-nav-links a:focus-visible { outline: 2px solid var(--accent, #2f5bd3); outline-offset: 3px; border-radius: 6px; } .ds-nav-cta { display: inline-flex; align-items: center; height: 40px; padding: 0 20px; border-radius: 9999px; background: var(--ink, #111318); color: #fff; font-size: 14px; font-weight: 500; text-decoration: none; transition: background-color 200ms; } .ds-nav-cta:hover { background: #2a2e37; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La preuve sur fond blanc",
+    "overview": "Le site se lit comme un relevé de résultats posé sur une feuille blanche. Un titre court, une phrase, un bouton noir, puis trois chiffres en bleu avec leur courbe réelle. Tout le reste (sites livrés, films, services, équipe) vient ensuite, comme la pièce justificative des chiffres. La page est aérée, les sections sont séparées par un simple filet, et rien ne décore pour décorer.\n\nLa couleur est rare par principe. Le blanc froid, l'encre presque noire et le gris graphite portent toute la page. Le bleu cobalt n'apparaît que là où il y a une mesure ou un lien : un chiffre, une courbe, un indicateur choisi, un lien de suite. Les images des travaux sont en noir et blanc au repos et reprennent leur couleur quand on les survole, si bien que la seule couleur vive permanente reste celle des résultats.\n\nCe système remplace l'ancienne identité crème, orange et Bodoni du 21 octobre 2026. Bodoni ne survit que dans le logo-mot TROIE.",
+    "keyCharacteristics": [
+      "Fond blanc froid, encre presque noire, un seul accent bleu cobalt.",
+      "Chiffres en Geist, chasse fixe (tabular-nums), toujours en pourcentage ou en multiple.",
+      "Cartes blanches à filet de 1 px et rayon de 16 px.",
+      "Boutons noirs en pilule pour l'action principale.",
+      "Travaux en noir et blanc, couleur au survol.",
+      "Mouvement réduit : courbes tracées une fois, fondus discrets, films clients muets en boucle."
+    ],
+    "rules": [
+      { "name": "La règle du bleu qui mesure", "body": "Le cobalt ne colore qu'un chiffre, une courbe ou un lien. Jamais un fond de section, jamais un bouton plein, jamais une illustration. Si un élément bleu ne mesure rien et ne mène nulle part, il doit redevenir encre ou graphite.", "section": "colors" },
+      { "name": "La règle des boutons noirs", "body": "L'action principale est en encre, pas en bleu. Le bleu reste disponible pour les chiffres, qui doivent être la chose la plus colorée de l'écran.", "section": "colors" },
+      { "name": "La règle des chiffres en Geist", "body": "Un chiffre affiché comme résultat est en Geist 500 avec tabular-nums, jamais en Geist Mono. Le mono n'existe que dans la mécanique du graphique (axes, info-bulles).", "section": "typography" },
+      { "name": "La règle du titre nu", "body": "Aucun libellé au-dessus d'un titre, aucun numéro de section. Le titre commence la section, en une phrase courte terminée par un point.", "section": "typography" },
+      { "name": "La règle du logo seul", "body": "Bodoni Moda n'écrit que TROIE. Aucun titre, aucune citation, aucun chiffre en Bodoni.", "section": "typography" },
+      { "name": "La règle du plat au repos", "body": "Une carte ne porte pas d'ombre au repos. Elle se lève seulement en réponse au survol. Seul le panneau du tableau de bord garde une ombre permanente, parce qu'il est un outil.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do réserver le bleu cobalt aux chiffres, aux courbes, à l'onglet choisi et aux liens de suite.",
+      "Do mettre l'action principale dans un bouton noir en pilule (48px de haut), et l'action secondaire en lien souligné ou en pilule à contour.",
+      "Do poser les contenus sur des cartes blanches à filet de 1px et rayon de 16px, sans ombre au repos.",
+      "Do afficher chaque résultat client en pourcentage ou en multiple (+164 %, +711 %, ×35), avec les valeurs de src/lib/results.ts.",
+      "Do écrire les chiffres en Geist 500 avec tabular-nums, et garder Geist Mono pour les axes et les info-bulles.",
+      "Do passer les aperçus de travaux en noir et blanc, avec retour de la couleur au survol.",
+      "Do limiter le mouvement aux courbes tracées une fois, aux fondus d'entrée avec 16px de glissement et aux films clients muets en boucle, et tout couper quand l'utilisateur réduit les animations.",
+      "Do écrire en français avec tous les accents, des titres courts terminés par un point, des phrases simples."
+    ],
+    "donts": [
+      "Don't afficher un montant, un volume ou un chiffre d'affaires en euros pour un client. Seulement des pourcentages ou des multiples.",
+      "Don't poser un libellé au-dessus d'un titre de section, ni numéroter les sections.",
+      "Don't utiliser le bleu pour un fond de section, un bouton plein ou une décoration.",
+      "Don't réintroduire l'orange, la crème, les tons bruns ou Bodoni hors du logo-mot TROIE.",
+      "Don't écrire un chiffre de résultat en Geist Mono.",
+      "Don't faire défiler un bandeau, faire pulser un élément ou animer un titre lettre par lettre.",
+      "Don't utiliser de tiret cadratin, de point-virgule ni de point médian dans les textes."
+    ]
+  }
+}

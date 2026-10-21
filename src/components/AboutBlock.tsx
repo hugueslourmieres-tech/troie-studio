@@ -188,7 +188,7 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
               key={m.name}
               className="group flex w-[78%] flex-none snap-start flex-col sm:w-[46%] lg:w-[calc((100%-5rem)/3)]"
             >
-              <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-[#ece4d6]">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[var(--bg-2)]">
                 <Image
                   src={m.img}
                   alt={`${m.name}, ${m.role}`}
