@@ -34,9 +34,8 @@ export const PROJECTS: Project[] = [
     url: "rutherford.fr",
     label: "rutherford.fr",
     desktop: "/images/creation/web/rutherford-desktop.jpg",
-    video: "/videos/creation/web/rutherford.mp4",
     mobile: "/images/creation/web/rutherford-mobile.jpg",
-    mobileRatio: "440 / 953",
+    mobileRatio: "600 / 1300",
   },
   {
     name: "Top Akita Inu",
@@ -55,9 +54,8 @@ export const PROJECTS: Project[] = [
     url: "capefront-site.vercel.app",
     label: "capefront-site.vercel.app",
     desktop: "/images/creation/web/capefront-desktop.jpg",
-    video: "/videos/creation/web/capefront.mp4",
     mobile: "/images/creation/web/capefront-mobile.jpg",
-    mobileRatio: "455 / 986",
+    mobileRatio: "600 / 1300",
   },
   {
     name: "PerPost",
@@ -66,9 +64,8 @@ export const PROJECTS: Project[] = [
     url: "perpost-web.vercel.app",
     label: "perpost-web.vercel.app",
     desktop: "/images/creation/web/perpost-desktop.jpg",
-    video: "/videos/creation/web/perpost.mp4",
-    mobile: "/images/creation/web/perpost-login.jpg",
-    mobileRatio: "455 / 809",
+    mobile: "/images/creation/web/perpost-mobile.jpg",
+    mobileRatio: "600 / 1300",
   },
   {
     name: "Color Guesser",
