@@ -160,7 +160,7 @@ export default function SiteConformePage() {
             href="/fr/contact?besoin=site#projet"
             className="border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
-            Lancer un projet
+            Décrire mon projet
           </Link>
           <Link
             href="/ia/accessibilite"

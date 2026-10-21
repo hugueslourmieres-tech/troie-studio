@@ -61,7 +61,7 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
 /**
  * Textes d'interface de la page article, par locale. Le bloc de fin
  * d'article reprend le contact de clôture du studio (deck du 1er/10/2026) :
- * « Réserver 30 min » en action principale, « Lancer un projet » ensuite.
+ * « Réserver 30 min » en action principale, « Décrire mon projet » ensuite.
  * Le bloc ne pousse plus troie.app (son lien vit dans le pied de page), ni
  * l'ancienne promesse d'une attestation « qui met en règle » : l'article 4
  * de l'AI Act est une obligation de moyens, sans certificat.
@@ -74,7 +74,7 @@ const UI = {
     ctaBody:
       "Trente minutes pour comprendre où vous en êtes et ce que vous visez. Ensuite, nous vous envoyons une proposition écrite et un devis.",
     ctaBook: "Réserver 30 min",
-    ctaProject: "Lancer un projet",
+    ctaProject: "Décrire mon projet",
   },
   en: {
     back: "← The Journal",
@@ -83,7 +83,7 @@ const UI = {
     ctaBody:
       "Thirty minutes to understand where you stand and what you aim for. Then we send you a written proposal and a quote.",
     ctaBook: "Book 30 min",
-    ctaProject: "Start a project",
+    ctaProject: "Describe my project",
   },
 } as const;
 

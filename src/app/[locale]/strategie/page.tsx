@@ -21,7 +21,7 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
  * ni dans un bouton. Elle n'est citée que dans la FAQ, comme un outil.
  *
  * Boutons (règle du 1er/10/2026, fond crème) : « Réserver 30 min » en orange
- * plein, « Lancer un projet » en lien souligné, avec le besoin « stratégie »
+ * plein, « Décrire mon projet » en lien souligné, avec le besoin « stratégie »
  * présélectionné dans le formulaire.
  */
 
@@ -35,7 +35,7 @@ const COPY = {
     intro:
       "Nous choisissons avec vous quoi dire, à qui et où. Puis nous le faisons : contenus, réseaux sociaux, référencement, campagnes.",
     book: "Réserver 30 min",
-    project: "Lancer un projet",
+    project: "Décrire mon projet",
     problemsTitle: "Ce que nous réglons avec vous.",
     problems: [
       {
@@ -121,7 +121,7 @@ const COPY = {
     intro:
       "We choose with you what to say, to whom and where. Then we do it: content, social media, search, campaigns.",
     book: "Book 30 min",
-    project: "Start a project",
+    project: "Describe my project",
     problemsTitle: "What we solve with you.",
     problems: [
       {
@@ -293,7 +293,7 @@ export default async function StrategiePage({
               <li key={p.q} className="flex flex-col bg-[var(--bg)] p-8">
                 <h3 className="t-display text-2xl text-[var(--fg)] md:text-3xl">{p.q}</h3>
                 <p className="mt-4 text-base leading-relaxed text-[var(--fg-2)]">{p.a}</p>
-                <p className="text-sm mt-4 leading-relaxed text-[var(--accent)] font-medium">
+                <p className="text-sm mt-4 leading-relaxed text-[var(--fg-2)] font-medium">
                   {p.d}
                 </p>
               </li>

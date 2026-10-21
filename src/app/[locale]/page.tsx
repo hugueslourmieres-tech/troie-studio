@@ -11,8 +11,8 @@ import { ContactCTA } from "@/components/ContactCTA";
 /**
  * Accueil (21/10/2026). Contrat de direction : .impeccable/surfaces/
  * src-app-locale-page-tsx.md (structure « les résultats en trois cartes »,
- * choisie par Hugues). Ordre : titre et trois résultats, marques, films,
- * sites, tableau de bord, services, équipe, appel.
+ * choisie par Hugues). Ordre : titre et trois résultats, tableau de bord,
+ * sites, films, services, marques, équipe, appel.
  */
 export default async function HomePage({
   params,
@@ -25,11 +25,11 @@ export default async function HomePage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <HomeHero locale={locale} />
-      <ClientsCloud />
-      <HomeFilms locale={locale} />
-      <HomeWebWorks locale={locale} />
       <HomeDashboard locale={locale} />
+      <HomeWebWorks locale={locale} />
+      <HomeFilms locale={locale} />
       <HomeServices locale={locale} />
+      <ClientsCloud />
       <AboutBlock locale={locale} />
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <ContactCTA locale={locale} />

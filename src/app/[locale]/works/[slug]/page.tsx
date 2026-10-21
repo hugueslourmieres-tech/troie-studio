@@ -10,7 +10,7 @@ import { pageSocial } from "@/lib/og";
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
 /* Boutons de clôture (règle du 1er/10/2026, fond crème) : « Réserver 30 min »
-   en orange plein, « Lancer un projet » en lien souligné. La zone cliquable
+   en orange plein, « Décrire mon projet » en lien souligné. La zone cliquable
    garde 48 px de haut pour le pouce. */
 const BTN_BOOK =
   "group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--ink)] px-6 text-[15px] font-medium text-white transition-[background-color,transform] duration-200 hover:bg-[#2a2e37] active:scale-[0.98]";
@@ -229,7 +229,7 @@ function CaseView({
             </a>
             <Link href={`/${locale}/contact#projet`} className={BTN_PROJECT}>
               <span className="inline-flex items-center gap-2.5 border-b-2 border-current pb-1.5">
-                {locale === "fr" ? "Lancer un projet" : "Start a project"}
+                {locale === "fr" ? "Décrire mon projet" : "Describe my project"}
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </span>
             </Link>

@@ -107,8 +107,8 @@ export function ResultCards({ locale }: { locale: string }) {
           className="group relative flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl md:w-auto border border-[var(--rule)] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
         >
           <div className="px-6 pt-6 md:px-7 md:pt-7">
-            <p className="text-sm text-[var(--fg-2)]">{c.sector}</p>
-            <p className="mt-0.5 text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</p>
+            <p className="text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</p>
+            <p className="mt-0.5 text-sm text-[var(--fg-2)]">{c.sector}</p>
             <p className="mt-6 text-[2.75rem] font-medium leading-none tracking-[-0.035em] text-[var(--accent)] tabular-nums md:text-[3.25rem]">
               {c.value}
             </p>

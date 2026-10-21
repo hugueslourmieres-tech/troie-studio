@@ -33,7 +33,7 @@ const HUGUES_INSTAGRAM_URL = "https://www.instagram.com/hugueslourmieres/";
  * z-[60] passe au-dessus de l'en-tête. Fond crème en dur, sans variable ni
  * opacité, pour ne jamais être teinté par un ton parent.
  *
- * De haut en bas : Réserver 30 min et Lancer un projet, puis les groupes
+ * De haut en bas : Réserver 30 min et Décrire mon projet, puis les groupes
  * Stratégie, Création, Accompagnement (titres cliquables), puis Réalisations,
  * Le studio, Journal, puis les réseaux et la langue.
  */

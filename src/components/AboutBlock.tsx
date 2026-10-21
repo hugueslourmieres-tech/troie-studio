@@ -201,7 +201,7 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
               <h3 className="t-display mt-6 text-2xl text-[var(--fg)] md:text-[26px]">
                 {m.name}
               </h3>
-              <p className="text-sm mt-2 text-[var(--accent)] font-medium">
+              <p className="text-sm mt-2 text-[var(--fg-2)] font-medium">
                 {m.role}
               </p>
               <p className="mt-3 max-w-sm text-sm leading-relaxed text-[var(--fg-2)]">

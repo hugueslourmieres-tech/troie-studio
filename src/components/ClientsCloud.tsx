@@ -1,8 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { useLocale } from "next-intl";
-import { gsap } from "gsap";
 
 // GS MONACO, VEORIA, STUDIO DE LA ROCHE, MEASURECOLOR seulement après accord
 // de Hugues.
@@ -29,18 +27,9 @@ const CLIENTS = [
  */
 export function ClientsCloud() {
   const locale = useLocale();
-  const trackRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-    const ctx = gsap.context(() => {
-      gsap.to(el, { xPercent: -50, ease: "none", duration: 32, repeat: -1 });
-    });
-    return () => ctx.revert();
-  }, []);
-
-  const loopList = [...CLIENTS, ...CLIENTS];
+  // Rangée fixe (21/10/2026) : rien ne défile hors des courbes et des films.
+  const loopList = CLIENTS;
 
   return (
     <section className="border-t border-[var(--rule)]">
@@ -52,18 +41,9 @@ export function ClientsCloud() {
 
       {/* Marquee, défile infiniment, full width */}
       <div className="relative mt-2 overflow-hidden pb-12 md:pb-16">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[var(--bg)] to-transparent md:w-40"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[var(--bg)] to-transparent md:w-40"
-        />
 
         <div
-          ref={trackRef}
-          className="flex w-max gap-12 will-change-transform md:gap-20"
+          className="mx-auto flex max-w-7xl flex-wrap justify-center gap-x-10 gap-y-4 px-5 md:gap-x-16"
         >
           {loopList.map((c, i) => (
             <span

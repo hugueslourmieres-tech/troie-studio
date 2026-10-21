@@ -14,7 +14,7 @@ const BOOKING_URL = "https://cal.com/troiestudio/30min";
 
 /**
  * Barre fixe crème. Menu : Services (déroulant), Réalisations, Studio,
- * Journal (21/10/2026). À droite : langue, Lancer un projet (à partir
+ * Journal (21/10/2026). À droite : langue, Décrire mon projet (à partir
  * de xl), Réserver 30 min. Ordre du 1er/10/2026 : le savoir-faire d'abord,
  * l'IA est un moyen. Plus de bandeau ni de bouton troie.app (lien dans le
  * pied de page).
@@ -56,7 +56,7 @@ export function Header({
         studio: "Studio",
         journal: "Journal",
         book: "Book 30 min",
-        project: "Start a project",
+        project: "Describe my project",
       }
     : {
         services: "Services",
@@ -69,7 +69,7 @@ export function Header({
         studio: "Studio",
         journal: "Journal",
         book: "Réserver 30 min",
-        project: "Lancer un projet",
+        project: "Décrire mon projet",
       };
 
   // Un seul menu déroulant (21/10/2026) : les services. Puis des liens
@@ -140,7 +140,7 @@ export function Header({
         </nav>
 
         <div className="flex items-center gap-4 md:gap-5">
-          {/* Bloc de droite (ordinateur) : langue, Lancer un projet (xl),
+          {/* Bloc de droite (ordinateur) : langue, Décrire mon projet (xl),
               Réserver 30 min. */}
           <div className="hidden items-center gap-4 lg:flex">
             {showLang && <LangSwitch locale={locale} />}

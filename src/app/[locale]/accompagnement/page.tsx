@@ -36,7 +36,7 @@ const COPY = {
     intro:
       "Une stratégie ne sert que si elle est tenue. Nous suivons vos projets dans la durée, avec vous, vos équipes et vos prestataires.",
     book: "Réserver 30 min",
-    project: "Lancer un projet",
+    project: "Décrire mon projet",
     directionTitle: "Une direction marketing, quand vous n'en avez pas.",
     directionBody:
       "Vous n'avez pas de directeur marketing, ou pas à plein temps. Hugues tient ce rôle à temps partagé : priorités, budget, choix des prestataires, suivi des résultats. Le rythme et la durée se fixent ensemble, dans le devis.",
@@ -76,7 +76,7 @@ const COPY = {
     intro:
       "A strategy only works if it is followed through. We follow your projects over time, with you, your teams and your suppliers.",
     book: "Book 30 min",
-    project: "Start a project",
+    project: "Describe my project",
     directionTitle: "A marketing director, when you don't have one.",
     directionBody:
       "You have no marketing director, or not full time. Hugues takes on this role on a fractional basis: priorities, budget, choice of suppliers, tracking results. The pace and duration are set together, in the quote.",

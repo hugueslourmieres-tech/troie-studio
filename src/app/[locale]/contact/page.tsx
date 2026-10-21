@@ -5,9 +5,6 @@ import { pageSocial } from "@/lib/og";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 const CAL_EMBED = "https://cal.com/troiestudio/30min?layout=month_view";
-const MAPS_LINK = "https://www.google.com/maps/place/Nice,+France";
-const MAPS_EMBED =
-  "https://maps.google.com/maps?q=Nice%2C%20Côte%20d'Azur%2C%20France&z=12&output=embed";
 
 export async function generateMetadata({
   params,
@@ -126,15 +123,7 @@ async function ContactView({ locale }: { locale: string }) {
                 <p className="text-sm text-[var(--fg-2)]">{t("direct")}</p>
                 <div className="mt-5 space-y-3">
                   <ObfuscatedEmail className="text-sm flex items-center gap-2 border-b border-[var(--rule-strong)] pb-0.5 text-[var(--fg-2)] transition hover:text-[var(--accent)] font-medium" />
-                  <a
-                    href={MAPS_LINK}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-sm flex items-center gap-2 text-[var(--fg-2)] transition hover:text-[var(--accent)] font-medium"
-                  >
-                    <span className="border-b border-[var(--rule-strong)] pb-0.5">{t("location")}</span>
-                    →
-                  </a>
+                  <p className="text-sm text-[var(--fg-2)]">{t("location")}</p>
                 </div>
                 <p className="mt-5 text-sm text-[var(--fg-2)]">{t("directNote")}</p>
               </div>
@@ -175,7 +164,7 @@ async function ContactView({ locale }: { locale: string }) {
           </div>
         </section>
 
-        {/* Le studio, Nice. La carte n'apparaît qu'à partir de md. */}
+        {/* Où nous travaillons : partout, à distance (plus de carte de Nice). */}
         <section className="mt-20 md:mt-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-xl">
@@ -186,41 +175,10 @@ async function ContactView({ locale }: { locale: string }) {
                 {t("studioText")}
               </p>
             </div>
-            <a
-              href={MAPS_LINK}
-              target="_blank"
-              rel="noreferrer"
-              className="text-sm group inline-flex shrink-0 items-center gap-3 border-b border-[var(--fg)] pb-2 text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] font-medium"
-            >
-              {t("mapsCta")}
-              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-            </a>
           </div>
 
-          <div className="mt-8 hidden overflow-hidden rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] md:block">
-            <iframe
-              src={MAPS_EMBED}
-              title={t("mapsTitle")}
-              loading="lazy"
-              className="h-[360px] w-full grayscale md:h-[420px]"
-            />
-          </div>
         </section>
 
-        {/* Ce que nous faisons : Stratégie, Création, Accompagnement */}
-        <section className="mt-20 border-t border-[var(--rule)] pt-14 md:mt-28 md:pt-16">
-          <ul className="mt-8 grid gap-8 sm:grid-cols-3 md:gap-12">
-            {WHAT_WE_DO.map((d) => (
-              <li key={d.n}>
-                <span className="font-mono text-[10px] tracking-[0.22em] text-[var(--accent)]">
-                  {d.n}
-                </span>
-                <h3 className="t-display mt-3 text-2xl text-[var(--fg)]">{d.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)]">{d.body}</p>
-              </li>
-            ))}
-          </ul>
-        </section>
       </article>
     </div>
   );

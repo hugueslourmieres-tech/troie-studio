@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { NEEDS, NEED_EVENT, SUBJECT_TO_NEED, isNeed, type NeedSlug } from "@/lib/needs";
 
 /**
- * Formulaire de brief court (bouton Lancer un projet), repris du commit
+ * Formulaire de brief court (bouton Décrire mon projet), repris du commit
  * 725bde9 sans le champ budget. Présélection du besoin par ?besoin= ou par
  * les anciens ?subject=. Envoi par /api/contact avec kind projet, mêmes
  * protections anti-spam.
