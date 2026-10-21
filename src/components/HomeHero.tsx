@@ -1,4 +1,5 @@
 import { AnalyticsPanel } from "./AnalyticsPanel";
+import { draftClients } from "@/lib/drafts";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
@@ -55,7 +56,7 @@ export function HomeHero({ locale }: { locale: string }) {
         </div>
 
         <div className="mt-12 md:mt-16">
-          <AnalyticsPanel locale={locale} />
+          <AnalyticsPanel locale={locale} extraClients={draftClients(locale === "en")} />
         </div>
       </div>
     </section>

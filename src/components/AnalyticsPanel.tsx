@@ -24,10 +24,10 @@ import {
  * ne pas inventer de courbe entre deux mesures.
  */
 
-type Point = { d: string; v: number };
-type LineData = { kind: "line"; points: Point[] };
-type BarsData = { kind: "bars"; bars: { label: string; v: number; display: string }[] };
-type Metric = {
+export type Point = { d: string; v: number };
+export type LineData = { kind: "line"; points: Point[] };
+export type BarsData = { kind: "bars"; bars: { label: string; v: number; display: string }[] };
+export type Metric = {
   id: string;
   label: string;
   headline: number;
@@ -36,7 +36,7 @@ type Metric = {
   /** « count » : valeurs brutes (nombre de leads), sinon évolution en %. */
   unit?: "pct" | "count";
 };
-type Client = {
+export type Client = {
   id: string;
   name: string;
   sector: string;
@@ -46,14 +46,6 @@ type Client = {
   /** Brouillon : chiffres d'exemple, jamais affichés en production. */
   draft?: boolean;
 };
-
-/**
- * Les brouillons (chiffres d'exemple à remplacer par les vrais) ne
- * s'affichent qu'en développement et sur les prévisualisations Vercel,
- * jamais sur troiestudio.fr.
- */
-const SHOW_DRAFTS =
-  process.env.NODE_ENV === "development" || process.env.NEXT_PUBLIC_VERCEL_ENV === "preview";
 
 const MONTHS = {
   fr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."],
@@ -120,43 +112,8 @@ function buildClients(en: boolean): Client[] {
         { id: "youtube", label: "YouTube", headline: last(RUTHERFORD_YOUTUBE_PCT), sub: en ? "subscribers since April 2022" : "abonnés depuis avril 2022", data: { kind: "line", points: RUTHERFORD_YOUTUBE_PCT } },
       ],
     },
-    {
-      // EXEMPLE À REMPLACER : Hugues vérifie ses données (21/10/2026).
-      // Aucun de ces chiffres n'est réel. Jamais affiché en production.
-      id: "sea",
-      name: en ? "Google Ads campaign" : "Campagne Google Ads",
-      sector: en ? "Example, to be confirmed" : "Exemple, à confirmer",
-      draft: true,
-      note: en
-        ? "EXAMPLE DATA. A six-month search campaign: leads collected month by month."
-        : "DONNÉES D'EXEMPLE. Une campagne de six mois sur Google : les leads, mois par mois.",
-      source: en
-        ? "Example only. Real figures will come from the Google Ads account."
-        : "Exemple seulement. Les vrais chiffres viendront du compte Google Ads.",
-      metrics: [
-        {
-          id: "leads",
-          label: en ? "Leads" : "Leads",
-          headline: 100,
-          unit: "count",
-          sub: en ? "in six months" : "en six mois",
-          data: {
-            kind: "line",
-            points: [
-              { d: "2026-01-01", v: 0 },
-              { d: "2026-02-01", v: 8 },
-              { d: "2026-03-01", v: 22 },
-              { d: "2026-04-01", v: 41 },
-              { d: "2026-05-01", v: 58 },
-              { d: "2026-06-01", v: 79 },
-              { d: "2026-07-01", v: 100 },
-            ],
-          },
-        },
-      ],
-    },
   ];
-  return all.filter((c) => SHOW_DRAFTS || !c.draft);
+  return all;
 }
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
@@ -187,10 +144,19 @@ function niceMax(v: number) {
 
 const ts = (d: string) => new Date(`${d}T00:00:00Z`).getTime();
 
-export function AnalyticsPanel({ locale }: { locale: string }) {
+const NO_CLIENTS: Client[] = [];
+
+export function AnalyticsPanel({
+  locale,
+  extraClients = NO_CLIENTS,
+}: {
+  locale: string;
+  /** Clients en brouillon, fournis par le serveur hors production. */
+  extraClients?: Client[];
+}) {
   const en = locale === "en";
   const ui = UI[en ? "en" : "fr"];
-  const clients = useMemo(() => buildClients(en), [en]);
+  const clients = useMemo(() => [...buildClients(en), ...extraClients], [en, extraClients]);
   const nf = useMemo(() => new Intl.NumberFormat(en ? "en-GB" : "fr-FR"), [en]);
 
   const [clientId, setClientId] = useState(clients[0].id);
