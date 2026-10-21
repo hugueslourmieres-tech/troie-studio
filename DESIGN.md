@@ -195,6 +195,8 @@ Une palette froide et neutre, avec un seul bleu qui signale la mesure.
 ### Named Rules
 **La règle du noir et blanc (21/10/2026, direction « à la OpenAI »).** Aucune couleur d'interface. Chiffres, courbes, liens et boutons sont à l'encre. La seule couleur du site vient des vrais travaux (photos, films, captures de sites), en noir et blanc au repos, en couleur au survol. Le jeton nommé « cobalt » vaut désormais l'encre (#111318) pour compatibilité.
 
+**La règle du trait multicolore (test du 21/10/2026).** La seule couleur d'interface est un dégradé conique multicolore (`--halo-colors`), jamais en aplat. Il apparaît en deux endroits : le halo des cartes de résultats (trait de 1,5 px et lueur floutée sur le bord, une fois à l'arrivée puis au survol, classe `.halo`) et le trait qui se dessine sous le mot tournant du titre (`.halo-line`). Ailleurs, rien.
+
 **La règle des boutons noirs.** L'action principale est en encre, pas en bleu. Le bleu reste disponible pour les chiffres, qui doivent être la chose la plus colorée de l'écran.
 
 ## Typography
