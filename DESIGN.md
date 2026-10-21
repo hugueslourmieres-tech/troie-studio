@@ -11,6 +11,7 @@ colors:
   graphite: "#4f5562"
   cobalt: "#2f5bd3"
   cobalt-wash: "rgba(47, 91, 211, 0.08)"
+  warm: "#e4570f"
   rule: "rgba(17, 19, 24, 0.09)"
   rule-strong: "rgba(17, 19, 24, 0.22)"
 typography:
@@ -180,6 +181,9 @@ Une palette froide et neutre, avec un seul bleu qui signale la mesure.
 - **Bleu cobalt** (`cobalt`) : réservé aux chiffres clés des cartes de résultats et du tableau de bord, au tracé et à l'aire des courbes, au trait de l'onglet choisi, aux liens de suite (« Voir les sites → », « Tous les films → ») et au survol des liens de navigation. Il sert aussi à l'anneau de focus clavier, au curseur de saisie et aux cases à cocher. L'aire sous une courbe le reprend en transparence (8 % dans les cartes, dégradé de 16 % à 0 dans le tableau de bord).
 - **Voile cobalt** (`cobalt-wash`) : fond de survol des entrées du menu déroulant, et rien d'autre.
 
+### Secondary
+- **Orange TROIE** (`warm`, `--warm`, #e4570f) : l'orange historique de la marque, approfondi pour rester lisible en grand sur blanc (3,6:1, donc titres seulement, jamais du texte courant). Réservé au mot qui tourne dans le titre de l'accueil (« Nous faisons grandir vos ventes, commandes, visites, prospects, abonnés, demandes »). Le bleu mesure, l'orange désigne ce qui grandit.
+
 ### Neutral
 - **Blanc froid** (`canvas`) : fond de toute la page.
 - **Gris bande** (`band`) : bande de clôture (section d'appel), colonne des clients et onglets inactifs du tableau de bord, fond d'attente des films.
@@ -193,6 +197,8 @@ Une palette froide et neutre, avec un seul bleu qui signale la mesure.
 
 ### Named Rules
 **La règle du bleu qui mesure.** Le cobalt ne colore qu'un chiffre, une courbe ou un lien. Jamais un fond de section, jamais un bouton plein, jamais une illustration. Si un élément bleu ne mesure rien et ne mène nulle part, il doit redevenir encre ou graphite.
+
+**La règle de l'orange rare.** L'orange n'apparaît qu'une fois par écran, sur un mot de titre. Jamais sur un bouton, un chiffre, une courbe ou un fond.
 
 **La règle des boutons noirs.** L'action principale est en encre, pas en bleu. Le bleu reste disponible pour les chiffres, qui doivent être la chose la plus colorée de l'écran.
 

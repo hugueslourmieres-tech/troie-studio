@@ -1,4 +1,5 @@
 import { ResultCards } from "./ResultCards";
+import { RotatingWord } from "./RotatingWord";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
@@ -8,13 +9,17 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
  */
 const COPY = {
   fr: {
-    title: "Nous faisons grandir vos ventes.",
+    title: "Nous faisons grandir vos",
+    words: ["ventes.", "commandes.", "visites.", "prospects.", "abonnés.", "demandes."],
+    srWords: "ventes, commandes, visites, prospects, abonnés et demandes.",
     body: "Sites, films, réseaux sociaux, SEO et publicité. Une seule équipe, des résultats mesurés.",
     book: "Réserver 30 min",
     project: "Décrire mon projet",
   },
   en: {
-    title: "We grow your sales.",
+    title: "We grow your",
+    words: ["sales.", "orders.", "traffic.", "leads.", "followers.", "bookings."],
+    srWords: "sales, orders, traffic, leads, followers and bookings.",
     body: "Websites, films, social media, SEO and advertising. One team, measured results.",
     book: "Book 30 min",
     project: "Describe my project",
@@ -27,8 +32,11 @@ export function HomeHero({ locale }: { locale: string }) {
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-5 pt-28 pb-16 md:px-12 md:pt-36 md:pb-24">
-        <h1 className="t-display max-w-[14ch] text-[2.75rem] leading-[1.02] text-[var(--fg)] sm:text-6xl lg:max-w-none lg:text-[5.5rem]">
+        <h1 className="t-display text-[2.75rem] leading-[1.02] text-[var(--fg)] sm:text-6xl lg:text-[5.5rem]">
           {c.title}
+          <br />
+          <span className="sr-only">{c.srWords}</span>
+          <RotatingWord words={c.words} />
         </h1>
         <div className="mt-8 flex flex-col gap-6 md:mt-10 md:flex-row md:items-center md:justify-between">
           <p className="max-w-[34rem] text-lg leading-relaxed text-[var(--fg-2)]">{c.body}</p>

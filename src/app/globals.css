@@ -26,6 +26,10 @@
   --accent: #2f5bd3;
   --accent-2: #2448b0;
   --accent-soft: rgba(47, 91, 211, 0.08);
+  /* Seconde couleur (21/10/2026) : l'orange historique de TROIE, approfondi
+     pour rester lisible en grand sur blanc (3,6:1). Réservé au mot qui
+     tourne dans le titre et aux rares mises en avant éditoriales. */
+  --warm: #e4570f;
   --rule: rgba(17, 19, 24, 0.09);
   --rule-strong: rgba(17, 19, 24, 0.22);
   --gold: #4f5562;
@@ -56,6 +60,7 @@
   --accent: #2f5bd3;
   --accent-2: #2448b0;
   --accent-soft: rgba(47, 91, 211, 0.08);
+  --warm: #e4570f;
   --rule: rgba(17, 19, 24, 0.10);
   --rule-strong: rgba(17, 19, 24, 0.24);
   --gold: #4f5562;
