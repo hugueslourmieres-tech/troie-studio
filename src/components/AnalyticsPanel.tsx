@@ -27,8 +27,33 @@ import {
 type Point = { d: string; v: number };
 type LineData = { kind: "line"; points: Point[] };
 type BarsData = { kind: "bars"; bars: { label: string; v: number; display: string }[] };
-type Metric = { id: string; label: string; headline: number; sub: string; data: LineData | BarsData };
-type Client = { id: string; name: string; sector: string; note: string; source: string; metrics: Metric[] };
+type Metric = {
+  id: string;
+  label: string;
+  headline: number;
+  sub: string;
+  data: LineData | BarsData;
+  /** « count » : valeurs brutes (nombre de leads), sinon évolution en %. */
+  unit?: "pct" | "count";
+};
+type Client = {
+  id: string;
+  name: string;
+  sector: string;
+  note: string;
+  source: string;
+  metrics: Metric[];
+  /** Brouillon : chiffres d'exemple, jamais affichés en production. */
+  draft?: boolean;
+};
+
+/**
+ * Les brouillons (chiffres d'exemple à remplacer par les vrais) ne
+ * s'affichent qu'en développement et sur les prévisualisations Vercel,
+ * jamais sur troiestudio.fr.
+ */
+const SHOW_DRAFTS =
+  process.env.NODE_ENV === "development" || process.env.NEXT_PUBLIC_VERCEL_ENV === "preview";
 
 const MONTHS = {
   fr: ["janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct.", "nov.", "déc."],
@@ -60,7 +85,7 @@ function buildClients(en: boolean): Client[] {
   const last = (p: Point[]) => p[p.length - 1].v;
   const twoYears = en ? "in two years" : "en deux ans";
 
-  return [
+  const all: Client[] = [
     {
       id: "loir",
       name: "LOIR Paris",
@@ -95,7 +120,43 @@ function buildClients(en: boolean): Client[] {
         { id: "youtube", label: "YouTube", headline: last(RUTHERFORD_YOUTUBE_PCT), sub: en ? "subscribers since April 2022" : "abonnés depuis avril 2022", data: { kind: "line", points: RUTHERFORD_YOUTUBE_PCT } },
       ],
     },
+    {
+      // EXEMPLE À REMPLACER : Hugues vérifie ses données (21/10/2026).
+      // Aucun de ces chiffres n'est réel. Jamais affiché en production.
+      id: "sea",
+      name: en ? "Google Ads campaign" : "Campagne Google Ads",
+      sector: en ? "Example, to be confirmed" : "Exemple, à confirmer",
+      draft: true,
+      note: en
+        ? "EXAMPLE DATA. A six-month search campaign: leads collected month by month."
+        : "DONNÉES D'EXEMPLE. Une campagne de six mois sur Google : les leads, mois par mois.",
+      source: en
+        ? "Example only. Real figures will come from the Google Ads account."
+        : "Exemple seulement. Les vrais chiffres viendront du compte Google Ads.",
+      metrics: [
+        {
+          id: "leads",
+          label: en ? "Leads" : "Leads",
+          headline: 100,
+          unit: "count",
+          sub: en ? "in six months" : "en six mois",
+          data: {
+            kind: "line",
+            points: [
+              { d: "2026-01-01", v: 0 },
+              { d: "2026-02-01", v: 8 },
+              { d: "2026-03-01", v: 22 },
+              { d: "2026-04-01", v: 41 },
+              { d: "2026-05-01", v: 58 },
+              { d: "2026-06-01", v: 79 },
+              { d: "2026-07-01", v: 100 },
+            ],
+          },
+        },
+      ],
+    },
   ];
+  return all.filter((c) => SHOW_DRAFTS || !c.draft);
 }
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
@@ -148,6 +209,8 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
     const n = Math.round(v);
     return `${n > 0 ? "+" : n < 0 ? "−" : ""}${nf.format(Math.abs(n))}${en ? "%" : " %"}`;
   };
+  /** Valeur selon l'unité de l'indicateur : évolution en % ou nombre brut. */
+  const val = (m: Metric, v: number) => (m.unit === "count" ? nf.format(Math.round(v)) : pct(v));
   const dateLabel = (d: string) => {
     const [y, mo] = d.split("-");
     return `${MONTHS[en ? "en" : "fr"][Number(mo) - 1]} ${y}`;
@@ -176,7 +239,7 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
   // ---- Courbe datée ----
   let lineView: React.ReactNode = null;
   let tooltip: { left: number; label: string; value: string } | null = null;
-  let ariaLabel = `${client.name}, ${metric.label} : ${pct(metric.headline)}.`;
+  let ariaLabel = `${client.name}, ${metric.label} : ${val(metric, metric.headline)}.`;
 
   if (metric.data.kind === "line") {
     const pts = metric.data.points;
@@ -197,8 +260,8 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
     }
     const active = hover ?? pts.length - 1;
 
-    tooltip = { left: x(pts[active].d) / W, label: dateLabel(pts[active].d), value: pct(pts[active].v) };
-    ariaLabel = `${client.name}, ${metric.label} : ${pct(pts[pts.length - 1].v)}, ${dateLabel(pts[0].d)} à ${dateLabel(pts[pts.length - 1].d)}.`;
+    tooltip = { left: x(pts[active].d) / W, label: dateLabel(pts[active].d), value: val(metric, pts[active].v) };
+    ariaLabel = `${client.name}, ${metric.label} : ${val(metric, pts[pts.length - 1].v)}, ${dateLabel(pts[0].d)} à ${dateLabel(pts[pts.length - 1].d)}.`;
 
     const onMove = (e: React.PointerEvent<SVGRectElement>) => {
       const r = e.currentTarget.getBoundingClientRect();
@@ -222,7 +285,7 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
           <g key={v}>
             <line x1={pad.l} x2={W - pad.r} y1={y(v)} y2={y(v)} stroke="var(--rule)" strokeWidth="1" />
             <text x={pad.l - 10} y={y(v) + 4} textAnchor="end" fill="var(--fg-2)" fontSize="11" fontFamily="var(--font-mono)">
-              {pct(v)}
+              {val(metric, v)}
             </text>
           </g>
         ))}
@@ -378,7 +441,7 @@ export function AnalyticsPanel({ locale }: { locale: string }) {
               >
                 <span className="block truncate text-xs text-[var(--fg-2)] md:text-sm">{m.label}</span>
                 <span className="mt-1 block font-mono text-lg font-medium tabular-nums text-[var(--accent)] md:text-2xl">
-                  {pct(m.headline)}
+                  {val(m, m.headline)}
                 </span>
                 <span className="mt-0.5 block truncate text-xs text-[var(--fg-2)]">{m.sub}</span>
                 {selected && (
