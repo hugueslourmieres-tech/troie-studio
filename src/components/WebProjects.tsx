@@ -23,6 +23,7 @@ export const PROJECTS: Project[] = [
     url: "loirparis.fr",
     label: "loirparis.fr",
     desktop: "/images/creation/web/loirparis-desktop.jpg",
+    video: "/videos/creation/web/loirparis.mp4",
     mobile: "/images/creation/web/loirparis-mobile.jpg",
     mobileRatio: "600 / 1154",
     featured: true,
@@ -35,16 +36,6 @@ export const PROJECTS: Project[] = [
     label: "rutherford.fr",
     desktop: "/images/creation/web/rutherford-desktop.jpg",
     mobile: "/images/creation/web/rutherford-mobile.jpg",
-    mobileRatio: "600 / 1300",
-  },
-  {
-    name: "Top Akita Inu",
-    kind: "Site vitrine et réservation en ligne, élevage canin",
-    href: "https://www.top-akita-inu.com",
-    url: "top-akita-inu.com",
-    label: "top-akita-inu.com",
-    desktop: "/images/creation/web/topakita-desktop.jpg",
-    mobile: "/images/creation/web/topakita-mobile.jpg",
     mobileRatio: "600 / 1300",
   },
   {
@@ -90,6 +81,9 @@ export const PROJECTS: Project[] = [
     mobileRatio: "600 / 1301",
   },
 ];
+
+/** Les sites montrés dans le slider de l'accueil, dans cet ordre (21/10/2026). */
+export const HOME_PROJECTS = ["Bien en règle", "LOIR Paris", "Rutherford", "Color Guesser", "Bilber"];
 
 export type Project = {
   name: string;

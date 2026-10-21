@@ -1,37 +1,39 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { PROJECTS, ProjectCard } from "./WebProjects";
+import { HOME_PROJECTS, PROJECTS } from "./WebProjects";
+import { WebSlider } from "./WebSlider";
 
 /**
- * Accueil : les réalisations web, juste sous les services (21/10/2026).
- * Les deux jeux en pleine largeur, puis deux sites. Tout est en ligne.
+ * Accueil : le design de nos sites, en slider (21/10/2026). Cinq sites,
+ * tous en ligne : Bien en règle, LOIR Paris, Rutherford, puis les deux jeux.
  */
 export async function HomeWebWorks({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "home" });
-  const shown = PROJECTS.slice(0, 4);
+  const shown = HOME_PROJECTS.map((n) => PROJECTS.find((p) => p.name === n)).filter((p) => !!p);
 
   return (
-    <section id="realisations" className="scroll-mt-24 border-t border-[var(--rule)]">
+    <section id="realisations" className="scroll-mt-24 overflow-hidden border-t border-[var(--rule)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
-        <h2 className="t-display max-w-[18ch] text-balance text-4xl text-[var(--fg)] md:text-6xl">
-          {t("webTitle")}
-        </h2>
-        <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-          {t("webIntro")}
-        </p>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <h2 className="t-display max-w-[18ch] text-balance text-4xl text-[var(--fg)] md:text-6xl">
+              {t("webTitle")}
+            </h2>
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+              {t("webIntro")}
+            </p>
+          </div>
+          <Link
+            href={`/${locale}/creation/web`}
+            className="inline-flex items-center text-sm font-medium text-[var(--accent)] hover:underline underline-offset-4"
+          >
+            {t("webCta")}
+          </Link>
+        </div>
 
-        <ul className="mt-14 grid gap-x-10 gap-y-20 lg:grid-cols-2">
-          {shown.map((p) => (
-            <ProjectCard key={p.name} p={p} />
-          ))}
-        </ul>
-
-        <Link
-          href={`/${locale}/creation/web`}
-          className="group mt-16 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)]"
-        >
-          {t("webCta")}
-        </Link>
+        <div className="mt-14">
+          <WebSlider projects={shown} en={locale === "en"} />
+        </div>
       </div>
     </section>
   );
