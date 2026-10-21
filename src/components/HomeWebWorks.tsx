@@ -5,7 +5,7 @@ import { WebSlider } from "./WebSlider";
 
 /**
  * Accueil : le design de nos sites, en slider (21/10/2026). Cinq sites,
- * tous en ligne : Bien en règle, LOIR Paris, Rutherford, puis les deux jeux.
+ * tous en ligne : LOIR Paris, Color Guesser, Bien en règle, Rutherford, Bilber.
  */
 export async function HomeWebWorks({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "home" });

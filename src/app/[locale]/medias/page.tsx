@@ -5,17 +5,19 @@ import { useTranslations } from "next-intl";
 import { WORKS, type Work } from "@/lib/works";
 import { VideoCarousel } from "@/components/VideoCarousel";
 import { ProofCase } from "@/components/ProofCase";
+import { PhotoStrip } from "@/components/PhotoStrip";
 import { pageSocial } from "@/lib/og";
 import { metaDescription, seoTitle } from "@/lib/seo";
 
 /**
  * Page « Réalisations » (/medias, 1er/10/2026). Ordre : l'exemple Autajon,
- * la vidéo, la photographie pour les entreprises, puis le regard personnel
- * de Hugues (séries Valberg et Animaux). La vidéo Autajon est retirée du
- * carrousel puisqu'elle est déjà montrée en tête de page.
+ * la vidéo, puis une seule partie « Photographie » (21/10/2026) : les
+ * reportages pour les entreprises, la série Valberg et la faune sauvage,
+ * chacune en bande qui défile. La vidéo Autajon est retirée du carrousel
+ * puisqu'elle est déjà montrée en tête de page.
  */
 
-/** Les séries personnelles de Hugues, sorties de la grille « entreprises ». */
+/** Les séries de paysage et de faune, sorties de la grille « entreprises ». */
 const PERSONAL = ["valberg", "animaux"];
 
 /** Identifiant YouTube de la vidéo Autajon, déjà dans le bloc ProofCase. */
@@ -35,11 +37,14 @@ const COPY = {
     videoEyebrow: "Vidéo",
     videoBody:
       "Films de marque, témoignages clients, contenus pour les réseaux. Du concept au montage.",
-    photoEyebrow: "Photographie, pour les entreprises",
-    regardEyebrow: "Le regard de Hugues",
-    regardBody:
-      "Hugues photographie aussi la nature et la faune, souvent en noir et blanc. Ses séries sont sur Instagram.",
-    follow: "Suivre @hugueslourmieres",
+    photoTitle: "Photographie",
+    photoBody:
+      "Reportages pour les entreprises, paysages du Mercantour et faune sauvage du monde entier.",
+    business: "Pour les entreprises",
+    valberg: "Valberg, Mercantour",
+    animaux: "Faune sauvage",
+    series: "Voir la série",
+    follow: "Plus de photos sur Instagram",
   },
   en: {
     metaTitle: "Business photo and video, our work",
@@ -52,11 +57,14 @@ const COPY = {
     videoEyebrow: "Video",
     videoBody:
       "Brand films, customer testimonials, content for social media. From concept to edit.",
-    photoEyebrow: "Photography for businesses",
-    regardEyebrow: "Hugues's eye",
-    regardBody:
-      "Hugues also photographs nature and wildlife, often in black and white. His series are on Instagram.",
-    follow: "Follow @hugueslourmieres",
+    photoTitle: "Photography",
+    photoBody:
+      "Reportage for businesses, Mercantour landscapes and wildlife from around the world.",
+    business: "For businesses",
+    valberg: "Valberg, Mercantour",
+    animaux: "Wildlife",
+    series: "See the series",
+    follow: "More photos on Instagram",
   },
 } as const;
 
@@ -129,33 +137,46 @@ function MediasView({ locale }: { locale: string }) {
         </div>
       </section>
 
-      {/* Photographie, pour les entreprises */}
-      <section id="photo" className="scroll-mt-24 border-t border-[var(--rule)]">
+      {/* Photographie : entreprises, Valberg, faune sauvage */}
+      <section id="photo" className="scroll-mt-24 overflow-hidden border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <h2 className="text-2xl font-medium tracking-[-0.02em] text-[var(--fg)]">{c.photoEyebrow}</h2>
-          <WorksGrid locale={locale} works={business} />
-        </div>
-      </section>
-
-      {/* Le regard de Hugues : ses séries personnelles */}
-      <section id="regard" className="scroll-mt-24 border-t border-[var(--rule)]">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <h2 className="text-2xl font-medium tracking-[-0.02em] text-[var(--fg)]">{c.regardEyebrow}</h2>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">
-            {c.regardBody}
+          <h2 className="t-display text-4xl text-[var(--fg)] md:text-6xl">{c.photoTitle}</h2>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
+            {c.photoBody}
           </p>
-          <WorksGrid locale={locale} works={personal} />
+
+          <h3 className="mt-16 text-2xl font-medium tracking-[-0.02em] text-[var(--fg)]">{c.business}</h3>
+          <WorksGrid locale={locale} works={business} />
+
+          {personal.map((w) => (
+            <div key={w.slug} id={w.slug} className="mt-24 scroll-mt-24">
+              <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+                <h3 className="text-2xl font-medium tracking-[-0.02em] text-[var(--fg)]">
+                  {w.slug === "valberg" ? c.valberg : c.animaux}
+                </h3>
+                <Link
+                  href={`/${locale}/works/${w.slug}`}
+                  className="text-sm font-medium text-[var(--accent)] underline-offset-4 hover:underline"
+                >
+                  {c.series}
+                </Link>
+              </div>
+              <PhotoStrip
+                label={w.slug === "valberg" ? c.valberg : c.animaux}
+                photos={w.gallery.filter((g) => /\/n\d{2}\.jpg$/.test(g)).slice(0, w.slug === "valberg" ? 12 : 16)}
+              />
+            </div>
+          ))}
+
           <a
             href={INSTAGRAM_HUGUES}
             target="_blank"
             rel="noreferrer"
-            className="text-sm group mt-12 inline-flex min-h-[48px] items-center text-[var(--fg)] transition hover:text-[var(--accent)] font-medium"
+            className="group mt-14 inline-flex min-h-[48px] items-center text-sm font-medium text-[var(--fg)] transition hover:text-[var(--accent)]"
           >
             <span className="inline-flex items-center gap-2.5 border-b-2 border-current pb-1.5">
               {c.follow}
-              <span aria-hidden="true" className="transition group-hover:translate-x-1">
-                ↗
-              </span>
+              <span aria-hidden="true" className="transition group-hover:translate-x-1">↗</span>
             </span>
           </a>
         </div>

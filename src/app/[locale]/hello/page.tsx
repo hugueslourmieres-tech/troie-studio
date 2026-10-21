@@ -115,7 +115,7 @@ export default async function HelloPage({
   const links = [
     { href: `/${locale}/medias`, label: c.work },
     { href: `/${locale}#about`, label: c.team },
-    { href: `/${locale}/medias#regard`, label: c.series },
+    { href: `/${locale}/medias#photo`, label: c.series },
   ];
 
   const thumbs = [
@@ -127,14 +127,14 @@ export default async function HelloPage({
       position: "center",
     },
     {
-      href: `/${locale}/medias#regard`,
+      href: `/${locale}/medias#valberg`,
       src: "/images/works/Valberg/cover.jpg",
       alt: c.thumbs[1],
       video: false,
       position: "center 55%",
     },
     {
-      href: `/${locale}/medias#regard`,
+      href: `/${locale}/medias#animaux`,
       src: "/images/works/Animaux/cover.jpg",
       alt: c.thumbs[2],
       video: false,

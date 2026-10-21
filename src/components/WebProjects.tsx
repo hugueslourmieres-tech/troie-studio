@@ -83,7 +83,7 @@ export const PROJECTS: Project[] = [
 ];
 
 /** Les sites montrés dans le slider de l'accueil, dans cet ordre (21/10/2026). */
-export const HOME_PROJECTS = ["Bien en règle", "LOIR Paris", "Rutherford", "Color Guesser", "Bilber"];
+export const HOME_PROJECTS = ["LOIR Paris", "Color Guesser", "Bien en règle", "Rutherford", "Bilber"];
 
 export type Project = {
   name: string;

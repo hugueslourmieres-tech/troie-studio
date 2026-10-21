@@ -153,15 +153,15 @@
       },
       "valberg": {
         "title": "Valberg",
-        "subtitle": "Paysages du Mercantour",
-        "scope": "Photographie paysage, noir et blanc, prints",
+        "subtitle": "Paysages et faune du Mercantour",
+        "scope": "Paysage et faune, couleur et noir et blanc, tirages",
         "description": "Une série photographique tournée dans le Mercantour, autour de Valberg. Composer avec le paysage, faire l'expérience de la vérité de la nature."
       },
       "animaux": {
         "title": "Animaux",
-        "subtitle": "Photographie animalière, faune sauvage",
-        "scope": "Faune, photographie de nature, prints",
-        "description": "Capter l'émotion de la vie sauvage. Montrer la beauté brute de la nature, à hauteur d'animal."
+        "subtitle": "Faune sauvage, de l'Arctique à l'Antarctique",
+        "scope": "Photographie animalière, tirages",
+        "description": "Pumas du Chili, ours polaires du Groenland, morses du Svalbard, gorilles et chimpanzés d'Ouganda, manchots d'Antarctique. Des photos prises à hauteur d'animal."
       }
     }
   },

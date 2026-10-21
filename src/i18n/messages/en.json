@@ -153,15 +153,15 @@
       },
       "valberg": {
         "title": "Valberg",
-        "subtitle": "Mercantour landscapes",
-        "scope": "Landscape photography, black and white, prints",
+        "subtitle": "Mercantour landscapes and wildlife",
+        "scope": "Landscape and wildlife, colour and black and white, prints",
         "description": "A photographic series shot in the Mercantour, around Valberg. Composing with landscape, experiencing the truth of nature."
       },
       "animaux": {
         "title": "Wildlife",
-        "subtitle": "Wildlife photography",
-        "scope": "Wildlife, nature photography, prints",
-        "description": "Capturing the emotion of wildlife. Showing the raw beauty of nature, at animal level."
+        "subtitle": "Wildlife, from the Arctic to Antarctica",
+        "scope": "Wildlife photography, prints",
+        "description": "Pumas in Chile, polar bears in Greenland, walruses in Svalbard, gorillas and chimpanzees in Uganda, penguins in Antarctica. Photographed at animal level."
       }
     }
   },
