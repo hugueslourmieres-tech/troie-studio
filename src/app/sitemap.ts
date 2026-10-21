@@ -11,13 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // /fr|/en/formation(s) redirige (301) vers troie.app/formation : exclu du sitemap.
   // /privacy et /terms sont en noindex : hors du sitemap (24/09/2026).
   // /hello (lien en bio Instagram) est en noindex : hors du sitemap.
-  // /rentree reste listée jusqu'à sa 301 vers /strategie (après le 31 octobre).
+  // /rentree, /scan-ia et /diagnostic-ia redirigent en 301 depuis le 21/10/2026.
   // /works/formation-ia sort seule du sitemap : la fiche n'est plus dans WORKS
   // et redirige en permanence vers /accompagnement (next.config.ts).
-  const staticPaths = ["", "/strategie", "/creation", "/creation/web", "/accompagnement", "/diagnostic-ia", "/scan-ia", "/rentree", "/medias", "/blog", "/contact"];
+  const staticPaths = ["", "/strategie", "/creation", "/creation/web", "/accompagnement", "/medias", "/blog", "/contact"];
   // Rédigées en français seulement : la copie /en porte une canonique vers /fr.
-  const FR_ONLY = new Set(["/creation/web", "/rentree"]);
-  const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/accompagnement", "/diagnostic-ia", "/scan-ia", "/rentree"]);
+  const FR_ONLY = new Set(["/creation/web"]);
+  const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/accompagnement"]);
 
   const entries: MetadataRoute.Sitemap = [];
 
@@ -87,10 +87,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: number;
     frequency: MetadataRoute.Sitemap[number]["changeFrequency"];
   }[] = [
-    { path: "/ia", priority: 0.9, frequency: "weekly" },
-    { path: "/ia/ai-act", priority: 0.9, frequency: "weekly" },
-    { path: "/ia/accessibilite", priority: 0.9, frequency: "weekly" },
-    { path: "/creation/site-conforme", priority: 0.9, frequency: "weekly" },
   ];
 
   for (const { path, priority, frequency } of NON_LOCALE) {

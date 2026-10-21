@@ -216,9 +216,7 @@ function LocalMedia({
       preload="metadata"
       className="h-full w-full object-cover transition-[filter] duration-700"
       style={{
-        filter: active
-          ? "none"
-          : "grayscale(1) brightness(0.96) contrast(1.06)",
+        filter: "none",
       }}
     />
   );
@@ -257,7 +255,6 @@ function YouTubeMedia({
         fill
         sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"
         className="object-cover transition-[filter,transform] duration-700 group-hover:scale-[1.02]"
-        style={{ filter: "grayscale(1) brightness(0.96) contrast(1.06)" }}
       />
       {/* Play overlay */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">

@@ -213,12 +213,12 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   t-photo, pur N&B + retour couleur au survol.
-   Aucun sépia, accord parfait avec l'orange comme seul ton chaud.
+   t-photo : réalisations en couleur (21/10/2026, les gens veulent voir
+   le travail tel qu'il est), léger zoom au survol.
    ───────────────────────────────────────────────────────────────── */
 
 .t-photo {
-  filter: grayscale(1) brightness(0.96) contrast(1.06);
+  filter: none;
   transition: filter 700ms cubic-bezier(0.16, 1, 0.3, 1),
               transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: filter, transform;

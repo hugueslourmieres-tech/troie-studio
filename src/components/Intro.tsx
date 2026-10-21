@@ -12,35 +12,22 @@ import { Fragment } from "react";
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
 type Metier = {
-  slug: "strategy" | "creation" | "support";
   /** Suffixe des clés i18n : card{key}Eyebrow, card{key}Title... */
-  key: "Strategy" | "Creation" | "Support";
+  key: "Web" | "Media" | "Com" | "Seo";
   image: string;
-  /** Page dédiée du métier (sous /[locale]). */
+  /** Page dédiée du service (sous /[locale]). */
   path: string;
 };
 
-// Ordre du 1er/10/2026 : stratégie, création, accompagnement. Photos fixes en
-// noir et blanc, en attendant de vrais plans du studio validés.
+/**
+ * Les quatre services (21/10/2026, décision de Hugues) : on vend le service,
+ * pas la méthode. Photos en couleur.
+ */
 const METIERS: Metier[] = [
-  {
-    slug: "strategy",
-    key: "Strategy",
-    image: "/images/corpo/montpellier/DSC_7616.jpg",
-    path: "strategie",
-  },
-  {
-    slug: "creation",
-    key: "Creation",
-    image: "/images/works/Valberg/cover.jpg",
-    path: "medias",
-  },
-  {
-    slug: "support",
-    key: "Support",
-    image: "/images/corpo/montpellier/DSC_7604.jpg",
-    path: "accompagnement",
-  },
+  { key: "Web", image: "/images/creation/web/colorguesser-desktop.jpg", path: "creation/web" },
+  { key: "Media", image: "/images/works/Cartonajes Pans/cover.jpg", path: "medias" },
+  { key: "Com", image: "/images/works/MIBI 2026/cover.jpg", path: "strategie" },
+  { key: "Seo", image: "/images/corpo/montpellier/DSC_7604.jpg", path: "strategie#acquisition" },
 ];
 
 /**
@@ -95,7 +82,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                     <span
                       key={i}
                       aria-hidden="true"
-                      className="block whitespace-nowrap"
+                      className="block text-balance md:whitespace-nowrap"
                     >
                       <LetterReveal text={line} />
                     </span>
@@ -125,7 +112,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                   </a>
                   <Link
-                    href={`/${locale}/contact#projet`}
+                    href="#realisations"
                     className="group inline-flex items-center gap-2.5 border-b-2 border-[var(--fg)] pt-3 pb-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:opacity-70"
                   >
                     {t("heroProject")}
@@ -143,7 +130,7 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
                     width={44}
                     height={44}
                     className="h-11 w-11 flex-none rounded-full object-cover"
-                    style={{ filter: "grayscale(1)", objectPosition: "center 30%" }}
+                    style={{ objectPosition: "center 30%" }}
                   />
                   <p className="text-left text-xs leading-snug text-[var(--fg-2)] md:text-sm">
                     {t("heroSignature")}
@@ -156,12 +143,21 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
 
         {/* Les trois métiers. h2 au style surtitre, en texte simple pour
             WriteOnScroll. */}
-        <h2 className="t-eyebrow mt-16 text-center md:mt-24">{t("metiersTitle")}</h2>
-        <div className="mt-8 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-10 md:grid-cols-3">
+        <h2 id="services" className="t-eyebrow mt-16 scroll-mt-28 text-center md:mt-24">{t("metiersTitle")}</h2>
+        <div className="mt-8 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-10 md:grid-cols-2 xl:grid-cols-4">
           {METIERS.map((m, i) => (
-            <MetierBox key={m.slug} metier={m} index={i} />
+            <MetierBox key={m.key} metier={m} index={i} />
           ))}
         </div>
+        <p className="mt-8 text-center text-sm text-[var(--fg-2)] md:text-base">
+          {t("servicesTraining")}{" "}
+          <Link
+            href={`/${locale}/accompagnement`}
+            className="border-b border-[var(--fg)] pb-0.5 text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+          >
+            {t("servicesTrainingCta")} →
+          </Link>
+        </p>
       </div>
     </section>
   );
@@ -194,20 +190,19 @@ function MetierBox({ metier, index }: { metier: Metier; index: number }) {
         </span>
 
         {/* Photo fixe, noir et blanc */}
-        <div className="relative mt-8 aspect-square w-full overflow-hidden bg-[var(--bg-2)]">
+        <div className="relative mt-8 aspect-[4/3] w-full overflow-hidden bg-[var(--bg-2)]">
           <Image
             src={metier.image}
             alt={t(`card${k}ImageAlt`)}
             fill
-            sizes="(max-width: 768px) 100vw, 33vw"
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-            style={{ filter: "grayscale(1) contrast(1.04)" }}
           />
         </div>
 
         {/* Texte */}
         <div className="mt-8 flex flex-1 flex-col">
-          <h3 className="t-display text-3xl text-[var(--fg)] md:text-4xl">
+          <h3 className="t-display text-balance text-3xl text-[var(--fg)]">
             {t(`card${k}Title`)}
           </h3>
           <p className="mt-4 text-sm leading-relaxed text-[var(--fg-2)] md:text-base">

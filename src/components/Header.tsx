@@ -13,8 +13,8 @@ export type NavGroup = { label: string; href: string; items: NavItem[] };
 const BOOKING_URL = "https://cal.com/troiestudio/30min";
 
 /**
- * Barre fixe crème. Menus : Stratégie, Création, Accompagnement (titres
- * cliquables), puis Journal. À droite : langue, Lancer un projet (à partir
+ * Barre fixe crème. Menu : Services (déroulant), Réalisations, Studio,
+ * Journal (21/10/2026). À droite : langue, Lancer un projet (à partir
  * de xl), Réserver 30 min. Ordre du 1er/10/2026 : le savoir-faire d'abord,
  * l'IA est un moyen. Plus de bandeau ni de bouton troie.app (lien dans le
  * pied de page).
@@ -46,66 +46,52 @@ export function Header({
   // dépendre des messages côté serveur.
   const nav = isEn
     ? {
-        strategy: "Strategy",
-        brand: "Brand strategy",
-        visibility: "Visibility and acquisition",
-        creation: "Creative",
+        services: "Services",
+        web: "Websites and apps",
         media: "Photo and video",
-        web: "Websites",
-        support: "Support",
-        direction: "Fractional marketing director",
-        workshops: "Workshops and tools",
-        diagnostic: "Diagnostic",
+        com: "Communication",
+        seo: "SEO and advertising",
+        training: "Team training",
+        works: "Work",
+        studio: "Studio",
         journal: "Journal",
         book: "Book 30 min",
         project: "Start a project",
-        works: "Work",
-        studio: "The studio",
       }
     : {
-        strategy: "Stratégie",
-        brand: "Stratégie de marque",
-        visibility: "Visibilité et acquisition",
-        creation: "Création",
+        services: "Services",
+        web: "Sites et applications",
         media: "Photo et vidéo",
-        web: "Sites web",
-        support: "Accompagnement",
-        direction: "Direction marketing à temps partagé",
-        workshops: "Ateliers et outils",
-        diagnostic: "Diagnostic",
+        com: "Communication",
+        seo: "SEO et publicité",
+        training: "Formation des équipes",
+        works: "Réalisations",
+        studio: "Studio",
         journal: "Journal",
         book: "Réserver 30 min",
         project: "Lancer un projet",
-        works: "Réalisations",
-        studio: "Le studio",
       };
 
+  // Un seul menu déroulant (21/10/2026) : les services. Puis des liens
+  // simples. On vend le service, pas la méthode.
   const groups: NavGroup[] = [
     {
-      label: nav.strategy,
-      href: `/${locale}/strategie`,
+      label: nav.services,
+      href: `/${locale}#services`,
       items: [
-        { href: `/${locale}/strategie`, label: nav.brand },
-        { href: `/${locale}/strategie#acquisition`, label: nav.visibility },
-      ],
-    },
-    {
-      label: nav.creation,
-      href: `/${locale}/creation`,
-      items: [
-        { href: `/${locale}/medias`, label: nav.media },
         { href: `/${locale}/creation/web`, label: nav.web },
+        { href: `/${locale}/medias`, label: nav.media },
+        { href: `/${locale}/strategie`, label: nav.com },
+        { href: `/${locale}/strategie#acquisition`, label: nav.seo },
+        { href: `/${locale}/accompagnement`, label: nav.training },
       ],
     },
-    {
-      label: nav.support,
-      href: `/${locale}/accompagnement`,
-      items: [
-        { href: `/${locale}/accompagnement#direction`, label: nav.direction },
-        { href: `/${locale}/accompagnement#ateliers`, label: nav.workshops },
-        { href: `/${locale}/diagnostic-ia`, label: nav.diagnostic },
-      ],
-    },
+  ];
+
+  const links: NavItem[] = [
+    { href: `/${locale}/creation`, label: nav.works },
+    { href: `/${locale}#about`, label: nav.studio },
+    { href: `/${locale}/blog`, label: nav.journal },
   ];
 
   const projectHref = `/${locale}/contact#projet`;
@@ -142,12 +128,15 @@ export function Header({
               }
             />
           ))}
-          <Link
-            href={`/${locale}/blog`}
-            className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
-          >
-            {nav.journal}
-          </Link>
+          {links.map((l) => (
+            <Link
+              key={l.href}
+              href={l.href}
+              className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+            >
+              {l.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="flex items-center gap-4 md:gap-5">
@@ -180,11 +169,7 @@ export function Header({
             locale={locale}
             groups={groups}
             showLang={showLang}
-            extraLinks={[
-              { href: `/${locale}/medias`, label: nav.works },
-              { href: `/${locale}#about`, label: nav.studio },
-              { href: `/${locale}/blog`, label: nav.journal },
-            ]}
+            extraLinks={links}
             ctas={{ book: nav.book, project: nav.project, projectHref }}
           />
         </div>

@@ -1,25 +1,22 @@
 import { setRequestLocale } from "next-intl/server";
 import { Intro } from "@/components/Intro";
 import { ClientsCloud } from "@/components/ClientsCloud";
-import { FounderBlock } from "@/components/FounderBlock";
-import { ProofCase } from "@/components/ProofCase";
-import { AboutBlock } from "@/components/AboutBlock";
+import { HomeWebWorks } from "@/components/HomeWebWorks";
 import { MediasSection } from "@/components/MediasSection";
+import { ProofCase } from "@/components/ProofCase";
+import { FounderBlock } from "@/components/FounderBlock";
+import { AboutBlock } from "@/components/AboutBlock";
 import { ContactCTA } from "@/components/ContactCTA";
-import { ContactBand } from "@/components/ContactBand";
 import { WriteOnScroll } from "@/components/WriteOnScroll";
 
 /**
- * Accueil, positionnement « le partenaire stratégique » (1er/10/2026,
- * décision de Hugues). On vend d'abord la tête : la stratégie, puis la
- * fabrication par l'équipe, puis l'accompagnement. L'IA est un moyen, jamais
- * un titre ni une promesse : elle n'est citée que dans la carte Création et
- * dans la liste des prestations de l'équipe. troie.app vit à part, dans le
- * pied de page. Ne pas remettre de bloc IA, AI Act ou campus sur cette page
- * sans décision de Hugues.
+ * Accueil « agence digitale » (21/10/2026, décision de Hugues). On vend le
+ * service, pas la méthode : en arrivant, on comprend qu'on peut nous confier
+ * tout son digital, puis on voit le travail. L'IA n'est ni un titre ni une
+ * promesse. Pas de bloc AI Act, MCP, quiz ou campus sur cette page.
  *
- * Ordre : héros et métiers, marques, fondateur, exemple Autajon, bande de
- * contact, réalisations, équipe, contact.
+ * Ordre : héros et 4 services, marques, sites et applications, photo et
+ * vidéo, exemple Autajon, fondateur, équipe, contact.
  */
 export default async function HomePage({
   params,
@@ -31,35 +28,25 @@ export default async function HomePage({
 
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
-      {/* Écriture au scroll : les titres de section s'écrivent mot par mot */}
       <WriteOnScroll selector="h2" />
 
-      {/* HÉROS : le studio et ses trois métiers, fond orange */}
+      {/* HÉROS ET SERVICES, fond orange */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <Intro asHero />
       </div>
 
-      {/* MARQUES : fond crème, juste sous le héros */}
       <ClientsCloud />
 
-      {/* FONDATEUR : qui pilote les projets */}
-      <FounderBlock locale={locale} />
+      <HomeWebWorks locale={locale} />
 
-      {/* UN EXEMPLE : la vidéo Autajon, seule preuve chiffrée */}
-      <ProofCase locale={locale} id="exemple" />
-
-      {/* BANDE DE CONTACT : la sortie, juste après la preuve */}
-      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <ContactBand />
-      </div>
-
-      {/* RÉALISATIONS : photo puis vidéo */}
       <MediasSection locale={locale} />
 
-      {/* L'ÉQUIPE */}
+      <ProofCase locale={locale} id="exemple" />
+
+      <FounderBlock locale={locale} />
+
       <AboutBlock locale={locale} />
 
-      {/* CONTACT DE CLÔTURE, fond orange */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <ContactCTA locale={locale} />
       </div>

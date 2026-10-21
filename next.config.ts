@@ -66,6 +66,18 @@ const nextConfig: NextConfig = {
         destination: "/:locale/accompagnement",
         permanent: true,
       },
+      // ─── Agence digitale (21/10/2026) : les pages IA sortent du site ───
+      // Le studio vend ses services, plus de pages d'entrée IA. Chaque
+      // ancienne URL renvoie vers la page qui la remplace.
+      { source: "/:locale(fr|en)/rentree", destination: "/:locale/strategie", permanent: true },
+      { source: "/:locale(fr|en)/scan-ia", destination: "/:locale/strategie", permanent: true },
+      { source: "/:locale(fr|en)/scan-ia/:path*", destination: "/:locale/strategie", permanent: true },
+      { source: "/:locale(fr|en)/diagnostic-ia", destination: "/:locale/accompagnement", permanent: true },
+      { source: "/ia/ai-act", destination: "/fr/blog/ai-act-entreprise-2026", permanent: true },
+      { source: "/ia/accessibilite", destination: "/fr/blog/accessibilite-site-web-obligation", permanent: true },
+      { source: "/ia", destination: "/fr/accompagnement", permanent: true },
+      { source: "/ia/:path*", destination: "/fr/accompagnement", permanent: true },
+      { source: "/creation/site-conforme", destination: "/fr/creation/web", permanent: true },
       // Lien court du compte Instagram @hugueslourmieres (lien en bio).
       // Temporaire (307) pour pouvoir changer la destination plus tard.
       {
