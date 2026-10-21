@@ -9,7 +9,8 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
  */
 const COPY = {
   fr: {
-    title: "Nous faisons grandir vos",
+    title: "Nous faisons grandir",
+    lead: "vos",
     words: ["ventes.", "commandes.", "visites.", "prospects.", "abonnés.", "demandes."],
     srWords: "ventes, commandes, visites, prospects, abonnés et demandes.",
     body: "Sites, films, réseaux sociaux, SEO et publicité. Une seule équipe, des résultats mesurés.",
@@ -17,7 +18,8 @@ const COPY = {
     project: "Décrire mon projet",
   },
   en: {
-    title: "We grow your",
+    title: "We grow",
+    lead: "your",
     words: ["sales.", "orders.", "traffic.", "leads.", "followers.", "bookings."],
     srWords: "sales, orders, traffic, leads, followers and bookings.",
     body: "Websites, films, social media, SEO and advertising. One team, measured results.",
@@ -35,6 +37,7 @@ export function HomeHero({ locale }: { locale: string }) {
         <h1 className="t-display text-[2.75rem] leading-[1.02] text-[var(--fg)] sm:text-6xl lg:text-[5.5rem]">
           {c.title}
           <br />
+          {c.lead}{" "}
           <span className="sr-only">{c.srWords}</span>
           <RotatingWord words={c.words} />
         </h1>

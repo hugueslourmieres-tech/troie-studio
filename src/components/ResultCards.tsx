@@ -121,7 +121,8 @@ export function ResultCards({ locale }: { locale: string }) {
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={show ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: reduce ? 0 : 0.1 * i, ease }}
-          className="group relative flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl md:w-auto bg-[var(--bg-2)] transition-[background-color,transform] duration-300 hover:bg-[#ebedf0] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          data-intro={show ? "" : undefined}
+          className="halo group relative flex w-[82%] shrink-0 snap-start flex-col rounded-2xl md:w-auto bg-[var(--bg-2)] transition-[background-color,transform] duration-300 hover:bg-[#ebedf0] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
         >
           <div className="px-6 pt-6 md:px-7 md:pt-7">
             <p className="text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</p>
@@ -133,7 +134,7 @@ export function ResultCards({ locale }: { locale: string }) {
           </div>
 
           {/* Courbe ou barres, bord à bord en bas de la carte */}
-          <div className="mt-6 h-[96px]" aria-hidden="true">
+          <div className="mt-6 h-[96px] overflow-hidden rounded-b-2xl" aria-hidden="true">
             <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.bars ? "xMidYMid meet" : "none"} className="h-full w-full">
               {c.curve && (
                 <>
