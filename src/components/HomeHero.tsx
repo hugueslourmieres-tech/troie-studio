@@ -11,7 +11,14 @@ const COPY = {
   fr: {
     title: "Nous faisons grandir",
     lead: "vos",
-    words: ["ventes.", "commandes.", "visites.", "prospects.", "abonnés.", "demandes."],
+    words: [
+      { word: "ventes.", icon: "chart" },
+      { word: "commandes.", icon: "package" },
+      { word: "visites.", icon: "eye" },
+      { word: "prospects.", icon: "target" },
+      { word: "abonnés.", icon: "users" },
+      { word: "demandes.", icon: "chat" },
+    ],
     srWords: "ventes, commandes, visites, prospects, abonnés et demandes.",
     body: "Sites, films, réseaux sociaux, SEO et publicité. Une seule équipe, des résultats mesurés.",
     book: "Réserver 30 min",
@@ -20,7 +27,14 @@ const COPY = {
   en: {
     title: "We grow",
     lead: "your",
-    words: ["sales.", "orders.", "traffic.", "leads.", "followers.", "bookings."],
+    words: [
+      { word: "sales.", icon: "chart" },
+      { word: "orders.", icon: "package" },
+      { word: "traffic.", icon: "eye" },
+      { word: "leads.", icon: "target" },
+      { word: "followers.", icon: "users" },
+      { word: "bookings.", icon: "calendar" },
+    ],
     srWords: "sales, orders, traffic, leads, followers and bookings.",
     body: "Websites, films, social media, SEO and advertising. One team, measured results.",
     book: "Book 30 min",
@@ -39,7 +53,7 @@ export function HomeHero({ locale }: { locale: string }) {
           <br />
           {c.lead}{" "}
           <span className="sr-only">{c.srWords}</span>
-          <RotatingWord words={c.words} />
+          <RotatingWord items={c.words} />
         </h1>
         <div className="mt-8 flex flex-col gap-6 md:mt-10 md:flex-row md:items-center md:justify-between">
           <p className="max-w-[34rem] text-lg leading-relaxed text-[var(--fg-2)]">{c.body}</p>

@@ -22,12 +22,12 @@
   --ink: #111318;
   --fg-2: #4f5562;
   --fg-mute: rgba(17, 19, 24, 0.55);
-  /* 21/10/2026, direction « à la OpenAI » : presque tout en noir et blanc.
-     L'accent devient l'encre. La couleur vient seulement des vrais travaux
-     (photos, films, sites) au survol. */
-  --accent: #111318;
-  --accent-2: #000000;
-  --accent-soft: rgba(17, 19, 24, 0.05);
+  /* Bleu cobalt, réservé aux chiffres, aux courbes, aux pictogrammes de
+     données et aux liens (retour au bleu demandé par Hugues le 21/10/2026,
+     comme dans les rapports Shopify ou Stripe). Le reste est noir et blanc. */
+  --accent: #2f5bd3;
+  --accent-2: #2448b0;
+  --accent-soft: rgba(47, 91, 211, 0.09);
   --rule: rgba(17, 19, 24, 0.09);
   --rule-strong: rgba(17, 19, 24, 0.22);
   --gold: #4f5562;
@@ -55,12 +55,12 @@
   --fg: #111318;
   --fg-2: #4f5562;
   --fg-mute: rgba(17, 19, 24, 0.55);
-  /* 21/10/2026, direction « à la OpenAI » : presque tout en noir et blanc.
-     L'accent devient l'encre. La couleur vient seulement des vrais travaux
-     (photos, films, sites) au survol. */
-  --accent: #111318;
-  --accent-2: #000000;
-  --accent-soft: rgba(17, 19, 24, 0.05);
+  /* Bleu cobalt, réservé aux chiffres, aux courbes, aux pictogrammes de
+     données et aux liens (retour au bleu demandé par Hugues le 21/10/2026,
+     comme dans les rapports Shopify ou Stripe). Le reste est noir et blanc. */
+  --accent: #2f5bd3;
+  --accent-2: #2448b0;
+  --accent-soft: rgba(47, 91, 211, 0.09);
   --rule: rgba(17, 19, 24, 0.10);
   --rule-strong: rgba(17, 19, 24, 0.24);
   --gold: #4f5562;
@@ -701,65 +701,5 @@ body {
 /* Surfaces du navigateur (21/10/2026) : sélection, curseur, focus clavier
    et cases à cocher prennent la couleur du site. */
 :root { accent-color: var(--accent); caret-color: var(--accent); }
-::selection { background: rgba(17, 19, 24, 0.12); color: var(--fg); }
+::selection { background: rgba(47, 91, 211, 0.16); color: var(--fg); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
-
-/* ─────────────────────────────────────────────────────────────────
-   Halo multicolore (21/10/2026, test demandé par Hugues) : un trait de
-   couleur qui tourne autour d'une carte, comme une lueur. Il passe une
-   fois à l'arrivée (data-intro) puis s'allume au survol et au focus.
-   Le site reste noir et blanc : la couleur n'existe que dans ce trait.
-   ───────────────────────────────────────────────────────────────── */
-@property --halo-angle {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-:root {
-  --halo-colors: #ff7a45, #ff4f9a, #a855f7, #3b82f6, #22d3ee, #34d399, #facc15, #ff7a45;
-}
-.halo { position: relative; isolation: isolate; }
-.halo::before,
-.halo::after {
-  content: "";
-  position: absolute;
-  border-radius: inherit;
-  pointer-events: none;
-  background: conic-gradient(from var(--halo-angle), var(--halo-colors));
-  animation: halo-spin 5s linear infinite;
-  opacity: 0;
-  transition: opacity 500ms cubic-bezier(0.23, 1, 0.32, 1);
-}
-/* le trait : un anneau de 1,5 px découpé par masque */
-.halo::before {
-  inset: 0;
-  padding: 1.5px;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  z-index: 2;
-}
-/* la lueur : un anneau plus épais, flouté, qui déborde autour de la carte
-   sans entrer dans son contenu */
-.halo::after {
-  inset: -8px;
-  padding: 8px;
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
-  filter: blur(12px);
-  z-index: 1;
-}
-.halo:hover::before,
-.halo:focus-visible::before { opacity: 1; }
-.halo:hover::after,
-.halo:focus-visible::after { opacity: 0.6; }
-.halo[data-intro]::before { animation: halo-spin 5s linear infinite, halo-intro 2.4s ease-out 1; }
-.halo[data-intro]::after { animation: halo-spin 5s linear infinite, halo-glow-intro 2.4s ease-out 1; }
-@keyframes halo-spin { to { --halo-angle: 360deg; } }
-@keyframes halo-intro { 0% { opacity: 0; } 25% { opacity: 1; } 100% { opacity: 0; } }
-@keyframes halo-glow-intro { 0% { opacity: 0; } 25% { opacity: 0.55; } 100% { opacity: 0; } }
-.halo-line { background: linear-gradient(90deg, var(--halo-colors)); }
-@media (prefers-reduced-motion: reduce) {
-  .halo::before, .halo::after { animation: none; }
-}

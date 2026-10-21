@@ -2,25 +2,47 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import {
+  CalendarCheck,
+  ChartLineUp,
+  ChatCircleText,
+  Eye,
+  Package,
+  Target,
+  UsersThree,
+  type Icon,
+} from "@phosphor-icons/react";
 
 /**
  * Mot qui tourne dans le titre (21/10/2026) : « vos ventes. », « vos
- * commandes. »… Les lettres montent une à une en sortant d'un léger flou,
- * la largeur du mot s'ajuste en douceur pour que la ligne ne saute pas, et
- * un trait multicolore se dessine dessous à chaque changement. Pause quand
- * l'onglet est caché. Mouvement réduit : simple fondu. Décoratif : la phrase
- * complète est donnée aux lecteurs d'écran dans HomeHero (sr-only).
+ * commandes. »… Chaque mot a son pictogramme (Phosphor, trait fin) dans une
+ * pastille bleutée. Les lettres apparaissent sur place, l'une après
+ * l'autre, sans glisser (demande de Hugues). La largeur s'ajuste en douceur.
+ * Pause quand l'onglet est caché, simple fondu si le mouvement est réduit.
+ * Décoratif : la phrase complète est donnée aux lecteurs d'écran (sr-only).
  */
+export const ICONS = {
+  chart: ChartLineUp,
+  package: Package,
+  eye: Eye,
+  target: Target,
+  users: UsersThree,
+  chat: ChatCircleText,
+  calendar: CalendarCheck,
+} satisfies Record<string, Icon>;
+
+export type RotatingItem = { word: string; icon: keyof typeof ICONS };
+
 const EASE = [0.23, 1, 0.32, 1] as const;
 
-export function RotatingWord({ words, interval = 2600 }: { words: readonly string[]; interval?: number }) {
+export function RotatingWord({ items, interval = 2600 }: { items: readonly RotatingItem[]; interval?: number }) {
   const [i, setI] = useState(0);
   const reduce = useReducedMotion();
 
   useEffect(() => {
     let id: ReturnType<typeof setInterval> | null = null;
     const start = () => {
-      if (!id) id = setInterval(() => setI((n) => (n + 1) % words.length), interval);
+      if (!id) id = setInterval(() => setI((n) => (n + 1) % items.length), interval);
     };
     const stop = () => {
       if (id) clearInterval(id);
@@ -33,41 +55,50 @@ export function RotatingWord({ words, interval = 2600 }: { words: readonly strin
       stop();
       document.removeEventListener("visibilitychange", onVis);
     };
-  }, [words.length, interval]);
+  }, [items.length, interval]);
 
-  const word = words[i];
+  const { word, icon } = items[i];
+  const Glyph = ICONS[icon];
 
   return (
     <motion.span
       aria-hidden="true"
       layout={!reduce}
-      transition={{ layout: { duration: 0.5, ease: EASE } }}
-      className="relative inline-flex whitespace-nowrap pb-[0.08em] align-baseline"
+      transition={{ layout: { duration: 0.45, ease: EASE } }}
+      className="inline-flex items-center whitespace-nowrap align-baseline"
     >
+      {/* Pastille du pictogramme */}
+      <span className="relative mr-[0.2em] inline-flex h-[0.82em] w-[0.82em] shrink-0 items-center justify-center rounded-[0.2em] bg-[var(--accent-soft)] text-[var(--accent)] translate-y-[0.04em]">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={icon}
+            className="inline-flex"
+            initial={{ opacity: 0, scale: reduce ? 1 : 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, transition: { duration: 0.15 } }}
+            transition={{ duration: 0.35, ease: EASE }}
+          >
+            <Glyph weight="regular" className="h-[0.5em] w-[0.5em]" />
+          </motion.span>
+        </AnimatePresence>
+      </span>
+
+      {/* Le mot : lettres qui apparaissent sur place */}
       <AnimatePresence mode="popLayout" initial={false}>
-        <motion.span key={word} className="inline-flex" exit={{ opacity: 0, transition: { duration: 0.18 } }}>
+        <motion.span key={word} className="inline-flex" exit={{ opacity: 0, transition: { duration: 0.15 } }}>
           {Array.from(word).map((ch, k) => (
             <motion.span
               key={k}
               className="inline-block"
-              initial={reduce ? { opacity: 0 } : { opacity: 0, transform: "translateY(0.35em)", filter: "blur(8px)" }}
-              animate={reduce ? { opacity: 1 } : { opacity: 1, transform: "translateY(0em)", filter: "blur(0px)" }}
-              transition={{ duration: 0.5, ease: EASE, delay: reduce ? 0 : 0.12 + k * 0.03 }}
+              initial={{ opacity: 0, filter: reduce ? "none" : "blur(4px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              transition={{ duration: 0.4, ease: EASE, delay: reduce ? 0 : 0.08 + k * 0.035 }}
             >
               {ch}
             </motion.span>
           ))}
         </motion.span>
       </AnimatePresence>
-      {/* Trait multicolore qui se dessine sous le mot à chaque changement */}
-      <motion.span
-        key={`line-${word}`}
-        aria-hidden="true"
-        className="halo-line absolute right-0 bottom-0 left-0 h-[0.06em] origin-left rounded-full"
-        initial={{ transform: "scaleX(0)", opacity: 1 }}
-        animate={{ transform: "scaleX(1)", opacity: 1 }}
-        transition={{ duration: reduce ? 0 : 0.7, ease: EASE, delay: reduce ? 0 : 0.2 }}
-      />
     </motion.span>
   );
 }

@@ -55,7 +55,7 @@ function Figure({ value }: { value: string }) {
   const [, sign, num, unit] = m;
   return (
     <>
-      {sign && <span className="mr-[0.04em] font-normal text-[var(--fg-2)]">{sign}</span>}
+      {sign && <span className="mr-[0.04em] font-normal opacity-70">{sign}</span>}
       {num.trim()}
       {unit && <span className="ml-[0.06em] align-[0.62em] text-[0.42em] font-medium tracking-normal">{unit}</span>}
     </>
@@ -121,13 +121,12 @@ export function ResultCards({ locale }: { locale: string }) {
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={show ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: reduce ? 0 : 0.1 * i, ease }}
-          data-intro={show ? "" : undefined}
-          className="halo group relative flex w-[82%] shrink-0 snap-start flex-col rounded-2xl md:w-auto bg-[var(--bg-2)] transition-[background-color,transform] duration-300 hover:bg-[#ebedf0] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          className="group relative flex w-[82%] shrink-0 snap-start flex-col rounded-2xl md:w-auto border border-[var(--rule)] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
         >
           <div className="px-6 pt-6 md:px-7 md:pt-7">
             <p className="text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</p>
             <p className="mt-0.5 text-sm text-[var(--fg-2)]">{c.sector}</p>
-            <p className="mt-8 text-[3.25rem] font-medium leading-none tracking-[-0.045em] text-[var(--fg)] tabular-nums md:text-[3.75rem]">
+            <p className="mt-8 text-[3.25rem] font-medium leading-none tracking-[-0.045em] text-[var(--accent)] tabular-nums md:text-[3.75rem]">
               <Figure value={c.value} />
             </p>
             <p className="mt-2 text-[15px] text-[var(--fg-2)]">{c.label}</p>
@@ -142,7 +141,7 @@ export function ResultCards({ locale }: { locale: string }) {
                     d={`${linePath(c.curve, W, H)} L${W},${H} L0,${H} Z`}
                     fill="var(--accent)"
                     initial={{ opacity: 0 }}
-                    animate={show ? { opacity: 0.06 } : {}}
+                    animate={show ? { opacity: 0.08 } : {}}
                     transition={{ duration: 0.8, delay: reduce ? 0 : 0.5 + 0.35 * i }}
                   />
                   <motion.path

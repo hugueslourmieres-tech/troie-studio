@@ -9,8 +9,8 @@ colors:
   ink: "#111318"
   ink-hover: "#2a2e37"
   graphite: "#4f5562"
-  cobalt: "#111318"
-  cobalt-wash: "rgba(17, 19, 24, 0.05)"
+  cobalt: "#2f5bd3"
+  cobalt-wash: "rgba(47, 91, 211, 0.09)"
   rule: "rgba(17, 19, 24, 0.09)"
   rule-strong: "rgba(17, 19, 24, 0.22)"
 typography:
@@ -178,7 +178,7 @@ Une palette froide et neutre, avec un seul bleu qui signale la mesure.
 
 ### Primary
 - **Encre de donnée** (`cobalt`, valeur encre) : réservé aux chiffres clés des cartes de résultats et du tableau de bord, au tracé et à l'aire des courbes, au trait de l'onglet choisi, aux liens de suite (« Voir les sites → », « Tous les films → ») et au survol des liens de navigation. Il sert aussi à l'anneau de focus clavier, au curseur de saisie et aux cases à cocher. L'aire sous une courbe le reprend en transparence (8 % dans les cartes, dégradé de 16 % à 0 dans le tableau de bord).
-- **Voile cobalt** (`cobalt-wash`) : fond de survol des entrées du menu déroulant, et rien d'autre.
+- **Voile cobalt** (`cobalt-wash`) : pastille des pictogrammes du titre et fond de survol des entrées du menu déroulant.
 
 
 ### Neutral
@@ -193,9 +193,9 @@ Une palette froide et neutre, avec un seul bleu qui signale la mesure.
 - **Filet appuyé** (`rule-strong`) : contour du bouton secondaire, soulignement des liens texte au repos, contour des flèches du carrousel.
 
 ### Named Rules
-**La règle du noir et blanc (21/10/2026, direction « à la OpenAI »).** Aucune couleur d'interface. Chiffres, courbes, liens et boutons sont à l'encre. La seule couleur du site vient des vrais travaux (photos, films, captures de sites), en noir et blanc au repos, en couleur au survol. Le jeton nommé « cobalt » vaut désormais l'encre (#111318) pour compatibilité.
+**La règle du bleu des chiffres (21/10/2026, après l'essai noir et blanc puis l'essai multicolore, tous deux écartés).** L'interface reste en noir et blanc, sauf les mesures : chiffres, courbes, carrés d'Autajon, onglet choisi et pictogrammes du titre sont en bleu cobalt #2f5bd3, comme dans les rapports Shopify ou Stripe. Les boutons restent noirs. Les travaux sont en noir et blanc au repos, en couleur au survol.
 
-**La règle du trait multicolore (test du 21/10/2026).** La seule couleur d'interface est un dégradé conique multicolore (`--halo-colors`), jamais en aplat. Il apparaît en deux endroits : le halo des cartes de résultats (trait de 1,5 px et lueur floutée sur le bord, une fois à l'arrivée puis au survol, classe `.halo`) et le trait qui se dessine sous le mot tournant du titre (`.halo-line`). Ailleurs, rien.
+**Le titre tournant.** « Nous faisons grandir vos [mot]. » Chaque mot (ventes, commandes, visites, prospects, abonnés, demandes) arrive avec son pictogramme Phosphor dans une pastille en voile cobalt. Les lettres apparaissent sur place, l'une après l'autre (fondu et léger flou, sans glissement). Aucun halo, aucun dégradé multicolore.
 
 **La règle des boutons noirs.** L'action principale est en encre, pas en bleu. Le bleu reste disponible pour les chiffres, qui doivent être la chose la plus colorée de l'écran.
 
