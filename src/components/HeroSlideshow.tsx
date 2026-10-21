@@ -153,7 +153,7 @@ export function HeroSlideshow() {
       {/* Slide counter */}
       <div
         data-no-advance
-        className="pointer-events-none absolute right-4 top-4 z-10 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)]/70 md:right-6 md:top-6"
+        className="text-sm pointer-events-none absolute right-4 top-4 z-10 text-[var(--fg)]/70 md:right-6 md:top-6 font-medium"
       >
         {String(current + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")}
       </div>

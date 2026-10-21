@@ -24,12 +24,12 @@ export function VideoSection({
   const t = useTranslations("home");
 
   const header = embedded ? (
-    <p className="t-eyebrow">{label ?? t("videosEyebrow")}</p>
+    <h3 className="text-xl font-medium tracking-[-0.02em] text-[var(--fg)]">{label ?? t("videosEyebrow")}</h3>
   ) : (
     <Reveal>
       <div className="grid gap-12 md:grid-cols-12 md:gap-x-8 md:gap-y-20 lg:gap-x-20">
         <div className="md:col-span-4">
-          <p className="t-eyebrow">{t("videosEyebrow")}</p>
+          <h3 className="text-xl font-medium tracking-[-0.02em] text-[var(--fg)]">{t("videosEyebrow")}</h3>
           <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
             {t("videosTitle")}
           </h2>

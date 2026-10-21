@@ -225,7 +225,7 @@ export function ContactForm() {
                 <polyline points="20 6 9 17 4 12" />
               </svg>
             </span>
-            <p className="t-eyebrow !text-[var(--accent)]">/ Message envoyé</p>
+            <p className="text-sm font-medium text-[var(--accent)]">Message envoyé</p>
           </div>
 
           <h2 className="t-display mt-8 text-3xl text-[var(--fg)] md:text-5xl">
@@ -238,7 +238,7 @@ export function ContactForm() {
           <button
             type="button"
             onClick={() => setStatus("idle")}
-            className="mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="text-sm mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-1 text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] font-medium"
           >
             ↺ Envoyer un autre message
           </button>
@@ -279,7 +279,7 @@ export function ContactForm() {
       <div className="space-y-2">
         <label
           htmlFor="message"
-          className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg-2)]/70"
+          className="text-sm text-[var(--fg-2)]/70 font-medium"
         >
           {t("message")} <span className="text-[var(--accent)]">*</span>
         </label>
@@ -302,7 +302,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={sending}
-        className="inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:bg-[#a85f2a] disabled:opacity-60"
+        className="text-sm inline-flex items-center gap-3 rounded-full bg-[var(--accent)] px-7 py-4 text-[var(--fg)] transition hover:bg-[#a85f2a] disabled:opacity-60 font-medium"
       >
         {sending ? `${t("send")}…` : `${t("send")} →`}
       </button>
@@ -327,7 +327,7 @@ function Field({
     <div className="space-y-2">
       <label
         htmlFor={name}
-        className="font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg-2)]/70"
+        className="text-sm text-[var(--fg-2)]/70 font-medium"
       >
         {label} {required && <span className="text-[var(--accent)]">*</span>}
       </label>

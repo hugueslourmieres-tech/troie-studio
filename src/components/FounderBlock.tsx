@@ -98,7 +98,6 @@ export function FounderBlock({ locale, compact }: { locale: string; compact?: bo
           </div>
 
           <div className="md:col-span-7">
-            <p className="t-eyebrow">{eyebrow}</p>
             <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
               {title}
             </h2>

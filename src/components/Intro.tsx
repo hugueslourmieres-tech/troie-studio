@@ -76,7 +76,6 @@ export function Intro({
                 className="h-auto w-full"
               />
             </Parallax>
-            <p className="t-eyebrow">{t("introEyebrow")}</p>
             {/* Titre : deux lignes fixes, séparées par « | » dans les messages.
                 Clamp calé pour un rendu net sur ordinateur et téléphone. */}
             {asHero ? (
@@ -114,14 +113,14 @@ export function Intro({
                     href={CAL_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)]"
+                    className="text-sm group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 text-[var(--bg)] transition-colors hover:bg-[var(--bg-2)] hover:text-[var(--fg)] font-medium"
                   >
                     {t("heroBook")}
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                   </a>
                   <Link
                     href="#realisations"
-                    className="group inline-flex items-center gap-2.5 border-b-2 border-[var(--fg)] pt-3 pb-1.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:opacity-70"
+                    className="text-sm group inline-flex items-center gap-2.5 border-b-2 border-[var(--fg)] pt-3 pb-1.5 text-[var(--fg)] transition hover:opacity-70 font-medium"
                   >
                     {t("heroProject")}
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -194,7 +193,7 @@ function MetierBox({ metier, index }: { metier: Metier; index: number }) {
         className="group relative flex h-full flex-col bg-[var(--bg)] p-8 transition-colors hover:bg-[var(--bg-2)] md:p-10"
       >
         {/* Surtitre numéroté, déjà dans les messages (« 01, Stratégie ») */}
-        <span className="font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)]/60">
+        <span className="text-sm text-[var(--fg)]/60 font-medium">
           {t(`card${k}Eyebrow`)}
         </span>
 
@@ -218,7 +217,7 @@ function MetierBox({ metier, index }: { metier: Metier; index: number }) {
             {t(`card${k}Body`)}
           </p>
 
-          <span className="mt-auto pt-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition group-hover:text-[var(--accent)]">
+          <span className="text-sm mt-auto pt-8 text-[var(--fg)] transition group-hover:text-[var(--accent)] font-medium">
             <span className="border-b border-[var(--rule-strong)] pb-0.5 group-hover:border-[var(--accent)]">
               {t(`card${k}Cta`)}
             </span>{" "}

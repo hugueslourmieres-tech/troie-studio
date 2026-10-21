@@ -185,7 +185,7 @@ export function ProjectCard({ p }: { p: Project }) {
           {p.name}
         </h3>
         <p className="mt-1 text-sm text-[var(--fg-2)]">{p.kind}</p>
-        <span className="mt-3 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
+        <span className="text-sm mt-3 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 text-[var(--fg)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)] font-medium">
           {p.label}
           <span aria-hidden="true" className="transition group-hover:translate-x-1">↗</span>
         </span>

@@ -132,7 +132,7 @@ export function Header({
             <Link
               key={l.href}
               href={l.href}
-              className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+              className="text-[14px] font-medium text-[var(--fg)] transition hover:text-[var(--accent)]"
             >
               {l.label}
             </Link>
@@ -148,7 +148,7 @@ export function Header({
               href={BOOKING_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 whitespace-nowrap border border-[var(--ink)] bg-[var(--ink)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-white transition-colors duration-300 hover:border-[#2a2e37] hover:bg-[#2a2e37] hover:text-white"
+              className="inline-flex h-10 items-center whitespace-nowrap rounded-full bg-[var(--ink)] px-5 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-[#2a2e37]"
             >
               {nav.book}
             </a>
@@ -232,7 +232,7 @@ function NavDropdown({
       <Link
         href={group.href}
         onClick={() => setOpen(false)}
-        className="whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+        className="whitespace-nowrap text-[14px] font-medium text-[var(--fg)] transition hover:text-[var(--accent)]"
       >
         {group.label}
       </Link>
@@ -276,7 +276,7 @@ function NavDropdown({
               tabIndex={open ? 0 : -1}
               className="group/item flex items-baseline px-4 py-3 transition-colors hover:bg-[var(--accent-soft)]"
             >
-              <span className="whitespace-nowrap font-mono text-[12px] uppercase tracking-[0.14em] text-[var(--fg)] transition-colors group-hover/item:text-[var(--accent)]">
+              <span className="whitespace-nowrap text-[14px] font-medium text-[var(--fg)] transition-colors group-hover/item:text-[var(--accent)]">
                 {item.label}
               </span>
             </Link>

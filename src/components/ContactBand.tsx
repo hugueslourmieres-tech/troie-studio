@@ -30,7 +30,7 @@ export function ContactBand() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex flex-none items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#fcfcfd] transition hover:bg-[#15120f]"
+            className="text-sm group inline-flex flex-none items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 text-[#fcfcfd] transition hover:bg-[#15120f] font-medium"
           >
             {t("bandCta")}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">
@@ -39,7 +39,7 @@ export function ContactBand() {
           </a>
           <Link
             href={`/${locale}/contact#projet`}
-            className="inline-flex items-center justify-center gap-3 rounded-full border border-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#111318] transition hover:bg-[var(--ink)] hover:text-[#fcfcfd]"
+            className="text-sm inline-flex items-center justify-center gap-3 rounded-full border border-[var(--ink)] px-8 py-4 text-[#111318] transition hover:bg-[var(--ink)] hover:text-[#fcfcfd] font-medium"
           >
             {t("bandProject")}
           </Link>

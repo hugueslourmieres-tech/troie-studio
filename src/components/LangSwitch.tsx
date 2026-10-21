@@ -52,7 +52,7 @@ export function LangSwitch({ locale }: { locale: string }) {
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+        className="inline-flex items-center gap-1.5 text-[14px] font-medium text-[var(--fg)] transition hover:text-[var(--accent)]"
       >
         <span>{locale}</span>
         <svg
@@ -81,7 +81,7 @@ export function LangSwitch({ locale }: { locale: string }) {
               <Link
                 href={swap(l)}
                 onClick={() => setOpen(false)}
-                className="block px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+                className="block px-4 py-2 text-[14px] font-medium text-[var(--fg)] transition hover:bg-[var(--ink)] hover:text-[var(--bg)]"
               >
                 {l}
               </Link>

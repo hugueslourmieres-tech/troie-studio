@@ -108,14 +108,14 @@ export function MobileMenu({
                   target="_blank"
                   rel="noreferrer"
                   onClick={close}
-                  className="flex h-14 w-full items-center justify-center bg-[var(--ink)] px-4 text-center font-mono text-[12px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#2a2e37] hover:text-white"
+                  className="flex h-14 w-full items-center justify-center rounded-full bg-[var(--ink)] px-4 text-center text-[16px] font-medium text-white transition-colors hover:bg-[#2a2e37] hover:text-white"
                 >
                   {ctas.book}
                 </a>
                 <Link
                   href={ctas.projectHref}
                   onClick={close}
-                  className="flex h-14 w-full items-center justify-center border border-[var(--ink)] px-4 text-center font-mono text-[12px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+                  className="flex h-14 w-full items-center justify-center rounded-full border border-[var(--rule-strong)] px-4 text-center text-[16px] font-medium text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
                 >
                   {ctas.project}
                 </Link>
@@ -150,7 +150,7 @@ export function MobileMenu({
                             onClick={close}
                             className="group/it -mx-3 flex items-center justify-between gap-4 rounded-lg px-3 py-4 transition-colors hover:bg-[var(--accent-soft)] active:bg-[var(--accent-soft)]"
                           >
-                            <span className="font-mono text-[16px] uppercase tracking-[0.1em] text-[var(--fg)] transition-colors group-hover/it:text-[var(--accent)]">
+                            <span className="text-[22px] font-medium tracking-[-0.02em] text-[var(--fg)] transition-colors group-hover/it:text-[var(--accent)]">
                               {item.label}
                             </span>
                             <ArrowRight />
@@ -183,7 +183,7 @@ export function MobileMenu({
                         onClick={close}
                         className="group/ft flex items-center justify-between border-t border-[var(--rule-strong)] py-4"
                       >
-                        <span className="font-mono text-[13px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover/ft:text-[var(--accent)]">
+                        <span className="text-[14px] font-medium text-[var(--fg)] transition-colors group-hover/ft:text-[var(--accent)]">
                           {l.label}
                         </span>
                         <ArrowRight />
@@ -224,7 +224,7 @@ export function MobileMenu({
                       href={HUGUES_INSTAGRAM_URL}
                       target="_blank"
                       rel="noreferrer"
-                      className="ml-2 inline-flex min-h-11 items-center font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg)] underline decoration-[var(--rule-strong)] underline-offset-4 transition hover:text-[var(--accent)]"
+                      className="ml-2 inline-flex min-h-11 items-center text-[14px] font-medium text-[var(--fg)] underline decoration-[var(--rule-strong)] underline-offset-4 transition hover:text-[var(--accent)]"
                     >
                       {isEn ? "Hugues's photos" : "Les photos de Hugues"}
                     </a>

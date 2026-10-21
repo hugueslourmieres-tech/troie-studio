@@ -1,0 +1,42 @@
+{
+  "title": "Choisir la structure de l'accueil",
+  "question": "Le visuel est fixé (blanc, une couleur, vraies courbes, aperçus noir et blanc). Choisissez comment la page se déroule.",
+  "options": [
+    {
+      "id": "cas-empiles",
+      "kind": "assigned",
+      "label": "Les cas qui s'empilent",
+      "kicker": "THE ROLL",
+      "thesis": "Chaque client devient un chapitre plein écran : le travail à gauche, sa courbe à droite. Les chapitres s'empilent au défilement et la page finit sur l'appel.",
+      "palette": ["#fcfcfd", "#111318", "#2f5bd3", "#f3f4f6"],
+      "materials": ["films clients en boucle", "captures de sites", "courbes réelles"],
+      "viewport": "Titre court et bouton Réserver 30 min en haut, puis le premier chapitre (LOIR Paris) déjà visible sous la ligne de flottaison : vidéo du site à gauche, courbe +164 % à droite.",
+      "risk": "Page longue : chaque chapitre doit rester court, une phrase et un chiffre.",
+      "html": ".impeccable/mocks/decision/cas-empiles.html"
+    },
+    {
+      "id": "showreel",
+      "kind": "dealt",
+      "label": "Le showreel plein écran",
+      "thesis": "On entre par le travail en mouvement : un montage de films clients et de sites en noir et blanc, plein écran, la couleur qui revient sur le titre.",
+      "palette": ["#111318", "#fcfcfd", "#2f5bd3"],
+      "materials": ["montage vidéo plein cadre", "titre en surimpression"],
+      "viewport": "Vidéo plein écran (X-Rite, GS Monaco, Bien en règle, LOIR), titre court en bas à gauche, bouton blanc Réserver 30 min. Le tableau de bord des résultats arrive juste après.",
+      "risk": "Une vidéo lourde au chargement : il faut une version courte et compressée.",
+      "html": ".impeccable/mocks/decision/showreel.html"
+    },
+    {
+      "id": "tableau-de-bord",
+      "kind": "dealt",
+      "label": "Le tableau de bord d'abord",
+      "thesis": "La version actuelle, resserrée : la promesse puis le vrai tableau de bord des clients, à explorer, avant tout le reste.",
+      "palette": ["#fcfcfd", "#111318", "#2f5bd3"],
+      "materials": ["tableau de bord interactif", "onglets par client"],
+      "viewport": "Titre sur deux lignes à gauche, texte et bouton à droite, le tableau de bord LOIR Paris en grand dessous.",
+      "risk": "Peu d'images au premier écran : le travail créatif arrive plus bas.",
+      "html": ".impeccable/mocks/decision/tableau-de-bord.html"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "steer": true
+}

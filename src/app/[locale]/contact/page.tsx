@@ -55,7 +55,6 @@ async function ContactView({ locale }: { locale: string }) {
       <article className="mx-auto max-w-6xl px-6 pt-28 pb-24 md:px-10 md:pt-36 md:pb-32">
         {/* En-tête */}
         <header className="max-w-3xl">
-          <p className="t-eyebrow">Contact</p>
           <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
             {t("heroTitle")}
           </h1>
@@ -111,7 +110,6 @@ async function ContactView({ locale }: { locale: string }) {
         {/* Votre projet : formulaire de brief court + coordonnées directes */}
         <section id="projet" className="mt-20 scroll-mt-24 md:mt-28">
           <div className="max-w-2xl">
-            <p className="t-eyebrow">{t("projectEyebrow")}</p>
             <h2 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-5xl">
               {t("projectTitle")}
             </h2>
@@ -125,14 +123,14 @@ async function ContactView({ locale }: { locale: string }) {
 
             <aside className="space-y-6 md:col-span-5">
               <div className="rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-6 sm:p-8">
-                <p className="t-eyebrow">{t("direct")}</p>
+                <p className="text-sm text-[var(--fg-2)]">{t("direct")}</p>
                 <div className="mt-5 space-y-3">
-                  <ObfuscatedEmail className="flex items-center gap-2 border-b border-[var(--rule-strong)] pb-0.5 font-mono text-xs uppercase tracking-[0.16em] text-[var(--fg-2)] transition hover:text-[var(--accent)]" />
+                  <ObfuscatedEmail className="text-sm flex items-center gap-2 border-b border-[var(--rule-strong)] pb-0.5 text-[var(--fg-2)] transition hover:text-[var(--accent)] font-medium" />
                   <a
                     href={MAPS_LINK}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.16em] text-[var(--fg-2)] transition hover:text-[var(--accent)]"
+                    className="text-sm flex items-center gap-2 text-[var(--fg-2)] transition hover:text-[var(--accent)] font-medium"
                   >
                     <span className="border-b border-[var(--rule-strong)] pb-0.5">{t("location")}</span>
                     →
@@ -149,7 +147,6 @@ async function ContactView({ locale }: { locale: string }) {
         <section id="rdv" className="mt-20 scroll-mt-24 md:mt-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-xl">
-              <p className="t-eyebrow">{t("bookingEyebrow")}</p>
               <h2 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-5xl">
                 {t("bookingTitle")}.
               </h2>
@@ -161,7 +158,7 @@ async function ContactView({ locale }: { locale: string }) {
               href={CAL_URL}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex shrink-0 items-center gap-3 rounded-full bg-[var(--ink)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-white transition hover:bg-[#2a2e37]"
+              className="text-sm group inline-flex shrink-0 items-center gap-3 rounded-full bg-[var(--ink)] px-7 py-4 text-white transition hover:bg-[#2a2e37] font-medium"
             >
               {t("bookingOpen")}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -182,7 +179,6 @@ async function ContactView({ locale }: { locale: string }) {
         <section className="mt-20 md:mt-28">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-xl">
-              <p className="t-eyebrow">{t("studioEyebrow")}</p>
               <h2 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-5xl">
                 {t("studioTitle")}
               </h2>
@@ -194,7 +190,7 @@ async function ContactView({ locale }: { locale: string }) {
               href={MAPS_LINK}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex shrink-0 items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-xs uppercase tracking-[0.18em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              className="text-sm group inline-flex shrink-0 items-center gap-3 border-b border-[var(--fg)] pb-2 text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] font-medium"
             >
               {t("mapsCta")}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -213,7 +209,6 @@ async function ContactView({ locale }: { locale: string }) {
 
         {/* Ce que nous faisons : Stratégie, Création, Accompagnement */}
         <section className="mt-20 border-t border-[var(--rule)] pt-14 md:mt-28 md:pt-16">
-          <p className="t-eyebrow">{t("whatEyebrow")}</p>
           <ul className="mt-8 grid gap-8 sm:grid-cols-3 md:gap-12">
             {WHAT_WE_DO.map((d) => (
               <li key={d.n}>

@@ -30,13 +30,11 @@ export default async function WebPage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-4 md:px-12 md:pt-40 md:pb-6">
-        <p className="t-eyebrow">Création, Web</p>
         <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
-          Web.
+          Sites et applications.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]/85 md:text-xl">
-          Sites, web apps, jeux et e-commerce sur mesure. Des produits digitaux pensés
-          pour la marque comme pour la conversion, du cadrage à la mise en ligne.
+          Sites vitrines, e-commerce, web apps et jeux. Tous en ligne : cliquez pour les essayer.
         </p>
 
       </section>
@@ -53,7 +51,7 @@ export default async function WebPage({
 
           <Link
             href={`/${locale}/contact?subject=web`}
-            className="group mt-14 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[#2a2e37] hover:text-white"
+            className="text-sm group mt-14 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 text-[var(--bg)] transition-colors hover:bg-[#2a2e37] hover:text-white font-medium"
           >
             Démarrer un projet web
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

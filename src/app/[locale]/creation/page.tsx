@@ -20,7 +20,7 @@ const COPY = {
     label: "Création",
     title: "Photo, vidéo, design et web.",
     intro:
-      "Nous partons de votre métier et de vos équipes, puis nous les montrons. Hugues Lourmieres assure la direction artistique. Thibaud Lourmieres réalise les films et les photos. Gilles Pons développe les sites et les applications.",
+      "Nous tournons, photographions, dessinons et développons nous-mêmes. Toute la fabrication reste dans l'équipe.",
     cards: {
       media: {
         label: "Photo et vidéo",
@@ -43,7 +43,7 @@ const COPY = {
     label: "Creative",
     title: "Photo, video, design and web.",
     intro:
-      "We start from your trade and your teams, then we show them. Hugues Lourmieres leads art direction. Thibaud Lourmieres directs the films and photos. Gilles Pons builds the websites and apps.",
+      "We shoot, photograph, design and build ourselves. All the making stays within the team.",
     cards: {
       media: {
         label: "Photo and video",
@@ -96,13 +96,11 @@ export default async function CreationPage({
   const cards = [
     { href: `/${locale}/medias`, ...c.cards.media, img: "/images/creation/video/poster.jpg" },
     { href: `/${locale}/creation/web`, ...c.cards.web, img: "/images/creation-section/mockup-desktop.jpg" },
-    { href: "/creation/site-conforme", ...c.cards.compliant, img: "/images/creation-section/mockup-phone.jpg" },
   ];
 
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-24">
-        <p className="t-eyebrow">{c.label}</p>
         <h1 className="t-display mt-6 text-4xl leading-[1.05] text-[var(--fg)] sm:text-5xl md:text-7xl">
           {c.title}
         </h1>
@@ -122,7 +120,7 @@ export default async function CreationPage({
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   style={{ filter: "grayscale(1) contrast(1.03)" }}
                 />
-                <span className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.28em] text-[#fcfcfd]">
+                <span className="text-sm absolute left-5 top-5 text-[#fcfcfd] font-medium">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>

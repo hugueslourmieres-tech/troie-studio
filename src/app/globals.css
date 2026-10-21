@@ -210,11 +210,11 @@ body {
   line-height: 0.92;
 }
 
+/* Petit libellé (titres de colonnes du pied de page). Jamais au-dessus
+   d'un titre de section (règle impeccable, 21/10/2026). */
 .t-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.8125rem;
+  font-weight: 500;
   color: var(--fg-2);
 }
 

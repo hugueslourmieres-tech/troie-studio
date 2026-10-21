@@ -202,6 +202,16 @@ export function AnalyticsPanel({
     setHover(null);
   };
 
+  // Les cartes du premier écran ouvrent le tableau sur leur client.
+  useEffect(() => {
+    const onPick = (e: Event) => {
+      const id = (e as CustomEvent<string>).detail;
+      if (clients.some((c) => c.id === id)) pickClient(id);
+    };
+    window.addEventListener("troie:client", onPick);
+    return () => window.removeEventListener("troie:client", onPick);
+  });
+
   // ---- Courbe datée ----
   let lineView: React.ReactNode = null;
   let tooltip: { left: number; label: string; value: string } | null = null;
@@ -406,7 +416,7 @@ export function AnalyticsPanel({
                 } ${i < client.metrics.length - 1 ? "border-r border-[var(--rule)]" : ""}`}
               >
                 <span className="block truncate text-xs text-[var(--fg-2)] md:text-sm">{m.label}</span>
-                <span className="mt-1 block font-mono text-lg font-medium tabular-nums text-[var(--accent)] md:text-2xl">
+                <span className="mt-1 block text-xl font-medium tracking-[-0.02em] tabular-nums text-[var(--accent)] md:text-[1.75rem]">
                   {val(m, m.headline)}
                 </span>
                 <span className="mt-0.5 block truncate text-xs text-[var(--fg-2)]">{m.sub}</span>

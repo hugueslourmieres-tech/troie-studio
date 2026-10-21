@@ -1,0 +1,43 @@
+{
+  "title": "Choisir la structure de l'accueil",
+  "question": "Nouvelle donne : trois autres façons de dérouler la page, dans le même visuel blanc.",
+  "options": [
+    {
+      "id": "films-verticaux",
+      "kind": "assigned",
+      "label": "La rangée de films",
+      "kicker": "THE ROLL",
+      "thesis": "Comme un fil de réseaux sociaux : une rangée de films verticaux qui tournent en boucle dès l'arrivée, chacun avec son client et son chiffre. On voit tout de suite que l'agence fabrique et que ça marche.",
+      "palette": ["#fcfcfd", "#111318", "#2f5bd3"],
+      "materials": ["films verticaux en boucle", "chiffres posés sous chaque film"],
+      "viewport": "Titre court et bouton Réserver 30 min en haut, puis cinq films verticaux côte à côte (X-Rite, GS Monaco, Rutherford, LOIR, Bien en règle), qui défilent au glissé.",
+      "risk": "Il faut des extraits verticaux propres de chaque film.",
+      "html": ".impeccable/mocks/decision/films-verticaux.html"
+    },
+    {
+      "id": "mur-de-travaux",
+      "kind": "dealt",
+      "label": "Le mur de travaux",
+      "thesis": "Le premier écran est un mur de vrais travaux de tailles différentes (sites, photos, films), le titre posé dessus. Les chiffres sont écrits sous les travaux qui les ont produits.",
+      "palette": ["#fcfcfd", "#111318", "#2f5bd3"],
+      "materials": ["grille en mosaïque", "photos et captures noir et blanc, couleur au survol"],
+      "viewport": "Titre à gauche sur une colonne, à droite une mosaïque de six travaux dont deux vidéos qui tournent.",
+      "risk": "Peut sembler chargé si les images ne sont pas triées avec rigueur.",
+      "html": ".impeccable/mocks/decision/mur-de-travaux.html"
+    },
+    {
+      "id": "services-preuves",
+      "kind": "dealt",
+      "label": "Chaque service, sa preuve",
+      "thesis": "Six services en grandes lignes. Chaque ligne montre ce que vous obtenez et la preuve à côté : une courbe, un site, un film.",
+      "palette": ["#fcfcfd", "#111318", "#2f5bd3"],
+      "materials": ["lignes pleine largeur", "vignette de preuve à droite"],
+      "viewport": "Titre court, trois chiffres clés en bandeau, puis les premières lignes de services visibles : Sites et e-commerce avec la courbe LOIR, Réseaux sociaux avec TikTok +711 %.",
+      "risk": "Plus sage, moins spectaculaire au premier écran.",
+      "html": ".impeccable/mocks/decision/services-preuves.html"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "steer": true,
+  "followup": true
+}

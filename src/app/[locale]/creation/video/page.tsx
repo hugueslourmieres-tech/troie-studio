@@ -41,7 +41,6 @@ export default async function VideoPage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <section className="mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-20">
-        <p className="t-eyebrow">Création, Vidéo</p>
         <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
           Vidéo.
         </h1>
@@ -53,7 +52,7 @@ export default async function VideoPage({
         </p>
 
         {/* Reels & social */}
-        <p className="mt-16 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)] md:mt-20">
+        <p className="text-sm mt-16 text-[var(--accent)] md:mt-20 font-medium">
           Reels &amp; social
         </p>
         <ul className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
@@ -72,7 +71,7 @@ export default async function VideoPage({
                   style={{ filter: "grayscale(1) contrast(1.05)" }}
                 />
               </div>
-              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
+              <p className="text-sm mt-3 text-[var(--fg-2)]/70 font-medium">
                 {r.label}
               </p>
             </li>
@@ -83,7 +82,7 @@ export default async function VideoPage({
       {/* Films corporate & témoignages (YouTube) */}
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
+          <p className="text-sm text-[var(--accent)] font-medium">
             Films corporate &amp; témoignages
           </p>
           <h2 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl">
@@ -125,7 +124,7 @@ export default async function VideoPage({
                       </span>
                     </span>
                   </div>
-                  <p className="mt-4 font-mono text-[10px] uppercase tracking-[0.26em] text-[var(--accent)]">
+                  <p className="text-sm mt-4 text-[var(--accent)] font-medium">
                     {v.client}
                   </p>
                   <h3 className="t-display mt-2 text-lg text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">

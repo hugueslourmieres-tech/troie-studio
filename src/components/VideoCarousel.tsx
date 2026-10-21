@@ -163,7 +163,7 @@ function VideoCard({
         <h3 className="t-display text-xl text-[var(--fg)] md:text-2xl">
           {video.client}
         </h3>
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
+        <span className="text-sm text-[var(--fg-2)]/60 font-medium">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>

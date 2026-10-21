@@ -37,7 +37,6 @@ function WorksView({ locale }: { locale: string }) {
   return (
     <article className="mx-auto max-w-7xl px-6 py-32 md:px-12 md:py-44">
       <header className="max-w-3xl">
-        <p className="t-eyebrow">/ Works</p>
         <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
           {t("pageTitle")}
         </h1>
@@ -63,7 +62,7 @@ function WorksView({ locale }: { locale: string }) {
                 style={{ objectPosition: w.coverPosition ?? "center" }}
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)]/60 via-transparent to-transparent" />
-              <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)]/80">
+              <span className="text-sm absolute left-4 top-4 text-[var(--fg)]/80 font-medium">
                 {String(i + 1).padStart(2, "0")}
               </span>
             </div>

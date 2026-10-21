@@ -21,10 +21,10 @@ const COPY = {
   fr: {
     eyebrow: "Un exemple",
     title: "Une vidéo qui a fait vendre.",
-    body: "Une vidéo réalisée pour Autajon, en Italie, avec le groupe Rutherford. Hugues l'a montée avec son équipe, qui l'a aussi filmée. Le groupe estime qu'elle lui a rapporté environ 35 fois son budget. Une bonne vidéo se pense avant de se tourner : à qui elle parle, ce qu'elle doit prouver, où elle sera vue.",
+    body: "Une vidéo réalisée pour Autajon, en Italie, avec le groupe Rutherford. Hugues l'a montée avec son équipe, qui l'a aussi filmée. Le groupe estime qu'elle lui a rapporté environ 35 fois son budget.",
     bigFigure: "×35",
     bigLabel: "le budget, en ventes estimées par le groupe",
-    credit: "Vidéo réalisée par Hugues en poste chez Rutherford, diffusée avec son accord.",
+    credit: "Vidéo réalisée pour le groupe Rutherford, diffusée avec son accord.",
     // [À COMPLÉTER : lien de la vidéo Offset 360]
     offset: "Hugues a aussi dirigé la vidéo Offset 360.",
     more: "Voir les autres vidéos",
@@ -34,10 +34,10 @@ const COPY = {
   en: {
     eyebrow: "An example",
     title: "A video that drove sales.",
-    body: "A video made for Autajon, in Italy, with the Rutherford group. Hugues edited it with his team, who also shot it. The group estimates it brought in around 35 times its budget. A good video is thought through before it is shot: who it speaks to, what it must prove, where it will be seen.",
+    body: "A video made for Autajon, in Italy, with the Rutherford group. Hugues edited it with his team, who also shot it. The group estimates it brought in around 35 times its budget.",
     bigFigure: "×35",
     bigLabel: "the budget, in sales estimated by the group",
-    credit: "Made by Hugues in his role at Rutherford, shown with the group's permission.",
+    credit: "Video made for the Rutherford group, shared with its agreement.",
     // [À COMPLÉTER : lien de la vidéo Offset 360, même lien qu'en français]
     offset: "Hugues also directed the Offset 360 video.",
     more: "See the other videos",
@@ -66,7 +66,6 @@ export function ProofCase({
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
         <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
           <div className="md:col-span-5">
-            <p className="t-eyebrow">{c.eyebrow}</p>
             <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl">
               {c.title}
             </h2>
@@ -75,7 +74,7 @@ export function ProofCase({
             </p>
             <div className="mt-10 border-t border-[var(--rule)] pt-8">
               <p className="t-display text-4xl text-[var(--fg)] md:text-5xl">{c.bigFigure}</p>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70">
+              <p className="text-sm mt-2 text-[var(--fg-2)]/70 font-medium">
                 {c.bigLabel}
               </p>
             </div>
@@ -95,7 +94,7 @@ export function ProofCase({
             {showMoreLink && (
               <Link
                 href={`/${locale}/medias#video`}
-                className="group/link mt-4 inline-flex w-fit items-center gap-2 border-b border-[var(--fg)] pt-2 pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                className="text-sm group/link mt-4 inline-flex w-fit items-center gap-2 border-b border-[var(--fg)] pt-2 pb-1 text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] font-medium"
               >
                 {c.more}
                 <span aria-hidden="true" className="transition group-hover/link:translate-x-1">→</span>

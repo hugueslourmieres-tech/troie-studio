@@ -248,13 +248,13 @@ export function ProjectForm({ locale, className = "" }: { locale: string; classN
     return (
       <div ref={okRef} tabIndex={-1} className={`scroll-mt-28 outline-none ${className}`} role="status" aria-live="polite">
         <div className="rounded-2xl border-2 border-[var(--accent)] bg-[var(--bg-2)] p-6 sm:p-8 md:p-12">
-          <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--accent)]">{c.okEyebrow}</p>
+          <p className="text-sm text-[var(--accent)] font-medium">{c.okEyebrow}</p>
           <p className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl">{c.okTitle}</p>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">{c.okText}</p>
           <button
             type="button"
             onClick={() => setStatus("idle")}
-            className="relative mt-10 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition before:absolute before:-inset-x-2 before:-inset-y-3 before:content-[''] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            className="text-sm relative mt-10 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 text-[var(--fg)] transition before:absolute before:-inset-x-2 before:-inset-y-3 before:content-[''] hover:border-[var(--accent)] hover:text-[var(--accent)] font-medium"
           >
             {c.again}
           </button>
@@ -338,7 +338,7 @@ export function ProjectForm({ locale, className = "" }: { locale: string; classN
         <button
           type="submit"
           disabled={sending}
-          className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[#2a2e37] hover:text-white disabled:opacity-60"
+          className="text-sm group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 text-[var(--bg)] transition-colors hover:bg-[#2a2e37] hover:text-white disabled:opacity-60 font-medium"
         >
           {sending ? `${c.sending}…` : c.send}
           {!sending && (
@@ -368,7 +368,7 @@ function Field({
 }) {
   return (
     <div className="space-y-2.5">
-      <label htmlFor={id} className="flex flex-wrap items-baseline gap-x-2 gap-y-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg-2)]/80">
+      <label htmlFor={id} className="text-sm flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[var(--fg-2)]/80 font-medium">
         <span>{label}</span>
         {required && (
           <span aria-hidden="true" className="text-[var(--accent)]">

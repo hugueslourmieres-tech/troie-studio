@@ -79,14 +79,14 @@ export function Hero({ locale }: { locale: string }) {
             className="mt-10 flex flex-col gap-4"
           >
             {/* Amorce + deux parcours formation IA */}
-            <p className="font-mono text-[12px] uppercase tracking-[0.32em] text-[#111318]">
+            <p className="text-sm text-[#111318] font-medium">
               {t("heroLead")}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 ref={primaryCtaRef}
                 href="/formations"
-                className="group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#fcfcfd] transition-colors will-change-transform"
+                className="text-sm group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-8 py-5 text-[#fcfcfd] transition-colors will-change-transform font-medium"
               >
                 <RollText
                   top={<>{t("heroCtaProject")}</>}
@@ -102,7 +102,7 @@ export function Hero({ locale }: { locale: string }) {
               </Link>
               <Link
                 href="/ia"
-                className="group inline-flex items-center justify-center gap-3 border border-[#111318] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)]"
+                className="text-sm group inline-flex items-center justify-center gap-3 border border-[#111318] px-8 py-5 text-[#111318] transition-colors hover:bg-[var(--ink)] font-medium"
               >
                 <RollText
                   top={<>{t("heroCtaCourses")}</>}
@@ -115,7 +115,7 @@ export function Hero({ locale }: { locale: string }) {
                 </span>
               </Link>
             </div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#111318]/70">
+            <p className="text-sm text-[#111318]/70 font-medium">
               {t("heroMicro")}
             </p>
           </motion.div>
@@ -142,7 +142,7 @@ export function Hero({ locale }: { locale: string }) {
             <div className="flex flex-wrap items-center justify-between gap-4 border-t border-[var(--rule)] px-5 py-4 md:px-7 md:py-5">
               <Link
                 href={`/${locale}#works`}
-                className="group inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:opacity-70"
+                className="text-sm group inline-flex items-center gap-3 text-[var(--fg)] transition-colors hover:opacity-70 font-medium"
               >
                 {t("heroVideoCta")}
                 <span
@@ -152,7 +152,7 @@ export function Hero({ locale }: { locale: string }) {
                   →
                 </span>
               </Link>
-              <span className="font-mono text-[9px] uppercase tracking-[0.32em] text-[var(--fg)]/55">
+              <span className="text-sm text-[var(--fg)]/55 font-medium">
                 {t("heroVideoMeta")}
               </span>
             </div>

@@ -1,19 +1,18 @@
 import { setRequestLocale } from "next-intl/server";
 import { HomeHero } from "@/components/HomeHero";
 import { ClientsCloud } from "@/components/ClientsCloud";
-import { HomeResults } from "@/components/HomeResults";
+import { HomeFilms } from "@/components/HomeFilms";
 import { HomeWebWorks } from "@/components/HomeWebWorks";
-import { MediasSection } from "@/components/MediasSection";
+import { HomeDashboard } from "@/components/HomeDashboard";
 import { HomeServices } from "@/components/HomeServices";
 import { AboutBlock } from "@/components/AboutBlock";
 import { ContactCTA } from "@/components/ContactCTA";
 
 /**
- * Accueil, refonte du 21/10/2026 (« l'agence qui fait vendre ») : une seule
- * DA, fond blanc, neutres froids, un seul accent bleu réservé aux données.
- * On voit d'abord un vrai tableau de bord client (LOIR Paris), puis les
- * marques, trois cas chiffrés, le design des sites, la photo et la vidéo,
- * les services, l'équipe et le contact. Pas d'IA, pas d'ancrage « à Nice ».
+ * Accueil (21/10/2026). Contrat de direction : .impeccable/surfaces/
+ * src-app-locale-page-tsx.md (structure « les résultats en trois cartes »,
+ * choisie par Hugues). Ordre : titre et trois résultats, marques, films,
+ * sites, tableau de bord, services, équipe, appel.
  */
 export default async function HomePage({
   params,
@@ -27,9 +26,9 @@ export default async function HomePage({
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <HomeHero locale={locale} />
       <ClientsCloud />
-      <HomeResults locale={locale} />
+      <HomeFilms locale={locale} />
       <HomeWebWorks locale={locale} />
-      <MediasSection locale={locale} />
+      <HomeDashboard locale={locale} />
       <HomeServices locale={locale} />
       <AboutBlock locale={locale} />
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">

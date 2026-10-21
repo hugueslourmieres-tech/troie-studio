@@ -62,3 +62,7 @@ next-env.d.ts
 /public/images/backgrounds/
 
 .claude/
+
+# Impeccable : maquettes et captures de travail
+.impeccable/mocks/
+.impeccable/review/

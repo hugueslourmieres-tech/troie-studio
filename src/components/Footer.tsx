@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import { Logo } from "./Logo";
+import { AnimatedWordmark } from "./AnimatedWordmark";
 
 const BOOKING_URL = "https://cal.com/troiestudio/30min";
 
@@ -39,14 +39,11 @@ export async function Footer({ locale }: { locale: string }) {
 
   return (
     <footer className="border-t border-[var(--rule)] bg-[var(--bg)]">
-      <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
+      <div className="mx-auto max-w-7xl px-5 py-16 md:px-12 md:py-20">
         <div className="grid gap-14 sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-12 lg:gap-x-12 xl:gap-x-20">
           <div className="sm:col-span-2 lg:col-span-3">
-            <Logo
-              variant="stack"
-              className="w-44 text-[var(--fg)]"
-            />
-            <p className="mt-16 max-w-md text-sm leading-relaxed text-[var(--fg-2)]/70">
+            <AnimatedWordmark className="text-[30px] text-[var(--fg)]" />
+            <p className="mt-6 max-w-xs text-sm leading-relaxed text-[var(--fg-2)]">
               {tBrand("tagline")}
             </p>
           </div>
@@ -130,7 +127,7 @@ export async function Footer({ locale }: { locale: string }) {
                 </a>
               </li>
             </ul>
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60">
+            <p className="text-sm mt-6 text-[var(--fg-2)]/60 font-medium">
               {t("based")}
             </p>
           </div>
@@ -139,10 +136,10 @@ export async function Footer({ locale }: { locale: string }) {
 
       <div className="border-t border-[var(--rule)]">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-3 px-6 py-6 text-[11px] text-[var(--fg-2)]/60 md:flex-row md:items-center md:justify-between md:px-12">
-          <p className="font-mono uppercase tracking-[0.22em]">
+          <p className="font-medium">
             © {year} TROIE Studio. {t("rights")}
           </p>
-          <div className="flex gap-6 font-mono uppercase tracking-[0.22em]">
+          <div className="flex gap-6 font-medium">
             <Link
               href={`/${locale}/privacy`}
               className="inline-block py-2 hover:text-[var(--fg)]"

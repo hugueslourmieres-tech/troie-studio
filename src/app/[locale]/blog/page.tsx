@@ -71,7 +71,6 @@ export default async function BlogIndexPage({
   return (
     <article className="mx-auto max-w-5xl px-6 py-24 md:px-10 md:py-36">
       <header>
-        <p className="t-eyebrow">{m.eyebrow}</p>
         <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
           {m.heading}
         </h1>
@@ -104,13 +103,13 @@ export default async function BlogIndexPage({
                     aria-hidden="true"
                     className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/45 to-transparent"
                   />
-                  <span className="absolute left-4 top-4 font-mono text-[9px] uppercase tracking-[0.28em] text-[#f6ead4]">
+                  <span className="text-sm absolute left-4 top-4 text-[#f6ead4] font-medium">
                     {L.category}
                   </span>
                 </div>
 
                 <div className="mt-5 flex flex-1 flex-col">
-                  <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                  <div className="text-sm flex items-center gap-3 text-[var(--fg-2)]/55 font-medium">
                     <span>{a.readingMinutes} min</span>
                     <span>{formatDate(a.date, locale)}</span>
                   </div>
@@ -120,7 +119,7 @@ export default async function BlogIndexPage({
                   <p className="mt-3 text-base leading-relaxed text-[var(--fg-2)]">
                     {L.description}
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/65 transition-colors group-hover:text-[var(--accent)]">
+                  <span className="text-sm mt-5 inline-flex items-center gap-2 text-[var(--fg-2)]/65 transition-colors group-hover:text-[var(--accent)] font-medium">
                     {m.read}
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                   </span>

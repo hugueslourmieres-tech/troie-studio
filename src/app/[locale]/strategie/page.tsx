@@ -33,7 +33,7 @@ const COPY = {
     eyebrow: "Communication et visibilité",
     title: "Le bon message, puis les bons clients.",
     intro:
-      "Hugues Lourmieres exerce la direction marketing depuis 2018, aujourd'hui dans l'industrie des arts graphiques. Avec l'équipe TROIE, il vous aide à choisir quoi dire, à qui, et où investir. Puis il reste à vos côtés pour la mise en œuvre.",
+      "Nous choisissons avec vous quoi dire, à qui et où. Puis nous le faisons : contenus, réseaux sociaux, référencement, campagnes.",
     book: "Réserver 30 min",
     project: "Lancer un projet",
     problemsTitle: "Ce que nous réglons avec vous.",
@@ -119,7 +119,7 @@ const COPY = {
     eyebrow: "Communication and visibility",
     title: "The right message, then the right customers.",
     intro:
-      "Hugues Lourmieres has worked as a marketing director since 2018, today in the graphic arts industry. With the TROIE team, he helps you choose what to say, to whom, and where to invest. Then he stays with you to make it happen.",
+      "We choose with you what to say, to whom and where. Then we do it: content, social media, search, campaigns.",
     book: "Book 30 min",
     project: "Start a project",
     problemsTitle: "What we solve with you.",
@@ -258,7 +258,6 @@ export default async function StrategiePage({
 
       {/* En-tête */}
       <section className="mx-auto max-w-7xl px-6 pt-16 pb-16 md:px-12 md:pt-24">
-        <p className="t-eyebrow">{c.eyebrow}</p>
         <h1 className="t-display mt-6 max-w-4xl text-4xl leading-[1.05] text-[var(--fg)] md:text-6xl">
           {c.title}
         </h1>
@@ -294,7 +293,7 @@ export default async function StrategiePage({
               <li key={p.q} className="flex flex-col bg-[var(--bg)] p-8">
                 <h3 className="t-display text-2xl text-[var(--fg)] md:text-3xl">{p.q}</h3>
                 <p className="mt-4 text-base leading-relaxed text-[var(--fg-2)]">{p.a}</p>
-                <p className="mt-4 font-mono text-[11px] uppercase leading-relaxed tracking-[0.18em] text-[var(--accent)]">
+                <p className="text-sm mt-4 leading-relaxed text-[var(--accent)] font-medium">
                   {p.d}
                 </p>
               </li>
@@ -344,7 +343,7 @@ export default async function StrategiePage({
                 {c.faq.map((item) => (
                   <li key={item.q} className="border-b border-[var(--rule)]">
                     <details className="group">
-                      <summary className="flex min-h-[48px] cursor-pointer list-none items-start justify-between gap-6 py-5 font-mono text-[11px] uppercase leading-relaxed tracking-[0.22em] text-[var(--fg)] transition-colors hover:text-[var(--accent)]">
+                      <summary className="text-sm flex min-h-[48px] cursor-pointer list-none items-start justify-between gap-6 py-5 leading-relaxed text-[var(--fg)] transition-colors hover:text-[var(--accent)] font-medium">
                         <span>{item.q}</span>
                         <span
                           aria-hidden="true"

@@ -131,12 +131,12 @@ function CaseView({
         <div className="mx-auto mt-10 max-w-7xl px-6 pb-16 md:hidden">
           <Link
             href={`/${locale}/medias`}
-            className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
+            className="text-sm text-[var(--fg-2)]/70 transition hover:text-[var(--accent)] font-medium"
           >
             ← {locale === "fr" ? "Retour" : "Back"}
           </Link>
 
-          <p className="t-eyebrow mt-8">{t(`items.${slug}.scope`)}</p>
+          <p className="mt-8 text-sm text-[var(--fg-2)]">{t(`items.${slug}.scope`)}</p>
           <h1 className="t-display mt-6 max-w-5xl break-words text-5xl text-[var(--fg)] sm:text-6xl">
             {t(`items.${slug}.title`)}
           </h1>
@@ -165,7 +165,7 @@ function CaseView({
             <div className="mx-auto max-w-7xl px-6 pt-32 md:px-12 md:pt-36">
               <Link
                 href={`/${locale}/medias`}
-                className="font-mono text-[11px] uppercase tracking-[0.22em] text-white/85 transition hover:text-[var(--accent)]"
+                className="text-sm text-white/85 transition hover:text-[var(--accent)] font-medium"
               >
                 ← {locale === "fr" ? "Retour" : "Back"}
               </Link>
@@ -175,7 +175,7 @@ function CaseView({
           {/* Title block, bottom of the cover, overlaying the photo */}
           <div className="absolute inset-x-0 bottom-0 z-10">
             <div className="mx-auto max-w-7xl px-6 pb-16 md:px-12 md:pb-20">
-              <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-[var(--accent)]">
+              <p className="text-sm text-[var(--accent)] font-medium">
                 {t(`items.${slug}.scope`)}
               </p>
               <h1 className="t-display mt-6 max-w-5xl break-words text-white md:text-8xl lg:text-9xl">
@@ -214,7 +214,7 @@ function CaseView({
           les textes de chaque fiche seront fournis. */}
       <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center md:px-12 md:py-28">
-          <p className="t-eyebrow">
+          <p className="text-sm text-[var(--fg-2)]">
             {locale === "fr" ? "Un projet similaire ?" : "Similar project?"}
           </p>
           <h2 className="t-display mt-6 text-3xl text-[var(--fg)] md:text-5xl">
@@ -262,10 +262,10 @@ function NextProject({
       <Link href={`/${locale}/works/${nextSlug}`} className="group block">
         <div className="mx-auto max-w-7xl px-6 pt-16 md:px-12 md:pt-24">
           <div className="flex items-baseline justify-between">
-            <p className="t-eyebrow">
+            <p className="text-sm text-[var(--fg-2)]">
               {locale === "fr" ? "Projet suivant" : "Next project"}
             </p>
-            <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)]/60 transition group-hover:text-[var(--accent)]">
+            <span className="text-sm text-[var(--fg-2)]/60 transition group-hover:text-[var(--accent)] font-medium">
               {locale === "fr" ? "Voir" : "View"} →
             </span>
           </div>

@@ -79,7 +79,7 @@ export function AttestationLitteratieIa() {
       </p>
 
       <div className="my-9 rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-6 md:p-7">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
+        <p className="text-sm text-[var(--accent)] font-medium">
           En bref
         </p>
         <ul className="mt-4">
@@ -110,7 +110,7 @@ export function AttestationLitteratieIa() {
 
       <div className="not-prose my-8 flex flex-wrap items-center gap-4">
         <OfficialEmblems url={SOURCE_URL} />
-        <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[var(--fg-2)]/60">
+        <span className="text-sm text-[var(--fg-2)]/60 font-medium">
           Source : Commission européenne, questions-réponses sur la littératie
           IA
         </span>

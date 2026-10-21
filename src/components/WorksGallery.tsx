@@ -60,11 +60,11 @@ export function WorksGallery({
   }, [emblaApi]);
 
   const header = embedded ? (
-    <p className="t-eyebrow">{label ?? t("worksEyebrow")}</p>
+    <h3 className="text-xl font-medium tracking-[-0.02em] text-[var(--fg)]">{label ?? t("worksEyebrow")}</h3>
   ) : (
     <Reveal>
       <div className="max-w-3xl">
-        <p className="t-eyebrow">{t("worksEyebrow")}</p>
+        <h3 className="text-xl font-medium tracking-[-0.02em] text-[var(--fg)]">{t("worksEyebrow")}</h3>
         <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
           {t("worksTitle")}
         </h2>
@@ -103,7 +103,7 @@ export function WorksGallery({
                     style={{ objectPosition: w.coverPosition ?? "center" }}
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)]/60 via-transparent to-transparent" />
-                  <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)]/80">
+                  <span className="text-sm absolute left-4 top-4 text-[var(--fg)]/80 font-medium">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -128,7 +128,7 @@ export function WorksGallery({
       <div className="mt-10 flex items-end justify-between">
         <Link
           href={`/${locale}/medias`}
-          className="inline-flex items-center gap-3 border-b border-[var(--rule-strong)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+          className="text-sm inline-flex items-center gap-3 border-b border-[var(--rule-strong)] pb-2 text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] font-medium"
         >
           {t("worksCta")} →
         </Link>

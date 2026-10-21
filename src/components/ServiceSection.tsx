@@ -122,7 +122,7 @@ export function ServiceSection({
               <W delay={0.5}>
                 <Link
                   href={ctaHref}
-                  className="group mt-12 hidden items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:inline-flex"
+                  className="text-sm group mt-12 hidden items-center gap-3 border-b border-[var(--fg)] pb-2 text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:inline-flex font-medium"
                 >
                   {ctaLabel}
                   <span
@@ -147,7 +147,7 @@ export function ServiceSection({
               <W delay={0.2}>
                 <Link
                   href={ctaHref}
-                  className="group mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:hidden"
+                  className="text-sm group mt-10 inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] md:hidden font-medium"
                 >
                   {ctaLabel}
                   <span
@@ -176,7 +176,7 @@ const isVideo = (src: string) => /\.(mov|mp4|webm)$/i.test(src);
 function ToolsRow({ tools }: { tools: Tool[] }) {
   return (
     <div className="mt-10 border-t border-[var(--rule)] pt-8">
-      <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+      <p className="text-sm text-[var(--fg-2)]/55 font-medium">
         Outils utilisés
       </p>
       <ul className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3">

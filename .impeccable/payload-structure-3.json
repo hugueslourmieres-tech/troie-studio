@@ -1,0 +1,43 @@
+{
+  "title": "Choisir la structure de l'accueil",
+  "question": "Version plus sage : trois structures classiques d'agence, exécutées proprement.",
+  "options": [
+    {
+      "id": "fondateur",
+      "kind": "assigned",
+      "label": "L'agence avec un visage",
+      "kicker": "THE ROLL",
+      "thesis": "Le premier écran montre qui vous allez avoir en face : Hugues en photo, la promesse, le bouton. Les résultats et les travaux suivent, puis l'équipe et l'appel.",
+      "palette": ["#fcfcfd", "#111318", "#2f5bd3"],
+      "materials": ["portrait réel", "chiffres clés", "travaux en noir et blanc"],
+      "viewport": "Titre et bouton à gauche, grand portrait de Hugues à droite, trois chiffres clés sous le titre.",
+      "risk": "L'agence peut sembler reposer sur une seule personne.",
+      "html": ".impeccable/mocks/decision/fondateur.html"
+    },
+    {
+      "id": "chiffres-cles",
+      "kind": "dealt",
+      "label": "Les résultats en trois cartes",
+      "thesis": "Sous le titre, trois cartes de résultats avec leur petite courbe (LOIR, Rutherford, Autajon). Ensuite les sites, les films, les services, l'appel.",
+      "palette": ["#fcfcfd", "#111318", "#2f5bd3"],
+      "materials": ["cartes de résultats", "mini-courbes animées"],
+      "viewport": "Titre court centré à gauche, bouton, puis une rangée de trois cartes chiffrées visibles sans défiler.",
+      "risk": "Proche de ce que font beaucoup d'agences.",
+      "html": ".impeccable/mocks/decision/chiffres-cles.html"
+    },
+    {
+      "id": "recit",
+      "kind": "dealt",
+      "label": "Le récit en une colonne",
+      "thesis": "Une seule colonne qui se lit comme une histoire : ce que nous faisons, ce que ça a donné, qui nous sommes, comment commencer. Grandes images pleine largeur entre chaque partie.",
+      "palette": ["#fcfcfd", "#111318", "#2f5bd3"],
+      "materials": ["grandes images pleine largeur", "texte court centré"],
+      "viewport": "Titre court au centre, bouton dessous, puis une grande image de travail pleine largeur qui commence en bas de l'écran.",
+      "risk": "Moins de contenu visible d'un coup d'œil.",
+      "html": ".impeccable/mocks/decision/recit.html"
+    }
+  ],
+  "reroll": { "registers": ["safer", "bolder"] },
+  "steer": true,
+  "followup": true
+}

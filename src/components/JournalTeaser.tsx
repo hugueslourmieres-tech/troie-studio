@@ -39,7 +39,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
             </div>
             <Link
               href={`/${locale}/blog`}
-              className="group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              className="text-sm group inline-flex items-center gap-3 border-b border-[var(--fg)] pb-2 text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] font-medium"
             >
               {c.open}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -66,14 +66,14 @@ export function JournalTeaser({ locale }: { locale: string }) {
                       style={{ filter: "grayscale(1) contrast(1.03)" }}
                       loading="lazy"
                     />
-                    <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.28em] text-[#fcfcfd]">
+                    <span className="text-sm absolute left-4 top-4 text-[#fcfcfd] font-medium">
                       {a.category}
                     </span>
                   </div>
 
                   {/* Texte à droite */}
                   <div>
-                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg-2)]/55">
+                    <p className="text-sm text-[var(--fg-2)]/55 font-medium">
                       {a.readingMinutes} min, {formatDate(a.date, locale)}{c.frOnly}
                     </p>
                     <h3 className="t-display mt-3 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-3xl lg:text-[34px]">
@@ -82,7 +82,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
                     <p className="mt-4 max-w-xl text-sm leading-relaxed text-[var(--fg-2)] md:text-base">
                       {a.description}
                     </p>
-                    <span className="mt-5 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
+                    <span className="text-sm mt-5 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 text-[var(--fg)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)] font-medium">
                       {c.read}
                       <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                     </span>
@@ -96,7 +96,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
         <Reveal>
           <Link
             href={`/${locale}/blog`}
-            className="group mt-12 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-colors hover:bg-[#2a2e37] hover:text-white md:mt-14"
+            className="text-sm group mt-12 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 text-white transition-colors hover:bg-[#2a2e37] hover:text-white md:mt-14 font-medium"
           >
             Voir plus d&apos;articles
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

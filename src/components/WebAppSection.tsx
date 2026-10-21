@@ -150,7 +150,7 @@ export function WebAppSection({ locale }: { locale: string }) {
             </ul>
             <Link
               href={`/${locale}/creation/web`}
-              className="inline-flex shrink-0 items-center gap-3 border-b border-[var(--rule-strong)] pb-2 font-mono text-xs uppercase tracking-[0.22em] text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              className="text-sm inline-flex shrink-0 items-center gap-3 border-b border-[var(--rule-strong)] pb-2 text-[var(--fg)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] font-medium"
             >
               Voir nos sites &amp; apps →
             </Link>

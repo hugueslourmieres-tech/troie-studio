@@ -29,9 +29,9 @@ const COPY = {
     metaDesc:
       "Films de marque, témoignages clients et reportages photo, tournés sur le terrain par l'équipe TROIE pour des maisons de luxe et des industriels.",
     eyebrow: "Réalisations",
-    title: "Photo et vidéo, faites sur le terrain.",
+    title: "Photo et vidéo.",
     intro:
-      "Des films et des photos faits sur place : ateliers, usines, boutiques, événements. Hugues et Thibaud Lourmieres réalisent, filment et montent. Chaque projet part d'une question simple : qu'est-ce que l'image doit prouver ?",
+      "Films et photos tournés sur place : ateliers, usines, boutiques, événements. Réalisés et montés par l'équipe.",
     videoEyebrow: "Vidéo",
     videoBody:
       "Films de marque, témoignages clients, contenus pour les réseaux. Du concept au montage.",
@@ -103,7 +103,6 @@ function MediasView({ locale }: { locale: string }) {
       {/* En-tête */}
       <header className="mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-20">
         <div className="max-w-3xl">
-          <p className="t-eyebrow">{c.eyebrow}</p>
           <h1 className="t-display mt-6 text-4xl leading-[1.05] text-[var(--fg)] sm:text-5xl md:text-7xl">
             {c.title}
           </h1>
@@ -120,7 +119,7 @@ function MediasView({ locale }: { locale: string }) {
           titres du carrousel (h3) et des fiches (h3) se rangent dessous. */}
       <section id="video" className="scroll-mt-24 border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <h2 className="t-eyebrow">{c.videoEyebrow}</h2>
+          <h2 className="text-2xl font-medium tracking-[-0.02em] text-[var(--fg)]">{c.videoEyebrow}</h2>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">
             {c.videoBody}
           </p>
@@ -133,7 +132,7 @@ function MediasView({ locale }: { locale: string }) {
       {/* Photographie, pour les entreprises */}
       <section id="photo" className="scroll-mt-24 border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <h2 className="t-eyebrow">{c.photoEyebrow}</h2>
+          <h2 className="text-2xl font-medium tracking-[-0.02em] text-[var(--fg)]">{c.photoEyebrow}</h2>
           <WorksGrid locale={locale} works={business} />
         </div>
       </section>
@@ -141,7 +140,7 @@ function MediasView({ locale }: { locale: string }) {
       {/* Le regard de Hugues : ses séries personnelles */}
       <section id="regard" className="scroll-mt-24 border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <h2 className="t-eyebrow">{c.regardEyebrow}</h2>
+          <h2 className="text-2xl font-medium tracking-[-0.02em] text-[var(--fg)]">{c.regardEyebrow}</h2>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">
             {c.regardBody}
           </p>
@@ -150,7 +149,7 @@ function MediasView({ locale }: { locale: string }) {
             href={INSTAGRAM_HUGUES}
             target="_blank"
             rel="noreferrer"
-            className="group mt-12 inline-flex min-h-[48px] items-center font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]"
+            className="text-sm group mt-12 inline-flex min-h-[48px] items-center text-[var(--fg)] transition hover:text-[var(--accent)] font-medium"
           >
             <span className="inline-flex items-center gap-2.5 border-b-2 border-current pb-1.5">
               {c.follow}
@@ -185,7 +184,7 @@ function WorksGrid({ locale, works }: { locale: string; works: Work[] }) {
               style={{ objectPosition: w.coverPosition ?? "center" }}
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--bg)]/60 via-transparent to-transparent" />
-            <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)]/80">
+            <span className="text-sm absolute left-4 top-4 text-[var(--fg)]/80 font-medium">
               {String(i + 1).padStart(2, "0")}
             </span>
           </div>

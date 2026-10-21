@@ -131,13 +131,13 @@ export default async function ArticlePage({
 
       <Link
         href={`/${locale}/blog`}
-        className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--fg-2)]/70 transition hover:text-[var(--accent)]"
+        className="text-sm text-[var(--fg-2)]/70 transition hover:text-[var(--accent)] font-medium"
       >
         {ui.back}
       </Link>
 
       <header className="mt-8 border-b border-[var(--rule)] pb-10">
-        <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
+        <div className="text-sm flex items-center gap-3 text-[var(--accent)] font-medium">
           <span>{L.category}</span>
           <span className="text-[var(--fg-2)]/45">{a.readingMinutes} min</span>
           <span className="text-[var(--fg-2)]/45">{formatDate(a.date, locale)}</span>
@@ -172,7 +172,7 @@ export default async function ArticlePage({
 
       {/* CTA de fin d'article */}
       <aside className="mt-16 rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-8 md:p-10">
-        <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
+        <p className="text-sm text-[var(--accent)] font-medium">
           {ui.ctaEyebrow}
         </p>
         <h2 className="t-display mt-3 text-2xl text-[var(--fg)] md:text-3xl">
@@ -186,14 +186,14 @@ export default async function ArticlePage({
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-colors hover:bg-[#2a2e37]"
+            className="text-sm group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-7 py-4 text-white transition-colors hover:bg-[#2a2e37] font-medium"
           >
             {ui.ctaBook}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </a>
           <Link
             href={`/${locale}/contact#projet`}
-            className="group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            className="text-sm group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-7 py-4 text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)] font-medium"
           >
             {ui.ctaProject}
           </Link>

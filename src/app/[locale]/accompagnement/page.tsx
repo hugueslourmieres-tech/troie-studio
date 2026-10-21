@@ -217,7 +217,6 @@ export default async function AccompagnementPage({
       {/* En-tête */}
       <section className="mx-auto max-w-7xl px-6 pt-16 pb-20 md:px-12 md:pt-24 md:pb-28">
         <div className="max-w-3xl">
-          <p className="t-eyebrow">{c.eyebrow}</p>
           <h1 className="t-display mt-6 text-4xl leading-[1.05] text-[var(--fg)] md:text-6xl">
             {c.title}
           </h1>
@@ -243,16 +242,9 @@ export default async function AccompagnementPage({
         id="ateliers"
         title={c.workshopsTitle}
         body={c.workshopsBody}
-        link={c.workshopsLink ? { href: "/ia", label: c.workshopsLink } : null}
+        link={null}
       />
       <Block id="suivi" title={c.followTitle} body={c.followBody} />
-      <Block
-        id="diagnostic"
-        title={c.diagTitle}
-        body={c.diagBody}
-        link={{ href: `/${locale}/diagnostic-ia`, label: c.diagLink }}
-      />
-
       {/* Questions fréquentes (même tableau que le JSON-LD FAQPage). Le padding
           est porté par le summary : toute la ligne de la question se touche. */}
       <section className="border-t border-[var(--rule)]">
@@ -266,7 +258,7 @@ export default async function AccompagnementPage({
                 {c.faq.map((item) => (
                   <li key={item.q} className="border-b border-[var(--rule)]">
                     <details className="group">
-                      <summary className="flex min-h-[48px] cursor-pointer list-none items-start justify-between gap-6 py-5 font-mono text-[11px] uppercase leading-relaxed tracking-[0.22em] text-[var(--fg)] transition-colors hover:text-[var(--accent)]">
+                      <summary className="text-sm flex min-h-[48px] cursor-pointer list-none items-start justify-between gap-6 py-5 leading-relaxed text-[var(--fg)] transition-colors hover:text-[var(--accent)] font-medium">
                         <span>{item.q}</span>
                         <span
                           aria-hidden="true"

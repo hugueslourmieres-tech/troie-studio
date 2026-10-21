@@ -184,7 +184,6 @@ export default async function HuguesPage({
             </div>
           </div>
           <div className="md:col-span-7">
-            <p className="t-eyebrow">{c.eyebrow}</p>
             <h1 className="t-display mt-6 text-5xl leading-[1.02] text-[var(--fg)] md:text-7xl">
               {c.title}
             </h1>
@@ -229,7 +228,7 @@ export default async function HuguesPage({
           <ol className="mt-12 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
             {c.path.map((p) => (
               <li key={p.org} className="grid gap-3 py-8 md:grid-cols-12 md:gap-10">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg-2)] md:col-span-3 md:pt-2">
+                <p className="text-sm text-[var(--fg-2)] md:col-span-3 md:pt-2 font-medium">
                   {p.years}
                 </p>
                 <div className="md:col-span-9">

@@ -54,8 +54,8 @@ const TEAM_MEDIA = {
 const COPY = {
   fr: {
     eyebrow: "Le studio",
-    title: "Les personnes derrière vos projets.",
-    sub: "Une petite équipe, à Nice. Vous parlez directement à celles et ceux qui pensent et fabriquent votre projet. Nous intervenons en France, à Monaco et à distance.",
+    title: "Notre équipe.",
+    sub: "Vous parlez directement à ceux qui fabriquent votre projet. Partout en France et à distance.",
     prestations: [
       "Stratégie de marque et positionnement",
       "Conseil en communication",
@@ -75,7 +75,7 @@ const COPY = {
         note: "Stratégie, direction artistique, photo et vidéo. Directeur marketing dans les arts graphiques.",
       },
       vanessa: {
-        role: "[À COMPLÉTER : intitulé validé par Vanessa]",
+        role: "Conseil en communication",
         note: "Anciennement à la Maison de l'Intelligence Artificielle.",
       },
       gilles: { role: "Lead développeur", note: "Sites, applications et outils sur mesure." },
@@ -84,8 +84,8 @@ const COPY = {
   },
   en: {
     eyebrow: "The studio",
-    title: "The people behind your projects.",
-    sub: "A small team in Nice, France. You talk directly to the people who think up and make your project. We work across France, Monaco and remotely.",
+    title: "Our team.",
+    sub: "You talk directly to the people who make your project. Across France and remotely.",
     prestations: [
       "Brand strategy and positioning",
       "Communication consulting",
@@ -105,7 +105,7 @@ const COPY = {
         note: "Strategy, art direction, photo and video. Marketing director in the graphic arts industry.",
       },
       vanessa: {
-        role: "[TO COMPLETE]",
+        role: "Communication consultant",
         note: "Formerly at the Maison de l'Intelligence Artificielle.",
       },
       gilles: { role: "Lead developer", note: "Websites, apps and custom tools." },
@@ -139,34 +139,20 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
       id="about"
       className="border-t border-[var(--rule)] bg-[var(--bg)] scroll-mt-24"
     >
-      <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
+      <div className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
         {/* Présentation de l'équipe */}
         <div className="md:max-w-3xl">
-          <p className="t-eyebrow">{c.eyebrow}</p>
-          <h2 className="t-display mt-6 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+          <h2 className="t-display text-4xl text-[var(--fg)] md:text-5xl">
             {c.title}
           </h2>
           <p className="mt-6 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             {c.sub}
           </p>
-          <ul className="mt-8 grid max-w-2xl gap-x-8 gap-y-3 sm:grid-cols-2">
-            {c.prestations.map((p) => (
-              <li
-                key={p}
-                className="flex items-baseline gap-3 text-sm leading-relaxed text-[var(--fg-2)] md:text-base"
-              >
-                <span aria-hidden="true" className="inline-block h-px w-3.5 flex-shrink-0 bg-[var(--accent)]" />
-                <span>{p}</span>
-              </li>
-            ))}
-          </ul>
         </div>
 
         {/* Ligne de contrôle : intitulé + flèches (desktop) */}
-        <div className="mt-12 flex items-end justify-between md:mt-16">
-          <p className="font-mono text-[11px] uppercase tracking-[0.26em] text-[var(--fg-2)]/70">
-            {c.teamLabel}
-          </p>
+        <div className="mt-6 flex items-end justify-between md:mt-8">
+          <span />
           <div className="hidden items-center gap-2.5 md:flex">
             <button
               type="button"
@@ -215,7 +201,7 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
               <h3 className="t-display mt-6 text-2xl text-[var(--fg)] md:text-[26px]">
                 {m.name}
               </h3>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.26em] text-[var(--accent)]">
+              <p className="text-sm mt-2 text-[var(--accent)] font-medium">
                 {m.role}
               </p>
               <p className="mt-3 max-w-sm text-sm leading-relaxed text-[var(--fg-2)]">
@@ -229,7 +215,7 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
                       href={l.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="group/link inline-flex w-fit items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                      className="text-sm group/link inline-flex w-fit items-center gap-2 border-b border-[var(--fg)] pb-1 text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] font-medium"
                     >
                       {l.label}
                       <span aria-hidden="true" className="transition group-hover/link:translate-x-1">→</span>
