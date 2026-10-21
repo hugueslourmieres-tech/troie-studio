@@ -42,11 +42,6 @@ export default async function ContactPage({
    Toute la copie vient du namespace contact. */
 async function ContactView({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "contact" });
-  const WHAT_WE_DO = [
-    { n: "01", title: t("what1Title"), body: t("what1Body") },
-    { n: "02", title: t("what2Title"), body: t("what2Body") },
-    { n: "03", title: t("what3Title"), body: t("what3Body") },
-  ];
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <article className="mx-auto max-w-6xl px-6 pt-28 pb-24 md:px-10 md:pt-36 md:pb-32">
@@ -164,20 +159,6 @@ async function ContactView({ locale }: { locale: string }) {
           </div>
         </section>
 
-        {/* Où nous travaillons : partout, à distance (plus de carte de Nice). */}
-        <section className="mt-20 md:mt-28">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div className="max-w-xl">
-              <h2 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-5xl">
-                {t("studioTitle")}
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-                {t("studioText")}
-              </p>
-            </div>
-          </div>
-
-        </section>
 
       </article>
     </div>
