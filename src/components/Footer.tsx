@@ -20,19 +20,21 @@ export async function Footer({ locale }: { locale: string }) {
   const tBrand = await getTranslations({ locale, namespace: "brand" });
   const year = new Date().getFullYear();
 
+  // Pied de page (21/10/2026) : les services, puis les réalisations et le
+  // Journal. Plus de liens vers les pages IA.
+  const en = locale === "en";
   const studioLinks = [
-    { href: `/${locale}/strategie`, label: tNav("strategy") },
-    { href: `/${locale}/creation`, label: tNav("creation") },
-    { href: `/${locale}/accompagnement`, label: tNav("support") },
-    { href: `/${locale}/medias`, label: tNav("works") },
-    { href: `/${locale}/blog`, label: tNav("journal") },
+    { href: `/${locale}/creation/web`, label: en ? "Websites and apps" : "Sites et applications" },
+    { href: `/${locale}/medias`, label: en ? "Photo and video" : "Photo et vidéo" },
+    { href: `/${locale}/strategie`, label: en ? "Communication" : "Communication" },
+    { href: `/${locale}/strategie#acquisition`, label: en ? "SEO and advertising" : "SEO et publicité" },
+    { href: `/${locale}/accompagnement`, label: en ? "Team training" : "Formation des équipes" },
   ];
 
   const resourceLinks = [
-    { href: `/${locale}/diagnostic-ia`, label: t("diagnostic") },
-    { href: `/${locale}/scan-ia`, label: t("scan") },
-    { href: "/ia/ai-act", label: t("aiAct") },
-    { href: "/ia/accessibilite", label: t("accessibility") },
+    { href: `/${locale}/creation`, label: tNav("works") },
+    { href: `/${locale}#about`, label: tNav("about") },
+    { href: `/${locale}/blog`, label: tNav("journal") },
   ];
 
   return (

@@ -26,6 +26,7 @@ const COPY = {
       "Une date annoncée est une date tenue.",
     ],
     book: "Réserver 30 min",
+    path: "Son parcours et ses résultats",
     insta: "Ses photos sur Instagram, @hugueslourmieres",
     compact: {
       eyebrow: "Qui vous accompagne",
@@ -46,6 +47,7 @@ const COPY = {
       "A date we give is a date we keep.",
     ],
     book: "Book 30 min",
+    path: "His career and results",
     insta: "His photos on Instagram, @hugueslourmieres",
     compact: {
       eyebrow: "Who works with you",
@@ -122,6 +124,10 @@ export function FounderBlock({ locale, compact }: { locale: string; compact?: bo
             )}
 
             <div className="mt-10 flex flex-wrap gap-x-8 gap-y-4">
+              <a href={`/${locale}/hugues`} className={LINK_CLS}>
+                {c.path}
+                <span aria-hidden="true" className={ARROW_CLS}>→</span>
+              </a>
               <a href={CAL_URL} target="_blank" rel="noreferrer" className={LINK_CLS}>
                 {c.book}
                 <span aria-hidden="true" className={ARROW_CLS}>→</span>

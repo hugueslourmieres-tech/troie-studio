@@ -179,6 +179,8 @@ export default async function LocaleLayout({
               "Photographie",
               "Création de sites web et d'applications",
               "SEO",
+              "Publicité en ligne, Google Ads et Meta Ads",
+              "Réseaux sociaux",
               "Direction marketing à temps partagé",
               "Automatisation et outils IA",
             ]
@@ -190,6 +192,8 @@ export default async function LocaleLayout({
               "Photography",
               "Website and app development",
               "SEO",
+              "Online advertising, Google Ads and Meta Ads",
+              "Social media",
               "Fractional marketing direction",
               "Automation and AI tools",
             ],

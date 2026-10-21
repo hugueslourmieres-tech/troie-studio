@@ -14,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // /rentree, /scan-ia et /diagnostic-ia redirigent en 301 depuis le 21/10/2026.
   // /works/formation-ia sort seule du sitemap : la fiche n'est plus dans WORKS
   // et redirige en permanence vers /accompagnement (next.config.ts).
-  const staticPaths = ["", "/strategie", "/creation", "/creation/web", "/accompagnement", "/medias", "/blog", "/contact"];
+  const staticPaths = ["", "/strategie", "/creation", "/creation/web", "/accompagnement", "/hugues", "/medias", "/blog", "/contact"];
   // Rédigées en français seulement : la copie /en porte une canonique vers /fr.
   const FR_ONLY = new Set(["/creation/web"]);
   const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/accompagnement"]);

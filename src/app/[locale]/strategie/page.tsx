@@ -27,11 +27,11 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
 
 const COPY = {
   fr: {
-    metaTitle: "Stratégie de marque et marketing à Nice",
+    metaTitle: "Communication, SEO et Google Ads à Nice",
     metaDesc:
-      "Positionnement, message, canaux, plan d'acquisition. Une stratégie pensée par un directeur marketing en poste, puis mise en œuvre avec vous.",
-    eyebrow: "Stratégie",
-    title: "Une stratégie pensée par quelqu'un qui pilote.",
+      "Positionnement, réseaux sociaux, référencement Google, campagnes Google Ads et Meta. Nous clarifions votre message, puis nous vous rendons visible auprès des bons clients.",
+    eyebrow: "Communication et visibilité",
+    title: "Le bon message, puis les bons clients.",
     intro:
       "Hugues Lourmieres exerce la direction marketing depuis 2018, aujourd'hui dans l'industrie des arts graphiques. Avec l'équipe TROIE, il vous aide à choisir quoi dire, à qui, et où investir. Puis il reste à vos côtés pour la mise en œuvre.",
     book: "Réserver 30 min",
@@ -113,11 +113,11 @@ const COPY = {
     ],
   },
   en: {
-    metaTitle: "Brand strategy and marketing in Nice",
+    metaTitle: "Communication, SEO and Google Ads in Nice",
     metaDesc:
-      "Positioning, message, channels, acquisition plan. A strategy shaped by a working marketing director, then put into practice with you.",
-    eyebrow: "Strategy",
-    title: "A strategy shaped by someone who runs marketing.",
+      "Positioning, social media, Google search, Google Ads and Meta campaigns. We make your message clear, then get you in front of the right customers.",
+    eyebrow: "Communication and visibility",
+    title: "The right message, then the right customers.",
     intro:
       "Hugues Lourmieres has worked as a marketing director since 2018, today in the graphic arts industry. With the TROIE team, he helps you choose what to say, to whom, and where to invest. Then he stays with you to make it happen.",
     book: "Book 30 min",
@@ -322,36 +322,6 @@ export default async function StrategiePage({
               </li>
             ))}
           </ul>
-          <div className="mt-8">
-            <Link href={`/${locale}/scan-ia`} className={BTN_LINK}>
-              <span className="inline-flex items-center gap-2.5 border-b-2 border-current pb-1.5">
-                {c.scan}
-                <span aria-hidden="true" className="transition group-hover:translate-x-1">
-                  →
-                </span>
-              </span>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Comment nous travaillons */}
-      <section className="border-t border-[var(--rule)]">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <h2 className="t-display max-w-3xl text-3xl text-[var(--fg)] md:text-5xl">
-            {c.methodTitle}
-          </h2>
-          <ol className="mt-12 grid gap-px overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--rule)] md:mt-16 md:grid-cols-2 lg:grid-cols-4">
-            {c.method.map((m, i) => (
-              <li key={m.title} className="flex flex-col bg-[var(--bg)] p-7 md:p-8">
-                <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="t-display mt-4 text-2xl text-[var(--fg)]">{m.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">{m.body}</p>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
