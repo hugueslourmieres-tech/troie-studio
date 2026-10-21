@@ -2,64 +2,31 @@ import Image from "next/image";
 import Link from "next/link";
 import { setRequestLocale } from "next-intl/server";
 import { ContactCTA } from "@/components/ContactCTA";
-import { pageSocial } from "@/lib/og";
-import { metaDescription, seoTitle } from "@/lib/seo";
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
-
-/* Boutons (règle du 1er/10/2026, fond crème) : « Réserver 30 min » en orange
-   plein, « Lancer un projet » en lien souligné avec le besoin « site »
-   présélectionné. Le lien vise /fr/contact : la page est rédigée en français
-   seulement. */
-const BTN_BOOK =
-  "group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]";
-const BTN_LINK =
-  "group inline-flex min-h-[48px] items-center font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]";
-
-/* [À COMPLÉTER par Hugues] Pour chaque site : « La demande » (demande) et
-   « Ce que nous avons fait » (realise). Les deux lignes restent masquées tant
-   qu'elles sont vides. À confirmer aussi : le cadre exact du site Rutherford
-   (piloté en poste ou réalisé par TROIE), le statut des adresses
-   capefront-site.vercel.app et perpost-web.vercel.app, la nature de PerPost
-   et de Color Guesser. */
 const PROJECTS: Project[] = [
   {
+    name: "Color Guesser",
+    kind: "Jeu web en 7 langues, 466 défis de couleurs",
+    href: "https://playcolorguesser.com",
+    url: "playcolorguesser.com",
+    label: "playcolorguesser.com",
+    desktop: "/images/creation/web/colorguesser-desktop.jpg",
+    video: "/videos/creation/web/colorguesser.mp4",
+    mobile: "/images/creation/web/colorguesser-mobile.jpg",
+    mobileRatio: "600 / 1301",
+    featured: true,
+  },
+  {
     name: "Bilber",
-    kind: "Produit maison : web app, scan produits, scores et DPP",
+    kind: "Jeu web quotidien : la course au code-barres",
     href: "https://bilber.app",
     url: "bilber.app",
     label: "bilber.app",
     desktop: "/images/creation/web/bilber-desktop.jpg",
+    video: "/videos/creation/web/bilber.mp4",
     mobile: "/images/creation/web/bilber-mobile.jpg",
-  },
-  {
-    name: "LOIR Paris",
-    kind: "E-commerce, mode",
-    href: "https://loirparis.fr",
-    url: "loirparis.fr",
-    label: "loirparis.fr",
-    desktop: "/images/creation/web/loirparis-desktop.jpg",
-    mobile: "/images/creation/web/loirparis-mobile.jpg",
-  },
-  {
-    name: "Capefront Energies",
-    kind: "Site web corporate, énergie",
-    href: "https://capefront-site.vercel.app/fr",
-    url: "capefront-site.vercel.app",
-    label: "capefront-site.vercel.app",
-    desktop: "/images/creation/web/capefront-desktop.jpg",
-    video: "/videos/creation/web/capefront.mp4",
-    mobile: "/images/creation/web/capefront-mobile.jpg",
-  },
-  {
-    name: "PerPost",
-    kind: "Site web & application",
-    href: "https://perpost-web.vercel.app",
-    url: "perpost-web.vercel.app",
-    label: "perpost-web.vercel.app",
-    desktop: "/images/creation/web/perpost-desktop.jpg",
-    video: "/videos/creation/web/perpost.mp4",
-    mobile: "/images/creation/web/perpost-login.jpg",
+    mobileRatio: "600 / 1301",
+    featured: true,
   },
   {
     name: "Rutherford",
@@ -70,15 +37,39 @@ const PROJECTS: Project[] = [
     desktop: "/images/creation/web/rutherford-desktop.jpg",
     video: "/videos/creation/web/rutherford.mp4",
     mobile: "/images/creation/web/rutherford-mobile.jpg",
+    mobileRatio: "440 / 953",
   },
   {
-    name: "Color Guesser",
-    kind: "Web app, jeu",
-    href: "https://playcolorguesser.com",
-    url: "playcolorguesser.com",
-    label: "playcolorguesser.com",
-    desktop: "/images/creation/web/colorguesser-desktop.jpg",
-    mobile: "/images/creation/web/colorguesser-login.jpg",
+    name: "LOIR Paris",
+    kind: "E-commerce, mode",
+    href: "https://loirparis.fr",
+    url: "loirparis.fr",
+    label: "loirparis.fr",
+    desktop: "/images/creation/web/loirparis-desktop.jpg",
+    mobile: "/images/creation/web/loirparis-mobile.jpg",
+    mobileRatio: "440 / 953",
+  },
+  {
+    name: "Capefront Energies",
+    kind: "Site web corporate, énergie",
+    href: "https://capefront-site.vercel.app/fr",
+    url: "capefront-site.vercel.app",
+    label: "capefront-site.vercel.app",
+    desktop: "/images/creation/web/capefront-desktop.jpg",
+    video: "/videos/creation/web/capefront.mp4",
+    mobile: "/images/creation/web/capefront-mobile.jpg",
+    mobileRatio: "455 / 986",
+  },
+  {
+    name: "PerPost",
+    kind: "Site web & application",
+    href: "https://perpost-web.vercel.app",
+    url: "perpost-web.vercel.app",
+    label: "perpost-web.vercel.app",
+    desktop: "/images/creation/web/perpost-desktop.jpg",
+    video: "/videos/creation/web/perpost.mp4",
+    mobile: "/images/creation/web/perpost-login.jpg",
+    mobileRatio: "455 / 809",
   },
 ];
 
@@ -92,16 +83,17 @@ type Project = {
   mobile: string;
   /** Aperçu video du hero (lit en boucle, fallback sur l'image desktop). */
   video?: string;
-  /** « La demande » : ce que le client voulait. [À COMPLÉTER par Hugues] */
-  demande?: string;
-  /** « Ce que nous avons fait » : la part réelle de TROIE. [À COMPLÉTER par Hugues] */
-  realise?: string;
+  /** Proportions réelles de la capture mobile (largeur / hauteur) : rien n'est rogné. */
+  mobileRatio: string;
+  /** Mis en avant en pleine largeur en haut de page. */
+  featured?: boolean;
 };
 
 /** Carte projet : fenêtre navigateur desktop + fenêtre mobile en superposition. */
 function ProjectCard({ p }: { p: Project }) {
+  const big = !!p.featured;
   return (
-    <li>
+    <li className={big ? "lg:col-span-2" : undefined}>
       <a href={p.href} target="_blank" rel="noreferrer" className="group block">
         {/* Desktop : fenêtre navigateur (le téléphone se superpose dessus) */}
         <div className="relative">
@@ -120,13 +112,13 @@ function ProjectCard({ p }: { p: Project }) {
             >
               {p.video ? (
                 <video
-                  className="absolute inset-0 block h-full w-full object-cover object-top grayscale"
+                  className="absolute inset-0 block h-full w-full object-cover object-top"
                   poster={p.desktop}
                   autoPlay
                   muted
                   loop
                   playsInline
-                  preload="auto"
+                  preload={big ? "auto" : "metadata"}
                   aria-label={`${p.name}, aperçu animé`}
                 >
                   <source src={p.video} type="video/mp4" />
@@ -136,15 +128,15 @@ function ProjectCard({ p }: { p: Project }) {
                   src={p.desktop}
                   alt={`${p.name}, aperçu desktop`}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-top grayscale"
+                  sizes={big ? "(max-width: 1024px) 100vw, 1200px" : "(max-width: 1024px) 100vw, 50vw"}
+                  className="object-cover object-top"
                 />
               )}
             </div>
           </div>
 
           {/* Mobile : la page mobile en superposition (sans cadre), centrée */}
-          <div className="absolute -bottom-9 right-6 w-[32%] min-w-[120px] max-w-[178px] sm:right-10 transition-transform duration-500 group-hover:-translate-y-1">
+          <div className={`absolute -bottom-9 right-6 sm:right-10 transition-transform duration-500 group-hover:-translate-y-1 ${big ? "w-[24%] min-w-[88px] max-w-[250px]" : "w-[26%] min-w-[88px] max-w-[178px]"}`}>
             <div className="overflow-hidden rounded-[1.4rem] bg-[var(--bg-2)] shadow-[0_28px_62px_-18px_rgba(26,23,20,0.5)] ring-1 ring-[#1a1714]/10">
               <div className="border-b border-[var(--rule)] bg-[var(--bg)] px-2.5 py-2">
                 <div className="mx-auto flex max-w-[150px] items-center justify-center gap-1.5 rounded-full bg-[var(--bg-2)] px-3 py-1">
@@ -157,40 +149,24 @@ function ProjectCard({ p }: { p: Project }) {
               </div>
               <div
                 className="relative w-full overflow-hidden bg-white"
-                style={{ aspectRatio: "9 / 16" }}
+                style={{ aspectRatio: p.mobileRatio }}
               >
                 <Image
                   src={p.mobile}
                   alt={`${p.name}, aperçu mobile`}
                   fill
-                  sizes="178px"
-                  className="object-cover object-top grayscale"
+                  sizes={big ? "250px" : "178px"}
+                  className="object-cover object-top"
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <h3 className="t-display mt-16 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
+        <h3 className={`t-display mt-16 text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] ${big ? "text-3xl md:text-4xl" : "text-2xl"}`}>
           {p.name}
         </h3>
         <p className="mt-1 text-sm text-[var(--fg-2)]">{p.kind}</p>
-        {p.demande && (
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--fg-2)]">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg)]">
-              La demande
-            </span>{" "}
-            {p.demande}
-          </p>
-        )}
-        {p.realise && (
-          <p className="mt-2 max-w-xl text-sm leading-relaxed text-[var(--fg-2)]">
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg)]">
-              Ce que nous avons fait
-            </span>{" "}
-            {p.realise}
-          </p>
-        )}
         <span className="mt-3 inline-flex items-center gap-2 border-b border-[var(--fg)] pb-1 font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--fg)] transition-colors group-hover:border-[var(--accent)] group-hover:text-[var(--accent)]">
           {p.label}
           <span aria-hidden="true" className="transition group-hover:translate-x-1">↗</span>
@@ -200,33 +176,6 @@ function ProjectCard({ p }: { p: Project }) {
   );
 }
 
-const PROCESS = [
-  {
-    step: "01",
-    title: "Cadrage",
-    body: "Objectifs, public, périmètre et contraintes. Nous alignons la marque et ce que le site doit produire, avant la première maquette.",
-  },
-  {
-    step: "02",
-    title: "Design",
-    body: "Direction artistique, maquettes et prototype. Vous validez l'expérience avant le développement.",
-  },
-  {
-    step: "03",
-    title: "Développement",
-    body: "Sites, applications web et e-commerce sur mesure, rapides, lisibles sur téléphone et reliés à vos outils.",
-  },
-  {
-    step: "04",
-    title: "Lancement",
-    body: "Mise en ligne, référencement, mesure. Nous restons là après la mise en ligne.",
-  },
-];
-
-const META_TITLE = "Création de sites web et d'applications à Nice";
-const META_DESC =
-  "Sites vitrines, e-commerce et applications web sur mesure, du cadrage à la mise en ligne. Direction artistique et développement par l'équipe TROIE.";
-
 export async function generateMetadata({
   params,
 }: {
@@ -234,17 +183,12 @@ export async function generateMetadata({
 }) {
   await params;
   return {
-    title: seoTitle(META_TITLE),
-    description: metaDescription(META_DESC),
+    title: "Création de sites web et d'applications",
+    description:
+      "Sites, web apps, jeux et e-commerce sur mesure : nos réalisations en ligne (Color Guesser, Bilber, Rutherford, LOIR Paris).",
     /* Page rédigée en français seulement : /en/creation/web en est une copie,
        la canonique pointe vers /fr et aucun hreflang anglais n'est annoncé. */
     alternates: { canonical: "/fr/creation/web" },
-    ...pageSocial({
-      locale: "fr",
-      path: "/creation/web",
-      title: META_TITLE,
-      description: META_DESC,
-    }),
   };
 }
 
@@ -258,66 +202,35 @@ export default async function WebPage({
 
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
-      <section className="mx-auto max-w-7xl px-6 pt-32 pb-16 md:px-12 md:pt-44 md:pb-20">
-        <p className="t-eyebrow">Création, sites web</p>
-        <h1 className="t-display mt-6 text-4xl leading-[1.05] text-[var(--fg)] sm:text-5xl md:text-7xl">
-          Sites web et applications.
+      <section className="mx-auto max-w-7xl px-6 pt-32 pb-4 md:px-12 md:pt-40 md:pb-6">
+        <p className="t-eyebrow">Création, Web</p>
+        <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
+          Web.
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]/85 md:text-xl">
-          Des sites pensés pour votre marque et pour vos clients, du cadrage à la
-          mise en ligne. Hugues Lourmieres assure la direction artistique, Gilles
-          Pons le développement.
+          Sites, web apps, jeux et e-commerce sur mesure. Des produits digitaux pensés
+          pour la marque comme pour la conversion, du cadrage à la mise en ligne.
         </p>
 
-        {/* Processus */}
-        <h2 className="mt-16 font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)] md:mt-20">
-          Le processus
-        </h2>
-        <ol className="mt-8 grid gap-px overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--rule)] md:grid-cols-4">
-          {PROCESS.map((p) => (
-            <li key={p.step} className="flex flex-col bg-[var(--bg)] p-7 md:p-8">
-              <span className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
-                {p.step}
-              </span>
-              <h3 className="t-display mt-4 text-2xl text-[var(--fg)]">
-                {p.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-[var(--fg-2)]">
-                {p.body}
-              </p>
-            </li>
-          ))}
-        </ol>
       </section>
 
-      {/* Réalisations web */}
-      <section className="border-t border-[var(--rule)]">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
-          <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
-            Réalisations
-          </p>
-          <h2 className="t-display mt-6 max-w-3xl text-3xl text-[var(--fg)] md:text-5xl">
-            Des sites et des apps en ligne.
-          </h2>
-
-          <ul className="mt-12 grid gap-x-10 gap-y-16 md:mt-16 lg:grid-cols-2">
+      {/* Réalisations web : visibles dès l'arrivée */}
+      <section>
+        <div className="mx-auto max-w-7xl px-6 pt-8 pb-20 md:px-12 md:pb-28">
+          <h2 className="sr-only">Nos réalisations web</h2>
+          <ul className="grid gap-x-10 gap-y-20 lg:grid-cols-2">
             {PROJECTS.map((p) => (
               <ProjectCard key={p.name} p={p} />
             ))}
           </ul>
 
-          <div className="mt-20 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
-            <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
-              Réserver 30 min
-              <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-            </a>
-            <Link href="/fr/contact?besoin=site#projet" className={BTN_LINK}>
-              <span className="inline-flex items-center gap-2.5 border-b-2 border-current pb-1.5">
-                Lancer un projet
-                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-              </span>
-            </Link>
-          </div>
+          <Link
+            href={`/${locale}/contact?subject=web`}
+            className="group mt-14 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+          >
+            Démarrer un projet web
+            <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+          </Link>
         </div>
       </section>
 

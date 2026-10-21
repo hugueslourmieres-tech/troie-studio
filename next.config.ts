@@ -30,7 +30,7 @@ const nextConfig: NextConfig = {
       // ─── E-learning déplacé sur troie.app (la plateforme d'apprentissage) ───
       // Le studio ne fait plus que l'agence. Redirections 301 : elles gardent
       // le référencement et renvoient chacun au bon endroit sur l'app.
-      { source: "/formations/tarifs", destination: "https://troie.app/abonnement", permanent: true },
+      { source: "/formations/tarifs", destination: "https://troie.app/formation", permanent: true },
       { source: "/formations/auth/:path*", destination: "https://troie.app/connexion", permanent: true },
       { source: "/formations/dashboard/:path*", destination: "https://troie.app/parcours", permanent: true },
       { source: "/formations/quiz/:path*", destination: "https://troie.app/niveau", permanent: true },

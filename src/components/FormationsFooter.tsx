@@ -63,7 +63,7 @@ export function FormationsFooter() {
 
       <footer className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
       <div className="mx-auto max-w-7xl px-6 py-16 md:px-12 md:py-20">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-16">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-x-6 md:gap-y-16 lg:gap-x-16">
           {/* Marque + se connecter */}
           <div className="md:col-span-5">
             <Logo variant="wordmark-emblem" className="h-9 text-[var(--fg)] md:h-10" />

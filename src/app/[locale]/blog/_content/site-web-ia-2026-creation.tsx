@@ -88,9 +88,9 @@ export function SiteWebIa2026Creation() {
         site qui a une voix, qui répond vite, et que les IA peuvent citer
         sans se tromper. C&apos;est ce que nous construisons à{" "}
         <Link href="/fr/creation">l&apos;atelier création</Link>, et si vos
-        équipes veulent comprendre le versant SEO de ce nouveau monde, la
-        formation dédiée du campus est sur{" "}
-        <a href="https://troie.app/formation/seo">troie.app</a>.
+        équipes veulent apprendre à se servir des assistants IA au
+        quotidien, nos quiz gratuits sont sur{" "}
+        <a href="https://troie.app">troie.app</a>.
       </p>
     </>
   );

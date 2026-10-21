@@ -16,7 +16,7 @@ export function ProSection({ locale }: { locale: string }) {
   return (
     <section className="tone-accent border-t border-[var(--rule)] bg-[var(--bg)] text-[var(--fg)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
-        <div className="grid gap-12 md:grid-cols-12 md:gap-20">
+        <div className="grid gap-12 md:grid-cols-12 md:gap-x-8 md:gap-y-20 lg:gap-x-20">
           {/* Texte */}
           <div className="md:col-span-6">
             <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">

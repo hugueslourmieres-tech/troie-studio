@@ -86,9 +86,8 @@ export function AgentQualificationLeadsCasUsage() {
         <Link href="/fr/blog/agent-ia-pme-guide">
           guide des agents IA pour PME
         </Link>
-        . Pour la formation des équipes, le campus{" "}
-        <a href="https://troie.app">troie.app</a> couvre le socle en 2
-        heures par personne. Et si vous voulez qu&apos;on regarde votre cas
+        . Pour que vos équipes prennent en main les assistants IA, nos quiz
+        gratuits sont sur <a href="https://troie.app">troie.app</a>. Et si vous voulez qu&apos;on regarde votre cas
         ensemble, <Link href="/ia">l&apos;offre IA du studio est ici</Link>.
       </p>
     </>

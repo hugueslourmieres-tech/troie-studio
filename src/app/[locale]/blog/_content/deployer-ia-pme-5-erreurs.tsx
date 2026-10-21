@@ -38,9 +38,9 @@ export function DeployerIaPme5Erreurs() {
         formation courte pour chaque personne qui utilise l&apos;IA.
         C&apos;est d&apos;ailleurs une exigence légale depuis février 2025 :
         l&apos;article 4 du règlement européen demande un niveau suffisant
-        de maîtrise de l&apos;IA, et la capacité de le démontrer. Notre
-        campus <a href="https://troie.app">troie.app</a> règle ce point en 2
-        heures par personne, attestation nominative comprise.
+        de maîtrise de l&apos;IA, et la capacité de le démontrer. Sur{" "}
+        <a href="https://troie.app/formation">troie.app</a>, le parcours AI
+        Act se termine par une attestation nominative.
       </p>
 
       <h2>Erreur 3 : automatiser un processus cassé</h2>
