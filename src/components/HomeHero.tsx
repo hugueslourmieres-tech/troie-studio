@@ -48,12 +48,11 @@ export function HomeHero({ locale }: { locale: string }) {
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-5 pt-28 pb-16 md:px-12 md:pt-36 md:pb-24">
-        <h1 className="t-display text-[2.75rem] leading-[1.02] text-[var(--fg)] sm:text-6xl lg:text-[5.5rem]">
+        <h1 className="t-display text-[2.5rem] leading-[1.02] text-[var(--fg)] sm:text-6xl lg:text-[5.5rem]">
           {c.title}
           <br />
-          {c.lead}{" "}
-          <span className="sr-only">{c.srWords}</span>
-          <RotatingWord items={c.words} />
+          <span className="sr-only">{c.lead} {c.srWords}</span>
+          <RotatingWord prefix={c.lead} items={c.words} />
         </h1>
         <div className="mt-8 flex flex-col gap-6 md:mt-10 md:flex-row md:items-center md:justify-between">
           <p className="max-w-[34rem] text-lg leading-relaxed text-[var(--fg-2)]">{c.body}</p>

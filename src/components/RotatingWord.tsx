@@ -14,10 +14,11 @@ import {
 } from "@phosphor-icons/react";
 
 /**
- * Mot qui tourne dans le titre (21/10/2026) : « vos ventes. », « vos
- * commandes. »… Chaque mot a son pictogramme (Phosphor, trait fin) dans une
- * pastille bleutée. Les lettres apparaissent sur place, l'une après
- * l'autre, sans glisser (demande de Hugues). La largeur s'ajuste en douceur.
+ * Fin de titre qui tourne (21/10/2026) : « vos ventes. », « vos
+ * commandes. »… Toute la fin se régénère, « vos » compris, lettre par
+ * lettre et sur place, sans glisser (demandes de Hugues). Le pictogramme
+ * du mot (Phosphor, trait fin) suit, à droite, dans une pastille bleutée.
+ * La largeur s'ajuste en douceur.
  * Pause quand l'onglet est caché, simple fondu si le mouvement est réduit.
  * Décoratif : la phrase complète est donnée aux lecteurs d'écran (sr-only).
  */
@@ -35,7 +36,7 @@ export type RotatingItem = { word: string; icon: keyof typeof ICONS };
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
-export function RotatingWord({ items, interval = 2600 }: { items: readonly RotatingItem[]; interval?: number }) {
+export function RotatingWord({ prefix, items, interval = 2600 }: { prefix?: string; items: readonly RotatingItem[]; interval?: number }) {
   const [i, setI] = useState(0);
   const reduce = useReducedMotion();
 
@@ -58,6 +59,7 @@ export function RotatingWord({ items, interval = 2600 }: { items: readonly Rotat
   }, [items.length, interval]);
 
   const { word, icon } = items[i];
+  const text = prefix ? `${prefix}\u00a0${word}` : word;
   const Glyph = ICONS[icon];
 
   return (
@@ -67,8 +69,24 @@ export function RotatingWord({ items, interval = 2600 }: { items: readonly Rotat
       transition={{ layout: { duration: 0.45, ease: EASE } }}
       className="inline-flex items-center whitespace-nowrap align-baseline"
     >
+      {/* La fin du titre : lettres qui apparaissent sur place */}
+      <AnimatePresence mode="popLayout" initial={false}>
+        <motion.span key={text} className="inline-flex" exit={{ opacity: 0, transition: { duration: 0.15 } }}>
+          {Array.from(text).map((ch, k) => (
+            <motion.span
+              key={k}
+              className="inline-block"
+              initial={{ opacity: 0, filter: reduce ? "none" : "blur(4px)" }}
+              animate={{ opacity: 1, filter: "blur(0px)" }}
+              transition={{ duration: 0.4, ease: EASE, delay: reduce ? 0 : 0.08 + k * 0.035 }}
+            >
+              {ch}
+            </motion.span>
+          ))}
+        </motion.span>
+      </AnimatePresence>
       {/* Pastille du pictogramme */}
-      <span className="relative mr-[0.2em] inline-flex h-[0.82em] w-[0.82em] shrink-0 items-center justify-center rounded-[0.2em] bg-[var(--accent-soft)] text-[var(--accent)] translate-y-[0.04em]">
+      <span className="relative ml-[0.22em] inline-flex h-[0.82em] w-[0.82em] shrink-0 items-center justify-center rounded-[0.2em] bg-[var(--accent-soft)] text-[var(--accent)] translate-y-[0.04em]">
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={icon}
@@ -83,22 +101,6 @@ export function RotatingWord({ items, interval = 2600 }: { items: readonly Rotat
         </AnimatePresence>
       </span>
 
-      {/* Le mot : lettres qui apparaissent sur place */}
-      <AnimatePresence mode="popLayout" initial={false}>
-        <motion.span key={word} className="inline-flex" exit={{ opacity: 0, transition: { duration: 0.15 } }}>
-          {Array.from(word).map((ch, k) => (
-            <motion.span
-              key={k}
-              className="inline-block"
-              initial={{ opacity: 0, filter: reduce ? "none" : "blur(4px)" }}
-              animate={{ opacity: 1, filter: "blur(0px)" }}
-              transition={{ duration: 0.4, ease: EASE, delay: reduce ? 0 : 0.08 + k * 0.035 }}
-            >
-              {ch}
-            </motion.span>
-          ))}
-        </motion.span>
-      </AnimatePresence>
     </motion.span>
   );
 }

@@ -195,7 +195,7 @@ Une palette froide et neutre, avec un seul bleu qui signale la mesure.
 ### Named Rules
 **La règle du bleu des chiffres (21/10/2026, après l'essai noir et blanc puis l'essai multicolore, tous deux écartés).** L'interface reste en noir et blanc, sauf les mesures : chiffres, courbes, carrés d'Autajon, onglet choisi et pictogrammes du titre sont en bleu cobalt #2f5bd3, comme dans les rapports Shopify ou Stripe. Les boutons restent noirs. Les travaux sont en noir et blanc au repos, en couleur au survol.
 
-**Le titre tournant.** « Nous faisons grandir vos [mot]. » Chaque mot (ventes, commandes, visites, prospects, abonnés, demandes) arrive avec son pictogramme Phosphor dans une pastille en voile cobalt. Les lettres apparaissent sur place, l'une après l'autre (fondu et léger flou, sans glissement). Aucun halo, aucun dégradé multicolore.
+**Le titre tournant.** « Nous faisons grandir vos [mot]. » Toute la fin tourne, « vos » compris (vos ventes, commandes, visites, prospects, abonnés, demandes), suivie à droite de son pictogramme Phosphor dans une pastille en voile cobalt. Les lettres apparaissent sur place, l'une après l'autre (fondu et léger flou, sans glissement). Aucun halo, aucun dégradé multicolore.
 
 **La règle des boutons noirs.** L'action principale est en encre, pas en bleu. Le bleu reste disponible pour les chiffres, qui doivent être la chose la plus colorée de l'écran.
 
