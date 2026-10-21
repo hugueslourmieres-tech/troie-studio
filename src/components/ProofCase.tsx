@@ -21,9 +21,9 @@ const COPY = {
   fr: {
     eyebrow: "Un exemple",
     title: "Une vidéo qui a fait vendre.",
-    body: "Une vidéo réalisée pour Autajon, en Italie, avec le groupe Rutherford. Hugues l'a montée avec son équipe, qui l'a aussi filmée. Le groupe y a investi 5 000 €. Il estime à environ 175 000 € les ventes obtenues grâce à elle. Une bonne vidéo se pense avant de se tourner : à qui elle parle, ce qu'elle doit prouver, où elle sera vue.",
-    bigFigure: "environ 175 000 €",
-    bigLabel: "de ventes pour le groupe",
+    body: "Une vidéo réalisée pour Autajon, en Italie, avec le groupe Rutherford. Hugues l'a montée avec son équipe, qui l'a aussi filmée. Le groupe estime qu'elle lui a rapporté environ 35 fois son budget. Une bonne vidéo se pense avant de se tourner : à qui elle parle, ce qu'elle doit prouver, où elle sera vue.",
+    bigFigure: "×35",
+    bigLabel: "le budget, en ventes estimées par le groupe",
     credit: "Vidéo réalisée par Hugues en poste chez Rutherford, diffusée avec son accord.",
     // [À COMPLÉTER : lien de la vidéo Offset 360]
     offset: "Hugues a aussi dirigé la vidéo Offset 360.",
@@ -34,9 +34,9 @@ const COPY = {
   en: {
     eyebrow: "An example",
     title: "A video that drove sales.",
-    body: "A video made for Autajon, in Italy, with the Rutherford group. Hugues edited it with his team, who also shot it. The group invested €5,000 in it. It estimates the sales that came from it at around €175,000. A good video is thought through before it is shot: who it speaks to, what it must prove, where it will be seen.",
-    bigFigure: "around €175,000",
-    bigLabel: "in sales for the group",
+    body: "A video made for Autajon, in Italy, with the Rutherford group. Hugues edited it with his team, who also shot it. The group estimates it brought in around 35 times its budget. A good video is thought through before it is shot: who it speaks to, what it must prove, where it will be seen.",
+    bigFigure: "×35",
+    bigLabel: "the budget, in sales estimated by the group",
     credit: "Made by Hugues in his role at Rutherford, shown with the group's permission.",
     // [À COMPLÉTER : lien de la vidéo Offset 360, même lien qu'en français]
     offset: "Hugues also directed the Offset 360 video.",

@@ -28,3 +28,38 @@ export const LOIR_VISITS_PCT = [0.0, -0.2, 1.2, 0.4, 9.6, 10.8, 14.1, 18.0, 21.7
 
 /** Commandes par année pleine, évolution en % par rapport à 2023. */
 export const LOIR_ORDERS_YEARLY_PCT = [{"year": "2023", "pct": 0}, {"year": "2024", "pct": 80}, {"year": "2025", "pct": 133}];
+
+/**
+ * Rutherford, en pourcentages uniquement. Abonnés : rapport « Réseaux
+ * Rutherford.fr, 2018 à 2026 » (relevé du 28/09/2026, sources datées :
+ * exports TikTok, LinkedIn, Meta, Loomly, pages publiques). Février 2025 =
+ * point de bascule et base des réseaux. Le point « juin 2026 » additionne
+ * des relevés du 22 au 24 juin. Ventes, trafic naturel et demandes
+ * entrantes : CV 2026 de Hugues (pas de série datée, seulement avant/après).
+ * Aucune série de visites du site n'existe (GA4 jamais relevé).
+ */
+export const RUTHERFORD_SOCIAL_PCT = [
+  { d: "2025-02-28", v: 0 },
+  { d: "2026-06-23", v: 66.2 },
+  { d: "2026-09-28", v: 87.3 },
+];
+
+export const RUTHERFORD_TIKTOK_PCT = [
+  { d: "2024-03-04", v: 0 },
+  { d: "2025-02-01", v: 10.5 },
+  { d: "2025-03-03", v: 176.4 },
+  { d: "2026-06-22", v: 594.8 },
+  { d: "2026-09-28", v: 710.8 },
+];
+
+export const RUTHERFORD_LINKEDIN_PCT = [
+  { d: "2025-02-28", v: 0 },
+  { d: "2026-05-27", v: 25.0 },
+  { d: "2026-06-23", v: 26.9 },
+  { d: "2026-09-28", v: 36.0 },
+];
+
+/** Avant / après, en indice (avant = 100). */
+export const RUTHERFORD_SALES_INDEX = { before: 100, after: 500 };
+export const RUTHERFORD_ORGANIC_INDEX = { before: 100, after: 200 };
+export const RUTHERFORD_LEADS_INDEX = { before: 100, after: 140 };

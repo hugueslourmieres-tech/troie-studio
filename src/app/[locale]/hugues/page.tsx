@@ -19,7 +19,7 @@ const COPY = {
   fr: {
     metaTitle: "Hugues Lourmieres, directeur marketing et fondateur",
     metaDesc:
-      "Directeur marketing depuis 2018, fondateur de TROIE Studio à Nice. Ventes B2B multipliées par cinq, trafic organique doublé, 175 000 € de commandes pour 5 000 € de contenus.",
+      "Directeur marketing depuis 2018, fondateur de TROIE Studio. Ventes B2B +400 %, trafic organique doublé, un film client qui rapporte 35 fois son budget.",
     eyebrow: "Le fondateur",
     title: "Hugues Lourmieres.",
     intro:
@@ -28,8 +28,8 @@ const COPY = {
     resultsTitle: "Ses résultats.",
     resultsNote: "Chez Rutherford, une PME de l'impression et de l'emballage (B2B).",
     results: [
-      { value: "×5", label: "Ventes B2B, de 2 à 10 unités par an" },
-      { value: "175 000 €", label: "De commandes pour 5 000 € de contenus" },
+      { value: "+400\u00a0%", label: "D'unités vendues par an (B2B)" },
+      { value: "×35", label: "Le budget d'un film client, en ventes estimées" },
       { value: "+100 %", label: "De trafic organique en 6 mois" },
       { value: "+40 %", label: "De demandes entrantes via le nouveau site" },
     ],
@@ -73,7 +73,7 @@ const COPY = {
   en: {
     metaTitle: "Hugues Lourmieres, marketing director and founder",
     metaDesc:
-      "Marketing director since 2018, founder of TROIE Studio in Nice. B2B sales up five times, organic traffic doubled, €175,000 in orders from €5,000 of content.",
+      "Marketing director since 2018, founder of TROIE Studio. B2B sales up 400%, organic traffic doubled, a customer film that brought in 35 times its budget.",
     eyebrow: "The founder",
     title: "Hugues Lourmieres.",
     intro:
@@ -82,8 +82,8 @@ const COPY = {
     resultsTitle: "His results.",
     resultsNote: "At Rutherford, a printing and packaging SME (B2B).",
     results: [
-      { value: "×5", label: "B2B sales, from 2 to 10 units a year" },
-      { value: "€175,000", label: "In orders from €5,000 of content" },
+      { value: "+400%", label: "Units sold per year (B2B)" },
+      { value: "×35", label: "A customer film's budget, in estimated sales" },
       { value: "+100%", label: "Organic traffic in 6 months" },
       { value: "+40%", label: "Inbound leads from the new website" },
     ],

@@ -28,7 +28,7 @@ export async function Footer({ locale }: { locale: string }) {
     { href: `/${locale}/medias`, label: en ? "Photo and video" : "Photo et vidéo" },
     { href: `/${locale}/strategie`, label: en ? "Communication" : "Communication" },
     { href: `/${locale}/strategie#acquisition`, label: en ? "SEO and advertising" : "SEO et publicité" },
-    { href: `/${locale}/accompagnement`, label: en ? "Team training" : "Formation des équipes" },
+    { href: `/${locale}/accompagnement`, label: en ? "Team support" : "Accompagnement des équipes" },
   ];
 
   const resourceLinks = [
