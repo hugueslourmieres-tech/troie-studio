@@ -127,9 +127,9 @@ const COPY = {
 } as const;
 
 const BTN_BOOK =
-  "group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-white transition hover:bg-[#2a2e37] hover:text-white";
+  "group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--ink)] px-6 text-[15px] font-medium text-white transition-[background-color,transform] duration-200 hover:bg-[#2a2e37] active:scale-[0.98]";
 const BTN_LINK =
-  "group inline-flex min-h-[48px] items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]";
+  "group inline-flex min-h-12 items-center gap-2 text-[15px] font-medium text-[var(--fg)] underline decoration-[var(--rule-strong)] underline-offset-4 transition-colors hover:decoration-[var(--fg)]";
 
 export async function generateMetadata({
   params,
@@ -196,7 +196,7 @@ export default async function HuguesPage({
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
               <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className={BTN_LINK}>
-                <span className="border-b-2 border-current pb-1.5">{c.linkedin} ↗</span>
+                <span>{c.linkedin} ↗</span>
               </a>
             </div>
           </div>
@@ -255,7 +255,7 @@ export default async function HuguesPage({
             ))}
           </ul>
           <Link href={`/${locale}/creation`} className={`${BTN_LINK} mt-12`}>
-            <span className="border-b-2 border-current pb-1.5">{c.works} →</span>
+            <span>{c.works} →</span>
           </Link>
         </div>
       </section>

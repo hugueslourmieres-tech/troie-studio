@@ -440,9 +440,9 @@ body {
 .blog-prose li { margin-top: 0.5em; }
 .blog-prose li::marker { color: var(--accent); }
 .blog-prose blockquote {
-  border-left: 3px solid var(--accent);
+  border-left: 1px solid var(--rule-strong);
   padding-left: 1.2em;
-  font-family: var(--font-bodoni, ui-serif, Georgia, serif);
+  font-family: var(--font-display);
   font-size: clamp(1.3rem, 2.6vw, 1.7rem);
   line-height: 1.35;
   color: var(--fg);
@@ -692,3 +692,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .results-pulse { animation: none; opacity: 0; }
 }
+
+/* Surfaces du navigateur (21/10/2026) : sélection, curseur, focus clavier
+   et cases à cocher prennent la couleur du site. */
+:root { accent-color: var(--accent); caret-color: var(--accent); }
+::selection { background: rgba(47, 91, 211, 0.18); color: var(--fg); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }

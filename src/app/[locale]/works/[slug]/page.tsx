@@ -13,9 +13,9 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
    en orange plein, « Lancer un projet » en lien souligné. La zone cliquable
    garde 48 px de haut pour le pouce. */
 const BTN_BOOK =
-  "group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-white transition hover:bg-[#2a2e37] hover:text-white";
+  "group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--ink)] px-6 text-[15px] font-medium text-white transition-[background-color,transform] duration-200 hover:bg-[#2a2e37] active:scale-[0.98]";
 const BTN_PROJECT =
-  "group inline-flex min-h-[48px] items-center justify-center font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]";
+  "group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[var(--rule-strong)] px-6 text-[15px] font-medium text-[var(--fg)] transition-colors duration-200 hover:border-[var(--fg)]";
 
 /** Nom du projet + première partie de son périmètre, en minuscule initiale. */
 function workTitle(name: string, scope: string, locale: string): string {
