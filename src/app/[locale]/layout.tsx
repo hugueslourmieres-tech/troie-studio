@@ -62,8 +62,8 @@ export async function generateMetadata({
    */
   const title = `${t("name")}. ${
     isFr
-      ? "Agence digitale à Nice : sites web, contenus, SEO et Google Ads"
-      : "Digital agency in Nice: websites, content, SEO and Google Ads"
+      ? "Agence digitale : sites, contenus, SEO et publicité qui font vendre"
+      : "Digital agency: websites, content, SEO and advertising that sell"
   }`;
   // Description SEO (forme longue), distincte de la `tagline` courte
   // affichée dans le pied de page.

@@ -35,7 +35,14 @@ const METIERS: Metier[] = [
  * accompagnement). Les textes FR et EN sont dans fr.json et en.json
  * (espace « home »).
  */
-export function Intro({ asHero = false }: { asHero?: boolean }) {
+export function Intro({
+  asHero = false,
+  servicesOnly = false,
+}: {
+  asHero?: boolean;
+  /** Seulement la grille des services (l'accueil a son propre héros). */
+  servicesOnly?: boolean;
+}) {
   const t = useTranslations("home");
   const locale = useLocale();
   const HeroWrap = asHero ? Fragment : Reveal;
@@ -44,13 +51,14 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
     <section className="relative">
       <div
         className={`mx-auto max-w-7xl px-6 md:px-12 ${
-          asHero ? "pt-24 pb-20 md:pt-44 md:pb-32" : "py-28 md:py-40"
+          asHero ? "pt-24 pb-20 md:pt-44 md:pb-32" : servicesOnly ? "py-20 md:py-28" : "py-28 md:py-40"
         }`}
       >
         {/* Header centré, intro éditoriale. En héros, pas de fondu d'entrée
             (24/09/2026) : peint à opacité 0 puis révélé après le chargement
             du JavaScript, le texte d'accroche retardait le plus grand
             élément affiché (LCP) à 6,4 s sur mobile. */}
+        {!servicesOnly && (
         <HeroWrap>
           <div className="mx-auto max-w-3xl text-center">
             {/* Sceau en relief, ton sur ton, réduit sur mobile pour que les
@@ -140,10 +148,11 @@ export function Intro({ asHero = false }: { asHero?: boolean }) {
             )}
           </div>
         </HeroWrap>
+        )}
 
         {/* Les trois métiers. h2 au style surtitre, en texte simple pour
             WriteOnScroll. */}
-        <h2 id="services" className="t-eyebrow mt-16 scroll-mt-28 text-center md:mt-24">{t("metiersTitle")}</h2>
+        <h2 id="services" className={`t-eyebrow scroll-mt-28 text-center ${servicesOnly ? "" : "mt-16 md:mt-24"}`}>{t("metiersTitle")}</h2>
         <div className="mt-8 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] md:mt-10 md:grid-cols-2 xl:grid-cols-4">
           {METIERS.map((m, i) => (
             <MetierBox key={m.key} metier={m} index={i} />

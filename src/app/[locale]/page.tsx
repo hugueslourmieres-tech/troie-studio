@@ -1,22 +1,24 @@
 import { setRequestLocale } from "next-intl/server";
+import { HomeHero } from "@/components/HomeHero";
+import { HomeResults } from "@/components/HomeResults";
 import { Intro } from "@/components/Intro";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { HomeWebWorks } from "@/components/HomeWebWorks";
 import { MediasSection } from "@/components/MediasSection";
-import { ProofCase } from "@/components/ProofCase";
 import { FounderBlock } from "@/components/FounderBlock";
 import { AboutBlock } from "@/components/AboutBlock";
 import { ContactCTA } from "@/components/ContactCTA";
 import { WriteOnScroll } from "@/components/WriteOnScroll";
 
 /**
- * Accueil « agence digitale » (21/10/2026, décision de Hugues). On vend le
- * service, pas la méthode : en arrivant, on comprend qu'on peut nous confier
- * tout son digital, puis on voit le travail. L'IA n'est ni un titre ni une
- * promesse. Pas de bloc AI Act, MCP, quiz ou campus sur cette page.
+ * Accueil « agence qui fait vendre » (21/10/2026, décision de Hugues). On
+ * vend du résultat : en arrivant, une vraie courbe de ventes se trace, puis
+ * trois cas chiffrés (boutique en ligne, PME, grand groupe). Ensuite les
+ * services, puis le travail. Pas de bloc IA, AI Act, MCP ou quiz. Pas
+ * d'ancrage « à Nice » dans la promesse : l'agence travaille partout.
  *
- * Ordre : héros et 4 services, marques, sites et applications, photo et
- * vidéo, exemple Autajon, fondateur, équipe, contact.
+ * Ordre : héros et tableau de bord, résultats, services, marques, sites et
+ * applications, photo et vidéo, fondateur, équipe, contact.
  */
 export default async function HomePage({
   params,
@@ -30,9 +32,15 @@ export default async function HomePage({
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <WriteOnScroll selector="h2" />
 
-      {/* HÉROS ET SERVICES, fond orange */}
+      {/* HÉROS, fond orange : la promesse et la courbe LOIR Paris */}
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
-        <Intro asHero />
+        <HomeHero locale={locale} />
+      </div>
+
+      <HomeResults locale={locale} />
+
+      <div className="border-t border-[var(--rule)]">
+        <Intro servicesOnly />
       </div>
 
       <ClientsCloud />
@@ -40,8 +48,6 @@ export default async function HomePage({
       <HomeWebWorks locale={locale} />
 
       <MediasSection locale={locale} />
-
-      <ProofCase locale={locale} id="exemple" />
 
       <FounderBlock locale={locale} />
 

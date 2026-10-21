@@ -25,8 +25,8 @@ const COPY = {
     intro:
       "Directeur marketing depuis 2018, fondateur de TROIE Studio. Photographe et vidéaste. Je pilote la marque, l'acquisition et les contenus, et je fabrique aussi : sites, photos, films.",
     alt: "Hugues Lourmieres, portrait",
-    resultsTitle: "Résultats obtenus en poste.",
-    resultsNote: "Chez Rutherford, en direction marketing (impression et packaging, B2B).",
+    resultsTitle: "Ses résultats.",
+    resultsNote: "Chez Rutherford, une PME de l'impression et de l'emballage (B2B).",
     results: [
       { value: "×5", label: "Ventes B2B, de 2 à 10 unités par an" },
       { value: "175 000 €", label: "De commandes pour 5 000 € de contenus" },
@@ -79,8 +79,8 @@ const COPY = {
     intro:
       "Marketing director since 2018, founder of TROIE Studio. Photographer and filmmaker. I run brand, acquisition and content, and I also make things: websites, photos, films.",
     alt: "Hugues Lourmieres, portrait",
-    resultsTitle: "Results achieved in-house.",
-    resultsNote: "At Rutherford, as marketing director (printing and packaging, B2B).",
+    resultsTitle: "His results.",
+    resultsNote: "At Rutherford, a printing and packaging SME (B2B).",
     results: [
       { value: "×5", label: "B2B sales, from 2 to 10 units a year" },
       { value: "€175,000", label: "In orders from €5,000 of content" },
