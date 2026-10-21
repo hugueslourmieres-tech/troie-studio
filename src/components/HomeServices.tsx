@@ -45,7 +45,6 @@ export function HomeServices({ locale }: { locale: string }) {
                   <p className="mt-2 text-[15px] leading-relaxed text-[var(--fg-2)]">{it.body}</p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)]">
                     {it.cta}
-                    <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                   </span>
                 </Link>
               </li>

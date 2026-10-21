@@ -218,7 +218,6 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
                       className="text-sm group/link inline-flex w-fit items-center gap-2 border-b border-[var(--fg)] pb-1 text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)] font-medium"
                     >
                       {l.label}
-                      <span aria-hidden="true" className="transition group-hover/link:translate-x-1">→</span>
                     </a>
                   ))}
                 </div>

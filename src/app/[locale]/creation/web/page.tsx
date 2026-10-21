@@ -54,7 +54,6 @@ export default async function WebPage({
             className="text-sm group mt-14 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 text-[var(--bg)] transition-colors hover:bg-[#2a2e37] hover:text-white font-medium"
           >
             Démarrer un projet web
-            <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </Link>
         </div>
       </section>

@@ -45,6 +45,23 @@ function linePath(points: [number, number][], w: number, h: number) {
     .join(" ");
 }
 
+/**
+ * Un chiffre dessiné : le nombre en grand, l'unité (%) plus petite et
+ * levée, le signe × et + plus légers. Lecture d'un coup d'œil.
+ */
+function Figure({ value }: { value: string }) {
+  const m = value.match(/^([+×]?)([\d\s\u00a0.,]+?)\s*(%?)$/u);
+  if (!m) return <>{value}</>;
+  const [, sign, num, unit] = m;
+  return (
+    <>
+      {sign && <span className="mr-[0.04em] font-normal text-[var(--fg-2)]">{sign}</span>}
+      {num.trim()}
+      {unit && <span className="ml-[0.06em] align-[0.62em] text-[0.42em] font-medium tracking-normal">{unit}</span>}
+    </>
+  );
+}
+
 export function ResultCards({ locale }: { locale: string }) {
   const en = locale === "en";
   const ref = useRef<HTMLDivElement>(null);
@@ -104,13 +121,13 @@ export function ResultCards({ locale }: { locale: string }) {
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={show ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: reduce ? 0 : 0.1 * i, ease }}
-          className="group relative flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl md:w-auto border border-[var(--rule)] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          className="group relative flex w-[82%] shrink-0 snap-start flex-col overflow-hidden rounded-2xl md:w-auto bg-[var(--bg-2)] transition-[background-color,transform] duration-300 hover:bg-[#ebedf0] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
         >
           <div className="px-6 pt-6 md:px-7 md:pt-7">
             <p className="text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</p>
             <p className="mt-0.5 text-sm text-[var(--fg-2)]">{c.sector}</p>
-            <p className="mt-6 text-[2.75rem] font-medium leading-none tracking-[-0.035em] text-[var(--accent)] tabular-nums md:text-[3.25rem]">
-              {c.value}
+            <p className="mt-8 text-[3.25rem] font-medium leading-none tracking-[-0.045em] text-[var(--fg)] tabular-nums md:text-[3.75rem]">
+              <Figure value={c.value} />
             </p>
             <p className="mt-2 text-[15px] text-[var(--fg-2)]">{c.label}</p>
           </div>
@@ -124,14 +141,14 @@ export function ResultCards({ locale }: { locale: string }) {
                     d={`${linePath(c.curve, W, H)} L${W},${H} L0,${H} Z`}
                     fill="var(--accent)"
                     initial={{ opacity: 0 }}
-                    animate={show ? { opacity: 0.08 } : {}}
+                    animate={show ? { opacity: 0.06 } : {}}
                     transition={{ duration: 0.8, delay: reduce ? 0 : 0.5 + 0.35 * i }}
                   />
                   <motion.path
                     d={linePath(c.curve, W, H)}
                     fill="none"
                     stroke="var(--accent)"
-                    strokeWidth="2.5"
+                    strokeWidth="2"
                     vectorEffect="non-scaling-stroke"
                     strokeLinejoin="round"
                     initial={{ pathLength: reduce ? 1 : 0 }}
@@ -169,7 +186,6 @@ export function ResultCards({ locale }: { locale: string }) {
 
           <span className="absolute top-6 right-6 inline-flex items-center gap-1 text-sm font-medium text-[var(--fg)] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:top-7 md:right-7">
             {c.more}
-            <span aria-hidden="true">→</span>
           </span>
         </motion.a>
       ))}

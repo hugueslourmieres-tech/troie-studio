@@ -9,9 +9,8 @@ colors:
   ink: "#111318"
   ink-hover: "#2a2e37"
   graphite: "#4f5562"
-  cobalt: "#2f5bd3"
-  cobalt-wash: "rgba(47, 91, 211, 0.08)"
-  warm: "#e4570f"
+  cobalt: "#111318"
+  cobalt-wash: "rgba(17, 19, 24, 0.05)"
   rule: "rgba(17, 19, 24, 0.09)"
   rule-strong: "rgba(17, 19, 24, 0.22)"
 typography:
@@ -178,11 +177,9 @@ Ce système remplace l'ancienne identité crème, orange et Bodoni du 21 octobre
 Une palette froide et neutre, avec un seul bleu qui signale la mesure.
 
 ### Primary
-- **Bleu cobalt** (`cobalt`) : réservé aux chiffres clés des cartes de résultats et du tableau de bord, au tracé et à l'aire des courbes, au trait de l'onglet choisi, aux liens de suite (« Voir les sites → », « Tous les films → ») et au survol des liens de navigation. Il sert aussi à l'anneau de focus clavier, au curseur de saisie et aux cases à cocher. L'aire sous une courbe le reprend en transparence (8 % dans les cartes, dégradé de 16 % à 0 dans le tableau de bord).
+- **Encre de donnée** (`cobalt`, valeur encre) : réservé aux chiffres clés des cartes de résultats et du tableau de bord, au tracé et à l'aire des courbes, au trait de l'onglet choisi, aux liens de suite (« Voir les sites → », « Tous les films → ») et au survol des liens de navigation. Il sert aussi à l'anneau de focus clavier, au curseur de saisie et aux cases à cocher. L'aire sous une courbe le reprend en transparence (8 % dans les cartes, dégradé de 16 % à 0 dans le tableau de bord).
 - **Voile cobalt** (`cobalt-wash`) : fond de survol des entrées du menu déroulant, et rien d'autre.
 
-### Secondary
-- **Orange TROIE** (`warm`, `--warm`, #e4570f) : l'orange historique de la marque, approfondi pour rester lisible en grand sur blanc (3,6:1, donc titres seulement, jamais du texte courant). Réservé au mot qui tourne dans le titre de l'accueil (« Nous faisons grandir vos ventes, commandes, visites, prospects, abonnés, demandes »). Le bleu mesure, l'orange désigne ce qui grandit.
 
 ### Neutral
 - **Blanc froid** (`canvas`) : fond de toute la page.
@@ -196,9 +193,7 @@ Une palette froide et neutre, avec un seul bleu qui signale la mesure.
 - **Filet appuyé** (`rule-strong`) : contour du bouton secondaire, soulignement des liens texte au repos, contour des flèches du carrousel.
 
 ### Named Rules
-**La règle du bleu qui mesure.** Le cobalt ne colore qu'un chiffre, une courbe ou un lien. Jamais un fond de section, jamais un bouton plein, jamais une illustration. Si un élément bleu ne mesure rien et ne mène nulle part, il doit redevenir encre ou graphite.
-
-**La règle de l'orange rare.** L'orange n'apparaît qu'une fois par écran, sur un mot de titre. Jamais sur un bouton, un chiffre, une courbe ou un fond.
+**La règle du noir et blanc (21/10/2026, direction « à la OpenAI »).** Aucune couleur d'interface. Chiffres, courbes, liens et boutons sont à l'encre. La seule couleur du site vient des vrais travaux (photos, films, captures de sites), en noir et blanc au repos, en couleur au survol. Le jeton nommé « cobalt » vaut désormais l'encre (#111318) pour compatibilité.
 
 **La règle des boutons noirs.** L'action principale est en encre, pas en bleu. Le bleu reste disponible pour les chiffres, qui doivent être la chose la plus colorée de l'écran.
 

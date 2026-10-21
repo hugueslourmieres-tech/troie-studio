@@ -31,7 +31,6 @@ export async function HomeWebWorks({ locale }: { locale: string }) {
           className="group mt-16 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)]"
         >
           {t("webCta")}
-          <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
         </Link>
       </div>
     </section>

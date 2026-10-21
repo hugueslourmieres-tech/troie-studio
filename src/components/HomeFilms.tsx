@@ -72,7 +72,6 @@ export function HomeFilms({ locale }: { locale: string }) {
             className="group mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)]"
           >
             {c.more}
-            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
           </a>
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:col-span-8 lg:gap-5">

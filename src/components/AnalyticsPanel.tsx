@@ -253,7 +253,7 @@ export function AnalyticsPanel({
       <>
         <defs>
           <linearGradient id="analytics-area" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.16" />
+            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.08" />
             <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
           </linearGradient>
         </defs>
@@ -283,7 +283,7 @@ export function AnalyticsPanel({
           d={line}
           fill="none"
           stroke="var(--accent)"
-          strokeWidth="2.5"
+          strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
           initial={{ pathLength: reduce ? 1 : 0 }}
@@ -363,7 +363,7 @@ export function AnalyticsPanel({
   return (
     <div
       ref={ref}
-      className="overflow-hidden rounded-2xl border border-[var(--rule)] bg-white shadow-[0_1px_2px_rgba(17,19,24,0.04),0_24px_60px_-32px_rgba(17,19,24,0.18)] lg:grid lg:grid-cols-[220px_1fr]"
+      className="overflow-hidden rounded-2xl border border-[var(--rule)] bg-white lg:grid lg:grid-cols-[220px_1fr]"
     >
       {/* Clients : colonne sur ordinateur, rangée sur téléphone */}
       <nav

@@ -40,7 +40,7 @@ export function RotatingWord({ words, interval = 2400 }: { words: readonly strin
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={words[i]}
-          className="inline-block text-[var(--warm)]"
+          className="inline-block"
           initial={reduce ? { opacity: 0 } : { opacity: 0, transform: "translateY(0.55em)", filter: "blur(6px)" }}
           animate={reduce ? { opacity: 1 } : { opacity: 1, transform: "translateY(0em)", filter: "blur(0px)" }}
           exit={

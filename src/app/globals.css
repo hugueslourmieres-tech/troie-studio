@@ -13,23 +13,21 @@
 
 :root,
 .tone-light {
-  /* Système du 21/10/2026 (refonte « agence qui fait vendre ») : fond
-     blanc, neutres froids, UNE seule couleur d'accent (bleu cobalt),
-     réservée aux courbes, aux chiffres clés et aux liens. Les boutons
-     sont noirs. Plus d'orange ni de crème. */
+  /* Système du 21/10/2026 : fond blanc, encre presque noire, gris froids.
+     Pas de couleur d'interface : seuls les travaux montrés sont en couleur
+     (au survol). */
   --bg: #fcfcfd;
   --bg-2: #f3f4f6;
   --fg: #111318;
   --ink: #111318;
   --fg-2: #4f5562;
   --fg-mute: rgba(17, 19, 24, 0.55);
-  --accent: #2f5bd3;
-  --accent-2: #2448b0;
-  --accent-soft: rgba(47, 91, 211, 0.08);
-  /* Seconde couleur (21/10/2026) : l'orange historique de TROIE, approfondi
-     pour rester lisible en grand sur blanc (3,6:1). Réservé au mot qui
-     tourne dans le titre et aux rares mises en avant éditoriales. */
-  --warm: #e4570f;
+  /* 21/10/2026, direction « à la OpenAI » : presque tout en noir et blanc.
+     L'accent devient l'encre. La couleur vient seulement des vrais travaux
+     (photos, films, sites) au survol. */
+  --accent: #111318;
+  --accent-2: #000000;
+  --accent-soft: rgba(17, 19, 24, 0.05);
   --rule: rgba(17, 19, 24, 0.09);
   --rule-strong: rgba(17, 19, 24, 0.22);
   --gold: #4f5562;
@@ -57,10 +55,12 @@
   --fg: #111318;
   --fg-2: #4f5562;
   --fg-mute: rgba(17, 19, 24, 0.55);
-  --accent: #2f5bd3;
-  --accent-2: #2448b0;
-  --accent-soft: rgba(47, 91, 211, 0.08);
-  --warm: #e4570f;
+  /* 21/10/2026, direction « à la OpenAI » : presque tout en noir et blanc.
+     L'accent devient l'encre. La couleur vient seulement des vrais travaux
+     (photos, films, sites) au survol. */
+  --accent: #111318;
+  --accent-2: #000000;
+  --accent-soft: rgba(17, 19, 24, 0.05);
   --rule: rgba(17, 19, 24, 0.10);
   --rule-strong: rgba(17, 19, 24, 0.24);
   --gold: #4f5562;
@@ -701,5 +701,5 @@ body {
 /* Surfaces du navigateur (21/10/2026) : sélection, curseur, focus clavier
    et cases à cocher prennent la couleur du site. */
 :root { accent-color: var(--accent); caret-color: var(--accent); }
-::selection { background: rgba(47, 91, 211, 0.18); color: var(--fg); }
+::selection { background: rgba(17, 19, 24, 0.12); color: var(--fg); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
