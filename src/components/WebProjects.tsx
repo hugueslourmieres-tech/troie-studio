@@ -6,6 +6,17 @@ import Image from "next/image";
  */
 export const PROJECTS: Project[] = [
   {
+    name: "Bien en règle",
+    kind: "Web app : la conformité des locations de vacances, ville par ville",
+    href: "https://bienenregle.com",
+    url: "bienenregle.com",
+    label: "bienenregle.com",
+    desktop: "/images/creation/web/bienenregle-desktop.jpg",
+    mobile: "/images/creation/web/bienenregle-mobile.jpg",
+    mobileRatio: "600 / 1300",
+    featured: true,
+  },
+  {
     name: "Color Guesser",
     kind: "Jeu web en 7 langues, 466 défis de couleurs",
     href: "https://playcolorguesser.com",
@@ -113,7 +124,7 @@ export function ProjectCard({ p }: { p: Project }) {
             >
               {p.video ? (
                 <video
-                  className="absolute inset-0 block h-full w-full object-cover object-top"
+                  className="absolute inset-0 block h-full w-full object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
                   poster={p.desktop}
                   autoPlay
                   muted
@@ -130,7 +141,7 @@ export function ProjectCard({ p }: { p: Project }) {
                   alt={`${p.name}, aperçu desktop`}
                   fill
                   sizes={big ? "(max-width: 1024px) 100vw, 1200px" : "(max-width: 1024px) 100vw, 50vw"}
-                  className="object-cover object-top"
+                  className="object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
                 />
               )}
             </div>
@@ -157,7 +168,7 @@ export function ProjectCard({ p }: { p: Project }) {
                   alt={`${p.name}, aperçu mobile`}
                   fill
                   sizes={big ? "250px" : "178px"}
-                  className="object-cover object-top"
+                  className="object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
                 />
               </div>
             </div>

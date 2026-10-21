@@ -216,7 +216,8 @@ function LocalMedia({
       preload="metadata"
       className="h-full w-full object-cover transition-[filter] duration-700"
       style={{
-        filter: "none",
+        // Noir et blanc au repos, couleur pour la vidéo active (21/10/2026).
+        filter: active ? "none" : "grayscale(1)",
       }}
     />
   );
@@ -254,7 +255,7 @@ function YouTubeMedia({
         alt={title}
         fill
         sizes="(max-width: 768px) 85vw, (max-width: 1024px) 50vw, 33vw"
-        className="object-cover transition-[filter,transform] duration-700 group-hover:scale-[1.02]"
+        className="object-cover grayscale transition-[filter,transform] duration-700 group-hover:scale-[1.02] group-hover:grayscale-0"
       />
       {/* Play overlay */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
