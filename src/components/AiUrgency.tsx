@@ -51,7 +51,7 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
   const c = COPY[locale === "en" ? "en" : "fr"];
 
   return (
-    <section className="border-t border-[var(--accent)] bg-[var(--ink)] text-[#f5f0e6]">
+    <section className="border-t border-[var(--rule)] bg-[var(--ink)] text-[#fcfcfd]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
           {/* Illustration */}
@@ -77,12 +77,12 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
               />
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 className="t-display mt-8 text-4xl leading-[1.05] text-[#f5f0e6] md:text-5xl lg:text-6xl">
+              <h2 className="t-display mt-8 text-4xl leading-[1.05] text-[#fcfcfd] md:text-5xl lg:text-6xl">
                 {c.title}
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-8 max-w-xl text-base leading-relaxed text-[#f5f0e6]/70 md:text-lg">
+              <p className="mt-8 max-w-xl text-base leading-relaxed text-[#fcfcfd]/70 md:text-lg">
                 {c.body}
               </p>
             </Reveal>
@@ -92,7 +92,7 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
                   href="https://troie.app/formation"
                   target="_blank"
                   rel="noopener"
-                  className="group relative inline-flex items-center gap-3 overflow-hidden bg-[var(--accent)] py-4 pl-8 pr-16 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6]"
+                  className="group relative inline-flex items-center gap-3 overflow-hidden bg-[var(--ink)] py-4 pl-8 pr-16 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-colors hover:bg-[#fcfcfd]"
                 >
                   {c.ctaPrimary}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -106,7 +106,7 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
                 </a>
                 <Link
                   href={`/${locale}/blog/${c.articleSlug}`}
-                  className="group inline-flex items-center gap-2.5 border-b border-[#f5f0e6]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6]/85 transition-colors hover:border-[#f5f0e6] hover:text-[#f5f0e6]"
+                  className="group inline-flex items-center gap-2.5 border-b border-[#fcfcfd]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.22em] text-[#fcfcfd]/85 transition-colors hover:border-[#fcfcfd] hover:text-[#fcfcfd]"
                 >
                   {c.ctaSecondary}
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -114,14 +114,14 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
               </div>
               <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-4">
                 <OfficialEmblems url={SOURCE_URL} />
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/45">
+                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#fcfcfd]/45">
                   {c.meta}
                   {", "}
                   <a
                     href={SOURCE_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="underline decoration-[#f5f0e6]/30 underline-offset-2 transition-colors hover:text-[#f5f0e6] hover:decoration-[#f5f0e6]"
+                    className="underline decoration-[#fcfcfd]/30 underline-offset-2 transition-colors hover:text-[#fcfcfd] hover:decoration-[#fcfcfd]"
                   >
                     {c.sourceLabel} →
                   </a>
@@ -131,8 +131,8 @@ export function AiUrgency({ locale = "fr" }: { locale?: string }) {
 
             {/* Les outils que les équipes utilisent déjà, logos blancs */}
             <Reveal delay={0.4}>
-              <div className="mt-12 border-t border-[#f5f0e6]/12 pt-7">
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#f5f0e6]/40">
+              <div className="mt-12 border-t border-[#fcfcfd]/12 pt-7">
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[#fcfcfd]/40">
                   {c.toolsLabel}
                 </p>
                 <ul className="mt-5 flex flex-wrap items-center gap-x-8 gap-y-4">

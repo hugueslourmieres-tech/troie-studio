@@ -63,10 +63,10 @@ const PACKS: Pack[] = [
     ],
     toolFilter: "brightness(0)",
     card: "border-[var(--accent)] bg-[var(--accent)]",
-    text: "text-[#1a1714]",
-    sub: "text-[#1a1714]/70",
-    check: "text-[#1a1714]",
-    button: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[#f5f0e6] hover:text-[#1a1714]",
+    text: "text-[#111318]",
+    sub: "text-[#111318]/70",
+    check: "text-[#111318]",
+    button: "bg-[var(--ink)] text-[#fcfcfd] hover:bg-[#fcfcfd] hover:text-[#111318]",
   },
   {
     step: "02",
@@ -91,11 +91,11 @@ const PACKS: Pack[] = [
       { src: "/images/logos/copilot.svg", label: "Copilot" },
     ],
     toolFilter: "brightness(0) invert(1)",
-    card: "border-[#1a1714] bg-[var(--ink)]",
-    text: "text-[#f5f0e6]",
-    sub: "text-[#f5f0e6]/60",
+    card: "border-[#111318] bg-[var(--ink)]",
+    text: "text-[#fcfcfd]",
+    sub: "text-[#fcfcfd]/60",
     check: "text-[var(--accent)]",
-    button: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+    button: "bg-[var(--ink)] text-white hover:bg-[#fcfcfd]",
   },
   {
     step: "03",
@@ -122,10 +122,10 @@ const PACKS: Pack[] = [
     ],
     toolFilter: "brightness(0) invert(1)",
     card: "border-[#1f3a34] bg-[#1f3a34]",
-    text: "text-[#f5f0e6]",
-    sub: "text-[#f5f0e6]/60",
+    text: "text-[#fcfcfd]",
+    sub: "text-[#fcfcfd]/60",
     check: "text-[#8fc7b4]",
-    button: "bg-[#f5f0e6] text-[#1f3a34] hover:bg-[var(--accent)] hover:text-[#1a1714]",
+    button: "bg-[#fcfcfd] text-[#1f3a34] hover:bg-[#2a2e37] hover:text-white",
   },
 ];
 
@@ -198,7 +198,7 @@ export function FormationLadder() {
                 <div className="flex items-center justify-between">
                   <span
                     className={`flex h-12 w-12 items-center justify-center rounded-full border ${
-                      p.step === "01" ? "border-[#1a1714]/25" : "border-current/25"
+                      p.step === "01" ? "border-[#111318]/25" : "border-current/25"
                     } ${p.text}`}
                   >
                     <PackIcon name={p.icon} className="h-6 w-6" />
@@ -254,7 +254,7 @@ export function FormationLadder() {
                 <ul
                   aria-label="Outils couverts"
                   className={`mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-t pt-5 ${
-                    p.step === "01" ? "border-[#1a1714]/15" : "border-[#f5f0e6]/15"
+                    p.step === "01" ? "border-[#111318]/15" : "border-[#fcfcfd]/15"
                   }`}
                 >
                   {p.tools.map((tool) => (

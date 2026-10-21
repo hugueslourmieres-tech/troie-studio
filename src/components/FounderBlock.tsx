@@ -76,7 +76,7 @@ export function FounderBlock({ locale, compact }: { locale: string; compact?: bo
   return (
     <section
       id={compact ? "qui" : "fondateur"}
-      className="border-t border-[var(--accent)] scroll-mt-24"
+      className="border-t border-[var(--rule)] scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
         <div className="grid gap-12 md:grid-cols-12 md:gap-16">

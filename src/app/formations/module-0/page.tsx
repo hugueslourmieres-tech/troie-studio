@@ -193,23 +193,23 @@ export default function Module0Page() {
             </div>
 
             {/* Cours 02 locked card */}
-            <div className="relative overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--ink)] p-8 text-[#f5f0e6] md:p-10">
+            <div className="relative overflow-hidden rounded-sm border border-[var(--rule)] bg-[var(--ink)] p-8 text-[#fcfcfd] md:p-10">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
                   Cours 02, Advanced, 297 €
                 </p>
-                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/55">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-[#fcfcfd]/55">
                   Locked
                 </span>
               </div>
               <h3 className="t-display mt-6 text-2xl md:text-3xl">
                 Workflows IA solo &amp; équipe
               </h3>
-              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]/60">
+              <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[#fcfcfd]/60">
                 70 questions, 100 prompts, 8 MCPs, 10 templates Make
               </p>
 
-              <div className="relative mt-6 rounded-sm border border-[#f5f0e6]/15 bg-[#f5f0e6]/5 p-6">
+              <div className="relative mt-6 rounded-sm border border-[#fcfcfd]/15 bg-[#fcfcfd]/5 p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--accent)]">
                   Question, extrait
                 </p>
@@ -220,7 +220,7 @@ export default function Module0Page() {
                   {COURSE_02_PREVIEW[0].options.map((opt, i) => (
                     <li
                       key={i}
-                      className={`text-sm text-[#f5f0e6]/85 ${
+                      className={`text-sm text-[#fcfcfd]/85 ${
                         i > 0 ? "blur-[3px] select-none" : ""
                       }`}
                     >
@@ -237,7 +237,7 @@ export default function Module0Page() {
 
               <a
                 href="/formations#paths"
-                className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--accent)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--accent)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[#fcfcfd] hover:text-[#111318]"
               >
                 Débloquer, 297 €
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

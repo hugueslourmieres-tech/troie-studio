@@ -77,7 +77,7 @@ export function MobileMenu({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
           className="tone-light fixed inset-0 z-[60] lg:hidden"
-          style={{ backgroundColor: "#f5f0e6" }}
+          style={{ backgroundColor: "#fcfcfd" }}
         >
           {/* Bouton de fermeture, à la place du burger, en croix */}
           <button
@@ -108,7 +108,7 @@ export function MobileMenu({
                   target="_blank"
                   rel="noreferrer"
                   onClick={close}
-                  className="flex h-14 w-full items-center justify-center bg-[var(--accent)] px-4 text-center font-mono text-[12px] uppercase tracking-[0.2em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+                  className="flex h-14 w-full items-center justify-center bg-[var(--ink)] px-4 text-center font-mono text-[12px] uppercase tracking-[0.2em] text-white transition-colors hover:bg-[#2a2e37] hover:text-white"
                 >
                   {ctas.book}
                 </a>

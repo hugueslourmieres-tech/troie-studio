@@ -289,14 +289,14 @@ export default function Cours02Page() {
                 <li>– Votre IA ne sait rien de vos outils.</li>
               </ul>
             </div>
-            <div className="rounded-sm border border-[var(--accent)] bg-[var(--ink)] p-8 text-[#f5f0e6] md:p-10">
+            <div className="rounded-sm border border-[var(--accent)] bg-[var(--ink)] p-8 text-[#fcfcfd] md:p-10">
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
                 Après, LV. 92+
               </p>
               <h3 className="t-display mt-4 text-2xl md:text-3xl">
                 Vos workflows tournent sans vous.
               </h3>
-              <ul className="mt-6 space-y-2.5 text-sm leading-relaxed text-[#f5f0e6]/85">
+              <ul className="mt-6 space-y-2.5 text-sm leading-relaxed text-[#fcfcfd]/85">
                 <li>– 3 agents persistants gèrent vos tâches récurrentes.</li>
                 <li>– Brief quotidien dans Slack à 8h.</li>
                 <li>– Leads scorés et contactés auto.</li>
@@ -447,7 +447,7 @@ export default function Cours02Page() {
                   product="cours-02"
                   label="Acheter, 297 €, accès à vie"
                   fallbackSubject={FALLBACK_SUBJECT}
-                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#fcfcfd] hover:text-[#111318]"
                 />
                 <Link
                   href="/formations/mastermind"

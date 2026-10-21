@@ -20,9 +20,9 @@ export function ContactBand() {
   const locale = useLocale();
 
   return (
-    <section className="border-t border-[#1a1714]/15">
+    <section className="border-t border-[#111318]/15">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 py-14 text-center md:px-12 md:py-16 lg:flex-row lg:justify-between lg:text-left">
-        <p className="max-w-xl text-base leading-relaxed text-[#1a1714]/80 md:text-lg">
+        <p className="max-w-xl text-base leading-relaxed text-[#111318]/80 md:text-lg">
           {t("bandText")}
         </p>
         <div className="flex w-full flex-none flex-col gap-3 sm:w-auto sm:flex-row">
@@ -30,7 +30,7 @@ export function ContactBand() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex flex-none items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#f5f0e6] transition hover:bg-[#15120f]"
+            className="group inline-flex flex-none items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#fcfcfd] transition hover:bg-[#15120f]"
           >
             {t("bandCta")}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">
@@ -39,7 +39,7 @@ export function ContactBand() {
           </a>
           <Link
             href={`/${locale}/contact#projet`}
-            className="inline-flex items-center justify-center gap-3 rounded-full border border-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]"
+            className="inline-flex items-center justify-center gap-3 rounded-full border border-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#111318] transition hover:bg-[var(--ink)] hover:text-[#fcfcfd]"
           >
             {t("bandProject")}
           </Link>

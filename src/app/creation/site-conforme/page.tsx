@@ -125,7 +125,7 @@ export default function SiteConformePage() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex min-h-[44px] items-center gap-2.5 whitespace-nowrap bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            className="inline-flex min-h-[44px] items-center gap-2.5 whitespace-nowrap bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
             Réserver 30 min
           </a>
@@ -151,7 +151,7 @@ export default function SiteConformePage() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
             Réserver 30 min
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -232,7 +232,7 @@ export default function SiteConformePage() {
           </div>
 
           {/* Sur devis (aucun prix affiché) */}
-          <div className="mt-12 grid gap-8 rounded-sm bg-[var(--ink)] p-8 text-[#f5f0e6] md:grid-cols-12 md:items-center md:p-12">
+          <div className="mt-12 grid gap-8 rounded-sm bg-[var(--ink)] p-8 text-[#fcfcfd] md:grid-cols-12 md:items-center md:p-12">
             <div className="md:col-span-7">
               <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
                 Sur devis
@@ -240,7 +240,7 @@ export default function SiteConformePage() {
               <p className="t-display mt-4 text-4xl md:text-5xl">
                 Un devis écrit, qui ne bouge plus.
               </p>
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#f5f0e6]/75 md:text-base">
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-[#fcfcfd]/75 md:text-base">
                 Le prix dépend du périmètre : nombre de pages, vitrine ou
                 e-commerce, contenus à reprendre. Il est posé par écrit après
                 un premier échange de 30 minutes, et il ne bouge plus.
@@ -251,7 +251,7 @@ export default function SiteConformePage() {
                 href={CAL_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex w-full items-center justify-center gap-3 bg-[var(--accent)] px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6]"
+                className="group inline-flex w-full items-center justify-center gap-3 bg-[var(--accent)] px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[#fcfcfd]"
               >
                 Réserver 30 min
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

@@ -152,14 +152,14 @@ export default function MastermindPage() {
 
             {/* Pricing card sticky-like */}
             <div className="md:col-span-5 md:pt-8">
-              <div className="rounded-sm border border-[var(--accent)] bg-[var(--accent)] p-6 text-[#1a1714] md:p-8">
-                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[#1a1714]/80">
+              <div className="rounded-sm border border-[var(--accent)] bg-[var(--accent)] p-6 text-[#111318] md:p-8">
+                <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[#111318]/80">
                   Inclus dans l'abo
                 </p>
                 <h2 className="t-display mt-4 text-4xl md:text-5xl">
                   49 € / mois
                 </h2>
-                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714]/70">
+                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-[#111318]/70">
                   ou 490 € / an, 2 mois offerts
                 </p>
                 <ul className="mt-6 space-y-2.5">
@@ -173,7 +173,7 @@ export default function MastermindPage() {
                   ].map((b) => (
                     <li
                       key={b}
-                      className="flex items-start gap-3 text-sm leading-relaxed text-[#1a1714]/85"
+                      className="flex items-start gap-3 text-sm leading-relaxed text-[#111318]/85"
                     >
                       <span
                         aria-hidden="true"
@@ -185,12 +185,12 @@ export default function MastermindPage() {
                 </ul>
                 <ObfuscatedEmail
                   subject={SUBJECT_MONTHLY}
-                  className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--ink)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-[var(--ink)] px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#fcfcfd] hover:text-[#111318]"
                 >
                   Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </ObfuscatedEmail>
-                <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-[#1a1714]/70">
+                <p className="mt-3 text-center font-mono text-[9px] uppercase tracking-[0.22em] text-[#111318]/70">
                   Annulez en 1 clic, sans engagement
                 </p>
               </div>
@@ -316,7 +316,7 @@ export default function MastermindPage() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <ObfuscatedEmail
                   subject={SUBJECT_MONTHLY}
-                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#fcfcfd] hover:text-[#111318]"
                 >
                   Demander un devis
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

@@ -137,7 +137,7 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
   return (
     <section
       id="about"
-      className="border-t border-[var(--accent)] bg-[var(--bg)] scroll-mt-24"
+      className="border-t border-[var(--rule)] bg-[var(--bg)] scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         {/* Présentation de l'équipe */}

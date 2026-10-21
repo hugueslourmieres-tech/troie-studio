@@ -35,7 +35,7 @@ export function QcmSection() {
                 />
               </div>
               <QcmDemo />
-              <span className="absolute left-4 top-4 rounded-full bg-[var(--bg)]/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-[#1a1714]/65 backdrop-blur-sm">
+              <span className="absolute left-4 top-4 rounded-full bg-[var(--bg)]/80 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.24em] text-[#111318]/65 backdrop-blur-sm">
                 Gratuit
               </span>
             </div>
@@ -64,7 +64,7 @@ export function QcmSection() {
               )}
 
               <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
-                <span className="inline-flex items-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors group-hover:bg-[var(--ink)] group-hover:text-[var(--bg)]">
+                <span className="inline-flex items-center gap-3 bg-[var(--ink)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-colors group-hover:bg-[#2a2e37] group-hover:text-white">
                   Lancer le QCM
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </span>

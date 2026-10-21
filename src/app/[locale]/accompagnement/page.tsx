@@ -112,7 +112,7 @@ const COPY = {
 /* Classes des boutons (fond crème). La zone cliquable des liens soulignés
    garde 48 px de haut pour le pouce, le trait reste collé au texte. */
 const BTN_BOOK =
-  "group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]";
+  "group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-white transition hover:bg-[#2a2e37] hover:text-white";
 const BTN_LINK =
   "group inline-flex min-h-[48px] items-center font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]";
 

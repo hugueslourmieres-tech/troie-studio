@@ -251,10 +251,10 @@ export default async function DashboardOverview() {
               <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-[var(--accent)]">
                 7 jours gratuits
               </p>
-              <h2 className="t-display mt-3 text-2xl text-[#f5f0e6] md:text-3xl">
+              <h2 className="t-display mt-3 text-2xl text-[#fcfcfd] md:text-3xl">
                 Débloquez tous les cours.
               </h2>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#f5f0e6]/70 md:text-base">
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-[#fcfcfd]/70 md:text-base">
                 Tous les cours actuels et à venir, les QCM, les prompts
                 métier. Essai gratuit 7 jours, puis 29 € par mois,
                 annulable en un clic.
@@ -262,7 +262,7 @@ export default async function DashboardOverview() {
             </div>
             <Link
               href="/formations/tarifs"
-              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6]"
+              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[#fcfcfd]"
             >
               Essayer gratuitement
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

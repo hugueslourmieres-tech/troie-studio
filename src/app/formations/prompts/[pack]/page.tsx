@@ -33,54 +33,54 @@ export async function generateMetadata({ params }: { params: Params }) {
 /* Theme map - reuse the palette utilisés sur la catalogue */
 const THEMES = {
   light: {
-    card: "bg-[#ede3d0] text-[#1a1714]",
-    border: "border-[#1a1714]/10",
-    body: "text-[#1a1714]/80",
-    meta: "text-[#1a1714]/60",
-    rule: "border-[#1a1714]/15",
+    card: "bg-[#ede3d0] text-[#111318]",
+    border: "border-[#111318]/10",
+    body: "text-[#111318]/80",
+    meta: "text-[#111318]/60",
+    rule: "border-[#111318]/15",
     badgeText: "text-[var(--accent)]",
     dotBg: "bg-[var(--accent)]",
-    cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[var(--accent)]",
+    cta: "bg-[var(--ink)] text-[#fcfcfd] hover:bg-[var(--accent)]",
   },
   warm: {
-    card: "bg-[#5a4a3a] text-[#f5f0e6]",
-    border: "border-[#f5f0e6]/10",
-    body: "text-[#f5f0e6]/85",
-    meta: "text-[#f5f0e6]/60",
-    rule: "border-[#f5f0e6]/15",
+    card: "bg-[#5a4a3a] text-[#fcfcfd]",
+    border: "border-[#fcfcfd]/10",
+    body: "text-[#fcfcfd]/85",
+    meta: "text-[#fcfcfd]/60",
+    rule: "border-[#fcfcfd]/15",
     badgeText: "text-[var(--accent)]",
     dotBg: "bg-[var(--accent)]",
-    cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+    cta: "bg-[var(--accent)] text-[#111318] hover:bg-[#fcfcfd]",
   },
   dark: {
-    card: "bg-[var(--ink)] text-[#f5f0e6]",
-    border: "border-[#f5f0e6]/15",
-    body: "text-[#f5f0e6]/85",
-    meta: "text-[#f5f0e6]/60",
-    rule: "border-[#f5f0e6]/15",
+    card: "bg-[var(--ink)] text-[#fcfcfd]",
+    border: "border-[#fcfcfd]/15",
+    body: "text-[#fcfcfd]/85",
+    meta: "text-[#fcfcfd]/60",
+    rule: "border-[#fcfcfd]/15",
     badgeText: "text-[var(--accent)]",
     dotBg: "bg-[var(--accent)]",
-    cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+    cta: "bg-[var(--accent)] text-[#111318] hover:bg-[#fcfcfd]",
   },
   linen: {
-    card: "bg-[#ebe2cf] text-[#1a1714]",
-    border: "border-[#1a1714]/10",
-    body: "text-[#1a1714]/80",
-    meta: "text-[#1a1714]/60",
-    rule: "border-[#1a1714]/15",
+    card: "bg-[#ebe2cf] text-[#111318]",
+    border: "border-[#111318]/10",
+    body: "text-[#111318]/80",
+    meta: "text-[#111318]/60",
+    rule: "border-[#111318]/15",
     badgeText: "text-[var(--accent)]",
     dotBg: "bg-[var(--accent)]",
-    cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[var(--accent)]",
+    cta: "bg-[var(--ink)] text-[#fcfcfd] hover:bg-[var(--accent)]",
   },
   taupe: {
-    card: "bg-[#7a6753] text-[#f5f0e6]",
-    border: "border-[#f5f0e6]/10",
-    body: "text-[#f5f0e6]/85",
-    meta: "text-[#f5f0e6]/60",
-    rule: "border-[#f5f0e6]/15",
+    card: "bg-[#7a6753] text-[#fcfcfd]",
+    border: "border-[#fcfcfd]/10",
+    body: "text-[#fcfcfd]/85",
+    meta: "text-[#fcfcfd]/60",
+    rule: "border-[#fcfcfd]/15",
     badgeText: "text-[var(--accent)]",
     dotBg: "bg-[var(--accent)]",
-    cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+    cta: "bg-[var(--accent)] text-[#111318] hover:bg-[#fcfcfd]",
   },
 } as const;
 
@@ -395,7 +395,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
           <div className="mt-12 flex justify-center">
             <Link
               href="/formations/prompts#bundle"
-              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--accent)]"
+              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--accent)]"
             >
               Voir le bundle complet, 99 €
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -423,7 +423,7 @@ export default async function PackDetailPage({ params }: { params: Params }) {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <ObfuscatedEmail
                   subject={subjectForPack(pack.badge)}
-                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#fcfcfd] hover:text-[#111318]"
                 >
                   Acheter ce pack, 29 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

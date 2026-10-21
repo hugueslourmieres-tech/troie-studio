@@ -13,18 +13,22 @@
 
 :root,
 .tone-light {
-  --bg: #f5f0e6;          /* crème principale (papier Hermès) */
-  --bg-2: #fdfaf3;        /* crème claire (cards) */
-  --fg: #1a1714;          /* presque-noir (texte) */
-  --ink: #1a1714;         /* noir : fonds boutons + surfaces sombres (banderole = marron a part) */
-  --fg-2: #4a4239;        /* gris foncé patiné */
-  --fg-mute: rgba(26, 23, 20, 0.55);
-  --accent: #f37b22;      /* Orange Hermès, accent unique */
-  --accent-2: #d96100;
-  --accent-soft: rgba(243, 123, 34, 0.08);
-  --rule: rgba(26, 23, 20, 0.12);
-  --rule-strong: rgba(26, 23, 20, 0.30);
-  --gold: #8a6f38;
+  /* Système du 21/10/2026 (refonte « agence qui fait vendre ») : fond
+     blanc, neutres froids, UNE seule couleur d'accent (bleu cobalt),
+     réservée aux courbes, aux chiffres clés et aux liens. Les boutons
+     sont noirs. Plus d'orange ni de crème. */
+  --bg: #fcfcfd;
+  --bg-2: #f3f4f6;
+  --fg: #111318;
+  --ink: #111318;
+  --fg-2: #4f5562;
+  --fg-mute: rgba(17, 19, 24, 0.55);
+  --accent: #2f5bd3;
+  --accent-2: #2448b0;
+  --accent-soft: rgba(47, 91, 211, 0.08);
+  --rule: rgba(17, 19, 24, 0.09);
+  --rule-strong: rgba(17, 19, 24, 0.22);
+  --gold: #4f5562;
 }
 
 .tone-dark {
@@ -42,17 +46,19 @@
 }
 
 .tone-accent {
-  --bg: #f37b22;          /* full orange Hermès */
-  --bg-2: #d96100;
-  --fg: #1a1714;
-  --fg-2: #2a221a;
-  --fg-mute: rgba(26, 23, 20, 0.65);
-  --accent: #1a1714;
-  --accent-2: #000;
-  --accent-soft: rgba(26, 23, 20, 0.08);
-  --rule: rgba(26, 23, 20, 0.20);
-  --rule-strong: rgba(26, 23, 20, 0.40);
-  --gold: #ffefdc;
+  /* Ancien fond orange : devenu une bande gris très clair, même famille
+     que le fond blanc (pas d'inversion de thème en cours de page). */
+  --bg: #f3f4f6;
+  --bg-2: #e9ebef;
+  --fg: #111318;
+  --fg-2: #4f5562;
+  --fg-mute: rgba(17, 19, 24, 0.55);
+  --accent: #2f5bd3;
+  --accent-2: #2448b0;
+  --accent-soft: rgba(47, 91, 211, 0.08);
+  --rule: rgba(17, 19, 24, 0.10);
+  --rule-strong: rgba(17, 19, 24, 0.24);
+  --gold: #4f5562;
 }
 
 .tone-brown {
@@ -138,9 +144,9 @@
   --color-background: var(--bg);
   --color-foreground: var(--fg);
 
-  --font-display: var(--font-bodoni, ui-serif, "Bodoni 72", Georgia, "Times New Roman", serif);
-  --font-sans: var(--font-inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif);
-  --font-mono: var(--font-jetbrains, ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace);
+  --font-display: var(--font-geist, ui-sans-serif, system-ui, sans-serif);
+  --font-sans: var(--font-geist, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif);
+  --font-mono: var(--font-geist-mono, ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace);
 }
 
 * {
@@ -171,9 +177,9 @@ body {
 
 .t-display {
   font-family: var(--font-display);
-  font-weight: 400;       /* Bodoni reads luxe en regular avec sa modulation forte */
-  letter-spacing: -0.025em;
-  line-height: 0.96;
+  font-weight: 500;       /* Geist : graisse moyenne, approche serrée */
+  letter-spacing: -0.035em;
+  line-height: 1.02;
   /* Balance les longues lignes pour eviter les veuves/orphelins en titre
      (text-wrap: balance arrive partout en 2024+). */
   text-wrap: balance;
@@ -206,10 +212,10 @@ body {
 
 .t-eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.24em;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--fg-2);
 }
 
 /* ─────────────────────────────────────────────────────────────────

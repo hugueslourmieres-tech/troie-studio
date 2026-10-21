@@ -294,17 +294,17 @@ export function GrowBars({
           const isLast = i === bars.length - 1;
           return (
             <div key={b.label} className="flex h-full flex-1 flex-col items-center justify-end">
-              <span className="mb-2 font-mono text-[11px] tabular-nums text-[var(--fg)]/70">
+              <span className="mb-2 font-mono text-xs tabular-nums text-[var(--fg-2)]">
                 {b.value.toLocaleString(locale === "en" ? "en-GB" : "fr-FR")}
               </span>
               <motion.div
-                className={`w-full origin-bottom ${isLast ? "bg-[var(--accent)]" : "bg-[var(--fg)]/15"}`}
+                className={`w-full origin-bottom rounded-t-md ${isLast ? "bg-[var(--accent)]" : "bg-[var(--fg)]/12"}`}
                 style={{ height: `${h}%` }}
                 initial={{ scaleY: reduce ? 1 : 0 }}
                 animate={show ? { scaleY: 1 } : {}}
                 transition={{ duration: 0.9, delay: reduce ? 0 : 0.15 * i, ease: EASE_OUT }}
               />
-              <span className="mt-2 font-mono text-[11px] text-[var(--fg)]/55">{b.label}</span>
+              <span className="mt-2 font-mono text-xs text-[var(--fg-2)]">{b.label}</span>
             </div>
           );
         })}
@@ -337,14 +337,12 @@ export function CompareBars({
       {rows.map((r, i) => (
         <div key={r.label}>
           <div className="flex items-baseline justify-between gap-4">
-            <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-[var(--fg)]/60">
-              {r.label}
-            </span>
+            <span className="text-sm text-[var(--fg-2)]">{r.label}</span>
             <span className="font-mono text-sm tabular-nums text-[var(--fg)]">{r.display}</span>
           </div>
-          <div className="mt-2 h-3 w-full bg-[var(--fg)]/[0.06]">
+          <div className="mt-2 h-2.5 w-full">
             <motion.div
-              className={`h-full origin-left ${r.strong ? "bg-[var(--accent)]" : "bg-[var(--fg)]/30"}`}
+              className={`h-full origin-left rounded-full ${r.strong ? "bg-[var(--accent)]" : "bg-[var(--fg)]/25"}`}
               style={{ width: `${Math.max((r.value / max) * 100, 1.2)}%` }}
               initial={{ scaleX: reduce ? 1 : 0 }}
               animate={show ? { scaleX: 1 } : {}}

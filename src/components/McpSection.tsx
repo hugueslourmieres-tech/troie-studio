@@ -56,7 +56,7 @@ export function McpSection({ locale = "fr" }: { locale?: string }) {
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link
                 href="/ia"
-                className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+                className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-colors hover:bg-[#2a2e37] hover:text-white"
               >
                 {c.ctaPrimary}
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

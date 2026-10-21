@@ -82,7 +82,7 @@ async function ContactView({ locale }: { locale: string }) {
             </span>
             <span
               aria-hidden="true"
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--accent)] text-[#1a1714] transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[var(--ink)] text-white transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             >
               ↗
             </span>
@@ -161,7 +161,7 @@ async function ContactView({ locale }: { locale: string }) {
               href={CAL_URL}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex shrink-0 items-center gap-3 rounded-full bg-[var(--accent)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[#ff8c33]"
+              className="group inline-flex shrink-0 items-center gap-3 rounded-full bg-[var(--ink)] px-7 py-4 font-mono text-xs uppercase tracking-[0.18em] text-white transition hover:bg-[#2a2e37]"
             >
               {t("bookingOpen")}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

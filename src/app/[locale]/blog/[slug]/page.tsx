@@ -186,7 +186,7 @@ export default async function ArticlePage({
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#ff8c33]"
+            className="group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-7 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-colors hover:bg-[#2a2e37]"
           >
             {ui.ctaBook}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

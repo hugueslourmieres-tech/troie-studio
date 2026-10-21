@@ -52,14 +52,14 @@ export function AiActBanner({ locale = "fr" }: { locale?: string }) {
   const items = Array.from({ length: 6 });
 
   return (
-    <div className="bg-[#3d2418]">
+    <div className="bg-[#111318]">
       {/* Mobile et petite tablette : fixe, lisible, un seul lien à viser. */}
       {/* Pas de padding vertical : c'est la hauteur tactile du lien (44 px) qui
           fixe celle du bandeau. Avec `py-1.5` en plus, l'en-tête fixe passait
           de 115 à 140 px sur mobile, soit 17 % de l'écran confisqués en
           permanence, l'inverse du but recherché. */}
       <div className="flex items-center justify-center gap-2.5 px-3 md:hidden">
-        <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-[#f5f0e6]">
+        <span className="font-mono text-[9px] uppercase tracking-[0.1em] text-[#fcfcfd]">
           {c.short}
         </span>
         <Link
@@ -86,7 +86,7 @@ export function AiActBanner({ locale = "fr" }: { locale?: string }) {
               {items.map((_, i) => (
                 <span
                   key={i}
-                  className="mr-14 flex items-baseline gap-3 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em] text-[#f5f0e6]"
+                  className="mr-14 flex items-baseline gap-3 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em] text-[#fcfcfd]"
                 >
                   <span aria-hidden="true" className="text-[var(--accent)]">✦</span>
                   {c.text}
@@ -94,7 +94,7 @@ export function AiActBanner({ locale = "fr" }: { locale?: string }) {
                   <span className="text-[var(--accent)] transition group-hover:underline">
                     {c.cta}
                   </span>
-                  <span aria-hidden="true" className="ml-1 text-[10px] text-[#f5f0e6]/40">✦</span>
+                  <span aria-hidden="true" className="ml-1 text-[10px] text-[#fcfcfd]/40">✦</span>
                 </span>
               ))}
             </div>

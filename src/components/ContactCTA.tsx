@@ -19,19 +19,19 @@ export function ContactCTA(_props: { locale: string }) {
   const locale = useLocale();
 
   return (
-    <section className="border-t border-[#1a1714]/15">
+    <section className="border-t border-[#111318]/15">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
         <div className="mx-auto max-w-3xl text-center">
           <div>
             <GreekMark
               label="Contact"
               className="justify-center"
-              labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[#1a1714]/55"
+              labelClassName="font-mono text-[11px] uppercase tracking-[0.32em] text-[#111318]/55"
             />
-            <h2 className="t-display mt-6 text-4xl text-[#1a1714] md:text-6xl">
+            <h2 className="t-display mt-6 text-4xl text-[#111318] md:text-6xl">
               {t("ctaTitle")}
             </h2>
-            <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-[#1a1714]/75 md:text-lg">
+            <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-[#111318]/75 md:text-lg">
               {t("ctaSubtitle")}
             </p>
             <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-5">
@@ -39,18 +39,18 @@ export function ContactCTA(_props: { locale: string }) {
                 href={CAL_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#f5f0e6] transition hover:bg-[#15120f]"
+                className="group inline-flex items-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#fcfcfd] transition hover:bg-[#15120f]"
               >
                 {t("ctaBook")}
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
               <Link
                 href={`/${locale}/contact#projet`}
-                className="group inline-flex items-center gap-3 rounded-full border border-[#1a1714] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]"
+                className="group inline-flex items-center gap-3 rounded-full border border-[#111318] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#111318] transition hover:bg-[var(--ink)] hover:text-[#fcfcfd]"
               >
                 {t("ctaProject")}
               </Link>
-              <ObfuscatedEmail className="border-b border-[#1a1714]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#1a1714]/75 transition hover:text-[#1a1714]" />
+              <ObfuscatedEmail className="border-b border-[#111318]/40 pb-1 font-mono text-[11px] uppercase tracking-[0.2em] text-[#111318]/75 transition hover:text-[#111318]" />
             </div>
           </div>
         </div>

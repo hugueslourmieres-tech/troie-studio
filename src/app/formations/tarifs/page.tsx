@@ -124,7 +124,7 @@ export default function TarifsPage() {
               product={mensuel.key}
               label="S'abonner, mensuel"
               fallbackSubject="Abonnement"
-              className={`${CARD_BTN} bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--bg)] hover:text-[var(--fg)]`}
+              className={`${CARD_BTN} bg-[var(--accent)] text-[#111318] hover:bg-[var(--bg)] hover:text-[var(--fg)]`}
             />
             <div className="mt-6 border-t border-[var(--bg)]/15 pt-6">
               <div className="flex items-baseline justify-between gap-4">
@@ -171,7 +171,7 @@ export default function TarifsPage() {
               href="https://cal.com/troiestudio/30min"
               target="_blank"
               rel="noreferrer"
-              className={`${CARD_BTN} mt-auto bg-[var(--ink)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#1a1714]`}
+              className={`${CARD_BTN} mt-auto bg-[var(--ink)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#111318]`}
             >
               Audit gratuit, 30 min
             </a>

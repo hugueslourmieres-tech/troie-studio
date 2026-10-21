@@ -264,52 +264,52 @@ export default function PromptsPage() {
             {PACKS.map((p, i) => {
               const themes = [
                 {
-                  card: "bg-[#ede3d0] text-[#1a1714]",
-                  border: "border-[#1a1714]/10",
-                  rule: "border-[#1a1714]/15",
-                  body: "text-[#1a1714]/80",
-                  meta: "text-[#1a1714]/60",
-                  cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[var(--accent)]",
+                  card: "bg-[#ede3d0] text-[#111318]",
+                  border: "border-[#111318]/10",
+                  rule: "border-[#111318]/15",
+                  body: "text-[#111318]/80",
+                  meta: "text-[#111318]/60",
+                  cta: "bg-[var(--ink)] text-[#fcfcfd] hover:bg-[var(--accent)]",
                   dotBg: "bg-[var(--accent)]",
                   badgeText: "text-[var(--accent)]",
                 },
                 {
-                  card: "bg-[#5a4a3a] text-[#f5f0e6]",
-                  border: "border-[#f5f0e6]/10",
-                  rule: "border-[#f5f0e6]/15",
-                  body: "text-[#f5f0e6]/85",
-                  meta: "text-[#f5f0e6]/60",
-                  cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+                  card: "bg-[#5a4a3a] text-[#fcfcfd]",
+                  border: "border-[#fcfcfd]/10",
+                  rule: "border-[#fcfcfd]/15",
+                  body: "text-[#fcfcfd]/85",
+                  meta: "text-[#fcfcfd]/60",
+                  cta: "bg-[var(--accent)] text-[#111318] hover:bg-[#fcfcfd]",
                   dotBg: "bg-[var(--accent)]",
                   badgeText: "text-[var(--accent)]",
                 },
                 {
-                  card: "bg-[var(--ink)] text-[#f5f0e6]",
-                  border: "border-[#f5f0e6]/15",
-                  rule: "border-[#f5f0e6]/15",
-                  body: "text-[#f5f0e6]/85",
-                  meta: "text-[#f5f0e6]/60",
-                  cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+                  card: "bg-[var(--ink)] text-[#fcfcfd]",
+                  border: "border-[#fcfcfd]/15",
+                  rule: "border-[#fcfcfd]/15",
+                  body: "text-[#fcfcfd]/85",
+                  meta: "text-[#fcfcfd]/60",
+                  cta: "bg-[var(--accent)] text-[#111318] hover:bg-[#fcfcfd]",
                   dotBg: "bg-[var(--accent)]",
                   badgeText: "text-[var(--accent)]",
                 },
                 {
-                  card: "bg-[#ebe2cf] text-[#1a1714]",
-                  border: "border-[#1a1714]/10",
-                  rule: "border-[#1a1714]/15",
-                  body: "text-[#1a1714]/80",
-                  meta: "text-[#1a1714]/60",
-                  cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[var(--accent)]",
+                  card: "bg-[#ebe2cf] text-[#111318]",
+                  border: "border-[#111318]/10",
+                  rule: "border-[#111318]/15",
+                  body: "text-[#111318]/80",
+                  meta: "text-[#111318]/60",
+                  cta: "bg-[var(--ink)] text-[#fcfcfd] hover:bg-[var(--accent)]",
                   dotBg: "bg-[var(--accent)]",
                   badgeText: "text-[var(--accent)]",
                 },
                 {
-                  card: "bg-[#7a6753] text-[#f5f0e6]",
-                  border: "border-[#f5f0e6]/10",
-                  rule: "border-[#f5f0e6]/15",
-                  body: "text-[#f5f0e6]/85",
-                  meta: "text-[#f5f0e6]/60",
-                  cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+                  card: "bg-[#7a6753] text-[#fcfcfd]",
+                  border: "border-[#fcfcfd]/10",
+                  rule: "border-[#fcfcfd]/15",
+                  body: "text-[#fcfcfd]/85",
+                  meta: "text-[#fcfcfd]/60",
+                  cta: "bg-[var(--accent)] text-[#111318] hover:bg-[#fcfcfd]",
                   dotBg: "bg-[var(--accent)]",
                   badgeText: "text-[var(--accent)]",
                 },
@@ -410,7 +410,7 @@ export default function PromptsPage() {
       {/* BUNDLE FEATURED */}
       <section id="bundle" className="border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
-          <div className="overflow-hidden rounded-sm bg-[var(--accent)] text-[#1a1714]">
+          <div className="overflow-hidden rounded-sm bg-[var(--accent)] text-[#111318]">
             <div className="grid gap-0 md:grid-cols-12">
               <div className="md:col-span-5">
                 <div className="relative flex aspect-square items-center justify-center bg-[#0e0a07] text-[var(--accent)] md:h-full md:aspect-auto">
@@ -429,7 +429,7 @@ export default function PromptsPage() {
                 </div>
               </div>
               <div className="flex flex-col p-8 md:col-span-7 md:p-12">
-                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/85">
+                <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318]/85">
                   Bundle complet, 5 packs
                 </p>
                 <h3 className="t-display mt-4 text-4xl md:text-5xl lg:text-6xl">
@@ -437,25 +437,25 @@ export default function PromptsPage() {
                 </h3>
                 <div className="mt-6 flex items-baseline gap-4">
                   <p className="t-display text-5xl md:text-6xl">99 €</p>
-                  <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-[#1a1714]/65 line-through">
+                  <p className="font-mono text-[12px] uppercase tracking-[0.22em] text-[#111318]/65 line-through">
                     145 €
                   </p>
                 </div>
-                <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714]/70">
+                <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318]/70">
                   Économie de 46 €, accès à vie, MAJ libres
                 </p>
-                <p className="mt-6 text-base leading-relaxed text-[#1a1714]/85 md:text-lg">
+                <p className="mt-6 text-base leading-relaxed text-[#111318]/85 md:text-lg">
                   Les 5 packs ensemble. 25 system prompts couvrant
                   Freelance, Marketing, E-commerce, Design, Coding. Pour
                   ceux qui veulent démarrer avec une bibliothèque complète
                   dès le premier soir.
                 </p>
-                <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#1a1714]/20 pt-6">
+                <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-[#111318]/20 pt-6">
                   <ul className="grid gap-1.5 md:grid-cols-2">
                     {PACKS.map((p) => (
                       <li
                         key={p.badge}
-                        className="flex items-start gap-3 text-sm leading-relaxed text-[#1a1714]/85"
+                        className="flex items-start gap-3 text-sm leading-relaxed text-[#111318]/85"
                       >
                         <span
                           aria-hidden="true"
@@ -467,7 +467,7 @@ export default function PromptsPage() {
                   </ul>
                   <ObfuscatedEmail
                     subject={SUBJECT_BUNDLE}
-                    className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                    className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#fcfcfd] hover:text-[#111318]"
                   >
                     Acheter le bundle, 99 €
                     <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -565,7 +565,7 @@ export default function PromptsPage() {
               <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
                 <ObfuscatedEmail
                   subject={SUBJECT_BUNDLE}
-                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--accent)] transition-colors hover:bg-[#fcfcfd] hover:text-[#111318]"
                 >
                   Acheter le bundle, 99 €
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

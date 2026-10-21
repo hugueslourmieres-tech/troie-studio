@@ -28,12 +28,12 @@ const TARIFS_URL = "https://troiestudio.fr/formations/tarifs";
    Tables + styles inline uniquement (compatibilité clients mail). */
 
 const C = {
-  bg: "#f5f0e6",
+  bg: "#fcfcfd",
   card: "#fdfaf3",
-  ink: "#1a1714",
+  ink: "#111318",
   gray: "#4a4239",
   mute: "#8a8470",
-  accent: "#f37b22",
+  accent: "#2f5bd3",
   rule: "#e6ddc8",
 };
 const MONO = "'Courier New', Courier, monospace";
@@ -229,7 +229,7 @@ const SESAME_HOUSES: Record<
     plainName: "Hermès",
     godOf: "dieu de la prospection",
     motto: "Toujours en mouvement.",
-    color: "#f37b22",
+    color: "#2f5bd3",
   },
   athena: {
     name: "Ath&eacute;na",
@@ -270,7 +270,7 @@ export function renderSesameEmail(house: string): {
         `Le test a parl&eacute; : vous avez l'&eacute;toffe d'un ${h.godOf}. Ce s&eacute;same vous ouvre l'Olympe : votre espace membre, vos parcours et vos prompts choisis pour votre lign&eacute;e.`,
       )}
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-top:26px;">
-        <tr><td style="border-left:4px solid ${h.color};padding:14px 20px;background:#f5f0e6;">
+        <tr><td style="border-left:4px solid ${h.color};padding:14px 20px;background:#fcfcfd;">
           <div style="font-family:${MONO};font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:${C.gray};">Devise de la maison</div>
           <div style="font-family:${SERIF};font-size:22px;color:${C.ink};margin-top:6px;">&laquo; ${h.motto} &raquo;</div>
         </td></tr>

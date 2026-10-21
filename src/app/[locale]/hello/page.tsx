@@ -172,7 +172,7 @@ export default async function HelloPage({
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className={`${BUTTON} bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--ink)] hover:text-[var(--bg)] ${FOCUS}`}
+            className={`${BUTTON} bg-[var(--ink)] text-white hover:bg-[#2a2e37] hover:text-white ${FOCUS}`}
           >
             {c.book}
             <span aria-hidden="true">↗</span>

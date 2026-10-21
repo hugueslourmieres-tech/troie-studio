@@ -122,7 +122,7 @@ export default async function CreationPage({
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                   style={{ filter: "grayscale(1) contrast(1.03)" }}
                 />
-                <span className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.28em] text-[#f5f0e6]">
+                <span className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.28em] text-[#fcfcfd]">
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>

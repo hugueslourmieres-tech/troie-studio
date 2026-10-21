@@ -155,7 +155,7 @@ export default function AccessibilitePage() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex min-h-[44px] items-center gap-2.5 whitespace-nowrap bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            className="inline-flex min-h-[44px] items-center gap-2.5 whitespace-nowrap bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
             Réserver 30 min
           </a>
@@ -182,7 +182,7 @@ export default function AccessibilitePage() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
             Réserver 30 min
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -258,7 +258,7 @@ export default function AccessibilitePage() {
           </div>
 
           {/* Sanctions */}
-          <div className="mt-12 grid gap-8 rounded-sm bg-[var(--ink)] p-8 text-[#f5f0e6] md:grid-cols-3 md:p-12">
+          <div className="mt-12 grid gap-8 rounded-sm bg-[var(--ink)] p-8 text-[#fcfcfd] md:grid-cols-3 md:p-12">
             {[
               ["7 500 €", "d'amende par manquement (15 000 € en récidive)"],
               ["Astreinte", "par jour de retard sur injonction du tribunal"],
@@ -266,10 +266,10 @@ export default function AccessibilitePage() {
             ].map(([n, l]) => (
               <div key={l}>
                 <p className="t-display text-3xl text-[var(--accent)] md:text-4xl">{n}</p>
-                <p className="mt-2 text-sm leading-relaxed text-[#f5f0e6]/75">{l}</p>
+                <p className="mt-2 text-sm leading-relaxed text-[#fcfcfd]/75">{l}</p>
               </div>
             ))}
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#f5f0e6]/50 md:col-span-3">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#fcfcfd]/50 md:col-span-3">
               Le vrai coût n&apos;est pas l&apos;amende : c&apos;est la mise en conformité en urgence, sous astreinte, avec l&apos;image de marque en jeu. Et, selon l&apos;OMS, près d&apos;une personne sur six vit avec un handicap : autant de clients qui ne pouvaient pas acheter chez vous.
             </p>
           </div>
@@ -300,7 +300,7 @@ export default function AccessibilitePage() {
               href={CAL_URL}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
             >
               Réserver 30 min
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

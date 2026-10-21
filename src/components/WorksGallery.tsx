@@ -166,7 +166,7 @@ export function WorksGallery({
   }
 
   return (
-    <section id="works" className="border-t border-[var(--accent)] scroll-mt-24">
+    <section id="works" className="border-t border-[var(--rule)] scroll-mt-24">
       <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
         {header}
         {carousel}

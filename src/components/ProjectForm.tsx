@@ -338,7 +338,7 @@ export function ProjectForm({ locale, className = "" }: { locale: string; classN
         <button
           type="submit"
           disabled={sending}
-          className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714] disabled:opacity-60"
+          className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[#2a2e37] hover:text-white disabled:opacity-60"
         >
           {sending ? `${c.sending}…` : c.send}
           {!sending && (

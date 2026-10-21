@@ -44,9 +44,9 @@ export const HOUSES: Record<HouseSlug, House> = {
     motto: "Toujours en mouvement.",
     description:
       "Messager ailé, négociateur né. Les membres de la maison Hermès font de l'IA leur meilleur commercial : pipeline plein, relances impeccables, RDV qui tombent tout seuls.",
-    bg: "#f37b22",
-    fg: "#1a1714",
-    accent: "#1a1714",
+    bg: "#2f5bd3",
+    fg: "#111318",
+    accent: "#111318",
     offers: [
       { label: "Agent prospection & RDV", href: "/ia" },
       { label: "Cours 01, Maîtriser ChatGPT & Claude", href: "/formations/cours-01" },
@@ -89,9 +89,9 @@ export const HOUSES: Record<HouseSlug, House> = {
     motto: "Voir avant les autres.",
     description:
       "Sagesse et stratégie. Les membres de la maison Athéna pilotent : ils voient les risques avant tout le monde, décident avec un coup d'avance et dorment tranquilles côté conformité.",
-    bg: "#1a1714",
-    fg: "#f5f0e6",
-    accent: "#f37b22",
+    bg: "#111318",
+    fg: "#fcfcfd",
+    accent: "#2f5bd3",
     offers: [
       { label: "Audit & diagnostic IA", href: "/ia" },
       { label: "Conformité AI Act", href: "/ia/ai-act" },
@@ -135,8 +135,8 @@ export const HOUSES: Record<HouseSlug, House> = {
     description:
       "L'éclat et la production. Les membres de la maison Achille créent plus vite que leur ombre : contenus, visuels, campagnes. L'IA est leur armure, la marque leur champ de bataille.",
     bg: "#b4552d",
-    fg: "#f5f0e6",
-    accent: "#f5f0e6",
+    fg: "#fcfcfd",
+    accent: "#fcfcfd",
     offers: [
       { label: "Cours 02, Workflows IA & agents", href: "/formations/cours-02" },
       { label: "Création médias & web", href: "/creation/site-conforme" },
@@ -180,7 +180,7 @@ export const HOUSES: Record<HouseSlug, House> = {
     description:
       "Le foyer et la constance. Les membres de la maison Hestia font tourner la boutique : support, admin, opérations. Leurs agents IA répondent, classent et relancent pendant qu'ils construisent.",
     bg: "#1f3a34",
-    fg: "#f5f0e6",
+    fg: "#fcfcfd",
     accent: "#8fc7b4",
     offers: [
       { label: "Agent service client 24/7", href: "/ia" },

@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { useLocale } from "next-intl";
 import { gsap } from "gsap";
-import { GreekMark } from "./GreekMark";
 
 // GS MONACO, VEORIA, STUDIO DE LA ROCHE, MEASURECOLOR seulement après accord
 // de Hugues.
@@ -45,16 +44,14 @@ export function ClientsCloud() {
 
   return (
     <section className="border-t border-[var(--rule)]">
-      <div className="mx-auto max-w-7xl px-6 pt-20 pb-6 md:px-12 md:pt-24 md:pb-8">
-        <GreekMark
-          label={locale === "fr" ? "L'équipe a travaillé avec" : "Our team has worked with"}
-          className="justify-center"
-          labelClassName="t-eyebrow text-center"
-        />
+      <div className="mx-auto max-w-7xl px-5 pt-12 pb-4 md:px-12 md:pt-14 md:pb-6">
+        <p className="text-center text-sm text-[var(--fg-2)]">
+          {locale === "fr" ? "L'équipe a travaillé avec" : "Our team has worked with"}
+        </p>
       </div>
 
       {/* Marquee, défile infiniment, full width */}
-      <div className="relative mt-2 overflow-hidden pb-20 md:pb-28">
+      <div className="relative mt-2 overflow-hidden pb-12 md:pb-16">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[var(--bg)] to-transparent md:w-40"

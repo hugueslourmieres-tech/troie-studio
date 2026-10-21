@@ -43,7 +43,7 @@ export function QuizBridge({ locale }: { locale: string }) {
             href={APP_URL}
             target="_blank"
             rel="noopener"
-            className="group/cta inline-flex items-center gap-3 self-start bg-[var(--accent)] px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)] md:self-end"
+            className="group/cta inline-flex items-center gap-3 self-start bg-[var(--ink)] px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-colors hover:bg-[#2a2e37] hover:text-white md:self-end"
           >
             {c.cta}
             <span aria-hidden="true" className="transition group-hover/cta:translate-x-1">

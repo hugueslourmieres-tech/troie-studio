@@ -1,6 +1,6 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { Bodoni_Moda, Fraunces, Inter, JetBrains_Mono } from "next/font/google";
+import { Bodoni_Moda, Fraunces, Geist, Geist_Mono, Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale, getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -34,6 +34,20 @@ const fraunces = Fraunces({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+// Système du 21/10/2026 : Geist pour tout le texte, Geist Mono pour les
+// chiffres et libellés. Bodoni ne sert plus qu'au logo TROIE.
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
@@ -293,7 +307,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${bodoni.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable}`}
+      className={`${bodoni.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable} ${geist.variable} ${geistMono.variable}`}
     >
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
         <script

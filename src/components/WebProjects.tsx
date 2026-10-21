@@ -138,7 +138,7 @@ export function ProjectCard({ p }: { p: Project }) {
 
           {/* Mobile : la page mobile en superposition (sans cadre), centrée */}
           <div className={`absolute -bottom-9 right-6 sm:right-10 transition-transform duration-500 group-hover:-translate-y-1 ${big ? "w-[24%] min-w-[88px] max-w-[250px]" : "w-[26%] min-w-[88px] max-w-[178px]"}`}>
-            <div className="overflow-hidden rounded-[1.4rem] bg-[var(--bg-2)] shadow-[0_28px_62px_-18px_rgba(26,23,20,0.5)] ring-1 ring-[#1a1714]/10">
+            <div className="overflow-hidden rounded-[1.4rem] bg-[var(--bg-2)] shadow-[0_28px_62px_-18px_rgba(26,23,20,0.5)] ring-1 ring-[#111318]/10">
               <div className="border-b border-[var(--rule)] bg-[var(--bg)] px-2.5 py-2">
                 <div className="mx-auto flex max-w-[150px] items-center justify-center gap-1.5 rounded-full bg-[var(--bg-2)] px-3 py-1">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-2.5 w-2.5 shrink-0 text-[var(--fg-2)]/45">

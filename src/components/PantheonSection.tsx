@@ -53,7 +53,7 @@ export function PantheonSection() {
             // Les logos SVG sont multicolores : on les force dans la
             // couleur de texte de la carte (noir ou crème).
             const logoFilter =
-              h.fg === "#1a1714" ? "brightness(0)" : "brightness(0) invert(1)";
+              h.fg === "#111318" ? "brightness(0)" : "brightness(0) invert(1)";
             return (
               <motion.li
                 key={slug}
@@ -156,7 +156,7 @@ export function PantheonSection() {
         <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4 md:mt-16">
           <Link
             href="/formations/pantheon/test"
-            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[#2a2e37] hover:text-white"
           >
             Faire le test du Panthéon
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -184,9 +184,9 @@ function GrowthChart() {
     endY: number;
     color: string;
   }[] = [
-    { slug: "hermes", label: "CRM, Hermès", d: "M44 254 C 330 251, 545 190, 598 40", endY: 40, color: "#f37b22" },
+    { slug: "hermes", label: "CRM, Hermès", d: "M44 254 C 330 251, 545 190, 598 40", endY: 40, color: "#2f5bd3" },
     { slug: "achille", label: "Réseaux sociaux, Achille", d: "M44 254 C 330 251, 550 208, 598 85", endY: 85, color: "#b4552d" },
-    { slug: "athena", label: "SEO / SEA, Athéna", d: "M44 254 C 335 252, 555 222, 598 130", endY: 130, color: "#1a1714" },
+    { slug: "athena", label: "SEO / SEA, Athéna", d: "M44 254 C 335 252, 555 222, 598 130", endY: 130, color: "#111318" },
     { slug: "hestia", label: "Support, Hestia", d: "M44 254 C 340 253, 560 236, 598 175", endY: 175, color: "#1f3a34" },
   ];
 

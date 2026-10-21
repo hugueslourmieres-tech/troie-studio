@@ -62,7 +62,7 @@ export function ProofCase({
   const c = COPY[locale === "en" ? "en" : "fr"];
 
   return (
-    <section id={id} className="border-t border-[var(--accent)] scroll-mt-24">
+    <section id={id} className="border-t border-[var(--rule)] scroll-mt-24">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
         <div className="grid gap-12 md:grid-cols-12 md:items-center md:gap-16">
           <div className="md:col-span-5">

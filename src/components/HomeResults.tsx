@@ -9,7 +9,7 @@ import { LOIR_ORDERS } from "@/lib/results";
 const COPY = {
   fr: {
     eyebrow: "Résultats",
-    title: "Ce que nos clients gagnent.",
+    title: "Trois clients, des ventes mesurées.",
     intro: "Des chiffres réels, lus dans les outils de nos clients. Pas d'estimation, pas de promesse.",
     cases: {
       loir: {
@@ -52,7 +52,7 @@ const COPY = {
   },
   en: {
     eyebrow: "Results",
-    title: "What our clients gain.",
+    title: "Three clients, measured sales.",
     intro: "Real numbers, read in our clients' own tools. No estimates, no promises.",
     cases: {
       loir: {
@@ -106,9 +106,9 @@ function CaseHead({
 }) {
   return (
     <>
-      <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-[var(--accent)]">{kind}</p>
-      <h3 className="t-display mt-4 text-3xl text-[var(--fg)] md:text-4xl">{name}</h3>
-      <p className="mt-4 max-w-md text-sm leading-relaxed text-[var(--fg-2)] md:text-base">{lead}</p>
+      <p className="text-sm text-[var(--fg-2)]">{kind}</p>
+      <h3 className="t-display mt-1 text-2xl text-[var(--fg)] md:text-3xl">{name}</h3>
+      <p className="mt-3 max-w-md text-sm leading-relaxed text-[var(--fg-2)]">{lead}</p>
     </>
   );
 }
@@ -132,7 +132,7 @@ function Big({
         suffix={big.suffix}
         duration={2}
         locale={locale}
-        className="t-display text-6xl leading-none text-[var(--fg)] md:text-7xl"
+        className="t-display text-6xl leading-none text-[var(--accent)] md:text-7xl"
       />
       <p className="max-w-[12rem] pb-1.5 text-sm leading-snug text-[var(--fg-2)]">{label}</p>
     </div>
@@ -147,15 +147,14 @@ export function HomeResults({ locale }: { locale: string }) {
   return (
     <section id="resultats" className="scroll-mt-24 border-t border-[var(--rule)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
-        <p className="t-eyebrow">{c.eyebrow}</p>
-        <h2 className="t-display mt-6 max-w-[16ch] text-balance text-4xl text-[var(--fg)] md:text-6xl">
+        <h2 className="t-display max-w-[18ch] text-balance text-4xl text-[var(--fg)] md:text-6xl">
           {c.title}
         </h2>
         <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">{c.intro}</p>
 
-        <div className="mt-16 grid gap-px overflow-hidden border border-[var(--rule)] bg-[var(--rule)] lg:grid-cols-3">
+        <div className="mt-14 grid gap-4 lg:grid-cols-3 lg:gap-5">
           {/* E-commerce */}
-          <article className="flex flex-col bg-[var(--bg)] p-8 md:p-10">
+          <article className="flex flex-col rounded-2xl border border-[var(--rule)] bg-white p-7 md:p-9">
             <CaseHead kind={loir.kind} name={loir.name} lead={loir.lead} />
             <Big big={loir.big} label={loir.bigLabel} locale={locale} />
             <GrowBars
@@ -167,7 +166,7 @@ export function HomeResults({ locale }: { locale: string }) {
           </article>
 
           {/* PME industrielle */}
-          <article className="flex flex-col bg-[var(--bg)] p-8 md:p-10">
+          <article className="flex flex-col rounded-2xl border border-[var(--rule)] bg-white p-7 md:p-9">
             <CaseHead kind={rutherford.kind} name={rutherford.name} lead={rutherford.lead} />
             <Big big={rutherford.big} label={rutherford.bigLabel} locale={locale} />
             <dl className="mt-8 grid grid-cols-2 gap-6">
@@ -181,7 +180,7 @@ export function HomeResults({ locale }: { locale: string }) {
                       suffix={k.suffix}
                       duration={1.6}
                       locale={locale}
-                      className="t-display text-3xl text-[var(--accent)]"
+                      className="t-display text-3xl text-[var(--fg)]"
                     />
                     <p className="mt-1 text-xs leading-snug text-[var(--fg-2)]">{k.label}</p>
                   </dd>
@@ -197,7 +196,7 @@ export function HomeResults({ locale }: { locale: string }) {
           </article>
 
           {/* Grand groupe */}
-          <article className="flex flex-col bg-[var(--bg)] p-8 md:p-10">
+          <article className="flex flex-col rounded-2xl border border-[var(--rule)] bg-white p-7 md:p-9">
             <CaseHead kind={autajon.kind} name={autajon.name} lead={autajon.lead} />
             <Big big={autajon.big} label={autajon.bigLabel} locale={locale} />
             <CompareBars rows={[...autajon.rows]} ariaLabel={autajon.chart} className="mt-auto pt-12" />

@@ -74,7 +74,7 @@ export function QcmSlider({
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <span className="absolute left-3 top-3 rounded-full bg-[var(--bg)]/80 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-[#1a1714]/65 backdrop-blur-sm">
+                  <span className="absolute left-3 top-3 rounded-full bg-[var(--bg)]/80 px-2.5 py-1 font-mono text-[9px] uppercase tracking-[0.24em] text-[#111318]/65 backdrop-blur-sm">
                     Gratuit
                   </span>
                 </div>

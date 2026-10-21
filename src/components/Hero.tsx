@@ -79,43 +79,43 @@ export function Hero({ locale }: { locale: string }) {
             className="mt-10 flex flex-col gap-4"
           >
             {/* Amorce + deux parcours formation IA */}
-            <p className="font-mono text-[12px] uppercase tracking-[0.32em] text-[#1a1714]">
+            <p className="font-mono text-[12px] uppercase tracking-[0.32em] text-[#111318]">
               {t("heroLead")}
             </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <Link
                 ref={primaryCtaRef}
                 href="/formations"
-                className="group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors will-change-transform"
+                className="group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#fcfcfd] transition-colors will-change-transform"
               >
                 <RollText
                   top={<>{t("heroCtaProject")}</>}
                   bottom={
-                    <span className="text-[#f37b22]">
+                    <span className="text-[#2f5bd3]">
                       {t("heroCtaProject")}
                     </span>
                   }
                 />
-                <span aria-hidden="true" className="transition group-hover:translate-x-1 group-hover:text-[#f37b22]">
+                <span aria-hidden="true" className="transition group-hover:translate-x-1 group-hover:text-[#2f5bd3]">
                   →
                 </span>
               </Link>
               <Link
                 href="/ia"
-                className="group inline-flex items-center justify-center gap-3 border border-[#1a1714] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)]"
+                className="group inline-flex items-center justify-center gap-3 border border-[#111318] px-8 py-5 font-mono text-[12px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)]"
               >
                 <RollText
                   top={<>{t("heroCtaCourses")}</>}
                   bottom={
-                    <span className="text-[#f5f0e6]">{t("heroCtaCourses")}</span>
+                    <span className="text-[#fcfcfd]">{t("heroCtaCourses")}</span>
                   }
                 />
-                <span aria-hidden="true" className="transition group-hover:translate-x-1 group-hover:text-[#f5f0e6]">
+                <span aria-hidden="true" className="transition group-hover:translate-x-1 group-hover:text-[#fcfcfd]">
                   →
                 </span>
               </Link>
             </div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#1a1714]/70">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#111318]/70">
               {t("heroMicro")}
             </p>
           </motion.div>

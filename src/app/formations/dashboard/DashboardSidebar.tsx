@@ -55,7 +55,7 @@ export function DashboardSidebar({
               className="h-12 w-12 flex-shrink-0 rounded-full border border-[var(--rule)] object-cover"
             />
           ) : (
-            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[var(--accent)] text-[#1a1714]">
+            <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center bg-[var(--accent)] text-[#111318]">
               <span className="t-display text-2xl">
                 {(profile.full_name?.[0] ?? profile.email[0]).toUpperCase()}
               </span>

@@ -23,7 +23,7 @@ const TOOLS = [
   { name: "WordPress", logo: "/images/logos/wordpress.svg" },
 ];
 
-const INK = "#1a1714";
+const INK = "#111318";
 const CREAM = "#f6efe1";
 const ARIA =
   "Les LLM (Claude, ChatGPT, Gemini, Copilot, Perplexity) pilotent, via le connecteur MCP, vos outils : Google, Meta, HubSpot, Notion, Shopify, WordPress.";

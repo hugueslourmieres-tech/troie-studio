@@ -47,7 +47,7 @@ export function ToolsMarquee({ ariaLabel }: { ariaLabel: string }) {
     <div
       role="region"
       aria-label={ariaLabel}
-      className="relative w-full overflow-hidden border-t border-b border-[#f5f0e6]/15 bg-[var(--ink)]"
+      className="relative w-full overflow-hidden border-t border-b border-[#fcfcfd]/15 bg-[var(--ink)]"
     >
       {/* Edge fades, keep the marquee feeling boundless */}
       <div
@@ -76,14 +76,14 @@ export function ToolsMarquee({ ariaLabel }: { ariaLabel: string }) {
                 className="h-4 w-auto opacity-90 md:h-5"
                 style={{ filter: "brightness(0) invert(1)" }}
               />
-              <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-[#f5f0e6]/90 whitespace-nowrap">
+              <span className="font-mono text-[11px] uppercase tracking-[0.32em] text-[#fcfcfd]/90 whitespace-nowrap">
                 {tool.name}
               </span>
             </span>
             {/* White dot separator */}
             <span
               aria-hidden="true"
-              className="text-[#f5f0e6]/45 select-none"
+              className="text-[#fcfcfd]/45 select-none"
             >
               •
             </span>

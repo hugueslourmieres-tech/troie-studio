@@ -28,9 +28,9 @@ export function LevelBar({
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.4 });
 
-  const labelColor = tone === "dark" ? "text-[#f5f0e6]/85" : "text-[var(--fg-2)]/80";
-  const valueColor = tone === "dark" ? "text-[#f5f0e6]" : "text-[var(--fg)]";
-  const trackColor = tone === "dark" ? "bg-[#f5f0e6]/15" : "bg-[var(--ink)]/12";
+  const labelColor = tone === "dark" ? "text-[#fcfcfd]/85" : "text-[var(--fg-2)]/80";
+  const valueColor = tone === "dark" ? "text-[#fcfcfd]" : "text-[var(--fg)]";
+  const trackColor = tone === "dark" ? "bg-[#fcfcfd]/15" : "bg-[var(--ink)]/12";
 
   return (
     <div ref={ref} className="w-full">

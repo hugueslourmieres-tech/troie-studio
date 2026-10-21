@@ -66,7 +66,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
                       style={{ filter: "grayscale(1) contrast(1.03)" }}
                       loading="lazy"
                     />
-                    <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.28em] text-[#f5f0e6]">
+                    <span className="absolute left-4 top-4 font-mono text-[10px] uppercase tracking-[0.28em] text-[#fcfcfd]">
                       {a.category}
                     </span>
                   </div>
@@ -96,7 +96,7 @@ export function JournalTeaser({ locale }: { locale: string }) {
         <Reveal>
           <Link
             href={`/${locale}/blog`}
-            className="group mt-12 inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)] md:mt-14"
+            className="group mt-12 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-white transition-colors hover:bg-[#2a2e37] hover:text-white md:mt-14"
           >
             Voir plus d&apos;articles
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

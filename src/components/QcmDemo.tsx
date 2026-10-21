@@ -49,14 +49,14 @@ export function QcmDemo() {
         style={{ opacity: 0 }}
       >
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" className="drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)]">
-          <path d="M5 3l14 8-6 1.6 3.4 6.4-2.6 1.4L13 14l-4 4z" fill="#1a1714" stroke="#f5f0e6" strokeWidth="1.2" strokeLinejoin="round" />
+          <path d="M5 3l14 8-6 1.6 3.4 6.4-2.6 1.4L13 14l-4 4z" fill="#111318" stroke="#fcfcfd" strokeWidth="1.2" strokeLinejoin="round" />
         </svg>
       </span>
 
       {/* Badge victoire */}
       <div
         aria-hidden="true"
-        className="qcm-demo-bravo absolute -right-2 top-6 z-20 rounded-full bg-[var(--accent)] px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#1a1714] shadow-lg md:-right-4"
+        className="qcm-demo-bravo absolute -right-2 top-6 z-20 rounded-full bg-[var(--ink)] px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white shadow-lg md:-right-4"
         style={{ opacity: 0 }}
       >
         Bravo ! +1

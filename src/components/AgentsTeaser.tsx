@@ -46,7 +46,7 @@ export function AgentsTeaser({
   return (
     <section
       id="agents"
-      className="border-t border-[var(--accent)] scroll-mt-24"
+      className="border-t border-[var(--rule)] scroll-mt-24"
     >
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
         {/* Header, single column, same baseline as /agents hero */}

@@ -87,7 +87,7 @@ export default function FormationsPage() {
           <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
             <Link
               href="/formations/quiz"
-              className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f6ead4]"
+              className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[#f6ead4]"
             >
               Se former perso, gratuit
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -298,8 +298,8 @@ export default function FormationsPage() {
                     href={p.href}
                     className={`group mt-6 inline-flex w-full items-center justify-center gap-3 px-6 py-4 font-mono text-[11px] uppercase tracking-[0.22em] transition-colors ${
                       p.featured
-                        ? "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--ink)] hover:text-[var(--bg)]"
-                        : "bg-[var(--ink)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#1a1714]"
+                        ? "bg-[var(--accent)] text-[#111318] hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+                        : "bg-[var(--ink)] text-[var(--bg)] hover:bg-[var(--accent)] hover:text-[#111318]"
                     }`}
                   >
                     Voir le cours
@@ -356,22 +356,22 @@ export default function FormationsPage() {
       </section>
 
       {/* Équipes & entreprises : la porte B2B du hub (audit, intra, agents) */}
-      <section className="border-t border-[var(--rule)] bg-[var(--ink)] text-[#f5f0e6]">
+      <section className="border-t border-[var(--rule)] bg-[var(--ink)] text-[#fcfcfd]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
           <div className="grid items-center gap-12 md:grid-cols-12">
             <div className="md:col-span-7">
               <p className="font-mono text-[11px] uppercase tracking-[0.32em] text-[var(--accent)]">
                 Équipes &amp; entreprises
               </p>
-              <h2 className="t-display mt-6 text-3xl text-[#f5f0e6] md:text-5xl">
+              <h2 className="t-display mt-6 text-3xl text-[#fcfcfd] md:text-5xl">
                 Formez toute l&apos;équipe, déployez vos agents.
               </h2>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-[#f5f0e6]/75 md:text-lg">
+              <p className="mt-6 max-w-xl text-base leading-relaxed text-[#fcfcfd]/75 md:text-lg">
                 Formations intra sur vos cas réels dès 990 €, déploiement
                 d&apos;agents IA, conformité AI Act et supervision continue.
                 Tout commence par un audit gratuit de 30 minutes.
               </p>
-              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-[#f5f0e6]/60">
+              <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.2em] text-[#fcfcfd]/60">
                 <Link
                   href="/fr/blog/ai-act-controlable-2-aout-2026"
                   className="transition hover:text-[var(--accent)]"
@@ -385,14 +385,14 @@ export default function FormationsPage() {
                 href="https://cal.com/troiestudio/30min"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[#f5f0e6]"
+                className="group inline-flex items-center justify-center gap-3 bg-[var(--accent)] px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[#fcfcfd]"
               >
                 Audit gratuit, 30 min
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </a>
               <a
                 href="/ia"
-                className="group inline-flex items-center justify-center gap-3 border border-[#f5f0e6]/30 px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f5f0e6] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                className="group inline-flex items-center justify-center gap-3 border border-[#fcfcfd]/30 px-8 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-[#fcfcfd] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 Découvrir TROIE IA Pro
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

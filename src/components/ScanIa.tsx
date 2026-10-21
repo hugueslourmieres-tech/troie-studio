@@ -235,7 +235,7 @@ export function ScanIa({ locale }: { locale: string }) {
         <button
           type="submit"
           disabled={busy}
-          className="rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#f5f0e6] transition hover:opacity-90 disabled:opacity-50"
+          className="rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#fcfcfd] transition hover:opacity-90 disabled:opacity-50"
         >
           {busy ? "…" : c.submit}
         </button>
@@ -336,7 +336,7 @@ export function ScanIa({ locale }: { locale: string }) {
               href={CAL_URL}
               target="_blank"
               rel="noreferrer"
-              className="group mt-6 inline-flex min-h-[52px] items-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]"
+              className="group mt-6 inline-flex min-h-[52px] items-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-white transition hover:bg-[#2a2e37] hover:text-white"
             >
               {c.ctaBook}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

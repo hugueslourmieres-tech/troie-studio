@@ -31,7 +31,7 @@ const PROJECT_URL = "/fr/contact?besoin=accompagnement#projet";
    orange plein, « Lancer un projet » en lien souligné. La zone cliquable
    garde au moins 48 px de haut pour le pouce. */
 const BTN_BOOK =
-  "group inline-flex min-h-[52px] w-full items-center justify-center gap-3 bg-[var(--accent)] sm:w-auto px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]";
+  "group inline-flex min-h-[52px] w-full items-center justify-center gap-3 bg-[var(--accent)] sm:w-auto px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]";
 const BTN_PROJECT =
   "group inline-flex min-h-[48px] items-center justify-center font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:text-[var(--accent)]";
 
@@ -386,28 +386,28 @@ export default function IaLandingPage() {
               // orange. Bouton plein orange sur fond clair, noir sur orange.
               const themes = [
                 {
-                  card: "bg-[#ebe2cf] text-[#1a1714]",
-                  border: "border-[#1a1714]/10",
-                  rule: "border-[#1a1714]/15",
-                  body: "text-[#1a1714]/75",
-                  meta: "text-[#1a1714]/55",
-                  cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[var(--ink)] hover:text-[#f5f0e6]",
+                  card: "bg-[#ebe2cf] text-[#111318]",
+                  border: "border-[#111318]/10",
+                  rule: "border-[#111318]/15",
+                  body: "text-[#111318]/75",
+                  meta: "text-[#111318]/55",
+                  cta: "bg-[var(--accent)] text-[#111318] hover:bg-[var(--ink)] hover:text-[#fcfcfd]",
                 },
                 {
-                  card: "bg-[#7a6753] text-[#f5f0e6]",
-                  border: "border-[#f5f0e6]/10",
-                  rule: "border-[#f5f0e6]/15",
-                  body: "text-[#f5f0e6]/85",
-                  meta: "text-[#f5f0e6]/60",
-                  cta: "bg-[var(--accent)] text-[#1a1714] hover:bg-[#f5f0e6]",
+                  card: "bg-[#7a6753] text-[#fcfcfd]",
+                  border: "border-[#fcfcfd]/10",
+                  rule: "border-[#fcfcfd]/15",
+                  body: "text-[#fcfcfd]/85",
+                  meta: "text-[#fcfcfd]/60",
+                  cta: "bg-[var(--accent)] text-[#111318] hover:bg-[#fcfcfd]",
                 },
                 {
-                  card: "bg-[var(--accent)] text-[#1a1714]",
-                  border: "border-[#1a1714]/15",
-                  rule: "border-[#1a1714]/20",
-                  body: "text-[#1a1714]/85",
-                  meta: "text-[#1a1714]/60",
-                  cta: "bg-[var(--ink)] text-[#f5f0e6] hover:bg-[#f5f0e6] hover:text-[#1a1714]",
+                  card: "bg-[var(--accent)] text-[#111318]",
+                  border: "border-[#111318]/15",
+                  rule: "border-[#111318]/20",
+                  body: "text-[#111318]/85",
+                  meta: "text-[#111318]/60",
+                  cta: "bg-[var(--ink)] text-[#fcfcfd] hover:bg-[#fcfcfd] hover:text-[#111318]",
                 },
               ];
               const t = themes[i % themes.length];
@@ -417,7 +417,7 @@ export default function IaLandingPage() {
                   className={`flex h-full flex-col rounded-sm border ${t.border} ${t.card} p-8 transition-transform hover:-translate-y-1 md:p-10`}
                 >
                   <div className="flex items-center justify-between">
-                    <p className={`font-mono text-[11px] uppercase tracking-[0.22em] ${i === 2 ? "text-[#1a1714]" : "text-[var(--accent)]"}`}>
+                    <p className={`font-mono text-[11px] uppercase tracking-[0.22em] ${i === 2 ? "text-[#111318]" : "text-[var(--accent)]"}`}>
                       {p.badge}
                     </p>
                     <svg
@@ -427,7 +427,7 @@ export default function IaLandingPage() {
                       strokeWidth="1.4"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className={`h-7 w-7 ${i === 2 ? "text-[#1a1714]" : "text-[var(--accent)]"}`}
+                      className={`h-7 w-7 ${i === 2 ? "text-[#111318]" : "text-[var(--accent)]"}`}
                       aria-hidden="true"
                     >
                       <path d={p.icon} />
@@ -501,20 +501,20 @@ export default function IaLandingPage() {
                 key={o.step}
                 className={`flex flex-col rounded-sm border p-8 ${
                   o.featured
-                    ? "border-[var(--accent)] bg-[var(--ink)] text-[#f5f0e6]"
+                    ? "border-[var(--accent)] bg-[var(--ink)] text-[#fcfcfd]"
                     : "border-[var(--rule)] bg-[var(--bg)]"
                 }`}
               >
                 <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
                   {o.step}
                 </p>
-                <h3 className={`t-display mt-4 text-2xl md:text-[26px] ${o.featured ? "text-[#f5f0e6]" : "text-[var(--fg)]"}`}>
+                <h3 className={`t-display mt-4 text-2xl md:text-[26px] ${o.featured ? "text-[#fcfcfd]" : "text-[var(--fg)]"}`}>
                   {o.title}
                 </h3>
                 <p className={`mt-3 font-mono text-[10px] uppercase tracking-[0.18em] ${o.featured ? "text-[var(--accent)]" : "text-[var(--fg-2)]/65"}`}>
                   {o.unit}
                 </p>
-                <p className={`mt-4 text-sm leading-relaxed ${o.featured ? "text-[#f5f0e6]/80" : "text-[var(--fg-2)]"}`}>
+                <p className={`mt-4 text-sm leading-relaxed ${o.featured ? "text-[#fcfcfd]/80" : "text-[var(--fg-2)]"}`}>
                   {o.body}
                 </p>
               </div>
@@ -609,7 +609,7 @@ export default function IaLandingPage() {
                   href={CAL_URL}
                   target="_blank"
                   rel="noreferrer"
-                  className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#f37b22] transition-colors hover:bg-[#f5f0e6] hover:text-[#1a1714]"
+                  className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#2f5bd3] transition-colors hover:bg-[#fcfcfd] hover:text-[#111318]"
                 >
                   Réserver 30 min
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -630,7 +630,7 @@ export default function IaLandingPage() {
                   style={{ filter: "grayscale(1) contrast(1.05) brightness(0.85)" }}
                 />
                 <div aria-hidden="true" className="absolute inset-0 bg-[var(--accent)] opacity-30 mix-blend-multiply" />
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-[#f5f0e6]">
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-[#fcfcfd]">
                   <span className="t-display text-[140px] leading-[0.8] drop-shadow-[0_4px_24px_rgba(0,0,0,0.55)] md:text-[200px]">
                     30
                   </span>

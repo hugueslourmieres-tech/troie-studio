@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import { Reveal } from "./Reveal";
 import { WorksGallery } from "./WorksGallery";
 import { VideoSection } from "./VideoSection";
-import { GreekMark } from "./GreekMark";
 
 const HUGUES_INSTAGRAM = "https://www.instagram.com/hugueslourmieres/";
 
@@ -18,12 +17,11 @@ export function MediasSection({ locale }: { locale: string }) {
   const t = useTranslations("home");
 
   return (
-    <section id="medias" className="border-t border-[var(--accent)] scroll-mt-24">
-      <div className="mx-auto max-w-7xl px-6 py-28 md:px-12 md:py-40">
+    <section id="medias" className="border-t border-[var(--rule)] scroll-mt-24">
+      <div className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
         <Reveal>
           <div className="max-w-3xl">
-            <GreekMark label={t("mediasEyebrow")} />
-            <h2 className="t-display mt-8 text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
+            <h2 className="t-display text-4xl text-[var(--fg)] md:text-5xl lg:text-6xl">
               {t("mediasTitle")}
             </h2>
             <p className="mt-8 max-w-xl text-base leading-relaxed text-[var(--fg-2)]/80 md:text-lg">

@@ -57,8 +57,8 @@ export function CalInline({
       hideEventTypeDetails: false,
       layout: "month_view",
       cssVarsPerTheme: {
-        light: { "cal-brand": "#f37b22" },
-        dark: { "cal-brand": "#f37b22" },
+        light: { "cal-brand": "#2f5bd3" },
+        dark: { "cal-brand": "#2f5bd3" },
       },
     });
   }, [calLink]);

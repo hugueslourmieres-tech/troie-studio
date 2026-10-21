@@ -49,7 +49,7 @@ export default function PantheonOverviewPage() {
         <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
           <Link
             href="/formations/pantheon/test"
-            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+            className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#111318]"
           >
             Faire le test, gratuit
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -73,11 +73,11 @@ export default function PantheonOverviewPage() {
             {GLOBAL_STATS.map((s) => (
               <div key={s.label}>
                 <p className="t-display text-4xl text-[var(--accent)] md:text-5xl">{s.value}</p>
-                <p className="mt-3 text-sm leading-relaxed text-[#f5f0e6]/80">{s.label}</p>
+                <p className="mt-3 text-sm leading-relaxed text-[#fcfcfd]/80">{s.label}</p>
               </div>
             ))}
           </div>
-          <p className="mt-10 font-mono text-[9px] uppercase tracking-[0.18em] text-[#f5f0e6]/45">
+          <p className="mt-10 font-mono text-[9px] uppercase tracking-[0.18em] text-[#fcfcfd]/45">
             Études marketing solopreneurs 2026 (Mirra, AgentMinds, Enrich Labs),
             Nielsen Norman Group, AgencyAnalytics 2026
           </p>
@@ -244,7 +244,7 @@ export default function PantheonOverviewPage() {
           <div className="mt-12 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Link
               href="/formations/pantheon/test"
-              className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#1a1714]"
+              className="group inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--bg)] transition-colors hover:bg-[var(--accent)] hover:text-[#111318]"
             >
               Faire le test du Panthéon
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

@@ -356,7 +356,7 @@ export async function POST(request: Request) {
       to: [to],
       replyTo: email,
       subject: subjectLine,
-      html: `<div style="font-family:system-ui,sans-serif;font-size:15px;color:#1a1714">${lines.join("")}</div>`,
+      html: `<div style="font-family:system-ui,sans-serif;font-size:15px;color:#111318">${lines.join("")}</div>`,
     });
 
     if (error) {

@@ -148,7 +148,7 @@ export default function AiActPage() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex min-h-[44px] items-center gap-2.5 whitespace-nowrap bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            className="inline-flex min-h-[44px] items-center gap-2.5 whitespace-nowrap bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
             Réserver 30 min
           </a>
@@ -177,7 +177,7 @@ export default function AiActPage() {
             href={CAL_URL}
             target="_blank"
             rel="noreferrer"
-            className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+            className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
             Réserver 30 min
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
@@ -253,7 +253,7 @@ export default function AiActPage() {
           </div>
 
           {/* Sanctions */}
-          <div className="mt-12 grid gap-8 rounded-sm bg-[var(--ink)] p-8 text-[#f5f0e6] md:grid-cols-3 md:p-12">
+          <div className="mt-12 grid gap-8 rounded-sm bg-[var(--ink)] p-8 text-[#fcfcfd] md:grid-cols-3 md:p-12">
             {[
               ["35 M€ ou 7 %", "du CA mondial : pratiques interdites"],
               ["15 M€ ou 3 %", "du CA mondial : non-conformité haut risque"],
@@ -261,10 +261,10 @@ export default function AiActPage() {
             ].map(([n, l]) => (
               <div key={l}>
                 <p className="t-display text-3xl text-[var(--accent)] md:text-4xl">{n}</p>
-                <p className="mt-2 text-sm leading-relaxed text-[#f5f0e6]/75">{l}</p>
+                <p className="mt-2 text-sm leading-relaxed text-[#fcfcfd]/75">{l}</p>
               </div>
             ))}
-            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#f5f0e6]/50 md:col-span-3">
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#fcfcfd]/50 md:col-span-3">
               Pour les PME, le montant retenu est le moindre des deux. L&apos;article 4 (littératie) n&apos;est pas dans cette liste : l&apos;article 99 ne prévoit pas d&apos;amende dédiée.
             </p>
           </div>
@@ -348,7 +348,7 @@ export default function AiActPage() {
               href={CAL_URL}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+              className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
             >
               Réserver 30 min
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>

@@ -144,17 +144,11 @@ export function Header({
               Réserver 30 min. */}
           <div className="hidden items-center gap-4 lg:flex">
             {showLang && <LangSwitch locale={locale} />}
-            <Link
-              href={projectHref}
-              className="hidden items-center gap-2 whitespace-nowrap border border-[var(--ink)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)] xl:inline-flex"
-            >
-              {nav.project}
-            </Link>
             <a
               href={BOOKING_URL}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 whitespace-nowrap border border-[var(--accent)] bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#1a1714] transition-colors duration-300 hover:border-[var(--ink)] hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+              className="inline-flex items-center gap-2 whitespace-nowrap border border-[var(--ink)] bg-[var(--ink)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-white transition-colors duration-300 hover:border-[#2a2e37] hover:bg-[#2a2e37] hover:text-white"
             >
               {nav.book}
             </a>

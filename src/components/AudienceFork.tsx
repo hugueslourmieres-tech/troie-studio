@@ -122,8 +122,8 @@ export function AudienceFork({ locale }: { locale: string }) {
   const FORKS: Fork[] = [
     {
       key: "perso",
-      tint: "#f37b22",
-      ink: "#1a1714",
+      tint: "#2f5bd3",
+      ink: "#111318",
       image: "/images/audience/perso-v5.jpg",
       eyebrow: c.perso.eyebrow,
       title: c.perso.title,

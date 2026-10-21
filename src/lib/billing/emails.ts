@@ -24,7 +24,7 @@ export async function sendAccessEmail({
       to,
       subject: "Votre accès TROIE Formations est actif",
       html: `
-        <div style="font-family: Georgia, serif; max-width: 540px; margin: 0 auto; color: #1a1714;">
+        <div style="font-family: Georgia, serif; max-width: 540px; margin: 0 auto; color: #111318;">
           <p style="font-size: 22px; letter-spacing: 0.18em;">T R O I E</p>
           <h1 style="font-size: 26px; font-weight: normal;">Merci, votre accès est actif.</h1>
           <p style="font-size: 15px; line-height: 1.6;">
@@ -33,7 +33,7 @@ export async function sendAccessEmail({
           </p>
           <p style="margin: 28px 0;">
             <a href="https://troiestudio.fr/formations/dashboard"
-               style="background: #1a1714; color: #f5f0e6; padding: 14px 28px; text-decoration: none; font-family: monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;">
+               style="background: #111318; color: #fcfcfd; padding: 14px 28px; text-decoration: none; font-family: monospace; font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;">
               Accéder à mes cours
             </a>
           </p>
@@ -81,7 +81,7 @@ export async function sendServiceOrderEmails({
         to: internal,
         subject: `Commande ${productName}${site ? ` : ${site}` : ""}`,
         html: `
-          <div style="font-family: Georgia, serif; max-width: 540px; margin: 0 auto; color: #1a1714;">
+          <div style="font-family: Georgia, serif; max-width: 540px; margin: 0 auto; color: #111318;">
             <h1 style="font-size: 22px; font-weight: normal;">Nouvelle commande payée</h1>
             <p style="font-size: 15px; line-height: 1.7;">
               <strong>${productName}</strong>, ${amountLabel}.<br />
@@ -109,7 +109,7 @@ export async function sendServiceOrderEmails({
         to: buyerEmail,
         subject: "Votre audit-fix visibilité IA est commandé",
         html: `
-          <div style="font-family: Georgia, serif; max-width: 540px; margin: 0 auto; color: #1a1714;">
+          <div style="font-family: Georgia, serif; max-width: 540px; margin: 0 auto; color: #111318;">
             <p style="font-size: 22px; letter-spacing: 0.18em;">T R O I E</p>
             <h1 style="font-size: 26px; font-weight: normal;">Merci, votre commande est confirmée.</h1>
             <p style="font-size: 15px; line-height: 1.7;">

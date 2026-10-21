@@ -127,7 +127,7 @@ const COPY = {
 } as const;
 
 const BTN_BOOK =
-  "group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[var(--accent)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-[#1a1714] transition hover:bg-[var(--ink)] hover:text-[#f5f0e6]";
+  "group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 font-mono text-xs uppercase tracking-[0.18em] text-white transition hover:bg-[#2a2e37] hover:text-white";
 const BTN_LINK =
   "group inline-flex min-h-[48px] items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)] transition hover:text-[var(--accent)]";
 
@@ -205,7 +205,7 @@ export default async function HuguesPage({
       </section>
 
       {/* Résultats chiffrés */}
-      <section className="border-t border-[var(--accent)]">
+      <section className="border-t border-[var(--rule)]">
         <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
           <h2 className="t-display text-3xl text-[var(--fg)] md:text-5xl">{c.resultsTitle}</h2>
           <p className="mt-4 text-sm text-[var(--fg-2)] md:text-base">{c.resultsNote}</p>
