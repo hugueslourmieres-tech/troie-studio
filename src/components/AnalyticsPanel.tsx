@@ -64,7 +64,7 @@ function buildClients(en: boolean): Client[] {
     {
       id: "loir",
       name: "LOIR Paris",
-      sector: en ? "Online fashion" : "Mode en ligne",
+      sector: "E-commerce",
       note: en
         ? "Change since September 2024, rolling 12 months."
         : "Évolution depuis septembre 2024, sur 12 mois glissants.",

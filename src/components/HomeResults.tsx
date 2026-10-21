@@ -15,7 +15,7 @@ const COPY = {
       loir: {
         kind: "E-commerce",
         name: "LOIR Paris",
-        lead: "Une marque de mode qui vend en ligne. Évolution des commandes par année, par rapport à 2023.",
+        lead: "Un site e-commerce de mode. Évolution des commandes par année, par rapport à 2023.",
         big: { from: 0, to: 133, decimals: 0, prefix: "+", suffix: "\u00a0%" },
         bigLabel: "de commandes entre 2023 et 2025",
         base: "réf.",
@@ -60,7 +60,7 @@ const COPY = {
       loir: {
         kind: "E-commerce",
         name: "LOIR Paris",
-        lead: "A fashion brand selling online. Change in yearly orders compared with 2023.",
+        lead: "A fashion e-commerce store. Change in yearly orders compared with 2023.",
         big: { from: 0, to: 133, decimals: 0, prefix: "+", suffix: "%" },
         bigLabel: "orders between 2023 and 2025",
         base: "base",
