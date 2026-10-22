@@ -1,15 +1,15 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Play, X } from "@phosphor-icons/react";
+import { ArrowLeft, ArrowRight, X } from "@phosphor-icons/react";
 
 /**
  * Nos films (22/10/2026) : la même ligne que les témoignages de Colorloop.
  * Une rangée de cartes qui défile (aperçus animés en noir et blanc, couleur
  * au survol), et un clic ouvre la fiche du film : le film en grand avec le
  * son à gauche, le client, le lieu, ce que l'équipe a fait et le résultat
- * quand il existe à droite, précédent et suivant en bas. Seulement des faits
- * déjà publiés sur le site (Autajon ×35 : estimation du groupe Rutherford).
+ * à droite, précédent et suivant en bas. Nos fichiers seulement (22/10 :
+ * plus de miniatures ni de lecteur YouTube), lancés directement.
  */
 
 type Story = {
@@ -18,98 +18,78 @@ type Story = {
   where?: { fr: string; en: string };
   kind: { fr: string; en: string };
   made: { fr: string; en: string };
-  /** Aperçu de la carte : boucle locale, ou miniature YouTube. */
-  preview: { video?: string; image?: string };
-  /** Le film de la fiche : mp4 local ou identifiant YouTube. */
-  film: { video?: string; youtube?: string };
-  result?: { figure: string; fr: string; en: string };
+  /** Aperçu de la carte : boucle muette. */
+  preview: string;
+  /** Le film de la fiche, lancé directement (avec le son s'il en a). */
+  film: string;
 };
 
 const STORIES: Story[] = [
-  {
-    id: "autajon",
-    client: "Autajon Packaging",
-    where: { fr: "Milan, Italie", en: "Milan, Italy" },
-    kind: { fr: "Témoignage client", en: "Customer story" },
-    made: {
-      fr: "Tournage sur place et montage, pour le groupe Rutherford.",
-      en: "Shot on location and edited, for the Rutherford group.",
-    },
-    preview: { image: "https://i.ytimg.com/vi/FTjkGK2K-wI/hqdefault.jpg" },
-    film: { youtube: "FTjkGK2K-wI" },
-    result: { figure: "×35", fr: "le budget, en ventes estimées par le groupe", en: "the budget, in sales estimated by the group" },
-  },
   {
     id: "exact2",
     client: "X-Rite, eXact 2",
     where: { fr: "Paris", en: "Paris" },
     kind: { fr: "Lancement de produit", en: "Product launch" },
-    made: {
-      fr: "Reels courts tournés au lancement, et une vidéo de déballage.",
-      en: "Short reels shot at the launch, and an unboxing video.",
-    },
-    preview: { video: "/images/creation/video/exact2.mp4" },
-    film: { video: "/images/videos-local/05.mp4" },
+    made: { fr: "Reels courts tournés au lancement de l'eXact 2 à Paris.", en: "Short reels shot at the eXact 2 launch in Paris." },
+    preview: "/images/creation/video/exact2.mp4",
+    film: "/images/videos-local/05.mp4",
+  },
+  {
+    id: "unboxing",
+    client: "X-Rite, eXact 2",
+    kind: { fr: "Unboxing", en: "Unboxing" },
+    made: { fr: "Vidéo de déballage de l'eXact 2, pour les réseaux sociaux.", en: "eXact 2 unboxing video, for social media." },
+    preview: "/images/videos-local/06.mp4",
+    film: "/images/videos-local/06.mp4",
   },
   {
     id: "gs",
     client: "GS Monaco",
     where: { fr: "Monaco", en: "Monaco" },
-    kind: { fr: "Reels et témoignage", en: "Reels and testimonial" },
-    made: {
-      fr: "Reels pour les réseaux sociaux et un témoignage filmé avec Forbes Monaco.",
-      en: "Social media reels and a testimonial filmed with Forbes Monaco.",
-    },
-    preview: { video: "/images/creation/video/gs.mp4" },
-    film: { youtube: "XjgKPUguTfw" },
+    kind: { fr: "Reels", en: "Reels" },
+    made: { fr: "Reels verticaux pour les réseaux sociaux.", en: "Vertical reels for social media." },
+    preview: "/images/creation/video/gs.mp4",
+    film: "/images/videos-local/03.mp4",
+  },
+  {
+    id: "akita",
+    client: "Top Akita Inu",
+    kind: { fr: "Interview", en: "Interview" },
+    made: { fr: "Interview de Mickaël Bedouet, filmée et montée par l'équipe.", en: "Interview with Mickaël Bedouet, filmed and edited by the team." },
+    preview: "/images/videos-local/02.mp4",
+    film: "/images/videos-local/akita-interview.mp4",
   },
   {
     id: "ferrari",
     client: "Ferrari Auctions",
     kind: { fr: "Reels", en: "Reels" },
     made: { fr: "Reels verticaux pour les réseaux sociaux.", en: "Vertical reels for social media." },
-    preview: { video: "/images/creation/video/ferrari.mp4" },
-    film: { video: "/images/videos-local/04.mp4" },
-  },
-  {
-    id: "viappiani",
-    client: "Viappiani Printing",
-    where: { fr: "Italie", en: "Italy" },
-    kind: { fr: "Témoignage client", en: "Customer story" },
-    made: {
-      fr: "Témoignage filmé et monté, pour le groupe Rutherford.",
-      en: "Testimonial filmed and edited, for the Rutherford group.",
-    },
-    preview: { image: "https://i.ytimg.com/vi/r7_4EdplcdE/hqdefault.jpg" },
-    film: { youtube: "r7_4EdplcdE" },
+    preview: "/images/creation/video/ferrari.mp4",
+    film: "/images/videos-local/04.mp4",
   },
 ];
 
 const COPY = {
   fr: {
     title: "Nos films.",
-    body: "Témoignages clients, lancements de produits, reels. Tournés et montés par l'équipe, pensés pour vendre.",
+    body: "Lancements de produits, reels, interviews. Tournés et montés par l'équipe, pensés pour vendre.",
     more: "Tous les films",
     open: "Voir le film",
     made: "Ce que nous avons fait",
-    result: "Le résultat",
     prev: "Précédent",
     next: "Suivant",
     close: "Fermer",
-    youtube: "Voir sur YouTube",
     rail: "Nos films",
   },
   en: {
     title: "Our films.",
-    body: "Customer stories, product launches, reels. Shot and edited by the team, made to sell.",
+    body: "Product launches, reels, interviews. Shot and edited by the team, made to sell.",
     more: "All films",
     open: "Watch the film",
     made: "What we did",
-    result: "The result",
     prev: "Previous",
     next: "Next",
     close: "Close",
-    youtube: "Watch on YouTube",
     rail: "Our films",
   },
 } as const;
@@ -128,12 +108,7 @@ function Preview({ s }: { s: Story }) {
   }, []);
   const cls =
     "absolute inset-0 h-full w-full object-cover grayscale transition-[filter,transform] duration-700 group-hover:scale-[1.03] group-hover:grayscale-0";
-  return s.preview.video ? (
-    <video ref={ref} src={s.preview.video} muted loop playsInline preload="metadata" aria-hidden="true" className={cls} />
-  ) : (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img src={s.preview.image} alt="" loading="lazy" className={cls} />
-  );
+  return <video ref={ref} src={s.preview} muted loop playsInline preload="metadata" aria-hidden="true" className={cls} />;
 }
 
 export function HomeFilms({ locale }: { locale: string }) {
@@ -143,17 +118,13 @@ export function HomeFilms({ locale }: { locale: string }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState<number | null>(null);
-  const [playing, setPlaying] = useState(false);
 
   const show = (i: number, from?: HTMLElement) => {
     if (from) opener.current = from;
-    setPlaying(false);
     setOpen(i);
     if (!dialog.current?.open) dialog.current?.showModal();
   };
   const go = useCallback((d: number) => setOpen((i) => (i === null ? i : (i + d + STORIES.length) % STORIES.length)), []);
-
-  useEffect(() => setPlaying(false), [open]);
 
   // Flèches du clavier dans la fiche ; la touche Échap ferme nativement.
   useEffect(() => {
@@ -213,14 +184,6 @@ export function HomeFilms({ locale }: { locale: string }) {
               >
                 <span className="relative block aspect-[4/5] overflow-hidden rounded-t-2xl bg-[var(--bg-2)]">
                   <Preview s={st} />
-                  <span className="absolute left-1/2 top-1/2 inline-flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#111318]/75 text-white backdrop-blur-sm transition-transform duration-300 group-hover:scale-105">
-                    <Play weight="fill" className="h-5 w-5 translate-x-[1px]" />
-                  </span>
-                  {st.result && (
-                    <span className="absolute bottom-3 left-3 rounded-full bg-white px-3 py-1 text-sm font-medium tabular-nums text-[var(--accent)]">
-                      {st.result.figure}
-                    </span>
-                  )}
                 </span>
                 <span className="block px-5 pb-5 pt-4">
                   <span className="block text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{st.client}</span>
@@ -251,49 +214,15 @@ export function HomeFilms({ locale }: { locale: string }) {
               {/* Le film */}
               <div className="flex items-center justify-center bg-[#111318] p-5 md:p-10">
                 <div className="w-full">
-                  {s.film.video ? (
-                    <video
-                      key={s.id}
-                      src={s.film.video}
-                      controls
-                      autoPlay
-                      loop
-                      playsInline
-                      className="mx-auto max-h-[62dvh] w-auto max-w-full rounded-xl"
-                    />
-                  ) : playing ? (
-                    <iframe
-                      key={s.id}
-                      src={`https://www.youtube-nocookie.com/embed/${s.film.youtube}?autoplay=1&rel=0`}
-                      title={s.client}
-                      allow="autoplay; encrypted-media; picture-in-picture"
-                      allowFullScreen
-                      className="aspect-video w-full rounded-xl"
-                    />
-                  ) : (
-                    <button
-                      type="button"
-                      onClick={() => setPlaying(true)}
-                      className="group relative block aspect-video w-full overflow-hidden rounded-xl"
-                      aria-label={`${c.open}, ${s.client}`}
-                    >
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={`https://i.ytimg.com/vi/${s.film.youtube}/hqdefault.jpg`} alt="" className="h-full w-full object-cover" />
-                      <span className="absolute left-1/2 top-1/2 inline-flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#111318]/75 text-white transition-transform group-hover:scale-105">
-                        <Play weight="fill" className="h-6 w-6 translate-x-[1px]" />
-                      </span>
-                    </button>
-                  )}
-                  {s.film.youtube && (
-                    <a
-                      href={`https://www.youtube.com/watch?v=${s.film.youtube}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-5 inline-flex h-11 items-center rounded-full bg-white px-5 text-sm font-medium text-[#111318] transition-transform active:scale-[0.98]"
-                    >
-                      {c.youtube} ↗
-                    </a>
-                  )}
+                  <video
+                    key={s.id}
+                    src={s.film}
+                    controls
+                    autoPlay
+                    loop
+                    playsInline
+                    className="mx-auto max-h-[64dvh] w-auto max-w-full rounded-xl"
+                  />
                 </div>
               </div>
 
@@ -315,15 +244,6 @@ export function HomeFilms({ locale }: { locale: string }) {
                   <p className="text-sm font-medium text-[var(--fg)]">{c.made}</p>
                   <p className="mt-2 text-base leading-relaxed text-[var(--fg-2)]">{s.made[L]}</p>
                 </div>
-                {s.result && (
-                  <div className="mt-8 border-t border-[var(--rule)] pt-6">
-                    <p className="text-sm font-medium text-[var(--fg)]">{c.result}</p>
-                    <p className="mt-2 flex flex-wrap items-baseline gap-x-3">
-                      <span className="text-6xl font-medium tracking-[-0.045em] tabular-nums text-[var(--accent)]">{s.result.figure}</span>
-                      <span className="text-base text-[var(--fg-2)]">{s.result[L]}</span>
-                    </p>
-                  </div>
-                )}
               </div>
             </div>
 

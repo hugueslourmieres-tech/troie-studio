@@ -7,16 +7,16 @@ import Image from "next/image";
 // GS MONACO, VEORIA, STUDIO DE LA ROCHE, MEASURECOLOR seulement après accord
 // de Hugues. Logos en noir sur transparent (22/10/2026), tirés des fichiers
 // des marques, recadrés au plus juste. Hauteur réglée à l'œil pour que chaque
-// logo pèse le même poids (surface égale) : h ≈ √(4000 / largeur relative).
+// logo pèse le même poids (surface égale, petite) : h ≈ √(1800 / largeur relative).
 // Top Akita Inu retiré avec son site (le fichier top-akita-inu.png contenait
 // en fait le logo Rutherford).
 const CLIENTS = [
-  { name: "CHANEL", src: "/images/clients/mono-chanel.png", w: 1015, h: 160, px: 25 },
-  { name: "X-Rite", src: "/images/clients/mono-xrite-mark.png", w: 538, h: 160, px: 34 },
-  { name: "Sofitel", src: "/images/clients/mono-sofitel.png", w: 506, h: 160, px: 36 },
-  { name: "Rutherford", src: "/images/clients/mono-rutherford.png", w: 978, h: 160, px: 26 },
-  { name: "Capefront Energies", src: "/images/clients/mono-capefront.png", w: 540, h: 160, px: 34 },
-  { name: "LOIR Paris", src: "/images/clients/mono-loir-paris.png", w: 358, h: 160, px: 42 },
+  { name: "LOIR Paris", src: "/images/clients/mono-loir-paris.png", w: 358, h: 160, px: 28 },
+  { name: "Sofitel", src: "/images/clients/mono-sofitel.png", w: 506, h: 160, px: 24 },
+  { name: "CHANEL", src: "/images/clients/mono-chanel.png", w: 1015, h: 160, px: 16 },
+  { name: "X-Rite Pantone", src: "/images/clients/mono-xrite-pantone.png", w: 1288, h: 160, px: 15 },
+  { name: "Capefront Energies", src: "/images/clients/mono-capefront.png", w: 540, h: 160, px: 23 },
+  { name: "Rutherford", src: "/images/clients/mono-rutherford.png", w: 978, h: 160, px: 17 },
 ];
 
 /**
@@ -49,10 +49,10 @@ export function ClientsCloud() {
 
         <ul
           data-reveal-stagger
-          className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-8 px-5 md:gap-x-16"
+          className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-5 md:gap-x-14"
         >
           {loopList.map((c) => (
-            <li key={c.name} className="flex items-center">
+            <li key={c.name} className="flex h-10 items-center">
               <Image
                 src={c.src}
                 alt={c.name}
@@ -60,7 +60,7 @@ export function ClientsCloud() {
                 height={c.h}
                 sizes="200px"
                 style={{ height: `calc(${c.px}px * var(--logo-scale, 1))`, width: "auto" }}
-                className="opacity-70 transition-opacity duration-200 hover:opacity-100 [--logo-scale:0.78] md:[--logo-scale:1]"
+                className="opacity-70 transition-opacity duration-200 hover:opacity-100 [--logo-scale:0.9] md:[--logo-scale:1]"
               />
             </li>
           ))}

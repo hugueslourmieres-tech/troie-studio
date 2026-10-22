@@ -96,7 +96,7 @@ export function ResultCards({ locale }: { locale: string }) {
       sector: en ? "Large group, packaging" : "Grand groupe, emballage",
       value: "×35",
       label: en ? "a customer film's budget, in sales" : "le budget d'un film client, en ventes",
-      target: "#films",
+      target: `/${locale}/medias#exemple`,
       bars: [1, 35],
       more: en ? "See the films" : "Voir les films",
     },
