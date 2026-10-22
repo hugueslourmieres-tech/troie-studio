@@ -106,7 +106,7 @@ function buildClients(en: boolean): Client[] {
         : "Relevés datés des exports TikTok, LinkedIn, Meta et YouTube, et des pages publiques.",
       metrics: [
         { id: "social", label: en ? "All networks" : "Tous réseaux", headline: last(RUTHERFORD_SOCIAL_PCT), sub: en ? "followers since Feb. 2025" : "abonnés depuis févr. 2025", data: { kind: "line", points: RUTHERFORD_SOCIAL_PCT } },
-        { id: "tiktok", label: "TikTok", headline: last(RUTHERFORD_TIKTOK_PCT), sub: en ? "followers since March 2024" : "abonnés depuis mars 2024", data: { kind: "line", points: RUTHERFORD_TIKTOK_PCT } },
+        { id: "tiktok", label: "TikTok", headline: last(RUTHERFORD_TIKTOK_PCT), sub: en ? "followers since March 2025" : "abonnés depuis mars 2025", data: { kind: "line", points: RUTHERFORD_TIKTOK_PCT } },
         { id: "linkedin", label: "LinkedIn", headline: RUTHERFORD_LINKEDIN_RATE_INDEX.after - 100, sub: en ? "new followers per month" : "nouveaux abonnés par mois", data: beforeAfter(RUTHERFORD_LINKEDIN_RATE_INDEX, en ? ["Mar 2024 to Jan 2025", "Feb to Aug 2025"] : ["mars 2024 à janv. 2025", "févr. à août 2025"]) },
         { id: "instagram", label: "Instagram", headline: last(RUTHERFORD_INSTAGRAM_PCT), sub: en ? "followers since Feb. 2025" : "abonnés depuis févr. 2025", data: { kind: "line", points: RUTHERFORD_INSTAGRAM_PCT } },
         { id: "youtube", label: "YouTube", headline: last(RUTHERFORD_YOUTUBE_PCT), sub: en ? "subscribers since April 2022" : "abonnés depuis avril 2022", data: { kind: "line", points: RUTHERFORD_YOUTUBE_PCT } },

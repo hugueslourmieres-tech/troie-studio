@@ -46,7 +46,7 @@ Une seule équipe qui fait tout le digital et le mesure en chiffre d'affaires, a
 
 Chiffres réels uniquement, en POURCENTAGES (aucun montant, aucun volume) :
 - LOIR Paris (e-commerce, données Shopify, 12 mois glissants sept. 2024 à sept. 2026) : ventes +164 %, commandes +121 %, visites +123 %. Accord écrit de LOIR à obtenir avant la mise en ligne.
-- Rutherford (PME industrielle B2B, réseaux sociaux seulement) : tous réseaux +87 %, TikTok +711 %, LinkedIn +202 % de nouveaux abonnés par mois, Instagram +60 %, YouTube +495 %.
+- Rutherford (PME industrielle B2B, réseaux sociaux seulement) : tous réseaux +87 %, TikTok +193 % depuis mars 2025, LinkedIn +202 % de nouveaux abonnés par mois, Instagram +60 %, YouTube +495 %.
 - Autajon (grand groupe emballage) : film client estimé à 35 fois son budget.
 - Sources et calculs : src/lib/results.ts.
 

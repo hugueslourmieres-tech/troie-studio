@@ -4,64 +4,40 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 /**
- * Auto-reveal au scroll : anime l'apparition des textes (titres, paragraphes,
- * listes...) au sein de <article> / <main> quand ils entrent dans le viewport.
- *
- * Sûr pour le SEO / sans JS : le contenu est rendu visible normalement ;
- * c'est le JS qui pose .reveal-init UNIQUEMENT sur les éléments hors-écran
- * (donc pas de flash au-dessus de la ligne de flottaison, et si le JS ne
- * tourne pas, tout reste lisible). Respecte prefers-reduced-motion.
- *
- * À monter une fois par layout (formations, ia). Se relance à chaque
- * changement de route.
+ * Apparitions au défilement (22/10/2026) : tout élément [data-reveal] monte
+ * de 24px en fondu quand il entre à l'écran, une seule fois. Les enfants
+ * d'un [data-reveal-stagger] arrivent l'un après l'autre (70ms d'écart).
+ * Ce qui est déjà visible au chargement reste affiché, sans clignement.
+ * Rien ne bouge si l'utilisateur réduit les animations (voir globals.css).
  */
 export function ScrollReveal() {
-  const pathname = usePathname();
-
+  const path = usePathname();
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const selector =
-      "article :is(h1,h2,h3,h4,p,li,blockquote), main :is(h1,h2,h3,h4,p,li,blockquote)";
-
-    // On laisse le layout se peindre une frame avant d'attacher l'observer.
-    const raf = window.requestAnimationFrame(() => {
-      const io = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("reveal-in");
-              io.unobserve(entry.target);
-            }
-          }
-        },
-        { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
-      );
-
-      const els = Array.from(
-        document.querySelectorAll<HTMLElement>(selector),
-      );
-      const vh = window.innerHeight;
-      for (const el of els) {
-        if (el.dataset.revealed === "1") continue;
-        el.dataset.revealed = "1";
-        const rect = el.getBoundingClientRect();
-        // Déjà visible (ou presque) : on laisse tel quel, pas d'animation.
-        if (rect.top < vh * 0.92 && rect.bottom > 0) continue;
-        el.classList.add("reveal-init");
-        io.observe(el);
-      }
-
-      cleanup = () => io.disconnect();
+    const root = document.documentElement;
+    document.querySelectorAll<HTMLElement>("[data-reveal-stagger]").forEach((g) =>
+      Array.from(g.children).forEach((c, i) => {
+        (c as HTMLElement).dataset.reveal = "";
+        (c as HTMLElement).style.setProperty("--d", `${Math.min(i, 8) * 70}ms`);
+      }),
+    );
+    const els = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    els.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) el.classList.add("is-in");
     });
-
-    let cleanup = () => {};
-    return () => {
-      window.cancelAnimationFrame(raf);
-      cleanup();
-    };
-  }, [pathname]);
-
+    root.classList.add("reveal-ready");
+    const io = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-in");
+            io.unobserve(e.target);
+          }
+        }),
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
+    );
+    els.filter((el) => !el.classList.contains("is-in")).forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, [path]);
   return null;
 }

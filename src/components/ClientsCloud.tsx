@@ -33,7 +33,7 @@ export function ClientsCloud() {
 
   return (
     <section className="border-t border-[var(--rule)]">
-      <div className="mx-auto max-w-7xl px-5 pt-12 pb-4 md:px-12 md:pt-14 md:pb-6">
+      <div data-reveal className="mx-auto max-w-7xl px-5 pt-12 pb-4 md:px-12 md:pt-14 md:pb-6">
         <p className="text-center text-sm text-[var(--fg-2)]">
           {locale === "fr" ? "L'équipe a travaillé avec" : "Our team has worked with"}
         </p>

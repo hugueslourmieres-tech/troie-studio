@@ -703,3 +703,23 @@ body {
 :root { accent-color: var(--accent); caret-color: var(--accent); }
 ::selection { background: rgba(47, 91, 211, 0.16); color: var(--fg); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+/* Apparitions au défilement (22/10/2026), pilotées par ScrollReveal. */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1) var(--d, 0ms), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1) var(--d, 0ms);
+}
+.reveal-ready [data-reveal].is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] { transform: none; transition: opacity 0.3s ease; }
+}
+
+/* Fiche des films : ouverture en fondu et léger zoom. */
+.film-dialog[open] { animation: film-in 0.32s cubic-bezier(0.23, 1, 0.32, 1); }
+.film-dialog[open]::backdrop { animation: film-fade 0.32s ease-out; }
+@keyframes film-in { from { opacity: 0; transform: scale(0.97); } }
+@keyframes film-fade { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .film-dialog[open], .film-dialog[open]::backdrop { animation: none; }
+}

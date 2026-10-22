@@ -8,6 +8,7 @@ import { routing } from "@/i18n/routing";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { Analytics } from "@vercel/analytics/next";
 import { OG_IMAGE } from "@/lib/og";
 
@@ -317,6 +318,7 @@ export default async function LocaleLayout({
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ScrollProgress />
+          <ScrollReveal />
           <Header locale={locale} />
           <main>{children}</main>
           <Footer locale={locale} />

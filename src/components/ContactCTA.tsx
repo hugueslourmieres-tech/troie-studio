@@ -19,7 +19,7 @@ export function ContactCTA(_props: { locale: string }) {
   return (
     <section className="border-t border-[var(--rule)]">
       <div className="mx-auto max-w-7xl px-5 py-24 md:px-12 md:py-32">
-        <div className="mx-auto max-w-3xl text-center">
+        <div data-reveal className="mx-auto max-w-3xl text-center">
           <h2 className="t-display text-4xl text-[var(--fg)] md:text-6xl">{t("ctaTitle")}</h2>
           <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
             {t("ctaSubtitle")}

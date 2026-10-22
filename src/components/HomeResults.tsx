@@ -28,7 +28,7 @@ const COPY = {
         big: { from: 0, to: 87, decimals: 0, prefix: "+", suffix: "\u00a0%" },
         bigLabel: "d'abonnés sur LinkedIn, Instagram et TikTok depuis février 2025",
         kpis: [
-          { to: 711, prefix: "+", suffix: "\u00a0%", label: "d'abonnés TikTok depuis mars 2024" },
+          { to: 193, prefix: "+", suffix: "\u00a0%", label: "d'abonnés TikTok depuis mars 2025" },
           { to: 202, prefix: "+", suffix: "\u00a0%", label: "de nouveaux abonnés LinkedIn par mois" },
         ],
         bars: [
@@ -73,7 +73,7 @@ const COPY = {
         big: { from: 0, to: 87, decimals: 0, prefix: "+", suffix: "%" },
         bigLabel: "followers on LinkedIn, Instagram and TikTok since February 2025",
         kpis: [
-          { to: 711, prefix: "+", suffix: "%", label: "TikTok followers since March 2024" },
+          { to: 193, prefix: "+", suffix: "%", label: "TikTok followers since March 2025" },
           { to: 202, prefix: "+", suffix: "%", label: "new LinkedIn followers per month" },
         ],
         bars: [

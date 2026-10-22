@@ -12,7 +12,7 @@ Accueil de troiestudio.fr (FR et EN). Mode Persuade. Les pages intérieures (cr�
 Dirigeants de PME, marques e-commerce et grands groupes, à égalité. Ils veulent comprendre en quelques secondes ce que l'agence fait et ce qu'elle a obtenu. Action : réserver un appel de 30 min (principale), décrire son projet (secondaire).
 
 ## Preuves
-Uniquement les chiffres de src/lib/results.ts, en pourcentages : LOIR +164 % de ventes, Rutherford +711 % TikTok, Autajon ×35 le budget. Travaux réels : sites livrés, films clients, photos.
+Uniquement les chiffres de src/lib/results.ts, en pourcentages : LOIR +164 % de ventes, Rutherford +193 % TikTok depuis mars 2025, Autajon ×35 le budget. Travaux réels : sites livrés, films clients, photos.
 
 ## Direction contract
 THESIS: La preuve avant la promesse : trois résultats chiffrés et animés juste sous un titre court, puis le travail réel qui les a produits. Refuse le héros d'agence qui empile des adjectifs et cache les résultats en bas de page.

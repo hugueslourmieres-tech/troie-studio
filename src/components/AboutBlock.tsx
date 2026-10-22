@@ -139,7 +139,7 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
       id="about"
       className="border-t border-[var(--rule)] bg-[var(--bg)] scroll-mt-24"
     >
-      <div className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
+      <div data-reveal className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
         {/* Présentation de l'équipe */}
         <div className="md:max-w-3xl">
           <h2 className="t-display text-4xl text-[var(--fg)] md:text-5xl">

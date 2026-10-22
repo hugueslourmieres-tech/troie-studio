@@ -5,7 +5,7 @@ import { WebSlider } from "./WebSlider";
 
 /**
  * Accueil : le design de nos sites, en slider (21/10/2026). Cinq sites,
- * tous en ligne : LOIR Paris, Color Guesser, Bien en règle, Rutherford, Bilber.
+ * tous en ligne : Bien en règle, Rutherford, LOIR Paris, puis les deux jeux.
  */
 export async function HomeWebWorks({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "home" });
@@ -14,7 +14,7 @@ export async function HomeWebWorks({ locale }: { locale: string }) {
   return (
     <section id="realisations" className="scroll-mt-24 overflow-hidden border-t border-[var(--rule)]">
       <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-32">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+        <div data-reveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <h2 className="t-display max-w-[18ch] text-balance text-4xl text-[var(--fg)] md:text-6xl">
               {t("webTitle")}
@@ -31,7 +31,7 @@ export async function HomeWebWorks({ locale }: { locale: string }) {
           </Link>
         </div>
 
-        <div className="mt-14">
+        <div data-reveal style={{ "--d": "120ms" } as React.CSSProperties} className="mt-14">
           <WebSlider projects={shown} en={locale === "en"} />
         </div>
       </div>

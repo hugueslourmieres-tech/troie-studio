@@ -8,7 +8,7 @@ const COPY = {
   fr: {
     title: "Ce que nous faisons.",
     items: [
-      { name: "Sites et e-commerce", body: "Site vitrine, boutique en ligne, web app. Conçus, développés et mis en ligne.", href: "creation/web", cta: "Voir les sites" },
+      { name: "Sites, applications et e-commerce", body: "Site vitrine, boutique en ligne, application web ou mobile. Conçus, développés et mis en ligne.", href: "creation/web", cta: "Voir les sites" },
       { name: "Photo et vidéo", body: "Reportages, films de marque, témoignages clients, contenus pour les réseaux.", href: "medias", cta: "Voir les images" },
       { name: "Communication et réseaux sociaux", body: "Positionnement, messages, contenus, réseaux sociaux, lancements de produits.", href: "strategie", cta: "En savoir plus" },
       { name: "SEO et publicité", body: "Référencement Google, campagnes Google Ads et Meta, suivies chaque mois.", href: "strategie#acquisition", cta: "En savoir plus" },
@@ -19,7 +19,7 @@ const COPY = {
   en: {
     title: "What we do.",
     items: [
-      { name: "Websites and e-commerce", body: "Showcase site, online store, web app. Designed, built and launched.", href: "creation/web", cta: "See the websites" },
+      { name: "Websites, apps and e-commerce", body: "Showcase site, online store, web or mobile app. Designed, built and launched.", href: "creation/web", cta: "See the websites" },
       { name: "Photo and video", body: "Reportage, brand films, customer stories, social media content.", href: "medias", cta: "See the images" },
       { name: "Communication and social media", body: "Positioning, messaging, content, social media, product launches.", href: "strategie", cta: "Learn more" },
       { name: "SEO and advertising", body: "Google search, Google Ads and Meta campaigns, reviewed every month.", href: "strategie#acquisition", cta: "Learn more" },
@@ -35,9 +35,9 @@ export function HomeServices({ locale }: { locale: string }) {
   return (
     <section id="services" className="scroll-mt-24 border-t border-[var(--rule)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 md:px-12 md:py-28 lg:grid-cols-12">
-        <h2 className="t-display text-4xl text-[var(--fg)] md:text-5xl lg:col-span-4">{c.title}</h2>
+        <h2 data-reveal className="t-display text-4xl text-[var(--fg)] md:text-5xl lg:col-span-4">{c.title}</h2>
         <div className="lg:col-span-8">
-          <ul className="grid gap-x-10 sm:grid-cols-2">
+          <ul data-reveal-stagger className="grid gap-x-10 sm:grid-cols-2">
             {c.items.map((it) => (
               <li key={it.name} className="border-t border-[var(--rule)] py-7">
                 <Link href={`/${locale}/${it.href}`} className="group block">

@@ -45,12 +45,13 @@ export const RUTHERFORD_SOCIAL_PCT = [
   { d: "2026-09-28", v: 87.3 },
 ];
 
+// TikTok : base mars 2025 (22/10/2026, demande de Hugues : ne jamais partir
+// d'un compte vide, le +711 % depuis mars 2024 faisait peur). Valeurs
+// recalculées depuis la même série : (1 + v / 100) / 2,764 - 1.
 export const RUTHERFORD_TIKTOK_PCT = [
-  { d: "2024-03-04", v: 0 },
-  { d: "2025-02-01", v: 10.5 },
-  { d: "2025-03-03", v: 176.4 },
-  { d: "2026-06-22", v: 594.8 },
-  { d: "2026-09-28", v: 710.8 },
+  { d: "2025-03-03", v: 0 },
+  { d: "2026-06-22", v: 151.4 },
+  { d: "2026-09-28", v: 193.3 },
 ];
 
 export const RUTHERFORD_INSTAGRAM_PCT = [

@@ -304,7 +304,7 @@ Une rangée fixe de noms en capitales, Geist 500 à 14px, graphite à 85 %, qui 
 - **Do** réserver le bleu cobalt aux chiffres, aux courbes, à l'onglet choisi et aux liens de suite.
 - **Do** mettre l'action principale dans un bouton noir en pilule (48px de haut), et l'action secondaire en lien souligné ou en pilule à contour.
 - **Do** poser les contenus sur des cartes blanches à filet de 1px et rayon de 16px, sans ombre au repos.
-- **Do** afficher chaque résultat client en pourcentage ou en multiple (+164 %, +711 %, ×35), avec les valeurs de src/lib/results.ts.
+- **Do** afficher chaque résultat client en pourcentage ou en multiple (+164 %, +193 %, ×35), avec les valeurs de src/lib/results.ts.
 - **Do** écrire les chiffres en Geist 500 avec tabular-nums, et garder Geist Mono pour les axes et les info-bulles.
 - **Do** passer les aperçus de travaux en noir et blanc, avec retour de la couleur au survol.
 - **Do** limiter le mouvement aux courbes tracées une fois, aux fondus d'entrée avec 16px de glissement et aux films clients muets en boucle, et tout couper quand l'utilisateur réduit les animations.
