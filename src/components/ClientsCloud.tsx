@@ -49,7 +49,7 @@ export function ClientsCloud() {
 
         <ul
           data-reveal-stagger
-          className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-5 md:gap-x-14"
+          className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-12 gap-y-4 px-5 md:gap-x-16 md:px-12 lg:justify-between"
         >
           {loopList.map((c) => (
             <li key={c.name} className="flex h-10 items-center">
