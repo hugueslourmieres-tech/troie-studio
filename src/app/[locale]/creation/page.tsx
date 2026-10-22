@@ -14,7 +14,7 @@ import { metaDescription, seoTitle } from "@/lib/seo";
  */
 const COPY = {
   fr: {
-    metaTitle: "Photo, vidéo, design et sites web à Nice",
+    metaTitle: "Photo, vidéo, design et sites web",
     metaDesc:
       "Nous tournons, photographions, dessinons et développons pour votre marque. Direction artistique de Hugues Lourmieres, une équipe qui fabrique elle-même.",
     label: "Création",
@@ -37,7 +37,7 @@ const COPY = {
     },
   },
   en: {
-    metaTitle: "Photo, video, design and websites in Nice",
+    metaTitle: "Photo, video, design and websites",
     metaDesc:
       "We shoot, photograph, design and build for your brand. Art direction by Hugues Lourmieres, a team that makes things itself.",
     label: "Creative",

@@ -35,7 +35,7 @@ export function IaEnfantEcole() {
           comprendre, pas pour recopier.
         </li>
         <li>
-          <strong>On vérifie toujours.</strong> L’IA se trompe ; recouper, c’est
+          <strong>On vérifie toujours.</strong> L’IA se trompe, recouper, c’est
           le réflexe à transmettre.
         </li>
         <li>

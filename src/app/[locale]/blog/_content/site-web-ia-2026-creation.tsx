@@ -57,7 +57,7 @@ export function SiteWebIa2026Creation() {
         Une voix reconnaissable, une identité visuelle qui n&apos;appartient
         qu&apos;à vous, de vraies photos plutôt qu&apos;une banque
         d&apos;images générique : c&apos;est devenu l&apos;actif rare.
-        L&apos;IA produit du plausible ; elle ne produit pas votre
+        L&apos;IA produit du plausible, elle ne produit pas votre
         histoire. Les marques qui gagnent en 2026 sont celles dont on
         reconnaît la page sans lire le logo.
       </p>

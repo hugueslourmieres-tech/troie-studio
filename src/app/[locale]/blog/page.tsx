@@ -9,7 +9,7 @@ const META = {
     description:
       "Articles clairs et pédagogiques pour comprendre l'IA, l'utiliser vraiment et l'intégrer au quotidien. Pour les particuliers, les familles et les pros.",
     eyebrow: "/ Le Journal",
-    heading: "Comprendre l'IA.",
+    heading: "Le journal.",
     read: "Lire l'article",
   },
   en: {
@@ -17,7 +17,7 @@ const META = {
     description:
       "Clear, practical articles to understand AI, actually use it, and make it part of your day. For individuals, families and professionals.",
     eyebrow: "/ The Journal",
-    heading: "Understanding AI.",
+    heading: "The journal.",
     read: "Read the article",
   },
 } as const;

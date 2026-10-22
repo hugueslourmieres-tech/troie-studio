@@ -203,7 +203,7 @@ export function AiActSanctionsEntreprise() {
         <em>
           Sources : règlement (UE) 2024/1689 (AI Act), article 99 (sanctions) et
           article 101 (amendes pour les fournisseurs de modèles à usage
-          général), EUR-Lex ; calendrier d&apos;application publié par la
+          général), EUR-Lex, calendrier d&apos;application publié par la
           Commission européenne (digital-strategy.ec.europa.eu). Faits vérifiés
           le 24 juillet 2026. Cette page est une synthèse pédagogique, pas un
           conseil juridique.

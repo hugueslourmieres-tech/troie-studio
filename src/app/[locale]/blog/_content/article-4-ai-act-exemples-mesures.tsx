@@ -186,7 +186,7 @@ export function Article4AiActExemplesMesures() {
         Deux idées fausses circulent. La première : « on a envoyé le mode
         d&apos;emploi de l&apos;outil, c&apos;est bon ». Non. La Commission
         indique clairement que la simple distribution d&apos;instructions
-        d&apos;utilisation ne suffit pas ; une formation ou un accompagnement
+        d&apos;utilisation ne suffit pas, une formation ou un accompagnement
         actif est attendu. La seconde : « on a copié les pratiques d&apos;une
         grande entreprise, donc on est présumé conforme ». Non plus. La
         Commission précise que reproduire une pratique de son répertoire ne vaut
@@ -242,7 +242,7 @@ export function Article4AiActExemplesMesures() {
       <p>
         <em>
           Sources : règlement (UE) 2024/1689 (AI Act), article 4 (maîtrise de
-          l&apos;IA), EUR-Lex ; questions-réponses sur la littératie IA et
+          l&apos;IA), EUR-Lex, questions-réponses sur la littératie IA et
           répertoire vivant des pratiques de maîtrise de l&apos;IA publiés par la
           Commission européenne (digital-strategy.ec.europa.eu). Faits vérifiés
           le 24 juillet 2026. Cette page est une synthèse pédagogique, pas un

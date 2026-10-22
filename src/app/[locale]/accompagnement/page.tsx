@@ -30,7 +30,7 @@ const COPY = {
   fr: {
     metaTitle: "Direction marketing à temps partagé et suivi",
     metaDesc:
-      "Direction marketing à temps partagé, ateliers avec vos équipes, suivi après livraison. Une équipe à Nice qui reste à vos côtés dans la durée.",
+      "Direction marketing à temps partagé, ateliers avec vos équipes, suivi après livraison. Une équipe qui reste à vos côtés dans la durée.",
     eyebrow: "Accompagnement",
     title: "Nous restons à vos côtés.",
     intro:
@@ -70,7 +70,7 @@ const COPY = {
   en: {
     metaTitle: "Fractional marketing direction and support",
     metaDesc:
-      "Fractional marketing direction, workshops with your teams, follow-up after delivery. A team in Nice that stays by your side over time.",
+      "Fractional marketing direction, workshops with your teams, follow-up after delivery. A team that stays by your side over time.",
     eyebrow: "Ongoing support",
     title: "We stay by your side.",
     intro:

@@ -379,15 +379,15 @@ export function ConsultationCseIntelligenceArtificielle() {
           l&apos;activité, l&apos;article L. 2312-38 sur les traitements
           automatisés de gestion du personnel, l&apos;article R. 2312-6 sur les
           délais de consultation et l&apos;article L. 2317-1 sur le délit
-          d&apos;entrave ; ordonnances de référé du tribunal judiciaire de
+          d&apos;entrave, ordonnances de référé du tribunal judiciaire de
           Nanterre du 14 février 2025 (n° 24/01457) et du 29 janvier 2026 (n°
           25/02856), du tribunal judiciaire de Créteil du 15 juillet 2025 (n°
           25/00851) et du tribunal judiciaire de Paris du 2 septembre 2025 (n°
-          25/53278) ; règlement (UE) 2024/1689 sur l&apos;intelligence
+          25/53278), règlement (UE) 2024/1689 sur l&apos;intelligence
           artificielle, EUR-Lex, pour l&apos;article 4 sur la littératie IA
           applicable depuis le 2 février 2025, l&apos;article 26, paragraphe 7,
           sur l&apos;information des représentants des travailleurs et
-          l&apos;application générale au 2 août 2026 ; règlement (UE) 2026/1744,
+          l&apos;application générale au 2 août 2026, règlement (UE) 2026/1744,
           dit Digital Omnibus sur l&apos;IA, publié au Journal officiel de
           l&apos;Union européenne le 24 juillet 2026, pour le report des
           obligations relatives aux systèmes à haut risque de l&apos;annexe III

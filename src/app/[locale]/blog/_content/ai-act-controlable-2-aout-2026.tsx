@@ -149,8 +149,8 @@ export function AiActControlable2Aout2026() {
       <p>
         <em>
           Sources : règlement (UE) 2024/1689 (EUR-Lex, adopté le 13 juin
-          2024, en vigueur le 1er août 2024) ; calendrier d&apos;application
-          publié par la Commission européenne ; article 4 (littératie IA),
+          2024, en vigueur le 1er août 2024), calendrier d&apos;application
+          publié par la Commission européenne, article 4 (littératie IA),
           applicable depuis le 2 février 2025. Faits vérifiés en juillet
           2026.
         </em>

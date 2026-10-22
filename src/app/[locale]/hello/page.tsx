@@ -27,12 +27,12 @@ const COPY = {
   fr: {
     metaTitle: "Bonjour, je suis Hugues",
     metaDescription:
-      "Hugues Lourmieres, fondateur de TROIE Studio : stratégie, photo, vidéo et sites web à Nice.",
+      "Hugues Lourmieres, fondateur de TROIE Studio : stratégie, photo, vidéo et sites web.",
     name: "Hugues Lourmieres",
-    role: "Fondateur de TROIE Studio, à Nice",
+    role: "Fondateur de TROIE Studio",
     eyebrow: "Depuis Instagram",
     title: "Bonjour, je suis Hugues.",
-    body: "Vous connaissez mes photos de nature. Avec TROIE Studio, je mets le même regard au service des entreprises. Mon équipe et moi pensons votre stratégie, puis nous la montrons en photo, en vidéo et sur le web. Nous sommes à Nice.",
+    body: "Vous connaissez mes photos de nature. Avec TROIE Studio, je mets le même regard au service des entreprises. Mon équipe et moi pensons votre stratégie, puis nous la montrons en photo, en vidéo et sur le web. Nous travaillons partout en France.",
     book: "Réserver 30 min",
     project: "Décrire mon projet",
     work: "Voir les réalisations",
@@ -40,18 +40,18 @@ const COPY = {
     series: "Mes séries nature",
     thumbs: ["La vidéo Autajon", "Valberg", "Animaux"],
     appLead: "Vous êtes un particulier ? Nos outils en ligne sont sur",
-    based: "Atelier à Nice, France",
+    based: "Basés à Nice, partout en France",
     newTab: "nouvel onglet",
   },
   en: {
     metaTitle: "Hello, I'm Hugues",
     metaDescription:
-      "Hugues Lourmieres, founder of TROIE Studio: strategy, photo, video and websites in Nice.",
+      "Hugues Lourmieres, founder of TROIE Studio: strategy, photo, video and websites.",
     name: "Hugues Lourmieres",
-    role: "Founder of TROIE Studio, in Nice",
+    role: "Founder of TROIE Studio",
     eyebrow: "From Instagram",
     title: "Hello, I'm Hugues.",
-    body: "You know my nature photos. With TROIE Studio, I bring the same eye to businesses. My team and I shape your strategy, then show it in photos, video and on the web. We are based in Nice, France.",
+    body: "You know my nature photos. With TROIE Studio, I bring the same eye to businesses. My team and I shape your strategy, then show it in photos, video and on the web. We work across France.",
     book: "Book 30 min",
     project: "Describe my project",
     work: "See our work",
@@ -61,7 +61,7 @@ const COPY = {
        « Wildlife », comme dans la section Réalisations de l'accueil. */
     thumbs: ["The Autajon video", "Valberg", "Wildlife"],
     appLead: "Not a business? Our online tools are on",
-    based: "Studio in Nice, France",
+    based: "Based in Nice, working across France",
     newTab: "new tab",
   },
 } as const;

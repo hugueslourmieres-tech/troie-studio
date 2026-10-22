@@ -137,9 +137,10 @@ function CaseView({
           </Link>
 
           <p className="mt-8 text-sm text-[var(--fg-2)]">{t(`items.${slug}.scope`)}</p>
-          <h1 className="t-display mt-6 max-w-5xl break-words text-5xl text-[var(--fg)] sm:text-6xl">
+          {/* Titre visible sur mobile ; le h1 unique est celui du hero desktop. */}
+          <p className="t-display mt-6 max-w-5xl break-words text-5xl text-[var(--fg)] sm:text-6xl">
             {t(`items.${slug}.title`)}
-          </h1>
+          </p>
           <p className="t-display-italic mt-6 max-w-3xl text-xl text-[var(--fg-2)] sm:text-2xl">
             {t(`items.${slug}.subtitle`)}
           </p>

@@ -340,13 +340,13 @@ export function AttestationLitteratieIa() {
       <p>
         <em>
           Sources : règlement (UE) 2024/1689 (AI Act), article 4 sur la maîtrise
-          de l&apos;IA, EUR-Lex ; questions-réponses sur la littératie IA
+          de l&apos;IA, EUR-Lex, questions-réponses sur la littératie IA
           publiées par la Commission européenne
           (digital-strategy.ec.europa.eu), pour l&apos;absence de certificat
           requis, l&apos;absence de formation type imposée, le registre interne
           des formations, le dépôt vivant des initiatives de littératie IA et le
           contrôle par les autorités nationales de surveillance du marché à
-          partir du 2 août 2026 ; Digital Omnibus sur l&apos;IA, adopté
+          partir du 2 août 2026, Digital Omnibus sur l&apos;IA, adopté
           définitivement par le Conseil de l&apos;Union européenne le 29 juin
           2026, pour la réécriture de l&apos;article 4. Faits vérifiés le 29
           juillet 2026. Cette page est une synthèse pédagogique, pas un conseil

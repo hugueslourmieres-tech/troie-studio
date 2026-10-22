@@ -21,7 +21,7 @@
     "project": "Describe my project"
   },
   "home": {
-    "introEyebrow": "Digital agency in Nice",
+    "introEyebrow": "Digital agency",
     "introTitle": "All your digital,|made by one team.",
     "introBody": "Websites and apps, photo and video, communication, Google search and advertising. One point of contact, from the first meeting to the results. Across France and remotely.",
     "worksEyebrow": "Works",
@@ -159,9 +159,9 @@
       },
       "animaux": {
         "title": "Wildlife",
-        "subtitle": "Wildlife, from the Arctic to Antarctica",
+        "subtitle": "Mercantour wildlife",
         "scope": "Wildlife photography, prints",
-        "description": "Pumas in Chile, polar bears in Greenland, walruses in Svalbard, gorillas and chimpanzees in Uganda, penguins in Antarctica. Photographed at animal level."
+        "description": "Bearded vulture, roe deer, fox, marmot and squirrel, photographed in the Mercantour, at animal level."
       }
     }
   },
@@ -213,7 +213,7 @@
     "rights": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Legal",
-    "based": "Studio in Nice, France",
+    "based": "Based in Nice, working across France",
     "studio": "Services",
     "resources": "The studio",
     "contact": "Contact",

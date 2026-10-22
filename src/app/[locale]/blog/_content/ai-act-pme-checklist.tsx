@@ -269,7 +269,7 @@ export function AiActPmeChecklist() {
         <strong>La confusion RGPD et AI Act.</strong> Beaucoup de dirigeants
         pensent avoir traité le sujet parce que leur registre des traitements
         est à jour. Ce sont deux réglementations différentes. La CNIL est
-        l&apos;autorité de contrôle du RGPD ; l&apos;AI Act relève des
+        l&apos;autorité de contrôle du RGPD, l&apos;AI Act relève des
         autorités nationales de surveillance du marché désignées par chaque
         État membre. Confondre les deux fait croire à une conformité qui
         n&apos;existe pas.
@@ -408,7 +408,7 @@ export function AiActPmeChecklist() {
           l&apos;IA, l&apos;article 5 sur les pratiques interdites,
           l&apos;article 50 sur la transparence et l&apos;article 99 sur les
           sanctions, y compris le plafond au montant le plus faible pour les
-          PME et les jeunes pousses ; règlement (UE) 2026/1744, dit Digital
+          PME et les jeunes pousses, règlement (UE) 2026/1744, dit Digital
           Omnibus sur l&apos;IA, adopté le 8 juillet 2026, publié au Journal
           officiel de l&apos;Union européenne le 24 juillet 2026 et entré en
           vigueur le 27 juillet 2026, pour le report des obligations relatives

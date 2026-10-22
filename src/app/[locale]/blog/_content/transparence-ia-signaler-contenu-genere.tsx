@@ -243,8 +243,8 @@ export function TransparenceIaSignalerContenuGenere() {
         <em>
           Sources : règlement (UE) 2024/1689 (AI Act), article 50
           (obligations de transparence) et article 99 (sanctions),
-          EUR-Lex ; calendrier d&apos;application publié par la Commission
-          européenne (digital-strategy.ec.europa.eu) ; ajustement du délai
+          EUR-Lex, calendrier d&apos;application publié par la Commission
+          européenne (digital-strategy.ec.europa.eu), ajustement du délai
           de marquage par le Digital Omnibus sur l&apos;IA. Faits vérifiés
           le 20 juillet 2026. Cette page est une synthèse pédagogique, pas
           un conseil juridique.

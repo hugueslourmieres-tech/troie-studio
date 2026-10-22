@@ -163,22 +163,23 @@ export const WORKS: Work[] = [
   // Séries personnelles, nature
   {
     slug: "valberg",
-    // 21/10/2026 : sélection portfolio du Mercantour (n01 à n16) en tête,
-    // puis les cinq photos d'origine.
+    // 21/10/2026 : paysages de la sélection portfolio du Mercantour (n01 à
+    // n12) en tête, puis les cinq photos d'origine. Les animaux de cette
+    // sélection sont déjà dans la série « animaux ».
     cover: file("Valberg", "n04.jpg"),
     coverPosition: "center 40%",
     gallery: [
-      ...Array.from({ length: 16 }, (_, i) => file("Valberg", `n${String(i + 1).padStart(2, "0")}.jpg`)),
+      ...Array.from({ length: 12 }, (_, i) => file("Valberg", `n${String(i + 1).padStart(2, "0")}.jpg`)),
       ...Array.from({ length: 5 }, (_, i) => file("Valberg", `${String(i + 1).padStart(2, "0")}.jpg`)),
     ],
   },
   {
     slug: "animaux",
-    // 21/10/2026 : portfolios des voyages 2025-2026 (Chili, Groenland,
-    // Svalbard, Ouganda, Kenya, Antarctique, Polynésie, Australie) en tête.
-    cover: file("Animaux", "n01.jpg"),
+    // Faune du Mercantour, photographiée par Hugues (Nikon Z 6). Les photos
+    // de voyage du disque SSD sont de Pierre Appert : ne jamais les ajouter
+    // ici (vérifié le 22/10/2026).
+    cover: file("Animaux", "cover.jpg"),
     gallery: [
-      ...Array.from({ length: 23 }, (_, i) => file("Animaux", `n${String(i + 1).padStart(2, "0")}.jpg`)),
       file("Animaux", "01.jpg"),
       file("Animaux", "02.jpg"),
       file("Animaux", "04.jpg"),

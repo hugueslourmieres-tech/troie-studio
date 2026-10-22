@@ -338,11 +338,11 @@ export function RegistreDesUsagesIaModele() {
       <p>
         <em>
           Sources : règlement (UE) 2024/1689 (AI Act), article 4 (maîtrise de
-          l&apos;IA), EUR-Lex ; questions-réponses sur la littératie IA et FAQ
+          l&apos;IA), EUR-Lex, questions-réponses sur la littératie IA et FAQ
           « Navigating the AI Act » publiées par la Commission européenne
           (digital-strategy.ec.europa.eu), pour les mesures attendues, le
           contrôle par les autorités nationales de surveillance du marché à
-          partir du 2 août 2026 et le calendrier d&apos;application ; CNIL, pour
+          partir du 2 août 2026 et le calendrier d&apos;application, CNIL, pour
           le registre des activités de traitement de l&apos;article 30 du RGPD.
           Faits vérifiés le 27 juillet 2026. Cette page est une synthèse
           pédagogique, pas un conseil juridique.

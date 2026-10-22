@@ -39,7 +39,7 @@ const COPY = {
       "Films de marque, témoignages clients, contenus pour les réseaux. Du concept au montage.",
     photoTitle: "Photographie",
     photoBody:
-      "Reportages pour les entreprises, paysages du Mercantour et faune sauvage du monde entier.",
+      "Reportages pour les entreprises, paysages et faune sauvage du Mercantour.",
     business: "Pour les entreprises",
     valberg: "Valberg, Mercantour",
     animaux: "Faune sauvage",
@@ -59,7 +59,7 @@ const COPY = {
       "Brand films, customer testimonials, content for social media. From concept to edit.",
     photoTitle: "Photography",
     photoBody:
-      "Reportage for businesses, Mercantour landscapes and wildlife from around the world.",
+      "Reportage for businesses, Mercantour landscapes and wildlife.",
     business: "For businesses",
     valberg: "Valberg, Mercantour",
     animaux: "Wildlife",
@@ -163,7 +163,7 @@ function MediasView({ locale }: { locale: string }) {
               </div>
               <PhotoStrip
                 label={w.slug === "valberg" ? c.valberg : c.animaux}
-                photos={w.gallery.filter((g) => /\/n\d{2}\.jpg$/.test(g)).slice(0, w.slug === "valberg" ? 12 : 16)}
+                photos={w.slug === "valberg" ? w.gallery.filter((g) => /\/n\d{2}\.jpg$/.test(g)) : [w.cover, ...w.gallery]}
               />
             </div>
           ))}

@@ -414,15 +414,15 @@ export function CharteUsageIaEntrepriseModele() {
       <p>
         <em>
           Sources : règlement (UE) 2024/1689 (AI Act), article 4 sur la
-          maîtrise de l&apos;IA, EUR-Lex ; questions-réponses sur la littératie
+          maîtrise de l&apos;IA, EUR-Lex, questions-réponses sur la littératie
           IA publiées par la Commission européenne
           (digital-strategy.ec.europa.eu), pour l&apos;absence de certificat
           exigé, la tenue d&apos;un registre interne des formations et le
           contrôle par les autorités nationales de surveillance du marché à
-          partir du 2 août 2026 ; code du travail, articles L. 1311-2, L.
+          partir du 2 août 2026, code du travail, articles L. 1311-2, L.
           1321-1, L. 1321-4, L. 1321-5, R. 1321-1 et R. 1321-2 (Légifrance et
           code.travail.gouv.fr), pour le règlement intérieur, les adjonctions
-          et les formalités ; article L. 2312-8 pour la consultation du CSE ;
+          et les formalités, article L. 2312-8 pour la consultation du CSE ;
           CNIL, fiches pratiques IA et programme de travail 2026 publié le 7
           avril 2026, pour l&apos;application du RGPD aux usages de l&apos;IA
           au travail. Faits vérifiés le 24 août 2026. Cette page est une

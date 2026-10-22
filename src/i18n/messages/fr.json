@@ -21,7 +21,7 @@
     "project": "Décrire mon projet"
   },
   "home": {
-    "introEyebrow": "Agence digitale à Nice",
+    "introEyebrow": "Agence digitale",
     "introTitle": "Tout votre digital,|fait par une seule équipe.",
     "introBody": "Sites et applications, photo et vidéo, communication, référencement Google et publicité. Vous avez un seul interlocuteur, du premier rendez-vous aux résultats. En France et à distance.",
     "worksEyebrow": "Réalisations",
@@ -159,9 +159,9 @@
       },
       "animaux": {
         "title": "Animaux",
-        "subtitle": "Faune sauvage, de l'Arctique à l'Antarctique",
+        "subtitle": "Faune sauvage du Mercantour",
         "scope": "Photographie animalière, tirages",
-        "description": "Pumas du Chili, ours polaires du Groenland, morses du Svalbard, gorilles et chimpanzés d'Ouganda, manchots d'Antarctique. Des photos prises à hauteur d'animal."
+        "description": "Gypaète, chevreuil, renard, marmotte et écureuil, photographiés dans le Mercantour, à hauteur d'animal."
       }
     }
   },
@@ -213,7 +213,7 @@
     "rights": "Tous droits réservés.",
     "privacy": "Confidentialité",
     "terms": "Mentions légales",
-    "based": "Atelier à Nice, France",
+    "based": "Basés à Nice, partout en France",
     "studio": "Services",
     "resources": "Le studio",
     "contact": "Contact",

@@ -44,7 +44,7 @@ export function IaEthique() {
         </li>
         <li>
           <strong>Vérifier avant de diffuser.</strong> L’IA{" "}
-          <Link href="/fr/blog/pourquoi-lia-hallucine">se trompe</Link> ; vous
+          <Link href="/fr/blog/pourquoi-lia-hallucine">se trompe</Link>, vous
           restez responsable.
         </li>
         <li>

@@ -338,18 +338,18 @@ export function FormationAiActCpfOpcoFinancement() {
       <p>
         <em>
           Sources : règlement (UE) 2024/1689 (AI Act), article 4 sur la
-          maîtrise de l&apos;IA, EUR-Lex ; questions-réponses sur la littératie
+          maîtrise de l&apos;IA, EUR-Lex, questions-réponses sur la littératie
           IA publiées par la Commission européenne
           (digital-strategy.ec.europa.eu), pour l&apos;absence de certificat
           exigé et le contrôle par les autorités nationales de surveillance du
-          marché à partir du 2 août 2026 ; code du travail, articles L. 6316-1,
+          marché à partir du 2 août 2026, code du travail, articles L. 6316-1,
           L. 6321-1, L. 6323-2, L. 6323-6 et L. 6332-17 (Légifrance et
-          code.travail.gouv.fr) ; Service-Public, « CPF : la participation
+          code.travail.gouv.fr), Service-Public, « CPF : la participation
           forfaitaire obligatoire augmente », mise à jour du 2 avril 2026
-          (décret n° 2026-234 du 30 mars 2026) ; Opco Atlas, « Réforme de la
+          (décret n° 2026-234 du 30 mars 2026), Opco Atlas, « Réforme de la
           TVA : ce qui change pour le financement de vos formations », 22 juin
-          2026 ; Opco EP, « Réforme de la TVA : ce qui change pour vos demandes
-          de prise en charge de formation », 24 juillet 2026 ; comparatif des
+          2026, Opco EP, « Réforme de la TVA : ce qui change pour vos demandes
+          de prise en charge de formation », 24 juillet 2026, comparatif des
           prix de la formation AI Act, troie.app, relevé de juillet 2026. Faits
           vérifiés le 16 septembre 2026. Cette page est une synthèse
           pédagogique, pas un conseil juridique ni financier.

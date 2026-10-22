@@ -41,7 +41,7 @@ const SOURCE_URL =
 const FAQ = [
   {
     q: "Existe-t-il un MOOC gratuit officiel sur l'AI Act ?",
-    a: "Non, la Commission européenne ne publie pas de MOOC dédié à l'AI Act, mais elle met en ligne gratuitement trois ressources utilisables immédiatement : la plateforme d'information unique et son service d'assistance AI Act, ouverts depuis le 8 octobre 2025, avec un explorateur du texte et un vérificateur de conformité ; le dépôt vivant des pratiques de littératie IA, publié le 4 février 2025 et mis à jour le 31 juillet 2026, qui recense plus de quarante initiatives réelles d'entreprises et d'organismes publics ; et la plateforme européenne des compétences et des emplois numériques, qui héberge des parcours de formation en accès libre. Aucune de ces ressources n'est un cours structuré avec évaluation, ce sont des sources de référence à lire et à copier.",
+    a: "Non, la Commission européenne ne publie pas de MOOC dédié à l'AI Act, mais elle met en ligne gratuitement trois ressources utilisables immédiatement : la plateforme d'information unique et son service d'assistance AI Act, ouverts depuis le 8 octobre 2025, avec un explorateur du texte et un vérificateur de conformité, le dépôt vivant des pratiques de littératie IA, publié le 4 février 2025 et mis à jour le 31 juillet 2026, qui recense plus de quarante initiatives réelles d'entreprises et d'organismes publics, et la plateforme européenne des compétences et des emplois numériques, qui héberge des parcours de formation en accès libre. Aucune de ces ressources n'est un cours structuré avec évaluation, ce sont des sources de référence à lire et à copier.",
   },
   {
     q: "Une formation gratuite suffit-elle pour l'article 4 de l'AI Act ?",
@@ -346,25 +346,25 @@ export function FormationAiActGratuite() {
       <p>
         <em>
           Sources : règlement (UE) 2024/1689 (AI Act), article 4 sur la
-          maîtrise de l&apos;IA, EUR-Lex ; questions-réponses sur la littératie
+          maîtrise de l&apos;IA, EUR-Lex, questions-réponses sur la littératie
           IA publiées par la Commission européenne
           (digital-strategy.ec.europa.eu), pour l&apos;absence de formation
           type imposée, l&apos;absence de certificat requis, le registre
           interne des formations, le renvoi vers la plateforme européenne des
           compétences et des emplois numériques et le contrôle par les
-          autorités nationales de surveillance du marché ; dépôt vivant sur les
+          autorités nationales de surveillance du marché, dépôt vivant sur les
           pratiques de littératie IA du Bureau de l&apos;IA, publié le 4
           février 2025 et mis à jour le 31 juillet 2026, pour les plus de
           quarante initiatives recensées et l&apos;absence de présomption de
-          conformité ; annonce du lancement de l&apos;AI Act Service Desk et de
+          conformité, annonce du lancement de l&apos;AI Act Service Desk et de
           la plateforme d&apos;information unique, Commission européenne, 8
           octobre 2025, pour l&apos;explorateur du règlement et le vérificateur
-          de conformité ; Elements of AI, université d&apos;Helsinki et
+          de conformité, Elements of AI, université d&apos;Helsinki et
           MinnaLearn, pour la gratuité, la version française et les plus de
-          deux millions d&apos;inscrits ; communiqué du ministère de l&apos;
+          deux millions d&apos;inscrits, communiqué du ministère de l&apos;
           Économie du 17 juin 2026 sur le plan Osez l&apos;IA, pour les 615
           ambassadeurs de l&apos;IA, les plus de 35 000 entreprises touchées,
-          le coût du Diag Data IA et l&apos;objectif 2030 ; CNIL, fiches
+          le coût du Diag Data IA et l&apos;objectif 2030, CNIL, fiches
           pratiques IA, pour les ressources gratuites relatives au RGPD. Faits
           vérifiés le 31 juillet 2026. Cette page est une synthèse pédagogique,
           pas un conseil juridique.

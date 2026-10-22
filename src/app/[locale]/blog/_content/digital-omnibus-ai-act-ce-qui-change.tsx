@@ -267,11 +267,11 @@ export function DigitalOmnibusAiActCeQuiChange() {
       <p>
         <em>
           Sources : Conseil de l&apos;Union européenne, communiqué du
-          29 juin 2026 ; texte final PE-CONS 30/1/26 REV 1 (LEX 2532,
+          29 juin 2026, texte final PE-CONS 30/1/26 REV 1 (LEX 2532,
           Strasbourg, 8 juillet 2026) modifiant le règlement (UE)
-          2024/1689 ; calendrier d&apos;application et questions-réponses
+          2024/1689, calendrier d&apos;application et questions-réponses
           sur la littératie IA publiés par la Commission européenne
-          (digital-strategy.ec.europa.eu) ; règlement (UE) 2024/1689
+          (digital-strategy.ec.europa.eu), règlement (UE) 2024/1689
           (EUR-Lex). Faits vérifiés le 15 juillet 2026. Cette page est une
           synthèse pédagogique, pas un conseil juridique.
         </em>
