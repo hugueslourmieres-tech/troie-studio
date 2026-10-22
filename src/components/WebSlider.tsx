@@ -4,11 +4,12 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import type { Project } from "./WebProjects";
+import { IPhone, MacBook } from "./DeviceMockups";
 
 /**
  * Accueil : le design de nos sites en slider (21/10/2026, demande de Hugues :
- * « on n'est pas obligé de scroller et de voir plein de trucs »). Une fenêtre
- * de navigateur par site, défilement horizontal aimanté, flèches et
+ * « on n'est pas obligé de scroller et de voir plein de trucs »). Chaque site
+ * sur un MacBook, avec sa version mobile sur iPhone (22/10/2026), défilement horizontal aimanté, flèches et
  * compteur. Aperçus en noir et blanc, couleur au survol. Les vidéos ne
  * tournent que pour la diapositive visible.
  */
@@ -81,37 +82,41 @@ export function WebSlider({ projects, en }: { projects: Project[]; en: boolean }
             aria-label={`${i + 1} / ${projects.length}, ${p.name}`}
           >
             <a href={p.href} target="_blank" rel="noreferrer" className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-2xl">
-              <div className="overflow-hidden rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] shadow-[0_30px_70px_-34px_rgba(17,19,24,0.35)]">
-                <div className="flex items-center gap-1.5 border-b border-[var(--rule)] bg-[var(--bg)] px-4 py-2.5">
-                  <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-                  <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-                  <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                  <span className="mx-auto flex h-5 w-1/2 max-w-[230px] items-center justify-center rounded-full bg-[var(--bg-2)] font-mono text-[10px] tracking-[0.06em] text-[var(--fg-2)]">
-                    {p.url}
-                  </span>
-                </div>
-                <div className="relative w-full overflow-hidden bg-white" style={{ aspectRatio: "16 / 10" }}>
-                  {p.video ? (
-                    <video
-                      className="absolute inset-0 block h-full w-full object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
-                      poster={p.desktop}
-                      muted
-                      loop
-                      playsInline
-                      preload={i < 2 ? "auto" : "metadata"}
-                      aria-label={`${p.name}, ${en ? "animated preview" : "aperçu animé"}`}
-                    >
-                      <source src={p.video} type="video/mp4" />
-                    </video>
-                  ) : (
+              {/* Le site sur MacBook, la version mobile ou l'application sur iPhone */}
+              <div className="relative pb-[7%] transition-transform duration-500 group-hover:-translate-y-1">
+                <MacBook className="w-[90%]">
+                    {p.video ? (
+                      <video
+                        className="absolute inset-0 block h-full w-full object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
+                        poster={p.desktop}
+                        muted
+                        loop
+                        playsInline
+                        preload={i < 2 ? "auto" : "metadata"}
+                        aria-label={`${p.name}, ${en ? "animated preview" : "aperçu animé"}`}
+                      >
+                        <source src={p.video} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <Image
+                        src={p.desktop}
+                        alt={`${p.name}, ${en ? "preview" : "aperçu"}`}
+                        fill
+                        sizes="(max-width: 768px) 86vw, 820px"
+                        className="object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
+                      />
+                    )}
+                </MacBook>
+                <div className="absolute bottom-0 right-0 w-[20%] min-w-[78px]">
+                  <IPhone>
                     <Image
-                      src={p.desktop}
-                      alt={`${p.name}, ${en ? "preview" : "aperçu"}`}
+                      src={p.mobile}
+                      alt={`${p.name}, ${en ? "mobile" : "sur mobile"}`}
                       fill
-                      sizes="(max-width: 768px) 86vw, 820px"
+                      sizes="200px"
                       className="object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
                     />
-                  )}
+                  </IPhone>
                 </div>
               </div>
               <div className="mt-5 flex items-baseline justify-between gap-4">

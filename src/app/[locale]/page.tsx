@@ -27,9 +27,9 @@ export default async function HomePage({
       <HomeHero locale={locale} />
       <HomeDashboard locale={locale} />
       <HomeWebWorks locale={locale} />
+      <ClientsCloud />
       <HomeServices locale={locale} />
       <HomeFilms locale={locale} />
-      <ClientsCloud />
       <AboutBlock locale={locale} />
       <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <ContactCTA locale={locale} />
