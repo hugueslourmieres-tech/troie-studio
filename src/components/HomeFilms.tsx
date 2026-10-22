@@ -26,13 +26,12 @@ type Story = {
 
 const STORIES: Story[] = [
   {
-    id: "gs",
-    client: "GS Monaco",
-    where: { fr: "Monaco", en: "Monaco" },
-    kind: { fr: "Vidéo de présentation", en: "Presentation film" },
-    made: { fr: "Vidéo de présentation de GS Monaco, tournée sur place.", en: "GS Monaco presentation film, shot on location." },
-    preview: "/images/videos-local/01.mp4",
-    film: "/images/videos-local/01.mp4",
+    id: "akita",
+    client: "Top Akita Inu",
+    kind: { fr: "Interview", en: "Interview" },
+    made: { fr: "Interview de Mickaël Bedouet, filmée et montée par l'équipe.", en: "Interview with Mickaël Bedouet, filmed and edited by the team." },
+    preview: "/images/videos-local/02.mp4",
+    film: "/images/videos-local/akita-interview.mp4",
   },
   {
     id: "exact2",
@@ -44,12 +43,37 @@ const STORIES: Story[] = [
     film: "/images/videos-local/05.mp4",
   },
   {
-    id: "ferrari",
-    client: "Ferrari Auctions",
-    kind: { fr: "Reels", en: "Reels" },
-    made: { fr: "Reels verticaux pour les réseaux sociaux.", en: "Vertical reels for social media." },
-    preview: "/images/creation/video/ferrari.mp4",
-    film: "/images/videos-local/04.mp4",
+    id: "wauters",
+    client: "Wauters B'Pack",
+    kind: { fr: "Interview", en: "Interview" },
+    made: {
+      fr: "Interview de Ludivine Beurier, superviseuse qualité, tournée sur le site de l'imprimerie.",
+      en: "Interview with Ludivine Beurier, quality supervisor, shot at the print plant.",
+    },
+    preview: "/images/videos-local/wauters-ludivine-loop.mp4",
+    film: "/images/videos-local/wauters-ludivine.mp4",
+  },
+  {
+    id: "eshuis",
+    client: "Eshuis",
+    kind: { fr: "Témoignage client", en: "Customer story" },
+    made: {
+      fr: "Témoignage filmé en atelier, sous-titré pour les réseaux sociaux.",
+      en: "Testimonial filmed in the workshop, subtitled for social media.",
+    },
+    preview: "/images/videos-local/eshuis-temoignage-loop.mp4",
+    film: "/images/videos-local/eshuis-temoignage.mp4",
+  },
+  {
+    id: "mibi",
+    client: "Veoria",
+    kind: { fr: "Interview", en: "Interview" },
+    made: {
+      fr: "Interview de Jonathan et Lucile, filmée au MIBI 2026 et sous-titrée.",
+      en: "Interview with Jonathan and Lucile, filmed at MIBI 2026 and subtitled.",
+    },
+    preview: "/images/videos-local/mibi-interview-loop.mp4",
+    film: "/images/videos-local/mibi-interview.mp4",
   },
   {
     id: "unboxing",
@@ -60,19 +84,28 @@ const STORIES: Story[] = [
     film: "/images/videos-local/06.mp4",
   },
   {
-    id: "akita",
-    client: "Top Akita Inu",
-    kind: { fr: "Interview", en: "Interview" },
-    made: { fr: "Interview de Mickaël Bedouet, filmée et montée par l'équipe.", en: "Interview with Mickaël Bedouet, filmed and edited by the team." },
-    preview: "/images/videos-local/02.mp4",
-    film: "/images/videos-local/akita-interview.mp4",
+    id: "ferrari",
+    client: "Ferrari Auctions",
+    kind: { fr: "Reels", en: "Reels" },
+    made: { fr: "Reels verticaux pour les réseaux sociaux.", en: "Vertical reels for social media." },
+    preview: "/images/creation/video/ferrari.mp4",
+    film: "/images/videos-local/04.mp4",
+  },
+  {
+    id: "gs",
+    client: "GS Monaco",
+    where: { fr: "Monaco", en: "Monaco" },
+    kind: { fr: "Vidéo de présentation", en: "Presentation film" },
+    made: { fr: "Vidéo de présentation de GS Monaco, tournée sur place.", en: "GS Monaco presentation film, shot on location." },
+    preview: "/images/videos-local/01.mp4",
+    film: "/images/videos-local/01.mp4",
   },
 ];
 
 const COPY = {
   fr: {
     title: "Nos films.",
-    body: "Lancements de produits, reels, interviews. Tournés et montés par l'équipe, pensés pour vendre.",
+    body: "Interviews, témoignages clients, lancements de produits. Tournés et montés par l'équipe, pensés pour vendre.",
     more: "Tous les films",
     open: "Voir le film",
     made: "Ce que nous avons fait",
@@ -83,7 +116,7 @@ const COPY = {
   },
   en: {
     title: "Our films.",
-    body: "Product launches, reels, interviews. Shot and edited by the team, made to sell.",
+    body: "Interviews, customer stories, product launches. Shot and edited by the team, made to sell.",
     more: "All films",
     open: "Watch the film",
     made: "What we did",

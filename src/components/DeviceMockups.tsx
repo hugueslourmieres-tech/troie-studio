@@ -8,23 +8,37 @@ import type { ReactNode } from "react";
  * la barre d'état pour que l'îlot ne cache rien.
  */
 
-/** MacBook Pro : écran 16:10 dans un cadre noir à encoche, puis le socle. */
+/**
+ * MacBook Pro 16 pouces, argent (22/10/2026, refait : la première version
+ * ressemblait à un MacBook Air). Écran à bord noir fin et encoche, liseré
+ * aluminium autour du couvercle, charnière sombre, châssis épais à face
+ * avant droite avec l'encoche d'ouverture, ombre portée au sol.
+ */
 export function MacBook({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
     <div className={`relative ${className}`}>
-      {/* Couvercle */}
-      <div className="relative mx-[5.5%] rounded-t-[3.2%_5%] bg-[#0c0c0e] p-[1.9%_1.9%_2.4%] shadow-[0_0_0_1px_#2a2b30,0_40px_80px_-40px_rgba(17,19,24,0.55)]">
-        <div className="relative overflow-hidden rounded-[0.6%] bg-white" style={{ aspectRatio: "16 / 10" }}>
-          {children}
-          {/* Encoche de la caméra */}
-          <span aria-hidden="true" className="absolute left-1/2 top-0 h-[2.4%] w-[8%] -translate-x-1/2 rounded-b-[35%] bg-[#0c0c0e]" />
+      {/* Couvercle : liseré aluminium, puis le bord noir de l'écran */}
+      <div className="relative mx-[7.2%] rounded-t-[2.6%_4%] bg-[linear-gradient(180deg,#d7d9de,#9fa2a9_60%,#b9bcc2)] p-[0.42%] shadow-[0_40px_70px_-45px_rgba(17,19,24,0.6)]">
+        <div className="relative rounded-t-[2.3%_3.6%] bg-[#060607] p-[1.55%_1.55%_2.5%]">
+          <div className="relative overflow-hidden rounded-[0.55%] bg-white" style={{ aspectRatio: "16 / 10" }}>
+            {children}
+            {/* Encoche de la caméra */}
+            <span aria-hidden="true" className="absolute left-1/2 top-0 h-[3.3%] w-[9.5%] -translate-x-1/2 rounded-b-[22%] bg-[#060607]" />
+            {/* Reflet de la dalle */}
+            <span aria-hidden="true" className="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0)_38%)]" />
+          </div>
         </div>
       </div>
-      {/* Socle aluminium, avec l'encoche d'ouverture */}
-      <div className="relative h-0 pb-[3.1%]">
-        <div className="absolute inset-0 rounded-b-[40%_100%] bg-[linear-gradient(180deg,#e9eaee_0%,#c9cbd1_45%,#a9acb4_100%)] shadow-[inset_0_1px_0_#f8f9fb]" />
-        <span aria-hidden="true" className="absolute left-1/2 top-0 h-[38%] w-[15%] -translate-x-1/2 rounded-b-[40%] bg-[#b3b6bd]" />
+      {/* Charnière */}
+      <div className="mx-[8.4%] h-0 rounded-b-[30%] bg-[linear-gradient(180deg,#2c2d31,#55575c)] pb-[0.55%]" />
+      {/* Châssis : arête du plateau, face avant, encoche d'ouverture */}
+      <div className="relative h-0 pb-[3.2%]">
+        <div className="absolute inset-x-0 top-0 h-[26%] rounded-t-[0.6%_30%] bg-[linear-gradient(180deg,#f4f5f7,#d5d7dc)]" />
+        <div className="absolute inset-x-0 bottom-0 top-[26%] rounded-b-[1.4%_60%] bg-[linear-gradient(180deg,#c4c6cb_0%,#a3a6ac_55%,#7f8289_100%)] shadow-[inset_0_-1px_0_rgba(0,0,0,0.18)]" />
+        <span aria-hidden="true" className="absolute left-1/2 top-[26%] h-[40%] w-[12%] -translate-x-1/2 rounded-b-[50%] bg-[linear-gradient(180deg,#9b9ea5,#b7babf)] shadow-[inset_0_1px_2px_rgba(0,0,0,0.25)]" />
       </div>
+      {/* Ombre au sol */}
+      <div aria-hidden="true" className="absolute inset-x-[5%] -bottom-[1.6%] -z-10 h-[3%] rounded-[50%] bg-[rgba(17,19,24,0.35)] blur-[10px]" />
     </div>
   );
 }
