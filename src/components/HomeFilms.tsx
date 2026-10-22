@@ -43,17 +43,6 @@ const STORIES: Story[] = [
     film: "/images/videos-local/04.mp4",
   },
   {
-    id: "rutherford",
-    client: "Rutherford",
-    kind: { fr: "Film de démonstration", en: "Demo film" },
-    made: {
-      fr: "Film de démonstration du système de contrôle couleur, tourné en imprimerie et monté pour les réseaux sociaux.",
-      en: "Demo film of the colour control system, shot in a print shop and edited for social media.",
-    },
-    preview: "/images/videos-local/rutherford-demo-loop.mp4",
-    film: "/images/videos-local/rutherford-demo.mp4",
-  },
-  {
     id: "unboxing",
     client: "X-Rite, eXact 2",
     kind: { fr: "Unboxing", en: "Unboxing" },
@@ -68,17 +57,6 @@ const STORIES: Story[] = [
     made: { fr: "Interview de Mickaël Bedouet, filmée et montée par l'équipe.", en: "Interview with Mickaël Bedouet, filmed and edited by the team." },
     preview: "/images/videos-local/02.mp4",
     film: "/images/videos-local/akita-interview.mp4",
-  },
-  {
-    id: "sleepy",
-    client: "Sleepy head",
-    kind: { fr: "Reel Instagram", en: "Instagram reel" },
-    made: {
-      fr: "Reel monté et publié sur Instagram : 171 000 vues et 16 000 j'aime.",
-      en: "Reel edited and posted on Instagram: 171,000 views and 16,000 likes.",
-    },
-    preview: "/images/videos-local/sleepy-head-loop.mp4",
-    film: "/images/videos-local/sleepy-head.mp4",
   },
 ];
 
