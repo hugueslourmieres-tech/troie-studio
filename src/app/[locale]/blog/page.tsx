@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { setRequestLocale } from "next-intl/server";
 import { ARTICLES_SORTED, localizeArticle } from "./articles";
 import { pageSocial } from "@/lib/og";
@@ -79,51 +80,46 @@ export default async function BlogIndexPage({
         </p>
       </header>
 
-      <ul className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2">
+      {/* Le journal en liste (22/10/2026) : une ligne cliquable par article,
+          tout ce qui a été publié se lit d'un coup d'œil. */}
+      <ul data-reveal-stagger className="mt-16 border-t border-[var(--rule)]">
         {ARTICLES_SORTED.map((a) => {
           const L = localizeArticle(a, locale);
           return (
-            <li key={a.slug}>
+            <li key={a.slug} className="border-b border-[var(--rule)]">
               <Link
                 href={`/${locale}/blog/${a.slug}`}
-                className="group flex h-full flex-col"
+                className="group -mx-4 grid grid-cols-[96px_1fr] items-center gap-4 rounded-xl px-4 py-5 transition-colors duration-200 hover:bg-[var(--bg-2)] sm:grid-cols-[168px_1fr_auto] sm:gap-7 md:py-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
               >
-                {/* Aperçu : photo en duotone orange (traitement maison) */}
-                <div className="relative aspect-[16/10] overflow-hidden rounded-sm bg-[#1a0f08]">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-[var(--bg-2)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={a.cover}
                     alt=""
                     aria-hidden="true"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
+                    className="t-photo h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                     loading="lazy"
                   />
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/45 to-transparent"
-                  />
-                  <span className="text-sm absolute left-4 top-4 text-[#f6ead4] font-medium">
-                    {L.category}
-                  </span>
                 </div>
-
-                <div className="mt-5 flex flex-1 flex-col">
-                  <div className="text-sm flex items-center gap-3 text-[var(--fg-2)]/55 font-medium">
-                    <span>{a.readingMinutes} min</span>
+                <div className="min-w-0">
+                  <p className="flex flex-wrap items-center gap-x-3 text-sm text-[var(--fg-2)]">
+                    <span className="font-medium text-[var(--fg)]">{L.category}</span>
                     <span>{formatDate(a.date, locale)}</span>
-                  </div>
-                  <h2 className="t-display mt-3 text-2xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-[28px]">
+                    <span className="hidden sm:inline">{a.readingMinutes} min</span>
+                  </p>
+                  <h2 className="mt-1.5 text-lg font-medium leading-snug tracking-[-0.015em] text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-xl">
                     {L.cardTitle}
                   </h2>
-                  <p className="mt-3 text-base leading-relaxed text-[var(--fg-2)]">
-                    {L.description}
+                  <p className="mt-1.5 hidden text-[15px] leading-relaxed text-[var(--fg-2)] sm:block">
+                    <span className="line-clamp-2">{L.description}</span>
                   </p>
-                  <span className="text-sm mt-5 inline-flex items-center gap-2 text-[var(--fg-2)]/65 transition-colors group-hover:text-[var(--accent)] font-medium">
-                    {m.read}
-                    <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-                  </span>
                 </div>
+                <span
+                  aria-hidden="true"
+                  className="hidden h-10 w-10 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--fg)] transition-[transform,background-color,color] duration-200 group-hover:translate-x-1 group-hover:bg-[#111318] group-hover:text-white sm:inline-flex"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </span>
               </Link>
             </li>
           );

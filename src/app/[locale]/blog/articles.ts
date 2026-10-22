@@ -56,7 +56,8 @@ export type Article = {
   date: string;
   category: string;
   readingMinutes: number;
-  /** Image d'aperçu (rendue en duotone orange). */
+  /** Image d'aperçu : une photo unique par article (paysages du Mercantour
+   * de Hugues, 22/10/2026), en noir et blanc, couleur au survol. */
   cover: string;
   /** Mots-clés indicatifs (SEO interne, non rendus). */
   keywords?: string[];
@@ -105,7 +106,7 @@ export const ARTICLES: Article[] = [
     date: "2026-09-16",
     category: "Conformité",
     readingMinutes: 8,
-    cover: "/images/corpo/strategie/DSC_5552-4.jpg",
+    cover: "/images/blog/covers/formation-ai-act-cpf-opco-financement.jpg",
     keywords: [
       "formation AI Act CPF",
       "formation IA Act OPCO",
@@ -126,7 +127,7 @@ export const ARTICLES: Article[] = [
     date: "2026-08-24",
     category: "Conformité",
     readingMinutes: 9,
-    cover: "/images/corpo/montpellier/DSC_7603.jpg",
+    cover: "/images/blog/covers/charte-usage-ia-entreprise-modele.jpg",
     keywords: [
       "charte usage IA entreprise",
       "charte intelligence artificielle modèle",
@@ -147,7 +148,7 @@ export const ARTICLES: Article[] = [
     date: "2026-08-17",
     category: "Conformité",
     readingMinutes: 8,
-    cover: "/images/corpo/montpellier/DSC_7573.jpg",
+    cover: "/images/blog/covers/consultation-cse-intelligence-artificielle.jpg",
     keywords: [
       "consultation CSE intelligence artificielle",
       "CSE IA obligatoire",
@@ -168,7 +169,7 @@ export const ARTICLES: Article[] = [
     date: "2026-08-03",
     category: "Conformité",
     readingMinutes: 9,
-    cover: "/images/corpo/mibi/04.jpg",
+    cover: "/images/blog/covers/ai-act-pme-checklist.jpg",
     keywords: [
       "AI Act PME checklist",
       "checklist conformité AI Act",
@@ -189,7 +190,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-31",
     category: "Conformité",
     readingMinutes: 7,
-    cover: "/images/blog/ai-act-2-aout.jpg",
+    cover: "/images/blog/covers/formation-ai-act-gratuite.jpg",
     keywords: [
       "formation AI Act gratuite",
       "MOOC IA Act gratuit",
@@ -210,7 +211,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-29",
     category: "Conformité",
     readingMinutes: 6,
-    cover: "/images/corpo/mibi/_DSC7503.jpg",
+    cover: "/images/blog/covers/attestation-litteratie-ia.jpg",
     keywords: [
       "attestation littératie IA",
       "attestation formation AI Act",
@@ -229,7 +230,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-28",
     category: "Création",
     readingMinutes: 5,
-    cover: "/images/corpo/barcelona/13Hugues-Nikon-35mm.jpg",
+    cover: "/images/blog/covers/site-web-ia-2026-creation.jpg",
     keywords: [
       "création site web IA",
       "site web 2026",
@@ -247,7 +248,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-28",
     category: "L'IA au travail",
     readingMinutes: 6,
-    cover: "/images/corpo/mibi/DSC_7665.jpg",
+    cover: "/images/blog/covers/agent-qualification-leads-cas-usage.jpg",
     keywords: [
       "agent IA prospection",
       "qualification leads IA",
@@ -265,7 +266,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-28",
     category: "L'IA au travail",
     readingMinutes: 6,
-    cover: "/images/corpo/strategie/DSC_5552-4.jpg",
+    cover: "/images/blog/covers/deployer-ia-pme-5-erreurs.jpg",
     keywords: [
       "déployer IA PME",
       "projet IA entreprise erreurs",
@@ -284,7 +285,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-27",
     category: "Conformité",
     readingMinutes: 7,
-    cover: "/images/corpo/mibi/DSC_7665.jpg",
+    cover: "/images/blog/covers/registre-des-usages-ia-modele.jpg",
     keywords: [
       "registre des usages IA modèle",
       "cartographie des usages IA entreprise",
@@ -304,7 +305,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-25",
     category: "Conformité",
     readingMinutes: 6,
-    cover: "/images/blog/ai-act-2-aout.jpg",
+    cover: "/images/blog/covers/ai-act-sanctions-entreprise.jpg",
     keywords: [
       "AI Act sanctions entreprise",
       "amende AI Act",
@@ -324,7 +325,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-24",
     category: "Conformité",
     readingMinutes: 7,
-    cover: "/images/corpo/montpellier/DSC_7616.jpg",
+    cover: "/images/blog/covers/article-4-ai-act-exemples-mesures.jpg",
     keywords: [
       "article 4 AI Act exemple de mesures",
       "mesures littératie IA",
@@ -344,7 +345,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-20",
     category: "Conformité",
     readingMinutes: 6,
-    cover: "/images/corpo/montpellier/DSC_7604.jpg",
+    cover: "/images/blog/covers/transparence-ia-signaler-contenu-genere.jpg",
     keywords: [
       "obligation transparence IA",
       "signaler contenu généré par IA",
@@ -364,7 +365,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-15",
     category: "Conformité",
     readingMinutes: 6,
-    cover: "/images/corpo/montpellier/DSC_7603.jpg",
+    cover: "/images/blog/covers/digital-omnibus-ai-act-ce-qui-change.jpg",
     keywords: [
       "Digital Omnibus IA",
       "report AI Act haut risque",
@@ -384,7 +385,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-06",
     category: "Conformité",
     readingMinutes: 6,
-    cover: "/images/blog/ai-act-2-aout.jpg",
+    cover: "/images/blog/covers/ai-act-controlable-2-aout-2026.jpg",
     keywords: [
       "AI Act 2 août 2026",
       "contrôle AI Act entreprise",
@@ -410,7 +411,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-04",
     category: "Conformité",
     readingMinutes: 6,
-    cover: "/images/blog/accessibilite-carrefour.jpg",
+    cover: "/images/blog/covers/accessibilite-site-web-obligation.jpg",
     keywords: [
       "accessibilité site web obligatoire",
       "RGAA e-commerce",
@@ -435,7 +436,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-02",
     category: "L'IA au travail",
     readingMinutes: 6,
-    cover: "/images/corpo/montpellier/DSC_7573.jpg",
+    cover: "/images/blog/covers/formation-ia-obligatoire-entreprise.jpg",
     keywords: [
       "formation IA obligatoire",
       "littératie IA article 4",
@@ -457,7 +458,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-02",
     category: "L'IA au travail",
     readingMinutes: 7,
-    cover: "/images/ia-packs/solo-pc.jpg",
+    cover: "/images/blog/covers/agent-ia-pme-guide.jpg",
     keywords: [
       "agent IA PME",
       "automatisation IA entreprise",
@@ -479,7 +480,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-22",
     category: "Comprendre l'IA",
     readingMinutes: 6,
-    cover: "/images/blog/manager-v2.jpg",
+    cover: "/images/blog/covers/ia-remplacer-mon-metier-manager-pas-remplace.jpg",
     keywords: [
       "l'IA va-t-elle remplacer mon métier",
       "IA et emploi",
@@ -501,7 +502,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-22",
     category: "Comprendre l'IA",
     readingMinutes: 7,
-    cover: "/images/blog/chatgpt-debutant-v2.jpg",
+    cover: "/images/blog/covers/comment-utiliser-chatgpt-debutant.jpg",
     keywords: [
       "comment utiliser ChatGPT",
       "ChatGPT débutant",
@@ -523,7 +524,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-21",
     category: "L'IA au travail",
     readingMinutes: 7,
-    cover: "/images/blog/ai-act-v2.jpg",
+    cover: "/images/blog/covers/ai-act-entreprise-2026.jpg",
     keywords: [
       "AI Act entreprise",
       "AI Act 2026 que faire",
@@ -546,7 +547,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-20",
     category: "L'IA à la maison",
     readingMinutes: 6,
-    cover: "/images/blog/arnaque-voix-v2.jpg",
+    cover: "/images/blog/covers/arnaque-ia-voix-clonee.jpg",
     keywords: [
       "arnaque IA voix",
       "deepfake vocal",
@@ -568,7 +569,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-19",
     category: "Comprendre l'IA",
     readingMinutes: 5,
-    cover: "/images/blog/prompt-v2.jpg",
+    cover: "/images/blog/covers/comment-ecrire-un-prompt.jpg",
     keywords: ["c'est quoi un prompt", "comment écrire un prompt", "exemples de prompts"],
     titleEn: "How to Write a Good Prompt: The Recipe + 8 Examples",
     cardTitleEn: "How to Write a Good Prompt",
@@ -585,7 +586,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-18",
     category: "Comprendre l'IA",
     readingMinutes: 5,
-    cover: "/images/blog/comparatif-v2.jpg",
+    cover: "/images/blog/covers/chatgpt-claude-gemini-le-chat.jpg",
     keywords: ["ChatGPT vs Claude vs Gemini", "quelle IA choisir", "Le Chat Mistral"],
     titleEn: "ChatGPT, Claude, Gemini, Le Chat: Which One to Choose in 2026?",
     cardTitleEn: "ChatGPT, Claude, Gemini or Le Chat?",
@@ -602,7 +603,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-17",
     category: "Comprendre l'IA",
     readingMinutes: 5,
-    cover: "/images/blog/hallucinations-v2.jpg",
+    cover: "/images/blog/covers/pourquoi-lia-hallucine.jpg",
     keywords: ["l'IA hallucine", "ChatGPT se trompe", "vérifier une réponse IA"],
     titleEn: "Why AI Makes Things Up, and How to Fact-Check It",
     cardTitleEn: "Why AI Hallucinates",
@@ -619,7 +620,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-16",
     category: "Comprendre l'IA",
     readingMinutes: 6,
-    cover: "/images/blog/glossaire-v2.jpg",
+    cover: "/images/blog/covers/glossaire-ia.jpg",
     keywords: ["glossaire IA", "vocabulaire intelligence artificielle", "lexique IA"],
     titleEn: "AI Glossary: 20 Terms Explained in Plain English",
     cardTitleEn: "AI glossary in 20 terms",
@@ -636,7 +637,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-15",
     category: "L'IA à la maison",
     readingMinutes: 5,
-    cover: "/images/blog/vie-privee-v2.jpg",
+    cover: "/images/blog/covers/ia-vie-privee-donnees.jpg",
     keywords: ["ChatGPT données personnelles", "IA RGPD", "confidentialité ChatGPT"],
     titleEn: "AI and Privacy: What You Should Never Paste into ChatGPT",
     cardTitleEn: "AI and privacy: what never to paste",
@@ -653,7 +654,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-14",
     category: "L'IA à la maison",
     readingMinutes: 5,
-    cover: "/images/blog/ecole-v2.jpg",
+    cover: "/images/blog/covers/ia-enfant-ecole.jpg",
     keywords: ["enfant IA école", "ado ChatGPT devoirs", "IA et triche scolaire"],
     titleEn: "Your Child Does Homework With AI: Ban It or Guide It?",
     cardTitleEn: "Your Child and AI at School",
@@ -670,7 +671,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-13",
     category: "L'IA au travail",
     readingMinutes: 5,
-    cover: "/images/blog/agent-v2.jpg",
+    cover: "/images/blog/covers/cest-quoi-un-agent-ia.jpg",
     keywords: ["c'est quoi un agent IA", "agent IA définition", "automatiser avec l'IA"],
     titleEn: "What Is an AI Agent, and What It Changes for Your Work",
     cardTitleEn: "What Is an AI Agent?",
@@ -687,7 +688,7 @@ export const ARTICLES: Article[] = [
     date: "2026-06-12",
     category: "Comprendre l'IA",
     readingMinutes: 5,
-    cover: "/images/blog/ethique-v2.jpg",
+    cover: "/images/blog/covers/ia-ethique.jpg",
     keywords: ["IA éthique", "intelligence artificielle éthique", "IA responsable"],
     titleEn: "Ethical AI: What It Actually Means, and Why It Matters",
     cardTitleEn: "Ethical AI: What Does It Actually Mean?",
