@@ -43,17 +43,6 @@ const STORIES: Story[] = [
     film: "/images/videos-local/05.mp4",
   },
   {
-    id: "wauters",
-    client: "Wauters B'Pack",
-    kind: { fr: "Interview", en: "Interview" },
-    made: {
-      fr: "Interview de Ludivine Beurier, superviseuse qualité, tournée sur le site de l'imprimerie.",
-      en: "Interview with Ludivine Beurier, quality supervisor, shot at the print plant.",
-    },
-    preview: "/images/videos-local/wauters-ludivine-loop.mp4",
-    film: "/images/videos-local/wauters-ludivine.mp4",
-  },
-  {
     id: "eshuis",
     client: "Eshuis",
     kind: { fr: "Témoignage client", en: "Customer story" },
@@ -63,17 +52,6 @@ const STORIES: Story[] = [
     },
     preview: "/images/videos-local/eshuis-temoignage-loop.mp4",
     film: "/images/videos-local/eshuis-temoignage.mp4",
-  },
-  {
-    id: "mibi",
-    client: "Veoria",
-    kind: { fr: "Interview", en: "Interview" },
-    made: {
-      fr: "Interview de Jonathan et Lucile, filmée au MIBI 2026 et sous-titrée.",
-      en: "Interview with Jonathan and Lucile, filmed at MIBI 2026 and subtitled.",
-    },
-    preview: "/images/videos-local/mibi-interview-loop.mp4",
-    film: "/images/videos-local/mibi-interview.mp4",
   },
   {
     id: "unboxing",

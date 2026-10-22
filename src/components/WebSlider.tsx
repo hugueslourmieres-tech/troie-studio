@@ -83,7 +83,7 @@ export function WebSlider({ projects, en }: { projects: Project[]; en: boolean }
           >
             <a href={p.href} target="_blank" rel="noreferrer" className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] rounded-2xl">
               {/* Le site sur MacBook, la version mobile ou l'application sur iPhone */}
-              <div className="relative pb-[7%] transition-transform duration-500 group-hover:-translate-y-1">
+              <div className="relative pb-[7%]">
                 <MacBook className="w-[90%]">
                     {p.video ? (
                       <video
