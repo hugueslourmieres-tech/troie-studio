@@ -38,23 +38,23 @@ export function MacBook({ children, className = "" }: { children: ReactNode; cla
 }
 
 /**
- * iPhone gris sidéral, vue de face (22/10/2026) : vraie maquette Adobe
- * Stock n° 379286725 (licence gratuite, compte Adobe de Hugues), détourée,
+ * iPhone noir tout simple, vue de face (22/10/2026, choix de Hugues) :
+ * maquette Adobe Stock n° 1030134880 (licence gratuite), détourée,
  * écran rendu transparent. Le site s'affiche dessous, sous la barre d'état,
  * pour que l'encoche ne cache rien.
  */
 export function IPhone({ children, className = "" }: { children: ReactNode; className?: string }) {
   return (
-    <div className={`relative ${className}`} style={{ aspectRatio: "900 / 1747" }}>
+    <div className={`relative ${className}`} style={{ aspectRatio: "900 / 1828" }}>
       <div
         className="absolute overflow-hidden bg-white"
-        style={{ left: "8.79%", top: "4.33%", width: "82.02%", height: "90.84%" }}
+        style={{ left: "5.45%", top: "2.48%", width: "89.21%", height: "94.74%" }}
       >
-        <div className="absolute inset-x-0 bottom-0 top-[4.4%] overflow-hidden">{children}</div>
+        <div className="absolute inset-x-0 bottom-0 top-[5%] overflow-hidden">{children}</div>
       </div>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/mockups/iphone-space-gray.png"
+        src="/images/mockups/iphone-black.png"
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full select-none"
