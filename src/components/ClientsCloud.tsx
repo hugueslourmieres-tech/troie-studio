@@ -2,16 +2,21 @@
 
 import { useLocale } from "next-intl";
 
+import Image from "next/image";
+
 // GS MONACO, VEORIA, STUDIO DE LA ROCHE, MEASURECOLOR seulement après accord
-// de Hugues.
+// de Hugues. Logos en noir sur transparent (22/10/2026), tirés des fichiers
+// des marques, recadrés au plus juste. Hauteur réglée à l'œil pour que chaque
+// logo pèse le même poids (surface égale) : h ≈ √(4000 / largeur relative).
+// Top Akita Inu retiré avec son site (le fichier top-akita-inu.png contenait
+// en fait le logo Rutherford).
 const CLIENTS = [
-  "CHANEL",
-  "X-RITE",
-  "SOFITEL",
-  "RUTHERFORD",
-  "TOP AKITA INU",
-  "CAPEFRONT",
-  "LOIR PARIS",
+  { name: "CHANEL", src: "/images/clients/mono-chanel.png", w: 1015, h: 160, px: 25 },
+  { name: "X-Rite", src: "/images/clients/mono-xrite-mark.png", w: 538, h: 160, px: 34 },
+  { name: "Sofitel", src: "/images/clients/mono-sofitel.png", w: 506, h: 160, px: 36 },
+  { name: "Rutherford", src: "/images/clients/mono-rutherford.png", w: 978, h: 160, px: 26 },
+  { name: "Capefront Energies", src: "/images/clients/mono-capefront.png", w: 540, h: 160, px: 34 },
+  { name: "LOIR Paris", src: "/images/clients/mono-loir-paris.png", w: 358, h: 160, px: 42 },
 ];
 
 /**
@@ -42,18 +47,24 @@ export function ClientsCloud() {
       {/* Marquee, défile infiniment, full width */}
       <div className="relative mt-2 overflow-hidden pb-12 md:pb-16">
 
-        <div
-          className="mx-auto flex max-w-7xl flex-wrap justify-center gap-x-10 gap-y-4 px-5 md:gap-x-16"
+        <ul
+          data-reveal-stagger
+          className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-8 px-5 md:gap-x-16"
         >
-          {loopList.map((c, i) => (
-            <span
-              key={`${c}-${i}`}
-              className="text-sm whitespace-nowrap text-[var(--fg-2)]/85 transition-colors hover:text-[var(--fg)] md:text-sm font-medium"
-            >
-              {c}
-            </span>
+          {loopList.map((c) => (
+            <li key={c.name} className="flex items-center">
+              <Image
+                src={c.src}
+                alt={c.name}
+                width={c.w}
+                height={c.h}
+                sizes="200px"
+                style={{ height: `calc(${c.px}px * var(--logo-scale, 1))`, width: "auto" }}
+                className="opacity-70 transition-opacity duration-200 hover:opacity-100 [--logo-scale:0.78] md:[--logo-scale:1]"
+              />
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
