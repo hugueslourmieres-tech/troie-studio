@@ -26,6 +26,15 @@ type Story = {
 
 const STORIES: Story[] = [
   {
+    id: "gs",
+    client: "GS Monaco",
+    where: { fr: "Monaco", en: "Monaco" },
+    kind: { fr: "Vidéo de présentation", en: "Presentation film" },
+    made: { fr: "Vidéo de présentation de GS Monaco, tournée sur place.", en: "GS Monaco presentation film, shot on location." },
+    preview: "/images/videos-local/01.mp4",
+    film: "/images/videos-local/01.mp4",
+  },
+  {
     id: "exact2",
     client: "X-Rite, eXact 2",
     where: { fr: "Paris", en: "Paris" },
