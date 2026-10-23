@@ -142,8 +142,8 @@ export function Header({
         { href: contactHref, label: L.contact },
       ],
       cards: [
-        { href: `/${locale}#realisations`, img: "/images/art/art-1.jpg", title: L.cardSites, kind: L.work },
-        { href: `/${locale}#chiffres`, img: "/images/art/art-3.jpg", title: L.cardCurves, kind: L.results },
+        { href: `/${locale}#realisations`, img: "/images/art/orchid.jpg", title: L.cardSites, kind: L.work },
+        { href: `/${locale}#chiffres`, img: "/images/art/ember.jpg", title: L.cardCurves, kind: L.results },
       ],
     },
     {
@@ -186,7 +186,7 @@ export function Header({
       ],
       cards: [
         { href: `/${locale}#about`, img: "/images/about/hugues-studio.jpg", title: L.cardTeam, kind: L.team },
-        { href: `/${locale}#services`, img: "/images/art/art-4.jpg", title: L.cardServices, kind: L.whatWeDo },
+        { href: `/${locale}#services`, img: "/images/art/meadow.jpg", title: L.cardServices, kind: L.whatWeDo },
       ],
     },
     {

@@ -18,14 +18,14 @@ export function HomeAudience({ locale }: { locale: string }) {
   const E = en(locale);
   const items = E
     ? [
-        { t: "SMEs", b: "A website that brings in enquiries, and the ads and content to fill it.", href: "agence-web-nice", cta: "Websites for SMEs" },
-        { t: "E-commerce", b: "More online sales, on Shopify or elsewhere. Store, SEO and ads.", href: "agence-e-commerce-shopify", cta: "E-commerce" },
-        { t: "Large groups", b: "Films, product launches and content for your teams and markets.", href: "medias", cta: "Films and photos" },
+        { t: "SMEs", b: "A website that brings in enquiries, and the ads and content to fill it.", href: "agence-web-nice", cta: "Websites for SMEs", img: "sky" },
+        { t: "E-commerce", b: "More online sales, on Shopify or elsewhere. Store, SEO and ads.", href: "agence-e-commerce-shopify", cta: "E-commerce", img: "ember" },
+        { t: "Large groups", b: "Films, product launches and content for your teams and markets.", href: "medias", cta: "Films and photos", img: "orchid" },
       ]
     : [
-        { t: "PME", b: "Un site qui amène des demandes, et la publicité et les contenus pour le faire vivre.", href: "agence-web-nice", cta: "Sites pour PME" },
-        { t: "E-commerce", b: "Plus de ventes en ligne, sur Shopify ou ailleurs. Boutique, SEO et publicité.", href: "agence-e-commerce-shopify", cta: "E-commerce" },
-        { t: "Grands groupes", b: "Films, lancements de produits et contenus pour vos équipes et vos marchés.", href: "medias", cta: "Films et photos" },
+        { t: "PME", b: "Un site qui amène des demandes, et la publicité et les contenus pour le faire vivre.", href: "agence-web-nice", cta: "Sites pour PME", img: "sky" },
+        { t: "E-commerce", b: "Plus de ventes en ligne, sur Shopify ou ailleurs. Boutique, SEO et publicité.", href: "agence-e-commerce-shopify", cta: "E-commerce", img: "ember" },
+        { t: "Grands groupes", b: "Films, lancements de produits et contenus pour vos équipes et vos marchés.", href: "medias", cta: "Films et photos", img: "orchid" },
       ];
   return (
     <section className="border-t border-[var(--rule)]">
@@ -36,11 +36,17 @@ export function HomeAudience({ locale }: { locale: string }) {
             <li key={it.t}>
               <Link
                 href={`/${locale}/${it.href}`}
-                className="group flex h-full flex-col rounded-2xl border border-[var(--rule)] bg-white p-7 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)]"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl bg-[var(--bg-2)] transition-transform duration-300 hover:-translate-y-0.5"
               >
+                <span className="grain block aspect-[16/10] overflow-hidden rounded-2xl">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/images/art/${it.img}.jpg`} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                </span>
+                <span className="flex flex-1 flex-col p-7">
                 <h3 className="text-2xl font-medium tracking-[-0.02em] text-[var(--fg)]">{it.t}</h3>
                 <p className="mt-3 flex-1 text-[15px] leading-relaxed text-[var(--fg-2)]">{it.b}</p>
                 <span className="mt-6 text-sm font-medium text-[var(--accent)] underline-offset-4 group-hover:underline">{it.cta}</span>
+                </span>
               </Link>
             </li>
           ))}
@@ -53,15 +59,17 @@ export function HomeAudience({ locale }: { locale: string }) {
 export function HomeCtaBand({ locale }: { locale: string }) {
   const E = en(locale);
   return (
-    <section className="border-t border-[var(--rule)] bg-[var(--bg-2)]">
-      <div data-reveal className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-14 md:flex-row md:items-center md:px-12">
+    <section className="px-3 py-3 md:px-5">
+      <div data-reveal className="grain relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 overflow-hidden rounded-[28px] px-7 py-16 md:flex-row md:items-center md:px-14 md:py-20">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/images/art/ember.jpg" alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div>
-          <h2 className="t-display text-3xl text-[var(--fg)] md:text-4xl">{E ? "Got a project in mind?" : "Un projet en tête ?"}</h2>
-          <p className="mt-2 text-base text-[var(--fg-2)]">{E ? "Tell us in 30 minutes. No commitment." : "Parlons-en 30 minutes, sans engagement."}</p>
+          <h2 className="t-display text-3xl text-white md:text-5xl">{E ? "Got a project in mind?" : "Un projet en tête ?"}</h2>
+          <p className="mt-3 text-base text-white/85 md:text-lg">{E ? "Tell us in 30 minutes. No commitment." : "Parlons-en 30 minutes, sans engagement."}</p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>{E ? "Book 30 min" : "Réserver 30 min"}</a>
-          <Link href={`/${locale}/contact#projet`} className={BTN_OUTLINE}>{E ? "Describe my project" : "Décrire mon projet"}</Link>
+          <a href={CAL_URL} target="_blank" rel="noreferrer" className="relative z-10 inline-flex h-12 items-center rounded-full bg-white px-6 text-[15px] font-medium text-[#111318] transition-transform duration-200 active:scale-[0.98]">{E ? "Book 30 min" : "Réserver 30 min"}</a>
+          <Link href={`/${locale}/contact#projet`} className="relative z-10 inline-flex h-12 items-center rounded-full border border-white/60 px-6 text-[15px] font-medium text-white transition-colors duration-200 hover:border-white">{E ? "Describe my project" : "Décrire mon projet"}</Link>
         </div>
       </div>
     </section>

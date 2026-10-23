@@ -193,7 +193,7 @@ export function HomeFilms({ locale }: { locale: string }) {
                 onClick={(e) => show(i, e.currentTarget)}
                 className="group block w-full rounded-2xl border border-[var(--rule)] bg-white text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
               >
-                <span className="relative block aspect-[4/5] overflow-hidden rounded-t-2xl bg-[var(--bg-2)]">
+                <span className="grain relative block aspect-[4/5] overflow-hidden rounded-t-2xl bg-[var(--bg-2)]">
                   <Preview s={st} />
                 </span>
                 <span className="block px-5 pb-5 pt-4">
