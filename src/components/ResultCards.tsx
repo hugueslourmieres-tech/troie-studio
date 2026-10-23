@@ -17,7 +17,7 @@ import {
  * Les résultats du premier écran en diaporama (24/10/2026, demande de
  * Hugues) : huit résultats réels tirés de src/lib/results.ts, chacun avec un
  * bandeau de couleur filé et granuleux (esprit ElevenLabs), le chiffre en
- * bleu et sa courbe. Défilement automatique toutes les 4,5 s, arrêté au
+ * bleu et sa courbe. Défilement automatique toutes les 3,5 s, arrêté au
  * survol, au focus, au toucher et si l'utilisateur réduit les animations.
  * Chaque carte ouvre l'étude de cas du client.
  */
@@ -88,7 +88,7 @@ function CountUp({ value, run }: { value: string; run: boolean }) {
     let raf = 0;
     const t0 = performance.now();
     const tick = (t: number) => {
-      const k = Math.min(1, (t - t0) / 1400);
+      const k = Math.min(1, (t - t0) / 900);
       setN(Math.round(target * (1 - Math.pow(1 - k, 3))));
       if (k < 1) raf = requestAnimationFrame(tick);
     };
@@ -175,7 +175,7 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
       if (!el) return;
       const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 8;
       go(atEnd ? 0 : active + 1);
-    }, 4500);
+    }, 3500);
     return () => clearInterval(id);
   }, [active, paused, reduce, show, go]);
 
@@ -234,7 +234,7 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                         strokeLinejoin="round"
                         initial={{ pathLength: reduce || i !== active ? 1 : 0 }}
                         animate={show ? { pathLength: 1 } : {}}
-                        transition={{ duration: reduce ? 0 : 1.3, delay: reduce ? 0 : 0.15, ease: [0.65, 0, 0.35, 1] }}
+                        transition={{ duration: reduce ? 0 : 0.9, delay: reduce ? 0 : 0.1, ease: [0.65, 0, 0.35, 1] }}
                       />
                       {c.curve.length < 8 &&
                         c.curve.map(([px, py], k) => (

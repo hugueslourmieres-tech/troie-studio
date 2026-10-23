@@ -199,7 +199,7 @@ export function Header({
         {
           href: `/${locale}#about`,
           img: "/images/about/hugues-studio.jpg",
-          imgs: ["/images/about/hugues-studio.jpg", "/images/about/vanessa-v2.jpg", "/images/about/gilles-pons.jpg", "/images/about/thibaud-v2.jpg"],
+          imgs: ["/images/about/hugues-studio.jpg", "/images/about/vanessa-v2.jpg", "/images/about/gilles-pons.jpg"],
           title: L.cardTeam,
           kind: L.team,
         },

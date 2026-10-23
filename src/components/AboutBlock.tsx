@@ -38,11 +38,6 @@ const TEAM_MEDIA = {
     pos: "center",
     links: [{ href: "https://www.linkedin.com/in/gilles-pons-370569b9/", label: "LinkedIn" }],
   },
-  thibaud: {
-    name: "Thibaud Lourmieres",
-    img: "/images/about/thibaud-v2.jpg",
-    pos: "center 18%",
-  },
 } as const;
 
 /* La section codait tout en français et le servait sur /en : 10 chaînes
@@ -79,7 +74,6 @@ const COPY = {
         note: "Conseil en communication et en marque.",
       },
       gilles: { role: "Lead développeur", note: "Sites, applications et outils sur mesure." },
-      thibaud: { role: "Réalisateur", note: "Films, vidéo et photographie." },
     },
   },
   en: {
@@ -109,7 +103,6 @@ const COPY = {
         note: "Communication and brand consulting.",
       },
       gilles: { role: "Lead developer", note: "Websites, apps and custom tools." },
-      thibaud: { role: "Director", note: "Films, video and photography." },
     },
   },
 } as const;

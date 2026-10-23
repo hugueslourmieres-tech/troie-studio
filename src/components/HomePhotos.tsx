@@ -18,9 +18,9 @@ type Photo = { src: string; w: number; h: number; fr: string; en: string };
 
 const W = "/images/works";
 const PHOTOS: Photo[] = [
-  { src: `${W}/Capefront/DSC_8137.jpg`, w: 2048, h: 1638, fr: "Capefront Energies, l'équipe", en: "Capefront Energies, the team" },
   { src: `${W}/Cartonajes Pans/04.jpg`, w: 1363, h: 1290, fr: "Cartonajes Pans, l'atelier", en: "Cartonajes Pans, the plant" },
   { src: `${W}/Eshuis/DSC_0762.jpg`, w: 2048, h: 1363, fr: "Eshuis, l'imprimerie", en: "Eshuis, the print plant" },
+  { src: `${W}/Capefront/DSC_8137.jpg`, w: 2048, h: 1638, fr: "Capefront Energies, l'équipe", en: "Capefront Energies, the team" },
   { src: `${W}/MIBI 2026/cover.jpg`, w: 2048, h: 1363, fr: "MIBI 2026, portrait d'équipe", en: "MIBI 2026, team portrait" },
   { src: `${W}/Capefront/DSC_8610.jpg`, w: 2048, h: 1638, fr: "Capefront Energies, en réunion", en: "Capefront Energies, in a meeting" },
   { src: `${W}/Eshuis/DSC_0690.jpg`, w: 2048, h: 1363, fr: "Eshuis, détail machine", en: "Eshuis, machine detail" },
