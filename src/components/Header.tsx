@@ -202,10 +202,13 @@ export function Header({
 
   return (
     <header
-      className={`tone-light fixed inset-x-0 top-0 z-50 px-3 pt-3 transition-[padding] duration-500 md:px-5 ${barSolid ? "md:pt-3" : "md:pt-5"}`}
+      className={`tone-light fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter] duration-500 ${
+        barSolid
+          ? "bg-[var(--bg)]/95 backdrop-blur-xl"
+          : "bg-transparent"
+      }`}
     >
-      {/* DA « Liquide » (23/10/2026) : une barre de verre flottante, en pilule. */}
-      <div className="liquid-glass relative z-20 mx-auto flex max-w-7xl items-center justify-between rounded-full py-2 pl-6 pr-2 md:pl-8">
+      <div className="relative z-20 mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-12">
         <Link
           href={`/${locale}`}
           aria-label="TROIE, Studio France"
@@ -234,7 +237,7 @@ export function Header({
             {showLang && <LangSwitch locale={locale} />}
             <Link
               href={contactHref}
-              className="gloss-btn inline-flex h-10 items-center whitespace-nowrap rounded-full px-5 text-[14px] font-medium"
+              className="inline-flex h-10 items-center whitespace-nowrap rounded-full bg-[var(--ink)] px-5 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-[#2a2e37] active:scale-[0.97]"
             >
               {L.contact}
             </Link>
@@ -344,11 +347,11 @@ function NavDropdown({ panel, toggleLabel }: { panel: NavPanel; toggleLabel: str
           bannière LinkedIn de Hugues. Fermé, il est aussi invisible pour les
           lecteurs d'écran (visibility), en plus de l'opacité et du tabIndex. */}
       <div
-        className={`absolute left-1/2 top-full w-[min(1280px,calc(100vw-24px))] -translate-x-1/2 pt-3 transition-[opacity,visibility] duration-200 ${
+        className={`absolute left-1/2 top-full w-screen -translate-x-1/2 transition-[opacity,visibility] duration-200 ${
           open ? "pointer-events-auto visible opacity-100" : "pointer-events-none invisible opacity-0"
         }`}
       >
-        <div className="liquid-glass overflow-hidden rounded-[28px] !bg-white/[0.97]">
+        <div className="border-b border-[var(--rule)] bg-[var(--bg)] shadow-[0_30px_60px_-40px_rgba(17,19,24,0.35)]">
           <div
             className={`mx-auto grid max-w-7xl grid-cols-12 gap-10 px-6 pb-12 pt-8 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] md:px-12 ${
               open ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"

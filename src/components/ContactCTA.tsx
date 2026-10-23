@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { ObfuscatedEmail } from "@/components/ObfuscatedEmail";
-import { LiquidLight } from "./LiquidLight";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
 
@@ -18,9 +17,7 @@ export function ContactCTA(_props: { locale: string }) {
   const locale = useLocale();
 
   return (
-    <section className="tone-dark relative isolate overflow-hidden bg-black text-[var(--fg)]">
-      {/* DA « Liquide » : lumière liquide sur fond noir, comme le héros. */}
-      <LiquidLight id="cta" className="-z-10 opacity-80" />
+    <section className="border-t border-[var(--rule)]">
       <div className="mx-auto max-w-7xl px-5 py-24 md:px-12 md:py-32">
         <div data-reveal className="mx-auto max-w-3xl text-center">
           <h2 className="t-display text-4xl text-[var(--fg)] md:text-6xl">{t("ctaTitle")}</h2>
@@ -32,7 +29,7 @@ export function ContactCTA(_props: { locale: string }) {
               href={CAL_URL}
               target="_blank"
               rel="noreferrer"
-              className="gloss-btn-light inline-flex h-12 items-center rounded-full px-6 text-[15px] font-medium"
+              className="inline-flex h-12 items-center rounded-full bg-[var(--ink)] px-6 text-[15px] font-medium text-white transition-[background-color,transform] duration-200 hover:bg-[#2a2e37] active:scale-[0.98]"
             >
               {t("ctaBook")}
             </a>

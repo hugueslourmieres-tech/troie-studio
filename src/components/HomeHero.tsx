@@ -1,5 +1,4 @@
 import { ResultCards } from "./ResultCards";
-import { LiquidLight } from "./LiquidLight";
 import { RotatingWord } from "./RotatingWord";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
@@ -47,10 +46,8 @@ export function HomeHero({ locale }: { locale: string }) {
   const c = COPY[locale === "en" ? "en" : "fr"];
 
   return (
-    <section className="tone-dark relative isolate overflow-hidden bg-black text-[var(--fg)]">
-      {/* DA « Liquide » : lumière liquide sur fond noir. */}
-      <LiquidLight id="hero" className="-z-10 opacity-90" />
-      <div className="mx-auto max-w-7xl px-5 pt-32 pb-16 md:px-12 md:pt-40 md:pb-24">
+    <section className="relative">
+      <div className="mx-auto max-w-7xl px-5 pt-28 pb-16 md:px-12 md:pt-36 md:pb-24">
         <h1 className="t-display text-[2.5rem] leading-[1.02] text-[var(--fg)] sm:text-6xl lg:text-[5.5rem]">
           {c.title}{" "}
           <br />
@@ -64,7 +61,7 @@ export function HomeHero({ locale }: { locale: string }) {
               href={CAL_URL}
               target="_blank"
               rel="noreferrer"
-              className="gloss-btn-light inline-flex h-12 items-center rounded-full px-6 text-[15px] font-medium"
+              className="inline-flex h-12 items-center rounded-full bg-[var(--ink)] px-6 text-[15px] font-medium text-white transition-[background-color,transform] duration-200 hover:bg-[#2a2e37] active:scale-[0.98]"
             >
               {c.book}
             </a>
@@ -76,7 +73,7 @@ export function HomeHero({ locale }: { locale: string }) {
             </a>
           </div>
         </div>
-        <div className="tone-light mt-12 md:mt-14">
+        <div className="mt-12 md:mt-14">
           <ResultCards locale={locale} />
         </div>
       </div>

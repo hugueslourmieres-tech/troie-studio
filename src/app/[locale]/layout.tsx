@@ -9,7 +9,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { LiquidSheen } from "@/components/LiquidSheen";
 import { ARTICLES_SORTED, localizeArticle } from "./blog/articles";
 import { Analytics } from "@vercel/analytics/next";
 import { OG_IMAGE } from "@/lib/og";
@@ -321,7 +320,6 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ScrollProgress />
           <ScrollReveal />
-          <LiquidSheen />
           <Header
             locale={locale}
             latest={ARTICLES_SORTED.slice(0, 4).map((a) => {
