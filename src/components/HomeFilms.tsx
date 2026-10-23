@@ -166,7 +166,7 @@ export function HomeFilms({ locale }: { locale: string }) {
   const nextStory = open === null ? null : STORIES[(open + 1) % STORIES.length];
 
   return (
-    <section id="films" className="scroll-mt-24 overflow-hidden border-t border-[var(--rule)]">
+    <section id="films" className="tone-dark scroll-mt-24 overflow-hidden bg-[var(--bg)] text-[var(--fg)]">
       <div className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
         <div data-reveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
@@ -191,7 +191,7 @@ export function HomeFilms({ locale }: { locale: string }) {
               <button
                 type="button"
                 onClick={(e) => show(i, e.currentTarget)}
-                className="group block w-full rounded-2xl border border-[var(--rule)] bg-white text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+                className="tone-light group block w-full rounded-2xl border border-[var(--rule)] bg-white text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
               >
                 <span className="relative block aspect-[4/5] overflow-hidden rounded-t-2xl bg-[var(--bg-2)]">
                   <Preview s={st} />
@@ -217,7 +217,7 @@ export function HomeFilms({ locale }: { locale: string }) {
         ref={dialog}
         aria-label={s?.client}
         onClick={(e) => e.target === dialog.current && dialog.current?.close()}
-        className="film-dialog m-auto w-[min(1120px,calc(100vw-24px))] max-h-[calc(100dvh-24px)] overflow-hidden rounded-2xl bg-white p-0 text-[var(--fg)] backdrop:bg-[#111318]/60 backdrop:backdrop-blur-sm"
+        className="tone-light film-dialog m-auto w-[min(1120px,calc(100vw-24px))] max-h-[calc(100dvh-24px)] overflow-hidden rounded-2xl bg-white p-0 text-[var(--fg)] backdrop:bg-[#111318]/60 backdrop:backdrop-blur-sm"
       >
         {s && (
           <div className="flex max-h-[calc(100dvh-24px)] flex-col">

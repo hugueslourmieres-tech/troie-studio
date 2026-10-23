@@ -1,5 +1,5 @@
 import { ResultCards } from "./ResultCards";
-import { AbstractBackdrop } from "./AbstractBackdrop";
+import { SpectrumBackdrop } from "./SpectrumBackdrop";
 import { RotatingWord } from "./RotatingWord";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
@@ -48,9 +48,9 @@ export function HomeHero({ locale }: { locale: string }) {
 
   return (
     <section className="relative">
-      <div className="mx-auto max-w-7xl px-5 pt-28 pb-16 md:px-12 md:pt-36 md:pb-24">
+      <div className="mx-auto max-w-7xl px-5 pt-28 pb-12 md:px-12 md:pt-36 md:pb-16">
         <h1 className="t-display text-[2.5rem] leading-[1.02] text-[var(--fg)] sm:text-6xl lg:text-[5.5rem]">
-          {c.title}
+          {c.title}{" "}
           <br />
           <span className="sr-only">{c.lead} {c.srWords}</span>
           <RotatingWord prefix={c.lead} items={c.words} />
@@ -74,9 +74,14 @@ export function HomeHero({ locale }: { locale: string }) {
             </a>
           </div>
         </div>
-        <AbstractBackdrop className="-mx-5 mt-12 px-5 py-5 md:mx-0 md:mt-14 md:rounded-[28px] md:p-6">
+      </div>
+      {/* Bandeau spectre pleine largeur sous le titre (DA « Prisme »). */}
+      <SpectrumBackdrop>
+        <div className="mx-auto max-w-7xl px-5 py-10 md:px-12 md:py-16">
           <ResultCards locale={locale} />
-        </AbstractBackdrop>
+        </div>
+      </SpectrumBackdrop>
+      <div>
       </div>
     </section>
   );

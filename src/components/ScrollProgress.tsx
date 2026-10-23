@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 
 /**
  * Barre de progression de lecture fixée en haut, au-dessus du header.
- * Multicolore depuis le 23/10/2026 : le dégradé de la bannière LinkedIn de
- * Hugues (magenta, roses, violet, verts, jaune-vert) se dévoile au défilement.
+ * Spectre complet depuis le 23/10/2026 (DA « Prisme ») : du rouge au magenta,
+ * le dégradé se dévoile au défilement.
  */
 export function ScrollProgress() {
   const [progress, setProgress] = useState(0);
@@ -41,7 +41,7 @@ export function ScrollProgress() {
       className="pointer-events-none fixed inset-x-0 top-0 z-[70] h-[3px]"
     >
       <div
-        className="h-full bg-[linear-gradient(90deg,#9b7fd8_0%,#d6338a_22%,#f19ac0_40%,#c8d25a_62%,#3d7d3a_80%,#1f4a2a_100%)]"
+        className="h-full bg-[linear-gradient(90deg,#ff3b30_0%,#ff9500_14%,#ffd60a_28%,#34c759_42%,#00c7be_56%,#0a84ff_70%,#5e5ce6_82%,#bf5af2_91%,#ff2d92_100%)]"
         style={{ clipPath: `inset(0 ${(1 - progress) * 100}% 0 0)` }}
       />
     </div>

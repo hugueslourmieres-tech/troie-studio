@@ -1,5 +1,5 @@
 import { AnalyticsPanel } from "./AnalyticsPanel";
-import { AbstractBackdrop } from "./AbstractBackdrop";
+import { SpectrumBackdrop } from "./SpectrumBackdrop";
 import { draftClients } from "@/lib/drafts";
 
 /**
@@ -15,15 +15,17 @@ export function HomeDashboard({ locale }: { locale: string }) {
   const en = locale === "en";
   const c = COPY[en ? "en" : "fr"];
   return (
-    <section id="chiffres" className="scroll-mt-20 border-t border-[var(--rule)]">
-      <div data-reveal className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
-        <h2 className="t-display text-4xl text-[var(--fg)] md:text-5xl">{c.title}</h2>
-        <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">{c.body}</p>
-        {/* Le tableau de bord posé sur un fond abstrait vivant (23/10/2026). */}
-        <AbstractBackdrop a="/images/art/art-4.jpg" b="/images/art/art-1.jpg" className="-mx-5 mt-12 px-3 py-5 md:mx-0 md:rounded-[28px] md:p-8">
-          <AnalyticsPanel locale={locale} extraClients={draftClients(en)} />
-        </AbstractBackdrop>
-      </div>
+    <section id="chiffres" className="scroll-mt-20">
+      {/* Section entière sur la toile spectre (DA « Prisme »), texte blanc. */}
+      <SpectrumBackdrop scrim>
+        <div data-reveal className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
+          <h2 className="t-display text-4xl text-white md:text-5xl">{c.title}</h2>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-white/85 md:text-lg">{c.body}</p>
+          <div className="mt-12 rounded-[22px] shadow-[0_40px_80px_-40px_rgba(13,14,18,0.6)]">
+            <AnalyticsPanel locale={locale} extraClients={draftClients(en)} />
+          </div>
+        </div>
+      </SpectrumBackdrop>
     </section>
   );
 }

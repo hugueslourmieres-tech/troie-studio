@@ -34,17 +34,19 @@
 }
 
 .tone-dark {
-  --bg: #0a0807;
-  --bg-2: #14110d;
-  --fg: #f5f0e6;
-  --fg-2: #ddd1b0;
-  --fg-mute: rgba(245, 240, 230, 0.65);
-  --accent: #f37b22;
-  --accent-2: #ff8c33;
-  --accent-soft: rgba(243, 123, 34, 0.10);
-  --rule: rgba(245, 240, 230, 0.10);
-  --rule-strong: rgba(245, 240, 230, 0.30);
-  --gold: #c9a05a;
+  /* DA « Prisme » (23/10/2026) : sections noir encre pour le contraste. */
+  --bg: #0d0e12;
+  --bg-2: #17181d;
+  --fg: #f5f6f8;
+  --ink: #f5f6f8;
+  --fg-2: #a9adb7;
+  --fg-mute: rgba(245, 246, 248, 0.6);
+  --accent: #8fb0ff;
+  --accent-2: #b3c9ff;
+  --accent-soft: rgba(143, 176, 255, 0.12);
+  --rule: rgba(255, 255, 255, 0.10);
+  --rule-strong: rgba(255, 255, 255, 0.28);
+  --gold: #a9adb7;
 }
 
 .tone-accent {
@@ -724,18 +726,20 @@ body {
   .film-dialog[open], .film-dialog[open]::backdrop { animation: none; }
 }
 
-/* Fonds abstraits vivants (23/10/2026), voir AbstractBackdrop. */
-.abstract-drift-a { animation: abstract-drift-a 26s ease-in-out infinite alternate; }
-.abstract-drift-b { animation: abstract-drift-b 32s ease-in-out infinite alternate, abstract-fade 18s ease-in-out infinite alternate; }
-@keyframes abstract-drift-a {
-  from { transform: translate3d(-4%, -3%, 0) scale(1) rotate(0deg); }
-  to { transform: translate3d(5%, 4%, 0) scale(1.12) rotate(4deg); }
+/* DA « Prisme » (23/10/2026) : toile spectre vivante, voir SpectrumBackdrop. */
+.spectrum-hue { animation: spectrum-hue 60s linear infinite; }
+.spectrum-layer-a {
+  transform: translate3d(calc(var(--sx, 0) * -60px), calc(var(--sy, 0) * -40px), 0) scale(1.05);
+  animation: spectrum-drift-a 28s ease-in-out infinite alternate;
 }
-@keyframes abstract-drift-b {
-  from { transform: translate3d(5%, 3%, 0) scale(1.1) rotate(-3deg); }
-  to { transform: translate3d(-5%, -4%, 0) scale(1) rotate(2deg); }
+.spectrum-layer-b {
+  translate: calc(var(--sx, 0) * 70px) calc(var(--sy, 0) * 50px);
+  animation: spectrum-drift-b 34s ease-in-out infinite alternate, spectrum-fade 20s ease-in-out infinite alternate;
 }
-@keyframes abstract-fade { from { opacity: 0; } to { opacity: 0.85; } }
+@keyframes spectrum-hue { to { filter: hue-rotate(360deg); } }
+@keyframes spectrum-drift-a { from { rotate: -3deg; scale: 1; } to { rotate: 4deg; scale: 1.12; } }
+@keyframes spectrum-drift-b { from { rotate: 3deg; scale: 1.1; } to { rotate: -2deg; scale: 1; } }
+@keyframes spectrum-fade { from { opacity: 0.15; } to { opacity: 0.85; } }
 @media (prefers-reduced-motion: reduce) {
-  .abstract-drift-a, .abstract-drift-b { animation: none; }
+  .spectrum-hue, .spectrum-layer-a, .spectrum-layer-b { animation: none; }
 }
