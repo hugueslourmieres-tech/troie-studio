@@ -702,6 +702,15 @@ export function getArticle(slug: string): Article | undefined {
   return ARTICLES.find((a) => a.slug === slug);
 }
 
+/**
+ * Articles hors index (23/10/2026) : ceux dont le slug commence par
+ * « formation- ». Ils restent en ligne et joignables, mais portent un
+ * robots noindex et sortent du sitemap.
+ */
+export function isNoindexArticle(slug: string): boolean {
+  return slug.startsWith("formation-");
+}
+
 /** Articles triés du plus récent au plus ancien. */
 export const ARTICLES_SORTED = [...ARTICLES].sort((a, b) =>
   b.date.localeCompare(a.date),
