@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { WORKS } from "@/lib/works";
-import { ARTICLES } from "@/app/[locale]/blog/articles";
+import { ARTICLES, isNoindexArticle } from "@/app/[locale]/blog/articles";
 
 const BASE = "https://troiestudio.fr";
 
@@ -14,10 +14,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // /rentree, /scan-ia et /diagnostic-ia redirigent en 301 depuis le 21/10/2026.
   // /works/formation-ia sort seule du sitemap : la fiche n'est plus dans WORKS
   // et redirige en permanence vers /accompagnement (next.config.ts).
-  const staticPaths = ["", "/strategie", "/creation", "/creation/web", "/accompagnement", "/hugues", "/medias", "/blog", "/contact"];
+  // Pages de services, page Nice et études de cas ajoutées le 23/10/2026.
+  const staticPaths = [
+    "",
+    "/strategie",
+    "/creation",
+    "/creation/web",
+    "/accompagnement",
+    "/agence-seo-google-ads",
+    "/agence-e-commerce-shopify",
+    "/creation-site-application",
+    "/agence-web-nice",
+    "/etudes-de-cas",
+    "/etudes-de-cas/loir-paris",
+    "/etudes-de-cas/rutherford",
+    "/etudes-de-cas/autajon",
+    "/hugues",
+    "/medias",
+    "/blog",
+    "/contact",
+  ];
   // Rédigées en français seulement : la copie /en porte une canonique vers /fr.
   const FR_ONLY = new Set(["/creation/web"]);
-  const HIGH_PRIORITY = new Set(["/medias", "/blog", "/creation", "/strategie", "/accompagnement"]);
+  const HIGH_PRIORITY = new Set([
+    "/medias",
+    "/blog",
+    "/creation",
+    "/strategie",
+    "/accompagnement",
+    "/agence-seo-google-ads",
+    "/agence-e-commerce-shopify",
+    "/creation-site-application",
+    "/agence-web-nice",
+    "/etudes-de-cas",
+  ]);
 
   const entries: MetadataRoute.Sitemap = [];
 
@@ -61,6 +91,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Articles : /fr toujours, /en seulement si la traduction existe
   // (BodyEn), avec hreflang croise entre les deux versions.
   for (const article of ARTICLES) {
+    // Articles « formation-* » en noindex : hors du sitemap (23/10/2026).
+    if (isNoindexArticle(article.slug)) continue;
     const hasEn = !!article.BodyEn;
     const languages = hasEn
       ? {

@@ -24,15 +24,19 @@ export async function Footer({ locale }: { locale: string }) {
   // Journal. Plus de liens vers les pages IA.
   const en = locale === "en";
   const studioLinks = [
-    { href: `/${locale}/creation/web`, label: en ? "Websites and apps" : "Sites et applications" },
+    // Pages de services dédiées depuis le 23/10/2026.
+    { href: `/${locale}/creation-site-application`, label: en ? "Websites and apps" : "Sites et applications" },
+    { href: `/${locale}/agence-e-commerce-shopify`, label: en ? "Shopify e-commerce" : "E-commerce Shopify" },
     { href: `/${locale}/medias`, label: en ? "Photo and video" : "Photo et vidéo" },
     { href: `/${locale}/strategie`, label: en ? "Communication" : "Communication" },
-    { href: `/${locale}/strategie#acquisition`, label: en ? "SEO and advertising" : "SEO et publicité" },
+    { href: `/${locale}/agence-seo-google-ads`, label: en ? "SEO and Google Ads" : "SEO et Google Ads" },
     { href: `/${locale}/accompagnement`, label: en ? "Team support" : "Accompagnement des équipes" },
   ];
 
   const resourceLinks = [
     { href: `/${locale}/creation`, label: tNav("works") },
+    { href: `/${locale}/etudes-de-cas`, label: en ? "Case studies" : "Études de cas" },
+    { href: `/${locale}/agence-web-nice`, label: en ? "Web agency in Nice" : "Agence web à Nice" },
     { href: `/${locale}#about`, label: tNav("about") },
     { href: `/${locale}/blog`, label: tNav("journal") },
   ];
