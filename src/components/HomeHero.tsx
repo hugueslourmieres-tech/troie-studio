@@ -1,4 +1,7 @@
-import { ResultCards } from "./ResultCards";
+"use client";
+
+import { useState } from "react";
+import { RESULT_ORDER, ResultCards } from "./ResultCards";
 import { RotatingWord } from "./RotatingWord";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
@@ -43,7 +46,11 @@ const COPY = {
 } as const;
 
 export function HomeHero({ locale }: { locale: string }) {
-  const c = COPY[locale === "en" ? "en" : "fr"];
+  const L = locale === "en" ? "en" : "fr";
+  const c = COPY[L];
+  // Le mot du titre et sa couleur suivent la carte affichée (23/10/2026).
+  const [active, setActive] = useState(0);
+  const words = RESULT_ORDER.map((r) => ({ word: r.word[L], icon: r.icon }));
 
   return (
     <section className="relative">
@@ -52,7 +59,7 @@ export function HomeHero({ locale }: { locale: string }) {
           {c.title}{" "}
           <br />
           <span className="sr-only">{c.lead} {c.srWords}</span>
-          <RotatingWord prefix={c.lead} items={c.words} />
+          <RotatingWord prefix={c.lead} items={words} index={active} art={RESULT_ORDER[active]?.art} />
         </h1>
         <div className="mt-8 flex flex-col gap-6 md:mt-10 md:flex-row md:items-center md:justify-between">
           <p className="max-w-[34rem] text-lg leading-relaxed text-[var(--fg-2)]">{c.body}</p>
@@ -74,7 +81,7 @@ export function HomeHero({ locale }: { locale: string }) {
           </div>
         </div>
         <div className="mt-12 md:mt-14">
-          <ResultCards locale={locale} />
+          <ResultCards locale={locale} onActiveChange={setActive} />
         </div>
       </div>
     </section>

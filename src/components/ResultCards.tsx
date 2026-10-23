@@ -100,7 +100,19 @@ function CountUp({ value, run }: { value: string; run: boolean }) {
   return <Figure value={`${m[1]}${n}${m[3]}`} />;
 }
 
-export function ResultCards({ locale }: { locale: string }) {
+/** Ordre des cartes, partagé avec le titre du héros (mot et couleur suivent la carte). */
+export const RESULT_ORDER = [
+  { id: "loir-sales", art: "meadow", word: { fr: "ventes.", en: "sales." }, icon: "chart" },
+  { id: "ruth-tiktok", art: "sky", word: { fr: "abonnés.", en: "followers." }, icon: "users" },
+  { id: "autajon", art: "dusk", word: { fr: "ventes.", en: "sales." }, icon: "chart" },
+  { id: "loir-orders", art: "meadow", word: { fr: "commandes.", en: "orders." }, icon: "package" },
+  { id: "ruth-linkedin", art: "sky", word: { fr: "abonnés.", en: "followers." }, icon: "users" },
+  { id: "loir-visits", art: "dusk", word: { fr: "visites.", en: "traffic." }, icon: "eye" },
+  { id: "ruth-youtube", art: "meadow", word: { fr: "abonnés.", en: "followers." }, icon: "users" },
+  { id: "ruth-insta", art: "sky", word: { fr: "abonnés.", en: "followers." }, icon: "users" },
+] as const;
+
+export function ResultCards({ locale, onActiveChange }: { locale: string; onActiveChange?: (i: number) => void }) {
   const en = locale === "en";
   const pct = (n: number) => (en ? `+${n}%` : `+${n} %`);
   const ref = useRef<HTMLDivElement>(null);
@@ -109,18 +121,20 @@ export function ResultCards({ locale }: { locale: string }) {
   const reduce = useReducedMotion();
   const show = inView || !!reduce;
   const [active, setActive] = useState(0);
+  useEffect(() => { onActiveChange?.(active); }, [active, onActiveChange]);
   const [paused, setPaused] = useState(false);
 
   const L = `/${locale}/etudes-de-cas/`;
+  const artOf = (id: string) => RESULT_ORDER.find((r) => r.id === id)?.art ?? "dusk";
   const cards: Card[] = [
-    { id: "loir-sales", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_SALES_PCT)), label: en ? "online sales in two years" : "de ventes en ligne en deux ans", target: `${L}loir-paris`, art: "meadow", curve: monthly(LOIR_SALES_PCT) },
-    { id: "ruth-tiktok", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_TIKTOK_PCT)), label: en ? "TikTok followers since March 2025" : "d'abonnés TikTok depuis mars 2025", target: `${L}rutherford`, art: "sky", curve: dated(RUTHERFORD_TIKTOK_PCT) },
-    { id: "autajon", client: "Autajon", sector: en ? "Large group, packaging" : "Grand groupe, emballage", value: "×35", label: en ? "in sales for a film's budget" : "de ventes pour le budget d'un film", target: `${L}autajon`, art: "dusk", squares: 35 },
-    { id: "loir-orders", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_ORDERS_PCT)), label: en ? "orders in two years" : "de commandes en deux ans", target: `${L}loir-paris`, art: "meadow", curve: monthly(LOIR_ORDERS_PCT) },
-    { id: "ruth-linkedin", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(RUTHERFORD_LINKEDIN_RATE_INDEX.after - RUTHERFORD_LINKEDIN_RATE_INDEX.before), label: en ? "new LinkedIn followers per month" : "de nouveaux abonnés LinkedIn par mois", target: `${L}rutherford`, art: "sky", pair: [RUTHERFORD_LINKEDIN_RATE_INDEX.before, RUTHERFORD_LINKEDIN_RATE_INDEX.after] },
-    { id: "loir-visits", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_VISITS_PCT)), label: en ? "site visits in two years" : "de visites du site en deux ans", target: `${L}loir-paris`, art: "dusk", curve: monthly(LOIR_VISITS_PCT) },
-    { id: "ruth-youtube", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_YOUTUBE_PCT)), label: en ? "YouTube subscribers since April 2022" : "d'abonnés YouTube depuis avril 2022", target: `${L}rutherford`, art: "meadow", curve: dated(RUTHERFORD_YOUTUBE_PCT) },
-    { id: "ruth-insta", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_INSTAGRAM_PCT)), label: en ? "Instagram followers since Feb. 2025" : "d'abonnés Instagram depuis févr. 2025", target: `${L}rutherford`, art: "sky", curve: dated(RUTHERFORD_INSTAGRAM_PCT) },
+    { id: "loir-sales", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_SALES_PCT)), label: en ? "online sales in two years" : "de ventes en ligne en deux ans", target: `${L}loir-paris`, art: artOf("loir-sales"), curve: monthly(LOIR_SALES_PCT) },
+    { id: "ruth-tiktok", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_TIKTOK_PCT)), label: en ? "TikTok followers since March 2025" : "d'abonnés TikTok depuis mars 2025", target: `${L}rutherford`, art: artOf("ruth-tiktok"), curve: dated(RUTHERFORD_TIKTOK_PCT) },
+    { id: "autajon", client: "Autajon", sector: en ? "Large group, packaging" : "Grand groupe, emballage", value: "×35", label: en ? "in sales for a film's budget" : "de ventes pour le budget d'un film", target: `${L}autajon`, art: artOf("autajon"), squares: 35 },
+    { id: "loir-orders", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_ORDERS_PCT)), label: en ? "orders in two years" : "de commandes en deux ans", target: `${L}loir-paris`, art: artOf("loir-orders"), curve: monthly(LOIR_ORDERS_PCT) },
+    { id: "ruth-linkedin", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(RUTHERFORD_LINKEDIN_RATE_INDEX.after - RUTHERFORD_LINKEDIN_RATE_INDEX.before), label: en ? "new LinkedIn followers per month" : "de nouveaux abonnés LinkedIn par mois", target: `${L}rutherford`, art: artOf("ruth-linkedin"), pair: [RUTHERFORD_LINKEDIN_RATE_INDEX.before, RUTHERFORD_LINKEDIN_RATE_INDEX.after] },
+    { id: "loir-visits", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_VISITS_PCT)), label: en ? "site visits in two years" : "de visites du site en deux ans", target: `${L}loir-paris`, art: artOf("loir-visits"), curve: monthly(LOIR_VISITS_PCT) },
+    { id: "ruth-youtube", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_YOUTUBE_PCT)), label: en ? "YouTube subscribers since April 2022" : "d'abonnés YouTube depuis avril 2022", target: `${L}rutherford`, art: artOf("ruth-youtube"), curve: dated(RUTHERFORD_YOUTUBE_PCT) },
+    { id: "ruth-insta", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_INSTAGRAM_PCT)), label: en ? "Instagram followers since Feb. 2025" : "d'abonnés Instagram depuis févr. 2025", target: `${L}rutherford`, art: artOf("ruth-insta"), curve: dated(RUTHERFORD_INSTAGRAM_PCT) },
   ];
 
   const slides = () => Array.from(track.current?.children ?? []) as HTMLElement[];

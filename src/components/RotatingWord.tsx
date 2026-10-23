@@ -36,11 +36,27 @@ export type RotatingItem = { word: string; icon: keyof typeof ICONS };
 
 const EASE = [0.23, 1, 0.32, 1] as const;
 
-export function RotatingWord({ prefix, items, interval = 2600 }: { prefix?: string; items: readonly RotatingItem[]; interval?: number }) {
-  const [i, setI] = useState(0);
+export function RotatingWord({
+  prefix,
+  items,
+  interval = 2600,
+  index,
+  art,
+}: {
+  prefix?: string;
+  items: readonly RotatingItem[];
+  interval?: number;
+  /** Index piloté de l'extérieur (le diaporama du héros) : plus de minuterie. */
+  index?: number;
+  /** Fond granuleux derrière la fin du titre, à la couleur de la carte active. */
+  art?: "meadow" | "sky" | "dusk";
+}) {
+  const [own, setI] = useState(0);
+  const i = index ?? own;
   const reduce = useReducedMotion();
 
   useEffect(() => {
+    if (index !== undefined) return;
     let id: ReturnType<typeof setInterval> | null = null;
     const start = () => {
       if (!id) id = setInterval(() => setI((n) => (n + 1) % items.length), interval);
@@ -56,7 +72,7 @@ export function RotatingWord({ prefix, items, interval = 2600 }: { prefix?: stri
       stop();
       document.removeEventListener("visibilitychange", onVis);
     };
-  }, [items.length, interval]);
+  }, [items.length, interval, index]);
 
   const { word, icon } = items[i];
   const text = prefix ? `${prefix}\u00a0${word}` : word;
@@ -67,8 +83,17 @@ export function RotatingWord({ prefix, items, interval = 2600 }: { prefix?: stri
       aria-hidden="true"
       layout={!reduce}
       transition={{ layout: { duration: 0.45, ease: EASE } }}
-      className="inline-flex items-center whitespace-nowrap align-baseline"
+      className={`relative inline-flex items-center whitespace-nowrap align-baseline ${art ? `isolate -mx-[0.12em] rounded-[0.22em] px-[0.12em] pb-[0.04em] transition-colors duration-700 ${art === "dusk" ? "text-white" : art === "sky" ? "text-[#0d2547]" : "text-[#10200f]"}` : ""}`}
     >
+      {art && (
+        <span aria-hidden="true" className="grain absolute! inset-0 -z-10 overflow-hidden rounded-[0.22em]">
+          {(["meadow", "sky", "dusk"] as const).map((a) => (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img key={a} src={`/images/art/${a}.jpg`} alt="" className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${a === art ? "opacity-100" : "opacity-0"}`} />
+          ))}
+          <span className={`absolute inset-0 bg-[#111318] transition-opacity duration-700 ${art === "dusk" ? "opacity-35" : "opacity-0"}`} />
+        </span>
+      )}
       {/* La fin du titre : lettres qui apparaissent sur place */}
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.span key={text} className="inline-flex" exit={{ opacity: 0, transition: { duration: 0.15 } }}>
@@ -86,7 +111,7 @@ export function RotatingWord({ prefix, items, interval = 2600 }: { prefix?: stri
         </motion.span>
       </AnimatePresence>
       {/* Pastille du pictogramme */}
-      <span className="relative ml-[0.22em] inline-flex h-[0.82em] w-[0.82em] shrink-0 items-center justify-center rounded-[0.2em] bg-[var(--accent-soft)] text-[var(--accent)] translate-y-[0.04em]">
+      <span className={`relative ml-[0.22em] inline-flex h-[0.82em] w-[0.82em] shrink-0 items-center justify-center rounded-[0.2em] translate-y-[0.04em] ${art ? "bg-white/25 text-current" : "bg-[var(--accent-soft)] text-[var(--accent)]"}`}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={icon}
