@@ -1,15 +1,25 @@
 "use client";
 
-import { useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
-import { LOIR_SALES_PCT, RUTHERFORD_TIKTOK_PCT } from "@/lib/results";
+import { CaretLeft, CaretRight } from "@phosphor-icons/react";
+import {
+  LOIR_ORDERS_PCT,
+  LOIR_SALES_PCT,
+  LOIR_VISITS_PCT,
+  RUTHERFORD_INSTAGRAM_PCT,
+  RUTHERFORD_LINKEDIN_RATE_INDEX,
+  RUTHERFORD_TIKTOK_PCT,
+  RUTHERFORD_YOUTUBE_PCT,
+} from "@/lib/results";
 
 /**
- * Les trois résultats du premier écran (21/10/2026, structure « les
- * résultats en trois cartes » choisie par Hugues). Chaque carte porte son
- * chiffre et sa courbe réelle, tracée à l'arrivée, l'une après l'autre.
- * Un clic ouvre le tableau de bord sur ce client (événement troie:client)
- * ou descend vers les films pour Autajon.
+ * Les résultats du premier écran en diaporama (24/10/2026, demande de
+ * Hugues) : huit résultats réels tirés de src/lib/results.ts, chacun avec un
+ * bandeau de couleur filé et granuleux (esprit ElevenLabs), le chiffre en
+ * bleu et sa courbe. Défilement automatique toutes les 4,5 s, arrêté au
+ * survol, au focus, au toucher et si l'utilisateur réduit les animations.
+ * Chaque carte ouvre l'étude de cas du client.
  */
 
 type Card = {
@@ -19,16 +29,19 @@ type Card = {
   value: string;
   label: string;
   target: string;
-  /** Points de la courbe [x, y], de 0 à 1, x placé à la vraie date. */
+  art: string;
+  /** Points de la courbe [x, y], de 0 à 1. */
   curve?: [number, number][];
-  /** Comparaison en deux barres (budget, ventes). */
-  bars?: [number, number];
-  more: string;
+  /** Carrés : 1 budget, n fois en ventes. */
+  squares?: number;
+  /** Deux barres avant et après. */
+  pair?: [number, number];
 };
 
 const ease = [0.16, 1, 0.3, 1] as const;
+const W = 400;
+const H = 96;
 
-/** Ramène une série à [0, 1] sur les deux axes. */
 function norm(points: { x: number; v: number }[]): [number, number][] {
   const xs = points.map((p) => p.x);
   const vs = points.map((p) => p.v);
@@ -36,21 +49,23 @@ function norm(points: { x: number; v: number }[]): [number, number][] {
   const [v0, v1] = [Math.min(...vs), Math.max(...vs)];
   return points.map((p) => [(p.x - x0) / (x1 - x0 || 1), (p.v - v0) / (v1 - v0 || 1)]);
 }
-
 const time = (d: string) => new Date(`${d}T00:00:00Z`).getTime();
+const monthly = (arr: number[]) => norm(arr.map((v, i) => ({ x: i, v })));
+const dated = (arr: { d: string; v: number }[]) => norm(arr.map((p) => ({ x: time(p.d), v: p.v })));
+const last = (arr: number[] | { v: number }[]) => {
+  const l = arr[arr.length - 1];
+  return Math.round(typeof l === "number" ? l : l.v);
+};
 
-function linePath(points: [number, number][], w: number, h: number) {
+function linePath(points: [number, number][]) {
   return points
-    .map(([px, py], i) => `${i ? "L" : "M"}${(px * w).toFixed(1)},${(h - 6 - py * (h - 12)).toFixed(1)}`)
+    .map(([px, py], i) => `${i ? "L" : "M"}${(px * W).toFixed(1)},${(H - 6 - py * (H - 12)).toFixed(1)}`)
     .join(" ");
 }
 
-/**
- * Un chiffre dessiné : le nombre en grand, l'unité (%) plus petite et
- * levée, le signe × et + plus légers. Lecture d'un coup d'œil.
- */
+/** Le chiffre : nombre en grand, signe plus léger, unité % plus petite et levée. */
 function Figure({ value }: { value: string }) {
-  const m = value.match(/^([+×]?)([\d\s\u00a0.,]+?)\s*(%?)$/u);
+  const m = value.match(/^([+×]?)([\d\s .,]+?)\s*(%?)$/u);
   if (!m) return <>{value}</>;
   const [, sign, num, unit] = m;
   return (
@@ -64,131 +79,180 @@ function Figure({ value }: { value: string }) {
 
 export function ResultCards({ locale }: { locale: string }) {
   const en = locale === "en";
+  const pct = (n: number) => (en ? `+${n}%` : `+${n} %`);
   const ref = useRef<HTMLDivElement>(null);
+  const track = useRef<HTMLUListElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
   const reduce = useReducedMotion();
   const show = inView || !!reduce;
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
 
+  const L = `/${locale}/etudes-de-cas/`;
   const cards: Card[] = [
-    {
-      id: "loir",
-      client: "LOIR Paris",
-      sector: "E-commerce",
-      value: en ? "+164%" : "+164 %",
-      label: en ? "online sales in two years" : "de ventes en ligne en deux ans",
-      target: `/${locale}/etudes-de-cas/loir-paris`,
-      curve: norm(LOIR_SALES_PCT.map((v, i) => ({ x: i, v }))),
-      more: en ? "Read the case" : "Lire le cas",
-    },
-    {
-      id: "rutherford",
-      client: "Rutherford",
-      sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B",
-      value: en ? "+193%" : "+193 %",
-      label: en ? "TikTok followers since March 2025" : "d'abonnés TikTok depuis mars 2025",
-      target: `/${locale}/etudes-de-cas/rutherford`,
-      curve: norm(RUTHERFORD_TIKTOK_PCT.map((p) => ({ x: time(p.d), v: p.v }))),
-      more: en ? "Read the case" : "Lire le cas",
-    },
-    {
-      id: "autajon",
-      client: "Autajon",
-      sector: en ? "Large group, packaging" : "Grand groupe, emballage",
-      value: "×35",
-      label: en ? "in sales for a film's budget" : "de ventes pour le budget d'un film",
-      target: `/${locale}/etudes-de-cas/autajon`,
-      bars: [1, 35],
-      more: en ? "Read the case" : "Lire le cas",
-    },
+    { id: "loir-sales", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_SALES_PCT)), label: en ? "online sales in two years" : "de ventes en ligne en deux ans", target: `${L}loir-paris`, art: "sun", curve: monthly(LOIR_SALES_PCT) },
+    { id: "ruth-tiktok", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_TIKTOK_PCT)), label: en ? "TikTok followers since March 2025" : "d'abonnés TikTok depuis mars 2025", target: `${L}rutherford`, art: "sky", curve: dated(RUTHERFORD_TIKTOK_PCT) },
+    { id: "autajon", client: "Autajon", sector: en ? "Large group, packaging" : "Grand groupe, emballage", value: "×35", label: en ? "in sales for a film's budget" : "de ventes pour le budget d'un film", target: `${L}autajon`, art: "ember", squares: 35 },
+    { id: "loir-orders", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_ORDERS_PCT)), label: en ? "orders in two years" : "de commandes en deux ans", target: `${L}loir-paris`, art: "meadow", curve: monthly(LOIR_ORDERS_PCT) },
+    { id: "ruth-linkedin", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(RUTHERFORD_LINKEDIN_RATE_INDEX.after - RUTHERFORD_LINKEDIN_RATE_INDEX.before), label: en ? "new LinkedIn followers per month" : "de nouveaux abonnés LinkedIn par mois", target: `${L}rutherford`, art: "orchid", pair: [RUTHERFORD_LINKEDIN_RATE_INDEX.before, RUTHERFORD_LINKEDIN_RATE_INDEX.after] },
+    { id: "loir-visits", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_VISITS_PCT)), label: en ? "site visits in two years" : "de visites du site en deux ans", target: `${L}loir-paris`, art: "dusk", curve: monthly(LOIR_VISITS_PCT) },
+    { id: "ruth-youtube", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_YOUTUBE_PCT)), label: en ? "YouTube subscribers since April 2022" : "d'abonnés YouTube depuis avril 2022", target: `${L}rutherford`, art: "sun", curve: dated(RUTHERFORD_YOUTUBE_PCT) },
+    { id: "ruth-insta", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_INSTAGRAM_PCT)), label: en ? "Instagram followers since Feb. 2025" : "d'abonnés Instagram depuis févr. 2025", target: `${L}rutherford`, art: "sky", curve: dated(RUTHERFORD_INSTAGRAM_PCT) },
   ];
 
-  const open = (c: Card) => {
-    if (c.target === "#chiffres") {
-      window.dispatchEvent(new CustomEvent("troie:client", { detail: c.id }));
-    }
-  };
+  const slides = () => Array.from(track.current?.children ?? []) as HTMLElement[];
+  const go = useCallback((i: number) => {
+    const el = track.current;
+    const list = Array.from(el?.children ?? []) as HTMLElement[];
+    if (!el || !list.length) return;
+    const n = ((i % list.length) + list.length) % list.length;
+    el.scrollTo({ left: list[n].offsetLeft - el.offsetLeft, behavior: "smooth" });
+  }, []);
 
-  const W = 400;
-  const H = 96;
+  // Carte active = celle dont le bord gauche est le plus proche du début.
+  useEffect(() => {
+    const el = track.current;
+    if (!el) return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        let best = 0;
+        let dist = Infinity;
+        slides().forEach((s, i) => {
+          const d = Math.abs(s.offsetLeft - el.offsetLeft - el.scrollLeft);
+          if (d < dist) { dist = d; best = i; }
+        });
+        setActive(best);
+      });
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => { el.removeEventListener("scroll", onScroll); cancelAnimationFrame(raf); };
+  }, []);
+
+  // Défilement automatique : revient au début après la dernière carte visible.
+  useEffect(() => {
+    if (reduce || paused || !show) return;
+    const id = setInterval(() => {
+      const el = track.current;
+      if (!el) return;
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 8;
+      go(atEnd ? 0 : active + 1);
+    }, 4500);
+    return () => clearInterval(id);
+  }, [active, paused, reduce, show, go]);
+
+  const btn =
+    "inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-white text-[var(--fg)] transition-[background-color,transform] duration-200 hover:bg-[var(--bg-2)] active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
 
   return (
-    <div ref={ref} className="-mx-5 flex snap-x snap-mandatory scroll-pl-5 gap-3 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
-      {cards.map((c, i) => (
-        <motion.a
-          key={c.id}
-          href={c.target}
-          onClick={() => open(c)}
-          initial={reduce ? false : { opacity: 0, y: 16 }}
-          animate={show ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: reduce ? 0 : 0.1 * i, ease }}
-          className="group relative flex w-[82%] shrink-0 snap-start flex-col rounded-2xl md:w-auto border border-[var(--rule)] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
-        >
-          <div className="px-6 pt-6 md:px-7 md:pt-7">
-            <p className="text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</p>
-            <p className="mt-0.5 text-sm text-[var(--fg-2)]">{c.sector}</p>
-            <p className="mt-8 text-[3.25rem] font-medium leading-none tracking-[-0.045em] text-[var(--accent)] tabular-nums md:text-[3.75rem]">
-              <Figure value={c.value} />
-            </p>
-            <p className="mt-2 text-[15px] text-[var(--fg-2)]">{c.label}</p>
-          </div>
+    <div
+      ref={ref}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+      onTouchStart={() => setPaused(true)}
+    >
+      <ul
+        ref={track}
+        aria-label={en ? "Client results" : "Résultats clients"}
+        className="-mx-5 flex snap-x snap-mandatory scroll-pl-5 gap-4 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:-mx-12 md:scroll-pl-12 md:gap-5 md:px-12 [&::-webkit-scrollbar]:hidden"
+      >
+        {cards.map((c, i) => (
+          <li key={c.id} className="w-[82%] shrink-0 snap-start sm:w-[46%] lg:w-[calc((100%-2.5rem)/3)]">
+            <motion.a
+              href={c.target}
+              initial={reduce ? false : { opacity: 0, y: 16 }}
+              animate={show ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: reduce ? 0 : 0.1 * Math.min(i, 3), ease }}
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--rule)] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+            >
+              <span aria-hidden="true" className="grain block h-16 shrink-0 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/images/art/${c.art}.jpg`} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
+              </span>
+              <div className="flex-1 px-6 pt-5 md:px-7">
+                <div className="flex items-baseline justify-between gap-3">
+                  <p className="text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</p>
+                  <span className="text-sm font-medium text-[var(--accent)] underline-offset-4 group-hover:underline">
+                    {en ? "Read the case" : "Lire le cas"}
+                  </span>
+                </div>
+                <p className="mt-0.5 text-sm text-[var(--fg-2)]">{c.sector}</p>
+                <p className="mt-6 text-[3.25rem] font-medium leading-none tracking-[-0.045em] text-[var(--accent)] tabular-nums md:text-[3.5rem]">
+                  <Figure value={c.value} />
+                </p>
+                <p className="mt-2 min-h-[2.75rem] text-[15px] text-[var(--fg-2)]">{c.label}</p>
+              </div>
 
-          {/* Courbe ou barres, bord à bord en bas de la carte */}
-          <div className="mt-6 h-[96px] overflow-hidden rounded-b-2xl" aria-hidden="true">
-            <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.bars ? "xMidYMid meet" : "none"} className="h-full w-full">
-              {c.curve && (
-                <>
-                  <motion.path
-                    d={`${linePath(c.curve, W, H)} L${W},${H} L0,${H} Z`}
-                    fill="var(--accent)"
-                    initial={{ opacity: 0 }}
-                    animate={show ? { opacity: 0.08 } : {}}
-                    transition={{ duration: 0.8, delay: reduce ? 0 : 0.5 + 0.35 * i }}
-                  />
-                  <motion.path
-                    d={linePath(c.curve, W, H)}
-                    fill="none"
-                    stroke="var(--accent)"
-                    strokeWidth="2"
-                    vectorEffect="non-scaling-stroke"
-                    strokeLinejoin="round"
-                    initial={{ pathLength: reduce ? 1 : 0 }}
-                    animate={show ? { pathLength: 1 } : {}}
-                    transition={{ duration: reduce ? 0 : 1.2, delay: reduce ? 0 : 0.3 + 0.35 * i, ease: [0.65, 0, 0.35, 1] }}
-                  />
-                </>
-              )}
-              {c.bars &&
-                Array.from({ length: c.bars[1] + 1 }, (_, k) => {
-                  const cols = 12;
-                  const size = 14;
-                  const gap = (W - 48 - cols * size) / (cols - 1);
-                  const col = k % cols;
-                  const row = Math.floor(k / cols);
-                  return (
-                    <motion.rect
-                      key={k}
-                      x={24 + col * (size + gap)}
-                      y={H - 10 - (row + 1) * (size + 8) + 8}
-                      width={size}
-                      height={size}
-                      rx={3}
-                      fill={k === 0 ? "var(--fg)" : "var(--accent)"}
-                      fillOpacity={k === 0 ? 0.2 : 0.9}
-                      initial={{ opacity: reduce ? 1 : 0, scale: reduce ? 1 : 0.4 }}
-                      animate={show ? { opacity: 1, scale: 1 } : {}}
-                      style={{ transformBox: "fill-box", transformOrigin: "center" }}
-                      transition={{ duration: 0.35, delay: reduce ? 0 : 0.5 + 0.35 * i + k * 0.025, ease }}
-                    />
-                  );
-                })}
-            </svg>
-          </div>
+              <div className="mt-2 h-[88px] shrink-0 overflow-hidden" aria-hidden="true">
+                <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.curve ? "none" : "xMidYMid meet"} className="h-full w-full">
+                  {c.curve && (
+                    <>
+                      <path d={`${linePath(c.curve)} L${W},${H} L0,${H} Z`} fill="var(--accent)" opacity={0.08} />
+                      <motion.path
+                        d={linePath(c.curve)}
+                        fill="none"
+                        stroke="var(--accent)"
+                        strokeWidth="2"
+                        vectorEffect="non-scaling-stroke"
+                        strokeLinejoin="round"
+                        initial={{ pathLength: reduce ? 1 : 0 }}
+                        animate={show ? { pathLength: 1 } : {}}
+                        transition={{ duration: reduce ? 0 : 1.2, delay: reduce ? 0 : 0.3 + 0.25 * Math.min(i, 3), ease: [0.65, 0, 0.35, 1] }}
+                      />
+                    </>
+                  )}
+                  {c.squares &&
+                    Array.from({ length: c.squares + 1 }, (_, k) => {
+                      const cols = 12;
+                      const size = 14;
+                      const gap = (W - 48 - cols * size) / (cols - 1);
+                      return (
+                        <rect
+                          key={k}
+                          x={24 + (k % cols) * (size + gap)}
+                          y={H - 10 - (Math.floor(k / cols) + 1) * (size + 8) + 8}
+                          width={size}
+                          height={size}
+                          rx={3}
+                          fill={k === 0 ? "var(--fg)" : "var(--accent)"}
+                          fillOpacity={k === 0 ? 0.2 : 0.9}
+                        />
+                      );
+                    })}
+                  {c.pair && (
+                    <>
+                      <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill="var(--fg)" fillOpacity={0.2} />
+                      <rect x={216} y={10} width={44} height={H - 10} rx={4} fill="var(--accent)" />
+                    </>
+                  )}
+                </svg>
+              </div>
+            </motion.a>
+          </li>
+        ))}
+      </ul>
 
-          <span className="absolute top-6 right-6 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] underline-offset-4 group-hover:underline md:top-7 md:right-7">
-            {c.more}
-          </span>
-        </motion.a>
-      ))}
+      <div className="mt-6 flex items-center justify-between">
+        <div className="flex items-center gap-1.5" aria-hidden="true">
+          {cards.map((c, i) => (
+            <span
+              key={c.id}
+              className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${i === active ? "w-6 bg-[var(--fg)]" : "w-1.5 bg-[var(--rule-strong)]"}`}
+            />
+          ))}
+        </div>
+        <div className="flex gap-2">
+          <button type="button" className={btn} onClick={() => go(active - 1)} aria-label={en ? "Previous result" : "Résultat précédent"}>
+            <CaretLeft weight="bold" className="h-4 w-4" />
+          </button>
+          <button type="button" className={btn} onClick={() => go(active + 1)} aria-label={en ? "Next result" : "Résultat suivant"}>
+            <CaretRight weight="bold" className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

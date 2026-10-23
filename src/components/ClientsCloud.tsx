@@ -1,70 +1,59 @@
 "use client";
 
+import Image from "next/image";
 import { useLocale } from "next-intl";
 
-import Image from "next/image";
-
-// GS MONACO, VEORIA, STUDIO DE LA ROCHE, MEASURECOLOR seulement après accord
-// de Hugues. Logos en noir sur transparent (22/10/2026), tirés des fichiers
-// des marques, recadrés au plus juste. Hauteur réglée à l'œil pour que chaque
-// logo pèse le même poids (surface égale, petite) : h ≈ √(1800 / largeur relative).
-// Top Akita Inu retiré avec son site (le fichier top-akita-inu.png contenait
-// en fait le logo Rutherford).
+/**
+ * « L'équipe a travaillé avec » (24/10/2026) : les logos défilent en continu,
+ * façon ElevenLabs, dans l'ordre voulu par Hugues. Logos en noir sur
+ * transparent, hauteur réglée pour un poids visuel égal. Le défilement
+ * s'arrête au survol et quand l'utilisateur réduit les animations.
+ * GS MONACO, VEORIA, STUDIO DE LA ROCHE, MEASURECOLOR seulement après accord.
+ */
 const CLIENTS = [
-  { name: "LOIR Paris", src: "/images/clients/mono-loir-paris.png", w: 358, h: 160, px: 28 },
-  { name: "Sofitel", src: "/images/clients/mono-sofitel.png", w: 506, h: 160, px: 24 },
-  { name: "CHANEL", src: "/images/clients/mono-chanel.png", w: 1015, h: 160, px: 16 },
-  { name: "X-Rite Pantone", src: "/images/clients/mono-xrite-pantone.png", w: 1288, h: 160, px: 15 },
-  { name: "Capefront Energies", src: "/images/clients/mono-capefront.png", w: 540, h: 160, px: 23 },
-  { name: "Rutherford", src: "/images/clients/mono-rutherford.png", w: 978, h: 160, px: 17 },
+  { name: "CHANEL", src: "/images/clients/mono-chanel.png", w: 1015, h: 160, px: 18 },
+  { name: "Sofitel", src: "/images/clients/mono-sofitel.png", w: 506, h: 160, px: 27 },
+  { name: "X-Rite Pantone", src: "/images/clients/mono-xrite-pantone.png", w: 1288, h: 160, px: 17 },
+  { name: "Capefront Energies", src: "/images/clients/mono-capefront.png", w: 540, h: 160, px: 26 },
+  { name: "LOIR Paris", src: "/images/clients/mono-loir-paris.png", w: 358, h: 160, px: 31 },
+  { name: "Rutherford", src: "/images/clients/mono-rutherford.png", w: 978, h: 160, px: 19 },
+  { name: "PerPost", src: "/images/clients/mono-perpost.png", w: 915, h: 160, px: 20 },
 ];
 
-/**
- * ClientsCloud, wordmarks des marques avec lesquelles l'équipe a travaillé,
- * en studio ou en interne (CHANEL : expérience salariée, pas un client du
- * studio, d'où le libellé « L'équipe a travaillé avec »), dans un marquee infini
- * horizontal piloté par GSAP. Inspiration luxe / Hermès : un seul "ruban"
- * qui défile lentement sans coupure.
- *
- * Rendu sur fond crème depuis le 1er/10/2026 (hors wrapper orange) : les
- * dégradés des bords lisent var(--bg) et suivent donc le ton crème. Plus de
- * sceau ici, il est déjà dans le héros (un seul par page).
- */
+function Row({ hidden = false }: { hidden?: boolean }) {
+  return (
+    <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center gap-16 pr-16 md:gap-24 md:pr-24">
+      {CLIENTS.map((c) => (
+        <li key={c.name} className="flex h-10 items-center">
+          <Image
+            src={c.src}
+            alt={hidden ? "" : c.name}
+            width={c.w}
+            height={c.h}
+            sizes="220px"
+            style={{ height: `${c.px}px`, width: "auto" }}
+            className="opacity-70 transition-opacity duration-200 hover:opacity-100"
+          />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function ClientsCloud() {
   const locale = useLocale();
-
-  // Rangée fixe (21/10/2026) : rien ne défile hors des courbes et des films.
-  const loopList = CLIENTS;
-
   return (
     <section className="border-t border-[var(--rule)]">
-      <div data-reveal className="mx-auto max-w-7xl px-5 pt-12 pb-4 md:px-12 md:pt-14 md:pb-6">
+      <div data-reveal className="mx-auto max-w-7xl px-5 pt-12 pb-6 md:px-12 md:pt-14">
         <p className="text-center text-sm text-[var(--fg-2)]">
           {locale === "fr" ? "L'équipe a travaillé avec" : "Our team has worked with"}
         </p>
       </div>
-
-      {/* Marquee, défile infiniment, full width */}
-      <div className="relative mt-2 overflow-hidden pb-12 md:pb-16">
-
-        <ul
-          data-reveal-stagger
-          className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-12 gap-y-4 px-5 md:gap-x-16 md:px-12 lg:justify-between"
-        >
-          {loopList.map((c) => (
-            <li key={c.name} className="flex h-10 items-center">
-              <Image
-                src={c.src}
-                alt={c.name}
-                width={c.w}
-                height={c.h}
-                sizes="200px"
-                style={{ height: `calc(${c.px}px * var(--logo-scale, 1))`, width: "auto" }}
-                className="opacity-70 transition-opacity duration-200 hover:opacity-100 [--logo-scale:0.9] md:[--logo-scale:1]"
-              />
-            </li>
-          ))}
-        </ul>
+      <div className="logo-marquee relative overflow-hidden pb-12 md:pb-16 [mask-image:linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)]">
+        <div className="logo-marquee-track flex w-max">
+          <Row />
+          <Row hidden />
+        </div>
       </div>
     </section>
   );

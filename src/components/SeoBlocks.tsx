@@ -287,7 +287,7 @@ export function ProofGrid({
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={`/images/art/${PROOF_ART[id]}.jpg`} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
                   </span>
-                  <div className="px-6 pt-6 md:px-7 md:pt-7">
+                  <div className="flex-1 px-6 pt-6 md:px-7 md:pt-7">
                     <p className="text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{p.client}</p>
                     <p className="mt-0.5 text-sm text-[var(--fg-2)]">{p.sector[l]}</p>
                     <p className="mt-8 text-[3.25rem] font-medium leading-none tracking-[-0.045em] text-[var(--accent)] tabular-nums">
@@ -296,7 +296,7 @@ export function ProofGrid({
                     <p className="mt-2 text-[15px] text-[var(--fg-2)]">{p.label[l]}</p>
                     <p className="mt-5 text-sm font-medium text-[var(--accent)]">{more}</p>
                   </div>
-                  <div className="mt-6 h-[96px] overflow-hidden rounded-b-2xl">
+                  <div className="mt-6 h-[96px] shrink-0 overflow-hidden">
                     <ProofChart id={id} />
                   </div>
                 </Link>
