@@ -90,13 +90,13 @@ export function ResultCards({ locale }: { locale: string }) {
 
   const L = `/${locale}/etudes-de-cas/`;
   const cards: Card[] = [
-    { id: "loir-sales", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_SALES_PCT)), label: en ? "online sales in two years" : "de ventes en ligne en deux ans", target: `${L}loir-paris`, art: "sun", curve: monthly(LOIR_SALES_PCT) },
+    { id: "loir-sales", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_SALES_PCT)), label: en ? "online sales in two years" : "de ventes en ligne en deux ans", target: `${L}loir-paris`, art: "meadow", curve: monthly(LOIR_SALES_PCT) },
     { id: "ruth-tiktok", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_TIKTOK_PCT)), label: en ? "TikTok followers since March 2025" : "d'abonnés TikTok depuis mars 2025", target: `${L}rutherford`, art: "sky", curve: dated(RUTHERFORD_TIKTOK_PCT) },
-    { id: "autajon", client: "Autajon", sector: en ? "Large group, packaging" : "Grand groupe, emballage", value: "×35", label: en ? "in sales for a film's budget" : "de ventes pour le budget d'un film", target: `${L}autajon`, art: "ember", squares: 35 },
+    { id: "autajon", client: "Autajon", sector: en ? "Large group, packaging" : "Grand groupe, emballage", value: "×35", label: en ? "in sales for a film's budget" : "de ventes pour le budget d'un film", target: `${L}autajon`, art: "dusk", squares: 35 },
     { id: "loir-orders", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_ORDERS_PCT)), label: en ? "orders in two years" : "de commandes en deux ans", target: `${L}loir-paris`, art: "meadow", curve: monthly(LOIR_ORDERS_PCT) },
     { id: "ruth-linkedin", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(RUTHERFORD_LINKEDIN_RATE_INDEX.after - RUTHERFORD_LINKEDIN_RATE_INDEX.before), label: en ? "new LinkedIn followers per month" : "de nouveaux abonnés LinkedIn par mois", target: `${L}rutherford`, art: "orchid", pair: [RUTHERFORD_LINKEDIN_RATE_INDEX.before, RUTHERFORD_LINKEDIN_RATE_INDEX.after] },
     { id: "loir-visits", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_VISITS_PCT)), label: en ? "site visits in two years" : "de visites du site en deux ans", target: `${L}loir-paris`, art: "dusk", curve: monthly(LOIR_VISITS_PCT) },
-    { id: "ruth-youtube", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_YOUTUBE_PCT)), label: en ? "YouTube subscribers since April 2022" : "d'abonnés YouTube depuis avril 2022", target: `${L}rutherford`, art: "sun", curve: dated(RUTHERFORD_YOUTUBE_PCT) },
+    { id: "ruth-youtube", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_YOUTUBE_PCT)), label: en ? "YouTube subscribers since April 2022" : "d'abonnés YouTube depuis avril 2022", target: `${L}rutherford`, art: "orchid", curve: dated(RUTHERFORD_YOUTUBE_PCT) },
     { id: "ruth-insta", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_INSTAGRAM_PCT)), label: en ? "Instagram followers since Feb. 2025" : "d'abonnés Instagram depuis févr. 2025", target: `${L}rutherford`, art: "sky", curve: dated(RUTHERFORD_INSTAGRAM_PCT) },
   ];
 
@@ -143,7 +143,7 @@ export function ResultCards({ locale }: { locale: string }) {
   }, [active, paused, reduce, show, go]);
 
   const btn =
-    "inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--rule-strong)] bg-white text-[var(--fg)] transition-[background-color,transform] duration-200 hover:bg-[var(--bg-2)] active:scale-[0.96] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
+    "inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform] duration-200 hover:text-[var(--fg)] active:scale-[0.92] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
 
   return (
     <div
@@ -235,7 +235,11 @@ export function ResultCards({ locale }: { locale: string }) {
         ))}
       </ul>
 
+      {/* Flèches sans cercle aux deux bords, points au centre. */}
       <div className="mt-6 flex items-center justify-between">
+        <button type="button" className={btn} onClick={() => go(active - 1)} aria-label={en ? "Previous result" : "Résultat précédent"}>
+          <CaretLeft weight="bold" className="h-5 w-5" />
+        </button>
         <div className="flex items-center gap-1.5" aria-hidden="true">
           {cards.map((c, i) => (
             <span
@@ -244,14 +248,9 @@ export function ResultCards({ locale }: { locale: string }) {
             />
           ))}
         </div>
-        <div className="flex gap-2">
-          <button type="button" className={btn} onClick={() => go(active - 1)} aria-label={en ? "Previous result" : "Résultat précédent"}>
-            <CaretLeft weight="bold" className="h-4 w-4" />
-          </button>
-          <button type="button" className={btn} onClick={() => go(active + 1)} aria-label={en ? "Next result" : "Résultat suivant"}>
-            <CaretRight weight="bold" className="h-4 w-4" />
-          </button>
-        </div>
+        <button type="button" className={btn} onClick={() => go(active + 1)} aria-label={en ? "Next result" : "Résultat suivant"}>
+          <CaretRight weight="bold" className="h-5 w-5" />
+        </button>
       </div>
     </div>
   );

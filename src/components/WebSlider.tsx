@@ -87,7 +87,7 @@ export function WebSlider({ projects, en }: { projects: Project[]; en: boolean }
                 <MacBook className="w-[90%]">
                     {p.video ? (
                       <video
-                        className="absolute inset-0 block h-full w-full object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
+                        className="absolute inset-0 block h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                         poster={p.desktop}
                         muted
                         loop
@@ -103,7 +103,7 @@ export function WebSlider({ projects, en }: { projects: Project[]; en: boolean }
                         alt={`${p.name}, ${en ? "preview" : "aperçu"}`}
                         fill
                         sizes="(max-width: 768px) 86vw, 820px"
-                        className="object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                       />
                     )}
                 </MacBook>
@@ -114,7 +114,7 @@ export function WebSlider({ projects, en }: { projects: Project[]; en: boolean }
                       alt={`${p.name}, ${en ? "mobile" : "sur mobile"}`}
                       fill
                       sizes="200px"
-                      className="object-cover object-top grayscale transition-[filter] duration-500 group-hover:grayscale-0"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                     />
                   </IPhone>
                 </div>

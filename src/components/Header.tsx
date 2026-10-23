@@ -143,7 +143,7 @@ export function Header({
       ],
       cards: [
         { href: `/${locale}#realisations`, img: "/images/art/orchid.jpg", title: L.cardSites, kind: L.work },
-        { href: `/${locale}#chiffres`, img: "/images/art/ember.jpg", title: L.cardCurves, kind: L.results },
+        { href: `/${locale}#chiffres`, img: "/images/art/meadow.jpg", title: L.cardCurves, kind: L.results },
       ],
     },
     {

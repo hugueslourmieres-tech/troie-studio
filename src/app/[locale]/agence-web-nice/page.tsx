@@ -187,7 +187,7 @@ export default async function AgenceWebNicePage({ params }: { params: Promise<{ 
       <JsonLd data={faqJsonLd(locale, PATH, c.faq)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
-      <PageHero locale={locale} art="sun" eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
+      <PageHero locale={locale} art="dusk" eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
 
       <Block id="cote-d-azur" title={c.localTitle}>
         {c.local.map((p) => (

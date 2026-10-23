@@ -118,7 +118,7 @@ function Preview({ s }: { s: Story }) {
     return () => io.disconnect();
   }, []);
   const cls =
-    "absolute inset-0 h-full w-full object-cover grayscale transition-[filter,transform] duration-700 group-hover:scale-[1.03] group-hover:grayscale-0";
+    "absolute inset-0 h-full w-full object-cover object-[center_15%] grayscale transition-[filter,transform] duration-700 group-hover:scale-[1.03] group-hover:grayscale-0";
   return <video ref={ref} src={s.preview} muted loop playsInline preload="metadata" aria-hidden="true" className={cls} />;
 }
 
@@ -184,23 +184,23 @@ export function HomeFilms({ locale }: { locale: string }) {
         <ul
           data-reveal-stagger
           aria-label={c.rail}
-          className="-mx-5 mt-12 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:-ml-12 md:mr-[calc(50%-50vw)] md:scroll-px-12 md:gap-5 md:px-12 [&::-webkit-scrollbar]:hidden"
+          className="mt-12 grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-3"
         >
           {STORIES.map((st, i) => (
-            <li key={st.id} className="w-[64%] shrink-0 snap-start sm:w-[38%] lg:w-[23%]">
+            <li key={st.id}>
               <button
                 type="button"
                 onClick={(e) => show(i, e.currentTarget)}
                 className="group block w-full rounded-2xl border border-[var(--rule)] bg-white text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
               >
-                <span className="grain relative block aspect-[4/5] overflow-hidden rounded-t-2xl bg-[var(--bg-2)]">
+                <span className="grain relative block aspect-[4/5] overflow-hidden rounded-t-2xl bg-[var(--bg-2)] lg:aspect-[16/11]">
                   <Preview s={st} />
                 </span>
                 <span className="block px-5 pb-5 pt-4">
                   <span className="block text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{st.client}</span>
                   <span className="mt-1 flex items-center justify-between gap-3 text-sm text-[var(--fg-2)]">
                     <span>{st.kind[L]}</span>
-                    <span className="inline-flex items-center gap-1 font-medium text-[var(--fg)]">
+                    <span className="hidden items-center gap-1 font-medium text-[var(--fg)] sm:inline-flex">
                       {c.open}
                       <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                     </span>

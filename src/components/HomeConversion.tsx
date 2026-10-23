@@ -19,12 +19,12 @@ export function HomeAudience({ locale }: { locale: string }) {
   const items = E
     ? [
         { t: "SMEs", b: "A website that brings in enquiries, and the ads and content to fill it.", href: "agence-web-nice", cta: "Websites for SMEs", img: "sky" },
-        { t: "E-commerce", b: "More online sales, on Shopify or elsewhere. Store, SEO and ads.", href: "agence-e-commerce-shopify", cta: "E-commerce", img: "ember" },
+        { t: "E-commerce", b: "More online sales, on Shopify or elsewhere. Store, SEO and ads.", href: "agence-e-commerce-shopify", cta: "E-commerce", img: "meadow" },
         { t: "Large groups", b: "Films, product launches and content for your teams and markets.", href: "medias", cta: "Films and photos", img: "orchid" },
       ]
     : [
         { t: "PME", b: "Un site qui amène des demandes, et la publicité et les contenus pour le faire vivre.", href: "agence-web-nice", cta: "Sites pour PME", img: "sky" },
-        { t: "E-commerce", b: "Plus de ventes en ligne, sur Shopify ou ailleurs. Boutique, SEO et publicité.", href: "agence-e-commerce-shopify", cta: "E-commerce", img: "ember" },
+        { t: "E-commerce", b: "Plus de ventes en ligne, sur Shopify ou ailleurs. Boutique, SEO et publicité.", href: "agence-e-commerce-shopify", cta: "E-commerce", img: "meadow" },
         { t: "Grands groupes", b: "Films, lancements de produits et contenus pour vos équipes et vos marchés.", href: "medias", cta: "Films et photos", img: "orchid" },
       ];
   return (
@@ -62,14 +62,14 @@ export function HomeCtaBand({ locale }: { locale: string }) {
     <section className="px-3 py-3 md:px-5">
       <div data-reveal className="grain relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 overflow-hidden rounded-[28px] px-7 py-16 md:flex-row md:items-center md:px-14 md:py-20">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/art/ember.jpg" alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <img src="/images/art/orchid.jpg" alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div>
-          <h2 className="t-display text-3xl text-white md:text-5xl">{E ? "Got a project in mind?" : "Un projet en tête ?"}</h2>
-          <p className="mt-3 text-base text-white/85 md:text-lg">{E ? "Tell us in 30 minutes. No commitment." : "Parlons-en 30 minutes, sans engagement."}</p>
+          <h2 className="t-display text-3xl text-[#111318] md:text-5xl">{E ? "Got a project in mind?" : "Un projet en tête ?"}</h2>
+          <p className="mt-3 text-base text-[#111318]/75 md:text-lg">{E ? "Tell us in 30 minutes. No commitment." : "Parlons-en 30 minutes, sans engagement."}</p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <a href={CAL_URL} target="_blank" rel="noreferrer" className="relative z-10 inline-flex h-12 items-center rounded-full bg-white px-6 text-[15px] font-medium text-[#111318] transition-transform duration-200 active:scale-[0.98]">{E ? "Book 30 min" : "Réserver 30 min"}</a>
-          <Link href={`/${locale}/contact#projet`} className="relative z-10 inline-flex h-12 items-center rounded-full border border-white/60 px-6 text-[15px] font-medium text-white transition-colors duration-200 hover:border-white">{E ? "Describe my project" : "Décrire mon projet"}</Link>
+          <a href={CAL_URL} target="_blank" rel="noreferrer" className="relative z-10 inline-flex h-12 items-center rounded-full bg-[#111318] px-6 text-[15px] font-medium text-white transition-transform duration-200 active:scale-[0.98]">{E ? "Book 30 min" : "Réserver 30 min"}</a>
+          <Link href={`/${locale}/contact#projet`} className="relative z-10 inline-flex h-12 items-center rounded-full border border-[#111318]/30 bg-white/40 px-6 text-[15px] font-medium text-[#111318] transition-colors duration-200 hover:border-[#111318]">{E ? "Describe my project" : "Décrire mon projet"}</Link>
         </div>
       </div>
     </section>

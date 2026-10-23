@@ -255,7 +255,7 @@ export function ProofChart({ id, className = "" }: { id: ProofId; className?: st
 
 /** Cartes de preuve, chacune mène à son étude de cas. */
 /** Un visuel par preuve dans les cartes d'études de cas. */
-const PROOF_ART: Record<ProofId, string> = { loir: "sun", rutherford: "sky", autajon: "ember" };
+const PROOF_ART: Record<ProofId, string> = { loir: "meadow", rutherford: "sky", autajon: "dusk" };
 
 export function ProofGrid({
   locale,
