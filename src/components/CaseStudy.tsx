@@ -1,3 +1,4 @@
+import { clientColor } from "@/lib/client-colors";
 import Link from "next/link";
 import { ContactCTA } from "./ContactCTA";
 import { JsonLd, ORG_ID } from "./JsonLd";
@@ -83,7 +84,7 @@ export function CaseStudy({
   const en = l === "en";
 
   return (
-    <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
+    <div className="tone-light bg-[var(--bg)] text-[var(--fg)]" style={{ "--accent": clientColor(id) } as React.CSSProperties}>
       <JsonLd data={jsonLd} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
