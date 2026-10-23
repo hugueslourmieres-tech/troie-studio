@@ -97,7 +97,7 @@ export default async function BlogIndexPage({
                     src={a.cover}
                     alt=""
                     aria-hidden="true"
-                    className="t-photo h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    className={`${a.cover.startsWith("/images/art/") ? "" : "t-photo "}h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]`}
                     loading="lazy"
                   />
                 </div>

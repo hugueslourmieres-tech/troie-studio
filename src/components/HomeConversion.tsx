@@ -62,14 +62,14 @@ export function HomeCtaBand({ locale }: { locale: string }) {
     <section className="px-3 py-3 md:px-5">
       <div data-reveal className="grain relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 overflow-hidden rounded-[28px] px-7 py-16 md:flex-row md:items-center md:px-14 md:py-20">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/art/rose.jpg" alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <img src="/images/art/dusk.jpg" alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div>
-          <h2 className="t-display text-3xl text-[#111318] md:text-5xl">{E ? "Got a project in mind?" : "Un projet en tête ?"}</h2>
-          <p className="mt-3 text-base text-[#111318]/75 md:text-lg">{E ? "Tell us in 30 minutes. No commitment." : "Parlons-en 30 minutes, sans engagement."}</p>
+          <h2 className="t-display text-3xl text-white md:text-5xl">{E ? "Got a project in mind?" : "Un projet en tête ?"}</h2>
+          <p className="mt-3 text-base text-white/80 md:text-lg">{E ? "Tell us in 30 minutes. No commitment." : "Parlons-en 30 minutes, sans engagement."}</p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <a href={CAL_URL} target="_blank" rel="noreferrer" className="relative z-10 inline-flex h-12 items-center rounded-full bg-[#111318] px-6 text-[15px] font-medium text-white transition-transform duration-200 active:scale-[0.98]">{E ? "Book 30 min" : "Réserver 30 min"}</a>
-          <Link href={`/${locale}/contact#projet`} className="relative z-10 inline-flex h-12 items-center rounded-full border border-[#111318]/30 bg-white/40 px-6 text-[15px] font-medium text-[#111318] transition-colors duration-200 hover:border-[#111318]">{E ? "Describe my project" : "Décrire mon projet"}</Link>
+          <a href={CAL_URL} target="_blank" rel="noreferrer" className="relative z-10 inline-flex h-12 items-center rounded-full bg-white px-6 text-[15px] font-medium text-[#111318] transition-transform duration-200 active:scale-[0.98]">{E ? "Book 30 min" : "Réserver 30 min"}</a>
+          <Link href={`/${locale}/contact#projet`} className="relative z-10 inline-flex h-12 items-center rounded-full border border-white/50 px-6 text-[15px] font-medium text-white transition-colors duration-200 hover:border-white">{E ? "Describe my project" : "Décrire mon projet"}</Link>
         </div>
       </div>
     </section>

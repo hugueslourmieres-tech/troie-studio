@@ -166,7 +166,7 @@ export default async function ArticlePage({
           fetchPriority="high"
           sizes="(max-width: 768px) 100vw, 768px"
           className="object-cover"
-          style={{ filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
+          style={a.cover.startsWith("/images/art/") ? undefined : { filter: "grayscale(1) contrast(1.1) brightness(0.92)" }}
         />
       </div>
 
