@@ -121,7 +121,7 @@ export function ResultCards({ locale }: { locale: string }) {
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={show ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: reduce ? 0 : 0.1 * i, ease }}
-          className="group relative flex w-[82%] shrink-0 snap-start flex-col rounded-2xl md:w-auto border border-[var(--rule)] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+          className="liquid-sheen group relative flex w-[82%] shrink-0 snap-start flex-col rounded-2xl md:w-auto bg-white shadow-[inset_0_1px_0_#fff,0_0_0_1px_rgba(255,255,255,0.12),0_30px_60px_-30px_rgba(0,0,0,0.8)] transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_#fff,0_0_0_1px_rgba(255,255,255,0.2),0_30px_70px_-20px_rgba(150,170,255,0.45)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
         >
           <div className="px-6 pt-6 md:px-7 md:pt-7">
             <p className="text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</p>
