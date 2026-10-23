@@ -53,7 +53,7 @@ const COPY = {
     eyebrow: "Work",
     title: "Photo and video, made on location.",
     intro:
-      "Films and photos made on site: workshops, factories, shops, events. Hugues and Thibaud Lourmieres direct, shoot and edit. Every project starts with a simple question: what must the image prove?",
+      "Films and photos made on site: workshops, factories, shops, events. Directed and edited by the team. Every project starts with a simple question: what must the image prove?",
     videoEyebrow: "Video",
     videoBody:
       "Brand films, customer testimonials, content for social media. From concept to edit.",
