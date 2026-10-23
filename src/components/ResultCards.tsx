@@ -166,35 +166,21 @@ export function ResultCards({ locale }: { locale: string }) {
               initial={reduce ? false : { opacity: 0, y: 16 }}
               animate={show ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: reduce ? 0 : 0.1 * Math.min(i, 3), ease }}
-              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--rule)] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+              className="group flex h-full flex-col overflow-hidden rounded-2xl bg-[var(--bg-2)] transition-transform duration-300 hover:-translate-y-0.5 active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
             >
-              <span aria-hidden="true" className="grain block h-16 shrink-0 overflow-hidden">
+              {/* Essai du 23/10/2026 : la couleur en grand, comme « Pour qui »,
+                  la courbe en blanc dessus, le chiffre et la marque en dessous. */}
+              <span aria-hidden="true" className="grain relative block aspect-[16/10] shrink-0 overflow-hidden rounded-2xl">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/images/art/${c.art}.jpg`} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]" />
-              </span>
-              <div className="flex-1 px-6 pt-5 md:px-7">
-                <div className="flex items-baseline justify-between gap-3">
-                  <p className="text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</p>
-                  <span className="text-sm font-medium text-[var(--accent)] underline-offset-4 group-hover:underline">
-                    {en ? "Read the case" : "Lire le cas"}
-                  </span>
-                </div>
-                <p className="mt-0.5 text-sm text-[var(--fg-2)]">{c.sector}</p>
-                <p className="mt-6 text-[3.25rem] font-medium leading-none tracking-[-0.045em] text-[var(--accent)] tabular-nums md:text-[3.5rem]">
-                  <Figure value={c.value} />
-                </p>
-                <p className="mt-2 min-h-[2.75rem] text-[15px] text-[var(--fg-2)]">{c.label}</p>
-              </div>
-
-              <div className="mt-2 h-[88px] shrink-0 overflow-hidden" aria-hidden="true">
-                <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.curve ? "none" : "xMidYMid meet"} className="h-full w-full">
+                <img src={`/images/art/${c.art}.jpg`} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.curve ? "none" : "xMidYMid meet"} className="absolute inset-x-0 bottom-0 h-[42%] w-full">
                   {c.curve && (
                     <>
-                      <path d={`${linePath(c.curve)} L${W},${H} L0,${H} Z`} fill="var(--accent)" opacity={0.08} />
+                      <path d={`${linePath(c.curve)} L${W},${H} L0,${H} Z`} fill="#ffffff" opacity={0.22} />
                       <motion.path
                         d={linePath(c.curve)}
                         fill="none"
-                        stroke="var(--accent)"
+                        stroke="#ffffff"
                         strokeWidth="2"
                         vectorEffect="non-scaling-stroke"
                         strokeLinejoin="round"
@@ -217,18 +203,27 @@ export function ResultCards({ locale }: { locale: string }) {
                           width={size}
                           height={size}
                           rx={3}
-                          fill={k === 0 ? "var(--fg)" : "var(--accent)"}
-                          fillOpacity={k === 0 ? 0.2 : 0.9}
+                          fill="#ffffff"
+                          fillOpacity={k === 0 ? 0.35 : 0.95}
                         />
                       );
                     })}
                   {c.pair && (
                     <>
-                      <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill="var(--fg)" fillOpacity={0.2} />
-                      <rect x={216} y={10} width={44} height={H - 10} rx={4} fill="var(--accent)" />
+                      <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill="#ffffff" fillOpacity={0.4} />
+                      <rect x={216} y={10} width={44} height={H - 10} rx={4} fill="#ffffff" />
                     </>
                   )}
                 </svg>
+              </span>
+              <div className="flex flex-1 items-end justify-between gap-4 px-6 pb-6 pt-5">
+                <div className="min-w-0">
+                  <p className="text-base font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</p>
+                  <p className="mt-1 text-sm leading-snug text-[var(--fg-2)]">{c.label}</p>
+                </div>
+                <p className="shrink-0 text-[2.25rem] font-medium leading-none tracking-[-0.04em] text-[var(--accent)] tabular-nums">
+                  <Figure value={c.value} />
+                </p>
               </div>
             </motion.a>
           </li>
