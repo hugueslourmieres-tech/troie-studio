@@ -31,7 +31,9 @@ export default async function HomePage({
       <ClientsCloud />
       <HomeFilms locale={locale} />
       <AboutBlock locale={locale} />
-      <ContactCTA locale={locale} />
+      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
+        <ContactCTA locale={locale} />
+      </div>
     </div>
   );
 }

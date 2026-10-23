@@ -725,21 +725,3 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .film-dialog[open], .film-dialog[open]::backdrop { animation: none; }
 }
-
-/* DA « Prisme » (23/10/2026) : toile spectre vivante, voir SpectrumBackdrop. */
-.spectrum-hue { animation: spectrum-hue 60s linear infinite; }
-.spectrum-layer-a {
-  transform: translate3d(calc(var(--sx, 0) * -60px), calc(var(--sy, 0) * -40px), 0) scale(1.05);
-  animation: spectrum-drift-a 28s ease-in-out infinite alternate;
-}
-.spectrum-layer-b {
-  translate: calc(var(--sx, 0) * 70px) calc(var(--sy, 0) * 50px);
-  animation: spectrum-drift-b 34s ease-in-out infinite alternate, spectrum-fade 20s ease-in-out infinite alternate;
-}
-@keyframes spectrum-hue { to { filter: hue-rotate(360deg); } }
-@keyframes spectrum-drift-a { from { rotate: -3deg; scale: 1; } to { rotate: 4deg; scale: 1.12; } }
-@keyframes spectrum-drift-b { from { rotate: 3deg; scale: 1.1; } to { rotate: -2deg; scale: 1; } }
-@keyframes spectrum-fade { from { opacity: 0.15; } to { opacity: 0.85; } }
-@media (prefers-reduced-motion: reduce) {
-  .spectrum-hue, .spectrum-layer-a, .spectrum-layer-b { animation: none; }
-}
