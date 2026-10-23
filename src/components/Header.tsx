@@ -121,6 +121,7 @@ export function Header({
             <NavDropdown
               key={group.href}
               group={group}
+              locale={locale}
               toggleLabel={
                 isEn
                   ? `Open the ${group.label} submenu`
@@ -180,10 +181,44 @@ export function Header({
 function NavDropdown({
   group,
   toggleLabel,
+  locale,
 }: {
   group: NavGroup;
   toggleLabel: string;
+  locale: string;
 }) {
+  const en = locale === "en";
+  const t = en
+    ? {
+        services: "Our services",
+        resources: "Resources",
+        res: [
+          { href: `/${locale}/creation`, label: "Work" },
+          { href: `/${locale}#chiffres`, label: "Explore the numbers" },
+          { href: `/${locale}/blog`, label: "Journal" },
+          { href: `/${locale}#about`, label: "Our team" },
+          { href: `/${locale}/contact`, label: "Contact" },
+        ],
+        cards: [
+          { href: `/${locale}#realisations`, img: "/images/art/art-1.jpg", title: "The design of our websites", kind: "Work" },
+          { href: `/${locale}#chiffres`, img: "/images/art/art-3.jpg", title: "Our clients' real curves", kind: "Results" },
+        ],
+      }
+    : {
+        services: "Nos services",
+        resources: "Ressources",
+        res: [
+          { href: `/${locale}/creation`, label: "Réalisations" },
+          { href: `/${locale}#chiffres`, label: "Explorez les chiffres" },
+          { href: `/${locale}/blog`, label: "Le journal" },
+          { href: `/${locale}#about`, label: "Notre équipe" },
+          { href: `/${locale}/contact`, label: "Contact" },
+        ],
+        cards: [
+          { href: `/${locale}#realisations`, img: "/images/art/art-1.jpg", title: "Le design de nos sites", kind: "Réalisations" },
+          { href: `/${locale}#chiffres`, img: "/images/art/art-3.jpg", title: "Les vraies courbes de nos clients", kind: "Résultats" },
+        ],
+      };
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -222,7 +257,7 @@ function NavDropdown({
   return (
     <div
       ref={wrapRef}
-      className="relative flex items-center"
+      className="flex items-center"
       onMouseEnter={() => {
         cancelClose();
         setOpen(true);
@@ -258,29 +293,78 @@ function NavDropdown({
         </svg>
       </button>
 
-      {/* Panneau. Fermé, il est aussi invisible pour les lecteurs d'écran
-          (visibility), en plus de l'opacité et du tabIndex des liens. */}
+      {/* Panneau pleine largeur façon OpenAI (23/10/2026) : les services en
+          grand, les ressources en petit, deux cartes aux dégradés tirés de la
+          bannière LinkedIn de Hugues. Fermé, il est aussi invisible pour les
+          lecteurs d'écran (visibility), en plus de l'opacité et du tabIndex. */}
       <div
-        className={`absolute left-0 top-full pt-4 transition-all duration-300 ${
-          open
-            ? "pointer-events-auto visible translate-y-0 opacity-100"
-            : "pointer-events-none invisible -translate-y-1 opacity-0"
+        className={`absolute left-1/2 top-full w-screen -translate-x-1/2 transition-[opacity,visibility] duration-200 ${
+          open ? "pointer-events-auto visible opacity-100" : "pointer-events-none invisible opacity-0"
         }`}
       >
-        <div className="min-w-[248px] rounded-2xl border border-[var(--rule)] bg-white p-2 shadow-[0_24px_60px_-24px_rgba(17,19,24,0.3)]">
-          {group.items.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={() => setOpen(false)}
-              tabIndex={open ? 0 : -1}
-              className="group/item flex items-baseline px-4 py-3 transition-colors hover:bg-[var(--accent-soft)]"
-            >
-              <span className="whitespace-nowrap text-[14px] font-medium text-[var(--fg)] transition-colors group-hover/item:text-[var(--accent)]">
-                {item.label}
-              </span>
-            </Link>
-          ))}
+        <div className="border-b border-[var(--rule)] bg-[var(--bg)] shadow-[0_30px_60px_-40px_rgba(17,19,24,0.35)]">
+          <div
+            className={`mx-auto grid max-w-7xl grid-cols-12 gap-10 px-6 pb-12 pt-8 transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] md:px-12 ${
+              open ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0"
+            }`}
+          >
+            <div className="col-span-5">
+              <p className="text-sm text-[var(--fg-2)]">{t.services}</p>
+              <ul className="mt-4 space-y-1">
+                {group.items.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      tabIndex={open ? 0 : -1}
+                      className="t-display inline-block text-[32px] leading-[1.25] text-[var(--fg)] transition-colors hover:text-[var(--accent)]"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="col-span-2">
+              <p className="text-sm text-[var(--fg-2)]">{t.resources}</p>
+              <ul className="mt-5 space-y-3">
+                {t.res.map((r) => (
+                  <li key={r.href}>
+                    <Link
+                      href={r.href}
+                      onClick={() => setOpen(false)}
+                      tabIndex={open ? 0 : -1}
+                      className="text-[15px] font-medium text-[var(--fg)] transition-colors hover:text-[var(--accent)]"
+                    >
+                      {r.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="col-span-5 grid grid-cols-2 gap-5">
+              {t.cards.map((c) => (
+                <Link
+                  key={c.href}
+                  href={c.href}
+                  onClick={() => setOpen(false)}
+                  tabIndex={open ? 0 : -1}
+                  className="group/card block"
+                >
+                  <span className="block aspect-square overflow-hidden rounded-xl">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={c.img}
+                      alt=""
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover/card:scale-[1.04]"
+                    />
+                  </span>
+                  <span className="mt-3 block text-[15px] font-medium leading-snug text-[var(--fg)]">{c.title}</span>
+                  <span className="mt-1 block text-sm text-[var(--fg-2)]">{c.kind}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
