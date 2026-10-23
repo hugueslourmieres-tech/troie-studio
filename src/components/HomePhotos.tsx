@@ -6,8 +6,8 @@ import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
 
 /**
  * Nos photos (23/10/2026) : une rangée à hauteur fixe qui défile, chaque
- * photo à ses vraies proportions (rien n'est rogné). Entreprises d'abord,
- * puis montagne et faune, en alternance. Noir et blanc au repos, couleur au
+ * photo à ses vraies proportions (rien n'est rogné). Les entreprises
+ * d'abord, la montagne et les animaux à la fin (demande de Hugues). Noir et blanc au repos, couleur au
  * survol, comme les films.
  *
  * Toutes prises au Nikon Z 6 de Hugues (EXIF vérifié le 23/10/2026). Les
@@ -20,17 +20,17 @@ const W = "/images/works";
 const PHOTOS: Photo[] = [
   { src: `${W}/Capefront/DSC_8137.jpg`, w: 2048, h: 1638, fr: "Capefront Energies, l'équipe", en: "Capefront Energies, the team" },
   { src: `${W}/Cartonajes Pans/04.jpg`, w: 1363, h: 1290, fr: "Cartonajes Pans, l'atelier", en: "Cartonajes Pans, the plant" },
-  { src: `${W}/Animaux/02.jpg`, w: 2048, h: 1363, fr: "Chevreuil, Mercantour", en: "Roe deer, Mercantour" },
   { src: `${W}/Eshuis/DSC_0762.jpg`, w: 2048, h: 1363, fr: "Eshuis, l'imprimerie", en: "Eshuis, the print plant" },
   { src: `${W}/MIBI 2026/cover.jpg`, w: 2048, h: 1363, fr: "MIBI 2026, portrait d'équipe", en: "MIBI 2026, team portrait" },
-  { src: `${W}/Valberg/03.jpg`, w: 1363, h: 2048, fr: "Valberg, les crêtes", en: "Valberg, the ridges" },
   { src: `${W}/Capefront/DSC_8610.jpg`, w: 2048, h: 1638, fr: "Capefront Energies, en réunion", en: "Capefront Energies, in a meeting" },
   { src: `${W}/Eshuis/DSC_0690.jpg`, w: 2048, h: 1363, fr: "Eshuis, détail machine", en: "Eshuis, machine detail" },
-  { src: `${W}/Animaux/cover.jpg`, w: 2048, h: 1365, fr: "Rapace en vol, Mercantour", en: "Bird of prey, Mercantour" },
   { src: `${W}/Eshuis/DSC_0955-2.jpg`, w: 1363, h: 2048, fr: "Eshuis, la ligne", en: "Eshuis, the line" },
-  { src: `${W}/Animaux/33AnimauxHuguesLourmieres.jpg`, w: 1365, h: 2048, fr: "Écureuil roux", en: "Red squirrel" },
   { src: `${W}/MIBI 2026/02.jpg`, w: 2048, h: 1363, fr: "MIBI 2026, au travail", en: "MIBI 2026, at work" },
+  { src: `${W}/Valberg/03.jpg`, w: 1363, h: 2048, fr: "Valberg, les crêtes", en: "Valberg, the ridges" },
   { src: `${W}/Valberg/cover.jpg`, w: 1363, h: 2048, fr: "Valberg, le sommet", en: "Valberg, the summit" },
+  { src: `${W}/Animaux/cover.jpg`, w: 2048, h: 1365, fr: "Rapace en vol, Mercantour", en: "Bird of prey, Mercantour" },
+  { src: `${W}/Animaux/33AnimauxHuguesLourmieres.jpg`, w: 1365, h: 2048, fr: "Écureuil roux", en: "Red squirrel" },
+  { src: `${W}/Animaux/02.jpg`, w: 2048, h: 1363, fr: "Chevreuil, Mercantour", en: "Roe deer, Mercantour" },
 ];
 
 const COPY = {
