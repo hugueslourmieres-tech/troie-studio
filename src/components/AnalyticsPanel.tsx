@@ -374,8 +374,8 @@ export function AnalyticsPanel({
         {clients.map((c) => {
           const selected = c.id === client.id;
           return (
+            <div key={c.id} className="shrink-0 lg:w-full">
             <button
-              key={c.id}
               type="button"
               aria-pressed={selected}
               onClick={() => pickClient(c.id)}
@@ -386,6 +386,30 @@ export function AnalyticsPanel({
               <span className="block text-sm font-medium text-[var(--fg)]">{c.name}</span>
               <span className="block text-xs text-[var(--fg-2)]">{c.sector}</span>
             </button>
+            {/* Ordinateur : les indicateurs du client choisi, sous son nom. */}
+            {selected && (
+              <ul className="mb-2 mt-1 hidden border-l border-[var(--rule)] pl-3 lg:ml-3 lg:block">
+                {c.metrics.map((m) => {
+                  const on = m.id === metric.id;
+                  return (
+                    <li key={m.id}>
+                      <button
+                        type="button"
+                        aria-pressed={on}
+                        onClick={() => setMetricId(m.id)}
+                        className={`flex w-full items-center justify-between gap-2 rounded-lg px-2 py-1.5 text-left text-[13px] transition-colors duration-200 ${
+                          on ? "font-medium text-[var(--fg)]" : "text-[var(--fg-2)] hover:text-[var(--fg)]"
+                        }`}
+                      >
+                        <span className="truncate">{m.label}</span>
+                        <span className={`shrink-0 tabular-nums ${on ? "text-[var(--accent)]" : ""}`}>{val(m, m.headline)}</span>
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+            </div>
           );
         })}
       </nav>

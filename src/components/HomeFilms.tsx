@@ -4,8 +4,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, X } from "@phosphor-icons/react";
 
 /**
- * Nos films (22/10/2026) : la même ligne que les témoignages de Colorloop.
- * Une rangée de cartes qui défile (aperçus animés en noir et blanc, couleur
+ * Nos films (24/10/2026) : trois films paysage visibles sur ordinateur, on
+ * fait défiler le reste. Une rangée de cartes qui défile (aperçus animés en noir et blanc, couleur
  * au survol), et un clic ouvre la fiche du film : le film en grand avec le
  * son à gauche, le client, le lieu, ce que l'équipe a fait et le résultat
  * à droite, précédent et suivant en bas. Nos fichiers seulement (22/10 :
@@ -22,9 +22,56 @@ type Story = {
   preview: string;
   /** Le film de la fiche, lancé directement (avec le son s'il en a). */
   film: string;
+  /** Film hébergé sur YouTube (identifiant) : aperçu muet zoomé, fiche avec le son. */
+  youtube?: string;
 };
 
 const STORIES: Story[] = [
+  {
+    id: "printwell",
+    client: "Printwell USA",
+    where: { fr: "États-Unis", en: "United States" },
+    kind: { fr: "Témoignage client", en: "Customer story" },
+    made: { fr: "Témoignage filmé en imprimerie aux États-Unis, pour le groupe Rutherford.", en: "Testimonial filmed in a US print plant, for the Rutherford group." },
+    preview: "/images/videos-local/printwell-loop.mp4",
+    film: "/images/videos-local/printwell.mp4",
+  },
+  {
+    id: "wauters",
+    client: "Wauters B'Pack",
+    where: { fr: "Belgique et France", en: "Belgium and France" },
+    kind: { fr: "Témoignage client", en: "Customer story" },
+    made: { fr: "Film tourné sur les deux sites de l'imprimerie, interviews et presses en action.", en: "Film shot at the printer's two sites, interviews and presses in action." },
+    preview: "/images/videos-local/wauters-loop.mp4",
+    film: "/images/videos-local/wauters.mp4",
+  },
+  {
+    id: "moderna",
+    client: "Moderna Printing",
+    kind: { fr: "Témoignage client", en: "Customer story" },
+    made: { fr: "Témoignage filmé et monté pour le groupe Rutherford : moins de gâche, des mises en route plus rapides.", en: "Testimonial filmed and edited for the Rutherford group: less waste, faster make-ready." },
+    preview: "",
+    film: "",
+    youtube: "vYN1mjCK9VU",
+  },
+  {
+    id: "lefrancq",
+    client: "LEFRANCQ Packaging",
+    where: { fr: "France", en: "France" },
+    kind: { fr: "Témoignage client", en: "Customer story" },
+    made: { fr: "Interviews des équipes au pied des presses, film doublé en anglais.", en: "Team interviews at the presses, film dubbed in English." },
+    preview: "/images/videos-local/lefrancq-loop.mp4",
+    film: "/images/videos-local/lefrancq.mp4",
+  },
+  {
+    id: "gs",
+    client: "GS Monaco",
+    where: { fr: "Monaco", en: "Monaco" },
+    kind: { fr: "Film en imprimerie", en: "Print plant film" },
+    made: { fr: "Film tourné à l'imprimerie, au poste de contrôle couleur.", en: "Film shot in the print plant, at the colour control station." },
+    preview: "/images/videos-local/gs-closedloop-loop.mp4",
+    film: "/images/videos-local/gs-closedloop.mp4",
+  },
   {
     id: "akita",
     client: "Top Akita Inu",
@@ -32,51 +79,6 @@ const STORIES: Story[] = [
     made: { fr: "Interview de Mickaël Bedouet, filmée et montée par l'équipe.", en: "Interview with Mickaël Bedouet, filmed and edited by the team." },
     preview: "/images/videos-local/02.mp4",
     film: "/images/videos-local/akita-interview.mp4",
-  },
-  {
-    id: "exact2",
-    client: "X-Rite, eXact 2",
-    where: { fr: "Paris", en: "Paris" },
-    kind: { fr: "Lancement de produit", en: "Product launch" },
-    made: { fr: "Reels courts tournés au lancement de l'eXact 2 à Paris.", en: "Short reels shot at the eXact 2 launch in Paris." },
-    preview: "/images/creation/video/exact2.mp4",
-    film: "/images/videos-local/05.mp4",
-  },
-  {
-    id: "eshuis",
-    client: "Eshuis",
-    kind: { fr: "Témoignage client", en: "Customer story" },
-    made: {
-      fr: "Témoignage filmé en atelier, sous-titré pour les réseaux sociaux.",
-      en: "Testimonial filmed in the workshop, subtitled for social media.",
-    },
-    preview: "/images/videos-local/eshuis-temoignage-loop.mp4",
-    film: "/images/videos-local/eshuis-temoignage.mp4",
-  },
-  {
-    id: "unboxing",
-    client: "X-Rite, eXact 2",
-    kind: { fr: "Unboxing", en: "Unboxing" },
-    made: { fr: "Vidéo de déballage de l'eXact 2, pour les réseaux sociaux.", en: "eXact 2 unboxing video, for social media." },
-    preview: "/images/videos-local/06.mp4",
-    film: "/images/videos-local/06.mp4",
-  },
-  {
-    id: "ferrari",
-    client: "Ferrari Auctions",
-    kind: { fr: "Reels", en: "Reels" },
-    made: { fr: "Reels verticaux pour les réseaux sociaux.", en: "Vertical reels for social media." },
-    preview: "/images/creation/video/ferrari.mp4",
-    film: "/images/videos-local/04.mp4",
-  },
-  {
-    id: "gs",
-    client: "GS Monaco",
-    where: { fr: "Monaco", en: "Monaco" },
-    kind: { fr: "Vidéo de présentation", en: "Presentation film" },
-    made: { fr: "Vidéo de présentation de GS Monaco, tournée sur place.", en: "GS Monaco presentation film, shot on location." },
-    preview: "/images/videos-local/01.mp4",
-    film: "/images/videos-local/01.mp4",
   },
 ];
 
@@ -119,13 +121,63 @@ function Preview({ s }: { s: Story }) {
   }, []);
   const cls =
     "absolute inset-0 h-full w-full object-cover object-[center_15%] grayscale transition-[filter,transform] duration-700 group-hover:scale-[1.03] group-hover:grayscale-0";
+  if (s.youtube) return <YouTubePreview id={s.youtube} />;
   return <video ref={ref} src={s.preview} muted loop playsInline preload="metadata" aria-hidden="true" className={cls} />;
+}
+
+/**
+ * Aperçu YouTube : l'image du film au repos, la vidéo muette et zoomée (pour
+ * sortir sous-titres et logos du cadre) seulement au survol.
+ */
+function YouTubePreview({ id }: { id: string }) {
+  const [on, setOn] = useState(false);
+  return (
+    <span
+      onMouseEnter={() => setOn(true)}
+      onMouseLeave={() => setOn(false)}
+      className="absolute inset-0 overflow-hidden grayscale transition-[filter] duration-700 group-hover:grayscale-0"
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="" className="absolute inset-0 h-full w-full scale-[1.35] object-cover" />
+      {on && (
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&rel=0&playsinline=1&start=20`}
+          title=""
+          aria-hidden="true"
+          tabIndex={-1}
+          allow="autoplay; encrypted-media"
+          className="pointer-events-none absolute left-1/2 top-1/2 aspect-video w-full -translate-x-1/2 -translate-y-1/2 scale-[1.4]"
+        />
+      )}
+    </span>
+  );
 }
 
 export function HomeFilms({ locale }: { locale: string }) {
   const en = locale === "en";
   const L = en ? "en" : "fr";
   const c = COPY[L];
+  const rail = useRef<HTMLUListElement>(null);
+  const [railActive, setRailActive] = useState(0);
+  const slide = (n: number) => {
+    const el = rail.current;
+    const items = Array.from(el?.children ?? []) as HTMLElement[];
+    if (!el || !items.length) return;
+    const k = ((n % items.length) + items.length) % items.length;
+    el.scrollTo({ left: items[k].offsetLeft - el.offsetLeft, behavior: "smooth" });
+  };
+  useEffect(() => {
+    const el = rail.current;
+    if (!el) return;
+    const onScroll = () => {
+      const items = Array.from(el.children) as HTMLElement[];
+      let best = 0, dist = Infinity;
+      items.forEach((it, k) => { const d = Math.abs(it.offsetLeft - el.offsetLeft - el.scrollLeft); if (d < dist) { dist = d; best = k; } });
+      setRailActive(best);
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState<number | null>(null);
@@ -182,18 +234,18 @@ export function HomeFilms({ locale }: { locale: string }) {
         </div>
 
         <ul
-          data-reveal-stagger
+          ref={rail}
           aria-label={c.rail}
-          className="mt-12 grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-3"
+          className="-mx-5 mt-12 flex snap-x snap-mandatory scroll-pl-5 gap-4 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:-mx-12 md:scroll-pl-12 md:gap-5 md:px-12 [&::-webkit-scrollbar]:hidden"
         >
           {STORIES.map((st, i) => (
-            <li key={st.id}>
+            <li key={st.id} className="w-[85%] shrink-0 snap-start sm:w-[46%] lg:w-[calc((100%-2.5rem)/3)]">
               <button
                 type="button"
                 onClick={(e) => show(i, e.currentTarget)}
                 className="group block w-full rounded-2xl border border-[var(--rule)] bg-white text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
               >
-                <span className="grain relative block aspect-[4/5] overflow-hidden rounded-t-2xl bg-[var(--bg-2)] lg:aspect-[16/11]">
+                <span className="grain relative block aspect-video overflow-hidden rounded-t-2xl bg-[var(--bg-2)]">
                   <Preview s={st} />
                 </span>
                 <span className="block px-5 pb-5 pt-4">
@@ -210,6 +262,21 @@ export function HomeFilms({ locale }: { locale: string }) {
             </li>
           ))}
         </ul>
+
+        {/* Flèches sans cercle aux deux bords, points au centre, comme le héros. */}
+        <div className="mt-6 flex items-center justify-between">
+          <button type="button" onClick={() => slide(railActive - 1)} aria-label={c.prev} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform] duration-200 hover:text-[var(--fg)] active:scale-[0.92]">
+            <ArrowLeft className="h-5 w-5" />
+          </button>
+          <div className="flex items-center gap-1.5" aria-hidden="true">
+            {STORIES.map((st, i) => (
+              <span key={st.id} className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${i === railActive ? "w-6 bg-[var(--fg)]" : "w-1.5 bg-[var(--rule-strong)]"}`} />
+            ))}
+          </div>
+          <button type="button" onClick={() => slide(railActive + 1)} aria-label={c.next} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform] duration-200 hover:text-[var(--fg)] active:scale-[0.92]">
+            <ArrowRight className="h-5 w-5" />
+          </button>
+        </div>
       </div>
 
       {/* La fiche du film, comme les histoires clients de Colorloop */}
@@ -225,15 +292,26 @@ export function HomeFilms({ locale }: { locale: string }) {
               {/* Le film */}
               <div className="flex items-center justify-center bg-[#111318] p-5 md:p-10">
                 <div className="w-full">
-                  <video
-                    key={s.id}
-                    src={s.film}
-                    controls
-                    autoPlay
-                    loop
-                    playsInline
-                    className="mx-auto max-h-[64dvh] w-auto max-w-full rounded-xl"
-                  />
+                  {s.youtube ? (
+                    <iframe
+                      key={s.id}
+                      src={`https://www.youtube-nocookie.com/embed/${s.youtube}?autoplay=1&rel=0&modestbranding=1`}
+                      title={s.client}
+                      allow="autoplay; encrypted-media; picture-in-picture"
+                      allowFullScreen
+                      className="aspect-video w-full rounded-xl"
+                    />
+                  ) : (
+                    <video
+                      key={s.id}
+                      src={s.film}
+                      controls
+                      autoPlay
+                      loop
+                      playsInline
+                      className="mx-auto max-h-[64dvh] w-auto max-w-full rounded-xl"
+                    />
+                  )}
                 </div>
               </div>
 
