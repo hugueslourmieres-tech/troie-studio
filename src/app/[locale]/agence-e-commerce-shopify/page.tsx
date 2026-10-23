@@ -166,7 +166,7 @@ export default async function ShopifyPage({ params }: { params: Promise<{ locale
       <JsonLd data={faqJsonLd(locale, PATH, c.faq)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
-      <PageHero locale={locale} eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="site">
+      <PageHero locale={locale} art="ember" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="site">
         {/* La preuve d'abord : LOIR Paris, avant les actions. */}
         <Link
           href={`/${locale}/etudes-de-cas/loir-paris`}

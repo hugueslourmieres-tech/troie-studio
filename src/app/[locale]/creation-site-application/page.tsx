@@ -155,7 +155,7 @@ export default async function SitesAppsPage({ params }: { params: Promise<{ loca
       <JsonLd data={faqJsonLd(locale, PATH, c.faq)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
-      <PageHero locale={locale} eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="site" />
+      <PageHero locale={locale} art="orchid" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="site" />
 
       <Block id="services" title={c.whatTitle}>
         <Sentences items={c.what} />

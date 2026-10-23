@@ -68,6 +68,7 @@ export function Actions({
 /** En-tête de page : surtitre, H1 court, introduction, actions. */
 export function PageHero({
   locale,
+  art,
   eyebrow,
   title,
   intro,
@@ -79,11 +80,13 @@ export function PageHero({
   title: string;
   intro: string;
   need?: "strategie" | "site" | "contenus" | "accompagnement";
+  /** Visuel de couleur filé avec grain (public/images/art), esprit ElevenLabs. */
+  art?: string;
   children?: React.ReactNode;
 }) {
   return (
-    <section className="mx-auto max-w-7xl px-6 pt-16 pb-20 md:px-12 md:pt-24 md:pb-28">
-      <div className="max-w-3xl">
+    <section className="mx-auto grid max-w-7xl items-center gap-12 px-6 pt-16 pb-20 md:px-12 md:pt-24 md:pb-28 lg:grid-cols-12">
+      <div className={art ? "lg:col-span-7" : "max-w-3xl lg:col-span-12"}>
         <h1 className="t-display text-4xl leading-[1.05] text-[var(--fg)] md:text-6xl">
           {title}
         </h1>
@@ -91,6 +94,12 @@ export function PageHero({
         {children}
         <Actions locale={locale} need={need} />
       </div>
+      {art && (
+        <div aria-hidden="true" className="grain hidden aspect-[4/5] overflow-hidden rounded-[28px] lg:col-span-5 lg:block">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={`/images/art/${art}.jpg`} alt="" className="h-full w-full object-cover" />
+        </div>
+      )}
     </section>
   );
 }
@@ -245,6 +254,9 @@ export function ProofChart({ id, className = "" }: { id: ProofId; className?: st
 }
 
 /** Cartes de preuve, chacune mène à son étude de cas. */
+/** Un visuel par preuve dans les cartes d'études de cas. */
+const PROOF_ART: Record<ProofId, string> = { loir: "sun", rutherford: "sky", autajon: "ember" };
+
 export function ProofGrid({
   locale,
   title,
@@ -269,8 +281,12 @@ export function ProofGrid({
               <li key={id}>
                 <Link
                   href={`/${locale}/etudes-de-cas/${p.slug}`}
-                  className="group flex h-full flex-col rounded-2xl border border-[var(--rule)] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--rule)] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
                 >
+                  <span aria-hidden="true" className="grain block h-28 overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={`/images/art/${PROOF_ART[id]}.jpg`} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
+                  </span>
                   <div className="px-6 pt-6 md:px-7 md:pt-7">
                     <p className="text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{p.client}</p>
                     <p className="mt-0.5 text-sm text-[var(--fg-2)]">{p.sector[l]}</p>

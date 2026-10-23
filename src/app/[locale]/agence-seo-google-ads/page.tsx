@@ -156,7 +156,7 @@ export default async function SeoAdsPage({ params }: { params: Promise<{ locale:
       <JsonLd data={faqJsonLd(locale, PATH, c.faq)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
-      <PageHero locale={locale} eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="strategie" />
+      <PageHero locale={locale} art="sky" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="strategie" />
 
       <Block id="services" title={c.whatTitle}>
         <Sentences items={c.what} />

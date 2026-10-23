@@ -37,7 +37,7 @@ export default async function HomePage({
       <HomeDashboard locale={locale} />
       <AboutBlock locale={locale} />
       <HomeFaq locale={locale} />
-      <div id="contact-final" className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
+      <div id="contact-final">
         <ContactCTA locale={locale} />
       </div>
       <StickyMobileCta locale={locale} />
