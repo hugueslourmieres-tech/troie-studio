@@ -30,7 +30,7 @@ const COPY = {
   fr: {
     metaTitle: "Direction marketing à temps partagé et suivi",
     metaDesc:
-      "Direction marketing à temps partagé, ateliers avec vos équipes, suivi après livraison. Une équipe qui reste à vos côtés dans la durée.",
+      "Direction marketing à temps partagé, ateliers IA et AI Act avec vos équipes, suivi après livraison. Une équipe qui reste à vos côtés dans la durée.",
     eyebrow: "Accompagnement",
     title: "Nous restons à vos côtés.",
     intro:
@@ -40,6 +40,38 @@ const COPY = {
     directionTitle: "Une direction marketing, quand vous n'en avez pas.",
     directionBody:
       "Vous n'avez pas de directeur marketing, ou pas à plein temps. Hugues tient ce rôle à temps partagé : priorités, budget, choix des prestataires, suivi des résultats. Le rythme et la durée se fixent ensemble, dans le devis.",
+    iaEyebrow: "L'IA dans vos équipes",
+    iaTitle: "Vos équipes savent se servir de l'IA.",
+    iaIntro:
+      "Depuis le 2 février 2025, l'article 4 de l'AI Act demande aux entreprises de prendre des mesures pour que leurs équipes aient un niveau suffisant de maîtrise de l'IA. C'est une obligation de moyens : aucun certificat n'est exigé. Nous vous aidons à la remplir avec des ateliers sur vos vrais dossiers, et des documents qui restent.",
+    iaCards: [
+      {
+        art: "sky",
+        title: "Des ateliers sur vos cas réels",
+        body: "Un mail difficile, un long PDF à résumer, un compte rendu de réunion, un tableau Excel, un client mécontent. Chacun repart avec des textes prêts à copier dans ChatGPT, Claude, Gemini ou Le Chat.",
+      },
+      {
+        art: "dusk",
+        title: "Le socle AI Act, clairement",
+        body: "Comprendre l'IA, ce que dit l'AI Act, les usages interdits, l'utiliser de façon responsable dans votre métier, puis mettre en place les mesures. Six étapes courtes, sans jargon.",
+      },
+      {
+        art: "orchid",
+        title: "Les documents qui restent",
+        body: "Une charte d'usage de l'IA en dix règles à votre nom, un registre des usages et une checklist de conformité. Ce sont vos preuves des mesures prises.",
+      },
+      {
+        art: "meadow",
+        title: "Des quiz pour s'entraîner",
+        body: "Douze quiz gratuits, sans compte, pour garder le réflexe entre deux ateliers. Deux minutes chacun.",
+      },
+    ],
+    iaToolsLink: "Essayer les quiz et outils gratuits",
+    iaDates: [
+      { d: "2 février 2025", t: "L'article 4 s'applique : maîtrise de l'IA dans les équipes." },
+      { d: "2 août 2026", t: "Contrôles et sanctions possibles." },
+      { d: "2 décembre 2027", t: "Systèmes à haut risque (annexe III), date reportée par le règlement 2026/1744." },
+    ],
     workshopsTitle: "Des ateliers avec vos équipes.",
     workshopsBody:
       "Des séances courtes, sur vos cas réels : message de marque, contenus, outils du quotidien. L'IA y a sa place quand elle vous fait gagner du temps. Nous vous disons toujours ce que fait la machine et ce que fait la main. Vos équipes repartent avec une méthode qu'elles appliquent seules.",
@@ -62,6 +94,10 @@ const COPY = {
         a: "Nous travaillons avec elle. Nous apportons un regard de direction et nous l'aidons à avancer, sans la remplacer.",
       },
       {
+        q: "Faut-il un certificat pour l'AI Act ?",
+        a: "Non. L'article 4 demande des mesures adaptées pour un niveau suffisant de maîtrise de l'IA, pas un diplôme. Gardez une trace de ce qui a été fait : ateliers, charte, registre.",
+      },
+      {
         q: "Est-ce pris en charge par un OPCO ?",
         a: "Non. TROIE Studio fait du conseil et de l'accompagnement. Nos prestations ne passent pas par les OPCO.",
       },
@@ -70,7 +106,7 @@ const COPY = {
   en: {
     metaTitle: "Fractional marketing direction and support",
     metaDesc:
-      "Fractional marketing direction, workshops with your teams, follow-up after delivery. A team that stays by your side over time.",
+      "Fractional marketing direction, AI and AI Act workshops with your teams, follow-up after delivery. A team that stays by your side over time.",
     eyebrow: "Ongoing support",
     title: "We stay by your side.",
     intro:
@@ -80,6 +116,38 @@ const COPY = {
     directionTitle: "A marketing director, when you don't have one.",
     directionBody:
       "You have no marketing director, or not full time. Hugues takes on this role on a fractional basis: priorities, budget, choice of suppliers, tracking results. The pace and duration are set together, in the quote.",
+    iaEyebrow: "AI in your teams",
+    iaTitle: "Your teams know how to use AI.",
+    iaIntro:
+      "Since 2 February 2025, article 4 of the AI Act asks companies to take measures so their staff have a sufficient level of AI literacy. It is an obligation of means: no certificate is required. We help you meet it with workshops on your real files, and documents that stay with you.",
+    iaCards: [
+      {
+        art: "sky",
+        title: "Workshops on your real cases",
+        body: "A difficult email, a long PDF to summarise, meeting notes, an Excel table, an unhappy customer. Everyone leaves with prompts ready to paste into ChatGPT, Claude, Gemini or Le Chat.",
+      },
+      {
+        art: "dusk",
+        title: "The AI Act basics, clearly",
+        body: "Understanding AI, what the AI Act says, the banned uses, using it responsibly in your job, then putting the measures in place. Six short steps, no jargon.",
+      },
+      {
+        art: "orchid",
+        title: "Documents that stay",
+        body: "An AI use policy in ten rules in your company's name, a register of uses and a compliance checklist. They are your proof of the measures taken.",
+      },
+      {
+        art: "meadow",
+        title: "Quizzes to practise",
+        body: "Twelve free quizzes, no account needed, to keep the habit between workshops. Two minutes each.",
+      },
+    ],
+    iaToolsLink: "Try the free quizzes and tools",
+    iaDates: [
+      { d: "2 February 2025", t: "Article 4 applies: AI literacy in teams." },
+      { d: "2 August 2026", t: "Checks and penalties possible." },
+      { d: "2 December 2027", t: "High-risk systems (Annex III), date postponed by Regulation 2026/1744." },
+    ],
     workshopsTitle: "Workshops with your teams.",
     workshopsBody:
       "Short sessions on your real cases: brand message, content, everyday tools. AI has its place when it saves you time. We always tell you what the machine does and what the hand does. Your teams leave with a method they can apply on their own.",
@@ -100,6 +168,10 @@ const COPY = {
       {
         q: "What if I already have a marketing team?",
         a: "We work with them. We bring a director's view and help them move forward, without replacing them.",
+      },
+      {
+        q: "Do we need a certificate for the AI Act?",
+        a: "No. Article 4 asks for appropriate measures to reach a sufficient level of AI literacy, not a diploma. Keep a record of what was done: workshops, policy, register.",
       },
       {
         q: "Is it covered by an OPCO?",
@@ -188,6 +260,61 @@ function Block({
   );
 }
 
+/** Les ateliers IA (23/10/2026) : l'offre de troie.app, redessinée dans la
+ *  charte du studio. Vocabulaire : ateliers, accompagnement, jamais
+ *  « formation » (voir le cadre juridique en tête de fichier). */
+function IaTeams({ c }: { c: (typeof COPY)["fr"] }) {
+  return (
+    <section id="ia" className="scroll-mt-24 border-t border-[var(--rule)]">
+      <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
+        <div className="grid gap-8 md:grid-cols-12 md:gap-10">
+          <div className="md:col-span-6">
+            <p className="text-sm text-[var(--fg-2)]">{c.iaEyebrow}</p>
+            <h2 className="t-display mt-4 text-3xl leading-tight text-[var(--fg)] md:text-5xl">{c.iaTitle}</h2>
+          </div>
+          <div className="md:col-span-6 md:pt-9">
+            <p className="text-base leading-relaxed text-[var(--fg-2)] md:text-lg">{c.iaIntro}</p>
+          </div>
+        </div>
+
+        <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {c.iaCards.map((card) => (
+            <li key={card.title} className="flex flex-col overflow-hidden rounded-2xl border border-[var(--rule)] bg-white">
+              <span aria-hidden="true" className="grain block h-20 shrink-0 overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/images/art/${card.art}.jpg`} alt="" className="h-full w-full object-cover" />
+              </span>
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-[17px] font-medium leading-snug text-[var(--fg)]">{card.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-[var(--fg-2)]">{card.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-14 grid gap-8 md:grid-cols-12 md:gap-10">
+          <ol className="grid gap-6 sm:grid-cols-3 md:col-span-9">
+            {c.iaDates.map((x) => (
+              <li key={x.d} className="border-t border-[var(--rule-strong)] pt-4">
+                <p className="text-[15px] font-medium tabular-nums text-[var(--accent)]">{x.d}</p>
+                <p className="mt-2 text-sm leading-relaxed text-[var(--fg-2)]">{x.t}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="md:col-span-3 md:flex md:items-end md:justify-end">
+            <a href="https://troie.app" target="_blank" rel="noreferrer" className={BTN_LINK}>
+              <span className="inline-flex items-center gap-2">
+                {c.iaToolsLink}
+                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default async function AccompagnementPage({
   params,
 }: {
@@ -238,12 +365,7 @@ export default async function AccompagnementPage({
       </section>
 
       <Block id="direction" title={c.directionTitle} body={c.directionBody} />
-      <Block
-        id="ateliers"
-        title={c.workshopsTitle}
-        body={c.workshopsBody}
-        link={null}
-      />
+      <IaTeams c={c} />
       <Block id="suivi" title={c.followTitle} body={c.followBody} />
       {/* Questions fréquentes (même tableau que le JSON-LD FAQPage). Le padding
           est porté par le summary : toute la ligne de la question se touche. */}

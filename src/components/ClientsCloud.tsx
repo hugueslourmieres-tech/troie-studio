@@ -43,7 +43,7 @@ function Row({ hidden = false }: { hidden?: boolean }) {
 export function ClientsCloud() {
   const locale = useLocale();
   return (
-    <section className="border-t border-[var(--rule)]">
+    <section>
       <div data-reveal className="mx-auto max-w-7xl px-5 pt-12 pb-6 md:px-12 md:pt-14">
         <p className="text-center text-sm text-[var(--fg-2)]">
           {locale === "fr" ? "L'équipe a travaillé avec" : "Our team has worked with"}

@@ -106,7 +106,7 @@ export const ARTICLES: Article[] = [
     date: "2026-09-16",
     category: "Conformité",
     readingMinutes: 8,
-    cover: "/images/corpo/strategie/DSC_5552-4.jpg",
+    cover: "/images/art/sky.jpg",
     keywords: [
       "formation AI Act CPF",
       "formation IA Act OPCO",
@@ -127,7 +127,7 @@ export const ARTICLES: Article[] = [
     date: "2026-08-24",
     category: "Conformité",
     readingMinutes: 9,
-    cover: "/images/corpo/montpellier/DSC_7603.jpg",
+    cover: "/images/art/orchid.jpg",
     keywords: [
       "charte usage IA entreprise",
       "charte intelligence artificielle modèle",

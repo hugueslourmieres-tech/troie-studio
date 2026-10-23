@@ -8,7 +8,17 @@ import { MobileMenu } from "./MobileMenu";
 
 export type NavItem = { href: string; label: string };
 export type NavGroup = { label: string; href: string; items: NavItem[] };
-export type NavCard = { href: string; img: string; title: string; kind: string; external?: boolean };
+export type NavCard = {
+  href: string;
+  img: string;
+  title: string;
+  kind: string;
+  external?: boolean;
+  /** Plusieurs images : la carte devient un petit diaporama en fondu. */
+  imgs?: string[];
+  /** Noir et blanc au repos, couleur au survol (comme les films). */
+  mono?: boolean;
+};
 /** Panneau de menu pleine largeur (23/10/2026, façon OpenAI). */
 export type NavPanel = {
   label: string;
@@ -165,8 +175,8 @@ export function Header({
         { href: "https://bilber.app", label: "Bilber" },
       ],
       cards: [
-        { href: "https://bienenregle.com", img: "/images/creation/web/bienenregle-desktop.jpg", title: "Bien en règle", kind: isEn ? "Web app" : "Web app", external: true },
-        { href: "https://loirparis.fr", img: "/images/creation/web/loirparis-desktop.jpg", title: "LOIR Paris", kind: "E-commerce", external: true },
+        { href: "https://bienenregle.com", img: "/images/creation/web/bienenregle-desktop.jpg", title: "Bien en règle", kind: "Web app", external: true, mono: true },
+        { href: "https://rutherford.fr", img: "/images/creation/web/rutherford-desktop.jpg", title: "Rutherford", kind: isEn ? "Website" : "Site vitrine", external: true, mono: true },
       ],
     },
     {
@@ -185,7 +195,13 @@ export function Header({
         { href: projectHref, label: nav.project },
       ],
       cards: [
-        { href: `/${locale}#about`, img: "/images/about/hugues-studio.jpg", title: L.cardTeam, kind: L.team },
+        {
+          href: `/${locale}#about`,
+          img: "/images/about/hugues-studio.jpg",
+          imgs: ["/images/about/hugues-studio.jpg", "/images/about/vanessa-v2.jpg", "/images/about/gilles-pons.jpg", "/images/about/thibaud-v2.jpg"],
+          title: L.cardTeam,
+          kind: L.team,
+        },
         { href: `/${locale}#services`, img: "/images/art/meadow.jpg", title: L.cardServices, kind: L.whatWeDo },
       ],
     },
@@ -416,14 +432,18 @@ function NavDropdown({ panel, toggleLabel }: { panel: NavPanel; toggleLabel: str
                   tabIndex={open ? 0 : -1}
                   className="group/card block"
                 >
-                  <span className="block aspect-square overflow-hidden rounded-xl bg-[var(--bg-2)]">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={c.img}
-                      alt=""
-                      loading="lazy"
-                      className={`h-full w-full object-cover transition-transform duration-700 group-hover/card:scale-[1.04] ${c.img.includes("/creation/web/") ? "object-left-top" : "object-top"}`}
-                    />
+                  <span className="relative block aspect-square overflow-hidden rounded-xl bg-[var(--bg-2)]">
+                    {c.imgs ? (
+                      <CardSlideshow imgs={c.imgs} running={open} />
+                    ) : (
+                      /* eslint-disable-next-line @next/next/no-img-element */
+                      <img
+                        src={c.img}
+                        alt=""
+                        loading="lazy"
+                        className={`h-full w-full object-cover transition-[transform,filter] duration-700 group-hover/card:scale-[1.04] ${c.mono ? "grayscale group-hover/card:grayscale-0" : ""} ${c.img.includes("/creation/web/") ? "object-left-top" : "object-top"}`}
+                      />
+                    )}
                   </span>
                   <span className="mt-3 block text-[15px] font-medium leading-snug text-[var(--fg)]">{c.title}</span>
                   <span className="mt-1 block text-sm text-[var(--fg-2)]">{c.kind}</span>
@@ -434,5 +454,38 @@ function NavDropdown({ panel, toggleLabel }: { panel: NavPanel; toggleLabel: str
         </div>
       </div>
     </div>
+  );
+}
+
+/**
+ * Petit diaporama de la carte « L'équipe » : un portrait toutes les 2,2 s,
+ * en fondu, seulement quand le panneau est ouvert.
+ */
+function CardSlideshow({ imgs, running }: { imgs: string[]; running: boolean }) {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    if (!running) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = setInterval(() => setI((n) => (n + 1) % imgs.length), 2200);
+    return () => clearInterval(t);
+  }, [running, imgs.length]);
+  return (
+    <>
+      {imgs.map((src, n) => (
+        /* eslint-disable-next-line @next/next/no-img-element */
+        <img
+          key={src}
+          src={src}
+          alt=""
+          loading="lazy"
+          className={`absolute inset-0 h-full w-full object-cover object-top transition-opacity duration-700 ${n === i ? "opacity-100" : "opacity-0"}`}
+        />
+      ))}
+      <span className="absolute inset-x-0 bottom-3 flex justify-center gap-1.5" aria-hidden="true">
+        {imgs.map((src, n) => (
+          <span key={src} className={`h-1 rounded-full bg-white transition-all duration-300 ${n === i ? "w-4 opacity-100" : "w-1 opacity-60"}`} />
+        ))}
+      </span>
+    </>
   );
 }

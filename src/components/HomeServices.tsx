@@ -33,7 +33,7 @@ export function HomeServices({ locale }: { locale: string }) {
   const c = COPY[locale === "en" ? "en" : "fr"];
 
   return (
-    <section id="services" className="scroll-mt-24 border-t border-[var(--rule)]">
+    <section id="services" className="scroll-mt-24">
       <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 md:px-12 md:py-28 lg:grid-cols-12">
         <h2 data-reveal className="t-display text-4xl text-[var(--fg)] md:text-5xl lg:col-span-4">{c.title}</h2>
         <div className="lg:col-span-8">
