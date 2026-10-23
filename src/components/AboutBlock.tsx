@@ -76,7 +76,7 @@ const COPY = {
       },
       vanessa: {
         role: "Conseil en communication",
-        note: "Anciennement à la Maison de l'Intelligence Artificielle.",
+        note: "Conseil en communication et en marque.",
       },
       gilles: { role: "Lead développeur", note: "Sites, applications et outils sur mesure." },
       thibaud: { role: "Réalisateur", note: "Films, vidéo et photographie." },
@@ -106,7 +106,7 @@ const COPY = {
       },
       vanessa: {
         role: "Communication consultant",
-        note: "Formerly at the Maison de l'Intelligence Artificielle.",
+        note: "Communication and brand consulting.",
       },
       gilles: { role: "Lead developer", note: "Websites, apps and custom tools." },
       thibaud: { role: "Director", note: "Films, video and photography." },

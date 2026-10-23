@@ -20,7 +20,7 @@ const COPY = {
       { word: "demandes.", icon: "chat" },
     ],
     srWords: "ventes, commandes, visites, prospects, abonnés et demandes.",
-    body: "Sites web, applications, SEO et SEA (publicité en ligne), films et réseaux sociaux. Une seule équipe, des résultats mesurés.",
+    body: "Sites, applications, SEO, publicité, films et réseaux sociaux. Une seule équipe, des résultats mesurés.",
     book: "Réserver 30 min",
     project: "Décrire mon projet",
   },
@@ -67,7 +67,7 @@ export function HomeHero({ locale }: { locale: string }) {
             </a>
             <a
               href={`/${locale}/contact#projet`}
-              className="text-[15px] font-medium text-[var(--fg)] underline decoration-[var(--rule-strong)] underline-offset-4 transition-colors hover:decoration-[var(--fg)]"
+              className="inline-flex h-12 items-center rounded-full border border-[var(--rule-strong)] px-6 text-[15px] font-medium text-[var(--fg)] transition-colors duration-200 hover:border-[var(--fg)]"
             >
               {c.project}
             </a>

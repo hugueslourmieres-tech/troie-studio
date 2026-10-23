@@ -1,5 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { HomeHero } from "@/components/HomeHero";
+import { HomeAudience, HomeCtaBand, HomeProcess, HomeFaq } from "@/components/HomeConversion";
+import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { HomeFilms } from "@/components/HomeFilms";
 import { HomeWebWorks } from "@/components/HomeWebWorks";
@@ -25,15 +27,20 @@ export default async function HomePage({
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <HomeHero locale={locale} />
-      <HomeDashboard locale={locale} />
-      <HomeWebWorks locale={locale} />
-      <HomeServices locale={locale} />
       <ClientsCloud />
+      <HomeServices locale={locale} />
+      <HomeAudience locale={locale} />
+      <HomeWebWorks locale={locale} />
+      <HomeCtaBand locale={locale} />
       <HomeFilms locale={locale} />
+      <HomeProcess locale={locale} />
+      <HomeDashboard locale={locale} />
       <AboutBlock locale={locale} />
-      <div className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
+      <HomeFaq locale={locale} />
+      <div id="contact-final" className="tone-accent bg-[var(--bg)] text-[var(--fg)]">
         <ContactCTA locale={locale} />
       </div>
+      <StickyMobileCta locale={locale} />
     </div>
   );
 }

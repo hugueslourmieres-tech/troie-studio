@@ -76,9 +76,9 @@ export function ResultCards({ locale }: { locale: string }) {
       sector: "E-commerce",
       value: en ? "+164%" : "+164 %",
       label: en ? "online sales in two years" : "de ventes en ligne en deux ans",
-      target: "#chiffres",
+      target: `/${locale}/etudes-de-cas/loir-paris`,
       curve: norm(LOIR_SALES_PCT.map((v, i) => ({ x: i, v }))),
-      more: en ? "Explore the curve" : "Voir la courbe",
+      more: en ? "Read the case" : "Lire le cas",
     },
     {
       id: "rutherford",
@@ -86,19 +86,19 @@ export function ResultCards({ locale }: { locale: string }) {
       sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B",
       value: en ? "+193%" : "+193 %",
       label: en ? "TikTok followers since March 2025" : "d'abonnés TikTok depuis mars 2025",
-      target: "#chiffres",
+      target: `/${locale}/etudes-de-cas/rutherford`,
       curve: norm(RUTHERFORD_TIKTOK_PCT.map((p) => ({ x: time(p.d), v: p.v }))),
-      more: en ? "Explore the curve" : "Voir la courbe",
+      more: en ? "Read the case" : "Lire le cas",
     },
     {
       id: "autajon",
       client: "Autajon",
       sector: en ? "Large group, packaging" : "Grand groupe, emballage",
       value: "×35",
-      label: en ? "a customer film's budget, in sales" : "le budget d'un film client, en ventes",
-      target: `/${locale}/medias#exemple`,
+      label: en ? "in sales for a film's budget" : "de ventes pour le budget d'un film",
+      target: `/${locale}/etudes-de-cas/autajon`,
       bars: [1, 35],
-      more: en ? "See the films" : "Voir les films",
+      more: en ? "Read the case" : "Lire le cas",
     },
   ];
 
@@ -112,7 +112,7 @@ export function ResultCards({ locale }: { locale: string }) {
   const H = 96;
 
   return (
-    <div ref={ref} className="-mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
+    <div ref={ref} className="-mx-5 flex snap-x snap-mandatory scroll-pl-5 gap-3 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
       {cards.map((c, i) => (
         <motion.a
           key={c.id}
@@ -184,7 +184,7 @@ export function ResultCards({ locale }: { locale: string }) {
             </svg>
           </div>
 
-          <span className="absolute top-6 right-6 inline-flex items-center gap-1 text-sm font-medium text-[var(--fg)] opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 md:top-7 md:right-7">
+          <span className="absolute top-6 right-6 inline-flex items-center gap-1 text-sm font-medium text-[var(--accent)] underline-offset-4 group-hover:underline md:top-7 md:right-7">
             {c.more}
           </span>
         </motion.a>
