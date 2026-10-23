@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { LOIR_SALES_PCT, RUTHERFORD_TIKTOK_PCT } from "@/lib/results";
-import { clientColor } from "@/lib/client-colors";
 
 /**
  * Les trois résultats du premier écran (21/10/2026, structure « les
@@ -122,7 +121,6 @@ export function ResultCards({ locale }: { locale: string }) {
           initial={reduce ? false : { opacity: 0, y: 16 }}
           animate={show ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: reduce ? 0 : 0.1 * i, ease }}
-          style={{ "--accent": clientColor(c.id) } as React.CSSProperties}
           className="group relative flex w-[82%] shrink-0 snap-start flex-col rounded-2xl md:w-auto border border-[var(--rule)] bg-white transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
         >
           <div className="px-6 pt-6 md:px-7 md:pt-7">

@@ -1,5 +1,4 @@
 "use client";
-import { clientColor } from "@/lib/client-colors";
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
@@ -364,7 +363,6 @@ export function AnalyticsPanel({
   return (
     <div
       ref={ref}
-      style={{ "--accent": clientColor(client.id) } as React.CSSProperties}
       className="overflow-hidden rounded-2xl border border-[var(--rule)] bg-white lg:grid lg:grid-cols-[220px_1fr]"
     >
       {/* Clients : colonne sur ordinateur, rangée sur téléphone */}
