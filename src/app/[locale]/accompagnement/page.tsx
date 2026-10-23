@@ -66,7 +66,8 @@ const COPY = {
         body: "Douze quiz gratuits, sans compte, pour garder le réflexe entre deux ateliers. Deux minutes chacun.",
       },
     ],
-    iaToolsLink: "Essayer les quiz et outils gratuits",
+    iaToolsLink: "Outils IA gratuits",
+    iaQuizLink: "Les 12 quiz sur troie.app",
     iaDates: [
       { d: "2 février 2025", t: "L'article 4 s'applique : maîtrise de l'IA dans les équipes." },
       { d: "2 août 2026", t: "Contrôles et sanctions possibles." },
@@ -142,7 +143,8 @@ const COPY = {
         body: "Twelve free quizzes, no account needed, to keep the habit between workshops. Two minutes each.",
       },
     ],
-    iaToolsLink: "Try the free quizzes and tools",
+    iaToolsLink: "Free AI tools",
+    iaQuizLink: "The 12 quizzes on troie.app",
     iaDates: [
       { d: "2 February 2025", t: "Article 4 applies: AI literacy in teams." },
       { d: "2 August 2026", t: "Checks and penalties possible." },
@@ -263,7 +265,7 @@ function Block({
 /** Les ateliers IA (23/10/2026) : l'offre de troie.app, redessinée dans la
  *  charte du studio. Vocabulaire : ateliers, accompagnement, jamais
  *  « formation » (voir le cadre juridique en tête de fichier). */
-function IaTeams({ c }: { c: (typeof COPY)["fr"] }) {
+function IaTeams({ c, locale }: { c: (typeof COPY)["fr"]; locale: string }) {
   return (
     <section id="ia" className="scroll-mt-24 border-t border-[var(--rule)]">
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-12 md:py-28">
@@ -301,10 +303,13 @@ function IaTeams({ c }: { c: (typeof COPY)["fr"] }) {
               </li>
             ))}
           </ol>
-          <div className="md:col-span-3 md:flex md:items-end md:justify-end">
+          {/* Les outils B2B vivent sur le studio depuis le 23/10/2026 (/outils).
+              troie.app ne garde que les 12 quiz. */}
+          <div className="flex flex-col items-start md:col-span-3 md:items-end md:justify-end">
+            <ArrowLink href={`/${locale}/outils`}>{c.iaToolsLink}</ArrowLink>
             <a href="https://troie.app" target="_blank" rel="noreferrer" className={BTN_LINK}>
               <span className="inline-flex items-center gap-2">
-                {c.iaToolsLink}
+                {c.iaQuizLink}
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
               </span>
             </a>
@@ -365,7 +370,7 @@ export default async function AccompagnementPage({
       </section>
 
       <Block id="direction" title={c.directionTitle} body={c.directionBody} />
-      <IaTeams c={c} />
+      <IaTeams c={c} locale={locale} />
       <Block id="suivi" title={c.followTitle} body={c.followBody} />
       {/* Questions fréquentes (même tableau que le JSON-LD FAQPage). Le padding
           est porté par le summary : toute la ligne de la question se touche. */}

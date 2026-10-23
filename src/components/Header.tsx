@@ -147,6 +147,7 @@ export function Header({
         { href: `/${locale}/etudes-de-cas`, label: isEn ? "Case studies" : "Études de cas" },
         { href: `/${locale}/agence-e-commerce-shopify`, label: "E-commerce Shopify" },
         { href: `/${locale}/agence-web-nice`, label: isEn ? "Web agency in Nice" : "Agence web à Nice" },
+        { href: `/${locale}/outils`, label: isEn ? "AI tools" : "Outils IA" },
         { href: `/${locale}/blog`, label: nav.journal },
         { href: `/${locale}#about`, label: L.team },
         { href: contactHref, label: L.contact },

@@ -21,31 +21,31 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["motion", "gsap", "@gsap/react", "lucide-react"],
   },
-  // Redirections SEO. Le studio fait du conseil et de la création,
-  // l'apprentissage vit sur troie.app : les anciennes URL formation y
-  // renvoient directement. Les fiches et pages retirées du studio pointent
+  // Redirections SEO. Le studio fait du conseil et de la création.
+  // Depuis le 23/10/2026, les anciennes URL formation renvoient vers
+  // l'accompagnement (ateliers IA), plus vers troie.app. Les fiches et pages retirées du studio pointent
   // vers la page qui les remplace (1er/10/2026).
   async redirects() {
     return [
-      // ─── E-learning déplacé sur troie.app (la plateforme d'apprentissage) ───
-      // Le studio ne fait plus que l'agence. Redirections 301 : elles gardent
+      // ─── Anciennes URL formation : vers l'accompagnement (23/10/2026) ───
+      // Les espaces de compte restent sur troie.app. Redirections 301 : elles gardent
       // le référencement et renvoient chacun au bon endroit sur l'app.
-      { source: "/formations/tarifs", destination: "https://troie.app/formation", permanent: true },
+      { source: "/formations/tarifs", destination: "/fr/accompagnement", permanent: true },
       { source: "/formations/auth/:path*", destination: "https://troie.app/connexion", permanent: true },
       { source: "/formations/dashboard/:path*", destination: "https://troie.app/parcours", permanent: true },
       { source: "/formations/quiz/:path*", destination: "https://troie.app/niveau", permanent: true },
-      { source: "/formations/prompts/:path*", destination: "https://troie.app/formation", permanent: true },
-      { source: "/formations", destination: "https://troie.app/formation", permanent: true },
-      { source: "/formations/:path*", destination: "https://troie.app/formation", permanent: true },
-      // Vitrines formation localisées → directement sur l'app (pas de double saut).
+      { source: "/formations/prompts/:path*", destination: "/fr/accompagnement", permanent: true },
+      { source: "/formations", destination: "/fr/accompagnement", permanent: true },
+      { source: "/formations/:path*", destination: "/fr/accompagnement", permanent: true },
+      // Vitrines formation localisées → l'accompagnement, dans la même langue.
       {
         source: "/:locale(fr|en)/formations",
-        destination: "https://troie.app/formation",
+        destination: "/:locale/accompagnement",
         permanent: true,
       },
       {
         source: "/:locale(fr|en)/formation",
-        destination: "https://troie.app/formation",
+        destination: "/:locale/accompagnement",
         permanent: true,
       },
       // Pages photo + vidéo fusionnees dans /medias (les detail /works/:slug restent).

@@ -8,7 +8,7 @@ const BASE = "https://troiestudio.fr";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // /fr|/en/formation(s) redirige (301) vers troie.app/formation : exclu du sitemap.
+  // /fr|/en/formation(s) redirige (301) vers /accompagnement : exclu du sitemap.
   // /privacy et /terms sont en noindex : hors du sitemap (24/09/2026).
   // /hello (lien en bio Instagram) est en noindex : hors du sitemap.
   // /rentree, /scan-ia et /diagnostic-ia redirigent en 301 depuis le 21/10/2026.
@@ -33,9 +33,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/medias",
     "/blog",
     "/contact",
+    // Outils IA gratuits portés depuis troie.app (23/10/2026), rédigés en français.
+    "/outils",
+    "/outils/charte-ia",
+    "/outils/diagnostic-ai-act",
+    "/outils/registre-usages-ia",
+    "/outils/checklist-ai-act",
+    "/ai-act-calendrier",
   ];
   // Rédigées en français seulement : la copie /en porte une canonique vers /fr.
-  const FR_ONLY = new Set(["/creation/web"]);
+  const FR_ONLY = new Set([
+    "/creation/web",
+    "/outils",
+    "/outils/charte-ia",
+    "/outils/diagnostic-ai-act",
+    "/outils/registre-usages-ia",
+    "/outils/checklist-ai-act",
+    "/ai-act-calendrier",
+  ]);
   const HIGH_PRIORITY = new Set([
     "/medias",
     "/blog",
