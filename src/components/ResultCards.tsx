@@ -217,7 +217,7 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                   <span className="text-sm font-medium opacity-75 underline-offset-4 group-hover:underline">{en ? "Read the case" : "Lire le cas"}</span>
                 </span>
                 <span className="mt-4 block text-[3.5rem] font-medium leading-none tracking-[-0.045em] tabular-nums md:text-[4rem]">
-                  <CountUp value={c.value} run={show && !reduce} />
+                  <CountUp value={c.value} run={show && !reduce && i === active} />
                 </span>
                 <span className="mt-2 block max-w-[16rem] text-[15px] leading-snug opacity-80">{c.label}</span>
                 <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.curve ? "none" : "xMidYMid meet"} className="absolute inset-x-0 bottom-0 h-[38%] w-full">
@@ -225,15 +225,16 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                     <>
                       <path d={`${linePath(c.curve)} L${W},${H} L0,${H} Z`} fill={c.art === "sky" ? "currentColor" : "#ffffff"} opacity={c.art === "sky" ? 0.12 : 0.22} />
                       <motion.path
+                        key={i === active ? `on-${c.id}` : `off-${c.id}`}
                         d={linePath(c.curve)}
                         fill="none"
                         stroke={c.art === "sky" ? "currentColor" : "#ffffff"}
                         strokeWidth="2"
                         vectorEffect="non-scaling-stroke"
                         strokeLinejoin="round"
-                        initial={{ pathLength: reduce ? 1 : 0 }}
+                        initial={{ pathLength: reduce || i !== active ? 1 : 0 }}
                         animate={show ? { pathLength: 1 } : {}}
-                        transition={{ duration: reduce ? 0 : 1.2, delay: reduce ? 0 : 0.3 + 0.25 * Math.min(i, 3), ease: [0.65, 0, 0.35, 1] }}
+                        transition={{ duration: reduce ? 0 : 1.3, delay: reduce ? 0 : 0.15, ease: [0.65, 0, 0.35, 1] }}
                       />
                       {c.curve.length < 8 &&
                         c.curve.map(([px, py], k) => (
@@ -247,8 +248,11 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                       const size = 14;
                       const gap = (W - 48 - cols * size) / (cols - 1);
                       return (
-                        <rect
-                          key={k}
+                        <motion.rect
+                          key={`${k}-${i === active ? "on" : "off"}`}
+                          initial={{ opacity: reduce || i !== active ? 1 : 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3, delay: reduce ? 0 : 0.1 + k * 0.03 }}
                           x={24 + (k % cols) * (size + gap)}
                           y={H - 10 - (Math.floor(k / cols) + 1) * (size + 8) + 8}
                           width={size}
@@ -262,7 +266,16 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                   {c.pair && (
                     <>
                       <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill={c.art === "sky" ? "currentColor" : "#ffffff"} fillOpacity={0.4} />
-                      <rect x={216} y={10} width={44} height={H - 10} rx={4} fill={c.art === "sky" ? "currentColor" : "#ffffff"} />
+                      <motion.rect
+                        key={i === active ? "on" : "off"}
+                        x={216}
+                        width={44}
+                        rx={4}
+                        fill={c.art === "sky" ? "currentColor" : "#ffffff"}
+                        initial={{ y: reduce || i !== active ? 10 : H - (c.pair[0] / c.pair[1]) * (H - 10), height: reduce || i !== active ? H - 10 : (c.pair[0] / c.pair[1]) * (H - 10) }}
+                        animate={{ y: 10, height: H - 10 }}
+                        transition={{ duration: reduce ? 0 : 1, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}
+                      />
                     </>
                   )}
                 </svg>

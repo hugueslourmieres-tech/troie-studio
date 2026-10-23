@@ -83,15 +83,16 @@ export function RotatingWord({
       aria-hidden="true"
       layout={!reduce}
       transition={{ layout: { duration: 0.45, ease: EASE } }}
-      className={`relative inline-flex items-center whitespace-nowrap align-baseline ${art ? `isolate -mx-[0.12em] rounded-[0.22em] px-[0.12em] pb-[0.04em] transition-colors duration-700 ${art === "dusk" ? "text-white" : art === "sky" ? "text-[#0d2547]" : "text-[#10200f]"}` : ""}`}
+      className={`relative inline-flex items-center whitespace-nowrap align-baseline `}
     >
       {art && (
-        <span aria-hidden="true" className="grain absolute! inset-0 -z-10 overflow-hidden rounded-[0.22em]">
+        /* Soulignement à la couleur de la carte active (23/10/2026 : la
+           capsule derrière le mot faisait trop, sur téléphone surtout). */
+        <span aria-hidden="true" className="absolute! left-0 right-[1.04em] -bottom-[0.02em] h-[0.08em] overflow-hidden rounded-full">
           {(["meadow", "sky", "dusk"] as const).map((a) => (
             /* eslint-disable-next-line @next/next/no-img-element */
             <img key={a} src={`/images/art/${a}.jpg`} alt="" className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${a === art ? "opacity-100" : "opacity-0"}`} />
           ))}
-          <span className={`absolute inset-0 bg-[#111318] transition-opacity duration-700 ${art === "dusk" ? "opacity-35" : "opacity-0"}`} />
         </span>
       )}
       {/* La fin du titre : lettres qui apparaissent sur place */}
@@ -111,7 +112,7 @@ export function RotatingWord({
         </motion.span>
       </AnimatePresence>
       {/* Pastille du pictogramme */}
-      <span className={`relative ml-[0.22em] inline-flex h-[0.82em] w-[0.82em] shrink-0 items-center justify-center rounded-[0.2em] translate-y-[0.04em] ${art ? "bg-white/25 text-current" : "bg-[var(--accent-soft)] text-[var(--accent)]"}`}>
+      <span className={`relative ml-[0.22em] inline-flex h-[0.82em] w-[0.82em] shrink-0 items-center justify-center rounded-[0.2em] translate-y-[0.04em] bg-[var(--accent-soft)] text-[var(--accent)]`}>
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={icon}
