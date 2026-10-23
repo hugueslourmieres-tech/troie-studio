@@ -4,6 +4,7 @@ import { HomeAudience, HomeCtaBand, HomeProcess, HomeFaq } from "@/components/Ho
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { ClientsCloud } from "@/components/ClientsCloud";
 import { HomeFilms } from "@/components/HomeFilms";
+import { HomePhotos } from "@/components/HomePhotos";
 import { HomeWebWorks } from "@/components/HomeWebWorks";
 import { HomeDashboard } from "@/components/HomeDashboard";
 import { HomeServices } from "@/components/HomeServices";
@@ -33,6 +34,7 @@ export default async function HomePage({
       <HomeWebWorks locale={locale} />
       <HomeCtaBand locale={locale} />
       <HomeFilms locale={locale} />
+      <HomePhotos locale={locale} />
       <HomeProcess locale={locale} />
       <HomeDashboard locale={locale} />
       <AboutBlock locale={locale} />

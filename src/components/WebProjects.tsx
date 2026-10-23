@@ -39,6 +39,16 @@ export const PROJECTS: Project[] = [
     mobileRatio: "600 / 1300",
   },
   {
+    name: "Bilber",
+    kind: "Plateforme SaaS : le passeport numérique des produits",
+    href: "https://bilber.app",
+    url: "bilber.app",
+    label: "bilber.app",
+    desktop: "/images/creation/web/bilber-passeport-desktop.jpg",
+    mobile: "/images/creation/web/bilber-passeport-mobile.jpg",
+    mobileRatio: "600 / 1300",
+  },
+  {
     name: "Capefront Energies",
     kind: "Site web corporate, énergie",
     href: "https://capefront-site.vercel.app/fr",
@@ -69,21 +79,10 @@ export const PROJECTS: Project[] = [
     mobile: "/images/creation/web/colorguesser-mobile.jpg",
     mobileRatio: "600 / 1301",
   },
-  {
-    name: "Bilber",
-    kind: "Jeu web quotidien : la course au code-barres",
-    href: "https://bilber.app",
-    url: "bilber.app",
-    label: "bilber.app",
-    desktop: "/images/creation/web/bilber-desktop.jpg",
-    video: "/videos/creation/web/bilber.mp4",
-    mobile: "/images/creation/web/bilber-mobile.jpg",
-    mobileRatio: "600 / 1301",
-  },
 ];
 
-/** Les sites montrés dans le slider de l'accueil, dans cet ordre (21/10/2026). */
-export const HOME_PROJECTS = ["Bien en règle", "Rutherford", "LOIR Paris", "Color Guesser", "Bilber"];
+/** Les sites montrés dans le slider de l'accueil, dans cet ordre (23/10/2026 : Bilber en 3e). */
+export const HOME_PROJECTS = ["Bien en règle", "Rutherford", "Bilber", "LOIR Paris", "Color Guesser"];
 
 export type Project = {
   name: string;
