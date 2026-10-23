@@ -21,7 +21,7 @@ export function HomeDashboard({ locale }: { locale: string }) {
         <p className="mt-5 max-w-xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">{c.body}</p>
         {/* Grand écran : le tableau de bord dans un iMac (23/10/2026). Sur
             tablette et téléphone, il s'affiche seul, à taille lisible. */}
-        <div className="mt-12 hidden lg:block">
+        <div className="mx-auto mt-12 hidden max-w-5xl lg:block">
           <IMacFrame>
             <AnalyticsPanel locale={locale} extraClients={draftClients(en)} />
           </IMacFrame>

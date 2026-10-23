@@ -9,6 +9,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { ARTICLES_SORTED, localizeArticle } from "./blog/articles";
 import { Analytics } from "@vercel/analytics/next";
 import { OG_IMAGE } from "@/lib/og";
 
@@ -319,7 +320,13 @@ export default async function LocaleLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ScrollProgress />
           <ScrollReveal />
-          <Header locale={locale} />
+          <Header
+            locale={locale}
+            latest={ARTICLES_SORTED.slice(0, 4).map((a) => {
+              const L = localizeArticle(a, locale);
+              return { href: `/${locale}/blog/${a.slug}`, img: a.cover, title: L.cardTitle, kind: L.category };
+            })}
+          />
           <main>{children}</main>
           <Footer locale={locale} />
         </NextIntlClientProvider>

@@ -4,7 +4,8 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
  * iMac 24 pouces bleu, vue de face (23/10/2026) : maquette Adobe Stock
- * n° 509051654 (licence gratuite, compte Adobe de Hugues). Le contenu est
+ * n° 509051654 (licence gratuite, compte Adobe de Hugues), détourée sans fond,
+ * sans clavier ni souris ni pied : l'écran seul, posé sur le fond du site. Le contenu est
  * mis en page sur un écran virtuel de 1180 × 665 px (le ratio de la dalle,
  * mesuré au pixel), puis réduit pour remplir exactement l'écran de l'iMac.
  * Il reste interactif : le survol des courbes se calcule en proportions.
@@ -25,10 +26,10 @@ export function IMacFrame({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <div className="relative overflow-hidden rounded-3xl" style={{ aspectRatio: "2400 / 1527" }}>
+    <div className="relative drop-shadow-[0_30px_40px_rgba(17,19,24,0.18)]" style={{ aspectRatio: "2375 / 1615" }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/images/mockups/imac-24-blue.jpg"
+        src="/images/mockups/imac-24-blue.png"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 h-full w-full select-none"
@@ -37,7 +38,7 @@ export function IMacFrame({ children }: { children: ReactNode }) {
       <div
         ref={screen}
         className="absolute overflow-hidden bg-white"
-        style={{ left: "19.25%", top: "4.58%", width: "64.21%", height: "56.73%" }}
+        style={{ left: "2.695%", top: "3.591%", width: "94.653%", height: "78.266%" }}
       >
         <div
           className="absolute left-0 top-0 origin-top-left px-6 pt-5"

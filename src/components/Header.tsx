@@ -8,14 +8,27 @@ import { MobileMenu } from "./MobileMenu";
 
 export type NavItem = { href: string; label: string };
 export type NavGroup = { label: string; href: string; items: NavItem[] };
+export type NavCard = { href: string; img: string; title: string; kind: string; external?: boolean };
+/** Panneau de menu pleine largeur (23/10/2026, façon OpenAI). */
+export type NavPanel = {
+  label: string;
+  href: string;
+  primaryTitle: string;
+  primary: NavItem[];
+  /** Taille des liens principaux : grands titres ou titres d'articles. */
+  primarySize?: "lg" | "md";
+  secondaryTitle?: string;
+  secondary?: NavItem[];
+  cards: NavCard[];
+};
 
 /** Prise de rendez-vous : action principale du site, partout. */
 const BOOKING_URL = "https://cal.com/troiestudio/30min";
 
 /**
- * Barre fixe crème. Menu : Services (déroulant), Réalisations, Studio,
- * Journal (21/10/2026). À droite : langue, Décrire mon projet (à partir
- * de xl), Réserver 30 min. Ordre du 1er/10/2026 : le savoir-faire d'abord,
+ * Barre fixe crème. Menu (23/10/2026) : Services, Réalisations, Studio et
+ * Journal s'ouvrent chacun sur un panneau pleine largeur avec aperçus. À
+ * droite : langue, puis le bouton Contact. Ordre du 1er/10/2026 : le savoir-faire d'abord,
  * l'IA est un moyen. Plus de bandeau ni de bouton troie.app (lien dans le
  * pied de page).
  */
@@ -23,8 +36,11 @@ export function Header({
   locale,
   solid = false,
   showLang = true,
+  latest = [],
 }: {
   locale: string;
+  /** Derniers articles du journal (calculés côté serveur) pour le menu. */
+  latest?: NavCard[];
   /** Barre crème pleine en permanence (au-dessus d'un hero sombre). */
   solid?: boolean;
   /** Affiche le sélecteur de langue (off hors des routes [locale]). */
@@ -95,6 +111,94 @@ export function Header({
   ];
 
   const projectHref = `/${locale}/contact#projet`;
+  const contactHref = `/${locale}/contact`;
+
+  // Panneaux du menu (ordinateur) : chaque entrée s'ouvre au survol sur des
+  // aperçus (23/10/2026, demande de Hugues).
+  const L = isEn
+    ? {
+        ourServices: "Our services", resources: "Resources", explore: "Explore", projects: "Projects", studioT: "The studio", reach: "Get in touch", latestT: "Latest articles", more: "More",
+        films: "Our films", numbers: "Explore the numbers", team: "Our team", whatWeDo: "What we do", contact: "Contact", all: "All articles", photo: "Photography",
+        cardSites: "The design of our websites", cardCurves: "Our clients' real curves", work: "Work", results: "Results", cardTeam: "The team", cardServices: "Six services, one team",
+      }
+    : {
+        ourServices: "Nos services", resources: "Ressources", explore: "Explorer", projects: "Projets", studioT: "Le studio", reach: "Nous joindre", latestT: "Derniers articles", more: "Plus",
+        films: "Nos films", numbers: "Explorez les chiffres", team: "Notre équipe", whatWeDo: "Ce que nous faisons", contact: "Contact", all: "Tous les articles", photo: "Photographie",
+        cardSites: "Le design de nos sites", cardCurves: "Les vraies courbes de nos clients", work: "Réalisations", results: "Résultats", cardTeam: "L'équipe", cardServices: "Six services, une équipe",
+      };
+  const panels: NavPanel[] = [
+    {
+      label: nav.services,
+      href: `/${locale}#services`,
+      primaryTitle: L.ourServices,
+      primary: groups[0].items,
+      secondaryTitle: L.resources,
+      secondary: [
+        { href: `/${locale}/creation`, label: nav.works },
+        { href: `/${locale}#chiffres`, label: L.numbers },
+        { href: `/${locale}/blog`, label: nav.journal },
+        { href: `/${locale}#about`, label: L.team },
+        { href: contactHref, label: L.contact },
+      ],
+      cards: [
+        { href: `/${locale}#realisations`, img: "/images/art/art-1.jpg", title: L.cardSites, kind: L.work },
+        { href: `/${locale}#chiffres`, img: "/images/art/art-3.jpg", title: L.cardCurves, kind: L.results },
+      ],
+    },
+    {
+      label: nav.works,
+      href: `/${locale}/creation`,
+      primaryTitle: L.explore,
+      primary: [
+        { href: `/${locale}/creation/web`, label: nav.web },
+        { href: `/${locale}/medias`, label: nav.media },
+        { href: `/${locale}#films`, label: L.films },
+        { href: `/${locale}#chiffres`, label: L.numbers },
+      ],
+      secondaryTitle: L.projects,
+      secondary: [
+        { href: "https://bienenregle.com", label: "Bien en règle" },
+        { href: "https://loirparis.fr", label: "LOIR Paris" },
+        { href: "https://rutherford.fr", label: "Rutherford" },
+        { href: "https://playcolorguesser.com", label: "Color Guesser" },
+        { href: "https://bilber.app", label: "Bilber" },
+      ],
+      cards: [
+        { href: "https://bienenregle.com", img: "/images/creation/web/bienenregle-desktop.jpg", title: "Bien en règle", kind: isEn ? "Web app" : "Web app", external: true },
+        { href: "https://loirparis.fr", img: "/images/creation/web/loirparis-desktop.jpg", title: "LOIR Paris", kind: "E-commerce", external: true },
+      ],
+    },
+    {
+      label: nav.studio,
+      href: `/${locale}#about`,
+      primaryTitle: L.studioT,
+      primary: [
+        { href: `/${locale}#about`, label: L.team },
+        { href: `/${locale}#services`, label: L.whatWeDo },
+        { href: `/${locale}/medias#photo`, label: L.photo },
+        { href: contactHref, label: L.contact },
+      ],
+      secondaryTitle: L.reach,
+      secondary: [
+        { href: BOOKING_URL, label: nav.book },
+        { href: projectHref, label: nav.project },
+      ],
+      cards: [
+        { href: `/${locale}#about`, img: "/images/about/hugues-studio.jpg", title: L.cardTeam, kind: L.team },
+        { href: `/${locale}#services`, img: "/images/art/art-4.jpg", title: L.cardServices, kind: L.whatWeDo },
+      ],
+    },
+    {
+      label: nav.journal,
+      href: `/${locale}/blog`,
+      primaryTitle: L.latestT,
+      primarySize: "md",
+      primary: latest.slice(0, 4).map((a) => ({ href: a.href, label: a.title })),
+      secondaryTitle: L.more,
+      secondary: [{ href: `/${locale}/blog`, label: L.all }],
+      cards: latest.slice(0, 2),
+    },
+  ];
 
   return (
     <header
@@ -117,26 +221,12 @@ export function Header({
 
         {/* Menus déroulants (ordinateur, lg et plus) puis Journal */}
         <nav className="hidden items-center gap-4 lg:flex xl:gap-7 2xl:gap-9">
-          {groups.map((group) => (
+          {panels.map((panel) => (
             <NavDropdown
-              key={group.href}
-              group={group}
-              locale={locale}
-              toggleLabel={
-                isEn
-                  ? `Open the ${group.label} submenu`
-                  : `Ouvrir le sous-menu ${group.label}`
-              }
+              key={panel.href}
+              panel={panel}
+              toggleLabel={isEn ? `Open the ${panel.label} menu` : `Ouvrir le menu ${panel.label}`}
             />
-          ))}
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-[14px] font-medium text-[var(--fg)] transition hover:text-[var(--accent)]"
-            >
-              {l.label}
-            </Link>
           ))}
         </nav>
 
@@ -145,14 +235,12 @@ export function Header({
               Réserver 30 min. */}
           <div className="hidden items-center gap-4 lg:flex">
             {showLang && <LangSwitch locale={locale} />}
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-10 items-center whitespace-nowrap rounded-full bg-[var(--ink)] px-5 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-[#2a2e37]"
+            <Link
+              href={contactHref}
+              className="inline-flex h-10 items-center whitespace-nowrap rounded-full bg-[var(--ink)] px-5 text-[14px] font-medium text-white transition-colors duration-200 hover:bg-[#2a2e37] active:scale-[0.97]"
             >
-              {nav.book}
-            </a>
+              {L.contact}
+            </Link>
           </div>
 
           {/* Pas de bouton dans la barre sous `lg` : à 375 px le wordmark
@@ -178,47 +266,8 @@ export function Header({
  * à côté ouvre le panneau. Ouverture aussi au survol. Fermeture au
  * mouseleave, Escape, ou clic à l'extérieur.
  */
-function NavDropdown({
-  group,
-  toggleLabel,
-  locale,
-}: {
-  group: NavGroup;
-  toggleLabel: string;
-  locale: string;
-}) {
-  const en = locale === "en";
-  const t = en
-    ? {
-        services: "Our services",
-        resources: "Resources",
-        res: [
-          { href: `/${locale}/creation`, label: "Work" },
-          { href: `/${locale}#chiffres`, label: "Explore the numbers" },
-          { href: `/${locale}/blog`, label: "Journal" },
-          { href: `/${locale}#about`, label: "Our team" },
-          { href: `/${locale}/contact`, label: "Contact" },
-        ],
-        cards: [
-          { href: `/${locale}#realisations`, img: "/images/art/art-1.jpg", title: "The design of our websites", kind: "Work" },
-          { href: `/${locale}#chiffres`, img: "/images/art/art-3.jpg", title: "Our clients' real curves", kind: "Results" },
-        ],
-      }
-    : {
-        services: "Nos services",
-        resources: "Ressources",
-        res: [
-          { href: `/${locale}/creation`, label: "Réalisations" },
-          { href: `/${locale}#chiffres`, label: "Explorez les chiffres" },
-          { href: `/${locale}/blog`, label: "Le journal" },
-          { href: `/${locale}#about`, label: "Notre équipe" },
-          { href: `/${locale}/contact`, label: "Contact" },
-        ],
-        cards: [
-          { href: `/${locale}#realisations`, img: "/images/art/art-1.jpg", title: "Le design de nos sites", kind: "Réalisations" },
-          { href: `/${locale}#chiffres`, img: "/images/art/art-3.jpg", title: "Les vraies courbes de nos clients", kind: "Résultats" },
-        ],
-      };
+function NavDropdown({ panel, toggleLabel }: { panel: NavPanel; toggleLabel: string }) {
+  const group = panel;
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -309,15 +358,19 @@ function NavDropdown({
             }`}
           >
             <div className="col-span-5">
-              <p className="text-sm text-[var(--fg-2)]">{t.services}</p>
-              <ul className="mt-4 space-y-1">
-                {group.items.map((item) => (
+              <p className="text-sm text-[var(--fg-2)]">{panel.primaryTitle}</p>
+              <ul className={panel.primarySize === "md" ? "mt-5 space-y-4" : "mt-4 space-y-1"}>
+                {panel.primary.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
                       tabIndex={open ? 0 : -1}
-                      className="t-display inline-block text-[32px] leading-[1.25] text-[var(--fg)] transition-colors hover:text-[var(--accent)]"
+                      className={
+                        panel.primarySize === "md"
+                          ? "inline-block text-[19px] font-medium leading-snug tracking-[-0.015em] text-[var(--fg)] transition-colors hover:text-[var(--accent)]"
+                          : "t-display inline-block text-[32px] leading-[1.25] text-[var(--fg)] transition-colors hover:text-[var(--accent)]"
+                      }
                     >
                       {item.label}
                     </Link>
@@ -326,42 +379,54 @@ function NavDropdown({
               </ul>
             </div>
             <div className="col-span-2">
-              <p className="text-sm text-[var(--fg-2)]">{t.resources}</p>
-              <ul className="mt-5 space-y-3">
-                {t.res.map((r) => (
-                  <li key={r.href}>
-                    <Link
-                      href={r.href}
-                      onClick={() => setOpen(false)}
-                      tabIndex={open ? 0 : -1}
-                      className="text-[15px] font-medium text-[var(--fg)] transition-colors hover:text-[var(--accent)]"
-                    >
-                      {r.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              {panel.secondary && (
+                <>
+                  <p className="text-sm text-[var(--fg-2)]">{panel.secondaryTitle}</p>
+                  <ul className="mt-5 space-y-3">
+                    {panel.secondary.map((r) => {
+                      const ext = r.href.startsWith("http");
+                      return (
+                        <li key={r.href}>
+                          <a
+                            href={r.href}
+                            target={ext ? "_blank" : undefined}
+                            rel={ext ? "noreferrer" : undefined}
+                            onClick={() => setOpen(false)}
+                            tabIndex={open ? 0 : -1}
+                            className="text-[15px] font-medium text-[var(--fg)] transition-colors hover:text-[var(--accent)]"
+                          >
+                            {r.label}
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </>
+              )}
             </div>
             <div className="col-span-5 grid grid-cols-2 gap-5">
-              {t.cards.map((c) => (
-                <Link
-                  key={c.href}
+              {panel.cards.map((c) => (
+                <a
+                  key={c.href + c.title}
                   href={c.href}
+                  target={c.external ? "_blank" : undefined}
+                  rel={c.external ? "noreferrer" : undefined}
                   onClick={() => setOpen(false)}
                   tabIndex={open ? 0 : -1}
                   className="group/card block"
                 >
-                  <span className="block aspect-square overflow-hidden rounded-xl">
+                  <span className="block aspect-square overflow-hidden rounded-xl bg-[var(--bg-2)]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={c.img}
                       alt=""
-                      className="h-full w-full object-cover transition-transform duration-700 group-hover/card:scale-[1.04]"
+                      loading="lazy"
+                      className={`h-full w-full object-cover transition-transform duration-700 group-hover/card:scale-[1.04] ${c.img.includes("/creation/web/") ? "object-left-top" : "object-top"}`}
                     />
                   </span>
                   <span className="mt-3 block text-[15px] font-medium leading-snug text-[var(--fg)]">{c.title}</span>
                   <span className="mt-1 block text-sm text-[var(--fg-2)]">{c.kind}</span>
-                </Link>
+                </a>
               ))}
             </div>
           </div>
