@@ -62,7 +62,7 @@ export function HomeCtaBand({ locale }: { locale: string }) {
     <section className="px-3 py-3 md:px-5">
       <div data-reveal className="grain relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 overflow-hidden rounded-[28px] px-7 py-16 md:flex-row md:items-center md:px-14 md:py-20">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/images/art/orchid.jpg" alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <img src="/images/art/rose.jpg" alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div>
           <h2 className="t-display text-3xl text-[#111318] md:text-5xl">{E ? "Got a project in mind?" : "Un projet en tête ?"}</h2>
           <p className="mt-3 text-base text-[#111318]/75 md:text-lg">{E ? "Tell us in 30 minutes. No commitment." : "Parlons-en 30 minutes, sans engagement."}</p>
