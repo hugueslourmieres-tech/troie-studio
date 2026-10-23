@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { ARTICLES, getArticle, localizeArticle } from "../articles";
+import { ARTICLES, getArticle, isNoindexArticle, localizeArticle } from "../articles";
 import { JsonLd, ORG_ID } from "@/components/JsonLd";
 import Image from "next/image";
 import { metaDescription, seoTitle } from "@/lib/seo";
@@ -24,6 +24,10 @@ export async function generateMetadata({
   return {
     title: seoTitle(L.title),
     description: metaDescription(L.description),
+    // Articles « formation-* » (23/10/2026) : hors index, toujours en ligne.
+    // Le studio vend du conseil et de l'accompagnement, pas de la formation.
+    // Ils sortent aussi du sitemap (src/app/sitemap.ts).
+    ...(isNoindexArticle(slug) ? { robots: { index: false, follow: true } } : {}),
     alternates: {
       canonical: `/${canonicalLocale}/blog/${slug}`,
       ...(L.hasEn

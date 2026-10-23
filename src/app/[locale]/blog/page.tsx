@@ -8,7 +8,7 @@ const META = {
   fr: {
     title: "Le Journal TROIE : comprendre et utiliser l'IA",
     description:
-      "Articles clairs et pédagogiques pour comprendre l'IA, l'utiliser vraiment et l'intégrer au quotidien. Pour les particuliers, les familles et les pros.",
+      "Vendre en ligne, référencement Google, publicité, réseaux sociaux et IA au service des ventes. Des articles clairs et sourcés, pour les PME et les e-commerces.",
     eyebrow: "/ Le Journal",
     heading: "Le journal.",
     read: "Lire l'article",
@@ -16,7 +16,7 @@ const META = {
   en: {
     title: "The TROIE Journal: understanding and using AI",
     description:
-      "Clear, practical articles to understand AI, actually use it, and make it part of your day. For individuals, families and professionals.",
+      "Selling online, Google search, advertising, social media and AI that serves sales. Clear, sourced articles for SMEs and online stores.",
     eyebrow: "/ The Journal",
     heading: "The journal.",
     read: "Read the article",

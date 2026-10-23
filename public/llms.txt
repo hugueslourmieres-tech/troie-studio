@@ -1,41 +1,60 @@
 # TROIE Studio (troiestudio.fr)
 
-> Studio de stratégie et de création basé à Nice (France), fondé par Hugues Lourmieres. Stratégie de marque, direction artistique, photographie, vidéo, sites web et accompagnement des entreprises dans la durée. Pour les entreprises en France, à Monaco et à l'international. Site bilingue français et anglais. TROIE Studio édite aussi troie.app, un site séparé d'outils en ligne et de cours courts.
+> TROIE Studio est l'agence qui fait vendre. Une agence digitale fondée par Hugues Lourmieres, basée à Nice, sur la Côte d'Azur. Elle travaille partout en France et à distance. Sites, applications et e-commerce, photo et vidéo, communication et réseaux sociaux, SEO et publicité Google Ads, leads, CRM et automatisations, accompagnement des équipes. Un seul interlocuteur, du premier rendez-vous aux résultats. Site bilingue français et anglais.
 
-## À propos
+## Ce que fait l'agence
 
-TROIE Studio est dirigé par Hugues Lourmieres, fondateur. Il exerce la direction marketing depuis 2018. Il est aussi photographe, vidéaste et directeur artistique. L'équipe réunit la stratégie, la réalisation vidéo et photo, le design et le développement de sites et d'applications. L'IA fait partie des outils de l'équipe. Les idées, les choix et la relation avec les clients restent humains. Chaque projet commence par un appel de 30 minutes, puis une proposition écrite et un devis.
+- Sites, applications et e-commerce : sites vitrines, boutiques Shopify, applications web et mobiles. Conçus, développés et mis en ligne.
+- Photo et vidéo : reportages, films de marque, témoignages clients, contenus pour les réseaux.
+- Communication et réseaux sociaux : positionnement, messages, contenus, lancements de produits.
+- SEO et SEA : référencement naturel Google, campagnes Google Ads, Google Shopping et Meta, suivies chaque mois.
+- Leads, CRM et automatisations : formulaires qui convertissent, CRM en place, relances et suivi des prospects automatisés.
+- Accompagnement des équipes : direction marketing à temps partagé, prise en main des outils digitaux, suivi après livraison.
+
+Les prestations sont du conseil et de l'accompagnement, sur devis, après un appel de 30 minutes. Aucun prix public.
+
+## Résultats mesurés
+
+Des évolutions en pourcentage, lues dans les outils des clients. Aucun montant publié.
+
+- LOIR Paris (e-commerce de mode, Shopify) : +164 % de ventes en ligne en deux ans (ventes nettes sur 12 mois glissants, de septembre 2024 à septembre 2026, données Shopify).
+- Rutherford (PME industrielle B2B, imprimerie et emballage) : +193 % d'abonnés TikTok depuis mars 2025.
+- Autajon (grand groupe de l'emballage) : un film tourné et monté par l'équipe pour le groupe Rutherford. Le groupe estime qu'il a rapporté environ 35 fois son budget (×35).
+
+## Zone
+
+Basés à Nice (Alpes-Maritimes, Côte d'Azur). Déplacements sur la Côte d'Azur : Nice, Monaco, Cannes, Antibes, Sophia Antipolis. Partout en France et à distance pour le reste.
 
 ## Pages principales
 
-- [Accueil](https://troiestudio.fr/fr) : ce que fait le studio, l'équipe, un exemple de réalisation.
-- [Stratégie](https://troiestudio.fr/fr/strategie) : positionnement, message, choix des canaux, plan d'acquisition, référencement.
-- [Création](https://troiestudio.fr/fr/creation) : photo, vidéo, design, sites web.
-- [Réalisations photo et vidéo](https://troiestudio.fr/fr/medias) : reportages et films tournés sur le terrain.
-- [Sites web](https://troiestudio.fr/fr/creation/web) : méthode et sites réalisés.
-- [Accompagnement](https://troiestudio.fr/fr/accompagnement) : direction marketing à temps partagé, ateliers avec les équipes, suivi après livraison.
+- [Accueil](https://troiestudio.fr/fr) : les services, les résultats, l'équipe.
+- [Agence SEO et Google Ads](https://troiestudio.fr/fr/agence-seo-google-ads) : référencement naturel, Google Ads et Meta pour PME et e-commerce.
+- [Agence e-commerce Shopify](https://troiestudio.fr/fr/agence-e-commerce-shopify) : création et refonte de boutiques Shopify, fiches produits, acquisition.
+- [Sites et applications](https://troiestudio.fr/fr/creation-site-application) : sites vitrines, boutiques, applications web et mobiles.
+- [Agence web à Nice](https://troiestudio.fr/fr/agence-web-nice) : l'agence sur la Côte d'Azur, pour vendre partout en France.
+- [Études de cas](https://troiestudio.fr/fr/etudes-de-cas) : LOIR Paris, Rutherford, Autajon.
+- [Communication et visibilité](https://troiestudio.fr/fr/strategie) : positionnement, réseaux sociaux, référencement, campagnes.
+- [Réalisations web](https://troiestudio.fr/fr/creation/web) : les sites et applications en ligne.
+- [Photo et vidéo](https://troiestudio.fr/fr/medias) : reportages et films tournés sur le terrain.
+- [Accompagnement](https://troiestudio.fr/fr/accompagnement) : direction marketing à temps partagé, ateliers avec les équipes, suivi.
+- [Hugues Lourmieres](https://troiestudio.fr/fr/hugues) : le fondateur, directeur marketing depuis 2018.
+- [Le Journal](https://troiestudio.fr/fr/blog) : vendre en ligne, SEO, publicité, réseaux sociaux.
 - [Contact](https://troiestudio.fr/fr/contact) : réserver 30 minutes ou décrire un projet.
 
-## Ressources
+## Études de cas
 
-- [Diagnostic](https://troiestudio.fr/fr/diagnostic-ia) : faire le point sur l'organisation, les outils et les priorités.
-- [Organisation et outils IA](https://troiestudio.fr/ia) : ateliers et mise en place d'outils, au service de la stratégie.
-- [AI Act entreprise : êtes-vous concerné ?](https://troiestudio.fr/ia/ai-act) : obligations, dates clés, plan d'action.
-- [Accessibilité web](https://troiestudio.fr/ia/accessibilite) : obligations et plan d'action.
-- [Scan de site](https://troiestudio.fr/fr/scan-ia) : lisibilité d'un site par Google et par les moteurs IA, en 60 secondes.
-
-## Le Journal (blog)
-
-Articles sourcés (EUR-Lex, Commission européenne, entreprises.gouv.fr) sur l'IA en entreprise, la conformité AI Act, le web et la visibilité en ligne, en français, une partie traduite en anglais : https://troiestudio.fr/fr/blog
+- [LOIR Paris](https://troiestudio.fr/fr/etudes-de-cas/loir-paris)
+- [Rutherford](https://troiestudio.fr/fr/etudes-de-cas/rutherford)
+- [Autajon](https://troiestudio.fr/fr/etudes-de-cas/autajon)
 
 ## troie.app
 
-troie.app est un site séparé : des outils en ligne (charte d'usage de l'IA, registre des usages, calendrier AI Act) et des cours courts : https://troie.app
-
-## Repères juridiques appliqués sur les deux sites
-
-L'article 4 de l'AI Act (règlement UE 2024/1689, littératie en IA) s'applique depuis le 2 février 2025 : c'est une obligation de moyens (« prendre des mesures pour garantir un niveau suffisant de maîtrise de l'IA »), et aucune certification officielle n'existe pour les personnes. Le régime de sanctions et les obligations de transparence de l'article 50 s'appliquent depuis le 2 août 2026, sous le contrôle des autorités nationales de surveillance du marché. Le règlement (UE) 2026/1744 a reporté les obligations des systèmes à haut risque au 2 décembre 2027 (annexe III) et au 2 août 2028 (annexe I). L'article 4 et l'article 50 ne sont pas concernés par ce report.
+troie.app est un site séparé, édité par TROIE Studio : des quiz gratuits et des outils en ligne : https://troie.app
 
 ## Contact
 
-https://troiestudio.fr/fr/contact, https://www.linkedin.com/company/troiestudio, https://www.instagram.com/troiestudio/
+- Réserver 30 minutes : https://cal.com/troiestudio/30min
+- Formulaire : https://troiestudio.fr/fr/contact
+- LinkedIn : https://www.linkedin.com/company/troiestudio
+- Instagram : https://www.instagram.com/troiestudio
+- Fiche Google : https://www.google.com/maps/place/?q=place_id:ChIJzaE5l_HCtSwRsqZgau9Fe4o
