@@ -26,26 +26,19 @@ const BTN_LINK =
 
 export type FaqItem = { q: string; a: string };
 
-/** Lien souligné avec flèche, zone cliquable de 48 px. */
+/** Lien souligné, zone cliquable de 48 px. */
 export function ArrowLink({ href, children }: { href: string; children: string }) {
   const external = href.startsWith("http");
-  const arrow = (
-    <span aria-hidden="true" className="transition group-hover:translate-x-1">
-      →
-    </span>
-  );
   return external ? (
     <a href={href} target="_blank" rel="noreferrer" className={BTN_LINK}>
       <span className="inline-flex items-center gap-2">
         {children}
-        {arrow}
       </span>
     </a>
   ) : (
     <Link href={href} className={BTN_LINK}>
       <span className="inline-flex items-center gap-2">
         {children}
-        {arrow}
       </span>
     </Link>
   );
@@ -64,9 +57,6 @@ export function Actions({
     <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
       <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
         {en ? "Book 30 min" : "Réserver 30 min"}
-        <span aria-hidden="true" className="transition group-hover:translate-x-1">
-          →
-        </span>
       </a>
       <ArrowLink href={`/${locale}/contact${need ? `?besoin=${need}` : ""}#projet`}>
         {en ? "Describe my project" : "Décrire mon projet"}
@@ -94,8 +84,7 @@ export function PageHero({
   return (
     <section className="mx-auto max-w-7xl px-6 pt-16 pb-20 md:px-12 md:pt-24 md:pb-28">
       <div className="max-w-3xl">
-        <p className="text-sm font-medium text-[var(--fg-2)]">{eyebrow}</p>
-        <h1 className="t-display mt-4 text-4xl leading-[1.05] text-[var(--fg)] md:text-6xl">
+        <h1 className="t-display text-4xl leading-[1.05] text-[var(--fg)] md:text-6xl">
           {title}
         </h1>
         <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]">{intro}</p>

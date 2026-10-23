@@ -9,6 +9,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { SeoSchema } from "@/components/SeoSchema";
 import { ARTICLES_SORTED, localizeArticle } from "./blog/articles";
 import { Analytics } from "@vercel/analytics/next";
 import { OG_IMAGE } from "@/lib/og";
@@ -170,141 +171,6 @@ export default async function LocaleLayout({
   // pour que Google rattache l'entité de marque à tout le site.
   // Les savoir-faire suivent le positionnement du 1er/10/2026 : stratégie,
   // création, accompagnement. L'IA n'y figure plus que comme outil.
-  const orgJsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": ["Organization", "ProfessionalService"],
-        "@id": "https://troiestudio.fr/#organization",
-        name: tBrand("name"),
-        alternateName: "TROIE Atelier Digital",
-        url: "https://troiestudio.fr",
-        logo: "https://troiestudio.fr/images/brand/og-image.png",
-        /* Fraîcheur machine : figée au build, rafraîchie à chaque deploy
-           (critère GEO : les moteurs IA privilégient les sources datées). */
-        dateModified: new Date().toISOString().slice(0, 10),
-        description: tBrand("organizationDescription"),
-        founder: { "@id": "https://troiestudio.fr/#hugues" },
-        founders: [{ "@id": "https://troiestudio.fr/#hugues" }],
-        knowsAbout: isFr
-          ? [
-              "Stratégie de marque",
-              "Stratégie de communication et marketing",
-              "Direction artistique",
-              "Production vidéo",
-              "Photographie",
-              "Création de sites web et d'applications",
-              "SEO",
-              "Publicité en ligne, Google Ads et Meta Ads",
-              "Réseaux sociaux",
-              "Direction marketing à temps partagé",
-              "Automatisation et outils IA",
-            ]
-          : [
-              "Brand strategy",
-              "Communication and marketing strategy",
-              "Art direction",
-              "Video production",
-              "Photography",
-              "Website and app development",
-              "SEO",
-              "Online advertising, Google Ads and Meta Ads",
-              "Social media",
-              "Fractional marketing direction",
-              "Automation and AI tools",
-            ],
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Nice",
-          addressRegion: "Provence-Alpes-Côte d'Azur",
-          postalCode: "06000",
-          addressCountry: "FR",
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: 43.7102,
-          longitude: 7.262,
-        },
-        hasMap: "https://www.google.com/maps/place/Nice,+France",
-        priceRange: "Sur devis",
-        knowsLanguage: ["fr-FR", "en"],
-        areaServed: [
-          { "@type": "City", name: "Nice" },
-          { "@type": "AdministrativeArea", name: "Provence-Alpes-Côte d'Azur" },
-          { "@type": "Country", name: "France" },
-          { "@type": "Country", name: "Monaco" },
-          { "@type": "Country", name: "Belgique" },
-          { "@type": "Country", name: "Suisse" },
-          { "@type": "Country", name: "Luxembourg" },
-          { "@type": "Country", name: "Canada" },
-        ],
-        contactPoint: {
-          "@type": "ContactPoint",
-          // Email volontairement absent (anti-moisson) : le formulaire
-          // de contact est le canal public, dans la langue de la page.
-          url: `https://troiestudio.fr/${locale}/contact`,
-          contactType: "customer service",
-          availableLanguage: ["French", "English"],
-        },
-        sameAs: [
-          "https://www.linkedin.com/company/troiestudio",
-          "https://www.instagram.com/troiestudio/",
-        ],
-        // La chaîne YouTube s'appelle encore « TROIE, le campus IA » : elle
-        // est rattachée à troie.app, pas au studio.
-        subOrganization: {
-          "@type": "Organization",
-          name: "TROIE",
-          alternateName: "troie.app",
-          url: "https://troie.app",
-          description: isFr
-            ? "Les outils en ligne et l'espace d'apprentissage de TROIE Studio."
-            : "TROIE Studio's online tools and learning space.",
-          sameAs: ["https://www.youtube.com/@troiestudio"],
-        },
-      },
-      {
-        "@type": "Person",
-        "@id": "https://troiestudio.fr/#hugues",
-        name: "Hugues Lourmieres",
-        jobTitle: tBrand("jobTitle"),
-        worksFor: { "@id": "https://troiestudio.fr/#organization" },
-        url: "https://troiestudio.fr",
-        knowsAbout: isFr
-          ? [
-              "Stratégie de marque",
-              "Stratégie marketing",
-              "Acquisition",
-              "Direction artistique",
-              "Photographie",
-              "Vidéo",
-              "SEO",
-            ]
-          : [
-              "Brand strategy",
-              "Marketing strategy",
-              "Acquisition",
-              "Art direction",
-              "Photography",
-              "Video",
-              "SEO",
-            ],
-        sameAs: [
-          "https://www.linkedin.com/in/hugueslourmieres/",
-          "https://www.instagram.com/hugueslourmieres/",
-        ],
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://troiestudio.fr/#website",
-        url: "https://troiestudio.fr",
-        name: tBrand("name"),
-        description: tBrand("metaDescription"),
-        publisher: { "@id": "https://troiestudio.fr/#organization" },
-        inLanguage: ["fr-FR", "en-US"],
-      },
-    ],
-  };
 
   return (
     <html
@@ -312,11 +178,7 @@ export default async function LocaleLayout({
       className={`${bodoni.variable} ${fraunces.variable} ${inter.variable} ${jetbrains.variable} ${geist.variable} ${geistMono.variable}`}
     >
       <body className="tone-light bg-[var(--bg)] text-[var(--fg)] antialiased">
-        <script
-          type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
-        />
+        <SeoSchema locale={locale} />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ScrollProgress />
           <ScrollReveal />

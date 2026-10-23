@@ -21,7 +21,7 @@ import { metaDescription, seoTitle } from "@/lib/seo";
 
 /**
  * Page de service « Agence e-commerce Shopify » (23/10/2026), FR et EN.
- * La page s'ouvre sur LOIR Paris : +164 % de ventes en ligne en deux ans
+ * La page s'ouvre sur LOIR Paris : +164 % de ventes en ligne en deux ans
  * (src/lib/results.ts). Accord écrit du client à obtenir avant la mise en
  * production (voir /etudes-de-cas/loir-paris).
  */
@@ -31,7 +31,7 @@ const COPY = {
   fr: {
     metaTitle: "Agence e-commerce Shopify qui fait vendre",
     metaDesc:
-      "Création et refonte de boutiques Shopify, fiches produits, photo et vidéo, Google Shopping et Meta. LOIR Paris : +164 % de ventes en ligne en deux ans.",
+      "Création et refonte de boutiques Shopify, fiches produits, photo et vidéo, Google Shopping et Meta. LOIR Paris : +164 % de ventes en ligne en deux ans.",
     eyebrow: "Agence e-commerce Shopify",
     title: "Une boutique Shopify qui vend.",
     intro:

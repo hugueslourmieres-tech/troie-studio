@@ -92,7 +92,7 @@ export function CaseStudy({
           href={`/${locale}${CASES_PATH}`}
           className="inline-flex min-h-12 items-center text-sm font-medium text-[var(--fg-2)] transition-colors hover:text-[var(--accent)]"
         >
-          {en ? "← Case studies" : "← Études de cas"}
+          {en ? "Case studies" : "Études de cas"}
         </Link>
         <div className="mt-4 grid gap-12 md:grid-cols-12 md:items-end md:gap-16">
           <div className="md:col-span-7">

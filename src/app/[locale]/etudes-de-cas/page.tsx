@@ -11,7 +11,7 @@ const COPY = {
   fr: {
     metaTitle: "Études de cas : des résultats mesurés",
     metaDesc:
-      "Trois clients, trois résultats mesurés : LOIR Paris (+164 % de ventes en ligne), Rutherford (+193 % d'abonnés TikTok), Autajon (un film qui rapporte 35 fois son budget).",
+      "Trois clients, trois résultats mesurés : LOIR Paris (+164 % de ventes en ligne), Rutherford (+193 % d'abonnés TikTok), Autajon (un film qui rapporte 35 fois son budget).",
     eyebrow: "Études de cas",
     title: "Études de cas.",
     intro:

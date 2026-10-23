@@ -4,7 +4,7 @@
  * pour publier son nom et l'évolution de ses ventes. -->
  *
  * Étude de cas LOIR Paris (23/10/2026), FR et EN. Seuls faits publiés :
- * marque de mode, boutique Shopify loirparis.fr, ventes nettes +164 % de
+ * marque de mode, boutique Shopify loirparis.fr, ventes nettes +164 % de
  * septembre 2024 à septembre 2026 sur 12 mois glissants (src/lib/results.ts).
  * Aucun montant, aucun volume.
  * [À COMPLÉTER par Hugues] Détail de la mission (site, contenus,
@@ -20,10 +20,10 @@ const PATH = `${CASES_PATH}/loir-paris`;
 
 const COPY: Record<"fr" | "en", CaseCopy> = {
   fr: {
-    metaTitle: "LOIR Paris : +164 % de ventes en ligne en deux ans",
+    metaTitle: "LOIR Paris : +164 % de ventes en ligne en deux ans",
     metaDesc:
-      "Étude de cas e-commerce : la boutique Shopify de LOIR Paris, marque de mode. Ventes nettes en ligne +164 % entre septembre 2024 et septembre 2026.",
-    title: "LOIR Paris : +164 % de ventes en ligne en deux ans.",
+      "Étude de cas e-commerce : la boutique Shopify de LOIR Paris, marque de mode. Ventes nettes en ligne +164 % entre septembre 2024 et septembre 2026.",
+    title: "LOIR Paris : +164 % de ventes en ligne en deux ans.",
     intro:
       "LOIR Paris est une marque de mode qui vend en ligne. Sa boutique tourne sur Shopify. En deux ans, ses ventes en ligne ont plus que doublé.",
     sections: [
@@ -43,7 +43,7 @@ const COPY: Record<"fr" | "en", CaseCopy> = {
       {
         title: "Le résultat.",
         paragraphs: [
-          "Les ventes nettes en ligne ont progressé de 164 % entre septembre 2024 et septembre 2026. La courbe monte de façon régulière, saison après saison.",
+          "Les ventes nettes en ligne ont progressé de 164 % entre septembre 2024 et septembre 2026. La courbe monte de façon régulière, saison après saison.",
         ],
       },
     ],

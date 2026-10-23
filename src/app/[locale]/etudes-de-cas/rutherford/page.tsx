@@ -8,17 +8,17 @@ import { metaDescription, seoTitle } from "@/lib/seo";
  * Étude de cas Rutherford (23/10/2026), FR et EN. Faits repris de
  * HomeResults (réseaux sociaux : contenus, vidéos, publications), de la page
  * /hugues (direction marketing à temps partagé depuis 2018) et de
- * WebProjects (rutherford.fr). Un seul chiffre : TikTok +193 % depuis mars
+ * WebProjects (rutherford.fr). Un seul chiffre : TikTok +193 % depuis mars
  * 2025 (src/lib/results.ts).
  */
 const PATH = `${CASES_PATH}/rutherford`;
 
 const COPY: Record<"fr" | "en", CaseCopy> = {
   fr: {
-    metaTitle: "Rutherford : +193 % d'abonnés TikTok en B2B",
+    metaTitle: "Rutherford : +193 % d'abonnés TikTok en B2B",
     metaDesc:
-      "Étude de cas réseaux sociaux : Rutherford, PME industrielle B2B de l'imprimerie et de l'emballage. +193 % d'abonnés TikTok depuis mars 2025.",
-    title: "Rutherford : +193 % d'abonnés TikTok depuis mars 2025.",
+      "Étude de cas réseaux sociaux : Rutherford, PME industrielle B2B de l'imprimerie et de l'emballage. +193 % d'abonnés TikTok depuis mars 2025.",
+    title: "Rutherford : +193 % d'abonnés TikTok depuis mars 2025.",
     intro:
       "Une PME industrielle, qui vend à d'autres entreprises. Sur TikTok, un réseau qu'on croit réservé au grand public, son audience a presque triplé.",
     sections: [
@@ -38,7 +38,7 @@ const COPY: Record<"fr" | "en", CaseCopy> = {
       {
         title: "Le résultat.",
         paragraphs: [
-          "Le nombre d'abonnés TikTok de Rutherford a progressé de 193 % entre mars 2025 et septembre 2026. Une preuve qu'un sujet industriel peut intéresser, à condition d'être bien filmé.",
+          "Le nombre d'abonnés TikTok de Rutherford a progressé de 193 % entre mars 2025 et septembre 2026. Une preuve qu'un sujet industriel peut intéresser, à condition d'être bien filmé.",
         ],
       },
     ],
