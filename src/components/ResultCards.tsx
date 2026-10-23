@@ -114,13 +114,13 @@ export function ResultCards({ locale }: { locale: string }) {
   const L = `/${locale}/etudes-de-cas/`;
   const cards: Card[] = [
     { id: "loir-sales", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_SALES_PCT)), label: en ? "online sales in two years" : "de ventes en ligne en deux ans", target: `${L}loir-paris`, art: "meadow", curve: monthly(LOIR_SALES_PCT) },
-    { id: "ruth-tiktok", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_TIKTOK_PCT)), label: en ? "TikTok followers since March 2025" : "d'abonnés TikTok depuis mars 2025", target: `${L}rutherford`, art: "dusk", curve: dated(RUTHERFORD_TIKTOK_PCT) },
-    { id: "autajon", client: "Autajon", sector: en ? "Large group, packaging" : "Grand groupe, emballage", value: "×35", label: en ? "in sales for a film's budget" : "de ventes pour le budget d'un film", target: `${L}autajon`, art: "meadow", squares: 35 },
-    { id: "loir-orders", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_ORDERS_PCT)), label: en ? "orders in two years" : "de commandes en deux ans", target: `${L}loir-paris`, art: "dusk", curve: monthly(LOIR_ORDERS_PCT) },
-    { id: "ruth-linkedin", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(RUTHERFORD_LINKEDIN_RATE_INDEX.after - RUTHERFORD_LINKEDIN_RATE_INDEX.before), label: en ? "new LinkedIn followers per month" : "de nouveaux abonnés LinkedIn par mois", target: `${L}rutherford`, art: "meadow", pair: [RUTHERFORD_LINKEDIN_RATE_INDEX.before, RUTHERFORD_LINKEDIN_RATE_INDEX.after] },
+    { id: "ruth-tiktok", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_TIKTOK_PCT)), label: en ? "TikTok followers since March 2025" : "d'abonnés TikTok depuis mars 2025", target: `${L}rutherford`, art: "sky", curve: dated(RUTHERFORD_TIKTOK_PCT) },
+    { id: "autajon", client: "Autajon", sector: en ? "Large group, packaging" : "Grand groupe, emballage", value: "×35", label: en ? "in sales for a film's budget" : "de ventes pour le budget d'un film", target: `${L}autajon`, art: "dusk", squares: 35 },
+    { id: "loir-orders", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_ORDERS_PCT)), label: en ? "orders in two years" : "de commandes en deux ans", target: `${L}loir-paris`, art: "meadow", curve: monthly(LOIR_ORDERS_PCT) },
+    { id: "ruth-linkedin", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(RUTHERFORD_LINKEDIN_RATE_INDEX.after - RUTHERFORD_LINKEDIN_RATE_INDEX.before), label: en ? "new LinkedIn followers per month" : "de nouveaux abonnés LinkedIn par mois", target: `${L}rutherford`, art: "sky", pair: [RUTHERFORD_LINKEDIN_RATE_INDEX.before, RUTHERFORD_LINKEDIN_RATE_INDEX.after] },
     { id: "loir-visits", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_VISITS_PCT)), label: en ? "site visits in two years" : "de visites du site en deux ans", target: `${L}loir-paris`, art: "dusk", curve: monthly(LOIR_VISITS_PCT) },
     { id: "ruth-youtube", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_YOUTUBE_PCT)), label: en ? "YouTube subscribers since April 2022" : "d'abonnés YouTube depuis avril 2022", target: `${L}rutherford`, art: "meadow", curve: dated(RUTHERFORD_YOUTUBE_PCT) },
-    { id: "ruth-insta", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_INSTAGRAM_PCT)), label: en ? "Instagram followers since Feb. 2025" : "d'abonnés Instagram depuis févr. 2025", target: `${L}rutherford`, art: "dusk", curve: dated(RUTHERFORD_INSTAGRAM_PCT) },
+    { id: "ruth-insta", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_INSTAGRAM_PCT)), label: en ? "Instagram followers since Feb. 2025" : "d'abonnés Instagram depuis févr. 2025", target: `${L}rutherford`, art: "sky", curve: dated(RUTHERFORD_INSTAGRAM_PCT) },
   ];
 
   const slides = () => Array.from(track.current?.children ?? []) as HTMLElement[];
@@ -192,10 +192,10 @@ export function ResultCards({ locale }: { locale: string }) {
               className="group block h-full rounded-2xl transition-transform duration-300 hover:-translate-y-0.5 active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
             >
               {/* 23/10/2026 : la carte entière en couleur (vert ou anthracite,
-                  le bleu et le rose ne passaient pas), le chiffre en grand
+                  le bleu clair argenté revenu le même jour, le rose ne passait pas), le chiffre en grand
                   dedans, la vraie courbe en blanc en bas. Encre sombre sur le
                   vert, blanc sur l'anthracite. */}
-              <span className={`grain relative flex aspect-square flex-col sm:aspect-[5/4] overflow-hidden rounded-2xl p-6 md:p-7 ${c.art === "dusk" ? "text-white" : "text-[#10200f]"}`}>
+              <span className={`grain relative flex aspect-square flex-col sm:aspect-[5/4] overflow-hidden rounded-2xl p-6 md:p-7 ${c.art === "dusk" ? "text-white" : c.art === "sky" ? "text-[#0d2547]" : "text-[#10200f]"}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={`/images/art/${c.art}.jpg`} alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 <span className="flex items-baseline justify-between gap-3">
@@ -209,11 +209,11 @@ export function ResultCards({ locale }: { locale: string }) {
                 <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.curve ? "none" : "xMidYMid meet"} className="absolute inset-x-0 bottom-0 h-[38%] w-full">
                   {c.curve && (
                     <>
-                      <path d={`${linePath(c.curve)} L${W},${H} L0,${H} Z`} fill="#ffffff" opacity={0.22} />
+                      <path d={`${linePath(c.curve)} L${W},${H} L0,${H} Z`} fill={c.art === "sky" ? "currentColor" : "#ffffff"} opacity={c.art === "sky" ? 0.12 : 0.22} />
                       <motion.path
                         d={linePath(c.curve)}
                         fill="none"
-                        stroke="#ffffff"
+                        stroke={c.art === "sky" ? "currentColor" : "#ffffff"}
                         strokeWidth="2"
                         vectorEffect="non-scaling-stroke"
                         strokeLinejoin="round"
@@ -223,7 +223,7 @@ export function ResultCards({ locale }: { locale: string }) {
                       />
                       {c.curve.length < 8 &&
                         c.curve.map(([px, py], k) => (
-                          <circle key={k} cx={Math.min(px * W, W - 6)} cy={H - 6 - py * (H - 12)} r={k === c.curve!.length - 1 ? 5 : 3.5} fill="#ffffff" />
+                          <circle key={k} cx={Math.min(px * W, W - 6)} cy={H - 6 - py * (H - 12)} r={k === c.curve!.length - 1 ? 5 : 3.5} fill={c.art === "sky" ? "currentColor" : "#ffffff"} />
                         ))}
                     </>
                   )}
@@ -240,15 +240,15 @@ export function ResultCards({ locale }: { locale: string }) {
                           width={size}
                           height={size}
                           rx={3}
-                          fill="#ffffff"
+                          fill={c.art === "sky" ? "currentColor" : "#ffffff"}
                           fillOpacity={k === 0 ? 0.35 : 0.95}
                         />
                       );
                     })}
                   {c.pair && (
                     <>
-                      <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill="#ffffff" fillOpacity={0.4} />
-                      <rect x={216} y={10} width={44} height={H - 10} rx={4} fill="#ffffff" />
+                      <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill={c.art === "sky" ? "currentColor" : "#ffffff"} fillOpacity={0.4} />
+                      <rect x={216} y={10} width={44} height={H - 10} rx={4} fill={c.art === "sky" ? "currentColor" : "#ffffff"} />
                     </>
                   )}
                 </svg>
