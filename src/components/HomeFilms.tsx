@@ -22,38 +22,9 @@ type Story = {
   preview: string;
   /** Le film de la fiche, lancé directement (avec le son s'il en a). */
   film: string;
-  /** Film hébergé sur YouTube (identifiant) : aperçu muet zoomé, fiche avec le son. */
-  youtube?: string;
 };
 
 const STORIES: Story[] = [
-  {
-    id: "printwell",
-    client: "Printwell USA",
-    where: { fr: "États-Unis", en: "United States" },
-    kind: { fr: "Témoignage client", en: "Customer story" },
-    made: { fr: "Témoignage filmé en imprimerie aux États-Unis, pour le groupe Rutherford.", en: "Testimonial filmed in a US print plant, for the Rutherford group." },
-    preview: "/images/videos-local/printwell-loop.mp4",
-    film: "/images/videos-local/printwell.mp4",
-  },
-  {
-    id: "wauters",
-    client: "Wauters B'Pack",
-    where: { fr: "Belgique et France", en: "Belgium and France" },
-    kind: { fr: "Témoignage client", en: "Customer story" },
-    made: { fr: "Film tourné sur les deux sites de l'imprimerie, interviews et presses en action.", en: "Film shot at the printer's two sites, interviews and presses in action." },
-    preview: "/images/videos-local/wauters-loop.mp4",
-    film: "/images/videos-local/wauters.mp4",
-  },
-  {
-    id: "moderna",
-    client: "Moderna Printing",
-    kind: { fr: "Témoignage client", en: "Customer story" },
-    made: { fr: "Témoignage filmé et monté pour le groupe Rutherford : moins de gâche, des mises en route plus rapides.", en: "Testimonial filmed and edited for the Rutherford group: less waste, faster make-ready." },
-    preview: "",
-    film: "",
-    youtube: "vYN1mjCK9VU",
-  },
   {
     id: "lefrancq",
     client: "LEFRANCQ Packaging",
@@ -64,13 +35,21 @@ const STORIES: Story[] = [
     film: "/images/videos-local/lefrancq.mp4",
   },
   {
-    id: "gs",
-    client: "GS Monaco",
-    where: { fr: "Monaco", en: "Monaco" },
-    kind: { fr: "Film en imprimerie", en: "Print plant film" },
-    made: { fr: "Film tourné à l'imprimerie, au poste de contrôle couleur.", en: "Film shot in the print plant, at the colour control station." },
-    preview: "/images/videos-local/gs-closedloop-loop.mp4",
-    film: "/images/videos-local/gs-closedloop.mp4",
+    id: "moderna",
+    client: "Moderna Printing",
+    kind: { fr: "Témoignage client", en: "Customer story" },
+    made: { fr: "Témoignage filmé et monté pour le groupe Rutherford : moins de gâche, des mises en route plus rapides.", en: "Testimonial filmed and edited for the Rutherford group: less waste, faster make-ready." },
+    preview: "/images/videos-local/moderna-loop.mp4",
+    film: "/images/videos-local/moderna.mp4",
+  },
+  {
+    id: "wauters",
+    client: "Wauters B'Pack",
+    where: { fr: "Belgique et France", en: "Belgium and France" },
+    kind: { fr: "Témoignage client", en: "Customer story" },
+    made: { fr: "Film tourné sur les deux sites de l'imprimerie, interviews et presses en action.", en: "Film shot at the printer's two sites, interviews and presses in action." },
+    preview: "/images/videos-local/wauters-loop.mp4",
+    film: "/images/videos-local/wauters.mp4",
   },
   {
     id: "akita",
@@ -121,36 +100,7 @@ function Preview({ s }: { s: Story }) {
   }, []);
   const cls =
     "absolute inset-0 h-full w-full object-cover object-[center_15%] grayscale transition-[filter,transform] duration-700 group-hover:scale-[1.03] group-hover:grayscale-0";
-  if (s.youtube) return <YouTubePreview id={s.youtube} />;
   return <video ref={ref} src={s.preview} muted loop playsInline preload="metadata" aria-hidden="true" className={cls} />;
-}
-
-/**
- * Aperçu YouTube : l'image du film au repos, la vidéo muette et zoomée (pour
- * sortir sous-titres et logos du cadre) seulement au survol.
- */
-function YouTubePreview({ id }: { id: string }) {
-  const [on, setOn] = useState(false);
-  return (
-    <span
-      onMouseEnter={() => setOn(true)}
-      onMouseLeave={() => setOn(false)}
-      className="absolute inset-0 overflow-hidden grayscale transition-[filter] duration-700 group-hover:grayscale-0"
-    >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`} alt="" className="absolute inset-0 h-full w-full scale-[1.35] object-cover" />
-      {on && (
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&rel=0&playsinline=1&start=20`}
-          title=""
-          aria-hidden="true"
-          tabIndex={-1}
-          allow="autoplay; encrypted-media"
-          className="pointer-events-none absolute left-1/2 top-1/2 aspect-video w-full -translate-x-1/2 -translate-y-1/2 scale-[1.4]"
-        />
-      )}
-    </span>
-  );
 }
 
 export function HomeFilms({ locale }: { locale: string }) {
@@ -292,16 +242,6 @@ export function HomeFilms({ locale }: { locale: string }) {
               {/* Le film */}
               <div className="flex items-center justify-center bg-[#111318] p-5 md:p-10">
                 <div className="w-full">
-                  {s.youtube ? (
-                    <iframe
-                      key={s.id}
-                      src={`https://www.youtube-nocookie.com/embed/${s.youtube}?autoplay=1&rel=0&modestbranding=1`}
-                      title={s.client}
-                      allow="autoplay; encrypted-media; picture-in-picture"
-                      allowFullScreen
-                      className="aspect-video w-full rounded-xl"
-                    />
-                  ) : (
                     <video
                       key={s.id}
                       src={s.film}
@@ -311,7 +251,6 @@ export function HomeFilms({ locale }: { locale: string }) {
                       playsInline
                       className="mx-auto max-h-[64dvh] w-auto max-w-full rounded-xl"
                     />
-                  )}
                 </div>
               </div>
 
