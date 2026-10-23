@@ -1,4 +1,5 @@
 import { ResultCards } from "./ResultCards";
+import { AbstractBackdrop } from "./AbstractBackdrop";
 import { RotatingWord } from "./RotatingWord";
 
 const CAL_URL = "https://cal.com/troiestudio/30min";
@@ -73,9 +74,9 @@ export function HomeHero({ locale }: { locale: string }) {
             </a>
           </div>
         </div>
-        <div className="mt-12 md:mt-14">
+        <AbstractBackdrop className="-mx-5 mt-12 px-5 py-5 md:mx-0 md:mt-14 md:rounded-[28px] md:p-6">
           <ResultCards locale={locale} />
-        </div>
+        </AbstractBackdrop>
       </div>
     </section>
   );

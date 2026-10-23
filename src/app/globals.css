@@ -723,3 +723,19 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .film-dialog[open], .film-dialog[open]::backdrop { animation: none; }
 }
+
+/* Fonds abstraits vivants (23/10/2026), voir AbstractBackdrop. */
+.abstract-drift-a { animation: abstract-drift-a 26s ease-in-out infinite alternate; }
+.abstract-drift-b { animation: abstract-drift-b 32s ease-in-out infinite alternate, abstract-fade 18s ease-in-out infinite alternate; }
+@keyframes abstract-drift-a {
+  from { transform: translate3d(-4%, -3%, 0) scale(1) rotate(0deg); }
+  to { transform: translate3d(5%, 4%, 0) scale(1.12) rotate(4deg); }
+}
+@keyframes abstract-drift-b {
+  from { transform: translate3d(5%, 3%, 0) scale(1.1) rotate(-3deg); }
+  to { transform: translate3d(-5%, -4%, 0) scale(1) rotate(2deg); }
+}
+@keyframes abstract-fade { from { opacity: 0; } to { opacity: 0.85; } }
+@media (prefers-reduced-motion: reduce) {
+  .abstract-drift-a, .abstract-drift-b { animation: none; }
+}
