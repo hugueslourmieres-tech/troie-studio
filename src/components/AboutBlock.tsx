@@ -62,8 +62,6 @@ const COPY = {
       "Ateliers et prise en main des outils, IA comprise",
     ],
     teamLabel: "L'équipe",
-    prev: "Précédent",
-    next: "Suivant",
     team: {
       hugues: {
         role: "Fondateur",
@@ -91,8 +89,6 @@ const COPY = {
       "Workshops and getting started with tools, AI included",
     ],
     teamLabel: "The team",
-    prev: "Previous",
-    next: "Next",
     team: {
       hugues: {
         role: "Founder",
@@ -118,15 +114,6 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
     },
   );
 
-  const slide = (dir: 1 | -1) => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const card = el.querySelector("li");
-    const gap = parseFloat(getComputedStyle(el).columnGap || "32") || 32;
-    const step = card ? card.getBoundingClientRect().width + gap : el.clientWidth * 0.8;
-    el.scrollBy({ left: dir * step, behavior: "smooth" });
-  };
-
   return (
     <section
       id="about"
@@ -143,38 +130,11 @@ export function AboutBlock({ locale = "fr" }: { locale?: string }) {
           </p>
         </div>
 
-        {/* Ligne de contrôle : intitulé + flèches (desktop) */}
-        <div className="mt-6 flex items-end justify-between md:mt-8">
-          <span />
-          <div className="hidden items-center gap-2.5 md:flex">
-            <button
-              type="button"
-              onClick={() => slide(-1)}
-              aria-label={c.prev}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M15 6l-6 6 6 6" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              onClick={() => slide(1)}
-              aria-label={c.next}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--fg)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
-            >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M9 6l6 6-6 6" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* Carrousel : glisse manuelle (flèches) + scroll horizontal tactile */}
+        {/* Trois portraits : une ligne sur ordinateur, glisse tactile sur téléphone (flèches retirées le 24/10/2026). */}
         <ul
           ref={scrollerRef}
           style={{ scrollbarWidth: "none" }}
-          className="mt-6 flex snap-x snap-mandatory gap-8 overflow-x-auto pb-2 md:mt-8 md:gap-10 [&::-webkit-scrollbar]:hidden"
+          className="mt-10 flex snap-x snap-mandatory gap-8 overflow-x-auto pb-2 md:mt-14 md:gap-10 [&::-webkit-scrollbar]:hidden"
         >
           {TEAM.map((m) => (
             <li
