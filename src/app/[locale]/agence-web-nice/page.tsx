@@ -17,12 +17,16 @@ import {
 } from "@/components/SeoBlocks";
 import { pageSocial } from "@/lib/og";
 import { metaDescription, seoTitle } from "@/lib/seo";
+import { LinkList, breadcrumbJsonLd } from "../_local/blocks";
 
 /**
  * Page locale « Agence web à Nice » (23/10/2026), FR et EN (même slug, comme
  * le reste du site). Pas d'adresse postale précise (audit données
  * personnelles du 17/09/2026) : ville et code postal seulement. La fiche
  * Google est liée par son Place ID, jamais par le lien d'avis.
+ *
+ * 25/10/2026 : bloc « Nous intervenons aussi à » vers les pages Monaco,
+ * Cannes et Antibes, et création d'applications. FAQ enrichie, fil d'Ariane.
  */
 const PATH = "/agence-web-nice";
 
@@ -43,6 +47,14 @@ const COPY = {
     franceTitle: "Partout en France.",
     france: [
       "Être à Nice ne limite pas notre terrain. Nous travaillons aussi avec des entreprises ailleurs en France, à distance. Les points se font en visio, les livrables se partagent en ligne.",
+    ],
+    alsoTitle: "Nous intervenons aussi à Monaco, Cannes et Antibes.",
+    alsoBody:
+      "Chaque ville a ses clients et ses recherches. Nous avons une page pour chacune.",
+    also: [
+      { href: "agence-web-monaco", label: "Monaco" },
+      { href: "agence-web-cannes-antibes", label: "Cannes, Antibes et Sophia Antipolis" },
+      { href: "creation-application-nice", label: "Création d'applications à Nice" },
     ],
     servicesTitle: "Ce que nous faisons.",
     services: [
@@ -75,6 +87,18 @@ const COPY = {
         q: "Comment se passe le premier rendez-vous ?",
         a: "Un appel de 30 minutes, en visio ou par téléphone. Nous comprenons votre besoin. Ensuite, nous vous envoyons une proposition écrite et un devis.",
       },
+      {
+        q: "Combien coûte un site internet à Nice ?",
+        a: "Un site, une boutique ou une application sont sur devis, avec un prix et un délai fermes.",
+      },
+      {
+        q: "Mon site existe déjà. Par où commencer ?",
+        a: "Par un audit. Vous savez ce qui freine les demandes et les ventes, et ce qu'il faut corriger en premier. Vous décidez ensuite de la suite.",
+      },
+      {
+        q: "Développez-vous aussi des applications ?",
+        a: "Oui. Applications web et mobiles, espaces clients, outils de réservation et outils internes. Nos produits Bien en règle, Color Guesser et Bilber sont en ligne.",
+      },
     ],
   },
   en: {
@@ -93,6 +117,13 @@ const COPY = {
     franceTitle: "Across France.",
     france: [
       "Being in Nice does not limit where we work. We also work with companies elsewhere in France, remotely. Meetings happen by video call, deliverables are shared online.",
+    ],
+    alsoTitle: "We also work in Monaco, Cannes and Antibes.",
+    alsoBody: "Each town has its own customers and searches. We have a page for each.",
+    also: [
+      { href: "agence-web-monaco", label: "Monaco" },
+      { href: "agence-web-cannes-antibes", label: "Cannes, Antibes and Sophia Antipolis" },
+      { href: "creation-application-nice", label: "App development in Nice" },
     ],
     servicesTitle: "What we do.",
     services: [
@@ -124,6 +155,18 @@ const COPY = {
       {
         q: "How does the first meeting work?",
         a: "A 30-minute call, by video or phone. We understand your need. Then we send you a written proposal and a quote.",
+      },
+      {
+        q: "How much does a website cost in Nice?",
+        a: "A website, a store or an app is quoted, with a firm price and timeline.",
+      },
+      {
+        q: "My site already exists. Where do I start?",
+        a: "With an audit. You know what holds back enquiries and sales, and what to fix first. Then you decide what comes next.",
+      },
+      {
+        q: "Do you also build apps?",
+        a: "Yes. Web and mobile apps, client portals, booking tools and internal tools. Our products Bien en règle, Color Guesser and Bilber are live.",
       },
     ],
   },
@@ -185,6 +228,7 @@ export default async function AgenceWebNicePage({ params }: { params: Promise<{ 
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <JsonLd data={localJsonLd} />
       <JsonLd data={faqJsonLd(locale, PATH, c.faq)} />
+      <JsonLd data={breadcrumbJsonLd(locale, PATH, c.eyebrow)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
       <PageHero locale={locale} art="dusk" eyebrow={c.eyebrow} title={c.title} intro={c.intro} />
@@ -199,6 +243,13 @@ export default async function AgenceWebNicePage({ params }: { params: Promise<{ 
         {c.france.map((p) => (
           <Body key={p}>{p}</Body>
         ))}
+      </Block>
+
+      <Block id="aussi" title={c.alsoTitle}>
+        <Body>{c.alsoBody}</Body>
+        <div className="mt-8">
+          <LinkList locale={locale} items={c.also} />
+        </div>
       </Block>
 
       <Block id="services" title={c.servicesTitle}>

@@ -18,6 +18,20 @@ const BTN_PROJECT =
   "group inline-flex h-12 items-center justify-center gap-2 rounded-full border border-[var(--rule-strong)] px-6 text-[15px] font-medium text-[var(--fg)] transition-colors duration-200 hover:border-[var(--fg)]";
 
 /** Nom du projet + première partie de son périmètre, en minuscule initiale. */
+/* Descriptions de recherche plus complètes (25/10/2026) pour les fiches dont
+   le texte affiché est trop court pour une meta description (140 à 160
+   signes). Le texte de la page ne change pas. */
+const META_DESC_FR: Record<string, string> = {
+  monaco:
+    "Photographie d'événements privés à Monaco et sur la Côte d'Azur : galas, lancements, soirées d'exception. Reportage photo signé TROIE Studio, agence de Nice.",
+  "mibi-2026":
+    "Captation photo complète de la convention MIBI 2026 : prises de parole, ateliers, moments off et portraits. Reportage événementiel par TROIE Studio, à Nice.",
+  animaux:
+    "Gypaète, chevreuil, renard, marmotte et écureuil photographiés dans le Mercantour, à hauteur d'animal. Photographie animalière de Hugues Lourmieres.",
+  "cartonajes-pans":
+    "Reportage pour Cartonajes Pans à Barcelone : ateliers, presses offset en activité, démonstrations colorimétriques et témoignages, en noir et blanc et en couleur.",
+};
+
 function workTitle(name: string, scope: string, locale: string): string {
   const parts = scope.split(",").map((x) => x.trim()).filter(Boolean);
   const first = parts[0] ?? "";
@@ -39,7 +53,7 @@ export async function generateMetadata({
   /* « CHANEL : reportage réalisé en interne » plutôt que « CHANEL » seul :
      le titre dit ce qu'est la réalisation, et diffère entre FR et EN. */
   const title = workTitle(t(`items.${slug}.title`), t(`items.${slug}.scope`), locale);
-  const description = t(`items.${slug}.description`);
+  const description = (locale === "fr" && META_DESC_FR[slug]) || t(`items.${slug}.description`);
   return {
     title: seoTitle(title),
     description: metaDescription(description),

@@ -12,7 +12,7 @@ export async function generateMetadata({
   return {
     title: "Création de sites web et d'applications",
     description:
-      "Sites, web apps, jeux et e-commerce sur mesure : nos réalisations en ligne (Color Guesser, Bilber, Rutherford, LOIR Paris).",
+      "Sites, web apps, jeux et e-commerce conçus à Nice par TROIE Studio. Nos réalisations en ligne, à essayer : Color Guesser, Bilber, Rutherford, LOIR Paris.",
     /* Page rédigée en français seulement : /en/creation/web en est une copie,
        la canonique pointe vers /fr et aucun hreflang anglais n'est annoncé. */
     alternates: { canonical: "/fr/creation/web" },

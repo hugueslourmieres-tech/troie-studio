@@ -13,7 +13,7 @@ const BRAND_SUFFIX = ", TROIE Studio";
  * Titre de page : la marque n'est ajoutée que si l'ensemble tient dans la
  * zone affichée. Un titre déjà long part seul, en titre absolu.
  */
-export function seoTitle(title: string, max = 62): string | { absolute: string } {
+export function seoTitle(title: string, max = 60): string | { absolute: string } {
   return title.length + BRAND_SUFFIX.length <= max ? title : { absolute: title };
 }
 

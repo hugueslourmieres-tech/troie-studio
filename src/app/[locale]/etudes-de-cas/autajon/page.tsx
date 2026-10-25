@@ -21,7 +21,7 @@ const COPY: Record<"fr" | "en", CaseCopy & { credit: string; play: string }> = {
   fr: {
     metaTitle: "Autajon : un film qui rapporte 35 fois son budget",
     metaDesc:
-      "Étude de cas vidéo : un film client tourné chez Autajon Packaging, à Milan, pour le groupe Rutherford. Le groupe estime qu'il a rapporté environ 35 fois son budget.",
+      "Étude de cas vidéo : film client tourné chez Autajon Packaging, à Milan, pour le groupe Rutherford, qui estime qu'il a rapporté environ 35 fois son budget.",
     title: "Autajon : un film qui a rapporté environ 35 fois son budget.",
     intro:
       "Un film client, tourné sur un site d'emballage, en Italie. Le groupe Rutherford estime qu'il lui a rapporté environ 35 fois ce qu'il a coûté.",
@@ -58,7 +58,7 @@ const COPY: Record<"fr" | "en", CaseCopy & { credit: string; play: string }> = {
   en: {
     metaTitle: "Autajon: a film that returned 35 times its budget",
     metaDesc:
-      "Video case study: a customer film shot at Autajon Packaging in Milan for the Rutherford group. The group estimates it brought in around 35 times its budget.",
+      "Video case study: a customer film shot at Autajon Packaging in Milan for the Rutherford group, which estimates it brought in around 35 times its budget.",
     title: "Autajon: a film that brought in around 35 times its budget.",
     intro:
       "A customer film, shot at a packaging site in Italy. The Rutherford group estimates it brought in around 35 times what it cost.",

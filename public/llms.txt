@@ -1,55 +1,54 @@
 # TROIE Studio (troiestudio.fr)
 
-> TROIE Studio est l'agence qui fait vendre. Une agence digitale fondée par Hugues Lourmieres, basée à Nice, sur la Côte d'Azur. Elle travaille partout en France et à distance. Sites, applications et e-commerce, photo et vidéo, communication et réseaux sociaux, SEO et publicité Google Ads, leads, CRM et automatisations, accompagnement des équipes. Un seul interlocuteur, du premier rendez-vous aux résultats. Site bilingue français et anglais.
+> TROIE Studio est l'agence qui fait vendre. Agence web et digitale basée à Nice (Alpes-Maritimes), fondée par Hugues Lourmieres. Sites internet, applications web et mobiles, e-commerce Shopify, SEO, Google Ads et publicité sur les réseaux sociaux. Films et photos en option, ateliers IA pour les équipes. Nice, Côte d'Azur, Monaco, et toute la France à distance. Un seul interlocuteur, du premier rendez-vous aux résultats.
 
-## Ce que fait l'agence
+## Qui
 
-- Sites, applications et e-commerce : sites vitrines, boutiques Shopify, applications web et mobiles. Conçus, développés et mis en ligne.
-- Photo et vidéo : reportages, films de marque, témoignages clients, contenus pour les réseaux.
-- Communication et réseaux sociaux : positionnement, messages, contenus, lancements de produits.
-- SEO et SEA : référencement naturel Google, campagnes Google Ads, Google Shopping et Meta, suivies chaque mois.
-- Leads, CRM et automatisations : formulaires qui convertissent, CRM en place, relances et suivi des prospects automatisés.
-- Accompagnement des équipes : direction marketing à temps partagé, prise en main des outils digitaux, suivi après livraison.
+- Nom : TROIE Studio
+- Fondateur : Hugues Lourmieres (https://troiestudio.fr/fr/hugues, https://www.linkedin.com/in/hugueslourmieres/)
+- Basée à : Nice, Alpes-Maritimes, France
+- Positionnement : l'agence qui fait vendre. Chaque projet se mesure en ventes, en demandes de devis ou en prises de rendez-vous.
+- Langues : français, anglais
 
-Les prestations sont du conseil et de l'accompagnement, sur devis, après un appel de 30 minutes. Aucun prix public.
+## Services
+
+- Création de sites internet : sites vitrines et sites qui convertissent, conçus, développés, mis en ligne et suivis. https://troiestudio.fr/fr/creation-site-application
+- Applications web et mobiles : applications sur mesure, de la maquette à la mise en ligne. https://troiestudio.fr/fr/creation-application-nice
+- E-commerce Shopify : création et refonte de boutiques, fiches produits, conversion, acquisition. https://troiestudio.fr/fr/agence-e-commerce-shopify
+- SEO et Google Ads : référencement naturel Google et campagnes Google Ads, suivis chaque mois. https://troiestudio.fr/fr/agence-seo-google-ads
+- Publicité sur les réseaux sociaux : campagnes payantes sur Instagram, Facebook et les autres réseaux, avec les contenus. https://troiestudio.fr/fr/strategie
+- Films et photos, en option : films de marque, témoignages clients, reportages photo. https://troiestudio.fr/fr/medias
+- Ateliers IA pour les équipes : prise en main pratique de l'IA au travail. https://troiestudio.fr/fr/accompagnement
+
+Les prestations sont sur devis, après un appel de 30 minutes. Aucun prix public.
 
 ## Résultats mesurés
 
 Des évolutions en pourcentage, lues dans les outils des clients. Aucun montant publié.
 
-- LOIR Paris (e-commerce de mode, Shopify) : +164 % de ventes en ligne en deux ans (ventes nettes sur 12 mois glissants, de septembre 2024 à septembre 2026, données Shopify).
-- Rutherford (PME industrielle B2B, imprimerie et emballage) : +193 % d'abonnés TikTok depuis mars 2025.
-- Autajon (grand groupe de l'emballage) : un film tourné et monté par l'équipe pour le groupe Rutherford. Le groupe estime qu'il a rapporté environ 35 fois son budget (×35).
+- LOIR Paris (e-commerce de mode, Shopify) : +164 % de ventes en ligne en deux ans et +121 % de commandes. https://troiestudio.fr/fr/etudes-de-cas/loir-paris
+- Rutherford (PME industrielle B2B) : +193 % d'abonnés TikTok depuis mars 2025. https://troiestudio.fr/fr/etudes-de-cas/rutherford
+- Autajon (grand groupe de l'emballage) : un film client qui, selon l'estimation du groupe Rutherford, a rapporté environ 35 fois son budget. https://troiestudio.fr/fr/etudes-de-cas/autajon
 
-## Zone
+Références : CHANEL, Sofitel, X-Rite Pantone, LOIR Paris, Autajon.
 
-Basés à Nice (Alpes-Maritimes, Côte d'Azur). Déplacements sur la Côte d'Azur : Nice, Monaco, Cannes, Antibes, Sophia Antipolis. Partout en France et à distance pour le reste.
+## Zone servie
 
-## Pages principales
+Nice, Côte d'Azur (Cannes, Antibes, Sophia Antipolis, Grasse), Monaco. Toute la France à distance.
+
+- Agence web à Nice : https://troiestudio.fr/fr/agence-web-nice
+- Agence web à Monaco : https://troiestudio.fr/fr/agence-web-monaco
+- Agence web à Cannes et Antibes : https://troiestudio.fr/fr/agence-web-cannes-antibes
+
+## Pages utiles
 
 - [Accueil](https://troiestudio.fr/fr) : les services, les résultats, l'équipe.
-- [Agence SEO et Google Ads](https://troiestudio.fr/fr/agence-seo-google-ads) : référencement naturel, Google Ads et Meta pour PME et e-commerce.
-- [Agence e-commerce Shopify](https://troiestudio.fr/fr/agence-e-commerce-shopify) : création et refonte de boutiques Shopify, fiches produits, acquisition.
-- [Sites et applications](https://troiestudio.fr/fr/creation-site-application) : sites vitrines, boutiques, applications web et mobiles.
-- [Agence web à Nice](https://troiestudio.fr/fr/agence-web-nice) : l'agence sur la Côte d'Azur, pour vendre partout en France.
 - [Études de cas](https://troiestudio.fr/fr/etudes-de-cas) : LOIR Paris, Rutherford, Autajon.
-- [Communication et visibilité](https://troiestudio.fr/fr/strategie) : positionnement, réseaux sociaux, référencement, campagnes.
-- [Réalisations web](https://troiestudio.fr/fr/creation/web) : les sites et applications en ligne.
-- [Photo et vidéo](https://troiestudio.fr/fr/medias) : reportages et films tournés sur le terrain.
-- [Accompagnement](https://troiestudio.fr/fr/accompagnement) : direction marketing à temps partagé, ateliers avec les équipes, suivi.
-- [Hugues Lourmieres](https://troiestudio.fr/fr/hugues) : le fondateur, directeur marketing depuis 2018.
-- [Le Journal](https://troiestudio.fr/fr/blog) : vendre en ligne, SEO, publicité, réseaux sociaux.
+- [Réalisations web](https://troiestudio.fr/fr/creation/web) : sites et applications en ligne.
+- [Réalisations](https://troiestudio.fr/fr/creation) : sites, films et photos.
+- [Outils gratuits](https://troiestudio.fr/fr/outils) : charte IA, diagnostic AI Act, registre des usages IA, checklist AI Act.
+- [Le Journal](https://troiestudio.fr/fr/blog) : vendre en ligne, SEO, publicité, IA en entreprise.
 - [Contact](https://troiestudio.fr/fr/contact) : réserver 30 minutes ou décrire un projet.
-
-## Études de cas
-
-- [LOIR Paris](https://troiestudio.fr/fr/etudes-de-cas/loir-paris)
-- [Rutherford](https://troiestudio.fr/fr/etudes-de-cas/rutherford)
-- [Autajon](https://troiestudio.fr/fr/etudes-de-cas/autajon)
-
-## troie.app
-
-troie.app est un site séparé, édité par TROIE Studio : des quiz gratuits et des outils en ligne : https://troie.app
 
 ## Contact
 
@@ -57,4 +56,11 @@ troie.app est un site séparé, édité par TROIE Studio : des quiz gratuits et 
 - Formulaire : https://troiestudio.fr/fr/contact
 - LinkedIn : https://www.linkedin.com/company/troiestudio
 - Instagram : https://www.instagram.com/troiestudio
-- Fiche Google : https://www.google.com/maps/place/?q=place_id:ChIJzaE5l_HCtSwRsqZgau9Fe4o
+
+## troie.app
+
+troie.app est un site séparé, édité par TROIE Studio : des quiz gratuits sur l'IA. https://troie.app
+
+## In English
+
+TROIE Studio is a web and digital agency based in Nice, on the French Riviera, founded by Hugues Lourmieres. Positioning: the agency that drives sales. Services: websites, web and mobile apps, Shopify e-commerce, SEO, Google Ads and paid social, with films and photos as options and AI workshops for teams. Area served: Nice, Cannes, Antibes, Sophia Antipolis, Grasse, Monaco, and all of France remotely. Results: LOIR Paris +164% online sales in two years and +121% orders, Rutherford +193% TikTok followers since March 2025, Autajon film estimated at around 35 times its budget in sales. References: CHANEL, Sofitel, X-Rite Pantone, LOIR Paris, Autajon. English site: https://troiestudio.fr/en. Book a call: https://cal.com/troiestudio/30min.

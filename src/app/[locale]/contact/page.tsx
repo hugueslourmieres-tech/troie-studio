@@ -12,9 +12,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "contact" });
-  const title = t("pageTitle");
-  const description = t("pageSubtitle");
+  /* Métadonnées dédiées (25/10/2026) : la copie de la page reste dans le
+     namespace contact, le titre de recherche dit l'action et la zone. */
+  const en = locale === "en";
+  const title = en ? "Contact and quote: book 30 minutes" : "Contact et devis : réserver 30 minutes";
+  const description = en
+    ? "Book 30 minutes with Hugues Lourmieres or describe your project: website, app, Shopify, SEO or Google Ads. You get a written proposal and a quote."
+    : "Réservez 30 minutes avec Hugues Lourmieres ou décrivez votre projet : site, application, Shopify, SEO ou Google Ads. Proposition écrite et devis à la clé.";
   return {
     title,
     description,

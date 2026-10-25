@@ -32,12 +32,16 @@ const fraunces = Fraunces({
   weight: "variable",
   axes: ["SOFT", "WONK", "opsz"],
   style: ["normal", "italic"],
+  // Plus utilisée dans les pages (25/10/2026) : pas de préchargement, la
+  // police ne se télécharge que si une classe la demande.
+  preload: false,
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: false, // inutilisée depuis le 21/10/2026, pas de préchargement
 });
 
 // Système du 21/10/2026 : Geist pour tout le texte, Geist Mono pour les
@@ -58,6 +62,7 @@ const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains",
   display: "swap",
+  preload: false, // remplacée par Geist Mono, pas de préchargement
 });
 
 export function generateStaticParams() {
@@ -74,17 +79,17 @@ export async function generateMetadata({
   const isFr = locale === "fr";
 
   /*
-   * Le titre dit le savoir-faire du studio (1er/10/2026). L'IA n'apparaît
-   * plus dans le titre ni la description.
+   * Accueil (25/10/2026) : la requête visée d'abord (« agence web Nice »),
+   * le positionnement « l'agence qui fait vendre » en tête de description.
+   * Titre sous 60 signes, en absolu (le gabarit « %s, TROIE Studio » ne
+   * s'applique pas au titre par défaut). Description entre 140 et 160 signes.
    */
-  const title = `${t("name")}. ${
-    isFr
-      ? "Agence digitale : sites, contenus, SEO et publicité qui font vendre"
-      : "Digital agency: websites, content, SEO and advertising that sell"
-  }`;
-  // Description SEO (forme longue), distincte de la `tagline` courte
-  // affichée dans le pied de page.
-  const description = t("metaDescription");
+  const title = isFr
+    ? "Agence web Nice : sites, apps et acquisition | TROIE Studio"
+    : "Web agency in Nice: websites, apps and growth | TROIE Studio";
+  const description = isFr
+    ? "L'agence digitale qui fait vendre à Nice, Monaco et sur la Côte d'Azur : sites, applications, Shopify, SEO, Google Ads. LOIR Paris : +164 % de ventes en ligne."
+    : "The digital agency that drives sales in Nice, Monaco and the Riviera: websites, apps, Shopify, SEO and Google Ads. LOIR Paris: +164% online sales.";
 
   return {
     metadataBase: new URL("https://troiestudio.fr"),
@@ -95,23 +100,24 @@ export async function generateMetadata({
     description,
     keywords: isFr
       ? [
-          "agence de communication Nice",
-          "stratégie de marque Nice",
-          "direction marketing à temps partagé",
-          "production vidéo entreprise Nice",
-          "photographe corporate Nice",
+          "agence web Nice",
+          "agence digitale Nice",
           "création site internet Nice",
-          "direction artistique",
+          "création application Nice",
+          "agence Shopify",
           "agence SEO Nice",
+          "agence Google Ads Nice",
+          "agence web Monaco",
+          "agence web Cannes Antibes",
         ]
       : [
-          "brand strategy Nice France",
-          "fractional marketing director",
-          "corporate video production",
-          "corporate photographer Nice",
-          "website design France",
-          "art direction",
+          "web agency Nice",
+          "digital agency French Riviera",
+          "web agency Monaco",
+          "app development Nice",
+          "Shopify agency France",
           "SEO agency Nice",
+          "Google Ads agency Nice",
         ],
     alternates: {
       canonical: `/${locale}`,

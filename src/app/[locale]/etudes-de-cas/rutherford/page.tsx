@@ -48,6 +48,7 @@ const COPY: Record<"fr" | "en", CaseCopy> = {
     related: [
       { href: "strategie", label: "Communication et réseaux sociaux" },
       { href: "medias", label: "Photo et vidéo" },
+      { href: "creation-site-application", label: "Sites et applications" },
     ],
   },
   en: {
@@ -84,6 +85,7 @@ const COPY: Record<"fr" | "en", CaseCopy> = {
     related: [
       { href: "strategie", label: "Communication and social media" },
       { href: "medias", label: "Photo and video" },
+      { href: "creation-site-application", label: "Websites and apps" },
     ],
   },
 };

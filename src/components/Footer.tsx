@@ -26,6 +26,7 @@ export async function Footer({ locale }: { locale: string }) {
   const studioLinks = [
     // Pages de services dédiées depuis le 23/10/2026.
     { href: `/${locale}/creation-site-application`, label: en ? "Websites and apps" : "Sites et applications" },
+    { href: `/${locale}/creation-application-nice`, label: en ? "Web and mobile apps" : "Applications web et mobiles" },
     { href: `/${locale}/agence-e-commerce-shopify`, label: en ? "Shopify e-commerce" : "E-commerce Shopify" },
     { href: `/${locale}/medias`, label: en ? "Photo and video" : "Photo et vidéo" },
     { href: `/${locale}/strategie`, label: en ? "Communication" : "Communication" },
@@ -36,7 +37,10 @@ export async function Footer({ locale }: { locale: string }) {
   const resourceLinks = [
     { href: `/${locale}/creation`, label: tNav("works") },
     { href: `/${locale}/etudes-de-cas`, label: en ? "Case studies" : "Études de cas" },
+    // Pages locales (25/10/2026) : maillage vers les trois zones servies.
     { href: `/${locale}/agence-web-nice`, label: en ? "Web agency in Nice" : "Agence web à Nice" },
+    { href: `/${locale}/agence-web-monaco`, label: en ? "Web agency in Monaco" : "Agence web à Monaco" },
+    { href: `/${locale}/agence-web-cannes-antibes`, label: en ? "Web agency in Cannes and Antibes" : "Agence web à Cannes et Antibes" },
     { href: `/${locale}#about`, label: tNav("about") },
     { href: `/${locale}/blog`, label: tNav("journal") },
   ];

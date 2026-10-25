@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     locale,
     path: PATH,
     fr: {
-      title: "Checklist AI Act pour PME : les 7 étapes, en PDF",
+      title: "Checklist AI Act PME : les 7 étapes, en PDF",
       description:
         "Les sept étapes d'une PME pour répondre à l'article 4 de l'AI Act, dans l'ordre, avec ce qui est exigé et ce qui ne l'est pas. PDF gratuit à cocher.",
     },

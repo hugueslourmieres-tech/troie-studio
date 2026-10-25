@@ -18,27 +18,40 @@ import {
 } from "@/components/SeoBlocks";
 import { pageSocial } from "@/lib/og";
 import { metaDescription, seoTitle } from "@/lib/seo";
+import { LinkList, breadcrumbJsonLd } from "../_local/blocks";
 
 /**
  * Page de service « Agence e-commerce Shopify » (23/10/2026), FR et EN.
  * La page s'ouvre sur LOIR Paris : +164 % de ventes en ligne en deux ans
  * (src/lib/results.ts). Accord écrit du client à obtenir avant la mise en
  * production (voir /etudes-de-cas/loir-paris).
+ *
+ * 25/10/2026 : titre et H1 visent « agence Shopify » au niveau national
+ * (la requête ne se tape pas avec Nice), Nice et Monaco cités dans l'intro.
+ * Ajouts : bloc LOIR (+121 % de commandes, LOIR_ORDERS_PCT), bloc
+ * migration WooCommerce, PrestaShop, Magento vers Shopify, FAQ migration.
  */
 const PATH = "/agence-e-commerce-shopify";
 
 const COPY = {
   fr: {
-    metaTitle: "Agence e-commerce Shopify qui fait vendre",
+    metaTitle: "Agence Shopify : création, refonte et migration",
     metaDesc:
-      "Création et refonte de boutiques Shopify, fiches produits, photo et vidéo, Google Shopping et Meta. LOIR Paris : +164 % de ventes en ligne en deux ans.",
+      "Agence Shopify pour toute la France, basée à Nice : création, refonte, migration depuis WooCommerce, PrestaShop ou Magento. LOIR Paris : +164 % de ventes.",
+    crumb: "Agence Shopify",
     eyebrow: "Agence e-commerce Shopify",
-    title: "Une boutique Shopify qui vend.",
+    title: "Agence Shopify, pour une boutique qui vend.",
     intro:
-      "Nous créons votre boutique, ou nous reprenons celle que vous avez. Puis nous amenons les bons clients jusqu'au paiement.",
+      "Nous créons votre boutique, nous reprenons celle que vous avez, ou nous la migrons vers Shopify. Puis nous amenons les bons clients jusqu'au paiement. Depuis Nice, pour Monaco, la Côte d'Azur et toute la France.",
     leadValue: "+164 %",
     leadLabel: "de ventes en ligne en deux ans pour LOIR Paris, lues dans Shopify.",
     leadLink: "Lire l'étude de cas",
+    caseTitle: "LOIR Paris, deux ans de croissance.",
+    case: [
+      "LOIR Paris est une marque de mode qui vend sur sa propre boutique, construite sur Shopify. Nous travaillons sur cette boutique.",
+      "Entre septembre 2024 et septembre 2026, les ventes nettes en ligne ont progressé de 164 % et les commandes de 121 %. Les deux chiffres sont lus dans Shopify, sur 12 mois glissants.",
+    ],
+    caseLink: "Lire l'étude de cas complète",
     whatTitle: "Ce que nous faisons.",
     what: [
       "Nous créons votre boutique Shopify, ou nous reprenons celle que vous avez.",
@@ -47,6 +60,29 @@ const COPY = {
       "Nous produisons les photos et les vidéos de vos produits.",
       "Nous amenons les visites : référencement Google, Google Shopping, campagnes Meta.",
       "Nous suivons les ventes chaque mois, dans Shopify, avec vous.",
+    ],
+    migrationTitle: "Passer à Shopify sans perdre vos ventes.",
+    migrationIntro:
+      "Beaucoup de boutiques, sur la Côte d'Azur comme ailleurs, tournent encore sur WooCommerce, PrestaShop ou Magento. Les mises à jour coûtent cher, les extensions se cassent, le site ralentit. Shopify règle une grande partie de ces soucis. Mais une migration mal faite peut coûter votre référencement.",
+    migration: [
+      "Nous faisons l'inventaire : produits, variantes, clients, commandes, pages, avis.",
+      "Nous reprenons les données dans Shopify, puis nous les vérifions ligne à ligne.",
+      "Nous redirigeons chaque ancienne adresse vers la nouvelle, pour garder vos positions sur Google.",
+      "Les comptes clients sont repris. Les mots de passe ne peuvent pas l'être : vos clients reçoivent une invitation à réactiver leur compte.",
+      "Nous testons le paiement, la livraison et les e-mails avant la bascule.",
+      "Après la bascule, nous suivons les ventes, les erreurs et les positions Google pendant plusieurs semaines.",
+    ],
+    migrationAudit:
+      "Pas sûr que la migration vaille le coup ? Un audit compare votre boutique actuelle et Shopify, et chiffre le chantier.",
+    auditLink: "Demander l'audit",
+    nearTitle: "Près de chez vous, ou à distance.",
+    nearBody:
+      "Nous sommes basés à Nice et nous travaillons avec des marques de toute la France. Sur la Côte d'Azur et à Monaco, nous venons aussi sur place pour les photos produits.",
+    near: [
+      { href: "agence-web-nice", label: "Agence web à Nice" },
+      { href: "agence-web-monaco", label: "Agence web à Monaco" },
+      { href: "agence-web-cannes-antibes", label: "Agence web à Cannes et Antibes" },
+      { href: "creation-application-nice", label: "Création d'applications" },
     ],
     linksTitle: "Une seule équipe, du site aux ventes.",
     linksBody:
@@ -78,20 +114,39 @@ const COPY = {
         q: "Vous occupez-vous aussi de la publicité ?",
         a: "Oui. Google Shopping, Google Ads et Meta. Nous suivons les ventes qu'elles apportent, pas seulement les clics.",
       },
+      {
+        q: "Vais-je perdre mon référencement en passant à Shopify ?",
+        a: "Pas si la migration est bien faite. Nous redirigeons chaque ancienne adresse vers la nouvelle et nous gardons les textes qui se positionnent. Puis nous suivons vos positions après la bascule.",
+      },
+      {
+        q: "Combien de temps dure une migration vers Shopify ?",
+        a: "Cela dépend du nombre de produits, des données à reprendre et du design. Selon le périmètre, nous vous donnons un délai ferme dans le devis.",
+      },
+      {
+        q: "Travaillez-vous seulement à Nice ?",
+        a: "Non. Nous sommes une agence Shopify basée à Nice, et nous travaillons avec des marques de toute la France, à distance. À Monaco et sur la Côte d'Azur, nous venons aussi sur place.",
+      },
     ],
     serviceType: "Création et développement de boutiques Shopify",
   },
   en: {
-    metaTitle: "Shopify e-commerce agency that drives sales",
+    metaTitle: "Shopify agency: builds, redesigns and migrations",
     metaDesc:
-      "Shopify store builds and redesigns, product pages, photo and video, Google Shopping and Meta. LOIR Paris: +164% online sales in two years.",
+      "Shopify agency for all of France, based in Nice: builds, redesigns, migration from WooCommerce, PrestaShop or Magento. LOIR Paris: +164% online sales.",
+    crumb: "Shopify agency",
     eyebrow: "Shopify e-commerce agency",
-    title: "A Shopify store that sells.",
+    title: "A Shopify agency, for a store that sells.",
     intro:
-      "We build your store, or take over the one you have. Then we bring the right customers all the way to checkout.",
+      "We build your store, take over the one you have, or migrate it to Shopify. Then we bring the right customers all the way to checkout. From Nice, for Monaco, the Riviera and all of France.",
     leadValue: "+164%",
     leadLabel: "online sales in two years for LOIR Paris, read in Shopify.",
     leadLink: "Read the case study",
+    caseTitle: "LOIR Paris, two years of growth.",
+    case: [
+      "LOIR Paris is a fashion brand that sells on its own store, built on Shopify. We work on that store.",
+      "Between September 2024 and September 2026, net online sales grew by 164% and orders by 121%. Both figures are read in Shopify, over rolling 12 months.",
+    ],
+    caseLink: "Read the full case study",
     whatTitle: "What we do.",
     what: [
       "We build your Shopify store, or take over the one you have.",
@@ -100,6 +155,29 @@ const COPY = {
       "We produce photos and videos of your products.",
       "We bring visits: Google search, Google Shopping, Meta campaigns.",
       "We track sales every month, in Shopify, with you.",
+    ],
+    migrationTitle: "Move to Shopify without losing sales.",
+    migrationIntro:
+      "Many stores, on the Riviera and elsewhere, still run on WooCommerce, PrestaShop or Magento. Updates are costly, plugins break, the site slows down. Shopify solves much of this. But a poor migration can cost you your search ranking.",
+    migration: [
+      "We take inventory: products, variants, customers, orders, pages, reviews.",
+      "We move the data into Shopify, then check it line by line.",
+      "We redirect every old address to the new one, to keep your Google positions.",
+      "Customer accounts are moved. Passwords cannot be: your customers get an invitation to reactivate their account.",
+      "We test payment, shipping and emails before the switch.",
+      "After the switch, we track sales, errors and Google positions for several weeks.",
+    ],
+    migrationAudit:
+      "Not sure the migration is worth it? An audit compares your current store with Shopify and prices the work.",
+    auditLink: "Request the audit",
+    nearTitle: "Close by, or remote.",
+    nearBody:
+      "We are based in Nice and work with brands across France. On the Riviera and in Monaco, we also come on site for product photos.",
+    near: [
+      { href: "agence-web-nice", label: "Web agency in Nice" },
+      { href: "agence-web-monaco", label: "Web agency for Monaco" },
+      { href: "agence-web-cannes-antibes", label: "Web agency in Cannes and Antibes" },
+      { href: "creation-application-nice", label: "App development" },
     ],
     linksTitle: "One team, from the store to the sales.",
     linksBody:
@@ -131,10 +209,29 @@ const COPY = {
         q: "Do you also handle advertising?",
         a: "Yes. Google Shopping, Google Ads and Meta. We track the sales they bring, not only the clicks.",
       },
+      {
+        q: "Will I lose my search ranking by moving to Shopify?",
+        a: "Not if the migration is done well. We redirect every old address to the new one and keep the copy that ranks. Then we track your positions after the switch.",
+      },
+      {
+        q: "How long does a migration to Shopify take?",
+        a: "It depends on the number of products, the data to move and the design. Based on the scope, we give you a firm timeline in the quote.",
+      },
+      {
+        q: "Do you only work in Nice?",
+        a: "No. We are a Shopify agency based in Nice, and we work with brands across France, remotely. In Monaco and on the Riviera, we also come on site.",
+      },
     ],
     serviceType: "Shopify store design and development",
   },
 } as const;
+
+const AREA = [
+  { "@type": "Country", name: "France" },
+  { "@type": "City", name: "Nice" },
+  { "@type": "Country", name: "Monaco" },
+  { "@type": "AdministrativeArea", name: "Côte d'Azur" },
+];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -155,15 +252,19 @@ export default async function ShopifyPage({ params }: { params: Promise<{ locale
   return (
     <div className="tone-light bg-[var(--bg)] text-[var(--fg)]">
       <JsonLd
-        data={serviceJsonLd({
-          locale,
-          path: PATH,
-          name: c.metaTitle,
-          serviceType: c.serviceType,
-          description: c.metaDesc,
-        })}
+        data={{
+          ...serviceJsonLd({
+            locale,
+            path: PATH,
+            name: c.metaTitle,
+            serviceType: c.serviceType,
+            description: c.metaDesc,
+          }),
+          areaServed: AREA,
+        }}
       />
       <JsonLd data={faqJsonLd(locale, PATH, c.faq)} />
+      <JsonLd data={breadcrumbJsonLd(locale, PATH, c.crumb)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
       <PageHero locale={locale} art="meadow" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="site">
@@ -185,8 +286,30 @@ export default async function ShopifyPage({ params }: { params: Promise<{ locale
         </Link>
       </PageHero>
 
+      <Block id="loir-paris" title={c.caseTitle}>
+        {c.case.map((p) => (
+          <Body key={p}>{p}</Body>
+        ))}
+        <div className="mt-6">
+          <ArrowLink href={`/${locale}/etudes-de-cas/loir-paris`}>{c.caseLink}</ArrowLink>
+        </div>
+      </Block>
+
       <Block id="services" title={c.whatTitle}>
         <Sentences items={c.what} />
+      </Block>
+
+      <Block id="migration" title={c.migrationTitle}>
+        <Body>{c.migrationIntro}</Body>
+        <div className="mt-8">
+          <Sentences items={c.migration} />
+        </div>
+        <div className="mt-8">
+          <Body>{c.migrationAudit}</Body>
+        </div>
+        <div className="mt-4">
+          <ArrowLink href={`/${locale}/contact?besoin=site#projet`}>{c.auditLink}</ArrowLink>
+        </div>
       </Block>
 
       <Block title={c.linksTitle}>
@@ -201,6 +324,13 @@ export default async function ShopifyPage({ params }: { params: Promise<{ locale
       </Block>
 
       <ProofGrid locale={locale} title={c.proofTitle} />
+
+      <Block id="ou" title={c.nearTitle}>
+        <Body>{c.nearBody}</Body>
+        <div className="mt-8">
+          <LinkList locale={locale} items={c.near} />
+        </div>
+      </Block>
 
       <Faq title={c.faqTitle} items={c.faq} />
 

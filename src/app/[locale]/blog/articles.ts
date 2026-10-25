@@ -45,6 +45,12 @@ import { AiActPmeChecklist } from "./_content/ai-act-pme-checklist";
 import { ConsultationCseIntelligenceArtificielle } from "./_content/consultation-cse-intelligence-artificielle";
 import { CharteUsageIaEntrepriseModele } from "./_content/charte-usage-ia-entreprise-modele";
 import { FormationAiActCpfOpcoFinancement } from "./_content/formation-ai-act-cpf-opco-financement";
+import { PrixSiteInternet2026 } from "./_content/prix-site-internet-2026";
+import { GeoApparaitreChatgptGeminiAiOverviews } from "./_content/geo-apparaitre-chatgpt-gemini-ai-overviews";
+import { BudgetGoogleAdsPme } from "./_content/budget-google-ads-pme";
+import { MigrationShopifySansPerdreSeo } from "./_content/migration-shopify-sans-perdre-seo";
+import { RefonteSiteInternetSansPerdreTrafic } from "./_content/refonte-site-internet-sans-perdre-trafic";
+import { DeveloppementApplicationSurMesureEtapesDelais } from "./_content/developpement-application-sur-mesure-etapes-delais";
 
 export type Article = {
   slug: string;
@@ -75,6 +81,8 @@ export const CATEGORY_EN: Record<string, string> = {
   "L'IA au travail": "AI at work",
   "L'IA à la maison": "AI at home",
   Conformité: "Compliance",
+  Création: "Building",
+  Croissance: "Growth",
 };
 
 /**
@@ -96,6 +104,130 @@ export function localizeArticle(a: Article, locale: string) {
 }
 
 export const ARTICLES: Article[] = [
+  // Articles « acheteurs » du 25/10/2026 (dates étalées du 20 au 25 octobre) :
+  // requêtes de décideurs PME et ETI sur les sites, apps, Shopify et
+  // l'acquisition. Chiffres sourcés et datés dans chaque article.
+  {
+    slug: "prix-site-internet-2026",
+    title:
+      "Prix d'un site internet en 2026 : ce que coûte vraiment un site vitrine, un e-commerce et une application",
+    cardTitle: "Prix d'un site internet en 2026",
+    description:
+      "Un site internet coûte 5 600 euros en médiane en 2026, 3 500 euros pour un site vitrine, 10 000 euros pour un e-commerce et 30 000 euros pour une application mobile, selon les baromètres de La Fabrique du Net. Les fourchettes sourcées, ce qui fait monter un devis et les coûts récurrents.",
+    date: "2026-10-25",
+    category: "Création",
+    readingMinutes: 8,
+    cover: "/images/art/meadow.jpg",
+    keywords: [
+      "prix site internet",
+      "combien coûte un site internet",
+      "prix site vitrine",
+      "prix site e-commerce",
+      "prix application mobile",
+      "devis site internet",
+    ],
+    Body: PrixSiteInternet2026,
+  },
+  {
+    slug: "geo-apparaitre-chatgpt-gemini-ai-overviews",
+    title:
+      "Apparaître dans ChatGPT, Gemini et les AI Overviews : le GEO expliqué aux dirigeants",
+    cardTitle: "Le GEO expliqué aux dirigeants",
+    description:
+      "Depuis le 22 juillet 2026, les Aperçus IA de Google sont disponibles en France. Ce que Google et OpenAI demandent vraiment pour citer un site, ce que dit la recherche sur le GEO, et la méthode en six chantiers pour une PME.",
+    date: "2026-10-24",
+    category: "Croissance",
+    readingMinutes: 8,
+    cover: "/images/art/sky-b.jpg",
+    keywords: [
+      "geo seo",
+      "apparaître dans chatgpt",
+      "référencement ia",
+      "generative engine optimization",
+      "aperçus ia google",
+      "ai overviews france",
+    ],
+    Body: GeoApparaitreChatgptGeminiAiOverviews,
+  },
+  {
+    slug: "budget-google-ads-pme",
+    title: "Combien investir en Google Ads quand on est une PME",
+    cardTitle: "Budget Google Ads d'une PME",
+    description:
+      "Le budget Google Ads se calcule à partir des contacts visés et du coût d'un contact. Les règles de dépense de Google, le seuil de 30 conversions, les benchmarks 2026 de LocaliQ et le prix de la gestion par une agence.",
+    date: "2026-10-23",
+    category: "Croissance",
+    readingMinutes: 7,
+    cover: "/images/art/dusk.jpg",
+    keywords: [
+      "budget google ads pme",
+      "combien investir google ads",
+      "coût google ads",
+      "budget sea",
+      "coût par clic moyen",
+    ],
+    Body: BudgetGoogleAdsPme,
+  },
+  {
+    slug: "migration-shopify-sans-perdre-seo",
+    title:
+      "Magento, PrestaShop ou WooCommerce vers Shopify : quand migrer et comment ne rien perdre en SEO",
+    cardTitle: "Migrer vers Shopify sans perdre son SEO",
+    description:
+      "Quand migrer vers Shopify, et comment garder son référencement : la checklist des redirections 301 en dix étapes, les règles de Google sur les migrations, les limites de Shopify et les coûts observés.",
+    date: "2026-10-22",
+    category: "Création",
+    readingMinutes: 8,
+    cover: "/images/art/meadow-b.jpg",
+    keywords: [
+      "migration shopify",
+      "passer de prestashop à shopify",
+      "migration magento shopify",
+      "migration woocommerce shopify",
+      "redirection 301 shopify",
+    ],
+    Body: MigrationShopifySansPerdreSeo,
+  },
+  {
+    slug: "refonte-site-internet-sans-perdre-trafic",
+    title:
+      "Refonte de site : les 7 signes qu'il est temps, et comment la mener sans perdre de trafic",
+    cardTitle: "Refonte de site : les 7 signes",
+    description:
+      "Lenteur sur mobile, aucune demande mesurable, technologie en fin de support, accessibilité : les sept signes qui justifient une refonte, son coût médian de 7 000 euros, et la méthode en sept étapes pour garder son trafic.",
+    date: "2026-10-21",
+    category: "Création",
+    readingMinutes: 8,
+    cover: "/images/art/dusk-b.jpg",
+    keywords: [
+      "refonte site internet",
+      "refonte site web",
+      "refaire son site internet",
+      "refonte site sans perdre seo",
+      "prix refonte site",
+    ],
+    Body: RefonteSiteInternetSansPerdreTrafic,
+  },
+  {
+    slug: "developpement-application-sur-mesure-etapes-delais",
+    title:
+      "Faire développer une application web ou mobile : étapes, délais et pièges",
+    cardTitle: "Faire développer une application",
+    description:
+      "Cadrage, maquettes, MVP, développement, publication : les cinq étapes d'une application sur mesure, avec les budgets observés (30 000 euros de médiane, 15 000 euros pour un MVP), les délais et les pièges contractuels.",
+    date: "2026-10-20",
+    category: "Création",
+    readingMinutes: 8,
+    cover: "/images/art/orchid-b.jpg",
+    keywords: [
+      "développement application sur mesure",
+      "créer une application entreprise",
+      "faire développer une application",
+      "prix application mobile",
+      "agence développement application",
+    ],
+    Body: DeveloppementApplicationSurMesureEtapesDelais,
+  },
   {
     slug: "formation-ai-act-cpf-opco-financement",
     title:

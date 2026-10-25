@@ -14,13 +14,17 @@ export default function robots(): MetadataRoute.Robots {
     "GPTBot", // OpenAI (entraînement)
     "OAI-SearchBot", // ChatGPT Search (récupération live)
     "ChatGPT-User", // navigation ChatGPT
-    "ClaudeBot", // Anthropic
+    "ClaudeBot", // Anthropic (entraînement)
+    "Claude-SearchBot", // Claude, recherche web
+    "Claude-User", // Claude, lecture à la demande
     "anthropic-ai",
     "Claude-Web",
     "PerplexityBot", // Perplexity
     "Perplexity-User",
     "Google-Extended", // Gemini / Vertex
     "Applebot-Extended", // Apple Intelligence
+    "Applebot", // Siri et Spotlight
+    "Bingbot", // Bing, alimente Copilot et une partie de ChatGPT Search
     "CCBot", // Common Crawl (alimente beaucoup de LLM)
     "Bytespider",
     "Meta-ExternalAgent",

@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     locale,
     path: PATH,
     fr: {
-      title: "Calendrier de l'AI Act : les dates à jour après le report de 2026",
+      title: "Calendrier de l'AI Act : les dates après le report de 2026",
       description:
         "Le calendrier de l'AI Act à jour : haut risque reporté au 2 décembre 2027 par le règlement (UE) 2026/1744, article 4 inchangé depuis février 2025.",
     },

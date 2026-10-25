@@ -25,6 +25,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/agence-e-commerce-shopify",
     "/creation-site-application",
     "/agence-web-nice",
+    // Pages locales et application (25/10/2026).
+    "/agence-web-monaco",
+    "/agence-web-cannes-antibes",
+    "/creation-application-nice",
     "/etudes-de-cas",
     "/etudes-de-cas/loir-paris",
     "/etudes-de-cas/rutherford",
@@ -61,6 +65,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/agence-e-commerce-shopify",
     "/creation-site-application",
     "/agence-web-nice",
+    "/agence-web-monaco",
+    "/agence-web-cannes-antibes",
+    "/creation-application-nice",
     "/etudes-de-cas",
   ]);
 

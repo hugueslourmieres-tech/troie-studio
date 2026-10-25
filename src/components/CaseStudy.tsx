@@ -44,7 +44,10 @@ export function caseJsonLd({
   extra?: Record<string, unknown>;
 }) {
   const p = PROOFS[id];
+  const l = loc(locale);
   const url = `${BASE}/${locale}${CASES_PATH}/${p.slug}`;
+  /* Le chiffre de l'étude, lisible par les moteurs et les IA (25/10/2026). */
+  const result = `${p.client}${l === "en" ? ":" : " :"} ${p.value[l]} ${p.label[l]}`;
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -57,9 +60,22 @@ export function caseJsonLd({
     datePublished: "2026-10-23",
     dateModified: "2026-10-23",
     image: `${BASE}/images/brand/og-image.png`,
-    author: { "@id": "https://troiestudio.fr/#hugues" },
+    abstract: result,
+    author: {
+      "@type": "Person",
+      "@id": "https://troiestudio.fr/#hugues",
+      name: "Hugues Lourmieres",
+      url: `${BASE}/${locale}/hugues`,
+    },
     publisher: { "@id": ORG_ID },
+    isPartOf: { "@id": `${BASE}/${locale}${CASES_PATH}#page` },
     about: { "@type": "Organization", name: p.client },
+    /* Les pages de service liées dans l'étude. */
+    mentions: copy.related.map((r) => ({
+      "@type": "WebPage",
+      name: r.label,
+      url: `${BASE}/${locale}/${r.href}`,
+    })),
     genre: loc(locale) === "en" ? "Case study" : "Étude de cas",
     ...extra,
   };
