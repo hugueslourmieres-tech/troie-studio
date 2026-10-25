@@ -67,6 +67,7 @@ const COPY = {
     links: [
       { href: "creation-site-application", label: "Sites et applications" },
       { href: "agence-e-commerce-shopify", label: "Boutiques Shopify" },
+      { href: "consultant-google-ads", label: "Consultant Google Ads : un senior sur votre compte" },
     ],
     proofTitle: "Des résultats mesurés chez nos clients.",
     faqTitle: "Questions fréquentes",
@@ -140,6 +141,7 @@ const COPY = {
     links: [
       { href: "creation-site-application", label: "Websites and apps" },
       { href: "agence-e-commerce-shopify", label: "Shopify stores" },
+      { href: "consultant-google-ads", label: "Google Ads consultant: a senior on your account" },
     ],
     proofTitle: "Measured results for our clients.",
     faqTitle: "Frequently asked questions",

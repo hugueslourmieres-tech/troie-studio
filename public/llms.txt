@@ -13,9 +13,11 @@
 ## Services
 
 - Création de sites internet : sites vitrines et sites qui convertissent, conçus, développés, mis en ligne et suivis. https://troiestudio.fr/fr/creation-site-application
-- Applications web et mobiles : applications sur mesure, de la maquette à la mise en ligne. https://troiestudio.fr/fr/creation-application-nice
+- Applications web et mobiles : applications web, mobiles et PWA sur mesure, de la maquette à la mise en ligne, partout en France. https://troiestudio.fr/fr/agence-developpement-application (à Nice : https://troiestudio.fr/fr/creation-application-nice)
 - E-commerce Shopify : création et refonte de boutiques, fiches produits, conversion, acquisition. https://troiestudio.fr/fr/agence-e-commerce-shopify
 - SEO et Google Ads : référencement naturel Google et campagnes Google Ads, suivis chaque mois. https://troiestudio.fr/fr/agence-seo-google-ads
+- Consultant Google Ads : Hugues Lourmieres, le fondateur, pilote lui-même le compte, avec un point mensuel et un tableau de bord partagé. https://troiestudio.fr/fr/consultant-google-ads
+- GEO (Generative Engine Optimization) : audit de ce que ChatGPT, Gemini, Perplexity et les AI Overviews de Google disent d'une marque, puis données structurées, cohérence des informations, contenus sourcés, annuaires et llms.txt. https://troiestudio.fr/fr/agence-geo
 - Publicité sur les réseaux sociaux : campagnes payantes sur Instagram, Facebook et les autres réseaux, avec les contenus. https://troiestudio.fr/fr/strategie
 - Films et photos, en option : films de marque, témoignages clients, reportages photo. https://troiestudio.fr/fr/medias
 - Ateliers IA pour les équipes : prise en main pratique de l'IA au travail. https://troiestudio.fr/fr/accompagnement

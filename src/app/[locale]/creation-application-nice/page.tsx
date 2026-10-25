@@ -94,6 +94,7 @@ const COPY = {
     linksBody:
       "Une application doit être trouvée. Nous travaillons aussi le site qui la présente, le référencement et les campagnes qui amènent les premiers utilisateurs.",
     links: [
+      { href: "agence-developpement-application", label: "Développement d'applications partout en France" },
       { href: "creation-site-application", label: "Sites et applications" },
       { href: "agence-seo-google-ads", label: "SEO et Google Ads" },
       { href: "agence-web-nice", label: "Agence web à Nice" },
@@ -197,6 +198,7 @@ const COPY = {
     linksBody:
       "An app must be found. We also work on the site that presents it, on search and on the campaigns that bring the first users.",
     links: [
+      { href: "agence-developpement-application", label: "App development across France" },
       { href: "creation-site-application", label: "Websites and apps" },
       { href: "agence-seo-google-ads", label: "SEO and Google Ads" },
       { href: "agence-web-nice", label: "Web agency in Nice" },
