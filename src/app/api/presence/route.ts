@@ -6,9 +6,10 @@ import { clientIp, createRateLimiter, escapeHtml, originAllowed } from "@/lib/au
  * POST /api/presence (26/10/2026)
  *
  * Demande d'« analyse de présence » depuis l'accueil, onglet « Je n'ai pas de
- * site » : entreprise, ville, e-mail, consentement. Hugues regarde la fiche
+ * site » : entreprise, ville, e-mail, consentement. L'équipe regarde la fiche
  * Google, la position sur la recherche principale et les réponses de ChatGPT
- * et Gemini, puis répond à la main sous 48 h.
+ * et Gemini, puis envoie un score de présence sur 100 et ses recommandations
+ * sous 48 h.
  *
  * Garde-fous (repris de src/lib/audit/guards.ts) :
  *   - Origin : un POST qui ne vient pas du site est refusé (403).
@@ -137,26 +138,26 @@ export async function POST(req: Request) {
   // Confirmation au visiteur : un échec ici ne doit pas faire échouer la demande.
   const confirm = en
     ? {
-        subject: `Your presence analysis for ${company}`,
+        subject: `Your presence score for ${company}`,
         html: wrap(
           [
             `<p>Hello,</p>`,
             `<p>Thank you for your request for <strong>${e(company)}</strong> (${e(city)}).</p>`,
-            `<p>I will look at your Google Business Profile, where you rank on your main search, and what ChatGPT and Gemini say about you. You will get the analysis by email within 48 hours.</p>`,
+            `<p>We will look at your Google Business Profile, where you rank on your main search, and what ChatGPT and Gemini say about you. Within 48 hours, you will receive your presence score out of 100 and our recommendations by email.</p>`,
             `<p>If you have anything to add, just reply to this email.</p>`,
-            `<p>Hugues<br/>TROIE Studio</p>`,
+            `<p>The TROIE Studio team</p>`,
           ].join(""),
         ),
       }
     : {
-        subject: `Votre analyse de présence pour ${company}`,
+        subject: `Votre score de présence pour ${company}`,
         html: wrap(
           [
             `<p>Bonjour,</p>`,
             `<p>Merci pour votre demande pour <strong>${e(company)}</strong> (${e(city)}).</p>`,
-            `<p>Je regarde votre fiche Google, votre position sur votre recherche principale et ce que répondent ChatGPT et Gemini. Vous recevez l'analyse par e-mail sous 48 h.</p>`,
+            `<p>Nous analysons votre fiche Google, votre place sur votre recherche principale et ce que répondent ChatGPT et Gemini. Vous recevez votre score de présence sur 100 et nos recommandations par e-mail sous 48 h.</p>`,
             `<p>Si vous voulez ajouter quelque chose, répondez simplement à cet e-mail.</p>`,
-            `<p>Hugues<br/>TROIE Studio</p>`,
+            `<p>L'équipe TROIE Studio</p>`,
           ].join(""),
         ),
       };

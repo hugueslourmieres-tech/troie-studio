@@ -34,12 +34,12 @@ const COPY = {
   fr: {
     metaTitle: "Consultant Google Ads : un senior sur votre compte",
     metaDesc:
-      "Consultant Google Ads senior : Hugues Lourmieres, fondateur de TROIE Studio, pilote lui-même votre compte. Pas de junior, un suivi mensuel et un tableau de bord partagé.",
+      "Consultant Google Ads senior : un consultant senior de l'équipe TROIE Studio pilote votre compte. Pas de junior, un suivi mensuel et un tableau de bord partagé.",
     crumb: "Consultant Google Ads",
     eyebrow: "Consultant Google Ads",
-    title: "Un consultant Google Ads qui gère votre compte lui-même.",
+    title: "Un consultant Google Ads senior sur votre compte.",
     intro:
-      "Vous parlez à la personne qui fait le travail. Hugues Lourmieres, fondateur de TROIE Studio, audite, construit et pilote vos campagnes. Votre compte n'est pas confié à un junior. Chaque mois, un point et un tableau de bord partagé. Basé à Nice, pour toute la France.",
+      "Vous parlez à la personne qui fait le travail. Un consultant senior de l'équipe audite, construit et pilote vos campagnes. Votre compte n'est pas confié à un junior. Chaque mois, un point et un tableau de bord partagé. Basé à Nice, pour toute la France.",
     modelTitle: "Un seul interlocuteur, senior.",
     model: [
       "La personne que vous avez au téléphone est celle qui travaille dans votre compte Google Ads. Pas de relais, pas de compte transmis à quelqu'un que vous ne connaissez pas.",
@@ -79,10 +79,10 @@ const COPY = {
     budgetLink: "Lire l'article : combien investir en Google Ads quand on est une PME",
     whoTitle: "Qui pilote votre compte.",
     who: [
-      "Hugues Lourmieres a fondé TROIE Studio. Il a travaillé avec des marques comme CHANEL, Sofitel et X-Rite Pantone.",
-      "Il accompagne aussi des e-commerces. Chez LOIR Paris, les ventes en ligne ont progressé de 164 % et les commandes de 121 %, selon les données Shopify de la marque.",
+      "Un consultant senior de l'équipe pilote votre compte, de l'audit au point mensuel. L'équipe a travaillé avec des marques comme CHANEL, Sofitel et X-Rite Pantone.",
+      "Nous accompagnons aussi des e-commerces. Chez LOIR Paris, les ventes en ligne ont progressé de 164 % et les commandes de 121 %, selon les données Shopify de la marque.",
     ],
-    whoLink: "Lire le parcours de Hugues",
+    whoLink: "Lire le parcours du fondateur",
     whereTitle: "Basé à Nice, pour toute la France.",
     where: [
       "Nous sommes à Nice. Les points se font en visio, ou sur place sur la Côte d'Azur et à Monaco. Nous travaillons avec des entreprises de toute la France.",
@@ -97,7 +97,7 @@ const COPY = {
     faq: [
       {
         q: "Qui travaille sur mon compte Google Ads ?",
-        a: "Hugues Lourmieres, le fondateur de TROIE Studio. C'est lui qui fait l'audit, construit les campagnes et anime le point mensuel.",
+        a: "Un consultant senior de l'équipe TROIE Studio. Il fait l'audit, construit les campagnes et anime le point mensuel. Vous gardez le même interlocuteur.",
       },
       {
         q: "Quel budget prévoir pour Google Ads ?",
@@ -129,12 +129,12 @@ const COPY = {
   en: {
     metaTitle: "Google Ads consultant: a senior on your account",
     metaDesc:
-      "Senior Google Ads consultant: Hugues Lourmieres, founder of TROIE Studio, runs your account himself. No junior, a monthly review and a shared dashboard.",
+      "Senior Google Ads consultant: a senior consultant from the TROIE Studio team runs your account. No junior, a monthly review and a shared dashboard.",
     crumb: "Google Ads consultant",
     eyebrow: "Google Ads consultant",
-    title: "A Google Ads consultant who runs your account himself.",
+    title: "A senior Google Ads consultant on your account.",
     intro:
-      "You talk to the person who does the work. Hugues Lourmieres, founder of TROIE Studio, audits, builds and runs your campaigns. Your account is not handed to a junior. Every month, a review and a shared dashboard. Based in Nice, for all of France.",
+      "You talk to the person who does the work. A senior consultant from our team audits, builds and runs your campaigns. Your account is not handed to a junior. Every month, a review and a shared dashboard. Based in Nice, for all of France.",
     modelTitle: "One senior contact.",
     model: [
       "The person you speak to on the phone is the one who works in your Google Ads account. No hand-off, no account passed to someone you have never met.",
@@ -174,10 +174,10 @@ const COPY = {
     budgetLink: "Read the article (in French): how much an SME should invest in Google Ads",
     whoTitle: "Who runs your account.",
     who: [
-      "Hugues Lourmieres founded TROIE Studio. He has worked with brands such as CHANEL, Sofitel and X-Rite Pantone.",
-      "He also supports e-commerce brands. At LOIR Paris, online sales grew by 164% and orders by 121%, according to the brand's Shopify data.",
+      "A senior consultant from our team runs your account, from the audit to the monthly review. The team has worked with brands such as CHANEL, Sofitel and X-Rite Pantone.",
+      "We also support e-commerce brands. At LOIR Paris, online sales grew by 164% and orders by 121%, according to the brand's Shopify data.",
     ],
-    whoLink: "Read Hugues's background",
+    whoLink: "Read the founder's background",
     whereTitle: "Based in Nice, for all of France.",
     where: [
       "We are in Nice. Reviews happen by video call, or on site on the French Riviera and in Monaco. We work with companies across France.",
@@ -192,7 +192,7 @@ const COPY = {
     faq: [
       {
         q: "Who works on my Google Ads account?",
-        a: "Hugues Lourmieres, the founder of TROIE Studio. He runs the audit, builds the campaigns and leads the monthly review.",
+        a: "A senior consultant from the TROIE Studio team. They run the audit, build the campaigns and lead the monthly review. You keep the same contact.",
       },
       {
         q: "What budget should I plan for Google Ads?",

@@ -16,7 +16,7 @@ const COPY = {
   fr: {
     metaTitle: "Photo, vidéo, design et sites web",
     metaDesc:
-      "Nous tournons, photographions, dessinons et développons pour votre marque. Direction artistique de Hugues Lourmieres, une équipe qui fabrique elle-même.",
+      "Nous tournons, photographions, dessinons et développons pour votre marque. Une direction artistique exigeante, une équipe qui fabrique elle-même.",
     label: "Création",
     title: "Photo, vidéo, design et web.",
     intro:
@@ -39,7 +39,7 @@ const COPY = {
   en: {
     metaTitle: "Photo, video, design and websites",
     metaDesc:
-      "We shoot, photograph, design and build for your brand. Art direction by Hugues Lourmieres, a team that makes things itself.",
+      "We shoot, photograph, design and build for your brand. Demanding art direction, a team that makes things itself.",
     label: "Creative",
     title: "Photo, video, design and web.",
     intro:

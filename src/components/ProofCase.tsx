@@ -21,12 +21,12 @@ const COPY = {
   fr: {
     eyebrow: "Un exemple",
     title: "Une vidéo qui a fait vendre.",
-    body: "Une vidéo réalisée pour Autajon, en Italie, avec le groupe Rutherford. Hugues l'a montée avec son équipe, qui l'a aussi filmée. Le groupe estime qu'elle lui a rapporté environ 35 fois son budget.",
+    body: "Une vidéo réalisée pour Autajon, en Italie, avec le groupe Rutherford. Notre équipe l'a filmée et montée. Le groupe estime qu'elle lui a rapporté environ 35 fois son budget.",
     bigFigure: "×35",
     bigLabel: "le budget, en ventes estimées par le groupe",
     credit: "Vidéo réalisée pour le groupe Rutherford, diffusée avec son accord.",
     // [À COMPLÉTER : lien de la vidéo Offset 360]
-    offset: "Hugues a aussi dirigé la vidéo Offset 360.",
+    offset: "Nous avons aussi réalisé la vidéo Offset 360.",
     more: "Voir les autres vidéos",
     playLabel: "Lire la vidéo",
     ariaLabel: `Lire la vidéo : ${VIDEO_TITLE}`,
@@ -34,12 +34,12 @@ const COPY = {
   en: {
     eyebrow: "An example",
     title: "A video that drove sales.",
-    body: "A video made for Autajon, in Italy, with the Rutherford group. Hugues edited it with his team, who also shot it. The group estimates it brought in around 35 times its budget.",
+    body: "A video made for Autajon, in Italy, with the Rutherford group. Our team shot and edited it. The group estimates it brought in around 35 times its budget.",
     bigFigure: "×35",
     bigLabel: "the budget, in sales estimated by the group",
     credit: "Video made for the Rutherford group, shared with its agreement.",
     // [À COMPLÉTER : lien de la vidéo Offset 360, même lien qu'en français]
-    offset: "Hugues also directed the Offset 360 video.",
+    offset: "We also made the Offset 360 video.",
     more: "See the other videos",
     playLabel: "Play the video",
     ariaLabel: `Play the video: ${VIDEO_TITLE}`,

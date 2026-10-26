@@ -3,7 +3,6 @@
 import { useRef, useState, type KeyboardEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useInView } from "motion/react";
 import {
   ArrowRight,
   ChatCircleText,
@@ -14,22 +13,23 @@ import {
 import { ScoreGauge } from "@/components/audit/ScoreGauge";
 
 /**
- * Bloc d'accueil « Où en est votre site ? » (26/10/2026, demande de Hugues).
+ * Bloc d'accueil « Où en est votre site ? » (26/10/2026).
  *
  * Deux onglets :
  *   1. J'ai un site : un champ, un bouton. Le formulaire est un vrai GET vers
  *      /{locale}/audit-seo-gratuit?site=..., qui lance l'audit tout seul
- *      (marche aussi sans JavaScript). À côté, les deux cadrans du scanner
- *      dans leur état final, avec des valeurs d'exemple annoncées comme telles.
+ *      (marche aussi sans JavaScript). À côté, les cadrans SEO et GEO.
  *   2. Je n'ai pas de site : entreprise, ville, e-mail, consentement. POST
- *      vers /api/presence, Hugues répond à la main sous 48 h.
+ *      vers /api/presence, l'équipe envoie un score de présence sur 100 sous
+ *      48 h. À côté, un seul cadran « Score de présence » et ses trois volets.
  *
- * Un seul mouvement : les cadrans balaient une fois quand le bloc entre à
- * l'écran (ScoreGauge gère les animations réduites : état final immédiat).
+ * Les cadrans sont en suspens (ScoreGauge idleMode="suspense", tone="brand") :
+ * un seul bleu, l'aiguille monte et redescend comme si elle attendait
+ * l'adresse. Seul le vrai résultat de /audit-seo-gratuit prend le code
+ * couleur vert, jaune, orange, rouge.
  * Le cadre granuleux garde une hauteur fixe d'un onglet à l'autre (desktop) :
  * les deux contenus sont empilés dans la même cellule et se relaient en
- * fondu. Sous 1024 px, seul le contenu actif reste, et le cadre disparaît
- * sur l'onglet 2 (le texte du formulaire dit déjà ce que Hugues regarde).
+ * fondu. Sous 1024 px, seul le contenu actif reste.
  */
 
 type Tab = "site" | "presence";
@@ -48,14 +48,14 @@ const COPY = {
     siteNote: "Gratuit, sans inscription. Le résultat s'affiche tout de suite.",
     full: "Voir l'audit complet",
     presenceIntro:
-      "Pas de site, ou pas sûr du vôtre ? Nous regardons votre fiche Google, votre position sur votre recherche principale et ce que répondent ChatGPT et Gemini. Hugues vous envoie l'analyse par e-mail sous 48 h.",
+      "Nous analysons votre fiche Google, votre place sur votre recherche principale et ce que répondent ChatGPT et Gemini. Vous recevez votre score de présence sur 100 et nos recommandations par e-mail sous 48 h.",
     company: "Nom de votre entreprise",
     city: "Ville",
     email: "Votre e-mail",
     consent:
       "J'accepte de recevoir mon rapport et d'être recontacté par TROIE Studio. Je peux me désinscrire à tout moment.",
     privacy: "Politique de confidentialité",
-    presenceSubmit: "Demander l'analyse",
+    presenceSubmit: "Recevoir mon score",
     sending: "Envoi en cours",
     errFields: "Indiquez le nom de votre entreprise et votre ville.",
     errEmail: "Vérifiez votre adresse e-mail.",
@@ -64,22 +64,19 @@ const COPY = {
     errGeneric: "L'envoi n'a pas abouti. Réessayez dans un instant.",
     doneTitle: "C'est noté.",
     doneBody: (email: string) =>
-      `Hugues vous envoie l'analyse sous 48 h à ${email}. Un e-mail de confirmation vient de partir.`,
-    example: "Exemple de résultat",
+      `Nous vous envoyons votre score de présence et nos recommandations sous 48 h à ${email}. Un e-mail de confirmation vient de partir.`,
     seo: "SEO",
     seoSub: "Google",
     geo: "GEO",
     geoSub: "ChatGPT, Gemini",
-    gradeSeo: "Bon",
-    gradeGeo: "Fragile",
-    idle: "Exemple",
-    checksTitle: "Ce que Hugues regarde",
+    presence: "Score de présence",
+    idle: "Votre score",
     checks: [
-      { k: "map", t: "Votre fiche Google", d: "Présente, complète, avec des avis à jour." },
-      { k: "search", t: "Votre recherche principale", d: "Votre place quand un client cherche votre métier dans votre ville." },
-      { k: "chat", t: "ChatGPT et Gemini", d: "Ce qu'ils répondent quand on leur demande qui choisir." },
+      { k: "map", t: "Fiche Google" },
+      { k: "search", t: "Recherche principale" },
+      { k: "chat", t: "ChatGPT et Gemini" },
     ],
-    checksFoot: "Analyse faite à la main, envoyée par e-mail sous 48 h.",
+    checksFoot: "Sur 100, par e-mail sous 48 h.",
   },
   en: {
     title: "Where does your site stand?",
@@ -94,14 +91,14 @@ const COPY = {
     siteNote: "Free, no sign-up. The result shows right away.",
     full: "See the full audit",
     presenceIntro:
-      "No website, or not sure about yours? We look at your Google Business Profile, where you rank on your main search, and what ChatGPT and Gemini say about you. Hugues sends you the analysis by email within 48 hours.",
+      "We analyse your Google Business Profile, where you rank on your main search, and what ChatGPT and Gemini say about you. You receive your presence score out of 100 and our recommendations by email within 48 hours.",
     company: "Company name",
     city: "City",
     email: "Your email",
     consent:
       "I agree to receive my report and to be contacted by TROIE Studio. I can unsubscribe at any time.",
     privacy: "Privacy policy",
-    presenceSubmit: "Request the analysis",
+    presenceSubmit: "Get my score",
     sending: "Sending",
     errFields: "Please enter your company name and your city.",
     errEmail: "Please check your email address.",
@@ -110,22 +107,19 @@ const COPY = {
     errGeneric: "Sending failed. Please try again in a moment.",
     doneTitle: "Got it.",
     doneBody: (email: string) =>
-      `Hugues will send you the analysis within 48 hours at ${email}. A confirmation email is on its way.`,
-    example: "Example result",
+      `We will send your presence score and our recommendations within 48 hours to ${email}. A confirmation email is on its way.`,
     seo: "SEO",
     seoSub: "Google",
     geo: "GEO",
     geoSub: "ChatGPT, Gemini",
-    gradeSeo: "Good",
-    gradeGeo: "Weak",
-    idle: "Example",
-    checksTitle: "What Hugues looks at",
+    presence: "Presence score",
+    idle: "Your score",
     checks: [
-      { k: "map", t: "Your Google Business Profile", d: "Present, complete, with recent reviews." },
-      { k: "search", t: "Your main search", d: "Where you rank when a customer looks for your trade in your city." },
-      { k: "chat", t: "ChatGPT and Gemini", d: "What they answer when someone asks who to choose." },
+      { k: "map", t: "Google Business Profile" },
+      { k: "search", t: "Main search" },
+      { k: "chat", t: "ChatGPT and Gemini" },
     ],
-    checksFoot: "Analysis done by hand, sent by email within 48 hours.",
+    checksFoot: "Out of 100, by email within 48 hours.",
   },
 } as const;
 
@@ -144,8 +138,6 @@ export function HomeAuditTeaser({ locale }: { locale: string }) {
   const c: Copy = COPY[en ? "en" : "fr"];
   const [tab, setTab] = useState<Tab>("site");
   const tabRefs = useRef<Record<Tab, HTMLButtonElement | null>>({ site: null, presence: null });
-  const frameRef = useRef<HTMLDivElement>(null);
-  const inView = useInView(frameRef, { once: true, margin: "0px 0px -20% 0px" });
 
   const tabs: { id: Tab; label: string }[] = [
     { id: "site", label: c.tabSite },
@@ -232,12 +224,8 @@ export function HomeAuditTeaser({ locale }: { locale: string }) {
           </div>
         </div>
 
-        {/* Le cadre granuleux du scanner : exemple de résultat, ou ce que Hugues regarde */}
-        <div
-          ref={frameRef}
-          className={`lg:col-span-7 lg:pt-2 ${tab === "presence" ? "max-lg:hidden" : ""}`}
-          aria-hidden="true"
-        >
+        {/* Le cadre granuleux du scanner : cadrans en suspens, un seul bleu. */}
+        <div className="lg:col-span-7 lg:pt-2" aria-hidden="true">
           <div className="grain relative overflow-hidden rounded-[28px] p-3 sm:p-5">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -250,62 +238,39 @@ export function HomeAuditTeaser({ locale }: { locale: string }) {
             <div className="relative z-[3] grid rounded-[20px] bg-white/[0.94] shadow-[0_1px_2px_rgba(17,19,24,0.05),0_24px_60px_-32px_rgba(17,19,24,0.35)] backdrop-blur-sm">
               {/* Les deux contenus partagent la même cellule : hauteur stable. */}
               <div
-                className={`col-start-1 row-start-1 flex flex-col justify-center px-4 pt-5 pb-5 transition-[opacity,filter] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] sm:px-6 sm:pt-6 ${
+                className={`col-start-1 row-start-1 grid grid-cols-2 content-center gap-2 px-4 py-6 transition-[opacity,filter] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] max-sm:pb-2 sm:gap-4 sm:px-8 sm:py-8 ${
                   tab === "site" ? "opacity-100" : "pointer-events-none opacity-0 blur-[2px] max-lg:hidden"
                 }`}
               >
-                <div className="flex items-center justify-center">
-                  <span className="rounded-full bg-[var(--accent-soft)] px-3 py-1 text-[12px] font-medium text-[var(--accent)]">
-                    {c.example}
-                  </span>
-                </div>
-                <div className="mt-4 grid grid-cols-2 gap-2 sm:gap-3">
-                  <ExampleGauge
-                    name={c.seo}
-                    sub={c.seoSub}
-                    score={81}
-                    band="bon"
-                    grade={c.gradeSeo}
-                    idle={c.idle}
-                    run={inView}
-                    delay={0.15}
-                  />
-                  <ExampleGauge
-                    name={c.geo}
-                    sub={c.geoSub}
-                    score={48}
-                    band="fragile"
-                    grade={c.gradeGeo}
-                    idle={c.idle}
-                    run={inView}
-                    delay={0.45}
-                  />
-                </div>
+                <SuspenseGauge name={c.seo} sub={c.seoSub} idle={c.idle} from={64} delay={0.1} />
+                <SuspenseGauge name={c.geo} sub={c.geoSub} idle={c.idle} from={41} delay={0.55} />
               </div>
 
               <div
-                className={`col-start-1 row-start-1 flex flex-col justify-center px-6 py-7 transition-[opacity,filter] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] sm:px-10 ${
+                className={`col-start-1 row-start-1 flex flex-col items-center gap-5 px-5 py-6 transition-[opacity,filter] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] sm:flex-row sm:justify-center sm:gap-10 sm:px-8 sm:py-8 ${
                   tab === "presence" ? "opacity-100" : "pointer-events-none opacity-0 blur-[2px] max-lg:hidden"
                 }`}
               >
-                <p className="text-[13px] font-medium text-[var(--fg-2)]">{c.checksTitle}</p>
-                <ul className="mt-3">
-                  {c.checks.map((it) => {
-                    const Icon = ICONS[it.k];
-                    return (
-                      <li key={it.k} className="flex items-start gap-4 border-b border-[var(--rule)] py-4 last:border-b-0">
-                        <span className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-full bg-[var(--accent-soft)] text-[var(--accent)]">
-                          <Icon size={18} weight="regular" />
-                        </span>
-                        <span className="min-w-0">
-                          <span className="block text-[16px] font-medium tracking-[-0.01em] text-[var(--fg)]">{it.t}</span>
-                          <span className="mt-1 block text-[14px] leading-relaxed text-[var(--fg-2)]">{it.d}</span>
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
-                <p className="mt-3 text-[13px] text-[var(--fg-2)]">{c.checksFoot}</p>
+                <SuspenseGauge name={c.presence} idle={c.idle} from={52} delay={0.25} large />
+                <div className="w-full max-w-[17rem]">
+                  <ul>
+                    {c.checks.map((it) => {
+                      const Icon = ICONS[it.k];
+                      return (
+                        <li
+                          key={it.k}
+                          className="flex items-center gap-3 border-b border-[var(--rule)] py-3 text-[15px] font-medium tracking-[-0.01em] text-[var(--fg)] last:border-b-0"
+                        >
+                          <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[var(--accent-soft)] text-[var(--accent)]">
+                            <Icon size={16} weight="regular" />
+                          </span>
+                          {it.t}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                  <p className="mt-2 text-[13px] text-[var(--fg-2)]">{c.checksFoot}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -315,40 +280,49 @@ export function HomeAuditTeaser({ locale }: { locale: string }) {
   );
 }
 
-/* ── Un cadran d'exemple ────────────────────────────────────────── */
+/* ── Un cadran en suspens ───────────────────────────────────────── */
 
-function ExampleGauge({
+function SuspenseGauge({
   name,
   sub,
-  score,
-  band,
-  grade,
   idle,
-  run,
+  from,
   delay,
+  large = false,
 }: {
   name: string;
-  sub: string;
-  score: number;
-  band: "bon" | "fragile";
-  grade: string;
+  sub?: string;
   idle: string;
-  run: boolean;
+  from: number;
   delay: number;
+  large?: boolean;
 }) {
   return (
     <div className="flex min-w-0 flex-col items-center">
       <p className="text-center text-[13px] text-[var(--fg-2)]">
-        <span className="font-medium text-[var(--fg)]">{name}</span>, {sub}
+        <span className="font-medium text-[var(--fg)]">{name}</span>
+        {sub ? `, ${sub}` : null}
       </p>
       {/* Le cadran est dessiné pour 240 px : sous 640 px on le réduit d'un bloc
-          (zoom) plutôt que de laisser le chiffre déborder de l'arc. */}
-      <div className="mt-1 w-[240px] max-sm:[zoom:0.56]">
+          (zoom) plutôt que de laisser le chiffre déborder de l'arc. Le cadran
+          seul (présence) garde plus de place. À deux cadrans, les petites
+          mentions (0, 100, « Votre score ») deviendraient illisibles une fois
+          réduites : on les retire sous 640 px. */}
+      <div
+        className={`mt-1 w-[240px] ${
+          large
+            ? "max-sm:[zoom:0.8]"
+            : "max-sm:[zoom:0.56] max-sm:[&_[data-gauge-idle]]:hidden max-sm:[&_[data-gauge-scale]]:hidden"
+        }`}
+      >
         <ScoreGauge
-          state={run ? "done" : "idle"}
-          score={score}
-          band={band}
-          gradeLabel={grade}
+          state="idle"
+          score={0}
+          band="bon"
+          tone="brand"
+          idleMode="suspense"
+          suspenseFrom={from}
+          gradeLabel=""
           idleLabel={idle}
           scanningLabel=""
           delay={delay}

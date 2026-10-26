@@ -35,7 +35,7 @@ const COPY: Record<"fr" | "en", CaseCopy & { credit: string; play: string }> = {
       {
         title: "Notre travail.",
         paragraphs: [
-          "L'équipe a filmé le site sur place. Hugues a monté le film avec elle. Le sujet : la régularité des couleurs et l'efficacité de la production.",
+          "L'équipe a filmé le site sur place, puis monté le film. Le sujet : la régularité des couleurs et l'efficacité de la production.",
         ],
       },
       {
@@ -72,7 +72,7 @@ const COPY: Record<"fr" | "en", CaseCopy & { credit: string; play: string }> = {
       {
         title: "Our work.",
         paragraphs: [
-          "The team filmed the site on location. Hugues edited the film with them. The subject: colour consistency and production efficiency.",
+          "The team filmed the site on location, then edited the film. The subject: colour consistency and production efficiency.",
         ],
       },
       {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import {
   animate,
   motion,
@@ -25,6 +25,16 @@ import type { Band } from "@/lib/audit/types";
  * animée, donc toujours synchrones), un point de lumière suit la pointe.
  * Interruptible : une nouvelle cible repart de la valeur courante.
  * Animations réduites : état final immédiat.
+ *
+ * Variante d'accueil (props facultatives, défaut inchangé pour l'audit réel) :
+ *   - tone="brand" : arc dans le bleu d'origine du site (#7193ee vers
+ *     #2b55cc), sans code couleur de verdict.
+ *   - idleMode="suspense" : à l'état idle, l'aiguille ne sait pas encore. Elle
+ *     monte et redescend entre 20 et 95, une nouvelle cible toutes les 0,9 à
+ *     1,4 s, poursuivie par un ressort (la vitesse se conserve d'une cible à
+ *     l'autre : jamais d'à-coup). Rendu serveur déterministe (suspenseFrom),
+ *     départ après le montage, pause hors écran et onglet caché. Animations
+ *     réduites : arc immobile et « ? » à la place du chiffre.
  */
 
 export const BAND_TONES: Record<Band, { from: string; to: string; text: string }> = {
@@ -58,6 +68,9 @@ const ARC = `M ${s.x} ${s.y} A ${R} ${R} 0 1 1 ${e.x} ${e.y}`;
 
 export type GaugeState = "idle" | "scanning" | "done";
 
+const BRAND_TONE = { from: "#7193ee", to: "#2b55cc", text: "#2b55cc" };
+const SUSPENSE_SPRING = { type: "spring", stiffness: 34, damping: 10.5, mass: 1 } as const;
+
 export function ScoreGauge({
   state,
   score,
@@ -67,6 +80,9 @@ export function ScoreGauge({
   idleLabel,
   scanningLabel,
   delay = 0.15,
+  tone: toneMode = "band",
+  idleMode = "still",
+  suspenseFrom = 58,
 }: {
   state: GaugeState;
   score: number;
@@ -78,18 +94,83 @@ export function ScoreGauge({
   scanningLabel: string;
   /** Départ du balayage, en secondes (décalage entre deux cadrans). */
   delay?: number;
+  /** "band" (défaut) : code couleur du verdict. "brand" : bleu du site. */
+  tone?: "band" | "brand";
+  /** "still" (défaut) : cadran vide à l'état idle. "suspense" : il cherche. */
+  idleMode?: "still" | "suspense";
+  /** Valeur de départ du mode suspense, identique serveur et navigateur. */
+  suspenseFrom?: number;
 }) {
   const uid = useId().replace(/:/g, "");
   const reduce = useReducedMotion();
-  const value = useMotionValue(0);
+  const suspense = idleMode === "suspense" && state === "idle";
+  const rootRef = useRef<HTMLDivElement>(null);
+  const [still, setStill] = useState(false); // suspense + animations réduites
+  const value = useMotionValue(suspense ? suspenseFrom : 0);
   const dash = useTransform(value, (v) => 100 - v);
   const arcOpacity = useTransform(value, (v) => (v < 0.6 ? 0 : 1));
   const shown = useTransform(value, (v) => Math.round(v));
   const tipX = useTransform(value, (v) => point(START + (SWEEP * v) / 100).x);
   const tipY = useTransform(value, (v) => point(START + (SWEEP * v) / 100).y);
-  const tone = BAND_TONES[band];
+  const tone = toneMode === "brand" ? BRAND_TONE : BAND_TONES[band];
+
+  // Mode suspense : une cible au hasard, poursuivie par un ressort, puis la
+  // suivante. Tout part après le montage (le rendu serveur reste fixe).
+  useEffect(() => {
+    if (!suspense) return;
+    const el = rootRef.current;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let onScreen = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    let controls: ReturnType<typeof animate> | undefined;
+    let first = true;
+
+    const halt = () => {
+      if (timer) clearTimeout(timer);
+      timer = undefined;
+      controls?.stop();
+    };
+    const step = () => {
+      const cur = value.get();
+      let next = 20 + Math.random() * 75;
+      // Un vrai mouvement à chaque fois : au moins 18 points d'écart.
+      if (Math.abs(next - cur) < 18) next = cur > 57 ? cur - 18 - Math.random() * 20 : cur + 18 + Math.random() * 20;
+      next = Math.min(95, Math.max(20, next));
+      controls = animate(value, next, SUSPENSE_SPRING);
+      timer = setTimeout(step, 900 + Math.random() * 500);
+    };
+    const sync = () => {
+      setStill(mq.matches);
+      const run = onScreen && !document.hidden && !mq.matches;
+      if (!run) {
+        halt();
+        if (mq.matches) value.set(suspenseFrom);
+        return;
+      }
+      if (timer) return;
+      // Premier départ décalé (delay) : deux cadrans voisins restent déphasés.
+      timer = setTimeout(step, first ? delay * 1000 : 0);
+      first = false;
+    };
+
+    const io = new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting;
+      sync();
+    });
+    if (el) io.observe(el);
+    document.addEventListener("visibilitychange", sync);
+    mq.addEventListener("change", sync);
+    sync();
+    return () => {
+      halt();
+      io.disconnect();
+      document.removeEventListener("visibilitychange", sync);
+      mq.removeEventListener("change", sync);
+    };
+  }, [suspense, value, delay, suspenseFrom]);
 
   useEffect(() => {
+    if (suspense) return;
     const target = state === "done" ? score : 0;
     if (reduce) {
       value.set(target);
@@ -101,7 +182,7 @@ export function ScoreGauge({
       delay: state === "done" ? delay : 0,
     });
     return () => controls.stop();
-  }, [state, score, reduce, value, delay]);
+  }, [state, score, reduce, value, delay, suspense]);
 
   const ticks = Array.from({ length: 41 }, (_, i) => {
     const deg = START + (SWEEP * i) / 40;
@@ -112,7 +193,7 @@ export function ScoreGauge({
   });
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[260px] select-none">
+    <div ref={rootRef} className="relative mx-auto aspect-square w-full max-w-[260px] select-none">
       <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="h-full w-full overflow-visible" aria-hidden="true">
         <defs>
           <linearGradient id={`g-${uid}`} gradientUnits="userSpaceOnUse" x1="24" y1="200" x2="216" y2="200">
@@ -189,10 +270,10 @@ export function ScoreGauge({
           <motion.circle cx={tipX} cy={tipY} r="2.6" fill="#fff" />
         </motion.g>
 
-        <text x={point(START, R + 2).x - 2} y={point(START).y + 28} className="fill-[var(--fg-2)] font-mono text-[9px]" textAnchor="middle">
+        <text data-gauge-scale="" x={point(START, R + 2).x - 2} y={point(START).y + 28} className="fill-[var(--fg-2)] font-mono text-[9px]" textAnchor="middle">
           0
         </text>
-        <text x={point(START + SWEEP, R + 2).x + 2} y={point(START + SWEEP).y + 28} className="fill-[var(--fg-2)] font-mono text-[9px]" textAnchor="middle">
+        <text data-gauge-scale="" x={point(START + SWEEP, R + 2).x + 2} y={point(START + SWEEP).y + 28} className="fill-[var(--fg-2)] font-mono text-[9px]" textAnchor="middle">
           100
         </text>
       </svg>
@@ -202,9 +283,12 @@ export function ScoreGauge({
         {label ? <span className="text-[13px] font-medium text-[var(--fg-2)]">{label}</span> : null}
         <span
           className="mt-1 text-[68px] leading-[0.95] font-medium tracking-[-0.045em] tabular-nums transition-colors duration-500 sm:text-[72px]"
-          style={{ color: state === "done" ? tone.text : "color-mix(in oklab, var(--fg) 14%, transparent)" }}
+          style={{
+            color:
+              state === "done" || suspense ? tone.text : "color-mix(in oklab, var(--fg) 14%, transparent)",
+          }}
         >
-          <motion.span>{shown}</motion.span>
+          {suspense && still ? "?" : <motion.span>{shown}</motion.span>}
         </span>
         <span className="mt-1 text-[13px] text-[var(--fg-2)] tabular-nums">/ 100</span>
       </div>
@@ -223,7 +307,9 @@ export function ScoreGauge({
             {gradeLabel}
           </motion.span>
         ) : (
-          <span className="text-[13px] text-[var(--fg-2)]">{state === "scanning" ? scanningLabel : idleLabel}</span>
+          <span data-gauge-idle="" className="text-[13px] text-[var(--fg-2)]">
+            {state === "scanning" ? scanningLabel : idleLabel}
+          </span>
         )}
       </div>
     </div>

@@ -18,7 +18,7 @@ const COPY = {
     title: "Un directeur marketing à vos côtés.",
     body: "Hugues Lourmieres a fondé TROIE. Il exerce la direction marketing depuis 2018. Aujourd'hui, il est directeur marketing dans l'industrie des arts graphiques. Il y pilote la stratégie de marque, l'acquisition et les contenus. Il est aussi photographe, vidéaste et directeur artistique. Il connaît les deux côtés de la table : celui qui décide et celui qui fabrique.",
     commitments: [
-      "Hugues est sur chaque projet stratégique.",
+      "Un senior de l'équipe sur chaque projet stratégique.",
       "La personne qui vous conseille est celle qui fait.",
       "Nous faisons ce que nous disons.",
       "Une proposition écrite avant de commencer.",
@@ -39,7 +39,7 @@ const COPY = {
     title: "A marketing director by your side.",
     body: "Hugues Lourmieres founded TROIE. He has worked as a marketing director since 2018. Today he is marketing director in the graphic arts industry, where he runs brand strategy, acquisition and content. He is also a photographer, filmmaker and art director. He knows both sides of the table: the one who decides and the one who makes.",
     commitments: [
-      "Hugues is on every strategy project.",
+      "A senior from the team on every strategy project.",
       "The person who advises you is the person who does the work.",
       "We do what we say.",
       "A written proposal before we start.",

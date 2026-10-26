@@ -30,7 +30,7 @@ const STORIES: Story[] = [
     client: "Offset 360",
     where: { fr: "X-Rite Pantone et Rutherford", en: "X-Rite Pantone and Rutherford" },
     kind: { fr: "Lancement de produit", en: "Product launch" },
-    made: { fr: "Film de lancement d'Offset 360, réalisé par Hugues, tourné en imprimerie et monté par l'équipe.", en: "Launch film for Offset 360, directed by Hugues, shot in a print plant and edited by the team." },
+    made: { fr: "Film de lancement d'Offset 360, réalisé, tourné en imprimerie et monté par l'équipe.", en: "Launch film for Offset 360, directed, shot in a print plant and edited by the team." },
     preview: "/images/videos-local/offset360-loop.mp4",
     film: "/images/videos-local/offset360.mp4",
   },

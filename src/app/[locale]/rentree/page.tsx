@@ -49,7 +49,7 @@ const COPY = {
     {
       k: "Environ 175\u00a0000\u00a0€",
       t: "de ventes pour le groupe Rutherford",
-      e: "grâce à une vidéo réalisée pour Autajon, montée par Hugues avec son équipe",
+      e: "grâce à une vidéo réalisée pour Autajon, filmée et montée par notre équipe",
     },
   ],
   momentTitle: "Ce qui a changé cet été",

@@ -38,7 +38,7 @@ const COPY = {
     project: "Nous écrire",
     directionTitle: "Une direction marketing, quand vous n'en avez pas.",
     directionBody:
-      "Vous n'avez pas de directeur marketing, ou pas à plein temps. Hugues tient ce rôle à temps partagé : priorités, budget, choix des prestataires, suivi des résultats. Le rythme et la durée se fixent ensemble, dans le devis.",
+      "Vous n'avez pas de directeur marketing, ou pas à plein temps. Un directeur marketing senior de l'équipe tient ce rôle à temps partagé : priorités, budget, choix des prestataires, suivi des résultats. Le rythme et la durée se fixent ensemble, dans le devis.",
     iaEyebrow: "L'IA dans vos équipes",
     iaTitle: "Vos équipes savent se servir de l'IA.",
     iaIntro:
@@ -115,7 +115,7 @@ const COPY = {
     project: "Write to us",
     directionTitle: "A marketing director, when you don't have one.",
     directionBody:
-      "You have no marketing director, or not full time. Hugues takes on this role on a fractional basis: priorities, budget, choice of suppliers, tracking results. The pace and duration are set together, in the quote.",
+      "You have no marketing director, or not full time. A senior marketing director from our team takes on this role on a fractional basis: priorities, budget, choice of suppliers, tracking results. The pace and duration are set together, in the quote.",
     iaEyebrow: "AI in your teams",
     iaTitle: "Your teams know how to use AI.",
     iaIntro:

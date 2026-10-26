@@ -31,7 +31,7 @@ const COPY: Record<"fr" | "en", CaseCopy> = {
       {
         title: "Notre travail.",
         paragraphs: [
-          "Hugues dirige le marketing de Rutherford à temps partagé depuis 2018. Avec l'équipe, nous faisons vivre ses réseaux sociaux : contenus, vidéos, publications.",
+          "Nous dirigeons le marketing de Rutherford à temps partagé depuis 2018. L'équipe fait vivre ses réseaux sociaux : contenus, vidéos, publications.",
           "Le site rutherford.fr fait aussi partie de nos réalisations web.",
         ],
       },
@@ -68,7 +68,7 @@ const COPY: Record<"fr" | "en", CaseCopy> = {
       {
         title: "Our work.",
         paragraphs: [
-          "Hugues has led Rutherford's marketing on a fractional basis since 2018. With the team, we run its social media: content, videos, posts.",
+          "We have led Rutherford's marketing on a fractional basis since 2018. Our team runs its social media: content, videos, posts.",
           "The rutherford.fr website is also part of our web portfolio.",
         ],
       },
