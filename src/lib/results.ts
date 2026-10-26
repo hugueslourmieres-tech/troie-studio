@@ -116,3 +116,10 @@ export const COLORGUESSER_STATS = {
   languages: 7,
   challenges: 535,
 } as const;
+
+/** Visiteurs par mois de Color Guesser (Vercel Web Analytics), juin à septembre 2026 (octobre incomplet, exclu). */
+export const COLORGUESSER_MONTHLY_VISITORS = [1092, 1029, 1421, 2584] as const;
+/** +137 % : 2 584 visiteurs en septembre contre 1 092 en juin. */
+export const COLORGUESSER_GROWTH_PCT = Math.round((2584 / 1092 - 1) * 100);
+/** Score GEO de bienenregle.com dans notre audit, relevé le 26/10/2026 après balisage de l'offre (90 avant). */
+export const BIENENREGLE_GEO = 100;

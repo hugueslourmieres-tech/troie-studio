@@ -117,7 +117,7 @@ export const ARTICLES: Article[] = [
     date: "2026-10-25",
     category: "Création",
     readingMinutes: 8,
-    cover: "/images/art/meadow.jpg",
+    cover: "/images/blog/prix-site-internet-2026.jpg",
     keywords: [
       "prix site internet",
       "combien coûte un site internet",
@@ -138,7 +138,7 @@ export const ARTICLES: Article[] = [
     date: "2026-10-24",
     category: "Croissance",
     readingMinutes: 8,
-    cover: "/images/art/sky-b.jpg",
+    cover: "/images/blog/geo-apparaitre-chatgpt-gemini-ai-overviews.jpg",
     keywords: [
       "geo seo",
       "apparaître dans chatgpt",
@@ -158,7 +158,7 @@ export const ARTICLES: Article[] = [
     date: "2026-10-23",
     category: "Croissance",
     readingMinutes: 7,
-    cover: "/images/art/dusk.jpg",
+    cover: "/images/blog/budget-google-ads-pme.jpg",
     keywords: [
       "budget google ads pme",
       "combien investir google ads",
@@ -178,7 +178,7 @@ export const ARTICLES: Article[] = [
     date: "2026-10-22",
     category: "Création",
     readingMinutes: 8,
-    cover: "/images/art/meadow-b.jpg",
+    cover: "/images/blog/migration-shopify-sans-perdre-seo.jpg",
     keywords: [
       "migration shopify",
       "passer de prestashop à shopify",
@@ -198,7 +198,7 @@ export const ARTICLES: Article[] = [
     date: "2026-10-21",
     category: "Création",
     readingMinutes: 8,
-    cover: "/images/art/dusk-b.jpg",
+    cover: "/images/blog/refonte-site-internet-sans-perdre-trafic.jpg",
     keywords: [
       "refonte site internet",
       "refonte site web",
@@ -218,7 +218,7 @@ export const ARTICLES: Article[] = [
     date: "2026-10-20",
     category: "Création",
     readingMinutes: 8,
-    cover: "/images/art/orchid-b.jpg",
+    cover: "/images/blog/developpement-application-sur-mesure-etapes-delais.jpg",
     keywords: [
       "développement application sur mesure",
       "créer une application entreprise",
@@ -238,7 +238,7 @@ export const ARTICLES: Article[] = [
     date: "2026-09-16",
     category: "Conformité",
     readingMinutes: 8,
-    cover: "/images/art/sky.jpg",
+    cover: "/images/blog/formation-ai-act-cpf-opco-financement.jpg",
     keywords: [
       "formation AI Act CPF",
       "formation IA Act OPCO",
@@ -259,7 +259,7 @@ export const ARTICLES: Article[] = [
     date: "2026-08-24",
     category: "Conformité",
     readingMinutes: 9,
-    cover: "/images/art/orchid.jpg",
+    cover: "/images/blog/charte-usage-ia-entreprise-modele.jpg",
     keywords: [
       "charte usage IA entreprise",
       "charte intelligence artificielle modèle",
@@ -729,7 +729,7 @@ export const ARTICLES: Article[] = [
   {
     slug: "pourquoi-lia-hallucine",
     title: "Pourquoi l'IA invente des choses, et comment la vérifier",
-    cardTitle: "Pourquoi l'IA \"hallucine\"",
+    cardTitle: "Pourquoi l'IA « hallucine »",
     description:
       "L'IA vous donne une info crédible mais fausse ? On appelle ça une hallucination. Pourquoi ça arrive, et 3 réflexes pour ne jamais se faire avoir.",
     date: "2026-06-17",

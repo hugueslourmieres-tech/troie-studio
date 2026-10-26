@@ -4,6 +4,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import {
+  BIENENREGLE_GEO,
+  COLORGUESSER_GROWTH_PCT,
+  COLORGUESSER_MONTHLY_VISITORS,
   LOIR_ORDERS_PCT,
   LOIR_SALES_PCT,
   LOIR_VISITS_PCT,
@@ -36,6 +39,8 @@ type Card = {
   squares?: number;
   /** Deux barres avant et après. */
   pair?: [number, number];
+  /** Score sur 100 : une jauge horizontale. */
+  score?: number;
 };
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -65,7 +70,7 @@ function linePath(points: [number, number][]) {
 
 /** Le chiffre : nombre en grand, signe plus léger, unité % plus petite et levée. */
 function Figure({ value }: { value: string }) {
-  const m = value.match(/^([+×]?)([\d\s .,]+?)\s*(%?)$/u);
+  const m = value.match(/^([+×]?)([\d\s .,]+?)\s*(%|\/100)?$/u);
   if (!m) return <>{value}</>;
   const [, sign, num, unit] = m;
   return (
@@ -105,11 +110,13 @@ export const RESULT_ORDER = [
   { id: "loir-sales", art: "meadow", word: { fr: "ventes.", en: "sales." }, icon: "chart" },
   { id: "ruth-tiktok", art: "sky", word: { fr: "abonnés.", en: "followers." }, icon: "users" },
   { id: "autajon", art: "dusk", word: { fr: "ventes.", en: "sales." }, icon: "chart" },
+  { id: "ber-geo", art: "orchid", word: { fr: "visites.", en: "traffic." }, icon: "eye" },
   { id: "loir-orders", art: "meadow", word: { fr: "commandes.", en: "orders." }, icon: "package" },
   { id: "ruth-linkedin", art: "sky", word: { fr: "abonnés.", en: "followers." }, icon: "users" },
   { id: "loir-visits", art: "dusk", word: { fr: "visites.", en: "traffic." }, icon: "eye" },
-  { id: "ruth-youtube", art: "meadow", word: { fr: "abonnés.", en: "followers." }, icon: "users" },
-  { id: "ruth-insta", art: "sky", word: { fr: "abonnés.", en: "followers." }, icon: "users" },
+  { id: "cg-visitors", art: "meadow", word: { fr: "visiteurs.", en: "visitors." }, icon: "users" },
+  { id: "ruth-youtube", art: "dusk", word: { fr: "abonnés.", en: "followers." }, icon: "users" },
+  { id: "ruth-insta", art: "orchid-b", word: { fr: "abonnés.", en: "followers." }, icon: "users" },
 ] as const;
 
 export function ResultCards({ locale, onActiveChange }: { locale: string; onActiveChange?: (i: number) => void }) {
@@ -135,9 +142,13 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
     { id: "loir-sales", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_SALES_PCT)), label: en ? "online sales in two years" : "de ventes en ligne en deux ans", target: `${L}loir-paris`, art: artOf("loir-sales"), curve: monthly(LOIR_SALES_PCT) },
     { id: "ruth-tiktok", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_TIKTOK_PCT)), label: en ? "TikTok followers since March 2025" : "d'abonnés TikTok depuis mars 2025", target: `${L}rutherford`, art: artOf("ruth-tiktok"), curve: dated(RUTHERFORD_TIKTOK_PCT) },
     { id: "autajon", client: "Autajon", sector: en ? "Large group, packaging" : "Grand groupe, emballage", value: "×35", label: en ? "in sales for a film's budget" : "de ventes pour le budget d'un film", target: `${L}autajon`, art: artOf("autajon"), squares: 35 },
+    // 26/10/2026 : d'autres entreprises que LOIR et Rutherford (demande de Hugues).
+    // Chiffres réels : notre audit du 26/10 et Vercel Analytics (voir results.ts).
+    { id: "ber-geo", client: "Bien en règle", sector: en ? "Our web app" : "Notre application web", value: `${BIENENREGLE_GEO}/100`, label: en ? "AI visibility score (GEO), on ChatGPT and Gemini" : "de visibilité sur ChatGPT et Gemini (score GEO)", target: `/${locale}/creation/web`, art: artOf("ber-geo"), score: BIENENREGLE_GEO },
     { id: "loir-orders", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_ORDERS_PCT)), label: en ? "orders in two years" : "de commandes en deux ans", target: `${L}loir-paris`, art: artOf("loir-orders"), curve: monthly(LOIR_ORDERS_PCT) },
     { id: "ruth-linkedin", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(RUTHERFORD_LINKEDIN_RATE_INDEX.after - RUTHERFORD_LINKEDIN_RATE_INDEX.before), label: en ? "new LinkedIn followers per month" : "de nouveaux abonnés LinkedIn par mois", target: `${L}rutherford`, art: artOf("ruth-linkedin"), pair: [RUTHERFORD_LINKEDIN_RATE_INDEX.before, RUTHERFORD_LINKEDIN_RATE_INDEX.after] },
     { id: "loir-visits", client: "LOIR Paris", sector: "E-commerce", value: pct(last(LOIR_VISITS_PCT)), label: en ? "site visits in two years" : "de visites du site en deux ans", target: `${L}loir-paris`, art: artOf("loir-visits"), curve: monthly(LOIR_VISITS_PCT) },
+    { id: "cg-visitors", client: "Color Guesser", sector: en ? "Our web game" : "Notre jeu web", value: pct(COLORGUESSER_GROWTH_PCT), label: en ? "monthly visitors, June to September 2026" : "de visiteurs par mois, de juin à septembre 2026", target: `/${locale}/creation/web`, art: artOf("cg-visitors"), curve: monthly([...COLORGUESSER_MONTHLY_VISITORS]) },
     { id: "ruth-youtube", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_YOUTUBE_PCT)), label: en ? "YouTube subscribers since April 2022" : "d'abonnés YouTube depuis avril 2022", target: `${L}rutherford`, art: artOf("ruth-youtube"), curve: dated(RUTHERFORD_YOUTUBE_PCT) },
     { id: "ruth-insta", client: "Rutherford", sector: en ? "Industrial SME, B2B" : "PME industrielle, B2B", value: pct(last(RUTHERFORD_INSTAGRAM_PCT)), label: en ? "Instagram followers since Feb. 2025" : "d'abonnés Instagram depuis févr. 2025", target: `${L}rutherford`, art: artOf("ruth-insta"), curve: dated(RUTHERFORD_INSTAGRAM_PCT) },
   ];
@@ -270,6 +281,22 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                         />
                       );
                     })}
+                  {c.score !== undefined && (
+                    <>
+                      <rect x={24} y={H / 2 - 7} width={W - 48} height={14} rx={7} fill="var(--accent)" fillOpacity={0.12} />
+                      <motion.rect
+                        key={i === active ? "on" : "off"}
+                        x={24}
+                        y={H / 2 - 7}
+                        height={14}
+                        rx={7}
+                        fill="var(--accent)"
+                        initial={{ width: reduce || i !== active ? ((W - 48) * c.score) / 100 : 0 }}
+                        animate={show ? { width: ((W - 48) * c.score) / 100 } : {}}
+                        transition={{ duration: reduce ? 0 : 0.9, delay: reduce ? 0 : 0.1, ease: [0.65, 0, 0.35, 1] }}
+                      />
+                    </>
+                  )}
                   {c.pair && (
                     <>
                       <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill="var(--accent)" fillOpacity={0.4} />

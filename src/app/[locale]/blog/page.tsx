@@ -69,57 +69,67 @@ export default async function BlogIndexPage({
   setRequestLocale(locale);
   const m = META[locale === "en" ? "en" : "fr"];
 
+  const [first, ...rest] = ARTICLES_SORTED;
+  const F = localizeArticle(first, locale);
+  const img = (cover: string) => `${cover.startsWith("/images/art/") ? "" : "t-photo "}h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]`;
+  const meta = (cat: string, date: string, min: number) => (
+    <p className="flex flex-wrap items-center gap-x-3 text-sm text-[var(--fg-2)]">
+      <span className="font-medium text-[var(--fg)]">{cat}</span>
+      <span>{formatDate(date, locale)}</span>
+      <span>{min} min</span>
+    </p>
+  );
+
   return (
-    <article className="mx-auto max-w-5xl px-6 py-24 md:px-10 md:py-36">
+    <article className="mx-auto max-w-7xl px-5 py-24 md:px-12 md:py-32">
       <header>
-        <h1 className="t-display mt-6 text-5xl text-[var(--fg)] md:text-7xl">
-          {m.heading}
-        </h1>
-        <p className="mt-8 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]/80 md:text-xl">
-          {m.description}
-        </p>
+        <h1 className="t-display text-5xl text-[var(--fg)] md:text-7xl">{m.heading}</h1>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--fg-2)]/80 md:text-xl">{m.description}</p>
       </header>
 
-      {/* Le journal en liste (22/10/2026) : une ligne cliquable par article,
-          tout ce qui a été publié se lit d'un coup d'œil. */}
-      <ul data-reveal-stagger className="mt-16 border-t border-[var(--rule)]">
-        {ARTICLES_SORTED.map((a) => {
+      {/* 26/10/2026, demande de Hugues : un vrai blog. L'article le plus
+          récent à la une, puis une grille de cartes avec de grandes photos,
+          des titres courts (cardTitle) et pas de résumé sur les cartes. */}
+      <Link
+        href={`/${locale}/blog/${first.slug}`}
+        className="group mt-14 grid gap-6 rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)] md:mt-20 lg:grid-cols-[1.4fr_1fr] lg:items-center lg:gap-12"
+      >
+        <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-[var(--bg-2)]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={first.cover} alt="" aria-hidden="true" className={img(first.cover)} />
+        </div>
+        <div>
+          {meta(F.category, first.date, first.readingMinutes)}
+          <h2 className="t-display mt-3 text-balance text-3xl text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-5xl">
+            {F.cardTitle}
+          </h2>
+          <p className="mt-4 max-w-md text-base leading-relaxed text-[var(--fg-2)]">
+            <span className="line-clamp-3">{F.description}</span>
+          </p>
+          <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[var(--accent)]">
+            {locale === "en" ? "Read the article" : "Lire l'article"}
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </span>
+        </div>
+      </Link>
+
+      <ul data-reveal-stagger className="mt-16 grid gap-x-6 gap-y-12 border-t border-[var(--rule)] pt-12 sm:grid-cols-2 md:mt-24 lg:grid-cols-3 lg:gap-x-8">
+        {rest.map((a) => {
           const L = localizeArticle(a, locale);
           return (
-            <li key={a.slug} className="border-b border-[var(--rule)]">
+            <li key={a.slug}>
               <Link
                 href={`/${locale}/blog/${a.slug}`}
-                className="group -mx-4 grid grid-cols-[96px_1fr] items-center gap-4 rounded-xl px-4 py-5 transition-colors duration-200 hover:bg-[var(--bg-2)] sm:grid-cols-[168px_1fr_auto] sm:gap-7 md:py-6 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+                className="group block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
               >
-                <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-[var(--bg-2)]">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-[var(--bg-2)]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={a.cover}
-                    alt=""
-                    aria-hidden="true"
-                    className={`${a.cover.startsWith("/images/art/") ? "" : "t-photo "}h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]`}
-                    loading="lazy"
-                  />
+                  <img src={a.cover} alt="" aria-hidden="true" className={img(a.cover)} loading="lazy" />
                 </div>
-                <div className="min-w-0">
-                  <p className="flex flex-wrap items-center gap-x-3 text-sm text-[var(--fg-2)]">
-                    <span className="font-medium text-[var(--fg)]">{L.category}</span>
-                    <span>{formatDate(a.date, locale)}</span>
-                    <span className="hidden sm:inline">{a.readingMinutes} min</span>
-                  </p>
-                  <h2 className="mt-1.5 text-lg font-medium leading-snug tracking-[-0.015em] text-[var(--fg)] transition-colors group-hover:text-[var(--accent)] md:text-xl">
-                    {L.cardTitle}
-                  </h2>
-                  <p className="mt-1.5 hidden text-[15px] leading-relaxed text-[var(--fg-2)] sm:block">
-                    <span className="line-clamp-2">{L.description}</span>
-                  </p>
-                </div>
-                <span
-                  aria-hidden="true"
-                  className="hidden h-10 w-10 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--fg)] transition-[transform,background-color,color] duration-200 group-hover:translate-x-1 group-hover:bg-[#111318] group-hover:text-white sm:inline-flex"
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </span>
+                <div className="mt-4">{meta(L.category, a.date, a.readingMinutes)}</div>
+                <h2 className="mt-2 text-balance text-xl font-medium leading-snug tracking-[-0.015em] text-[var(--fg)] transition-colors group-hover:text-[var(--accent)]">
+                  {L.cardTitle}
+                </h2>
               </Link>
             </li>
           );

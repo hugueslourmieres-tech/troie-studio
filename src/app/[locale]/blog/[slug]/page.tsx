@@ -1,3 +1,4 @@
+import { ScanInline } from "@/components/ScanInline";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { setRequestLocale } from "next-intl/server";
@@ -145,8 +146,9 @@ export default async function ArticlePage({
           <span className="text-[var(--fg-2)]/45">{a.readingMinutes} min</span>
           <span className="text-[var(--fg-2)]/45">{formatDate(a.date, locale)}</span>
         </div>
-        <h1 className="t-display mt-5 text-4xl leading-[1.08] text-[var(--fg)] md:text-5xl lg:text-6xl">
-          {L.title}
+        <h1 className="t-display mt-5 text-balance text-4xl leading-[1.08] text-[var(--fg)] md:text-5xl lg:text-6xl">
+          {/* Titre court à l'écran (demande de Hugues, 26/10/2026) ; le titre long reste dans la balise title pour Google. */}
+          {L.cardTitle}
         </h1>
       </header>
 
@@ -174,7 +176,9 @@ export default async function ArticlePage({
       </div>
 
       {/* CTA de fin d'article */}
-      <aside className="mt-16 rounded-sm border border-[var(--rule)] bg-[var(--bg-2)] p-8 md:p-10">
+      <ScanInline locale={locale} className="mt-16 rounded-2xl border border-[var(--rule)] bg-white p-6 md:p-8" />
+
+      <aside className="mt-6 rounded-2xl border border-[var(--rule)] bg-[var(--bg-2)] p-8 md:p-10">
         <p className="text-sm text-[var(--accent)] font-medium">
           {ui.ctaEyebrow}
         </p>
@@ -187,14 +191,14 @@ export default async function ArticlePage({
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Link
             href={`/${locale}/contact#projet`}
-            className="text-sm group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-7 py-4 text-white transition-colors hover:bg-[#2a2e37] font-medium"
+            className="text-sm group inline-flex items-center justify-center gap-3 rounded-full bg-[var(--ink)] px-7 py-4 text-white transition-colors hover:bg-[#2a2e37] font-medium"
           >
             {ui.ctaProject}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </Link>
           <Link
             href={`/${locale}/contact#ecrire`}
-            className="text-sm group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-7 py-4 text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)] font-medium"
+            className="text-sm group inline-flex items-center justify-center gap-3 rounded-full border border-[var(--fg)] px-7 py-4 text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)] font-medium"
           >
             {ui.ctaWrite}
           </Link>
