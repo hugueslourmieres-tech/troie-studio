@@ -80,20 +80,20 @@ export function HomeProcess({ locale }: { locale: string }) {
   const E = en(locale);
   const steps = E
     ? [
-        { t: "You describe your project", b: "A short form or an email is enough." },
-        { t: "A written proposal", b: "What we do, when, and the quote." },
-        { t: "We launch", b: "We do the work, then check the numbers with you each month." },
+        { t: "A free audit", b: "We measure where you stand on Google and on ChatGPT." },
+        { t: "A written proposal", b: "What we do, the timeline and the quote." },
+        { t: "We build, then bring visitors", b: "Website, search, advertising. We track the results with you." },
       ]
     : [
-        { t: "Vous décrivez votre projet", b: "Un formulaire court ou un e-mail suffit." },
+        { t: "Un audit gratuit", b: "Nous mesurons où vous en êtes sur Google et sur ChatGPT." },
         { t: "Une proposition écrite", b: "Ce que nous faisons, les délais et le devis." },
-        { t: "On lance", b: "Nous réalisons, puis nous suivons les chiffres avec vous chaque mois." },
+        { t: "On construit, puis on fait venir", b: "Site, référencement, publicité. Nous suivons les résultats avec vous." },
       ];
   return (
     <section className="border-t border-[var(--rule)]">
       <div className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
         <h2 data-reveal className="t-display text-4xl text-[var(--fg)] md:text-5xl">{E ? "How it works." : "Comment ça se passe."}</h2>
-        <ProcessSteps steps={steps} curveLabel={E ? "monthly review" : "suivi chaque mois"} />
+        <ProcessSteps steps={steps} />
         <Link href={`/${locale}/contact#projet`} className={`${BTN_BOOK} mt-12`}>
           {E ? "Describe my project" : "Décrire mon projet"}
         </Link>
@@ -102,18 +102,40 @@ export function HomeProcess({ locale }: { locale: string }) {
   );
 }
 
+/**
+ * FAQ de l'accueil (26/10/2026, demande de Hugues) : d'abord les questions
+ * que les clients tapent vraiment sur Google (pourquoi un site fait vendre,
+ * comment être premier, comment être cité par ChatGPT), puis les questions
+ * pratiques. Balisée en FAQPage pour Google et les IA. Aucun prix.
+ */
 export const FAQ = {
   fr: [
-    { q: "Combien ça coûte ?", a: "Chaque projet a son devis, remis par écrit après un premier échange." },
-    { q: "Faut-il s'engager ?", a: "Non. Le premier échange et la proposition ne vous engagent à rien." },
-    { q: "Vous travaillez où ?", a: "Partout en France, sur place ou à distance." },
-    { q: "Vous faites tout, ou une seule chose ?", a: "Les deux. Un site seul, une campagne seule, ou tout ensemble avec une seule équipe." },
+    { q: "Pourquoi un site internet aide-t-il à vendre ?", a: "Avant d'acheter ou d'appeler, la plupart des clients cherchent sur Google ou demandent à ChatGPT. Un site clair, rapide sur téléphone et bien référencé transforme ces recherches en demandes de devis, en commandes ou en réservations." },
+    { q: "Comment apparaître en premier sur Google ?", a: "Il faut un site techniquement propre, des pages qui répondent précisément aux recherches de vos clients, une fiche Google complète avec des avis, et des liens depuis d'autres sites. Pour être visible dès le premier jour, on ajoute des annonces Google Ads." },
+    { q: "Comment être recommandé par ChatGPT ?", a: "ChatGPT, Gemini et les réponses IA de Google citent les entreprises qu'ils comprennent bien : un site ouvert à leurs robots, une identité déclarée dans le code, des offres claires, des questions-réponses et les mêmes informations partout. C'est ce qu'on appelle le GEO." },
+    { q: "Quelle différence entre le SEO et le GEO ?", a: "Le SEO travaille votre place dans la liste de liens de Google. Le GEO travaille votre présence dans la réponse que l'IA écrit au client. Les deux partent d'un site clair et sérieux. Le GEO ajoute des réglages précis pour les IA." },
+    { q: "Pourquoi s'en occuper maintenant ?", a: "Une réponse d'IA ne cite que quelques noms par sujet. Les entreprises qui s'y installent tôt deviennent les références, et il est ensuite plus long et plus coûteux de prendre leur place." },
+    { q: "En combien de temps voit-on des résultats ?", a: "Google Ads apporte des visites dès les premiers jours. Le référencement naturel et le GEO se construisent en général sur trois à six mois. Les corrections techniques, elles, se font en quelques jours." },
+    { q: "Comment avoir plus de visites sur son site ?", a: "En combinant trois sources : Google, avec le référencement et les annonces, les réseaux sociaux, et les réponses des IA. Nous mesurons d'abord d'où viennent vos visites, puis nous renforçons ce qui rapporte le plus." },
+    { q: "Les réseaux sociaux suffisent-ils, sans site ?", a: "Ils créent de l'attention et des abonnés, mais ces abonnés ne vous appartiennent pas, et Google comme ChatGPT s'appuient surtout sur les sites. Le site reste la base qui transforme l'attention en demandes." },
+    { q: "Google Ads ou référencement naturel : que choisir ?", a: "Les deux se complètent. Google Ads donne des résultats immédiats tant que le budget tourne. Le référencement naturel demande un investissement de départ puis rapporte dans la durée. Nous conseillons souvent de commencer par les deux." },
+    { q: "Combien ça coûte ?", a: "Chaque projet a son devis, remis par écrit après un premier échange. L'audit de votre site est gratuit." },
+    { q: "Faut-il s'engager ?", a: "Non. Le premier échange et la proposition ne vous engagent à rien." },
+    { q: "Vous travaillez où ?", a: "Sur place sur la Côte d'Azur, à Nice, Monaco, Cannes et Antibes, et à distance partout en France et à l'étranger." },
   ],
   en: [
-    { q: "How much does it cost?", a: "Every project gets its own quote, in writing, after a first exchange." },
+    { q: "Why does a website help you sell?", a: "Before buying or calling, most customers search on Google or ask ChatGPT. A clear website, fast on phones and well ranked, turns those searches into quote requests, orders or bookings." },
+    { q: "How do you rank first on Google?", a: "You need a technically clean website, pages that answer exactly what your customers search for, a complete Google Business Profile with reviews, and links from other websites. To be visible from day one, we add Google Ads." },
+    { q: "How do you get recommended by ChatGPT?", a: "ChatGPT, Gemini and Google's AI answers cite the companies they understand well: a website open to their crawlers, an identity declared in the code, clear offers, questions and answers, and the same information everywhere. This is called GEO." },
+    { q: "What is the difference between SEO and GEO?", a: "SEO works on your position in Google's list of links. GEO works on your presence in the answer the AI writes to the customer. Both start from a clear, serious website. GEO adds precise settings for AI tools." },
+    { q: "Why act now?", a: "An AI answer only cites a few names per topic. Companies that get there early become the references, and it then takes longer and costs more to take their place." },
+    { q: "How long before you see results?", a: "Google Ads brings visits within days. Search rankings and GEO usually build over three to six months. Technical fixes take a few days." },
+    { q: "How do you get more website visits?", a: "By combining three sources: Google, through search and ads, social media, and AI answers. We first measure where your visits come from, then strengthen what pays off most." },
+    { q: "Is social media enough without a website?", a: "It creates attention and followers, but those followers are not yours, and both Google and ChatGPT rely mostly on websites. The website stays the base that turns attention into enquiries." },
+    { q: "Google Ads or SEO: which one?", a: "They work together. Google Ads gives immediate results while the budget runs. SEO needs an initial investment, then pays off over time. We often advise starting with both." },
+    { q: "How much does it cost?", a: "Every project gets its own quote, in writing, after a first exchange. The audit of your website is free." },
     { q: "Do I have to commit?", a: "No. The first exchange and the proposal do not commit you to anything." },
-    { q: "Where do you work?", a: "Anywhere in France, on site or remotely." },
-    { q: "Do you do everything, or one thing?", a: "Both. A website alone, a campaign alone, or everything with one team." },
+    { q: "Where do you work?", a: "On site on the French Riviera, in Nice, Monaco, Cannes and Antibes, and remotely anywhere in France and abroad." },
   ],
 };
 
