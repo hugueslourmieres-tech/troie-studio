@@ -301,7 +301,7 @@ export const ARTICLES: Article[] = [
     date: "2026-08-03",
     category: "Conformité",
     readingMinutes: 9,
-    cover: "/images/corpo/mibi/04.jpg",
+    cover: "/images/blog/ai-act-pme-checklist.jpg",
     keywords: [
       "AI Act PME checklist",
       "checklist conformité AI Act",
@@ -362,7 +362,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-28",
     category: "Création",
     readingMinutes: 5,
-    cover: "/images/corpo/barcelona/13Hugues-Nikon-35mm.jpg",
+    cover: "/images/blog/site-web-ia-2026-creation.jpg",
     keywords: [
       "création site web IA",
       "site web 2026",
@@ -380,7 +380,7 @@ export const ARTICLES: Article[] = [
     date: "2026-07-28",
     category: "L'IA au travail",
     readingMinutes: 6,
-    cover: "/images/corpo/mibi/DSC_7665.jpg",
+    cover: "/images/blog/agent-qualification-leads-cas-usage.jpg",
     keywords: [
       "agent IA prospection",
       "qualification leads IA",
