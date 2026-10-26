@@ -205,30 +205,32 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
               transition={{ duration: 0.7, delay: reduce ? 0 : 0.1 * Math.min(i, 3), ease }}
               className="group block h-full rounded-2xl transition-transform duration-300 hover:-translate-y-0.5 active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
             >
-              {/* 23/10/2026 : la carte entière en couleur (vert ou anthracite,
-                  le bleu clair argenté revenu le même jour, le rose ne passait pas), le chiffre en grand
-                  dedans, la vraie courbe en blanc en bas. Encre sombre sur le
-                  vert, blanc sur l'anthracite. */}
-              <span className={`grain relative flex aspect-square flex-col sm:aspect-[5/4] overflow-hidden rounded-2xl p-6 md:p-7 ${c.art === "dusk" ? "text-white" : c.art === "sky" ? "text-[#0d2547]" : "text-[#10200f]"}`}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/images/art/${c.art}.jpg`} alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-                <span className="flex items-baseline justify-between gap-3">
-                  <span className="text-base font-medium tracking-[-0.01em]">{c.client}</span>
-                  <span className="text-sm font-medium opacity-75 underline-offset-4 group-hover:underline">{en ? "Read the case" : "Lire le cas"}</span>
+              {/* 26/10/2026 : retour à la carte blanche (demande de Hugues) :
+                  bande de couleur à grain en haut, chiffre bleu qui compte,
+                  lien vers l'étude, vraie courbe en bas. Couleurs du site. */}
+              <span className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--rule)] bg-white transition-shadow duration-300 group-hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)]">
+                <span aria-hidden="true" className="grain block h-24 shrink-0 overflow-hidden md:h-28">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/images/art/${c.art}.jpg`} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 </span>
-                <span className="mt-4 block text-[3.5rem] font-medium leading-none tracking-[-0.045em] tabular-nums md:text-[4rem]">
-                  <CountUp value={c.value} run={show && !reduce && i === active} />
+                <span className="block px-6 pt-6 md:px-7">
+                  <span className="block text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</span>
+                  <span className="mt-0.5 block text-sm text-[var(--fg-2)]">{c.sector}</span>
+                  <span className="mt-7 block text-[3.25rem] font-medium leading-none tracking-[-0.045em] text-[var(--accent)] tabular-nums md:text-[3.5rem]">
+                    <CountUp value={c.value} run={show && !reduce && i === active} />
+                  </span>
+                  <span className="mt-3 block text-[15px] leading-snug text-[var(--fg-2)]">{c.label}</span>
+                  <span className="mt-4 block text-sm font-medium text-[var(--accent)] underline-offset-4 group-hover:underline">{en ? "Read the case study" : "Lire l'étude de cas"}</span>
                 </span>
-                <span className="mt-2 block max-w-[16rem] text-[15px] leading-snug opacity-80">{c.label}</span>
-                <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.curve ? "none" : "xMidYMid meet"} className="absolute inset-x-0 bottom-0 h-[38%] w-full">
+                <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.curve ? "none" : "xMidYMid meet"} className="mt-auto block h-[96px] w-full shrink-0">
                   {c.curve && (
                     <>
-                      <path d={`${linePath(c.curve)} L${W},${H} L0,${H} Z`} fill={c.art === "sky" ? "currentColor" : "#ffffff"} opacity={c.art === "sky" ? 0.12 : 0.22} />
+                      <path d={`${linePath(c.curve)} L${W},${H} L0,${H} Z`} fill="var(--accent)" opacity={0.08} />
                       <motion.path
                         key={i === active ? `on-${c.id}` : `off-${c.id}`}
                         d={linePath(c.curve)}
                         fill="none"
-                        stroke={c.art === "sky" ? "currentColor" : "#ffffff"}
+                        stroke="var(--accent)"
                         strokeWidth="2"
                         vectorEffect="non-scaling-stroke"
                         strokeLinejoin="round"
@@ -238,7 +240,7 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                       />
                       {c.curve.length < 8 &&
                         c.curve.map(([px, py], k) => (
-                          <circle key={k} cx={Math.min(px * W, W - 6)} cy={H - 6 - py * (H - 12)} r={k === c.curve!.length - 1 ? 5 : 3.5} fill={c.art === "sky" ? "currentColor" : "#ffffff"} />
+                          <circle key={k} cx={Math.min(px * W, W - 6)} cy={H - 6 - py * (H - 12)} r={k === c.curve!.length - 1 ? 5 : 3.5} fill="var(--accent)" />
                         ))}
                     </>
                   )}
@@ -258,20 +260,20 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                           width={size}
                           height={size}
                           rx={3}
-                          fill={c.art === "sky" ? "currentColor" : "#ffffff"}
+                          fill="var(--accent)"
                           fillOpacity={k === 0 ? 0.35 : 0.95}
                         />
                       );
                     })}
                   {c.pair && (
                     <>
-                      <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill={c.art === "sky" ? "currentColor" : "#ffffff"} fillOpacity={0.4} />
+                      <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill="var(--accent)" fillOpacity={0.4} />
                       <motion.rect
                         key={i === active ? "on" : "off"}
                         x={216}
                         width={44}
                         rx={4}
-                        fill={c.art === "sky" ? "currentColor" : "#ffffff"}
+                        fill="var(--accent)"
                         initial={{ y: reduce || i !== active ? 10 : H - (c.pair[0] / c.pair[1]) * (H - 10), height: reduce || i !== active ? H - 10 : (c.pair[0] / c.pair[1]) * (H - 10) }}
                         animate={{ y: 10, height: H - 10 }}
                         transition={{ duration: reduce ? 0 : 1, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}
