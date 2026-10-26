@@ -134,6 +134,21 @@ function typesOf(n: Ld): string[] {
   return [];
 }
 
+/** Tous les @type, y compris imbriqués (une offre Service dans un OfferCatalog compte). */
+function deepTypes(nodes: Ld[]): string[] {
+  const out: string[] = [];
+  const seen = new Set<unknown>();
+  const walk = (v: unknown) => {
+    if (!v || typeof v !== "object" || seen.has(v)) return;
+    seen.add(v);
+    if (Array.isArray(v)) return v.forEach(walk);
+    out.push(...typesOf(v as Ld));
+    Object.values(v as Ld).forEach(walk);
+  };
+  nodes.forEach(walk);
+  return out;
+}
+
 /** Parse minimal de robots.txt : groupes user-agent, règles, sitemaps. */
 function parseRobots(txt: string) {
   const groups = new Map<string, { disallow: string[]; allow: string[] }>();
@@ -361,7 +376,7 @@ export async function runAudit(
   const hasFaq = types.some((t) => t === "FAQPage");
   const richTypes = [
     ...new Set(
-      types.filter((t) =>
+      deepTypes(nodes).filter((t) =>
         ["Product", "Service", "Article", "BlogPosting", "NewsArticle", "Course", "Event", "Recipe", "HowTo", "Offer"].includes(t),
       ),
     ),
