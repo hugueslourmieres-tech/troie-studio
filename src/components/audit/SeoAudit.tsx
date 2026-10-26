@@ -21,7 +21,6 @@ import type {
   StreamEvent,
 } from "@/lib/audit/types";
 import { BAND_TONES, EASE_OUT_EXPO, ScoreGauge, type GaugeState } from "./ScoreGauge";
-import { bandOf } from "@/lib/audit/types";
 
 /**
  * L'audit SEO et GEO gratuit, côté page (26/10/2026).
@@ -196,9 +195,9 @@ const CAT_ORDER: CategoryId[] = ["technique", "contenu", "ia", "performance"];
 type Phase = "idle" | "scanning" | "done";
 
 function StatusIcon({ s, size = 18 }: { s: CheckStatus; size?: number }) {
-  if (s === "pass") return <CheckCircle size={size} weight="fill" className="shrink-0 text-[#1f9d5a]" aria-hidden="true" />;
-  if (s === "warn") return <WarningCircle size={size} weight="fill" className="shrink-0 text-[#e2a614]" aria-hidden="true" />;
-  return <XCircle size={size} weight="fill" className="shrink-0 text-[#d6363b]" aria-hidden="true" />;
+  if (s === "pass") return <CheckCircle size={size} weight="fill" className="shrink-0 text-[var(--accent)]" aria-hidden="true" />;
+  if (s === "warn") return <WarningCircle size={size} weight="regular" className="shrink-0 text-[var(--fg-2)]" aria-hidden="true" />;
+  return <XCircle size={size} weight="fill" className="shrink-0 text-[var(--fg)]" aria-hidden="true" />;
 }
 
 export function SeoAudit({ locale }: { locale: string }) {
@@ -506,26 +505,26 @@ function geoRows(summary: AuditSummary | null) {
   return list.filter((x) => picked.has(x.id)).map((x) => ({ id: x.id, status: x.status as CheckStatus | null }));
 }
 
-/** Marque de statut : vert validé, jaune à améliorer, rouge à corriger (26/10/2026). */
+/** Marque de statut sobre en bleu : plein, demi, barré. La couleur rouge/vert est réservée au chiffre, à l'arc et au mot (26/10/2026). */
 function StatusMark({ s }: { s: CheckStatus | null }) {
   if (s === "pass")
     return (
-      <span className="grid size-[18px] place-items-center rounded-full bg-[#1f9d5a] text-white">
+      <span className="grid size-[18px] place-items-center rounded-full bg-[var(--accent)] text-white">
         <Check size={10} weight="bold" aria-hidden="true" />
       </span>
     );
   if (s === "warn")
     return (
       <svg viewBox="0 0 18 18" className="size-[18px]" aria-hidden="true">
-        <circle cx="9" cy="9" r="7.75" fill="none" stroke="#e2a614" strokeWidth="1.5" />
-        <path d="M9 3.5 A5.5 5.5 0 0 0 9 14.5 Z" fill="#e2a614" />
+        <circle cx="9" cy="9" r="7.75" fill="none" stroke="var(--accent)" strokeWidth="1.5" />
+        <path d="M9 3.5 A5.5 5.5 0 0 0 9 14.5 Z" fill="var(--accent)" />
       </svg>
     );
   if (s === "fail")
     return (
       <svg viewBox="0 0 18 18" className="size-[18px]" aria-hidden="true">
-        <circle cx="9" cy="9" r="8" fill="#d6363b" />
-        <path d="M5.75 9 H12.25" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+        <circle cx="9" cy="9" r="7.75" fill="none" stroke="var(--fg)" strokeOpacity="0.55" strokeWidth="1.5" />
+        <path d="M5.75 9 H12.25" stroke="var(--fg)" strokeWidth="1.6" strokeLinecap="round" />
       </svg>
     );
   return <span className="size-[18px] rounded-full border-[1.5px] border-[var(--rule-strong)]" aria-hidden="true" />;
@@ -566,8 +565,8 @@ function ScoreColumn({
       aria-label={side === "seo" ? c.seoTitle : c.geoTitle}
       className="relative flex flex-col rounded-[16px] px-4 pt-4 pb-5 transition-[background-color,box-shadow] duration-700 sm:px-5"
       style={{
-        background: weak ? `color-mix(in oklab, ${tone.to} 8%, white)` : "transparent",
-        boxShadow: weak ? `inset 0 0 0 1px color-mix(in oklab, ${tone.to} 30%, transparent)` : "inset 0 0 0 1px transparent",
+        background: weak ? "var(--accent-soft)" : "transparent",
+        boxShadow: weak ? "inset 0 0 0 1px color-mix(in oklab, var(--accent) 22%, transparent)" : "inset 0 0 0 1px transparent",
         transitionDelay: weak && !reduce ? `${T.geo + 1.1}s` : "0s",
       }}
     >
@@ -586,7 +585,7 @@ function ScoreColumn({
             animate={{ opacity: 1, transform: "scale(1)" }}
             transition={{ duration: 0.35, delay: reduce ? 0 : T.geo + 1.15, ease: EASE }}
             className="absolute -top-2.5 right-4 rounded-full bg-white px-2.5 py-1 text-[11.5px] leading-none font-medium whitespace-nowrap"
-            style={{ color: tone.text, boxShadow: `0 0 0 1px color-mix(in oklab, ${tone.to} 35%, transparent), 0 4px 12px -6px color-mix(in oklab, ${tone.to} 45%, transparent)` }}
+            style={{ color: "var(--accent)", boxShadow: "0 0 0 1px color-mix(in oklab, var(--accent) 28%, transparent), 0 4px 12px -6px rgba(47,91,211,0.35)" }}
           >
             {c.weakest}
           </motion.span>
@@ -610,7 +609,6 @@ function ScoreColumn({
           {SEO_CATS.map((id, i) => {
             const v = done ? (summary.categories.find((x) => x.id === id)?.score ?? 0) : 0;
             const d = T.rows + i * 0.08;
-            const ct = BAND_TONES[bandOf(v)];
             return (
               <li key={id}>
                 <div className="flex items-baseline justify-between text-[13.5px]">
@@ -619,7 +617,7 @@ function ScoreColumn({
                     key={`${runId}-${phase}`}
                     {...appear(d + 0.1)}
                     className="font-medium tabular-nums"
-                    style={{ color: done ? ct.text : "color-mix(in oklab, var(--fg) 25%, transparent)" }}
+                    style={{ color: done ? "var(--accent)" : "color-mix(in oklab, var(--fg) 25%, transparent)" }}
                   >
                     {v}
                   </motion.span>
@@ -627,7 +625,7 @@ function ScoreColumn({
                 <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-[color-mix(in_oklab,var(--fg)_7%,transparent)]">
                   <motion.div
                     className="h-full w-full origin-left rounded-full"
-                    style={{ background: `linear-gradient(90deg, ${ct.from}, ${ct.to})` }}
+                    style={{ background: "linear-gradient(90deg, #7193ee, #2b55cc)" }}
                     initial={false}
                     animate={{ transform: `scaleX(${v / 100})` }}
                     transition={
@@ -650,7 +648,7 @@ function ScoreColumn({
               <StatusMark s={row.status} />
               <span className={`min-w-0 flex-1 ${row.status ? "text-[var(--fg)]" : "text-[var(--fg-2)]"}`}>{c.geoKeys[row.id]}</span>
               {row.status && (
-                <span className={`shrink-0 text-[12px] ${row.status === "pass" ? "text-[#1f9d5a]" : row.status === "warn" ? "text-[#b78207]" : "text-[#d6363b]"}`}>
+                <span className={`shrink-0 text-[12px] ${row.status === "pass" ? "text-[var(--accent)]" : "text-[var(--fg-2)]"}`}>
                   {c.status[row.status]}
                 </span>
               )}
