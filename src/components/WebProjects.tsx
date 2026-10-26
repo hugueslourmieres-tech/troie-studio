@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Color Guesser",
-    kind: "Jeu en ligne en 7 langues, 466 défis de couleurs",
+    kind: "Jeu en ligne en 7 langues, 535 défis de couleurs",
     href: "https://playcolorguesser.com",
     url: "playcolorguesser.com",
     label: "playcolorguesser.com",

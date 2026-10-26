@@ -176,6 +176,9 @@ export function HomeFilms({ locale }: { locale: string }) {
 
         <LoopRail
           label={c.rail}
+          count={STORIES.length}
+          prevLabel={L === "en" ? "Previous film" : "Film précédent"}
+          nextLabel={L === "en" ? "Next film" : "Film suivant"}
           className="mx-[calc(50%-50vw)] mt-12 scroll-pl-[calc(50vw-50%)] px-[calc(50vw-50%)] pt-1 pb-6 "
           render={(copy) =>
             STORIES.map((st, i) => (

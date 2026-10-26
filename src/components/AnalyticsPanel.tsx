@@ -166,7 +166,7 @@ function projectionClient(en: boolean): Client {
   };
 }
 
-/** Color Guesser, notre jeu web : chiffres publics du classement, en tuiles. */
+/** Color Guesser, notre jeu web : visiteurs, scores SEO et GEO, taille du jeu, en tuiles. */
 function colorGuesserClient(en: boolean): Client {
   const C = COLORGUESSER_STATS;
   const stat = (id: string, label: string, v: number, sub: string): Metric => ({
@@ -182,12 +182,15 @@ function colorGuesserClient(en: boolean): Client {
     name: "Color Guesser",
     sector: en ? "Our web game" : "Notre jeu web",
     note: en ? "Our web game, playcolorguesser.com." : "Notre jeu web, playcolorguesser.com.",
-    source: en ? "The game's public leaderboard, read on 26/10/2026." : "Classement public du jeu, relevé du 26/10/2026.",
+    source: en
+      ? "Vercel Analytics (June to 26 Oct. 2026) and our own SEO and GEO audit, read on 26/10/2026."
+      : "Vercel Analytics (juin au 26 oct. 2026) et notre audit SEO et GEO, relevés du 26/10/2026.",
     metrics: [
-      stat("players", en ? "Players" : "Joueurs", C.leaderboardPlayers, en ? "on the world leaderboard" : "inscrits au classement mondial"),
-      stat("games", en ? "Games" : "Parties", C.top100Games, en ? "played by the top 100" : "jouées par le top 100"),
+      stat("visitors", en ? "Visitors" : "Visiteurs", C.visitors, en ? "since June 2026" : "depuis juin 2026"),
+      stat("seo", en ? "SEO score" : "Score SEO", C.seoScore, en ? "out of 100, on Google" : "sur 100, sur Google"),
+      stat("geo", en ? "GEO score" : "Score GEO", C.geoScore, en ? "out of 100, on ChatGPT and Gemini" : "sur 100, sur ChatGPT et Gemini"),
+      stat("challenges", en ? "Challenges" : "Défis", C.challenges, en ? "colours to find" : "couleurs à retrouver"),
       stat("languages", en ? "Languages" : "Langues", C.languages, en ? "to play in" : "pour jouer"),
-      stat("challenges", en ? "Challenges" : "Défis", C.challenges, en ? "colour challenges" : "défis de couleurs"),
     ],
   };
 }
@@ -545,11 +548,13 @@ export function AnalyticsPanel({
         </div>
 
         {statsOnly ? (
-          <ul className="mt-5 grid flex-1 grid-cols-2 content-stretch border-t border-[var(--rule)] md:grid-cols-4">
+          <ul
+            className={`mt-5 grid flex-1 grid-cols-2 content-stretch gap-px border-t border-[var(--rule)] bg-[var(--rule)] ${client.metrics.length === 5 ? "md:grid-cols-5" : "md:grid-cols-4"}`}
+          >
             {client.metrics.map((m, i) => (
               <li
                 key={`${client.id}-${m.id}`}
-                className={`px-5 py-6 md:px-6 md:py-8 ${i % 2 === 0 ? "border-r" : "md:border-r"} ${i < 2 ? "border-b md:border-b-0" : ""} ${i === client.metrics.length - 1 ? "md:border-r-0" : ""} border-[var(--rule)]`}
+                className={`bg-white px-5 py-6 md:px-6 md:py-8 ${client.metrics.length % 2 === 1 && i === 0 ? "col-span-2 md:col-span-1" : ""}`}
               >
                 <span className="block text-xs text-[var(--fg-2)] md:text-sm">{m.label}</span>
                 <span className="mt-1 block text-2xl font-medium tracking-[-0.02em] tabular-nums text-[var(--accent)] md:text-[2rem]">

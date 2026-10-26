@@ -97,19 +97,22 @@ export const BIENENREGLE_PROJECTION_6M = {
 } as const;
 
 /**
- * Color Guesser (playcolorguesser.com), notre jeu web. Chiffres réels et
- * publics, relevés le 26/10/2026 dans l'API du classement :
- * https://playcolorguesser.com/api/leaderboard (champ « total » = joueurs
- * inscrits au classement mondial ; somme du champ « games » des 100 lignes
- * renvoyées = parties jouées par le top 100). Langues et défis : ce que le
- * site annonce déjà (src/components/WebProjects.tsx). Aucune visite ni
- * rétention : elles ne sont pas mesurées ici, on ne les invente pas.
+ * Color Guesser (playcolorguesser.com), notre jeu web. Chiffres réels,
+ * relevés le 26/10/2026 :
+ * - visiteurs : Vercel Web Analytics du projet color-guesser-football,
+ *   du 1er juin au 26 octobre 2026 (8 278 visiteurs, 26 780 pages vues ;
+ *   par mois : juin 1 092, juil. 1 029, août 1 421, sept. 2 584, oct. 2 152) ;
+ * - scores SEO et GEO : notre propre audit (/fr/audit-seo-gratuit) ;
+ * - défis et langues : ce que la page d'accueil du jeu annonce (535 défis, 7 langues).
+ * 26/10/2026, demande de Hugues : les visiteurs remplacent les joueurs du
+ * classement.
  */
 export const COLORGUESSER_STATS = {
   readOn: "2026-10-26",
-  source: "https://playcolorguesser.com/api/leaderboard",
-  leaderboardPlayers: 256,
-  top100Games: 3288,
+  visitors: 8278,
+  pageviews: 26780,
+  seoScore: 96,
+  geoScore: 93,
   languages: 7,
-  challenges: 466,
+  challenges: 535,
 } as const;

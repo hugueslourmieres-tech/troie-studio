@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 
 /**
  * Rangée qui avance seule, une carte à la fois, en boucle (photos et films de
@@ -16,6 +17,9 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from "react"
  * - Glisser au doigt ou à la souris : un cran en avant ou en arrière.
  * - Au clavier, l'élément qui reçoit le focus vient au bord gauche.
  * - La copie est aria-hidden et inerte (jamais focalisable).
+ * - Sous la rangée, comme sous les résultats du hero : flèches aux deux
+ *   bords, points au centre (le point actif s'allonge), clic sur un point
+ *   pour y aller.
  * - prefers-reduced-motion : pas d'avance automatique, une rangée normale
  *   qui se fait glisser, sans la copie (CSS, globals.css).
  */
@@ -25,8 +29,15 @@ export function LoopRail({
   gapClass = "gap-4 pr-4 md:gap-5 md:pr-5",
   className = "",
   render,
+  count: total,
+  prevLabel,
+  nextLabel,
 }: {
   label: string;
+  /** Nombre d'éléments, pour les points. */
+  count: number;
+  prevLabel: string;
+  nextLabel: string;
   /** Temps d'arrêt sur chaque position, en millisecondes. */
   interval?: number;
   /** Espacement : le même gap en marge droite de chaque copie. */
@@ -37,6 +48,7 @@ export function LoopRail({
   const root = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
   const idx = useRef(0);
+  const [cur, setCur] = useState(0);
   const [offscreen, setOffscreen] = useState(true);
   const [hidden, setHidden] = useState(false);
   const [hover, setHover] = useState(false);
@@ -56,6 +68,8 @@ export function LoopRail({
     const li = items()[i];
     if (!el || !li) return;
     idx.current = i;
+    const n = el.querySelector(":scope > ul")?.children.length ?? 0;
+    if (n) setCur(i % n);
     el.style.transition = animate ? "" : "none";
     el.style.transform = `translate3d(${-li.offsetLeft}px,0,0)`;
     if (!animate) void el.offsetWidth; // fige la position avant de rendre la transition
@@ -149,7 +163,15 @@ export function LoopRail({
     if (i >= 0 && !reduced()) place(i, true);
   };
 
+  const btn =
+    "inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform] duration-200 hover:text-[var(--fg)] active:scale-[0.92] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
+  const goTo = (i: number) => {
+    if (i === cur) return;
+    place(i, !reduced());
+  };
+
   return (
+    <>
     <div
       ref={root}
       className={`t-loop ${className}`}
@@ -185,5 +207,35 @@ export function LoopRail({
         </ul>
       </div>
     </div>
+
+    <div
+      className="mt-4 flex items-center justify-between"
+      onPointerEnter={(e) => e.pointerType === "mouse" && setHover(true)}
+      onPointerLeave={(e) => e.pointerType === "mouse" && setHover(false)}
+    >
+      <button type="button" className={btn} onClick={() => step(-1)} aria-label={prevLabel}>
+        <CaretLeft weight="bold" className="h-5 w-5" />
+      </button>
+      <div className="flex items-center">
+        {Array.from({ length: total }, (_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => goTo(i)}
+            aria-label={`${i + 1} / ${total}`}
+            aria-current={i === cur ? "true" : undefined}
+            className="group flex h-8 items-center px-[3px] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--accent)]"
+          >
+            <span
+              className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${i === cur ? "w-6 bg-[var(--fg)]" : "w-1.5 bg-[var(--rule-strong)] group-hover:bg-[var(--fg-2)]"}`}
+            />
+          </button>
+        ))}
+      </div>
+      <button type="button" className={btn} onClick={() => step(1)} aria-label={nextLabel}>
+        <CaretRight weight="bold" className="h-5 w-5" />
+      </button>
+    </div>
+    </>
   );
 }

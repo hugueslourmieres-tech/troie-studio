@@ -58,6 +58,9 @@ export function HomePhotos({ locale }: { locale: string }) {
 
         <LoopRail
           label={c.rail}
+          count={PHOTOS.length}
+          prevLabel={L === "en" ? "Previous photo" : "Photo précédente"}
+          nextLabel={L === "en" ? "Next photo" : "Photo suivante"}
           className="mx-[calc(50%-50vw)] mt-12 scroll-pl-[calc(50vw-50%)] px-[calc(50vw-50%)] pb-3 "
           render={(copy) =>
             PHOTOS.map((p) => (
