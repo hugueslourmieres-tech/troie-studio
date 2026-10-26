@@ -25,58 +25,56 @@ const COPY = {
       "Audit gratuit de votre site internet, avec deux scores sur 100 : le SEO pour Google, le GEO pour ChatGPT, Gemini, Perplexity et les AI Overviews. Puis les points à corriger.",
     crumb: "Audit SEO gratuit",
     scopeTitle: "Ce que l'audit vérifie.",
-    scopeIntro:
-      "Jusqu'à vingt-cinq vérifications sur votre page d'accueil, votre robots.txt, votre plan du site et votre llms.txt. Elles donnent deux scores. Le score SEO, pour Google, réunit la technique, le contenu et la performance. Le score GEO, pour les moteurs IA, mesure la lisibilité IA.",
+    scopeIntro: "Jusqu'à vingt-cinq vérifications sur votre page d'accueil et vos fichiers. Elles donnent deux scores : SEO et GEO.",
     families: [
       {
         name: "Technique",
-        body: "HTTPS, consigne noindex, affichage mobile, langue déclarée, adresse canonique, robots.txt, plan du site, versions linguistiques.",
+        body: "HTTPS, noindex, mobile, langue, adresse canonique, robots.txt, plan du site.",
       },
       {
         name: "Contenu",
-        body: "Titre et méta description, titre H1 unique, sections H2, textes alternatifs des images, aperçu de partage sur les réseaux.",
+        body: "Titre, méta description, H1 et H2, textes alternatifs, aperçu de partage.",
       },
       {
         name: "Lisibilité IA (score GEO)",
-        body: "Accès de GPTBot, ClaudeBot, PerplexityBot et des autres robots IA, texte servi sans JavaScript, données structurées, signaux d'identité, questions-réponses, llms.txt.",
+        body: "Accès des robots IA, texte sans JavaScript, données structurées, llms.txt.",
       },
       {
         name: "Performance",
-        body: "Temps de réponse du HTML, poids de la page, nombre de scripts, chargement différé des images.",
+        body: "Temps de réponse, poids de la page, scripts, images différées.",
       },
     ],
     honestTitle: "Ce que l'audit ne dit pas.",
     honest: [
-      "L'audit lit votre page d'accueil comme le font les robots de Google et des moteurs IA. Il mesure ce qui se vérifie : balises, fichiers, données structurées, vitesse de réponse.",
-      "Il ne dit pas si ChatGPT, Gemini ou Perplexity citent votre entreprise. Personne ne peut le mesurer de façon fiable, ni le garantir. Ce que l'audit relève, en revanche, se corrige et se vérifie.",
-      "Il regarde la page d'accueil seulement. Un audit complet couvre toutes les pages, la Search Console et vos concurrents. C'est le travail que nous faisons avec vous.",
+      "L'audit mesure ce qui se vérifie sur votre page d'accueil, pas si ChatGPT ou Gemini vous citent : personne ne peut le garantir.",
+      "Un audit complet couvre toutes les pages et vos concurrents. C'est le travail que nous faisons avec vous.",
     ],
     contactLink: "Décrire mon projet",
     faqTitle: "Questions fréquentes",
     faq: [
       {
         q: "Qu'est-ce qu'un audit SEO ?",
-        a: "Un audit SEO vérifie ce qui aide ou freine votre site dans Google : technique, contenu, structure, vitesse. Il se termine par une liste de corrections classées par priorité.",
+        a: "La vérification de ce qui aide ou freine votre site dans Google, avec les corrections classées par priorité.",
       },
       {
         q: "L'audit est-il vraiment gratuit ?",
-        a: "Oui. Les scores SEO et GEO, leur détail et les trois points prioritaires s'affichent sans inscription. Le rapport détaillé vous est envoyé par e-mail, sans engagement.",
+        a: "Oui. Les scores s'affichent sans inscription. Le rapport détaillé arrive par e-mail, sans engagement.",
       },
       {
         q: "Quelle différence entre SEO et GEO ?",
-        a: "Le SEO vise une place dans les résultats de Google. Le GEO vise une mention dans les réponses rédigées par ChatGPT, Gemini, Perplexity ou les AI Overviews de Google. Les deux reposent sur un site clair et bien balisé.",
+        a: "Le SEO vise une place dans Google. Le GEO vise une mention dans les réponses de ChatGPT, Gemini ou des IA de Google.",
       },
       {
         q: "Pourquoi mon score diffère-t-il d'un autre outil ?",
-        a: "Chaque outil choisit ses critères et leur poids. Le nôtre donne une vraie place à la lisibilité par les moteurs IA, que les outils SEO classiques notent peu. Le détail de chaque vérification est dans le rapport.",
+        a: "Chaque outil a ses critères. Le nôtre pèse aussi la lisibilité par les IA, que les outils classiques notent peu.",
       },
       {
         q: "Que faites-vous de mon adresse e-mail ?",
-        a: "Elle sert à vous envoyer le rapport. TROIE Studio peut vous recontacter à son sujet. Vous pouvez vous désinscrire à tout moment, en répondant à l'e-mail.",
+        a: "Elle sert à envoyer le rapport. Nous pouvons vous recontacter à son sujet. Désinscription à tout moment, en répondant à l'e-mail.",
       },
       {
         q: "Pouvez-vous corriger les points relevés ?",
-        a: "Oui. Nous corrigeons le site avec vous, puis nous relançons l'audit pour comparer. Décrivez votre projet depuis la page contact.",
+        a: "Oui. Nous corrigeons avec vous, puis nous relançons l'audit pour comparer.",
       },
     ],
     serviceType: "Audit SEO et GEO de site internet",
@@ -87,58 +85,56 @@ const COPY = {
       "Free audit of your website with two scores out of 100: SEO for Google, GEO for ChatGPT, Gemini, Perplexity and AI Overviews. Then the points to fix.",
     crumb: "Free SEO audit",
     scopeTitle: "What the audit checks.",
-    scopeIntro:
-      "Up to twenty-five checks on your home page, your robots.txt, your sitemap and your llms.txt. They give two scores. The SEO score, for Google, combines technical setup, content and performance. The GEO score, for AI engines, measures AI readability.",
+    scopeIntro: "Up to twenty-five checks on your home page and your files. They give two scores: SEO and GEO.",
     families: [
       {
         name: "Technical",
-        body: "HTTPS, noindex rule, mobile display, declared language, canonical address, robots.txt, sitemap, language versions.",
+        body: "HTTPS, noindex, mobile, language, canonical address, robots.txt, sitemap.",
       },
       {
         name: "Content",
-        body: "Title and meta description, a single H1, H2 sections, image alt text, social share preview.",
+        body: "Title, meta description, H1 and H2, alt text, share preview.",
       },
       {
         name: "AI readability (GEO score)",
-        body: "Access for GPTBot, ClaudeBot, PerplexityBot and other AI crawlers, text served without JavaScript, structured data, identity signals, questions and answers, llms.txt.",
+        body: "AI crawler access, text without JavaScript, structured data, llms.txt.",
       },
       {
         name: "Performance",
-        body: "HTML response time, page weight, number of scripts, lazy-loaded images.",
+        body: "Response time, page weight, scripts, lazy images.",
       },
     ],
     honestTitle: "What the audit does not say.",
     honest: [
-      "The audit reads your home page the way Google's and AI engines' crawlers do. It measures what can be checked: tags, files, structured data, response speed.",
-      "It does not say whether ChatGPT, Gemini or Perplexity cite your company. Nobody can measure that reliably, or guarantee it. What the audit flags, however, can be fixed and checked.",
-      "It looks at the home page only. A full audit covers every page, Search Console and your competitors. That is the work we do with you.",
+      "The audit measures what can be checked on your home page, not whether ChatGPT or Gemini cite you: nobody can guarantee that.",
+      "A full audit covers every page and your competitors. That is the work we do with you.",
     ],
     contactLink: "Describe my project",
     faqTitle: "Frequently asked questions",
     faq: [
       {
         q: "What is an SEO audit?",
-        a: "An SEO audit checks what helps or holds back your site in Google: technical setup, content, structure, speed. It ends with a list of fixes ranked by priority.",
+        a: "A check of what helps or holds back your site in Google, with fixes ranked by priority.",
       },
       {
         q: "Is the audit really free?",
-        a: "Yes. The SEO and GEO scores, their breakdown and the three priority points show without sign-up. The detailed report is sent to you by email, with no commitment.",
+        a: "Yes. The scores show without sign-up. The detailed report arrives by email, with no commitment.",
       },
       {
         q: "What is the difference between SEO and GEO?",
-        a: "SEO aims for a place in Google's results. GEO aims for a mention in the answers written by ChatGPT, Gemini, Perplexity or Google's AI Overviews. Both rely on a clear, well-marked-up site.",
+        a: "SEO aims for a place in Google. GEO aims for a mention in answers from ChatGPT, Gemini or Google's AI.",
       },
       {
         q: "Why does my score differ from another tool?",
-        a: "Each tool picks its criteria and their weight. Ours gives real weight to readability by AI engines, which classic SEO tools barely score. The detail of each check is in the report.",
+        a: "Each tool has its criteria. Ours also weighs readability by AI, which classic tools barely score.",
       },
       {
         q: "What do you do with my email address?",
-        a: "It is used to send you the report. TROIE Studio may contact you about it. You can unsubscribe at any time by replying to the email.",
+        a: "It is used to send the report. We may contact you about it. Unsubscribe at any time by replying to the email.",
       },
       {
         q: "Can you fix the points found?",
-        a: "Yes. We fix the site with you, then run the audit again to compare. Describe your project from the contact page.",
+        a: "Yes. We fix it with you, then run the audit again to compare.",
       },
     ],
     serviceType: "Website SEO and GEO audit",

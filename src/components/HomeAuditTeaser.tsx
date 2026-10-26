@@ -13,23 +13,25 @@ import {
 import { ScoreGauge } from "@/components/audit/ScoreGauge";
 
 /**
- * Bloc d'accueil « Où en est votre site ? » (26/10/2026).
+ * Bloc d'accueil « Où en est votre site ? » (26/10/2026, version anthracite).
  *
  * Deux onglets :
  *   1. J'ai un site : un champ, un bouton. Le formulaire est un vrai GET vers
  *      /{locale}/audit-seo-gratuit?site=..., qui lance l'audit tout seul
- *      (marche aussi sans JavaScript). À côté, les cadrans SEO et GEO.
+ *      (marche aussi sans JavaScript).
  *   2. Je n'ai pas de site : entreprise, ville, e-mail, consentement. POST
  *      vers /api/presence, l'équipe envoie un score de présence sur 100 sous
- *      48 h. À côté, un seul cadran « Score de présence » et ses trois volets.
+ *      48 h.
  *
- * Les cadrans sont en suspens (ScoreGauge idleMode="suspense", tone="brand") :
- * un seul bleu, l'aiguille monte et redescend comme si elle attendait
- * l'adresse. Seul le vrai résultat de /audit-seo-gratuit prend le code
- * couleur vert, jaune, orange, rouge.
- * Le cadre granuleux garde une hauteur fixe d'un onglet à l'autre (desktop) :
- * les deux contenus sont empilés dans la même cellule et se relaient en
- * fondu. Sous 1024 px, seul le contenu actif reste.
+ * À côté, un seul grand cadran sur le fond granuleux anthracite du site
+ * (dusk.jpg, comme les bandes d'appel sombres) : « Score GEO » pour le
+ * premier onglet, « Score de présence » pour le second. Cadran blanc et
+ * argent (ScoreGauge tone="dark"), en suspens (idleMode="suspense").
+ *
+ * Ordre : sur mobile, titre, phrase, cadran, onglets, formulaire. Sur desktop,
+ * deux colonnes (texte et formulaire à gauche, cadran à droite). Les deux
+ * contenus du cadre partagent la même cellule de grille : la hauteur ne bouge
+ * pas d'un onglet à l'autre, donc les onglets placés dessous ne sautent pas.
  */
 
 type Tab = "site" | "presence";
@@ -37,18 +39,16 @@ type Tab = "site" | "presence";
 const COPY = {
   fr: {
     title: "Où en est votre site ?",
-    sub: "Deux scores gratuits en quelques secondes : le SEO pour Google, le GEO pour les assistants IA.",
+    sub: "Votre score GEO en quelques secondes, gratuit.",
     tabsLabel: "Choisir votre situation",
     tabSite: "J'ai un site",
     tabPresence: "Je n'ai pas de site",
     siteLabel: "Adresse de votre site",
     sitePlaceholder: "votre-site.fr",
-    siteSubmit: "Lancer l'audit",
+    siteSubmit: "Voir mon score",
     siteEmpty: "Entrez l'adresse de votre site. Exemple : votre-site.fr",
-    siteNote: "Gratuit, sans inscription. Le résultat s'affiche tout de suite.",
-    full: "Voir l'audit complet",
-    presenceIntro:
-      "Nous analysons votre fiche Google, votre place sur votre recherche principale et ce que répondent ChatGPT et Gemini. Vous recevez votre score de présence sur 100 et nos recommandations par e-mail sous 48 h.",
+    siteNote: "Sans inscription.",
+    presenceIntro: "Nous mesurons votre présence sur Google et dans les IA. Votre score arrive par e-mail sous 48 h.",
     company: "Nom de votre entreprise",
     city: "Ville",
     email: "Votre e-mail",
@@ -64,34 +64,31 @@ const COPY = {
     errGeneric: "L'envoi n'a pas abouti. Réessayez dans un instant.",
     doneTitle: "C'est noté.",
     doneBody: (email: string) =>
-      `Nous vous envoyons votre score de présence et nos recommandations sous 48 h à ${email}. Un e-mail de confirmation vient de partir.`,
-    seo: "SEO",
-    seoSub: "Google",
-    geo: "GEO",
-    geoSub: "ChatGPT, Gemini",
+      `Votre score de présence arrive sous 48 h à ${email}. Un e-mail de confirmation vient de partir.`,
+    geo: "Score GEO",
+    geoSub: "Votre visibilité dans les réponses des IA.",
+    geoChips: ["ChatGPT", "Gemini", "Réponses IA de Google"],
     presence: "Score de présence",
+    presenceSub: "Sur 100, par e-mail sous 48 h.",
     idle: "Votre score",
     checks: [
       { k: "map", t: "Fiche Google" },
-      { k: "search", t: "Recherche principale" },
-      { k: "chat", t: "ChatGPT et Gemini" },
+      { k: "search", t: "Recherche" },
+      { k: "chat", t: "ChatGPT, Gemini" },
     ],
-    checksFoot: "Sur 100, par e-mail sous 48 h.",
   },
   en: {
     title: "Where does your site stand?",
-    sub: "Two free scores in seconds: SEO for Google, GEO for AI assistants.",
+    sub: "Your GEO score in seconds, free.",
     tabsLabel: "Choose your situation",
     tabSite: "I have a website",
     tabPresence: "I don't have a website",
     siteLabel: "Your website address",
     sitePlaceholder: "your-site.com",
-    siteSubmit: "Run the audit",
+    siteSubmit: "See my score",
     siteEmpty: "Enter your website address. Example: your-site.com",
-    siteNote: "Free, no sign-up. The result shows right away.",
-    full: "See the full audit",
-    presenceIntro:
-      "We analyse your Google Business Profile, where you rank on your main search, and what ChatGPT and Gemini say about you. You receive your presence score out of 100 and our recommendations by email within 48 hours.",
+    siteNote: "No sign-up.",
+    presenceIntro: "We measure your presence on Google and in AI answers. Your score arrives by email within 48 hours.",
     company: "Company name",
     city: "City",
     email: "Your email",
@@ -107,19 +104,18 @@ const COPY = {
     errGeneric: "Sending failed. Please try again in a moment.",
     doneTitle: "Got it.",
     doneBody: (email: string) =>
-      `We will send your presence score and our recommendations within 48 hours to ${email}. A confirmation email is on its way.`,
-    seo: "SEO",
-    seoSub: "Google",
-    geo: "GEO",
-    geoSub: "ChatGPT, Gemini",
+      `Your presence score arrives within 48 hours at ${email}. A confirmation email is on its way.`,
+    geo: "GEO score",
+    geoSub: "How visible you are in AI answers.",
+    geoChips: ["ChatGPT", "Gemini", "Google AI answers"],
     presence: "Presence score",
+    presenceSub: "Out of 100, by email within 48 hours.",
     idle: "Your score",
     checks: [
-      { k: "map", t: "Google Business Profile" },
-      { k: "search", t: "Main search" },
-      { k: "chat", t: "ChatGPT and Gemini" },
+      { k: "map", t: "Google profile" },
+      { k: "search", t: "Search" },
+      { k: "chat", t: "ChatGPT, Gemini" },
     ],
-    checksFoot: "Out of 100, by email within 48 hours.",
   },
 } as const;
 
@@ -132,6 +128,9 @@ const INPUT =
 
 const PRIMARY =
   "group inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-[var(--ink)] px-6 text-[15px] font-medium text-white transition-[background-color,transform,opacity] duration-200 hover:bg-[#2a2e37] active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
+
+const SWAP =
+  "col-start-1 row-start-1 flex flex-col items-center text-center transition-[opacity,filter] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] motion-reduce:transition-none";
 
 export function HomeAuditTeaser({ locale }: { locale: string }) {
   const en = locale === "en";
@@ -159,18 +158,72 @@ export function HomeAuditTeaser({ locale }: { locale: string }) {
     tabRefs.current[id]?.focus();
   };
 
+  const on = (t: Tab) => (tab === t ? "opacity-100" : "pointer-events-none opacity-0 blur-[3px]");
+
   return (
     <section id="audit" className="scroll-mt-24 border-t border-[var(--rule)]">
-      <div className="mx-auto grid max-w-7xl items-start gap-10 px-5 py-20 md:px-12 md:py-28 lg:grid-cols-12 lg:gap-12">
-        {/* Texte, onglets, formulaires */}
-        <div className="lg:col-span-5">
+      <div className="mx-auto grid max-w-7xl gap-8 px-5 py-20 md:px-12 md:py-28 lg:grid-cols-12 lg:grid-rows-[auto_1fr] lg:gap-x-14 lg:gap-y-0">
+        {/* 1. Titre et phrase */}
+        <div className="lg:col-span-5 lg:row-start-1">
           <h2 className="t-display text-4xl text-[var(--fg)] text-balance md:text-5xl">{c.title}</h2>
-          <p className="mt-5 max-w-[32rem] text-lg leading-relaxed text-[var(--fg-2)] text-pretty">{c.sub}</p>
+          <p className="mt-4 max-w-[28rem] text-lg leading-relaxed text-[var(--fg-2)] text-pretty">{c.sub}</p>
+        </div>
 
+        {/* 2. Le cadran, sur le fond anthracite granuleux. Sur mobile, juste sous
+            la phrase ; sur desktop, la colonne de droite sur toute la hauteur. */}
+        <div className="lg:col-span-7 lg:col-start-6 lg:row-span-2 lg:row-start-1 lg:self-start" aria-hidden="true">
+          <div className="grain relative overflow-hidden rounded-[28px] bg-[#15171d]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/art/dusk.jpg"
+              alt=""
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 h-full w-full object-cover"
+            />
+            {/* Assombrit la traînée claire de l'image derrière le cadran, garde
+                la lumière sur les bords : le blanc ressort partout. */}
+            <div className="absolute inset-0 bg-[radial-gradient(60%_55%_at_50%_48%,rgba(14,16,22,0.62),rgba(14,16,22,0.25)_70%,rgba(14,16,22,0.1))]" />
+            <div className="pointer-events-none absolute inset-0 z-[3] rounded-[inherit] ring-1 ring-inset ring-white/10" />
+
+            <div className="relative z-[3] grid place-items-center px-5 pt-7 pb-6 sm:px-10 sm:pt-11 sm:pb-10">
+              <div className={`${SWAP} ${on("site")}`}>
+                <PanelHead name={c.geo} sub={c.geoSub} />
+                <DarkGauge idle={c.idle} from={46} />
+                <ul className="mt-1 flex flex-wrap justify-center gap-2">
+                  {c.geoChips.map((t) => (
+                    <li key={t} className={CHIP}>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className={`${SWAP} ${on("presence")}`}>
+                <PanelHead name={c.presence} sub={c.presenceSub} />
+                <DarkGauge idle={c.idle} from={58} />
+                <ul className="mt-1 flex flex-wrap justify-center gap-2">
+                  {c.checks.map((it) => {
+                    const Icon = ICONS[it.k];
+                    return (
+                      <li key={it.k} className={CHIP}>
+                        <Icon size={14} weight="regular" className="text-white/70" />
+                        {it.t}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* 3. Onglets et formulaires */}
+        <div className="lg:col-span-5 lg:row-start-2 lg:pt-9">
           <div
             role="tablist"
             aria-label={c.tabsLabel}
-            className="relative mt-9 grid grid-cols-2 rounded-full bg-[var(--bg-2)] p-1"
+            className="relative grid grid-cols-2 rounded-full bg-[var(--bg-2)] p-1"
           >
             {/* Pastille blanche qui glisse sous l'onglet actif */}
             <span
@@ -209,7 +262,7 @@ export function HomeAuditTeaser({ locale }: { locale: string }) {
             role="tabpanel"
             aria-labelledby="audit-tab-site"
             hidden={tab !== "site"}
-            className="mt-8"
+            className="mt-7"
           >
             <SiteForm locale={locale} c={c} />
           </div>
@@ -218,61 +271,9 @@ export function HomeAuditTeaser({ locale }: { locale: string }) {
             role="tabpanel"
             aria-labelledby="audit-tab-presence"
             hidden={tab !== "presence"}
-            className="mt-8"
+            className="mt-7"
           >
             <PresenceForm locale={locale} c={c} />
-          </div>
-        </div>
-
-        {/* Le cadre granuleux du scanner : cadrans en suspens, un seul bleu. */}
-        <div className="lg:col-span-7 lg:pt-2" aria-hidden="true">
-          <div className="grain relative overflow-hidden rounded-[28px] p-3 sm:p-5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/images/art/sky.jpg"
-              alt=""
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="relative z-[3] grid rounded-[20px] bg-white/[0.94] shadow-[0_1px_2px_rgba(17,19,24,0.05),0_24px_60px_-32px_rgba(17,19,24,0.35)] backdrop-blur-sm">
-              {/* Les deux contenus partagent la même cellule : hauteur stable. */}
-              <div
-                className={`col-start-1 row-start-1 grid grid-cols-2 content-center gap-2 px-4 py-6 transition-[opacity,filter] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] max-sm:pb-2 sm:gap-4 sm:px-8 sm:py-8 ${
-                  tab === "site" ? "opacity-100" : "pointer-events-none opacity-0 blur-[2px] max-lg:hidden"
-                }`}
-              >
-                <SuspenseGauge name={c.seo} sub={c.seoSub} idle={c.idle} from={64} delay={0.1} />
-                <SuspenseGauge name={c.geo} sub={c.geoSub} idle={c.idle} from={41} delay={0.55} />
-              </div>
-
-              <div
-                className={`col-start-1 row-start-1 flex flex-col items-center gap-5 px-5 py-6 transition-[opacity,filter] duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] sm:flex-row sm:justify-center sm:gap-10 sm:px-8 sm:py-8 ${
-                  tab === "presence" ? "opacity-100" : "pointer-events-none opacity-0 blur-[2px] max-lg:hidden"
-                }`}
-              >
-                <SuspenseGauge name={c.presence} idle={c.idle} from={52} delay={0.25} large />
-                <div className="w-full max-w-[17rem]">
-                  <ul>
-                    {c.checks.map((it) => {
-                      const Icon = ICONS[it.k];
-                      return (
-                        <li
-                          key={it.k}
-                          className="flex items-center gap-3 border-b border-[var(--rule)] py-3 text-[15px] font-medium tracking-[-0.01em] text-[var(--fg)] last:border-b-0"
-                        >
-                          <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[var(--accent-soft)] text-[var(--accent)]">
-                            <Icon size={16} weight="regular" />
-                          </span>
-                          {it.t}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                  <p className="mt-2 text-[13px] text-[var(--fg-2)]">{c.checksFoot}</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -280,54 +281,37 @@ export function HomeAuditTeaser({ locale }: { locale: string }) {
   );
 }
 
-/* ── Un cadran en suspens ───────────────────────────────────────── */
+const CHIP =
+  "inline-flex h-8 items-center gap-1.5 rounded-full border border-white/12 bg-white/[0.06] px-3 text-[13px] font-medium text-white/85";
 
-function SuspenseGauge({
-  name,
-  sub,
-  idle,
-  from,
-  delay,
-  large = false,
-}: {
-  name: string;
-  sub?: string;
-  idle: string;
-  from: number;
-  delay: number;
-  large?: boolean;
-}) {
+/* ── Le cadre : titre du score, grand cadran ────────────────────── */
+
+function PanelHead({ name, sub }: { name: string; sub: string }) {
   return (
-    <div className="flex min-w-0 flex-col items-center">
-      <p className="text-center text-[13px] text-[var(--fg-2)]">
-        <span className="font-medium text-[var(--fg)]">{name}</span>
-        {sub ? `, ${sub}` : null}
-      </p>
-      {/* Le cadran est dessiné pour 240 px : sous 640 px on le réduit d'un bloc
-          (zoom) plutôt que de laisser le chiffre déborder de l'arc. Le cadran
-          seul (présence) garde plus de place. À deux cadrans, les petites
-          mentions (0, 100, « Votre score ») deviendraient illisibles une fois
-          réduites : on les retire sous 640 px. */}
-      <div
-        className={`mt-1 w-[240px] ${
-          large
-            ? "max-sm:[zoom:0.8]"
-            : "max-sm:[zoom:0.56] max-sm:[&_[data-gauge-idle]]:hidden max-sm:[&_[data-gauge-scale]]:hidden"
-        }`}
-      >
-        <ScoreGauge
-          state="idle"
-          score={0}
-          band="bon"
-          tone="brand"
-          idleMode="suspense"
-          suspenseFrom={from}
-          gradeLabel=""
-          idleLabel={idle}
-          scanningLabel=""
-          delay={delay}
-        />
-      </div>
+    <div>
+      <p className="text-[22px] font-medium tracking-[-0.02em] text-white sm:text-[26px]">{name}</p>
+      <p className="mt-1 text-[14px] text-white/65 sm:text-[15px]">{sub}</p>
+    </div>
+  );
+}
+
+function DarkGauge({ idle, from }: { idle: string; from: number }) {
+  // Dessiné pour 240 px, agrandi d'un bloc (zoom) : chiffre, arc et mentions
+  // grandissent ensemble.
+  return (
+    <div className="mt-3 w-[240px] [zoom:1.08] sm:[zoom:1.25] lg:[zoom:1.32]">
+      <ScoreGauge
+        state="idle"
+        score={0}
+        band="bon"
+        tone="dark"
+        idleMode="suspense"
+        suspenseFrom={from}
+        gradeLabel=""
+        idleLabel={idle}
+        scanningLabel=""
+        delay={0.2}
+      />
     </div>
   );
 }
@@ -385,13 +369,6 @@ function SiteForm({ locale, c }: { locale: string; c: Copy }) {
       <p id="home-audit-site-msg" role={err ? "alert" : undefined} className="min-h-6 pt-2 text-sm text-[var(--fg-2)]">
         {err ? <span className="text-[var(--fg)]">{err}</span> : c.siteNote}
       </p>
-      <Link
-        href={action}
-        className="mt-3 inline-flex min-h-8 items-center gap-1.5 text-sm font-medium text-[var(--accent)] underline decoration-transparent underline-offset-4 transition-colors hover:decoration-current"
-      >
-        {c.full}
-        <ArrowRight size={14} weight="bold" aria-hidden="true" />
-      </Link>
     </form>
   );
 }
@@ -459,8 +436,8 @@ function PresenceForm({ locale, c }: { locale: string; c: Copy }) {
 
   return (
     <form onSubmit={submit} noValidate className="relative">
-      <p className="max-w-[34rem] text-[15px] leading-relaxed text-[var(--fg-2)] text-pretty">{c.presenceIntro}</p>
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+      <p className="max-w-[30rem] text-[15px] leading-relaxed text-[var(--fg-2)] text-pretty">{c.presenceIntro}</p>
+      <div className="mt-5 grid gap-4 sm:grid-cols-2">
         <div className="sm:col-span-2">
           <label htmlFor="presence-company" className="block text-sm font-medium text-[var(--fg)]">
             {c.company}

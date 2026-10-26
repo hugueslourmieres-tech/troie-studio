@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, X } from "@phosphor-icons/react";
+import { LoopRail } from "./LoopRail";
 
 /**
  * Nos films (24/10/2026) : trois films paysage visibles sur ordinateur, on
@@ -10,6 +11,8 @@ import { ArrowLeft, ArrowRight, X } from "@phosphor-icons/react";
  * son à gauche, le client, le lieu, ce que l'équipe a fait et le résultat
  * à droite, précédent et suivant en bas. Nos fichiers seulement (22/10 :
  * plus de miniatures ni de lecteur YouTube), lancés directement.
+ * 26/10/2026 : la rangée défile seule, en boucle (LoopRail), sans flèches
+ * ni points ; un clic sur une carte ouvre toujours sa fiche.
  */
 
 type Story = {
@@ -116,27 +119,6 @@ export function HomeFilms({ locale }: { locale: string }) {
   const en = locale === "en";
   const L = en ? "en" : "fr";
   const c = COPY[L];
-  const rail = useRef<HTMLUListElement>(null);
-  const [railActive, setRailActive] = useState(0);
-  const slide = (n: number) => {
-    const el = rail.current;
-    const items = Array.from(el?.children ?? []) as HTMLElement[];
-    if (!el || !items.length) return;
-    const k = ((n % items.length) + items.length) % items.length;
-    el.scrollTo({ left: items[k].offsetLeft - el.offsetLeft, behavior: "smooth" });
-  };
-  useEffect(() => {
-    const el = rail.current;
-    if (!el) return;
-    const onScroll = () => {
-      const items = Array.from(el.children) as HTMLElement[];
-      let best = 0, dist = Infinity;
-      items.forEach((it, k) => { const d = Math.abs(it.offsetLeft - el.offsetLeft - el.scrollLeft); if (d < dist) { dist = d; best = k; } });
-      setRailActive(best);
-    };
-    el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
-  }, []);
   const dialog = useRef<HTMLDialogElement>(null);
   const opener = useRef<HTMLElement | null>(null);
   const [open, setOpen] = useState<number | null>(null);
@@ -192,50 +174,37 @@ export function HomeFilms({ locale }: { locale: string }) {
           </a>
         </div>
 
-        <ul
-          ref={rail}
-          aria-label={c.rail}
-          className="-mx-5 mt-12 flex snap-x snap-mandatory scroll-pl-5 gap-4 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:-mx-12 md:scroll-pl-12 md:gap-5 md:px-12 [&::-webkit-scrollbar]:hidden"
-        >
-          {STORIES.map((st, i) => (
-            <li key={st.id} className="w-[85%] shrink-0 snap-start sm:w-[46%] lg:w-[calc((100%-2.5rem)/3)]">
-              <button
-                type="button"
-                onClick={(e) => show(i, e.currentTarget)}
-                className="group block w-full rounded-2xl border border-[var(--rule)] bg-white text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
-              >
-                <span className="grain relative block aspect-video overflow-hidden rounded-t-2xl bg-[var(--bg-2)]">
-                  <Preview s={st} />
-                </span>
-                <span className="block px-5 pb-5 pt-4">
-                  <span className="block text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{st.client}</span>
-                  <span className="mt-1 flex items-center justify-between gap-3 text-sm text-[var(--fg-2)]">
-                    <span>{st.kind[L]}</span>
-                    <span className="hidden items-center gap-1 font-medium text-[var(--fg)] sm:inline-flex">
-                      {c.open}
-                      <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+        <LoopRail
+          label={c.rail}
+          speed={30}
+          className="mx-[calc(50%-50vw)] mt-12 scroll-pl-[calc(50vw-50%)] px-[calc(50vw-50%)] pt-1 pb-6 "
+          render={(copy) =>
+            STORIES.map((st, i) => (
+              <li key={st.id} className="w-[78vw] shrink-0 sm:w-[44vw] lg:w-[380px]">
+                <button
+                  type="button"
+                  tabIndex={copy ? -1 : undefined}
+                  onClick={(e) => show(i, e.currentTarget)}
+                  className="group block w-full rounded-2xl border border-[var(--rule)] bg-white text-left transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)] active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
+                >
+                  <span className="grain relative block aspect-video overflow-hidden rounded-t-2xl bg-[var(--bg-2)]">
+                    <Preview s={st} />
+                  </span>
+                  <span className="block px-5 pb-5 pt-4">
+                    <span className="block text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{st.client}</span>
+                    <span className="mt-1 flex items-center justify-between gap-3 text-sm text-[var(--fg-2)]">
+                      <span>{st.kind[L]}</span>
+                      <span className="hidden items-center gap-1 font-medium text-[var(--fg)] sm:inline-flex">
+                        {c.open}
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                      </span>
                     </span>
                   </span>
-                </span>
-              </button>
-            </li>
-          ))}
-        </ul>
-
-        {/* Flèches sans cercle aux deux bords, points au centre, comme le héros. */}
-        <div className="mt-6 flex items-center justify-between">
-          <button type="button" onClick={() => slide(railActive - 1)} aria-label={c.prev} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform] duration-200 hover:text-[var(--fg)] active:scale-[0.92]">
-            <ArrowLeft className="h-5 w-5" />
-          </button>
-          <div className="flex items-center gap-1.5" aria-hidden="true">
-            {STORIES.map((st, i) => (
-              <span key={st.id} className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${i === railActive ? "w-6 bg-[var(--fg)]" : "w-1.5 bg-[var(--rule-strong)]"}`} />
-            ))}
-          </div>
-          <button type="button" onClick={() => slide(railActive + 1)} aria-label={c.next} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform] duration-200 hover:text-[var(--fg)] active:scale-[0.92]">
-            <ArrowRight className="h-5 w-5" />
-          </button>
-        </div>
+                </button>
+              </li>
+            ))
+          }
+        />
       </div>
 
       {/* La fiche du film, comme les histoires clients de Colorloop */}

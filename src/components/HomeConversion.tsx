@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ProcessSteps } from "./ProcessSteps";
 
 /**
  * Blocs de conversion de l'accueil (23/10/2026, audit conversion) : pour
@@ -92,15 +93,7 @@ export function HomeProcess({ locale }: { locale: string }) {
     <section className="border-t border-[var(--rule)]">
       <div className="mx-auto max-w-7xl px-5 py-20 md:px-12 md:py-28">
         <h2 data-reveal className="t-display text-4xl text-[var(--fg)] md:text-5xl">{E ? "How it works." : "Comment ça se passe."}</h2>
-        <ol data-reveal-stagger className="mt-12 grid gap-8 md:grid-cols-3">
-          {steps.map((s, i) => (
-            <li key={s.t} className="border-t border-[var(--fg)] pt-6">
-              <span className="font-mono text-sm tabular-nums text-[var(--accent)]">{i + 1}</span>
-              <h3 className="mt-3 text-xl font-medium tracking-[-0.02em] text-[var(--fg)]">{s.t}</h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-[var(--fg-2)]">{s.b}</p>
-            </li>
-          ))}
-        </ol>
+        <ProcessSteps steps={steps} curveLabel={E ? "monthly review" : "suivi chaque mois"} />
         <Link href={`/${locale}/contact#projet`} className={`${BTN_BOOK} mt-12`}>
           {E ? "Describe my project" : "Décrire mon projet"}
         </Link>

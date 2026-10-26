@@ -70,3 +70,46 @@ export const RUTHERFORD_YOUTUBE_PCT = [
 
 /** Nouveaux abonnés LinkedIn par mois, en indice (avant = 100). */
 export const RUTHERFORD_LINKEDIN_RATE_INDEX = { before: 100, after: 302 };
+
+/**
+ * Bien en règle (bienenregle.com), notre propre produit : une web app
+ * réglementaire, B2C et B2B, en niche. Projection indicative, pas un
+ * résultat mesuré. Objectifs sur 6 mois avec un budget modeste (26/10/2026).
+ *
+ * Cohérence interne : les visites du site additionnent Google Ads, SEO et
+ * Meta (650 au mois 1, 4 200 au mois 6). YouTube compte des vues, pas des
+ * visites : il fait connaître le produit, il n'entre pas dans le total.
+ * Demandes = visites x taux de conversion, de 2,0 % au mois 1 à 2,5 % au
+ * mois 6 (une page qui s'améliore chaque mois), arrondi à l'unité.
+ */
+export const BIENENREGLE_PROJECTION_6M = {
+  months: ["M1", "M2", "M3", "M4", "M5", "M6"],
+  /** Visites issues de Google Ads (réseau de recherche). */
+  googleAdsSessions: [300, 520, 750, 950, 1180, 1400],
+  /** Visites issues du référencement naturel. */
+  seoSessions: [150, 280, 500, 850, 1300, 1900],
+  /** Visites issues de Meta Ads (Facebook, Instagram). */
+  metaSessions: [200, 330, 480, 620, 780, 900],
+  /** Vues des annonces YouTube. */
+  youtubeViews: [2000, 3400, 4800, 6200, 7600, 9000],
+  /** Demandes reçues par mois (13/650, 24/1 130, 38/1 730, 56/2 420, 78/3 260, 105/4 200). */
+  leads: [13, 24, 38, 56, 78, 105],
+} as const;
+
+/**
+ * Color Guesser (playcolorguesser.com), notre jeu web. Chiffres réels et
+ * publics, relevés le 26/10/2026 dans l'API du classement :
+ * https://playcolorguesser.com/api/leaderboard (champ « total » = joueurs
+ * inscrits au classement mondial ; somme du champ « games » des 100 lignes
+ * renvoyées = parties jouées par le top 100). Langues et défis : ce que le
+ * site annonce déjà (src/components/WebProjects.tsx). Aucune visite ni
+ * rétention : elles ne sont pas mesurées ici, on ne les invente pas.
+ */
+export const COLORGUESSER_STATS = {
+  readOn: "2026-10-26",
+  source: "https://playcolorguesser.com/api/leaderboard",
+  leaderboardPlayers: 256,
+  top100Games: 3288,
+  languages: 7,
+  challenges: 466,
+} as const;

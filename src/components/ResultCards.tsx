@@ -118,7 +118,12 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
   const ref = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLUListElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
-  const reduce = useReducedMotion();
+  // Le serveur ne connaît pas prefers-reduced-motion : on ne lit la préférence
+  // qu'après le montage, pour que le premier rendu client égale le HTML serveur.
+  const prefersReduce = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+  const reduce = mounted && !!prefersReduce;
   const show = inView || !!reduce;
   const [active, setActive] = useState(0);
   useEffect(() => { onActiveChange?.(active); }, [active, onActiveChange]);
@@ -202,7 +207,7 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
               href={c.target}
               initial={reduce ? false : { opacity: 0, y: 16 }}
               animate={show ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: reduce ? 0 : 0.1 * Math.min(i, 3), ease }}
+              transition={{ duration: reduce ? 0 : 0.7, delay: reduce ? 0 : 0.1 * Math.min(i, 3), ease }}
               className="group block h-full rounded-2xl transition-transform duration-300 hover:-translate-y-0.5 active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]"
             >
               {/* 26/10/2026 : retour à la carte blanche (demande de Hugues) :

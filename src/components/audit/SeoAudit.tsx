@@ -60,20 +60,19 @@ const COPY = {
     errUrl: "Cette adresse ne ressemble pas à un site public. Exemple : votre-site.fr",
     errUnreachable: "Le site ne répond pas. Vérifiez l'adresse, puis réessayez.",
     errBlocked:
-      "Le site refuse les visites automatiques (pare-feu ou protection anti-robots). Écrivez-nous, nous ferons l'audit à la main.",
+      "Le site bloque les visites automatiques. Écrivez-nous, nous ferons l'audit à la main.",
     errRate: "Vous avez lancé beaucoup d'audits en une heure. Réessayez un peu plus tard.",
     errGeneric: "L'audit n'a pas abouti. Réessayez dans un instant.",
-    seoTitle: "Score SEO",
-    seoSub: "SEO, visibilité sur Google",
-    geoTitle: "Score GEO",
-    geoSub: "GEO, visibilité dans les IA",
-    geoEngines: "ChatGPT, Gemini, Perplexity, AI Overviews",
+    seoTitle: "SEO",
+    seoSub: "Google",
+    geoTitle: "GEO",
+    geoSub: "ChatGPT, Gemini",
     weakest: "À traiter en premier",
     geoKeys: {
       "ai-bots": "Accès des robots IA",
-      jsonld: "Données structurées JSON-LD",
+      jsonld: "Données structurées",
       llms: "Fichier llms.txt",
-      "no-js": "Contenu lisible sans JavaScript",
+      "no-js": "Lisible sans JavaScript",
       faq: "Questions et réponses",
     } as Record<string, string>,
     idle: "En attente d'une adresse",
@@ -82,13 +81,13 @@ const COPY = {
     scanned: "Audit de",
     srScore: (s: number, g: string, s2: number, g2: string) =>
       `Score SEO : ${s} sur 100, ${g}. Score GEO : ${s2} sur 100, ${g2}.`,
-    issuesTitle: "Les trois points à corriger d'abord.",
-    issuesNone: "Rien de bloquant. Les points restants relèvent du réglage fin.",
+    issuesTitle: "À corriger d'abord.",
+    issuesNone: "Rien de bloquant.",
     cats: { technique: "Technique", contenu: "Contenu", ia: "Lisibilité IA", performance: "Performance" } as Record<CategoryId, string>,
     status: { pass: "Validé", warn: "À améliorer", fail: "À corriger" } as Record<CheckStatus, string>,
     lockedTitle: "Le rapport détaillé.",
     lockedBody: (n: number, f: number, host: string) =>
-      `${n} vérifications, chacune avec ce que nous avons trouvé, pourquoi ça compte et la correction à faire.${f > 0 ? ` Plus ${f} correctif${f > 1 ? "s" : ""} déjà écrit${f > 1 ? "s" : ""} pour ${host}, prêt${f > 1 ? "s" : ""} à coller.` : ""}`,
+      `${n} vérifications, chacune avec sa correction.${f > 0 ? ` Et ${f} correctif${f > 1 ? "s" : ""} prêt${f > 1 ? "s" : ""} à coller pour ${host}.` : ""}`,
     email: "E-mail",
     firstName: "Prénom",
     optional: "facultatif",
@@ -106,12 +105,11 @@ const COPY = {
     why: "Pourquoi ça compte",
     todo: "À faire",
     fixesTitle: (host: string) => `Les correctifs prêts pour ${host}.`,
-    fixesIntro: "Calculés à partir de votre page. Relisez-les, complétez les champs marqués, puis collez-les.",
+    fixesIntro: "Relisez, complétez les champs marqués, collez.",
     copy: "Copier",
     copied: "Copié",
     ctaTitle: "Faire corriger ces points.",
-    ctaBody:
-      "Nous corrigeons le site avec vous, puis nous relançons l'audit pour comparer. Décrivez votre projet en deux minutes.",
+    ctaBody: "Nous corrigeons avec vous, puis nous relançons l'audit pour comparer.",
     ctaButton: "Faire corriger ces points",
     ctaMail: "Ou écrivez à",
   },
@@ -133,20 +131,19 @@ const COPY = {
     errUrl: "This does not look like a public website. Example: your-site.com",
     errUnreachable: "The site does not respond. Check the address, then try again.",
     errBlocked:
-      "The site refuses automated visits (firewall or bot protection). Write to us and we will run the audit by hand.",
+      "The site blocks automated visits. Write to us and we will run the audit by hand.",
     errRate: "You ran many audits within an hour. Try again a little later.",
     errGeneric: "The audit did not complete. Try again in a moment.",
-    seoTitle: "SEO score",
-    seoSub: "SEO, visibility on Google",
-    geoTitle: "GEO score",
-    geoSub: "GEO, visibility in AI engines",
-    geoEngines: "ChatGPT, Gemini, Perplexity, AI Overviews",
+    seoTitle: "SEO",
+    seoSub: "Google",
+    geoTitle: "GEO",
+    geoSub: "ChatGPT, Gemini",
     weakest: "Fix this first",
     geoKeys: {
       "ai-bots": "AI crawler access",
-      jsonld: "JSON-LD structured data",
+      jsonld: "Structured data",
       llms: "llms.txt file",
-      "no-js": "Content readable without JavaScript",
+      "no-js": "Readable without JavaScript",
       faq: "Questions and answers",
     } as Record<string, string>,
     idle: "Waiting for an address",
@@ -155,13 +152,13 @@ const COPY = {
     scanned: "Audit of",
     srScore: (s: number, g: string, s2: number, g2: string) =>
       `SEO score: ${s} out of 100, ${g}. GEO score: ${s2} out of 100, ${g2}.`,
-    issuesTitle: "The three points to fix first.",
-    issuesNone: "Nothing blocking. What remains is fine tuning.",
+    issuesTitle: "Fix these first.",
+    issuesNone: "Nothing blocking.",
     cats: { technique: "Technical", contenu: "Content", ia: "AI readability", performance: "Performance" } as Record<CategoryId, string>,
     status: { pass: "Passed", warn: "To improve", fail: "To fix" } as Record<CheckStatus, string>,
     lockedTitle: "The detailed report.",
     lockedBody: (n: number, f: number, host: string) =>
-      `${n} checks, each with what we found, why it matters and the fix to make.${f > 0 ? ` Plus ${f} fix${f > 1 ? "es" : ""} already written for ${host}, ready to paste.` : ""}`,
+      `${n} checks, each with its fix.${f > 0 ? ` And ${f} fix${f > 1 ? "es" : ""} ready to paste for ${host}.` : ""}`,
     email: "Email",
     firstName: "First name",
     optional: "optional",
@@ -179,11 +176,11 @@ const COPY = {
     why: "Why it matters",
     todo: "To do",
     fixesTitle: (host: string) => `Fixes ready for ${host}.`,
-    fixesIntro: "Computed from your page. Review them, complete the marked fields, then paste them.",
+    fixesIntro: "Review, complete the marked fields, paste.",
     copy: "Copy",
     copied: "Copied",
     ctaTitle: "Get these points fixed.",
-    ctaBody: "We fix the site with you, then run the audit again to compare. Describe your project in two minutes.",
+    ctaBody: "We fix it with you, then run the audit again to compare.",
     ctaButton: "Get these points fixed",
     ctaMail: "Or write to",
   },
@@ -344,8 +341,8 @@ export function SeoAudit({ locale }: { locale: string }) {
             </h1>
             <p className="mt-6 max-w-[34rem] text-lg leading-relaxed text-[var(--fg-2)]">
               {en
-                ? "Enter your site's address. In a few seconds you get two scores out of 100: SEO, how Google reads you, and GEO, how AI engines read you. Then the three points to fix first. Free, no sign-up."
-                : "Entrez l'adresse de votre site. En quelques secondes, vous obtenez deux scores sur 100 : le SEO, pour Google, et le GEO, pour les moteurs IA. Puis les trois points à corriger d'abord. Gratuit, sans inscription."}
+                ? "Two scores out of 100 in seconds: SEO for Google, GEO for AI. Free, no sign-up."
+                : "Deux scores sur 100 en quelques secondes : SEO pour Google, GEO pour les IA. Gratuit, sans inscription."}
             </p>
 
             <form
@@ -403,7 +400,7 @@ export function SeoAudit({ locale }: { locale: string }) {
                   return (
                     <li
                       key={id}
-                      className={`flex items-center gap-3 text-[15px] transition-colors duration-300 ${phase === "done" ? "max-lg:hidden" : ""}`}
+                      className={`flex items-center gap-3 text-[15px] transition-colors duration-300 ${phase === "done" ? "hidden" : ""}`}
                       style={{ color: done || active ? "var(--fg)" : "color-mix(in oklab, var(--fg-2) 70%, transparent)" }}
                     >
                       <span className="relative grid size-5 place-items-center">
@@ -428,8 +425,8 @@ export function SeoAudit({ locale }: { locale: string }) {
                   );
                 })}
                 {phase === "done" && summary && (
-                  <li className="flex items-center gap-3 pt-1 text-sm text-[var(--fg-2)] tabular-nums lg:pl-8">
-                    <span className="grid size-5 place-items-center rounded-full bg-[var(--accent)] text-white lg:hidden">
+                  <li className="flex items-center gap-3 pt-1 text-sm text-[var(--fg-2)] tabular-nums">
+                    <span className="grid size-5 place-items-center rounded-full bg-[var(--accent)] text-white">
                       <Check size={11} weight="bold" aria-hidden="true" />
                     </span>
                     {c.doneLine(
@@ -441,13 +438,6 @@ export function SeoAudit({ locale }: { locale: string }) {
               </ol>
             )}
 
-            {phase === "idle" && (
-              <p className="mt-2 max-w-[34rem] text-sm leading-relaxed text-[var(--fg-2)]">
-                {en
-                  ? "The audit measures how readable your site is for search and AI engines. It does not tell you whether ChatGPT cites you: nobody can measure or guarantee that."
-                  : "L'audit mesure la lisibilité de votre site par les moteurs. Il ne dit pas si ChatGPT vous cite : personne ne peut le mesurer ni le garantir."}
-              </p>
-            )}
           </div>
 
           {/* Les deux cadrans, posés sur la matière granuleuse du site */}
@@ -570,14 +560,11 @@ function ScoreColumn({
         transitionDelay: weak && !reduce ? `${T.geo + 1.1}s` : "0s",
       }}
     >
-      <header className="md:min-h-[84px]">
-        <div className="min-w-0 pr-1">
-          <h2 className="text-[15px] font-medium tracking-[-0.01em] text-[var(--fg)]">{side === "seo" ? c.seoTitle : c.geoTitle}</h2>
-          <p className="mt-0.5 text-[13px] leading-snug text-[var(--fg-2)]">
-            {side === "seo" ? c.seoSub : c.geoSub}
-            {side === "geo" && <span className="mt-0.5 block text-[12px] text-balance opacity-75">{c.geoEngines}</span>}
-          </p>
-        </div>
+      <header>
+        <h2 className="flex items-baseline gap-2 pr-1">
+          <span className="text-[19px] font-medium tracking-[-0.02em] text-[var(--fg)]">{side === "seo" ? c.seoTitle : c.geoTitle}</span>
+          <span className="text-[13px] text-[var(--fg-2)]">{side === "seo" ? c.seoSub : c.geoSub}</span>
+        </h2>
         {weak && (
           <motion.span
             key={`w-${runId}`}
@@ -711,7 +698,7 @@ function AuditResult({
                     <div className="min-w-0 flex-1">
                       <p className="text-lg font-medium tracking-[-0.015em] text-[var(--fg)] md:text-xl">{it.title}</p>
                       <p className="mt-1 text-sm text-[var(--fg-2)]">
-                        {it.cat === "ia" ? "GEO" : "SEO"}, {c.cats[it.cat].toLowerCase()}, {c.status[it.status].toLowerCase()}
+                        {it.cat === "ia" ? "GEO" : "SEO"}, {c.status[it.status].toLowerCase()}
                       </p>
                     </div>
                     <StatusIcon s={it.status} size={20} />

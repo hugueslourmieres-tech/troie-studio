@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useInView, useReducedMotion } from "motion/react";
 import {
+  BIENENREGLE_PROJECTION_6M,
+  COLORGUESSER_STATS,
   LOIR_MONTHS,
   LOIR_ORDERS_PCT,
   LOIR_SALES_PCT,
@@ -24,15 +26,18 @@ import {
  * ne pas inventer de courbe entre deux mesures.
  */
 
-export type Point = { d: string; v: number };
+/** `label` remplace la date affichée (ex. « M3 » pour une projection). */
+export type Point = { d: string; v: number; label?: string };
 export type LineData = { kind: "line"; points: Point[] };
+/** Chiffre seul, sans série : une tuile, jamais de courbe inventée. */
+export type StatData = { kind: "stat" };
 export type BarsData = { kind: "bars"; bars: { label: string; v: number; display: string }[] };
 export type Metric = {
   id: string;
   label: string;
   headline: number;
   sub: string;
-  data: LineData | BarsData;
+  data: LineData | BarsData | StatData;
   /** « count » : valeurs brutes (nombre de leads), sinon évolution en %. */
   unit?: "pct" | "count";
 };
@@ -45,6 +50,8 @@ export type Client = {
   metrics: Metric[];
   /** Brouillon : chiffres d'exemple, jamais affichés en production. */
   draft?: boolean;
+  /** Projection : objectifs indicatifs, jamais un résultat mesuré. */
+  projection?: boolean;
 };
 
 const MONTHS = {
@@ -53,8 +60,8 @@ const MONTHS = {
 };
 
 const UI = {
-  fr: { clients: "Clients", base: "réf.", before: "Avant", after: "Après" },
-  en: { clients: "Clients", base: "base", before: "Before", after: "After" },
+  fr: { clients: "Clients", base: "réf.", before: "Avant", after: "Après", projection: "projection", target: "objectif" },
+  en: { clients: "Clients", base: "base", before: "Before", after: "After", projection: "projection", target: "target" },
 };
 
 function buildClients(en: boolean): Client[] {
@@ -112,8 +119,77 @@ function buildClients(en: boolean): Client[] {
         { id: "youtube", label: "YouTube", headline: last(RUTHERFORD_YOUTUBE_PCT), sub: en ? "subscribers since April 2022" : "abonnés depuis avril 2022", data: { kind: "line", points: RUTHERFORD_YOUTUBE_PCT } },
       ],
     },
+    projectionClient(en),
+    colorGuesserClient(en),
   ];
   return all;
+}
+
+/**
+ * Bien en règle, notre propre produit : une PROJECTION, pas un résultat.
+ * Étiquetée comme telle partout (puce, note, infobulle, source).
+ */
+function projectionClient(en: boolean): Client {
+  const P = BIENENREGLE_PROJECTION_6M;
+  const series = (vals: readonly number[]): LineData => ({
+    kind: "line",
+    // Dates fictives et régulières, seulement pour l'espacement : l'axe et
+    // l'infobulle affichent « M1 » à « M6 ».
+    points: vals.map((v, i) => ({ d: `2027-0${i + 1}-15`, v, label: P.months[i] })),
+  });
+  const m6 = (what: string) => (en ? `${what}, M6 target` : `${what}, objectif M6`);
+  const metric = (id: string, label: string, vals: readonly number[], what: string): Metric => ({
+    id,
+    label,
+    headline: vals[vals.length - 1],
+    sub: m6(what),
+    data: series(vals),
+    unit: "count",
+  });
+  return {
+    id: "bien-en-regle",
+    name: "Bien en règle",
+    sector: en ? "Our product, regulatory web app" : "Notre produit, web app réglementaire",
+    projection: true,
+    note: en
+      ? "Our own product, bienenregle.com. Google Ads, SEO, Meta and YouTube."
+      : "Notre propre produit, bienenregle.com. Google Ads, SEO, Meta et YouTube.",
+    // La seule mention, discrète, sous les indicateurs (demande de Hugues, 26/10).
+    source: en ? "6-month targets, indicative." : "Objectifs sur 6 mois, chiffres indicatifs.",
+    metrics: [
+      metric("leads", en ? "Leads" : "Demandes", P.leads, en ? "per month" : "par mois"),
+      metric("google-ads", "Google Ads", P.googleAdsSessions, en ? "visits" : "visites"),
+      metric("seo", "SEO", P.seoSessions, en ? "visits" : "visites"),
+      metric("meta", "Meta Ads", P.metaSessions, en ? "visits" : "visites"),
+      metric("youtube", "YouTube Ads", P.youtubeViews, en ? "views" : "vues"),
+    ],
+  };
+}
+
+/** Color Guesser, notre jeu web : chiffres publics du classement, en tuiles. */
+function colorGuesserClient(en: boolean): Client {
+  const C = COLORGUESSER_STATS;
+  const stat = (id: string, label: string, v: number, sub: string): Metric => ({
+    id,
+    label,
+    headline: v,
+    sub,
+    data: { kind: "stat" },
+    unit: "count",
+  });
+  return {
+    id: "color-guesser",
+    name: "Color Guesser",
+    sector: en ? "Our web game" : "Notre jeu web",
+    note: en ? "Our web game, playcolorguesser.com." : "Notre jeu web, playcolorguesser.com.",
+    source: en ? "The game's public leaderboard, read on 26/10/2026." : "Classement public du jeu, relevé du 26/10/2026.",
+    metrics: [
+      stat("players", en ? "Players" : "Joueurs", C.leaderboardPlayers, en ? "on the world leaderboard" : "inscrits au classement mondial"),
+      stat("games", en ? "Games" : "Parties", C.top100Games, en ? "played by the top 100" : "jouées par le top 100"),
+      stat("languages", en ? "Languages" : "Langues", C.languages, en ? "to play in" : "pour jouer"),
+      stat("challenges", en ? "Challenges" : "Défis", C.challenges, en ? "colour challenges" : "défis de couleurs"),
+    ],
+  };
 }
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const;
@@ -167,7 +243,12 @@ export function AnalyticsPanel({
 
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
-  const reduce = useReducedMotion();
+  // Le serveur ne connaît pas prefers-reduced-motion : on ne lit la préférence
+  // qu'après le montage, pour que le premier rendu client égale le HTML serveur.
+  const prefersReduce = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
+  const reduce = mounted && !!prefersReduce;
   const show = inView || !!reduce;
 
   /** « +132 % », signe toujours affiché, espace insécable en français. */
@@ -236,8 +317,14 @@ export function AnalyticsPanel({
     }
     const active = hover ?? pts.length - 1;
 
-    tooltip = { left: x(pts[active].d) / W, label: dateLabel(pts[active].d), value: val(metric, pts[active].v) };
-    ariaLabel = `${client.name}, ${metric.label} : ${val(metric, pts[pts.length - 1].v)}, ${dateLabel(pts[0].d)} à ${dateLabel(pts[pts.length - 1].d)}.`;
+    const pLabel = (p: Point) => p.label ?? dateLabel(p.d);
+    const labeled = pts.every((p) => p.label);
+    tooltip = {
+      left: x(pts[active].d) / W,
+      label: client.projection ? `${pLabel(pts[active])}, ${ui.target}` : pLabel(pts[active]),
+      value: val(metric, pts[active].v),
+    };
+    ariaLabel = `${client.name}${client.projection ? ` (${ui.projection.toLowerCase()})` : ""}, ${metric.label} : ${val(metric, pts[pts.length - 1].v)}, ${pLabel(pts[0])} ${en ? "to" : "à"} ${pLabel(pts[pts.length - 1])}.`;
 
     const onMove = (e: React.PointerEvent<SVGRectElement>) => {
       const r = e.currentTarget.getBoundingClientRect();
@@ -265,19 +352,53 @@ export function AnalyticsPanel({
             </text>
           </g>
         ))}
-        {years.map((d) => (
-          <text key={d} x={x(d)} y={H - 8} textAnchor="middle" fill="var(--fg-2)" fontSize="11" fontFamily="var(--font-mono)">
-            {d.slice(0, 4)}
-          </text>
-        ))}
+        {labeled
+          ? pts.map((p, i) => (
+              <text key={p.d} x={x(p.d)} y={H - 8} textAnchor={i === 0 ? "start" : i === pts.length - 1 ? "end" : "middle"} fill="var(--fg-2)" fontSize="11" fontFamily="var(--font-mono)">
+                {p.label}
+              </text>
+            ))
+          : years.map((d) => (
+              <text key={d} x={x(d)} y={H - 8} textAnchor="middle" fill="var(--fg-2)" fontSize="11" fontFamily="var(--font-mono)">
+                {d.slice(0, 4)}
+              </text>
+            ))}
         <motion.path
           key={`a-${client.id}-${metric.id}`}
           d={area}
           fill="url(#analytics-area)"
           initial={{ opacity: 0 }}
           animate={show ? { opacity: 1 } : {}}
-          transition={{ duration: 0.8, delay: reduce ? 0 : 0.6 }}
+          transition={{ duration: reduce ? 0 : 0.8, delay: reduce ? 0 : 0.6 }}
         />
+        {client.projection ? (
+          <>
+            <clipPath id="analytics-reveal">
+              <motion.rect
+                key={`c-${client.id}-${metric.id}`}
+                x={0}
+                y={0}
+                width={W}
+                height={H}
+                style={{ transformBox: "fill-box", transformOrigin: "left" }}
+                initial={{ scaleX: reduce ? 1 : 0 }}
+                animate={show ? { scaleX: 1 } : {}}
+                transition={{ duration: reduce ? 0 : 1.4, ease: [0.65, 0, 0.35, 1] }}
+              />
+            </clipPath>
+            {/* Pointillés : la convention des projections. */}
+            <path
+              d={line}
+              clipPath="url(#analytics-reveal)"
+              fill="none"
+              stroke="var(--accent)"
+              strokeWidth="2"
+              strokeDasharray="6 5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </>
+        ) : (
         <motion.path
           key={`l-${client.id}-${metric.id}`}
           d={line}
@@ -290,6 +411,7 @@ export function AnalyticsPanel({
           animate={show ? { pathLength: 1 } : {}}
           transition={{ duration: reduce ? 0 : 1.4, ease: [0.65, 0, 0.35, 1] }}
         />
+        )}
         {sparse &&
           xy.map((p, i) => (
             <circle key={`${metric.id}-${i}`} cx={p[0]} cy={p[1]} r="3.5" fill="white" stroke="var(--accent)" strokeWidth="2" />
@@ -358,6 +480,7 @@ export function AnalyticsPanel({
     );
   }
 
+  const statsOnly = client.metrics.every((m) => m.data.kind === "stat");
   const tipShift = tooltip ? (tooltip.left > 0.85 ? "-100%" : tooltip.left < 0.15 ? "0%" : "-50%") : "-50%";
 
   return (
@@ -414,13 +537,30 @@ export function AnalyticsPanel({
         })}
       </nav>
 
-      <div className="min-w-0">
+      <div className="flex min-w-0 flex-col">
         {/* En-tête du client */}
         <div className="px-5 pt-5 md:px-7 md:pt-6">
           <p className="text-base font-medium text-[var(--fg)]">{client.name}</p>
           <p className="mt-0.5 text-sm text-[var(--fg-2)]">{client.note}</p>
         </div>
 
+        {statsOnly ? (
+          <ul className="mt-5 grid flex-1 grid-cols-2 content-stretch border-t border-[var(--rule)] md:grid-cols-4">
+            {client.metrics.map((m, i) => (
+              <li
+                key={`${client.id}-${m.id}`}
+                className={`px-5 py-6 md:px-6 md:py-8 ${i % 2 === 0 ? "border-r" : "md:border-r"} ${i < 2 ? "border-b md:border-b-0" : ""} ${i === client.metrics.length - 1 ? "md:border-r-0" : ""} border-[var(--rule)]`}
+              >
+                <span className="block text-xs text-[var(--fg-2)] md:text-sm">{m.label}</span>
+                <span className="mt-1 block text-2xl font-medium tracking-[-0.02em] tabular-nums text-[var(--accent)] md:text-[2rem]">
+                  {val(m, m.headline)}
+                </span>
+                <span className="mt-0.5 block text-xs text-[var(--fg-2)]">{m.sub}</span>
+              </li>
+            ))}
+          </ul>
+        ) : (
+        <>
         {/* Indicateurs en onglets */}
         <div role="tablist" className="mt-5 flex overflow-x-auto border-y border-[var(--rule)]">
           {client.metrics.map((m, i) => {
@@ -473,8 +613,10 @@ export function AnalyticsPanel({
             {barsView}
           </svg>
         </div>
+        </>
+        )}
 
-        <p className="border-t border-[var(--rule)] px-5 py-3 text-xs text-[var(--fg-2)] md:px-7">{client.source}</p>
+        <p className="mt-auto border-t border-[var(--rule)] px-5 py-3 text-xs text-[var(--fg-2)] md:px-7">{client.source}</p>
       </div>
     </div>
   );

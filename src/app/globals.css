@@ -274,6 +274,42 @@ body {
   .t-marquee { animation: none; }
 }
 
+/* Rangée en boucle (LoopRail, photos et films de l'accueil). Même
+   keyframe que la marquee : la piste porte deux copies, -50 % = une copie.
+   overflow-x: clip (et non hidden) : le focus clavier ne peut pas faire
+   défiler la rangée par en dessous. */
+.t-loop {
+  overflow-x: clip;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.t-loop-track {
+  position: relative;
+  display: flex;
+  width: max-content;
+  animation: troie-marquee var(--loop-dur, 90s) linear infinite;
+  will-change: transform;
+}
+.t-loop-copy { display: flex; flex-shrink: 0; }
+.t-loop[data-paused] .t-loop-track,
+.t-loop:has(:focus-visible) .t-loop-track { animation-play-state: paused; }
+@media (hover: hover) and (pointer: fine) {
+  .t-loop:hover .t-loop-track { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-loop {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    touch-action: auto;
+  }
+  .t-loop::-webkit-scrollbar { display: none; }
+  .t-loop-track { animation: none; will-change: auto; }
+  .t-loop-copy[aria-hidden] { display: none; }
+  .t-loop-copy > li { scroll-snap-align: start; }
+}
+
 /* ─────────────────────────────────────────────────────────────────
    Reveal au scroll (auto) : les textes apparaissent en glissant vers
    le haut quand ils entrent dans le viewport. La classe .reveal-init
@@ -757,4 +793,44 @@ body {
 @keyframes audit-spin { to { transform: rotate(360deg); } }
 @media (prefers-reduced-motion: reduce) {
   .audit-comet, .audit-spin { animation-duration: 2.4s; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   « Comment ça se passe » (ProcessSteps) : la ligne avance d'étape en
+   étape (linéaire, 0,5 s par étape), chaque étape s'allume quand la ligne
+   l'atteint, puis la courbe se trace sous « On lance ». ≈ 2,4 s, une fois.
+   Sans data-anim (serveur, sans JS, mouvement réduit) : état final.
+   ───────────────────────────────────────────────────────────────── */
+.t-process[data-anim="run"] .t-process-bar {
+  transition: transform 0.5s linear calc(0.1s + var(--i) * 0.5s);
+}
+.t-process[data-anim="run"] .t-process-num,
+.t-process[data-anim="run"] .t-process-text,
+.t-process[data-anim="run"] .t-process-dot {
+  transition:
+    opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1) calc(0.1s + var(--i) * 0.5s),
+    transform 0.35s cubic-bezier(0.23, 1, 0.32, 1) calc(0.1s + var(--i) * 0.5s);
+}
+.t-process[data-anim="run"] .t-process-curve {
+  transition:
+    opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1) 1.35s,
+    transform 0.4s cubic-bezier(0.23, 1, 0.32, 1) 1.35s;
+}
+.t-process[data-anim] .t-process-line { stroke-dasharray: 1; }
+.t-process[data-anim="run"] .t-process-line {
+  transition: stroke-dashoffset 0.9s cubic-bezier(0.23, 1, 0.32, 1) 1.5s;
+}
+.t-process[data-anim="run"] .t-process-area { transition: opacity 0.6s ease 1.8s; }
+
+.t-process[data-anim="ready"] .t-process-bar { transform: scaleX(0); }
+.t-process[data-anim="ready"] .t-process-num { opacity: 0.35; }
+.t-process[data-anim="ready"] .t-process-dot { opacity: 0; transform: scale(0.4); }
+.t-process[data-anim="ready"] .t-process-text { opacity: 0.45; }
+.t-process[data-anim="ready"] .t-process-curve { opacity: 0; transform: translateY(6px); }
+.t-process[data-anim="ready"] .t-process-line { stroke-dashoffset: 1; }
+.t-process[data-anim="ready"] .t-process-area { opacity: 0; }
+.t-process[data-anim="run"] .t-process-line { stroke-dashoffset: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .t-process [class*="t-process-"] { transition: none !important; }
 }

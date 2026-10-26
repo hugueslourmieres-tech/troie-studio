@@ -35,6 +35,9 @@ import type { Band } from "@/lib/audit/types";
  *     l'autre : jamais d'à-coup). Rendu serveur déterministe (suspenseFrom),
  *     départ après le montage, pause hors écran et onglet caché. Animations
  *     réduites : arc immobile et « ? » à la place du chiffre.
+ *   - tone="dark" : pour un fond anthracite (bloc d'accueil sur dusk.jpg).
+ *     Piste et graduations blanches très discrètes, arc du blanc vers un
+ *     argent bleuté avec un halo flou, chiffre blanc.
  */
 
 export const BAND_TONES: Record<Band, { from: string; to: string; text: string }> = {
@@ -69,6 +72,7 @@ const ARC = `M ${s.x} ${s.y} A ${R} ${R} 0 1 1 ${e.x} ${e.y}`;
 export type GaugeState = "idle" | "scanning" | "done";
 
 const BRAND_TONE = { from: "#7193ee", to: "#2b55cc", text: "#2b55cc" };
+const DARK_TONE = { from: "#ffffff", to: "#a9bde6", text: "#ffffff" };
 const SUSPENSE_SPRING = { type: "spring", stiffness: 34, damping: 10.5, mass: 1 } as const;
 
 export function ScoreGauge({
@@ -94,8 +98,8 @@ export function ScoreGauge({
   scanningLabel: string;
   /** Départ du balayage, en secondes (décalage entre deux cadrans). */
   delay?: number;
-  /** "band" (défaut) : code couleur du verdict. "brand" : bleu du site. */
-  tone?: "band" | "brand";
+  /** "band" (défaut) : code couleur du verdict. "brand" : bleu du site. "dark" : blanc sur fond sombre. */
+  tone?: "band" | "brand" | "dark";
   /** "still" (défaut) : cadran vide à l'état idle. "suspense" : il cherche. */
   idleMode?: "still" | "suspense";
   /** Valeur de départ du mode suspense, identique serveur et navigateur. */
@@ -112,7 +116,11 @@ export function ScoreGauge({
   const shown = useTransform(value, (v) => Math.round(v));
   const tipX = useTransform(value, (v) => point(START + (SWEEP * v) / 100).x);
   const tipY = useTransform(value, (v) => point(START + (SWEEP * v) / 100).y);
-  const tone = toneMode === "brand" ? BRAND_TONE : BAND_TONES[band];
+  const dark = toneMode === "dark";
+  const tone = dark ? DARK_TONE : toneMode === "brand" ? BRAND_TONE : BAND_TONES[band];
+  // Encre des éléments neutres (graduations, piste, mentions) selon le fond.
+  const ink = dark ? "#fff" : "var(--fg)";
+  const mute = dark ? "text-white/60" : "text-[var(--fg-2)]";
 
   // Mode suspense : une cible au hasard, poursuivie par un ressort, puis la
   // suivante. Tout part après le montage (le rendu serveur reste fixe).
@@ -203,6 +211,11 @@ export function ScoreGauge({
           <pattern id={`t-${uid}`} patternUnits="userSpaceOnUse" width={SIZE} height={SIZE}>
             <image href="/images/art/sky-b.jpg" width={SIZE * 1.333} height={SIZE} x={-40} preserveAspectRatio="xMidYMid slice" />
           </pattern>
+          {dark ? (
+            <filter id={`f-${uid}`} x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="7" />
+            </filter>
+          ) : null}
           <radialGradient id={`h-${uid}`}>
             <stop offset="0" stopColor="#fff" stopOpacity="1" />
             <stop offset="1" stopColor="#fff" stopOpacity="0" />
@@ -218,8 +231,8 @@ export function ScoreGauge({
               y1={t.a.y}
               x2={t.b.x}
               y2={t.b.y}
-              stroke="var(--fg)"
-              strokeOpacity={t.major ? 0.28 : 0.1}
+              stroke={ink}
+              strokeOpacity={dark ? (t.major ? 0.5 : 0.16) : t.major ? 0.28 : 0.1}
               strokeWidth={t.major ? 1.25 : 1}
               strokeLinecap="round"
             />
@@ -227,7 +240,7 @@ export function ScoreGauge({
         </g>
 
         {/* Piste */}
-        <path d={ARC} fill="none" stroke="var(--fg)" strokeOpacity="0.07" strokeWidth="16" strokeLinecap="round" />
+        <path d={ARC} fill="none" stroke={ink} strokeOpacity={dark ? 0.1 : 0.07} strokeWidth="16" strokeLinecap="round" />
 
         {/* Recherche en cours : une comète qui tourne sur la piste. */}
         {state === "scanning" && !reduce && (
@@ -235,7 +248,7 @@ export function ScoreGauge({
             d={ARC}
             pathLength={100}
             fill="none"
-            stroke="var(--accent)"
+            stroke={dark ? "#fff" : "var(--accent)"}
             strokeOpacity="0.55"
             strokeWidth="16"
             strokeLinecap="round"
@@ -246,6 +259,21 @@ export function ScoreGauge({
 
         {/* L'arc du score, puis sa texture granuleuse en surimpression. */}
         <motion.g style={{ opacity: arcOpacity }}>
+          {/* Fond sombre : un halo flou sous l'arc, la lumière qui bave. */}
+          {dark ? (
+            <motion.path
+              d={ARC}
+              pathLength={100}
+              fill="none"
+              stroke="#dfe7ff"
+              strokeOpacity="0.55"
+              strokeWidth="18"
+              strokeLinecap="round"
+              strokeDasharray="100 100"
+              filter={`url(#f-${uid})`}
+              style={{ strokeDashoffset: dash }}
+            />
+          ) : null}
           <motion.path
             d={ARC}
             pathLength={100}
@@ -266,31 +294,36 @@ export function ScoreGauge({
             strokeDasharray="100 100"
             style={{ strokeDashoffset: dash, mixBlendMode: "soft-light", opacity: 0.7 }}
           />
-          <motion.circle cx={tipX} cy={tipY} r="9" fill={`url(#h-${uid})`} opacity="0.55" />
+          <motion.circle cx={tipX} cy={tipY} r={dark ? 14 : 9} fill={`url(#h-${uid})`} opacity={dark ? 0.8 : 0.55} />
           <motion.circle cx={tipX} cy={tipY} r="2.6" fill="#fff" />
         </motion.g>
 
-        <text data-gauge-scale="" x={point(START, R + 2).x - 2} y={point(START).y + 28} className="fill-[var(--fg-2)] font-mono text-[9px]" textAnchor="middle">
+        <text data-gauge-scale="" x={point(START, R + 2).x - 2} y={point(START).y + 28} className={`${dark ? "fill-white/50" : "fill-[var(--fg-2)]"} font-mono text-[9px]`} textAnchor="middle">
           0
         </text>
-        <text data-gauge-scale="" x={point(START + SWEEP, R + 2).x + 2} y={point(START + SWEEP).y + 28} className="fill-[var(--fg-2)] font-mono text-[9px]" textAnchor="middle">
+        <text data-gauge-scale="" x={point(START + SWEEP, R + 2).x + 2} y={point(START + SWEEP).y + 28} className={`${dark ? "fill-white/50" : "fill-[var(--fg-2)]"} font-mono text-[9px]`} textAnchor="middle">
           100
         </text>
       </svg>
 
       {/* Le chiffre, au centre : grand, serré, à chasse fixe. */}
       <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center pt-1">
-        {label ? <span className="text-[13px] font-medium text-[var(--fg-2)]">{label}</span> : null}
+        {label ? <span className={`text-[13px] font-medium ${mute}`}>{label}</span> : null}
         <span
           className="mt-1 text-[68px] leading-[0.95] font-medium tracking-[-0.045em] tabular-nums transition-colors duration-500 sm:text-[72px]"
           style={{
             color:
-              state === "done" || suspense ? tone.text : "color-mix(in oklab, var(--fg) 14%, transparent)",
+              state === "done" || suspense
+                ? tone.text
+                : dark
+                  ? "rgba(255,255,255,0.2)"
+                  : "color-mix(in oklab, var(--fg) 14%, transparent)",
+            textShadow: dark ? "0 0 32px rgba(200,215,255,0.35)" : undefined,
           }}
         >
           {suspense && still ? "?" : <motion.span>{shown}</motion.span>}
         </span>
-        <span className="mt-1 text-[13px] text-[var(--fg-2)] tabular-nums">/ 100</span>
+        <span className={`mt-1 text-[13px] tabular-nums ${mute}`}>/ 100</span>
       </div>
 
       {/* Le mot du verdict, logé dans l'ouverture du cadran. */}
@@ -307,7 +340,7 @@ export function ScoreGauge({
             {gradeLabel}
           </motion.span>
         ) : (
-          <span data-gauge-idle="" className="text-[13px] text-[var(--fg-2)]">
+          <span data-gauge-idle="" className={`text-[13px] ${mute}`}>
             {state === "scanning" ? scanningLabel : idleLabel}
           </span>
         )}

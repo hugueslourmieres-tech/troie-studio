@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
+import { LoopRail } from "./LoopRail";
 
 /**
  * Nos photos (23/10/2026) : une rangée à hauteur fixe qui défile, chaque
@@ -13,6 +12,8 @@ import { ArrowLeft, ArrowRight } from "@phosphor-icons/react";
  * Toutes prises au Nikon Z 6 de Hugues (EXIF vérifié le 23/10/2026). Les
  * séries signées par un autre photographe (CHANEL, Monaco, Wauters) et les
  * photos de Pierre Appert n'y vont jamais.
+ *
+ * 26/10/2026 : la rangée défile seule, en boucle (LoopRail), sans flèches.
  */
 type Photo = { src: string; w: number; h: number; fr: string; en: string };
 
@@ -34,39 +35,13 @@ const PHOTOS: Photo[] = [
 ];
 
 const COPY = {
-  fr: { title: "Nos photos.", body: "Entreprises, ateliers, équipes. Et la montagne, pour garder l'œil.", more: "Toutes les photos", rail: "Nos photos", prev: "Photo précédente", next: "Photo suivante" },
-  en: { title: "Our photos.", body: "Companies, plants, teams. And the mountains, to keep a sharp eye.", more: "All photos", rail: "Our photos", prev: "Previous photo", next: "Next photo" },
+  fr: { title: "Nos photos.", body: "Entreprises, ateliers, équipes. Et la montagne, pour garder l'œil.", more: "Toutes les photos", rail: "Nos photos" },
+  en: { title: "Our photos.", body: "Companies, plants, teams. And the mountains, to keep a sharp eye.", more: "All photos", rail: "Our photos" },
 };
 
 export function HomePhotos({ locale }: { locale: string }) {
   const L = locale === "en" ? "en" : "fr";
   const c = COPY[L];
-  const rail = useRef<HTMLUListElement>(null);
-  const [active, setActive] = useState(0);
-
-  const slide = (n: number) => {
-    const el = rail.current;
-    const items = Array.from(el?.children ?? []) as HTMLElement[];
-    if (!el || !items.length) return;
-    const k = ((n % items.length) + items.length) % items.length;
-    el.scrollTo({ left: items[k].offsetLeft - el.offsetLeft, behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    const el = rail.current;
-    if (!el) return;
-    const onScroll = () => {
-      const items = Array.from(el.children) as HTMLElement[];
-      let best = 0, dist = Infinity;
-      items.forEach((it, k) => {
-        const d = Math.abs(it.offsetLeft - el.offsetLeft - el.scrollLeft);
-        if (d < dist) { dist = d; best = k; }
-      });
-      setActive(best);
-    };
-    el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <section id="photos" className="scroll-mt-24 overflow-hidden">
@@ -81,42 +56,30 @@ export function HomePhotos({ locale }: { locale: string }) {
           </a>
         </div>
 
-        <ul
-          ref={rail}
-          aria-label={c.rail}
-          className="-mx-5 mt-12 flex snap-x snap-mandatory scroll-pl-5 gap-4 overflow-x-auto px-5 pb-3 [scrollbar-width:none] md:-mx-12 md:scroll-pl-12 md:gap-5 md:px-12 [&::-webkit-scrollbar]:hidden"
-        >
-          {PHOTOS.map((p) => (
-            <li key={p.src} className="shrink-0 snap-start">
-              <figure className="group">
-                <div className="relative h-[240px] overflow-hidden rounded-2xl bg-[var(--bg-2)] sm:h-[320px] md:h-[440px]" style={{ aspectRatio: `${p.w} / ${p.h}` }}>
-                  <Image
-                    src={p.src}
-                    alt={p[L]}
-                    fill
-                    sizes="(min-width: 768px) 660px, 450px"
-                    className="object-cover grayscale transition-[filter,transform] duration-700 group-hover:scale-[1.02] group-hover:grayscale-0"
-                  />
-                </div>
-                <figcaption className="mt-3 text-sm text-[var(--fg-2)]">{p[L]}</figcaption>
-              </figure>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-6 flex items-center justify-between">
-          <button type="button" onClick={() => slide(active - 1)} aria-label={c.prev} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform] duration-200 hover:text-[var(--fg)] active:scale-[0.92]">
-            <ArrowLeft className="h-5 w-5" />
-          </button>
-          <div className="flex items-center gap-1.5" aria-hidden="true">
-            {PHOTOS.map((p, i) => (
-              <span key={p.src} className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${i === active ? "w-6 bg-[var(--fg)]" : "w-1.5 bg-[var(--rule-strong)]"}`} />
-            ))}
-          </div>
-          <button type="button" onClick={() => slide(active + 1)} aria-label={c.next} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform] duration-200 hover:text-[var(--fg)] active:scale-[0.92]">
-            <ArrowRight className="h-5 w-5" />
-          </button>
-        </div>
+        <LoopRail
+          label={c.rail}
+          speed={34}
+          className="mx-[calc(50%-50vw)] mt-12 scroll-pl-[calc(50vw-50%)] px-[calc(50vw-50%)] pb-3 "
+          render={(copy) =>
+            PHOTOS.map((p) => (
+              <li key={p.src} className="shrink-0">
+                <figure className="group">
+                  <div className="relative h-[240px] overflow-hidden rounded-2xl bg-[var(--bg-2)] sm:h-[320px] md:h-[440px]" style={{ aspectRatio: `${p.w} / ${p.h}` }}>
+                    <Image
+                      src={p.src}
+                      alt={copy ? "" : p[L]}
+                      fill
+                      draggable={false}
+                      sizes="(min-width: 768px) 660px, 450px"
+                      className="object-cover grayscale transition-[filter,transform] duration-700 group-hover:scale-[1.02] group-hover:grayscale-0"
+                    />
+                  </div>
+                  <figcaption className="mt-3 text-sm text-[var(--fg-2)]">{p[L]}</figcaption>
+                </figure>
+              </li>
+            ))
+          }
+        />
       </div>
     </section>
   );
