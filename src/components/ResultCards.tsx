@@ -224,29 +224,29 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
               {/* 26/10/2026 : retour à la carte blanche (demande de Hugues) :
                   bande de couleur à grain en haut, chiffre bleu qui compte,
                   lien vers l'étude, vraie courbe en bas. Couleurs du site. */}
-              <span className="flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--rule)] bg-white transition-shadow duration-300 group-hover:shadow-[0_18px_40px_-24px_rgba(17,19,24,0.3)]">
-                <span aria-hidden="true" className="grain block h-24 shrink-0 overflow-hidden md:h-28">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/images/art/${c.art}.jpg`} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-                </span>
+              <span className="grain relative isolate flex h-full min-h-[420px] flex-col overflow-hidden rounded-2xl transition-shadow duration-300 group-hover:shadow-[0_24px_50px_-24px_rgba(17,19,24,0.45)] md:min-h-[460px]">
+                {/* Essai « full box » (26/10/2026) : le visuel granuleux remplit toute la carte. */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/images/art/${c.art}.jpg`} alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                <span aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(10,12,16,0.42),rgba(10,12,16,0.12)_55%,rgba(10,12,16,0.4))]" />
                 <span className="block px-6 pt-6 md:px-7">
-                  <span className="block text-lg font-medium tracking-[-0.01em] text-[var(--fg)]">{c.client}</span>
-                  <span className="mt-0.5 block text-sm text-[var(--fg-2)]">{c.sector}</span>
-                  <span className="mt-7 block text-[3.25rem] font-medium leading-none tracking-[-0.045em] text-[var(--accent)] tabular-nums md:text-[3.5rem]">
+                  <span className="block text-lg font-medium tracking-[-0.01em] text-white">{c.client}</span>
+                  <span className="mt-0.5 block text-sm text-white/75">{c.sector}</span>
+                  <span className="mt-7 block text-[3.25rem] font-medium leading-none tracking-[-0.045em] text-white tabular-nums md:text-[3.5rem]">
                     <CountUp value={c.value} run={show && !reduce && i === active} />
                   </span>
-                  <span className="mt-3 block text-[15px] leading-snug text-[var(--fg-2)]">{c.label}</span>
-                  <span className="mt-4 block text-sm font-medium text-[var(--accent)] underline-offset-4 group-hover:underline">{en ? "See the project" : "Voir le projet"}</span>
+                  <span className="mt-3 block text-[15px] leading-snug text-white/85">{c.label}</span>
+                  <span className="mt-4 block text-sm font-medium text-white underline-offset-4 group-hover:underline">{en ? "See the project" : "Voir le projet"}</span>
                 </span>
                 <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.curve ? "none" : "xMidYMid meet"} className="mt-auto block h-[96px] w-full shrink-0">
                   {c.curve && (
                     <>
-                      <path d={`${linePath(c.curve)} L${W},${H} L0,${H} Z`} fill="var(--accent)" opacity={0.08} />
+                      <path d={`${linePath(c.curve)} L${W},${H} L0,${H} Z`} fill="#ffffff" opacity={0.14} />
                       <motion.path
                         key={i === active ? `on-${c.id}` : `off-${c.id}`}
                         d={linePath(c.curve)}
                         fill="none"
-                        stroke="var(--accent)"
+                        stroke="#ffffff"
                         strokeWidth="2"
                         vectorEffect="non-scaling-stroke"
                         strokeLinejoin="round"
@@ -256,7 +256,7 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                       />
                       {c.curve.length < 8 &&
                         c.curve.map(([px, py], k) => (
-                          <circle key={k} cx={Math.min(px * W, W - 6)} cy={H - 6 - py * (H - 12)} r={k === c.curve!.length - 1 ? 5 : 3.5} fill="var(--accent)" />
+                          <circle key={k} cx={Math.min(px * W, W - 6)} cy={H - 6 - py * (H - 12)} r={k === c.curve!.length - 1 ? 5 : 3.5} fill="#ffffff" />
                         ))}
                     </>
                   )}
@@ -276,36 +276,37 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                           width={size}
                           height={size}
                           rx={3}
-                          fill="var(--accent)"
+                          fill="#ffffff"
                           fillOpacity={k === 0 ? 0.35 : 0.95}
                         />
                       );
                     })}
                   {c.score !== undefined && (
                     <>
-                      <rect x={24} y={H / 2 - 7} width={W - 48} height={14} rx={7} fill="var(--accent)" fillOpacity={0.12} />
-                      <motion.rect
+                      {/* Le cadran du scanner, en demi-lune. */}
+                      <path d={`M ${W / 2 - 84} 92 A 84 84 0 0 1 ${W / 2 + 84} 92`} fill="none" stroke="#ffffff" strokeOpacity={0.22} strokeWidth={10} strokeLinecap="round" />
+                      <motion.path
                         key={i === active ? "on" : "off"}
-                        x={24}
-                        y={H / 2 - 7}
-                        height={14}
-                        rx={7}
-                        fill="var(--accent)"
-                        initial={{ width: reduce || i !== active ? ((W - 48) * c.score) / 100 : 0 }}
-                        animate={show ? { width: ((W - 48) * c.score) / 100 } : {}}
-                        transition={{ duration: reduce ? 0 : 0.9, delay: reduce ? 0 : 0.1, ease: [0.65, 0, 0.35, 1] }}
+                        d={`M ${W / 2 - 84} 92 A 84 84 0 0 1 ${W / 2 + 84} 92`}
+                        fill="none"
+                        stroke="#ffffff"
+                        strokeWidth={10}
+                        strokeLinecap="round"
+                        initial={{ pathLength: reduce || i !== active ? c.score / 100 : 0 }}
+                        animate={show ? { pathLength: c.score / 100 } : {}}
+                        transition={{ duration: reduce ? 0 : 1.1, delay: reduce ? 0 : 0.1, ease: [0.65, 0, 0.35, 1] }}
                       />
                     </>
                   )}
                   {c.pair && (
                     <>
-                      <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill="var(--accent)" fillOpacity={0.4} />
+                      <rect x={140} y={H - (c.pair[0] / c.pair[1]) * (H - 10)} width={44} height={(c.pair[0] / c.pair[1]) * (H - 10)} rx={4} fill="#ffffff" fillOpacity={0.4} />
                       <motion.rect
                         key={i === active ? "on" : "off"}
                         x={216}
                         width={44}
                         rx={4}
-                        fill="var(--accent)"
+                        fill="#ffffff"
                         initial={{ y: reduce || i !== active ? 10 : H - (c.pair[0] / c.pair[1]) * (H - 10), height: reduce || i !== active ? H - 10 : (c.pair[0] / c.pair[1]) * (H - 10) }}
                         animate={{ y: 10, height: H - 10 }}
                         transition={{ duration: reduce ? 0 : 1, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}
