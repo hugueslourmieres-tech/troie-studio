@@ -8,6 +8,7 @@ import { HomePhotos } from "@/components/HomePhotos";
 import { HomeWebWorks } from "@/components/HomeWebWorks";
 import { HomeDashboard } from "@/components/HomeDashboard";
 import { HomeServices } from "@/components/HomeServices";
+import { HomeAuditTeaser } from "@/components/HomeAuditTeaser";
 import { AboutBlock } from "@/components/AboutBlock";
 import { ContactCTA } from "@/components/ContactCTA";
 
@@ -15,7 +16,7 @@ import { ContactCTA } from "@/components/ContactCTA";
  * Accueil (21/10/2026). Contrat de direction : .impeccable/surfaces/
  * src-app-locale-page-tsx.md (structure « les résultats en trois cartes »,
  * choisie par Hugues). Ordre : titre et trois résultats, tableau de bord,
- * sites, films, services, marques, équipe, appel.
+ * sites, films, services, audit gratuit, marques, équipe, appel.
  */
 export default async function HomePage({
   params,
@@ -30,6 +31,9 @@ export default async function HomePage({
       <HomeHero locale={locale} />
       <ClientsCloud />
       <HomeServices locale={locale} />
+      {/* Juste après les services (dont « SEO et publicité ») : le visiteur passe
+          de « ce que nous faisons » à son propre score, sans quitter l'accueil. */}
+      <HomeAuditTeaser locale={locale} />
       <HomeAudience locale={locale} />
       <HomeWebWorks locale={locale} />
       <HomeCtaBand locale={locale} />
