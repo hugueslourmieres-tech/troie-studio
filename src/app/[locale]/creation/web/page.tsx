@@ -51,7 +51,7 @@ export default async function WebPage({
 
           <Link
             href={`/${locale}/contact?subject=web`}
-            className="text-sm group mt-14 inline-flex items-center gap-3 bg-[var(--ink)] px-8 py-4 text-[var(--bg)] transition-colors hover:bg-[#2a2e37] hover:text-white font-medium"
+            className="text-sm group mt-14 inline-flex items-center gap-3 rounded-full bg-[var(--ink)] px-8 py-4 text-[var(--bg)] transition-colors hover:bg-[#2a2e37] hover:text-white font-medium"
           >
             Démarrer un projet web
           </Link>

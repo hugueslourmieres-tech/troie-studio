@@ -298,12 +298,18 @@ export function ScoreGauge({
           <motion.circle cx={tipX} cy={tipY} r="2.6" fill="#fff" />
         </motion.g>
 
-        <text data-gauge-scale="" x={point(START, R + 2).x - 2} y={point(START).y + 28} className={`${dark ? "fill-white/50" : "fill-[var(--fg-2)]"} font-mono text-[9px]`} textAnchor="middle">
-          0
-        </text>
-        <text data-gauge-scale="" x={point(START + SWEEP, R + 2).x + 2} y={point(START + SWEEP).y + 28} className={`${dark ? "fill-white/50" : "fill-[var(--fg-2)]"} font-mono text-[9px]`} textAnchor="middle">
-          100
-        </text>
+        {/* Graduations 0 et 100 seulement avec un score : en attente, la
+            légende centrale est plus large et les toucherait sur téléphone. */}
+        {state === "done" && (
+          <>
+            <text data-gauge-scale="" x={point(START, R + 2).x - 2} y={point(START).y + 28} className={`${dark ? "fill-white/50" : "fill-[var(--fg-2)]"} font-mono text-[9px]`} textAnchor="middle">
+              0
+            </text>
+            <text data-gauge-scale="" x={point(START + SWEEP, R + 2).x + 2} y={point(START + SWEEP).y + 28} className={`${dark ? "fill-white/50" : "fill-[var(--fg-2)]"} font-mono text-[9px]`} textAnchor="middle">
+              100
+            </text>
+          </>
+        )}
       </svg>
 
       {/* Le chiffre, au centre : grand, serré, à chasse fixe. */}

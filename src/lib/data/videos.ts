@@ -25,18 +25,10 @@ export type YouTubeVideo = {
 
 export type VideoItem = LocalVideo | YouTubeVideo;
 
+// 26/10/2026 : GS Monaco et Printwell retirés (décision de Hugues, comme sur l'accueil).
 export const VIDEOS: VideoItem[] = [
   // ─────────────────────────────────────────────────────────────
   // Reels / brand films, hosted locally, B&W muted preview loop
-  {
-    kind: "local",
-    src: "/images/videos-local/01.mp4",
-    client: "GS Monaco",
-    title: {
-      fr: "GS Monaco, vidéo de présentation",
-      en: "GS Monaco, presentation film",
-    },
-  },
   {
     kind: "local",
     src: "/images/videos-local/02.mp4",
@@ -45,12 +37,6 @@ export const VIDEOS: VideoItem[] = [
       fr: "Top Akita Inu, interview Mickaël Bedouet",
       en: "Top Akita Inu, Mickaël Bedouet interview",
     },
-  },
-  {
-    kind: "local",
-    src: "/images/videos-local/03.mp4",
-    client: "GS Monaco",
-    title: { fr: "GS Monaco, reels", en: "GS Monaco, reels" },
   },
   {
     kind: "local",
@@ -121,15 +107,6 @@ export const VIDEOS: VideoItem[] = [
   },
   {
     kind: "youtube",
-    youtubeId: "XjgKPUguTfw",
-    client: "GS Monaco × Forbes",
-    title: {
-      fr: "Témoignage, GS Monaco & Forbes Monaco",
-      en: "Testimonial, GS Monaco & Forbes Monaco",
-    },
-  },
-  {
-    kind: "youtube",
     youtubeId: "vYN1mjCK9VU",
     client: "Moderna Printing",
     title: {
@@ -144,15 +121,6 @@ export const VIDEOS: VideoItem[] = [
     title: {
       fr: "Témoignage, ColorConsulting Italy",
       en: "Testimonial, ColorConsulting Italy",
-    },
-  },
-  {
-    kind: "youtube",
-    youtubeId: "ut247z4ren8",
-    client: "Printwell USA",
-    title: {
-      fr: "Témoignage, Printwell USA",
-      en: "Testimonial, Printwell USA",
     },
   },
 ];

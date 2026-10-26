@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { CaretLeft, CaretRight } from "@phosphor-icons/react";
 import {
   VIDEOS,
   type VideoItem,
@@ -43,6 +44,8 @@ export function VideoCarousel({
   const [activeIdx, setActiveIdx] = useState<number | null>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
+  const [snaps, setSnaps] = useState<number[]>([]);
+  const [sel, setSel] = useState(0);
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -52,15 +55,22 @@ export function VideoCarousel({
     const update = () => {
       setCanPrev(emblaApi.canScrollPrev());
       setCanNext(emblaApi.canScrollNext());
+      setSnaps(emblaApi.scrollSnapList());
+      setSel(emblaApi.selectedScrollSnap());
     };
     update();
     emblaApi.on("select", update);
     emblaApi.on("reInit", update);
+    emblaApi.on("settle", update);
     return () => {
+      emblaApi.off("settle", update);
       emblaApi.off("select", update);
       emblaApi.off("reInit", update);
     };
   }, [emblaApi]);
+
+  const nav =
+    "inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform,opacity] duration-200 hover:text-[var(--fg)] active:scale-[0.92] disabled:opacity-30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
 
   return (
     <div className="relative">
@@ -84,24 +94,29 @@ export function VideoCarousel({
         </div>
       </div>
 
-      <div className="mt-10 flex items-center justify-end gap-3">
-        <button
-          type="button"
-          aria-label={lang === "en" ? "Previous" : "Précédent"}
-          onClick={scrollPrev}
-          disabled={!canPrev}
-          className="flex h-11 w-11 items-center justify-center border border-[var(--fg)] text-[var(--fg)] transition disabled:opacity-30 enabled:hover:border-[var(--accent)] enabled:hover:text-[var(--accent)]"
-        >
-          ←
+      {/* Comme sur l'accueil : flèches aux bords, points au centre. */}
+      <div className="mt-6 flex items-center justify-between">
+        <button type="button" aria-label={lang === "en" ? "Previous" : "Précédent"} onClick={scrollPrev} disabled={!canPrev} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform,opacity] duration-200 hover:text-[var(--fg)] active:scale-[0.92] disabled:opacity-30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]">
+          <CaretLeft weight="bold" className="h-5 w-5" />
         </button>
-        <button
-          type="button"
-          aria-label={lang === "en" ? "Next" : "Suivant"}
-          onClick={scrollNext}
-          disabled={!canNext}
-          className="flex h-11 w-11 items-center justify-center border border-[var(--fg)] text-[var(--fg)] transition disabled:opacity-30 enabled:hover:border-[var(--accent)] enabled:hover:text-[var(--accent)]"
-        >
-          →
+        <div className="flex items-center">
+          {snaps.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => emblaApi?.scrollTo(i)}
+              aria-label={`${i + 1} / ${snaps.length}`}
+              aria-current={i === sel ? "true" : undefined}
+              className="group flex h-8 items-center px-[3px] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--accent)]"
+            >
+              <span
+                className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${i === sel ? "w-6 bg-[var(--fg)]" : "w-1.5 bg-[var(--rule-strong)] group-hover:bg-[var(--fg-2)]"}`}
+              />
+            </button>
+          ))}
+        </div>
+        <button type="button" aria-label={lang === "en" ? "Next" : "Suivant"} onClick={scrollNext} disabled={!canNext} className="inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform,opacity] duration-200 hover:text-[var(--fg)] active:scale-[0.92] disabled:opacity-30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]">
+          <CaretRight weight="bold" className="h-5 w-5" />
         </button>
       </div>
     </div>

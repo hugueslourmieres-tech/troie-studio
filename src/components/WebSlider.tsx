@@ -64,8 +64,8 @@ export function WebSlider({ projects, en }: { projects: Project[]; en: boolean }
     return () => io.disconnect();
   }, []);
 
-  const btn =
-    "inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--rule-strong)] text-[var(--fg)] transition-[background-color,transform,opacity] duration-200 hover:bg-[var(--bg-2)] active:scale-[0.96] disabled:pointer-events-none disabled:opacity-30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
+  const nav =
+    "inline-flex h-11 w-11 items-center justify-center rounded-full text-[var(--fg-2)] transition-[color,transform,opacity] duration-200 hover:text-[var(--fg)] active:scale-[0.92] disabled:opacity-30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent)]";
 
   return (
     <div>
@@ -133,18 +133,30 @@ export function WebSlider({ projects, en }: { projects: Project[]; en: boolean }
         ))}
       </ul>
 
-      <div className="mt-8 flex items-center justify-between">
-        <p className="font-mono text-sm tabular-nums text-[var(--fg-2)]" aria-live="polite">
-          {String(active + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
-        </p>
-        <div className="flex gap-2">
-          <button type="button" className={btn} onClick={() => go(active - 1)} disabled={active === 0} aria-label={en ? "Previous website" : "Site précédent"}>
-            <CaretLeft weight="bold" className="h-4 w-4" />
-          </button>
-          <button type="button" className={btn} onClick={() => go(active + 1)} disabled={active === projects.length - 1} aria-label={en ? "Next website" : "Site suivant"}>
-            <CaretRight weight="bold" className="h-4 w-4" />
-          </button>
+      {/* Comme sous les résultats du hero : flèches aux bords, points au centre. */}
+      <div className="mt-6 flex items-center justify-between">
+        <button type="button" className={nav} onClick={() => go(active - 1)} disabled={active === 0} aria-label={en ? "Previous website" : "Site précédent"}>
+          <CaretLeft weight="bold" className="h-5 w-5" />
+        </button>
+        <div className="flex items-center">
+          {projects.map((p, i) => (
+            <button
+              key={p.name}
+              type="button"
+              onClick={() => go(i)}
+              aria-label={p.name}
+              aria-current={i === active ? "true" : undefined}
+              className="group flex h-8 items-center px-[3px] focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[var(--accent)]"
+            >
+              <span
+                className={`h-1.5 rounded-full transition-[width,background-color] duration-300 ${i === active ? "w-6 bg-[var(--fg)]" : "w-1.5 bg-[var(--rule-strong)] group-hover:bg-[var(--fg-2)]"}`}
+              />
+            </button>
+          ))}
         </div>
+        <button type="button" className={nav} onClick={() => go(active + 1)} disabled={active === projects.length - 1} aria-label={en ? "Next website" : "Site suivant"}>
+          <CaretRight weight="bold" className="h-5 w-5" />
+        </button>
       </div>
     </div>
   );

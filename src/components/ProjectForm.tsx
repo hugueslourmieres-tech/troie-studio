@@ -31,7 +31,7 @@ const COPY = {
   fr: {
     need: "Votre besoin",
     needPlaceholder: "Choisissez",
-    site: "Site web de votre entreprise (ou nom de l'entreprise)",
+    site: "Site ou nom de votre entreprise",
     siteHint: "www.votre-entreprise.fr",
     outcome: "Ce que vous voulez obtenir",
     outcomeHint: "Par exemple : être mieux compris par vos clients, ou lancer une nouvelle offre.",
@@ -58,7 +58,7 @@ const COPY = {
   en: {
     need: "What you need",
     needPlaceholder: "Choose one",
-    site: "Your company website (or company name)",
+    site: "Your company website or name",
     siteHint: "www.your-company.com",
     outcome: "What you want to achieve",
     outcomeHint: "For example: be better understood by your customers, or launch a new offer.",
@@ -381,12 +381,14 @@ function Field({
   return (
     <div className="space-y-2.5">
       <label htmlFor={id} className="text-sm flex flex-wrap items-baseline gap-x-2 gap-y-1 text-[var(--fg-2)]/80 font-medium">
-        <span>{label}</span>
-        {required && (
-          <span aria-hidden="true" className="text-[var(--accent)]">
-            *
-          </span>
-        )}
+        <span>
+          {label}
+          {required && (
+            <span aria-hidden="true" className="ml-1.5 text-[var(--accent)]">
+              *
+            </span>
+          )}
+        </span>
         {optional && <span className="font-sans text-[12px] normal-case tracking-normal text-[var(--fg-2)]/55">{optional}</span>}
       </label>
       {children}

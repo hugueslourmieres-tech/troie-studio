@@ -51,8 +51,8 @@ export async function Footer({ locale }: { locale: string }) {
   return (
     <footer className="border-t border-[var(--rule)] bg-[var(--bg)]">
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-12 md:py-20">
-        <div className="grid gap-14 sm:grid-cols-2 sm:gap-x-10 lg:grid-cols-12 lg:gap-x-12 xl:gap-x-20">
-          <div className="sm:col-span-2 lg:col-span-3">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-12 sm:gap-x-10 sm:gap-y-14 lg:grid-cols-12 lg:gap-x-12 xl:gap-x-20">
+          <div className="col-span-2 lg:col-span-3">
             <AnimatedWordmark className="text-[30px] text-[var(--fg)]" />
             <p className="mt-6 max-w-xs text-sm leading-relaxed text-[var(--fg-2)]">
               {tBrand("tagline")}
@@ -95,7 +95,7 @@ export async function Footer({ locale }: { locale: string }) {
             </ul>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="col-span-2 sm:col-span-1 lg:col-span-3">
             <p className="t-eyebrow">{t("contact")}</p>
             <ul className="mt-5 space-y-1 text-sm">
               <li>
