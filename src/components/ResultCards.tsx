@@ -225,7 +225,7 @@ export function ResultCards({ locale, onActiveChange }: { locale: string; onActi
                     <CountUp value={c.value} run={show && !reduce && i === active} />
                   </span>
                   <span className="mt-3 block text-[15px] leading-snug text-[var(--fg-2)]">{c.label}</span>
-                  <span className="mt-4 block text-sm font-medium text-[var(--accent)] underline-offset-4 group-hover:underline">{en ? "Read the case study" : "Lire l'étude de cas"}</span>
+                  <span className="mt-4 block text-sm font-medium text-[var(--accent)] underline-offset-4 group-hover:underline">{en ? "See the project" : "Voir le projet"}</span>
                 </span>
                 <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio={c.curve ? "none" : "xMidYMid meet"} className="mt-auto block h-[96px] w-full shrink-0">
                   {c.curve && (

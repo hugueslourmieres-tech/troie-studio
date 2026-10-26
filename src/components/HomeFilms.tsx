@@ -50,7 +50,7 @@ const STORIES: Story[] = [
     id: "moderna",
     client: "Moderna Printing",
     kind: { fr: "Témoignage client", en: "Customer story" },
-    made: { fr: "Témoignage filmé et monté pour le groupe Rutherford : moins de gâche, des mises en route plus rapides.", en: "Testimonial filmed and edited for the Rutherford group: less waste, faster make-ready." },
+    made: { fr: "Témoignage filmé et monté pour le groupe Rutherford : moins de papier perdu, des démarrages plus rapides.", en: "Testimonial filmed and edited for the Rutherford group: less paper wasted, faster start-ups." },
     preview: "/images/videos-local/moderna-loop.mp4",
     film: "/images/videos-local/moderna.mp4",
   },
@@ -76,7 +76,7 @@ const STORIES: Story[] = [
 const COPY = {
   fr: {
     title: "Nos films.",
-    body: "Interviews, témoignages clients, lancements de produits. Tournés et montés par l'équipe, pensés pour vendre.",
+    body: "Interviews, témoignages, lancements de produits. Tournés et montés par notre équipe.",
     more: "Tous les films",
     open: "Voir le film",
     made: "Ce que nous avons fait",
@@ -87,7 +87,7 @@ const COPY = {
   },
   en: {
     title: "Our films.",
-    body: "Interviews, customer stories, product launches. Shot and edited by the team, made to sell.",
+    body: "Interviews, customer stories, product launches. Shot and edited by our team.",
     more: "All films",
     open: "Watch the film",
     made: "What we did",

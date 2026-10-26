@@ -3,17 +3,12 @@
 import { useRef, useState, type KeyboardEvent } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  ArrowRight,
-  ChatCircleText,
-  CheckCircle,
-  MagnifyingGlass,
-  MapPin,
-} from "@phosphor-icons/react";
+import { ArrowRight, CheckCircle } from "@phosphor-icons/react";
 import { ScoreGauge } from "@/components/audit/ScoreGauge";
 
 /**
- * Bloc d'accueil « Où en est votre site ? » (26/10/2026, version anthracite).
+ * Bloc d'accueil « Vérifiez votre visibilité » (26/10/2026, version anthracite).
+ * Titre du cadran en mots simples, terme technique en petite étiquette.
  *
  * Deux onglets :
  *   1. J'ai un site : un champ, un bouton. Le formulaire est un vrai GET vers
@@ -38,8 +33,8 @@ type Tab = "site" | "presence";
 
 const COPY = {
   fr: {
-    title: "Où en est votre site ?",
-    sub: "Votre score GEO en quelques secondes, gratuit.",
+    title: "Vérifiez votre visibilité",
+    sub: "Gratuit et sans inscription.",
     tabsLabel: "Choisir votre situation",
     tabSite: "J'ai un site",
     tabPresence: "Je n'ai pas de site",
@@ -47,8 +42,8 @@ const COPY = {
     sitePlaceholder: "votre-site.fr",
     siteSubmit: "Voir mon score",
     siteEmpty: "Entrez l'adresse de votre site. Exemple : votre-site.fr",
-    siteNote: "Sans inscription.",
-    presenceIntro: "Nous mesurons votre présence sur Google et dans les IA. Votre score arrive par e-mail sous 48 h.",
+    siteNote: "Résultat en quelques secondes.",
+    presenceIntro: "Votre score arrive par e-mail sous 48 h.",
     company: "Nom de votre entreprise",
     city: "Ville",
     email: "Votre e-mail",
@@ -65,21 +60,15 @@ const COPY = {
     doneTitle: "C'est noté.",
     doneBody: (email: string) =>
       `Votre score de présence arrive sous 48 h à ${email}. Un e-mail de confirmation vient de partir.`,
-    geo: "Score GEO",
-    geoSub: "Votre visibilité dans les réponses des IA.",
-    geoChips: ["ChatGPT", "Gemini", "Réponses IA de Google"],
-    presence: "Score de présence",
-    presenceSub: "Sur 100, par e-mail sous 48 h.",
+    geo: "Votre visibilité sur ChatGPT, Gemini et Google",
+    geoTag: "Score GEO",
+    presence: "Votre visibilité sur Google Maps et dans les IA",
+    presenceTag: "Score de présence",
     idle: "Votre score",
-    checks: [
-      { k: "map", t: "Fiche Google" },
-      { k: "search", t: "Recherche" },
-      { k: "chat", t: "ChatGPT, Gemini" },
-    ],
   },
   en: {
-    title: "Where does your site stand?",
-    sub: "Your GEO score in seconds, free.",
+    title: "Check your visibility",
+    sub: "Free, no sign-up.",
     tabsLabel: "Choose your situation",
     tabSite: "I have a website",
     tabPresence: "I don't have a website",
@@ -87,8 +76,8 @@ const COPY = {
     sitePlaceholder: "your-site.com",
     siteSubmit: "See my score",
     siteEmpty: "Enter your website address. Example: your-site.com",
-    siteNote: "No sign-up.",
-    presenceIntro: "We measure your presence on Google and in AI answers. Your score arrives by email within 48 hours.",
+    siteNote: "Results in seconds.",
+    presenceIntro: "Your score arrives by email within 48 hours.",
     company: "Company name",
     city: "City",
     email: "Your email",
@@ -105,23 +94,15 @@ const COPY = {
     doneTitle: "Got it.",
     doneBody: (email: string) =>
       `Your presence score arrives within 48 hours at ${email}. A confirmation email is on its way.`,
-    geo: "GEO score",
-    geoSub: "How visible you are in AI answers.",
-    geoChips: ["ChatGPT", "Gemini", "Google AI answers"],
-    presence: "Presence score",
-    presenceSub: "Out of 100, by email within 48 hours.",
+    geo: "Your visibility on ChatGPT, Gemini and Google",
+    geoTag: "GEO score",
+    presence: "Your visibility on Google Maps and in AI answers",
+    presenceTag: "Presence score",
     idle: "Your score",
-    checks: [
-      { k: "map", t: "Google profile" },
-      { k: "search", t: "Search" },
-      { k: "chat", t: "ChatGPT, Gemini" },
-    ],
   },
 } as const;
 
 type Copy = (typeof COPY)["fr"] | (typeof COPY)["en"];
-
-const ICONS = { map: MapPin, search: MagnifyingGlass, chat: ChatCircleText } as const;
 
 const INPUT =
   "mt-2 h-12 w-full rounded-xl border border-[var(--rule-strong)] bg-white px-4 text-[16px] text-[var(--fg)] caret-[var(--accent)] outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-[var(--fg-2)]/60 focus:border-[var(--accent)] focus:shadow-[0_0_0_4px_var(--accent-soft)]";
@@ -188,31 +169,13 @@ export function HomeAuditTeaser({ locale }: { locale: string }) {
 
             <div className="relative z-[3] grid place-items-center px-5 pt-7 pb-6 sm:px-10 sm:pt-11 sm:pb-10">
               <div className={`${SWAP} ${on("site")}`}>
-                <PanelHead name={c.geo} sub={c.geoSub} />
+                <PanelHead name={c.geo} tag={c.geoTag} />
                 <DarkGauge idle={c.idle} from={46} />
-                <ul className="mt-1 flex flex-wrap justify-center gap-2">
-                  {c.geoChips.map((t) => (
-                    <li key={t} className={CHIP}>
-                      {t}
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               <div className={`${SWAP} ${on("presence")}`}>
-                <PanelHead name={c.presence} sub={c.presenceSub} />
+                <PanelHead name={c.presence} tag={c.presenceTag} />
                 <DarkGauge idle={c.idle} from={58} />
-                <ul className="mt-1 flex flex-wrap justify-center gap-2">
-                  {c.checks.map((it) => {
-                    const Icon = ICONS[it.k];
-                    return (
-                      <li key={it.k} className={CHIP}>
-                        <Icon size={14} weight="regular" className="text-white/70" />
-                        {it.t}
-                      </li>
-                    );
-                  })}
-                </ul>
               </div>
             </div>
           </div>
@@ -281,16 +244,15 @@ export function HomeAuditTeaser({ locale }: { locale: string }) {
   );
 }
 
-const CHIP =
-  "inline-flex h-8 items-center gap-1.5 rounded-full border border-white/12 bg-white/[0.06] px-3 text-[13px] font-medium text-white/85";
+/* ── Le cadre : titre du score en mots simples, étiquette technique ── */
 
-/* ── Le cadre : titre du score, grand cadran ────────────────────── */
-
-function PanelHead({ name, sub }: { name: string; sub: string }) {
+function PanelHead({ name, tag }: { name: string; tag: string }) {
   return (
-    <div>
-      <p className="text-[22px] font-medium tracking-[-0.02em] text-white sm:text-[26px]">{name}</p>
-      <p className="mt-1 text-[14px] text-white/65 sm:text-[15px]">{sub}</p>
+    <div className="flex max-w-[26rem] flex-col items-center">
+      <span className="inline-flex h-6 items-center rounded-full border border-white/15 bg-white/[0.06] px-2.5 text-[12px] font-medium text-white/70">
+        {tag}
+      </span>
+      <p className="mt-3 text-balance text-[20px] font-medium leading-snug tracking-[-0.02em] text-white sm:text-[24px]">{name}</p>
     </div>
   );
 }

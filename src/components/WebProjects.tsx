@@ -7,7 +7,7 @@ import Image from "next/image";
 export const PROJECTS: Project[] = [
   {
     name: "Bien en règle",
-    kind: "Web app : la conformité des locations de vacances, ville par ville",
+    kind: "Application web : les règles des locations de vacances, ville par ville",
     href: "https://bienenregle.com",
     url: "bienenregle.com",
     label: "bienenregle.com",
@@ -18,7 +18,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "LOIR Paris",
-    kind: "E-commerce, mode : boutique en ligne Shopify",
+    kind: "Boutique en ligne de mode",
     href: "https://loirparis.fr",
     url: "loirparis.fr",
     label: "loirparis.fr",
@@ -30,7 +30,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Rutherford",
-    kind: "Site web & plateforme SaaS",
+    kind: "Site web et logiciel en ligne",
     href: "https://rutherford.fr",
     url: "rutherford.fr",
     label: "rutherford.fr",
@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Bilber",
-    kind: "Plateforme SaaS : le passeport numérique des produits",
+    kind: "Logiciel en ligne : la carte d'identité numérique des produits",
     href: "https://bilber.app",
     url: "bilber.app",
     label: "bilber.app",
@@ -70,7 +70,7 @@ export const PROJECTS: Project[] = [
   },
   {
     name: "Color Guesser",
-    kind: "Jeu web en 7 langues, 466 défis de couleurs",
+    kind: "Jeu en ligne en 7 langues, 466 défis de couleurs",
     href: "https://playcolorguesser.com",
     url: "playcolorguesser.com",
     label: "playcolorguesser.com",

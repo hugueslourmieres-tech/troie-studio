@@ -2,12 +2,12 @@ import { AnalyticsPanel } from "./AnalyticsPanel";
 import { draftClients } from "@/lib/drafts";
 
 /**
- * Le tableau de bord des clients, sous les films : on y explore les vraies
- * courbes, en pourcentages. Les cartes du premier écran y mènent.
+ * Le tableau de bord, sous les films : vraies courbes des clients (en
+ * pourcentages), projection Bien en règle et statistiques de Color Guesser. Les cartes du premier écran y mènent.
  */
 const COPY = {
-  fr: { title: "Explorez les chiffres.", body: "Les vraies courbes de nos clients, lues dans leurs outils. Choisissez un client, puis un indicateur." },
-  en: { title: "Explore the numbers.", body: "Our clients' real curves, read in their own tools. Pick a client, then a metric." },
+  fr: { title: "Explorez les chiffres.", body: "Les chiffres de nos clients et de nos produits." },
+  en: { title: "Explore the numbers.", body: "The numbers of our clients and our own products." },
 } as const;
 
 export function HomeDashboard({ locale }: { locale: string }) {

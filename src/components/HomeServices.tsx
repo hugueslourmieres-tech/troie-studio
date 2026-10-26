@@ -8,23 +8,23 @@ const COPY = {
   fr: {
     title: "Ce que nous faisons.",
     items: [
-      { name: "Sites, applications et e-commerce", body: "Site vitrine, boutique en ligne, application web ou mobile. Conçus, développés et mis en ligne.", href: "creation-site-application", cta: "En savoir plus" },
-      { name: "Photo et vidéo", body: "Reportages, films de marque, témoignages clients, contenus pour les réseaux.", href: "medias", cta: "Voir les images" },
-      { name: "Communication et réseaux sociaux", body: "Positionnement, messages, contenus, réseaux sociaux, lancements de produits.", href: "strategie", cta: "En savoir plus" },
-      { name: "SEO et publicité", body: "Référencement Google, campagnes Google Ads et Meta, suivies chaque mois.", href: "agence-seo-google-ads", cta: "En savoir plus", extra: { href: "audit-seo-gratuit", label: "Audit SEO gratuit de votre site" } },
-      { name: "Leads, CRM et automatisations", body: "Formulaires qui convertissent, CRM en place, relances et suivi des prospects automatisés.", href: "contact#projet", cta: "Décrire mon projet" },
-      { name: "Accompagnement des équipes", body: "Prise en main des outils digitaux, pour que vos équipes avancent seules.", href: "accompagnement", cta: "En savoir plus" },
+      { name: "Sites et boutiques en ligne", body: "Site vitrine, boutique, application. Nous les créons et les mettons en ligne.", href: "creation-site-application", cta: "En savoir plus" },
+      { name: "Photo et vidéo", body: "Reportages, films de marque, témoignages de vos clients.", href: "medias", cta: "Voir les images" },
+      { name: "Communication et réseaux sociaux", body: "Vos messages, vos publications, vos lancements de produits.", href: "strategie", cta: "En savoir plus" },
+      { name: "Google et publicité", tag: "SEO, Google Ads", body: "Être trouvé sur Google, et de la publicité suivie chaque mois.", href: "agence-seo-google-ads", cta: "En savoir plus", extra: { href: "audit-seo-gratuit", label: "Tester mon site gratuitement" } },
+      { name: "Plus de demandes clients", tag: "CRM", body: "Des formulaires qui donnent envie d'écrire, et des relances automatiques.", href: "contact#projet", cta: "Décrire mon projet" },
+      { name: "Accompagnement des équipes", body: "Nous aidons vos équipes à se servir seules de leurs outils.", href: "accompagnement", cta: "En savoir plus" },
     ],
   },
   en: {
     title: "What we do.",
     items: [
-      { name: "Websites, apps and e-commerce", body: "Showcase site, online store, web or mobile app. Designed, built and launched.", href: "creation-site-application", cta: "Learn more" },
-      { name: "Photo and video", body: "Reportage, brand films, customer stories, social media content.", href: "medias", cta: "See the images" },
-      { name: "Communication and social media", body: "Positioning, messaging, content, social media, product launches.", href: "strategie", cta: "Learn more" },
-      { name: "SEO and advertising", body: "Google search, Google Ads and Meta campaigns, reviewed every month.", href: "agence-seo-google-ads", cta: "Learn more", extra: { href: "audit-seo-gratuit", label: "Free SEO audit of your site" } },
-      { name: "Leads, CRM and automation", body: "Forms that convert, a CRM in place, automated follow-ups and lead tracking.", href: "contact#projet", cta: "Describe my project" },
-      { name: "Team support", body: "Hands-on help with digital tools, so your teams can move on their own.", href: "accompagnement", cta: "Learn more" },
+      { name: "Websites and online stores", body: "Showcase site, online store, app. We build them and put them online.", href: "creation-site-application", cta: "Learn more" },
+      { name: "Photo and video", body: "Reportage, brand films, stories from your customers.", href: "medias", cta: "See the images" },
+      { name: "Communication and social media", body: "Your messages, your posts, your product launches.", href: "strategie", cta: "Learn more" },
+      { name: "Google and advertising", tag: "SEO, Google Ads", body: "Getting found on Google, and ads reviewed every month.", href: "agence-seo-google-ads", cta: "Learn more", extra: { href: "audit-seo-gratuit", label: "Test my site for free" } },
+      { name: "More customer enquiries", tag: "CRM", body: "Forms people want to fill in, and automatic follow-ups.", href: "contact#projet", cta: "Describe my project" },
+      { name: "Team support", body: "We help your teams use their tools on their own.", href: "accompagnement", cta: "Learn more" },
     ],
   },
 } as const;
@@ -41,7 +41,14 @@ export function HomeServices({ locale }: { locale: string }) {
             {c.items.map((it) => (
               <li key={it.name} className="border-t border-[var(--rule)] py-7">
                 <Link href={`/${locale}/${it.href}`} className="group block">
-                  <h3 className="text-xl font-medium tracking-[-0.02em] text-[var(--fg)]">{it.name}</h3>
+                  <h3 className="text-xl font-medium tracking-[-0.02em] text-[var(--fg)]">
+                    {it.name}
+                    {"tag" in it && (
+                      <span className="ml-2 inline-block align-middle rounded-full border border-[var(--rule)] px-2 py-0.5 text-[11px] font-normal tracking-normal text-[var(--fg-2)]">
+                        {it.tag}
+                      </span>
+                    )}
+                  </h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-[var(--fg-2)]">{it.body}</p>
                   <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)]">
                     {it.cta}

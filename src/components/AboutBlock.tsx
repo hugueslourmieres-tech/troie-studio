@@ -50,7 +50,7 @@ const COPY = {
   fr: {
     eyebrow: "Le studio",
     title: "Notre équipe.",
-    sub: "Vous parlez directement à ceux qui fabriquent votre projet. Partout en France et à distance.",
+    sub: "Vous parlez directement aux personnes qui font votre projet.",
     prestations: [
       "Stratégie de marque et positionnement",
       "Conseil en communication",
@@ -65,19 +65,19 @@ const COPY = {
     team: {
       hugues: {
         role: "Fondateur",
-        note: "Stratégie, direction artistique, photo et vidéo. Directeur marketing dans les arts graphiques.",
+        note: "Stratégie, photo et vidéo. Directeur marketing dans l'imprimerie.",
       },
       vanessa: {
         role: "Conseil en communication",
-        note: "Conseil en communication et en marque.",
+        note: "Vos messages et votre image de marque.",
       },
-      gilles: { role: "Lead développeur", note: "Sites, applications et outils sur mesure." },
+      gilles: { role: "Développeur principal", note: "Sites, applications et outils sur mesure." },
     },
   },
   en: {
     eyebrow: "The studio",
     title: "Our team.",
-    sub: "You talk directly to the people who make your project. Across France and remotely.",
+    sub: "You talk directly to the people who make your project.",
     prestations: [
       "Brand strategy and positioning",
       "Communication consulting",
@@ -92,11 +92,11 @@ const COPY = {
     team: {
       hugues: {
         role: "Founder",
-        note: "Strategy, art direction, photo and video. Marketing director in the graphic arts industry.",
+        note: "Strategy, photo and video. Marketing director in the printing industry.",
       },
       vanessa: {
         role: "Communication consultant",
-        note: "Communication and brand consulting.",
+        note: "Your messages and your brand image.",
       },
       gilles: { role: "Lead developer", note: "Websites, apps and custom tools." },
     },

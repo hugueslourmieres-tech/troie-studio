@@ -18,14 +18,14 @@ export function HomeAudience({ locale }: { locale: string }) {
   const E = en(locale);
   const items = E
     ? [
-        { t: "SMEs", b: "A website that brings in enquiries, and the ads and content to fill it.", href: "agence-web-nice", cta: "Websites for SMEs", img: "sky" },
-        { t: "E-commerce", b: "More online sales, on Shopify or elsewhere. Store, SEO and ads.", href: "agence-e-commerce-shopify", cta: "E-commerce", img: "meadow" },
-        { t: "Large groups", b: "Films, product launches and content for your teams and markets.", href: "medias", cta: "Films and photos", img: "orchid" },
+        { t: "SMEs", b: "A website that brings you customers, and ways to get it seen.", href: "agence-web-nice", cta: "Websites for SMEs", img: "sky" },
+        { t: "E-commerce", b: "More sales on your online store.", href: "agence-e-commerce-shopify", cta: "E-commerce", img: "meadow" },
+        { t: "Large groups", b: "Films and content for your product launches.", href: "medias", cta: "Films and photos", img: "orchid" },
       ]
     : [
-        { t: "PME", b: "Un site qui amène des demandes, et la publicité et les contenus pour le faire vivre.", href: "agence-web-nice", cta: "Sites pour PME", img: "sky" },
-        { t: "E-commerce", b: "Plus de ventes en ligne, sur Shopify ou ailleurs. Boutique, SEO et publicité.", href: "agence-e-commerce-shopify", cta: "E-commerce", img: "meadow" },
-        { t: "Grands groupes", b: "Films, lancements de produits et contenus pour vos équipes et vos marchés.", href: "medias", cta: "Films et photos", img: "orchid" },
+        { t: "PME", b: "Un site qui vous amène des clients, et de quoi le faire connaître.", href: "agence-web-nice", cta: "Sites pour PME", img: "sky" },
+        { t: "E-commerce", b: "Plus de ventes sur votre boutique en ligne.", href: "agence-e-commerce-shopify", cta: "E-commerce", img: "meadow" },
+        { t: "Grands groupes", b: "Des films et des contenus pour vos lancements de produits.", href: "medias", cta: "Films et photos", img: "orchid" },
       ];
   return (
     <section className="border-t border-[var(--rule)]">
@@ -80,13 +80,13 @@ export function HomeProcess({ locale }: { locale: string }) {
   const E = en(locale);
   const steps = E
     ? [
-        { t: "You describe your project", b: "A short form or an email. You explain your goal, we come back with the right questions." },
-        { t: "A written proposal", b: "Scope, timing and a quote, in plain words." },
-        { t: "We launch", b: "We build, then review the numbers with you every month." },
+        { t: "You describe your project", b: "A short form or an email is enough." },
+        { t: "A written proposal", b: "What we do, when, and the quote." },
+        { t: "We launch", b: "We do the work, then check the numbers with you each month." },
       ]
     : [
-        { t: "Vous décrivez votre projet", b: "Un formulaire court ou un email. Vous expliquez votre objectif, nous revenons avec les bonnes questions." },
-        { t: "Une proposition écrite", b: "Le périmètre, les délais et un devis, en clair." },
+        { t: "Vous décrivez votre projet", b: "Un formulaire court ou un e-mail suffit." },
+        { t: "Une proposition écrite", b: "Ce que nous faisons, les délais et le devis." },
         { t: "On lance", b: "Nous réalisons, puis nous suivons les chiffres avec vous chaque mois." },
       ];
   return (
@@ -104,15 +104,15 @@ export function HomeProcess({ locale }: { locale: string }) {
 
 export const FAQ = {
   fr: [
-    { q: "Combien ça coûte ?", a: "Chaque projet a son devis. Il vous est remis par écrit après un premier échange." },
+    { q: "Combien ça coûte ?", a: "Chaque projet a son devis, remis par écrit après un premier échange." },
     { q: "Faut-il s'engager ?", a: "Non. Le premier échange et la proposition ne vous engagent à rien." },
-    { q: "Vous travaillez où ?", a: "Nous sommes basés à Nice et travaillons partout en France, sur place ou à distance." },
+    { q: "Vous travaillez où ?", a: "Partout en France, sur place ou à distance." },
     { q: "Vous faites tout, ou une seule chose ?", a: "Les deux. Un site seul, une campagne seule, ou tout ensemble avec une seule équipe." },
   ],
   en: [
-    { q: "How much does it cost?", a: "Every project gets its own quote. You receive it in writing after a first exchange." },
+    { q: "How much does it cost?", a: "Every project gets its own quote, in writing, after a first exchange." },
     { q: "Do I have to commit?", a: "No. The first exchange and the proposal do not commit you to anything." },
-    { q: "Where do you work?", a: "We are based in Nice and work across France, on site or remotely." },
+    { q: "Where do you work?", a: "Anywhere in France, on site or remotely." },
     { q: "Do you do everything, or one thing?", a: "Both. A website alone, a campaign alone, or everything with one team." },
   ],
 };

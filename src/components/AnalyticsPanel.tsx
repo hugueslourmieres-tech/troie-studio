@@ -137,7 +137,7 @@ function projectionClient(en: boolean): Client {
     // l'infobulle affichent « M1 » à « M6 ».
     points: vals.map((v, i) => ({ d: `2027-0${i + 1}-15`, v, label: P.months[i] })),
   });
-  const m6 = (what: string) => (en ? `${what}, M6 target` : `${what}, objectif M6`);
+  const m6 = (what: string) => (en ? `${what}, 6-month target` : `${what}, objectif à 6 mois`);
   const metric = (id: string, label: string, vals: readonly number[], what: string): Metric => ({
     id,
     label,
@@ -149,19 +149,19 @@ function projectionClient(en: boolean): Client {
   return {
     id: "bien-en-regle",
     name: "Bien en règle",
-    sector: en ? "Our product, regulatory web app" : "Notre produit, web app réglementaire",
+    sector: en ? "Our product, web app" : "Notre produit, application web",
     projection: true,
     note: en
-      ? "Our own product, bienenregle.com. Google Ads, SEO, Meta and YouTube."
-      : "Notre propre produit, bienenregle.com. Google Ads, SEO, Meta et YouTube.",
+      ? "Our own product, bienenregle.com."
+      : "Notre propre produit, bienenregle.com.",
     // La seule mention, discrète, sous les indicateurs (demande de Hugues, 26/10).
     source: en ? "6-month targets, indicative." : "Objectifs sur 6 mois, chiffres indicatifs.",
     metrics: [
       metric("leads", en ? "Leads" : "Demandes", P.leads, en ? "per month" : "par mois"),
-      metric("google-ads", "Google Ads", P.googleAdsSessions, en ? "visits" : "visites"),
-      metric("seo", "SEO", P.seoSessions, en ? "visits" : "visites"),
-      metric("meta", "Meta Ads", P.metaSessions, en ? "visits" : "visites"),
-      metric("youtube", "YouTube Ads", P.youtubeViews, en ? "views" : "vues"),
+      metric("google-ads", en ? "Google ads" : "Pub Google", P.googleAdsSessions, en ? "visits" : "visites"),
+      metric("seo", en ? "Google search" : "Recherche Google", P.seoSessions, en ? "visits" : "visites"),
+      metric("meta", en ? "Facebook and Instagram ads" : "Pub Facebook et Instagram", P.metaSessions, en ? "visits" : "visites"),
+      metric("youtube", en ? "YouTube ads" : "Pub YouTube", P.youtubeViews, en ? "views" : "vues"),
     ],
   };
 }

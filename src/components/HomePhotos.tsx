@@ -35,8 +35,8 @@ const PHOTOS: Photo[] = [
 ];
 
 const COPY = {
-  fr: { title: "Nos photos.", body: "Entreprises, ateliers, équipes. Et la montagne, pour garder l'œil.", more: "Toutes les photos", rail: "Nos photos" },
-  en: { title: "Our photos.", body: "Companies, plants, teams. And the mountains, to keep a sharp eye.", more: "All photos", rail: "Our photos" },
+  fr: { title: "Nos photos.", body: "Entreprises, ateliers, équipes, et un peu de montagne.", more: "Toutes les photos", rail: "Nos photos" },
+  en: { title: "Our photos.", body: "Companies, plants, teams, and some mountains.", more: "All photos", rail: "Our photos" },
 };
 
 export function HomePhotos({ locale }: { locale: string }) {
