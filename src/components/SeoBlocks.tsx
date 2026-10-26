@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { LOIR_SALES_PCT, RUTHERFORD_TIKTOK_PCT } from "@/lib/results";
 import { ORG_ID } from "./JsonLd";
+import type { NeedSlug } from "@/lib/needs";
 
 /**
  * Blocs partagés des pages de services, de la page Nice et des études de
@@ -13,7 +14,6 @@ import { ORG_ID } from "./JsonLd";
  */
 
 export const BASE = "https://troiestudio.fr";
-export const CAL_URL = "https://cal.com/troiestudio/30min";
 export const GBP_URL = "https://www.google.com/maps/place/?q=place_id:ChIJzaE5l_HCtSwRsqZgau9Fe4o";
 
 export type Locale = "fr" | "en";
@@ -44,22 +44,23 @@ export function ArrowLink({ href, children }: { href: string; children: string }
   );
 }
 
-/** Les deux actions : réserver 30 min (Cal), décrire le projet (/contact). */
+/** Les deux actions (26/10/2026) : décrire le projet (/contact#projet),
+ * puis l'audit gratuit du site (/audit-seo-gratuit). */
 export function Actions({
   locale,
   need,
 }: {
   locale: string;
-  need?: "strategie" | "site" | "contenus" | "accompagnement";
+  need?: NeedSlug;
 }) {
   const en = loc(locale) === "en";
   return (
     <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
-      <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
-        {en ? "Book 30 min" : "Réserver 30 min"}
-      </a>
-      <ArrowLink href={`/${locale}/contact${need ? `?besoin=${need}` : ""}#projet`}>
+      <Link href={`/${locale}/contact${need ? `?besoin=${need}` : ""}#projet`} className={BTN_BOOK}>
         {en ? "Describe my project" : "Décrire mon projet"}
+      </Link>
+      <ArrowLink href={`/${locale}/audit-seo-gratuit`}>
+        {en ? "Free audit of your website" : "Audit gratuit de votre site"}
       </ArrowLink>
     </div>
   );
@@ -79,7 +80,7 @@ export function PageHero({
   eyebrow: string;
   title: string;
   intro: string;
-  need?: "strategie" | "site" | "contenus" | "accompagnement";
+  need?: NeedSlug;
   /** Visuel de couleur filé avec grain (public/images/art), esprit ElevenLabs. */
   art?: string;
   children?: React.ReactNode;

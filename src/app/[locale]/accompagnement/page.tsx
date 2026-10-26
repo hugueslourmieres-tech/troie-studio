@@ -5,7 +5,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { pageSocial } from "@/lib/og";
 import { metaDescription, seoTitle } from "@/lib/seo";
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
 
 /**
  * Page « Accompagnement » (créée le 1er/10/2026), FR et EN.
@@ -35,8 +34,8 @@ const COPY = {
     title: "Nous restons à vos côtés.",
     intro:
       "Une stratégie ne sert que si elle est tenue. Nous suivons vos projets dans la durée, avec vous, vos équipes et vos prestataires.",
-    book: "Réserver 30 min",
-    project: "Décrire mon projet",
+    book: "Décrire mon projet",
+    project: "Nous écrire",
     directionTitle: "Une direction marketing, quand vous n'en avez pas.",
     directionBody:
       "Vous n'avez pas de directeur marketing, ou pas à plein temps. Hugues tient ce rôle à temps partagé : priorités, budget, choix des prestataires, suivi des résultats. Le rythme et la durée se fixent ensemble, dans le devis.",
@@ -88,7 +87,7 @@ const COPY = {
     faq: [
       {
         q: "Combien ça coûte ?",
-        a: "C'est sur devis, après un appel de 30 minutes. Le prix dépend du rythme et du périmètre.",
+        a: "C'est sur devis, après un premier échange. Le prix dépend du rythme et du périmètre.",
       },
       {
         q: "Et si j'ai déjà une équipe marketing ?",
@@ -112,8 +111,8 @@ const COPY = {
     title: "We stay by your side.",
     intro:
       "A strategy only works if it is followed through. We follow your projects over time, with you, your teams and your suppliers.",
-    book: "Book 30 min",
-    project: "Describe my project",
+    book: "Describe my project",
+    project: "Write to us",
     directionTitle: "A marketing director, when you don't have one.",
     directionBody:
       "You have no marketing director, or not full time. Hugues takes on this role on a fractional basis: priorities, budget, choice of suppliers, tracking results. The pace and duration are set together, in the quote.",
@@ -165,7 +164,7 @@ const COPY = {
     faq: [
       {
         q: "How much does it cost?",
-        a: "It is quoted after a 30-minute call. The price depends on the pace and the scope.",
+        a: "It is quoted after a first exchange. The price depends on the pace and the scope.",
       },
       {
         q: "What if I already have a marketing team?",
@@ -356,13 +355,13 @@ export default async function AccompagnementPage({
             {c.intro}
           </p>
           <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
-            <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
+            <Link href={`/${locale}/contact?besoin=autre#projet`} className={BTN_BOOK}>
               {c.book}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">
                 →
               </span>
-            </a>
-            <ArrowLink href={`/${locale}/contact?besoin=accompagnement#projet`}>
+            </Link>
+            <ArrowLink href={`/${locale}/contact#ecrire`}>
               {c.project}
             </ArrowLink>
           </div>

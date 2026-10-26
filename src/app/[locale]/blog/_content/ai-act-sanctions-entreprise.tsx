@@ -195,8 +195,8 @@ export function AiActSanctionsEntreprise() {
         <Link href="/fr/blog/transparence-ia-signaler-contenu-genere">
           les contenus à signaler
         </Link>{" "}
-        couvre la tranche des 15 M€. Premier pas simple : un échange de 30
-        minutes pour situer vos obligations réelles et votre exposition.
+        couvre la tranche des 15 M€. Premier pas simple : un premier
+        échange pour situer vos obligations réelles et votre exposition.
       </p>
 
       <p>

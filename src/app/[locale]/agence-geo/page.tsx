@@ -63,7 +63,7 @@ const COPY = {
     ],
     howTitle: "Comment ça se passe.",
     how: [
-      "Un appel de 30 minutes pour lister vos services, vos clients et les questions qu'ils posent.",
+      "Un premier échange pour lister vos services, vos clients et les questions qu'ils posent.",
       "L'audit : les questions testées dans chaque outil, l'état de votre site et de vos fiches.",
       "Un rendu écrit, avec le plan de corrections et un devis.",
       "Les corrections, sur votre site et vos fiches, avec vous.",
@@ -109,7 +109,7 @@ const COPY = {
       },
       {
         q: "Combien coûte un audit GEO ?",
-        a: "C'est sur devis, selon le nombre de services, de marchés et de langues. Nous commençons toujours par un audit, après un appel de 30 minutes.",
+        a: "C'est sur devis, selon le nombre de services, de marchés et de langues. Nous commençons toujours par un audit, après un premier échange.",
       },
       {
         q: "Travaillez-vous partout en France ?",
@@ -152,7 +152,7 @@ const COPY = {
     ],
     howTitle: "How it works.",
     how: [
-      "A 30-minute call to list your services, your customers and the questions they ask.",
+      "A first exchange to list your services, your customers and the questions they ask.",
       "The audit: questions tested in each tool, the state of your site and your profiles.",
       "A written report, with the plan of fixes and a quote.",
       "The fixes, on your site and your profiles, with you.",
@@ -198,7 +198,7 @@ const COPY = {
       },
       {
         q: "How much does a GEO audit cost?",
-        a: "It is quoted, based on the number of services, markets and languages. We always start with an audit, after a 30-minute call.",
+        a: "It is quoted, based on the number of services, markets and languages. We always start with an audit, after a first exchange.",
       },
       {
         q: "Do you work across France?",
@@ -245,7 +245,7 @@ export default async function AgenceGeoPage({ params }: { params: Promise<{ loca
       <JsonLd data={breadcrumbJsonLd(locale, PATH, c.crumb)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
-      <PageHero locale={locale} art="sky-b" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="strategie" />
+      <PageHero locale={locale} art="sky-b" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="referencement" />
 
       <Block id="definition" title={c.defTitle}>
         {c.def.map((p) => (
@@ -264,7 +264,7 @@ export default async function AgenceGeoPage({ params }: { params: Promise<{ loca
       <Block id="methode" title={c.howTitle}>
         <Sentences items={c.how} />
         <div className="mt-6">
-          <ArrowLink href={`/${locale}/contact?besoin=strategie#projet`}>{c.auditLink}</ArrowLink>
+          <ArrowLink href={`/${locale}/contact?besoin=referencement#projet`}>{c.auditLink}</ArrowLink>
         </div>
       </Block>
 

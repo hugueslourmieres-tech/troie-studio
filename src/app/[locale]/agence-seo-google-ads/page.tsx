@@ -74,7 +74,7 @@ const COPY = {
     faq: [
       {
         q: "Combien coûte une campagne Google Ads ?",
-        a: "Il y a deux parts : le budget versé à Google et nos honoraires. Les deux se fixent ensemble, sur devis, après un appel de 30 minutes.",
+        a: "Il y a deux parts : le budget versé à Google et nos honoraires. Les deux se fixent ensemble, sur devis, après un premier échange.",
       },
       {
         q: "En combien de temps voit-on les effets du SEO ?",
@@ -148,7 +148,7 @@ const COPY = {
     faq: [
       {
         q: "How much does a Google Ads campaign cost?",
-        a: "There are two parts: the budget paid to Google and our fees. Both are set together, in a quote, after a 30-minute call.",
+        a: "There are two parts: the budget paid to Google and our fees. Both are set together, in a quote, after a first exchange.",
       },
       {
         q: "How long before SEO shows results?",
@@ -224,7 +224,7 @@ export default async function SeoAdsPage({ params }: { params: Promise<{ locale:
       <JsonLd data={breadcrumbJsonLd(locale, PATH, c.crumb)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
-      <PageHero locale={locale} art="sky" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="strategie" />
+      <PageHero locale={locale} art="sky" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="referencement" />
 
       <Block id="services" title={c.whatTitle}>
         <Sentences items={c.what} />
@@ -236,7 +236,7 @@ export default async function SeoAdsPage({ params }: { params: Promise<{ locale:
         ))}
         <Body>{c.auditText}</Body>
         <div className="mt-6">
-          <ArrowLink href={`/${locale}/contact?besoin=strategie#projet`}>{c.auditLink}</ArrowLink>
+          <ArrowLink href={`/${locale}/contact?besoin=referencement#projet`}>{c.auditLink}</ArrowLink>
         </div>
         <div className="mt-8">
           <LinkList locale={locale} items={c.localLinks} />

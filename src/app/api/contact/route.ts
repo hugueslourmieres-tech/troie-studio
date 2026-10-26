@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { NEEDS, isNeed } from "@/lib/needs";
 
 /**
  * POST /api/contact
@@ -10,14 +11,19 @@ import { Resend } from "resend";
  *   0a. Origin : un POST dont l'Origin n'est pas le site (ou absent) est
  *       ignore en silence. Les bots qui POST l'API directement tombent la.
  *   0b. Marqueur x-troie-form : envoye par le vrai formulaire uniquement.
- *   0c. Filtre de contenu : les motifs de spam commerciaux recurrents
- *       (backlinks, guest post, crypto...) sont ignores en silence.
+ *   0c. Filtre de contenu, en deux niveaux (26/10/2026) :
+ *       - motifs sans ambiguite (casino, viagra, crypto...) : ignores en
+ *         silence,
+ *       - motifs de demarchage (backlinks, offres SEO, « I came across your
+ *         website »...) : le message part quand meme, avec « [à vérifier] »
+ *         en tete de l'objet. Un vrai prospect n'est jamais perdu.
  *   1. Honeypot : champ "website" invisible ; rempli = bot, on repond
  *      ok sans envoyer (le bot croit avoir reussi).
  *   2. Delai minimal : le formulaire envoie "elapsedMs" (temps passe
  *      sur la page) ; moins de 3 s = bot. (Forgeable : les couches 0a-0c
  *      existent precisement parce que celle-ci ne suffit pas.)
- *   3. Filtre a liens : plus de 2 URLs dans le message = spam.
+ *   3. Filtre a liens : plus de 2 URLs dans le message = refus visible
+ *      (le visiteur peut retirer les liens et renvoyer).
  *   4. Limite par IP : 3 envois par heure (memoire de l'instance,
  *      best-effort en serverless mais suffisant contre les rafales).
  *   5. Cloudflare Turnstile (optionnel) : si TURNSTILE_SECRET_KEY est
@@ -37,8 +43,10 @@ import { Resend } from "resend";
  *
  * Formulaire de projet (bouton « Lancer un projet », /contact#projet,
  * depuis le 1er/10/2026, sans champ budget) :
- *   { kind: "projet", need, needLabel, outcome, situation?, deadline?,
- *     name, email, company?, phone?, locale?, website?, elapsedMs?, turnstileToken? }
+ *   { kind: "projet", need, outcome, situation?, deadline?, name, email,
+ *     companySite, phone?, locale?, website?, elapsedMs?, turnstileToken? }
+ * need (liste de src/lib/needs.ts) et companySite (site web ou nom de
+ * l'entreprise) sont obligatoires depuis le 26/10/2026.
  * Le « message » contrôlé par les filtres est alors ce que la personne veut
  * obtenir, suivi de l'endroit où elle en est. Les erreurs lui sont
  * renvoyées dans la langue de la page (locale). Le formulaire de contact
@@ -68,6 +76,8 @@ type Payload = {
   deadline?: string;
   phone?: string;
   locale?: string;
+  /** Site web ou nom de l'entreprise (obligatoire pour le formulaire de projet). */
+  companySite?: string;
 };
 
 function isEmail(value: string) {
@@ -132,8 +142,16 @@ function allowedOrigin(origin: string | null): boolean {
  * prospect n'écrit aucune de ces expressions, et chaque motif ajouté est
  * un faux positif possible. En cas de doute, NE PAS ajouter.
  */
-const SPAM_PATTERNS =
-  /\b(backlinks?|guest post|link building|seo (service|package|expert)s?|boost your (ranking|traffic)|increase your (ranking|traffic|sales)|web design service|crypto (invest|trading)|bitcoin invest|loan offer|casino|viagra|escort)\b/i;
+const SPAM_HARD =
+  /\b(crypto (invest|trading)|bitcoin invest|loan offer|casino|viagra|cialis|escort)\b/i;
+
+/*
+ * Démarchage commercial probable : le message est envoyé quand même, avec
+ * « [à vérifier] » en tête de l'objet. Un faux positif coûte un coup d'œil,
+ * jamais un prospect.
+ */
+const SPAM_SOFT =
+  /\b(backlinks?|guest post|link building|seo (service|package|expert|agency)s?|boost your (ranking|traffic)|increase your (ranking|traffic|sales)|first page (of|on) google|web design services?|white[- ]label|outsourc(e|ing)|offshore|i came across your (website|site|company)|i (was|have been) (checking|looking at|browsing) your (website|site)|dear (sir|madam|business owner|website owner)|we are a (leading|team of)|unsubscribe|lead generation services?)\b/i;
 
 async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET_KEY;
@@ -216,20 +234,28 @@ export async function POST(request: Request) {
   const phone = clip(payload.phone, 40);
   const outcome = clip(payload.outcome, 3000);
   const situation = clip(payload.situation, 3000);
-  const needLabel = clip(payload.needLabel, 120);
+  const needSlug = clip(payload.need, 40);
+  const needEntry = NEEDS.find((n) => n.slug === needSlug);
+  const needLabel = needEntry ? needEntry.fr : "";
+  const companySite = clip(payload.companySite, 200);
   const deadline = clip(payload.deadline, 60);
   const subject = isProject ? needLabel : (payload.subject?.trim() ?? "");
   const message = isProject
     ? [outcome, situation].filter(Boolean).join("\n\n")
     : (payload.message?.trim() ?? "");
 
-  if (!name || !email || !message || (isProject && !outcome)) {
+  if (
+    !name ||
+    !email ||
+    !message ||
+    (isProject && (!outcome || !companySite || !isNeed(needSlug)))
+  ) {
     return NextResponse.json(
       {
         error: isProject
           ? say(
-              "Indiquez ce que vous voulez obtenir, votre nom et votre email.",
-              "Please add what you want to achieve, your name and your email.",
+              "Remplissez les champs marqués d'un astérisque : besoin, ce que vous voulez obtenir, nom, email et site de l'entreprise.",
+              "Please fill in the fields marked with an asterisk: need, what you want to achieve, name, email and company website.",
             )
           : "name, email and message are required",
       },
@@ -270,10 +296,14 @@ export async function POST(request: Request) {
     );
   }
 
-  // 0c. Motifs de spam commerciaux : acceptés en façade, jamais envoyés.
-  if (SPAM_PATTERNS.test(`${name} ${company} ${subject} ${message}`)) {
+  // 0c. Motifs sans ambiguïté : acceptés en façade, jamais envoyés.
+  const scanned = `${name} ${company} ${companySite} ${subject} ${message}`;
+  if (SPAM_HARD.test(scanned)) {
     return NextResponse.json({ ok: true });
   }
+  // Motifs de démarchage : envoyés, mais signalés dans l'objet.
+  const softMatch = scanned.match(SPAM_SOFT);
+  const flagged = !!softMatch;
 
   // 3. Filtre a liens : les spams commerciaux en collent partout.
   if (countUrls(`${message} ${subject} ${company}`) > 2) {
@@ -306,14 +336,7 @@ export async function POST(request: Request) {
   const to = process.env.CONTACT_TO;
   const from = process.env.CONTACT_FROM ?? "TROIE <onboarding@resend.dev>";
 
-  if (!apiKey || !to) {
-    return NextResponse.json(
-      { error: "Email transport not configured" },
-      { status: 500 },
-    );
-  }
-
-  const resend = new Resend(apiKey);
+  const resend = apiKey && to ? new Resend(apiKey) : null;
 
   const row = (label: string, value: string, long = false) =>
     value
@@ -328,9 +351,10 @@ export async function POST(request: Request) {
     `<hr/>`,
     row("Nom", name),
     `<p><strong>Email :</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>`,
-    row("Entreprise", company),
+    row("Site ou entreprise", companySite),
     row("Téléphone", phone),
     row("Langue du site", payload.locale === "en" ? "anglais" : "français"),
+    flagged ? row("À vérifier", `démarchage probable (motif : « ${softMatch?.[0] ?? ""} »)`) : "",
   ].filter(Boolean);
 
   const contactLines = [
@@ -344,11 +368,32 @@ export async function POST(request: Request) {
 
   const lines = isProject ? projectLines : contactLines;
 
-  const subjectLine = isProject
-    ? `[TROIE] Projet : ${needLabel || "à définir"}, ${name}`
+  const baseSubject = isProject
+    ? `[TROIE] Projet : ${needLabel}, ${name}`
     : subject
       ? `[TROIE] ${subject}, ${name}`
       : `[TROIE] Nouveau message de ${name}`;
+  const subjectLine = flagged ? `[à vérifier] ${baseSubject}` : baseSubject;
+
+  // Transport absent : en local, l'email est écrit dans la console et la
+  // demande est acceptée (pour tester le formulaire). En production, refus
+  // lisible (503) qui renvoie vers l'adresse affichée sur la page.
+  if (!resend || !to) {
+    if (process.env.NODE_ENV !== "production") {
+      console.info("[contact] transport absent, email non envoyé :", subjectLine);
+      return NextResponse.json({ ok: true, dev: true });
+    }
+    console.error("[contact] RESEND_API_KEY ou CONTACT_TO manquant");
+    return NextResponse.json(
+      {
+        error: say(
+          "L'envoi est momentanément indisponible. Écrivez-nous à l'adresse affichée sur cette page.",
+          "Sending is temporarily unavailable. Please write to the address shown on this page.",
+        ),
+      },
+      { status: 503 },
+    );
+  }
 
   try {
     const { error } = await resend.emails.send({

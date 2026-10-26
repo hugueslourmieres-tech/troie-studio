@@ -3,6 +3,7 @@
  * Carrefour en accroche. Porte d'entrée SEO du volet accessibilité
  * de l'offre conformité (/ia/accessibilite).
  */
+import Link from "next/link";
 export function AccessibiliteSiteWebObligation() {
   return (
     <>
@@ -125,7 +126,7 @@ export function AccessibiliteSiteWebObligation() {
         conformité, avec l&apos;AI Act : premier échange, diagnostic RGAA
         complet sur devis, mise en conformité par nos développeurs,
         et supervision continue pour que chaque mise en production reste
-        conforme. Le premier pas est un échange de 30 minutes.
+        conforme. Le premier pas : <Link href="/fr/contact">nous décrire votre projet</Link>.
       </p>
     </>
   );

@@ -1,12 +1,12 @@
 import { setRequestLocale } from "next-intl/server";
 import { JsonLd } from "@/components/JsonLd";
-import { CAL_URL, ToolHero, ToolShell, isEn, toolMetadata } from "@/components/outils/ToolsUI";
+import { ToolHero, ToolShell, isEn, toolMetadata } from "@/components/outils/ToolsUI";
 import { DiagnosticQuiz } from "./DiagnosticQuiz";
 
 /**
  * Le diagnostic AI Act en sept questions (porté depuis troie.app le
  * 23/10/2026). Le résultat renvoie vers l'accompagnement des équipes
- * (/accompagnement#ia) et l'appel de 30 minutes.
+ * (/accompagnement#ia) et la page contact.
  */
 
 const PATH = "/outils/diagnostic-ai-act";
@@ -65,7 +65,7 @@ export default async function DiagnosticPage({ params }: { params: Promise<{ loc
         }
       />
       <section lang="fr" className="mx-auto max-w-4xl px-6 pb-20 md:px-12 md:pb-28">
-        <DiagnosticQuiz locale={locale} calUrl={CAL_URL} />
+        <DiagnosticQuiz locale={locale} />
       </section>
     </ToolShell>
   );

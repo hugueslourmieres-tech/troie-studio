@@ -58,7 +58,7 @@ const COPY = {
     ],
     firstTitle: "Les 30 premiers jours.",
     first: [
-      "Un appel de 30 minutes pour comprendre votre activité, vos marges et vos objectifs.",
+      "Un premier échange pour comprendre votre activité, vos marges et vos objectifs.",
       "Les accès à votre compte Google Ads, à Google Analytics et à votre site. Le compte reste à votre nom.",
       "L'audit et un rendu écrit : ce qui marche, ce qui coûte trop, les corrections par priorité.",
       "La vérification du suivi des conversions, avant de toucher aux enchères.",
@@ -153,7 +153,7 @@ const COPY = {
     ],
     firstTitle: "The first 30 days.",
     first: [
-      "A 30-minute call to understand your business, your margins and your goals.",
+      "A first exchange to understand your business, your margins and your goals.",
       "Access to your Google Ads account, Google Analytics and your site. The account stays in your name.",
       "The audit and a written report: what works, what costs too much, fixes by priority.",
       "A check of conversion tracking, before touching bids.",
@@ -263,7 +263,7 @@ export default async function ConsultantGoogleAdsPage({ params }: { params: Prom
       <JsonLd data={breadcrumbJsonLd(locale, PATH, c.crumb)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
-      <PageHero locale={locale} art="meadow-b" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="strategie" />
+      <PageHero locale={locale} art="meadow-b" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="referencement" />
 
       <Block id="modele" title={c.modelTitle}>
         {c.model.map((p) => (
@@ -281,7 +281,7 @@ export default async function ConsultantGoogleAdsPage({ params }: { params: Prom
       <Block id="trente-jours" title={c.firstTitle}>
         <Sentences items={c.first} />
         <div className="mt-6">
-          <ArrowLink href={`/${locale}/contact?besoin=strategie#projet`}>{c.auditLink}</ArrowLink>
+          <ArrowLink href={`/${locale}/contact?besoin=referencement#projet`}>{c.auditLink}</ArrowLink>
         </div>
       </Block>
 

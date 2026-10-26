@@ -134,18 +134,14 @@ export async function SeoSchema({ locale }: { locale: string }) {
         priceRange: isFr ? "Sur devis" : "On quote",
         knowsLanguage: ["fr-FR", "en"],
         areaServed: AREA_SERVED,
+        /* Plus de prise de rendez-vous (26/10/2026) : le contact passe par
+           la page contact (formulaire de projet) ou par l'email. */
         contactPoint: {
           "@type": "ContactPoint",
-          // Email volontairement absent (anti-moisson).
-          url: `${BASE}/${locale}/contact`,
+          url: `${BASE}/fr/contact`,
+          email: "contact@troiestudio.fr",
           contactType: "sales",
           availableLanguage: ["French", "English"],
-        },
-        /* Prise de rendez-vous en ligne, 30 minutes. */
-        potentialAction: {
-          "@type": "ReserveAction",
-          target: "https://cal.com/troiestudio/30min",
-          name: isFr ? "Réserver 30 minutes" : "Book 30 minutes",
         },
         sameAs: [
           "https://www.linkedin.com/company/troiestudio",

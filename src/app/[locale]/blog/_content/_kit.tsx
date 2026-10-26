@@ -8,8 +8,6 @@ import type { ReactNode } from "react";
  * les tableaux, d'où les classes posées ici. ZÉRO em-dash.
  */
 
-export const CAL_URL = "https://cal.com/troiestudio/30min";
-
 /** Lien externe vers une source. */
 export function Ext({ href, children }: { href: string; children: ReactNode }) {
   return (

@@ -64,16 +64,16 @@ const COPY = {
     ],
     howTitle: "Comment nous travaillons.",
     how: [
-      "Un appel de 30 minutes, en visio ou chez vous, pour comprendre votre besoin.",
+      "Un premier échange, par écrit, en visio ou chez vous, pour comprendre votre besoin.",
       "Une proposition écrite et un devis, avec un prix et un délai fermes.",
       "Les textes d'abord, puis le design, pensé pour le téléphone.",
       "La mise en ligne, avec les bases du référencement déjà en place.",
-      "Un seul interlocuteur, du premier appel au suivi.",
+      "Un seul interlocuteur, du premier échange au suivi.",
     ],
     priceTitle: "Combien coûte un site internet ?",
     price: [
       "Une page d'atterrissage, pour une offre ou une campagne, se chiffre sur devis comme le reste.",
-      "Un site complet, une boutique ou une application sont sur devis. Le prix dépend du nombre de pages, des fonctions et des contenus à produire. Vous recevez un devis écrit après un appel de 30 minutes.",
+      "Un site complet, une boutique ou une application sont sur devis. Le prix dépend du nombre de pages, des fonctions et des contenus à produire. Vous recevez un devis écrit après un premier échange.",
       "Votre site existe déjà ? Commencez par un audit. Vous saurez ce qui freine les demandes et les ventes, et ce qu'il faut corriger en premier.",
     ],
     auditLink: "Demander l'audit",
@@ -102,7 +102,7 @@ const COPY = {
       },
       {
         q: "Combien coûte la création d'un site internet à Cannes ?",
-        a: "Chaque projet est sur devis, après un appel de 30 minutes. Le devis fixe le prix et le délai.",
+        a: "Chaque projet est sur devis, après un premier échange. Le devis fixe le prix et le délai.",
       },
       {
         q: "Combien de temps faut-il pour créer un site ?",
@@ -156,16 +156,16 @@ const COPY = {
     ],
     howTitle: "How we work.",
     how: [
-      "A 30-minute call, by video or at your place, to understand your need.",
+      "A first exchange, in writing, by video or at your place, to understand your need.",
       "A written proposal and a quote, with a firm price and timeline.",
       "Copy first, then design, made for phones.",
       "Launch, with search basics already in place.",
-      "A single contact, from the first call to the follow-up.",
+      "A single contact, from the first exchange to the follow-up.",
     ],
     priceTitle: "How much does a website cost?",
     price: [
       "A landing page, for an offer or a campaign, is quoted like the rest.",
-      "A full website, a store or an app is quoted. The price depends on the number of pages, the features and the content to produce. You get a written quote after a 30-minute call.",
+      "A full website, a store or an app is quoted. The price depends on the number of pages, the features and the content to produce. You get a written quote after a first exchange.",
       "Already have a site? Start with an audit. You will know what holds back enquiries and sales, and what to fix first.",
     ],
     auditLink: "Request the audit",
@@ -194,7 +194,7 @@ const COPY = {
       },
       {
         q: "How much does a website cost in Cannes?",
-        a: "Every project is quoted after a 30-minute call. The quote sets the price and the timeline.",
+        a: "Every project is quoted after a first exchange. The quote sets the price and the timeline.",
       },
       {
         q: "How long does it take to build a website?",
@@ -292,7 +292,7 @@ export default async function AgenceWebCannesAntibesPage({ params }: { params: P
           <Body key={p}>{p}</Body>
         ))}
         <div className="mt-6">
-          <ArrowLink href={`/${locale}/contact?besoin=strategie#projet`}>{c.auditLink}</ArrowLink>
+          <ArrowLink href={`/${locale}/contact?besoin=site#projet`}>{c.auditLink}</ArrowLink>
         </div>
       </Block>
 

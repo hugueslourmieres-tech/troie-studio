@@ -109,7 +109,7 @@ const BTN_DARK =
 const BTN_LINK =
   "group inline-flex min-h-12 items-center gap-2 text-[15px] font-medium text-[var(--fg)] underline decoration-[var(--rule-strong)] underline-offset-4 transition-colors hover:decoration-[var(--fg)]";
 
-export function DiagnosticQuiz({ locale, calUrl }: { locale: string; calUrl: string }) {
+export function DiagnosticQuiz({ locale }: { locale: string }) {
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
   const [done, setDone] = useState(false);
   const topRef = useRef<HTMLDivElement>(null);
@@ -349,7 +349,7 @@ export function DiagnosticQuiz({ locale, calUrl }: { locale: string; calUrl: str
       {/* L'appel */}
       <div className="mt-16 rounded-2xl bg-[var(--bg-2)] p-8 md:p-12">
         <h2 className="t-display text-3xl leading-tight text-[var(--fg)] md:text-4xl">
-          Parlons de votre résultat, trente minutes.
+          Parlons de votre résultat.
         </h2>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
           Nous regardons vos usages réels avec vous, puis nous vous disons ce qui suffit et ce qui
@@ -357,10 +357,10 @@ export function DiagnosticQuiz({ locale, calUrl }: { locale: string; calUrl: str
           dossiers.
         </p>
         <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
-          <a href={calUrl} target="_blank" rel="noreferrer" className={BTN_DARK}>
-            Réserver 30 min
+          <Link href={`/${locale}/contact#projet`} className={BTN_DARK}>
+            Nous contacter
             <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>
-          </a>
+          </Link>
           <Link href={`/${locale}/accompagnement#ia`} className={BTN_LINK}>
             L&apos;accompagnement des équipes
             <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>

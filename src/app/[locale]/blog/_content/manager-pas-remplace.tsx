@@ -155,7 +155,7 @@ export function ManagerPasRemplace() {
         Côté entreprise, on cadre l&apos;usage de l&apos;IA dans vos équipes,
         en présentiel ou à distance, avec une pédagogie exigeante et sans
         survente : voir <Link href="/ia">TROIE pour les professionnels</Link>, ou{" "}
-        <Link href="/fr/contact">réserver un appel de 30 minutes</Link> pour en
+        <Link href="/fr/contact">nous écrire</Link> pour en
         parler.
       </p>
 

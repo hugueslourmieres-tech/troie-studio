@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Brief, Byline, CAL_URL, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
+import { Brief, Byline, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
 
 /**
  * Article : migrer de Magento, PrestaShop ou WooCommerce vers Shopify sans
@@ -250,10 +250,10 @@ export function MigrationShopifySansPerdreSeo() {
       <h2>Préparer votre migration</h2>
       <p>
         Avant de choisir une date, il faut savoir combien d&apos;URL portent votre
-        trafic et votre chiffre d&apos;affaires. C&apos;est ce que mesure notre audit à
-        890 euros HT : les pages qui comptent, les risques de la bascule et
+        trafic et votre chiffre d&apos;affaires. C&apos;est ce que mesure notre audit :
+        les pages qui comptent, les risques de la bascule et
         les corrections par priorité. Vous pouvez aussi{" "}
-        <Ext href={CAL_URL}>réserver un appel de 30 minutes</Ext> pour en
+        <Link href="/fr/contact#projet">nous décrire votre projet</Link> pour en
         parler. Notre approche est détaillée sur la page{" "}
         <Link href="/fr/agence-e-commerce-shopify">agence e-commerce Shopify</Link>
         , et le suivi du référencement sur la page{" "}

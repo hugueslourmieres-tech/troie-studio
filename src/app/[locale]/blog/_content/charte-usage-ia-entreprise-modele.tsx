@@ -408,7 +408,7 @@ export function CharteUsageIaEntrepriseModele() {
         décrit la procédure parallèle à ne pas oublier. La page{" "}
         <Link href="/ia/ai-act">AI Act</Link> résume les échéances. Pour situer
         vos obligations réelles, TROIE Studio propose un{" "}
-        <Link href="/fr/contact?subject=ai-act">échange de 30 minutes</Link>.
+        <Link href="/fr/contact#projet">premier échange</Link>.
       </p>
 
       <p>

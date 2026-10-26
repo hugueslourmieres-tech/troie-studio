@@ -88,7 +88,7 @@ export function AgentIaPmeGuide() {
         cartographie vos processus et priorise les cas d&apos;usage, puis
         suivi d&apos;une supervision mensuelle, sans engagement. Chaque étape
         fait l&apos;objet d&apos;un devis écrit. Le premier pas est un
-        échange de 30 minutes :{" "}
+        échange simple :{" "}
         <Link href="/ia#tarifs">le détail des étapes est ici</Link>.
       </p>
 
@@ -114,9 +114,9 @@ export function AgentIaPmeGuide() {
         Listez les cinq tâches les plus répétitives de votre semaine. Barrez
         celles qui touchent à des décisions sensibles. Sur ce qui reste,
         choisissez la plus fréquente : c&apos;est votre premier agent. Si vous
-        voulez un regard extérieur, on fait ce tri avec vous en{" "}
-        <Link href="/ia">30 minutes</Link>, chiffres à
-        l&apos;appui.
+        voulez un regard extérieur, on fait ce tri avec vous,{" "}
+        <Link href="/fr/contact">chiffres à
+        l&apos;appui</Link>.
       </p>
     </>
   );

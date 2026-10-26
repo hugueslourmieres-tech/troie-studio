@@ -4,11 +4,10 @@ import { useState } from "react";
 import { RESULT_ORDER, ResultCards } from "./ResultCards";
 import { RotatingWord } from "./RotatingWord";
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
-
 /**
  * Premier écran (21/10/2026, contrat dans .impeccable/surfaces) : un titre
- * court, une phrase et l'appel, puis trois résultats réels qui se tracent.
+ * court, une phrase et les deux actions (décrire son projet, audit gratuit
+ * du site, 26/10/2026), puis trois résultats réels qui se tracent.
  */
 const COPY = {
   fr: {
@@ -24,8 +23,8 @@ const COPY = {
     ],
     srWords: "ventes, commandes, visites, prospects, abonnés et demandes.",
     body: "Sites, applications, SEO, publicité, films et réseaux sociaux. Une seule équipe, des résultats mesurés.",
-    book: "Réserver 30 min",
     project: "Décrire mon projet",
+    audit: "Audit gratuit de votre site",
   },
   en: {
     title: "We grow",
@@ -40,8 +39,8 @@ const COPY = {
     ],
     srWords: "sales, orders, traffic, leads, followers and bookings.",
     body: "Websites, apps, SEO and SEA (online advertising), films and social media. One team, measured results.",
-    book: "Book 30 min",
     project: "Describe my project",
+    audit: "Free audit of your website",
   },
 } as const;
 
@@ -65,18 +64,16 @@ export function HomeHero({ locale }: { locale: string }) {
           <p className="max-w-[34rem] text-lg leading-relaxed text-[var(--fg-2)]">{c.body}</p>
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             <a
-              href={CAL_URL}
-              target="_blank"
-              rel="noreferrer"
+              href={`/${locale}/contact#projet`}
               className="inline-flex h-12 items-center rounded-full bg-[var(--ink)] px-6 text-[15px] font-medium text-white transition-[background-color,transform] duration-200 hover:bg-[#2a2e37] active:scale-[0.98]"
             >
-              {c.book}
+              {c.project}
             </a>
             <a
-              href={`/${locale}/contact#projet`}
+              href={`/${locale}/audit-seo-gratuit`}
               className="inline-flex h-12 items-center rounded-full border border-[var(--rule-strong)] px-6 text-[15px] font-medium text-[var(--fg)] transition-colors duration-200 hover:border-[var(--fg)]"
             >
-              {c.project}
+              {c.audit}
             </a>
           </div>
         </div>

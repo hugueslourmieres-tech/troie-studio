@@ -333,7 +333,7 @@ export function AttestationLitteratieIa() {
           les sanctions de l&apos;AI Act
         </Link>{" "}
         précise ce que vous risquez vraiment, et TROIE Studio propose un{" "}
-        <Link href="/fr/contact?subject=ai-act">échange de 30 minutes</Link>{" "}
+        <Link href="/fr/contact#projet">premier échange</Link>{" "}
         pour situer vos obligations réelles.
       </p>
 

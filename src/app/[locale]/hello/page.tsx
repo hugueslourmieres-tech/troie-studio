@@ -16,7 +16,6 @@ import { pageSocial } from "@/lib/og";
  * - @troiestudio vers troiestudio.fr/fr/hello?utm_source=instagram&utm_medium=bio&utm_campaign=troiestudio
  */
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
 const INSTAGRAM_URL = "https://www.instagram.com/troiestudio/";
 const LINKEDIN_URL = "https://www.linkedin.com/company/troiestudio";
 const APP_URL = "https://troie.app";
@@ -33,8 +32,8 @@ const COPY = {
     eyebrow: "Depuis Instagram",
     title: "Bonjour, je suis Hugues.",
     body: "Vous connaissez mes photos de nature. Avec TROIE Studio, je mets le même regard au service des entreprises. Mon équipe et moi pensons votre stratégie, puis nous la montrons en photo, en vidéo et sur le web. Nous travaillons partout en France.",
-    book: "Réserver 30 min",
-    project: "Décrire mon projet",
+    book: "Décrire mon projet",
+    project: "Nous écrire",
     work: "Voir les réalisations",
     team: "Rencontrer l'équipe",
     series: "Mes séries nature",
@@ -52,8 +51,8 @@ const COPY = {
     eyebrow: "From Instagram",
     title: "Hello, I'm Hugues.",
     body: "You know my nature photos. With TROIE Studio, I bring the same eye to businesses. My team and I shape your strategy, then show it in photos, video and on the web. We work across France.",
-    book: "Book 30 min",
-    project: "Describe my project",
+    book: "Describe my project",
+    project: "Write to us",
     work: "See our work",
     team: "Meet the team",
     series: "My nature series",
@@ -166,20 +165,16 @@ export default async function HelloPage({
         <h1 className="t-display mt-3 text-4xl">{c.title}</h1>
         <p className="mt-5 text-base leading-relaxed text-[var(--fg-2)]">{c.body}</p>
 
-        {/* 6. Les deux actions : réserver (orange plein), lancer un projet (contour) */}
+        {/* 6. Les deux actions : décrire son projet (plein), nous écrire (contour) */}
         <div className="mt-8 flex flex-col gap-3">
-          <a
-            href={CAL_URL}
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            href={`/${locale}/contact#projet`}
             className={`${BUTTON} bg-[var(--ink)] text-white hover:bg-[#2a2e37] hover:text-white ${FOCUS}`}
           >
             {c.book}
-            <span aria-hidden="true">↗</span>
-            <span className="sr-only">({c.newTab})</span>
-          </a>
+          </Link>
           <Link
-            href={`/${locale}/contact#projet`}
+            href={`/${locale}/contact#ecrire`}
             className={`${BUTTON} border border-[var(--ink)] text-[var(--fg)] hover:bg-[var(--ink)] hover:text-[var(--bg)] ${FOCUS}`}
           >
             {c.project}

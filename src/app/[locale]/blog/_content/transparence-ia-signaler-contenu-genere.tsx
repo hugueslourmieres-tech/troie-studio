@@ -235,7 +235,7 @@ export function TransparenceIaSignalerContenuGenere() {
           ce qui est contrôlable depuis le 2 août 2026
         </Link>{" "}
         replace la transparence dans le calendrier d&apos;ensemble. Premier
-        pas simple : un échange de 30 minutes pour situer vos
+        pas simple : un premier échange pour situer vos
         obligations réelles.
       </p>
 

@@ -60,12 +60,11 @@ function formatDate(iso: string, locale: string) {
   });
 }
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
-
 /**
  * Textes d'interface de la page article, par locale. Le bloc de fin
  * d'article reprend le contact de clôture du studio (deck du 1er/10/2026) :
- * « Réserver 30 min » en action principale, « Décrire mon projet » ensuite.
+ * « Décrire mon projet » en action principale, « Nous écrire » ensuite
+ * (plus de prise de rendez-vous depuis le 26/10/2026).
  * Le bloc ne pousse plus troie.app (son lien vit dans le pied de page), ni
  * l'ancienne promesse d'une attestation « qui met en règle » : l'article 4
  * de l'AI Act est une obligation de moyens, sans certificat.
@@ -76,18 +75,18 @@ const UI = {
     ctaEyebrow: "Contact",
     ctaTitle: "Parlons de votre projet.",
     ctaBody:
-      "Trente minutes pour comprendre où vous en êtes et ce que vous visez. Ensuite, nous vous envoyons une proposition écrite et un devis.",
-    ctaBook: "Réserver 30 min",
+      "Dites-nous où vous en êtes et ce que vous visez, en quelques lignes. Ensuite, nous vous envoyons une proposition écrite et un devis.",
     ctaProject: "Décrire mon projet",
+    ctaWrite: "Nous écrire",
   },
   en: {
     back: "← The Journal",
     ctaEyebrow: "Contact",
     ctaTitle: "Let's talk about your project.",
     ctaBody:
-      "Thirty minutes to understand where you stand and what you aim for. Then we send you a written proposal and a quote.",
-    ctaBook: "Book 30 min",
+      "Tell us where you stand and what you aim for, in a few lines. Then we send you a written proposal and a quote.",
     ctaProject: "Describe my project",
+    ctaWrite: "Write to us",
   },
 } as const;
 
@@ -186,20 +185,18 @@ export default async function ArticlePage({
           {ui.ctaBody}
         </p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <a
-            href={CAL_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-7 py-4 text-white transition-colors hover:bg-[#2a2e37] font-medium"
-          >
-            {ui.ctaBook}
-            <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-          </a>
           <Link
             href={`/${locale}/contact#projet`}
-            className="text-sm group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-7 py-4 text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)] font-medium"
+            className="text-sm group inline-flex items-center justify-center gap-3 bg-[var(--ink)] px-7 py-4 text-white transition-colors hover:bg-[#2a2e37] font-medium"
           >
             {ui.ctaProject}
+            <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
+          </Link>
+          <Link
+            href={`/${locale}/contact#ecrire`}
+            className="text-sm group inline-flex items-center justify-center gap-3 border border-[var(--fg)] px-7 py-4 text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)] font-medium"
+          >
+            {ui.ctaWrite}
           </Link>
         </div>
       </aside>

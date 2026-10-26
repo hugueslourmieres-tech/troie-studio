@@ -747,3 +747,14 @@ body {
 .logo-marquee:hover .logo-marquee-track { animation-play-state: paused; }
 @keyframes logo-marquee { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .logo-marquee-track { animation: none; } }
+
+/* Audit SEO et GEO (26/10/2026) : la comète du cadran pendant le scan et
+   l'indicateur de l'étape en cours. Rotation linéaire, seul mouvement
+   continu de la page, coupé quand l'utilisateur réduit les animations. */
+.audit-comet { animation: audit-comet 1.15s linear infinite; }
+@keyframes audit-comet { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+.audit-spin { animation: audit-spin 0.7s linear infinite; }
+@keyframes audit-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .audit-comet, .audit-spin { animation-duration: 2.4s; }
+}

@@ -1,17 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
-import { NEEDS, NEED_EVENT, SUBJECT_TO_NEED, isNeed, type NeedSlug } from "@/lib/needs";
+import { LEGACY_TO_NEED, NEEDS, NEED_EVENT, isNeed, type NeedSlug } from "@/lib/needs";
 
 /**
- * Formulaire de brief court (bouton Décrire mon projet), repris du commit
- * 725bde9 sans le champ budget. Présélection du besoin par ?besoin= ou par
- * les anciens ?subject=. Envoi par /api/contact avec kind projet, mêmes
- * protections anti-spam.
+ * Formulaire de brief court (bouton Décrire mon projet). Présélection du
+ * besoin par ?besoin= (ou les anciens ?subject=). Envoi par /api/contact
+ * avec kind projet.
  *
- * Le visiteur peut répondre « à définir » partout : il n'a pas à connaître
- * la solution. Aucun délai de réponse n'est affiché tant qu'il n'est pas
- * validé ([À COMPLÉTER] : délai de réponse au formulaire).
+ * Anti-spam sans gêner les vrais visiteurs (26/10/2026) : champ piège,
+ * délai minimal, besoin et site de l'entreprise obligatoires (ils filtrent
+ * les démarchages commerciaux), widget Turnstile seulement si
+ * NEXT_PUBLIC_TURNSTILE_SITE_KEY est définie. Aucun délai de réponse n'est
+ * affiché tant qu'il n'est pas validé.
  */
 
 type Status = "idle" | "sending" | "ok" | "error";
@@ -29,6 +30,9 @@ declare global {
 const COPY = {
   fr: {
     need: "Votre besoin",
+    needPlaceholder: "Choisissez",
+    site: "Site web de votre entreprise (ou nom de l'entreprise)",
+    siteHint: "www.votre-entreprise.fr",
     outcome: "Ce que vous voulez obtenir",
     outcomeHint: "Par exemple : être mieux compris par vos clients, ou lancer une nouvelle offre.",
     situation: "Où vous en êtes",
@@ -36,7 +40,6 @@ const COPY = {
     deadline: "Échéance",
     name: "Nom",
     email: "Email",
-    company: "Entreprise",
     phone: "Téléphone",
     optional: "facultatif",
     deadlines: ["À définir", "Dès que possible", "Dans le mois", "D'ici trois mois", "Plus tard"],
@@ -47,13 +50,16 @@ const COPY = {
     okTitle: "Merci.",
     okText: "Hugues lit chaque demande et vous répond avec une proposition ou une question pour la cadrer.",
     again: "Décrire un autre projet",
-    errRequired: "Indiquez ce que vous voulez obtenir, votre nom et votre email.",
+    errRequired: "Remplissez les champs marqués d'un astérisque : besoin, ce que vous voulez obtenir, nom, email et site de l'entreprise.",
     errEmail: "Vérifiez votre adresse email.",
     errGeneric: "Une erreur est survenue. Réessayez.",
     errNetwork: "Réseau indisponible. Réessayez.",
   },
   en: {
     need: "What you need",
+    needPlaceholder: "Choose one",
+    site: "Your company website (or company name)",
+    siteHint: "www.your-company.com",
     outcome: "What you want to achieve",
     outcomeHint: "For example: be better understood by your customers, or launch a new offer.",
     situation: "Where you are today",
@@ -61,7 +67,6 @@ const COPY = {
     deadline: "Timing",
     name: "Name",
     email: "Email",
-    company: "Company",
     phone: "Phone",
     optional: "optional",
     deadlines: ["Not sure yet", "As soon as possible", "Within a month", "Within three months", "Later"],
@@ -72,7 +77,7 @@ const COPY = {
     okTitle: "Thank you.",
     okText: "Hugues reads every request and gets back to you with a proposal or a question to frame it.",
     again: "Describe another project",
-    errRequired: "Please add what you want to achieve, your name and your email.",
+    errRequired: "Please fill in the fields marked with an asterisk: need, what you want to achieve, name, email and company website.",
     errEmail: "Please check your email address.",
     errGeneric: "Something went wrong. Please try again.",
     errNetwork: "Network unavailable. Please try again.",
@@ -91,7 +96,7 @@ export function ProjectForm({ locale, className = "" }: { locale: string; classN
 
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [need, setNeed] = useState<NeedSlug>("a-definir");
+  const [need, setNeed] = useState<NeedSlug | "">("");
   const [flash, setFlash] = useState(false);
   const mountedAt = useRef<number>(0);
   const turnstileToken = useRef<string>("");
@@ -109,9 +114,9 @@ export function ProjectForm({ locale, className = "" }: { locale: string; classN
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const fromUrl = params.get("besoin");
-    const fromSubject = SUBJECT_TO_NEED[params.get("subject") ?? ""];
+    const legacy = LEGACY_TO_NEED[params.get("besoin") ?? params.get("subject") ?? ""];
     if (isNeed(fromUrl)) setNeed(fromUrl);
-    else if (isNeed(fromSubject)) setNeed(fromSubject);
+    else if (isNeed(legacy)) setNeed(legacy);
 
     const onNeed = (e: Event) => {
       const value = (e as CustomEvent<string>).detail;
@@ -189,7 +194,8 @@ export function ProjectForm({ locale, className = "" }: { locale: string; classN
     const outcome = get("outcome");
     const name = get("name");
     const email = get("email");
-    if (!outcome || !name || !email) {
+    const companySite = get("companySite");
+    if (!need || !outcome || !name || !email || !companySite) {
       setErrorMsg(c.errRequired);
       setStatus("error");
       return;
@@ -219,7 +225,7 @@ export function ProjectForm({ locale, className = "" }: { locale: string; classN
           deadline: get("deadline"),
           name,
           email,
-          company: get("company"),
+          companySite,
           phone: get("phone"),
           website: get("website"),
           elapsedMs: mountedAt.current ? Date.now() - mountedAt.current : 0,
@@ -228,15 +234,15 @@ export function ProjectForm({ locale, className = "" }: { locale: string; classN
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
-        // Les erreurs 4xx sont rédigées pour le visiteur, dans sa langue.
-        // Les erreurs 5xx sont techniques : message générique.
-        setErrorMsg(res.status < 500 && body?.error ? body.error : c.errGeneric);
+        // Les erreurs 4xx (et le 503 « envoi indisponible ») sont rédigées
+        // pour le visiteur, dans sa langue. Les autres 5xx : message générique.
+        setErrorMsg((res.status < 500 || res.status === 503) && body?.error ? body.error : c.errGeneric);
         setStatus("error");
         resetTurnstile();
         return;
       }
       form.reset();
-      setNeed("a-definir");
+      setNeed("");
       setStatus("ok");
     } catch {
       setErrorMsg(c.errNetwork);
@@ -273,17 +279,21 @@ export function ProjectForm({ locale, className = "" }: { locale: string; classN
         <input id="projet-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <Field id="projet-besoin" label={c.need}>
+      <Field id="projet-besoin" label={c.need} required>
         <SelectBox flash={flash}>
           <select
             id="projet-besoin"
             name="need"
+            required
             value={need}
             onChange={(e) => setNeed(e.target.value as NeedSlug)}
-            className={`${inputCls} appearance-none truncate pr-11`}
+            className={`${inputCls} appearance-none truncate pr-11 ${need ? "" : "text-[var(--fg-2)]/70"}`}
           >
+            <option value="" disabled>
+              {c.needPlaceholder}
+            </option>
             {NEEDS.map((n) => (
-              <option key={n.slug} value={n.slug}>
+              <option key={n.slug} value={n.slug} className="text-[var(--fg)]">
                 {en ? n.en : n.fr}
               </option>
             ))}
@@ -318,9 +328,11 @@ export function ProjectForm({ locale, className = "" }: { locale: string; classN
         <Field id="projet-email" label={c.email} required>
           <input id="projet-email" name="email" type="email" required autoComplete="email" inputMode="email" className={inputCls} />
         </Field>
-        <Field id="projet-entreprise" label={c.company} optional={c.optional}>
-          <input id="projet-entreprise" name="company" type="text" autoComplete="organization" className={inputCls} />
-        </Field>
+        <div className="sm:col-span-2">
+          <Field id="projet-site" label={c.site} required>
+            <input id="projet-site" name="companySite" type="text" required autoComplete="url" placeholder={c.siteHint} className={inputCls} />
+          </Field>
+        </div>
         <Field id="projet-telephone" label={c.phone} optional={c.optional}>
           <input id="projet-telephone" name="phone" type="tel" autoComplete="tel" className={inputCls} />
         </Field>

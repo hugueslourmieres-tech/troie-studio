@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Brief, Byline, CAL_URL, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
+import { Brief, Byline, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
 
 /**
  * Article : combien investir en Google Ads pour une PME. Requête visée :
@@ -257,9 +257,9 @@ export function BudgetGoogleAdsPme() {
       <p>
         Chez TROIE Studio, nous gérons Google Ads et le référencement comme un
         travail mensuel, avec un rapport qui parle de demandes et de ventes.
-        Si vous avez déjà un compte, l&apos;audit à 890 euros HT montre où part le
+        Si vous avez déjà un compte, notre audit montre où part le
         budget et quelles corrections passer en premier. Sinon, un{" "}
-        <Ext href={CAL_URL}>appel de 30 minutes</Ext> suffit pour poser
+        <Link href="/fr/contact#projet">premier échange</Link> suffit pour poser
         l&apos;objectif et la méthode. Le détail de l&apos;offre est sur la page{" "}
         <Link href="/fr/agence-seo-google-ads">agence SEO et Google Ads</Link>,
         et pour les entreprises locales sur la page{" "}

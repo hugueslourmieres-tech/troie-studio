@@ -2,7 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { OG_IMAGE } from "@/lib/og";
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
+/* Plus de prise de rendez-vous (26/10/2026) : le bouton principal mène
+   au formulaire de projet du site principal. */
+const CAL_URL = "https://troiestudio.fr/fr/contact#projet";
 
 export const metadata: Metadata = {
   title:
@@ -96,7 +98,7 @@ const BRIQUES = [
   {
     step: "01",
     title: "Premier échange",
-    terms: "30 minutes",
+    terms: "Par écrit",
     body: "Nous regardons vos pages clés (accueil, produit, panier, contact) avec un outil automatique et une revue manuelle. Vous savez si vous êtes concerné, et quels blocages traiter d'abord.",
   },
   {
@@ -157,7 +159,7 @@ export default function AccessibilitePage() {
             rel="noreferrer"
             className="inline-flex min-h-[44px] items-center gap-2.5 whitespace-nowrap bg-[var(--accent)] px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
-            Réserver 30 min
+            Décrire mon projet
           </a>
         </div>
       </header>
@@ -184,7 +186,7 @@ export default function AccessibilitePage() {
             rel="noreferrer"
             className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
           >
-            Réserver 30 min
+            Décrire mon projet
             <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
           </a>
           <a
@@ -302,7 +304,7 @@ export default function AccessibilitePage() {
               rel="noreferrer"
               className="group inline-flex items-center gap-3 bg-[var(--accent)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#111318] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
             >
-              Réserver 30 min
+              Décrire mon projet
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </a>
             <Link

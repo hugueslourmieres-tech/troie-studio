@@ -291,7 +291,7 @@ Le cœur du premier écran.
 Six blocs en deux colonnes, chacun ouvert par un filet en haut : intitulé (Title), une phrase (graphite, 15px) et un lien de suite en cobalt avec une flèche qui avance de 2px au survol.
 
 ### Navigation
-- **Style:** barre fixe, transparente en haut de page, puis blanc froid à 95 % avec flou d'arrière-plan au défilement. Logo-mot TROIE à gauche (Bodoni Moda 400, de 28px à 34px), liens en Geist 500 à 14px encre, qui passent au cobalt au survol, bouton « Réserver 30 min » compact à droite.
+- **Style:** barre fixe, transparente en haut de page, puis blanc froid à 95 % avec flou d'arrière-plan au défilement. Logo-mot TROIE à gauche (Bodoni Moda 400, de 28px à 34px), liens en Geist 500 à 14px encre, qui passent au cobalt au survol, bouton « Décrire mon projet » compact à droite.
 - **Menu déroulant:** fond blanc froid, filet, survol des entrées en voile cobalt.
 - **Mobile:** sous 1024px, ni liens ni bouton dans la barre, les actions sont en tête du panneau du menu.
 

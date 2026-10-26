@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Brief, Byline, CAL_URL, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
+import { Brief, Byline, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
 
 /**
  * Article : le GEO (generative engine optimization) expliqué aux
@@ -224,11 +224,11 @@ export function GeoApparaitreChatgptGeminiAiOverviews() {
       <h2>Faire le point sur votre site</h2>
       <p>
         TROIE Studio travaille le référencement naturel et le GEO ensemble,
-        comme un suivi mensuel. L&apos;audit à 890 euros HT vérifie l&apos;accès des
+        comme un suivi mensuel. Notre audit vérifie l&apos;accès des
         robots, la structure des pages qui comptent, les données structurées
         et les questions sur lesquelles vos concurrents sont cités à votre
         place, avec les corrections par priorité. Vous pouvez aussi{" "}
-        <Ext href={CAL_URL}>réserver un appel de 30 minutes</Ext>. L&apos;offre
+        <Link href="/fr/contact#projet">nous décrire votre projet</Link>. L&apos;offre
         est détaillée sur la page{" "}
         <Link href="/fr/agence-seo-google-ads">agence SEO et Google Ads</Link>,
         et pour une entreprise de la Côte d&apos;Azur sur les pages{" "}

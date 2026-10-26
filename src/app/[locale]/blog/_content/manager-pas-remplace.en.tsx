@@ -152,7 +152,7 @@ export function ManagerPasRemplaceEn() {
         On the business side, we help you frame AI use across your teams, on
         site or remotely, with real teaching and zero hype: see{" "}
         <Link href="/ia">TROIE for professionals</Link>, or{" "}
-        <Link href="/fr/contact">book a 30-minute call</Link> to talk it
+        <Link href="/en/contact">write to us</Link> to talk it
         through.
       </p>
 

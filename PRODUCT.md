@@ -17,7 +17,7 @@ Public secondaire : recruteurs et partenaires qui regardent le parcours de Hugue
 
 ## Product Purpose
 
-TROIE Studio est une agence digitale. Elle vend des services et du résultat, pas sa méthode : sites et e-commerce, photo et vidéo, communication et réseaux sociaux, SEO et publicité, leads, CRM et automatisations, accompagnement des équipes. Le succès d'une page : le visiteur comprend en quelques secondes ce que l'agence fait et ce qu'elle a obtenu, puis réserve un appel de 30 minutes.
+TROIE Studio est une agence digitale. Elle vend des services et du résultat, pas sa méthode : sites et e-commerce, photo et vidéo, communication et réseaux sociaux, SEO et publicité, leads, CRM et automatisations, accompagnement des équipes. Le succès d'une page : le visiteur comprend en quelques secondes ce que l'agence fait et ce qu'elle a obtenu, puis décrit son projet sur la page contact.
 
 ## Positioning
 
@@ -26,7 +26,7 @@ Une seule équipe qui fait tout le digital et le mesure en chiffre d'affaires, a
 ## Operating Context
 
 - Travail partout en France et à distance. Ne pas ancrer la promesse sur Nice (l'adresse légale reste à Nice).
-- Action principale partout : réserver un appel de 30 min (https://cal.com/troiestudio/30min). Action secondaire : le formulaire de projet (/contact#projet).
+- Plus de prise de rendez-vous (décision de Hugues, 26/10/2026). Action principale partout : « Décrire mon projet » (/contact#projet). Action secondaire : l'audit gratuit (/audit-seo-gratuit) ou « Nous écrire » (email protégé + page LinkedIn).
 - Site bilingue FR/EN (next-intl), FR prioritaire.
 
 ## Capabilities and Constraints
@@ -58,5 +58,5 @@ Absents, à ne jamais inventer : témoignages clients écrits, chiffres Google A
 
 1. Le résultat d'abord : chaque page montre une preuve chiffrée ou un travail réel avant d'expliquer.
 2. Le service, pas la méthode : dire ce que le client obtient, jamais comment on le fabrique.
-3. Une seule action : réserver 30 minutes, visible sans chercher.
+3. Une seule action : décrire son projet, visible sans chercher.
 4. Court et vrai : titres courts, phrases simples, aucun chiffre sans source.

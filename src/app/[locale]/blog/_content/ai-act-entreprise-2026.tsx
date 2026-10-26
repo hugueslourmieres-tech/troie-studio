@@ -97,7 +97,7 @@ export function AiActEntreprise2026() {
         TROIE, on accompagne les équipes à cadrer et utiliser l’IA, en
         présentiel ou à distance, avec une pédagogie exigeante et sans
         survente : voir <Link href="/ia">TROIE pour les professionnels</Link>, ou{" "}
-        <Link href="/fr/contact">réserver un appel de 30 minutes</Link> pour
+        <Link href="/fr/contact">nous écrire</Link> pour
         faire le point sur votre conformité et vos besoins.
       </p>
       <p>

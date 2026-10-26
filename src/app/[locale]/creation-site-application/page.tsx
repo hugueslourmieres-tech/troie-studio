@@ -54,7 +54,7 @@ const COPY = {
     faq: [
       {
         q: "Combien coûte un site ?",
-        a: "C'est sur devis, après un appel de 30 minutes. Le prix dépend du nombre de pages, des fonctions voulues et des contenus à produire.",
+        a: "C'est sur devis, après un premier échange. Le prix dépend du nombre de pages, des fonctions voulues et des contenus à produire.",
       },
       {
         q: "Quels outils utilisez-vous ?",
@@ -102,7 +102,7 @@ const COPY = {
     faq: [
       {
         q: "How much does a website cost?",
-        a: "It is quoted after a 30-minute call. The price depends on the number of pages, the features you need and the content to produce.",
+        a: "It is quoted after a first exchange. The price depends on the number of pages, the features you need and the content to produce.",
       },
       {
         q: "Which tools do you use?",

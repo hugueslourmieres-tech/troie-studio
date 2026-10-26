@@ -11,7 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // /fr|/en/formation(s) redirige (301) vers /accompagnement : exclu du sitemap.
   // /privacy et /terms sont en noindex : hors du sitemap (24/09/2026).
   // /hello (lien en bio Instagram) est en noindex : hors du sitemap.
-  // /rentree, /scan-ia et /diagnostic-ia redirigent en 301 depuis le 21/10/2026.
+  // /rentree et /diagnostic-ia redirigent en 301 depuis le 21/10/2026, /scan-ia
+  // vers /audit-seo-gratuit depuis le 26/10/2026.
   // /works/formation-ia sort seule du sitemap : la fiche n'est plus dans WORKS
   // et redirige en permanence vers /accompagnement (next.config.ts).
   // Pages de services, page Nice et études de cas ajoutées le 23/10/2026.
@@ -33,6 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/agence-geo",
     "/consultant-google-ads",
     "/agence-developpement-application",
+    // Audit SEO et GEO gratuit, successeur de /scan-ia (26/10/2026).
+    "/audit-seo-gratuit",
     "/etudes-de-cas",
     "/etudes-de-cas/loir-paris",
     "/etudes-de-cas/rutherford",
@@ -75,6 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/agence-geo",
     "/consultant-google-ads",
     "/agence-developpement-application",
+    "/audit-seo-gratuit",
     "/etudes-de-cas",
   ]);
 

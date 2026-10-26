@@ -14,10 +14,9 @@ type Props = {
   /** Liens simples sous les groupes : Réalisations, Le studio, Journal. */
   extraLinks: { href: string; label: string }[];
   /** Les deux actions en tête du panneau. */
-  ctas: { book: string; project: string; projectHref: string };
+  ctas: { project: string; projectHref: string; write: string; writeHref: string };
 };
 
-const BOOKING_URL = "https://cal.com/troiestudio/30min";
 const LINKEDIN_URL = "https://www.linkedin.com/company/troiestudio";
 const INSTAGRAM_URL = "https://www.instagram.com/troiestudio/";
 const HUGUES_INSTAGRAM_URL = "https://www.instagram.com/hugueslourmieres/";
@@ -33,7 +32,8 @@ const HUGUES_INSTAGRAM_URL = "https://www.instagram.com/hugueslourmieres/";
  * z-[60] passe au-dessus de l'en-tête. Fond crème en dur, sans variable ni
  * opacité, pour ne jamais être teinté par un ton parent.
  *
- * De haut en bas : Réserver 30 min et Décrire mon projet, puis les groupes
+ * De haut en bas : Décrire mon projet et Nous écrire (plus de prise de
+ * rendez-vous depuis le 26/10/2026), puis les groupes
  * Stratégie, Création, Accompagnement (titres cliquables), puis Réalisations,
  * Le studio, Journal, puis les réseaux et la langue.
  */
@@ -103,21 +103,19 @@ export function MobileMenu({
                 transition={{ duration: 0.45, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
                 className="flex flex-col gap-3 pt-6"
               >
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={close}
-                  className="flex h-14 w-full items-center justify-center rounded-full bg-[var(--ink)] px-4 text-center text-[16px] font-medium text-white transition-colors hover:bg-[#2a2e37] hover:text-white"
-                >
-                  {ctas.book}
-                </a>
                 <Link
                   href={ctas.projectHref}
                   onClick={close}
-                  className="flex h-14 w-full items-center justify-center rounded-full border border-[var(--rule-strong)] px-4 text-center text-[16px] font-medium text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+                  className="flex h-14 w-full items-center justify-center rounded-full bg-[var(--ink)] px-4 text-center text-[16px] font-medium text-white transition-colors hover:bg-[#2a2e37] hover:text-white"
                 >
                   {ctas.project}
+                </Link>
+                <Link
+                  href={ctas.writeHref}
+                  onClick={close}
+                  className="flex h-14 w-full items-center justify-center rounded-full border border-[var(--rule-strong)] px-4 text-center text-[16px] font-medium text-[var(--fg)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--bg)]"
+                >
+                  {ctas.write}
                 </Link>
               </motion.div>
 

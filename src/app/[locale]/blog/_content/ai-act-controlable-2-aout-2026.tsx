@@ -142,7 +142,7 @@ export function AiActControlable2Aout2026() {
       <p>
         TROIE Studio accompagne les équipes des PME dans leurs usages de
         l&apos;IA (ateliers et suivi) et met votre documentation en
-        conformité. Le premier pas est un échange de 30 minutes : on
+        conformité. Le premier pas est un échange simple : on
         regarde vos usages réels et on vous dit où vous en êtes.
       </p>
 

@@ -32,9 +32,6 @@ export type NavPanel = {
   cards: NavCard[];
 };
 
-/** Prise de rendez-vous : action principale du site, partout. */
-const BOOKING_URL = "https://cal.com/troiestudio/30min";
-
 /**
  * Barre fixe crème. Menu (23/10/2026) : Services, Réalisations, Studio et
  * Journal s'ouvrent chacun sur un panneau pleine largeur avec aperçus. À
@@ -81,7 +78,7 @@ export function Header({
         works: "Work",
         studio: "Studio",
         journal: "Journal",
-        book: "Book 30 min",
+        write: "Write to us",
         project: "Describe my project",
       }
     : {
@@ -94,7 +91,7 @@ export function Header({
         works: "Réalisations",
         studio: "Studio",
         journal: "Journal",
-        book: "Réserver 30 min",
+        write: "Nous écrire",
         project: "Décrire mon projet",
       };
 
@@ -122,6 +119,7 @@ export function Header({
 
   const projectHref = `/${locale}/contact#projet`;
   const contactHref = `/${locale}/contact`;
+  const writeHref = `/${locale}/contact#ecrire`;
 
   // Panneaux du menu (ordinateur) : chaque entrée s'ouvre au survol sur des
   // aperçus (23/10/2026, demande de Hugues).
@@ -145,6 +143,7 @@ export function Header({
       secondaryTitle: L.resources,
       secondary: [
         { href: `/${locale}/etudes-de-cas`, label: isEn ? "Case studies" : "Études de cas" },
+        { href: `/${locale}/audit-seo-gratuit`, label: isEn ? "Free SEO audit" : "Audit SEO gratuit" },
         { href: `/${locale}/agence-e-commerce-shopify`, label: "E-commerce Shopify" },
         { href: `/${locale}/agence-web-nice`, label: isEn ? "Web agency in Nice" : "Agence web à Nice" },
         { href: `/${locale}/outils`, label: isEn ? "AI tools" : "Outils IA" },
@@ -192,8 +191,8 @@ export function Header({
       ],
       secondaryTitle: L.reach,
       secondary: [
-        { href: BOOKING_URL, label: nav.book },
         { href: projectHref, label: nav.project },
+        { href: writeHref, label: nav.write },
       ],
       cards: [
         {
@@ -249,8 +248,8 @@ export function Header({
         </nav>
 
         <div className="flex items-center gap-4 md:gap-5">
-          {/* Bloc de droite (ordinateur) : langue, Décrire mon projet (xl),
-              Réserver 30 min. */}
+          {/* Bloc de droite (ordinateur) : langue, puis Contact. Plus de prise
+              de rendez-vous (26/10/2026). */}
           <div className="hidden items-center gap-4 lg:flex">
             {showLang && <LangSwitch locale={locale} />}
             <Link
@@ -271,7 +270,7 @@ export function Header({
             groups={groups}
             showLang={showLang}
             extraLinks={links}
-            ctas={{ book: nav.book, project: nav.project, projectHref }}
+            ctas={{ project: nav.project, projectHref, write: nav.write, writeHref }}
           />
         </div>
       </div>

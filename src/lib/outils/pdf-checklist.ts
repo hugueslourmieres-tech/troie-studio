@@ -105,7 +105,7 @@ export async function buildChecklistPdf(): Promise<Uint8Array> {
   });
   drawParagraph(
     page,
-    "TROIE Studio accompagne vos équipes avec des ateliers sur vos cas réels, puis vous laisse les documents qui restent : charte, registre, trace des ateliers. Un appel de 30 minutes pour en parler : cal.com/troiestudio/30min",
+    "TROIE Studio accompagne vos équipes avec des ateliers sur vos cas réels, puis vous laisse les documents qui restent : charte, registre, trace des ateliers. Pour en parler : troiestudio.fr/fr/contact",
     { x: M + 18, y: y - 40, font: helv, size: 9.5, maxWidth: contentW - 36, lineHeight: 13, color: INK },
   );
 

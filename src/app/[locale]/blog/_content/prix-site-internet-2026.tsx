@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Brief, Byline, CAL_URL, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
+import { Brief, Byline, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
 
 /**
  * Article : prix d'un site internet en 2026 (vitrine, e-commerce,
@@ -294,12 +294,12 @@ export function PrixSiteInternet2026() {
       <h2>Votre budget, chiffré sur votre cas</h2>
       <p>
         Une médiane situe un devis. Elle ne dit pas ce dont votre entreprise a
-        besoin. Chez TROIE Studio, à Nice, nous commençons par un appel de 30
-        minutes pour comprendre l&apos;objectif, puis nous envoyons une proposition
+        besoin. Chez TROIE Studio, à Nice, nous commençons par un premier échange
+        pour comprendre l&apos;objectif, puis nous envoyons une proposition
         écrite avec un délai ferme. Si votre site existe déjà, l&apos;audit à 890
         euros HT liste ce qui freine les demandes et les ventes, et les
         corrections par priorité. Vous pouvez{" "}
-        <Ext href={CAL_URL}>réserver un créneau de 30 minutes</Ext>, ou
+        <Link href="/fr/contact#projet">nous décrire votre projet</Link>, ou
         consulter nos pages{" "}
         <Link href="/fr/creation-site-application">création de site et d&apos;application</Link>,{" "}
         <Link href="/fr/agence-web-nice">agence web à Nice</Link> et{" "}

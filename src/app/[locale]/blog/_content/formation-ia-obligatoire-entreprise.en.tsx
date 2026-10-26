@@ -107,7 +107,7 @@ export function FormationIaObligatoireEntrepriseEn() {
         <Link href="/ia">our team support</Link> covers exactly this scope,
         with a written record for each participant, and our dedicated{" "}
         <Link href="/ia/ai-act">EU AI Act</Link> page sums up every deadline.
-        A simple first step: a 30-minute call to map out your actual
+        A simple first step: a first exchange to map out your actual
         obligations.
       </p>
 

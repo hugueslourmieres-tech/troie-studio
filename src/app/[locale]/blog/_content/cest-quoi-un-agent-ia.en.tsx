@@ -70,7 +70,7 @@ export function CestQuoiUnAgentIaEn() {
         To understand and deploy this with confidence (for teams, it’s what we
         do), take the <Link href="https://troie.app/niveau">free quiz</Link>, explore{" "}
         <Link href="/ia">TROIE for professionals</Link>, or{" "}
-        <Link href="/fr/contact">let’s talk for 30 minutes</Link>.
+        <Link href="/en/contact">let’s talk</Link>.
       </p>
     </>
   );

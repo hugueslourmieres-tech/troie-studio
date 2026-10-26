@@ -5,7 +5,6 @@ import { ContactCTA } from "@/components/ContactCTA";
 import { pageSocial } from "@/lib/og";
 import { metaDescription, seoTitle } from "@/lib/seo";
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
 const LINKEDIN_URL = "https://www.linkedin.com/in/hugueslourmieres";
 
 /**
@@ -67,7 +66,7 @@ const COPY = {
       "Français natif, anglais C1, espagnol B2, italien B1",
     ],
     linkedin: "Profil LinkedIn",
-    book: "Réserver 30 min",
+    book: "Décrire mon projet",
     works: "Voir les réalisations",
   },
   en: {
@@ -121,7 +120,7 @@ const COPY = {
       "French native, English C1, Spanish B2, Italian B1",
     ],
     linkedin: "LinkedIn profile",
-    book: "Book 30 min",
+    book: "Describe my project",
     works: "See the work",
   },
 } as const;
@@ -191,10 +190,10 @@ export default async function HuguesPage({
               {c.intro}
             </p>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
+              <Link href={`/${locale}/contact#projet`} className={BTN_BOOK}>
                 {c.book}
                 <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-              </a>
+              </Link>
               <a href={LINKEDIN_URL} target="_blank" rel="noreferrer" className={BTN_LINK}>
                 <span>{c.linkedin} ↗</span>
               </a>

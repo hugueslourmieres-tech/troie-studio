@@ -96,7 +96,7 @@ export function AiActEntreprise2026En() {
         TROIE, we help teams frame and use AI, on site or remotely, with
         real teaching and zero fluff: see{" "}
         <Link href="/ia">TROIE for professionals</Link>, or{" "}
-        <Link href="/fr/contact">book a 30-minute call</Link> to review your
+        <Link href="/en/contact">write to us</Link> to review your
         compliance and your needs.
       </p>
       <p>

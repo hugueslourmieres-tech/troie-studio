@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Brief, Byline, CAL_URL, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
+import { Brief, Byline, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
 
 /**
  * Article : faire développer une application web ou mobile, étapes,
@@ -236,7 +236,7 @@ export function DeveloppementApplicationSurMesureEtapesDelais() {
         TROIE Studio conçoit et développe des applications web et mobiles
         pour des entreprises de la Côte d&apos;Azur et d&apos;ailleurs, avec un seul
         interlocuteur du cadrage à la maintenance. Le premier pas est un{" "}
-        <Ext href={CAL_URL}>appel de 30 minutes</Ext> pour comprendre l&apos;usage
+        <Link href="/fr/contact#projet">échange sur votre projet</Link> pour comprendre l&apos;usage
         visé. Nous envoyons ensuite une proposition écrite, avec un périmètre
         et un délai fermes. Si un site ou un outil existe déjà, l&apos;audit à 890
         euros HT dit ce qui peut être gardé. Les détails sont sur nos pages{" "}

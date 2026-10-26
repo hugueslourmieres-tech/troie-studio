@@ -19,15 +19,17 @@ import { GreekMark } from "@/components/GreekMark";
  * jamais de la « formation » (ni déclaration d'activité ni Qualiopi). Les
  * mots autorisés : atelier, prise en main, sensibilisation, mise en œuvre.
  *
- * Aucun prix affiché : tout passe par un devis écrit après l'appel de
- * 30 minutes. L'ancre id="tarifs" est gardée, des articles et /ia/ai-act y
+ * Aucun prix affiché : tout passe par un devis écrit après un premier
+ * échange. L'ancre id="tarifs" est gardée, des articles et /ia/ai-act y
  * renvoient.
  */
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
+/* Plus de prise de rendez-vous (26/10/2026) : le bouton principal mène
+   au formulaire de projet du site principal. */
+const CAL_URL = "https://troiestudio.fr/fr/contact#projet";
 const PROJECT_URL = "/fr/contact?besoin=accompagnement#projet";
 
-/* Boutons (règle du 1er/10/2026) : sur fond crème, « Réserver 30 min » en
+/* Boutons (règle du 1er/10/2026) : sur fond crème, « Décrire mon projet » en
    orange plein, « Lancer un projet » en lien souligné. La zone cliquable
    garde au moins 48 px de haut pour le pouce. */
 const BTN_BOOK =
@@ -51,7 +53,7 @@ const PRO_PACKS = [
       "Les règles d'usage et de confidentialité",
       "Un plan d'usage par métier (commercial, marketing, support)",
     ],
-    cta: { label: "Réserver 30 min", href: CAL_URL },
+    cta: { label: "Décrire mon projet", href: CAL_URL },
   },
   {
     badge: "Atelier 02",
@@ -65,7 +67,7 @@ const PRO_PACKS = [
       "Intégration à votre façon de produire",
       "Droits, mentions, limites juridiques",
     ],
-    cta: { label: "Réserver 30 min", href: CAL_URL },
+    cta: { label: "Décrire mon projet", href: CAL_URL },
   },
   {
     badge: "Atelier 03",
@@ -79,7 +81,7 @@ const PRO_PACKS = [
       "Des garde-fous et une supervision humaine",
       "Une documentation que votre équipe peut reprendre",
     ],
-    cta: { label: "Réserver 30 min", href: CAL_URL },
+    cta: { label: "Décrire mon projet", href: CAL_URL },
   },
 ];
 
@@ -89,7 +91,7 @@ const STEPS = [
   {
     step: "01",
     title: "Échange",
-    unit: "30 minutes",
+    unit: "Par écrit",
     body: "Nous écoutons votre activité et vos priorités. Vous repartez avec une première piste, avec ou sans IA.",
     featured: false,
   },
@@ -265,7 +267,7 @@ const IA_JSONLD = {
       areaServed: "FR",
       provider: { "@id": "https://troiestudio.fr/#organization" },
       description:
-        "Diagnostic, ateliers de prise en main et mise en œuvre d'outils, IA comprise, au service de la stratégie de l'entreprise. Premier échange de 30 minutes.",
+        "Diagnostic, ateliers de prise en main et mise en œuvre d'outils, IA comprise, au service de la stratégie de l'entreprise. Premier échange par écrit.",
     },
     {
       "@type": "FAQPage",
@@ -324,7 +326,7 @@ export default function IaLandingPage() {
               </p>
               <div className="mt-12 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8">
                 <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
-                  Réserver 30 min
+                  Décrire mon projet
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <Link href={PROJECT_URL} className={BTN_PROJECT}>
@@ -480,7 +482,7 @@ export default function IaLandingPage() {
       {/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
           COMMENT NOUS AVANÇONS, les 4 étapes. Ancre #tarifs gardée : des
           articles de blog et /ia/ai-act y renvoient. Aucun prix : tout se
-          fait sur devis après l'appel de 30 minutes.
+          fait sur devis après un premier échange.
           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
       <section id="tarifs" className="border-t border-[var(--rule)] bg-[var(--bg-2)] scroll-mt-24">
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-12 md:py-36">
@@ -491,7 +493,7 @@ export default function IaLandingPage() {
             Quatre étapes, un devis écrit.
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-[var(--fg-2)] md:text-lg">
-            Tout commence par un appel de 30 minutes. Le prix se fixe ensuite
+            Tout commence par un premier échange. Le prix se fixe ensuite
             sur devis, une fois votre situation comprise.
           </p>
 
@@ -523,7 +525,7 @@ export default function IaLandingPage() {
 
           <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-8">
             <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
-              Réserver 30 min
+              Décrire mon projet
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
             </a>
             <Link href={PROJECT_URL} className={BTN_PROJECT}>
@@ -611,7 +613,7 @@ export default function IaLandingPage() {
                   rel="noreferrer"
                   className="group inline-flex min-h-[52px] items-center gap-3 bg-[var(--ink)] px-8 py-4 font-mono text-[11px] uppercase tracking-[0.22em] text-[#2f5bd3] transition-colors hover:bg-[#fcfcfd] hover:text-[#111318]"
                 >
-                  Réserver 30 min
+                  Décrire mon projet
                   <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
                 </a>
                 <ObfuscatedEmail className="inline-flex items-center gap-3 pb-2 font-mono text-[11px] uppercase tracking-[0.22em] text-[var(--fg)]/75 transition-colors hover:text-[var(--fg)]" />

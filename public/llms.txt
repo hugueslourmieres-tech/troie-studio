@@ -22,7 +22,7 @@
 - Films et photos, en option : films de marque, témoignages clients, reportages photo. https://troiestudio.fr/fr/medias
 - Ateliers IA pour les équipes : prise en main pratique de l'IA au travail. https://troiestudio.fr/fr/accompagnement
 
-Les prestations sont sur devis, après un appel de 30 minutes. Aucun prix public.
+Les prestations sont sur devis, après un premier échange. Aucun prix public.
 
 ## Résultats mesurés
 
@@ -48,14 +48,15 @@ Nice, Côte d'Azur (Cannes, Antibes, Sophia Antipolis, Grasse), Monaco. Toute la
 - [Études de cas](https://troiestudio.fr/fr/etudes-de-cas) : LOIR Paris, Rutherford, Autajon.
 - [Réalisations web](https://troiestudio.fr/fr/creation/web) : sites et applications en ligne.
 - [Réalisations](https://troiestudio.fr/fr/creation) : sites, films et photos.
+- [Audit SEO et GEO gratuit](https://troiestudio.fr/fr/audit-seo-gratuit) : une note sur 100 (technique, contenu, lisibilité par les moteurs IA, performance), les points à corriger d'abord, puis le rapport détaillé par e-mail. Il mesure la lisibilité du site, pas les citations par ChatGPT.
 - [Outils gratuits](https://troiestudio.fr/fr/outils) : charte IA, diagnostic AI Act, registre des usages IA, checklist AI Act.
 - [Le Journal](https://troiestudio.fr/fr/blog) : vendre en ligne, SEO, publicité, IA en entreprise.
-- [Contact](https://troiestudio.fr/fr/contact) : réserver 30 minutes ou décrire un projet.
+- [Contact](https://troiestudio.fr/fr/contact) : décrire un projet (formulaire) ou nous écrire directement (email, LinkedIn).
 
 ## Contact
 
-- Réserver 30 minutes : https://cal.com/troiestudio/30min
-- Formulaire : https://troiestudio.fr/fr/contact
+- Décrire un projet : https://troiestudio.fr/fr/contact#projet
+- Nous écrire directement : https://troiestudio.fr/fr/contact#ecrire
 - LinkedIn : https://www.linkedin.com/company/troiestudio
 - Instagram : https://www.instagram.com/troiestudio
 
@@ -65,4 +66,4 @@ troie.app est un site séparé, édité par TROIE Studio : des quiz gratuits sur
 
 ## In English
 
-TROIE Studio is a web and digital agency based in Nice, on the French Riviera, founded by Hugues Lourmieres. Positioning: the agency that drives sales. Services: websites, web and mobile apps, Shopify e-commerce, SEO, Google Ads and paid social, with films and photos as options and AI workshops for teams. Area served: Nice, Cannes, Antibes, Sophia Antipolis, Grasse, Monaco, and all of France remotely. Results: LOIR Paris +164% online sales in two years and +121% orders, Rutherford +193% TikTok followers since March 2025, Autajon film estimated at around 35 times its budget in sales. References: CHANEL, Sofitel, X-Rite Pantone, LOIR Paris, Autajon. English site: https://troiestudio.fr/en. Book a call: https://cal.com/troiestudio/30min.
+TROIE Studio is a web and digital agency based in Nice, on the French Riviera, founded by Hugues Lourmieres. Positioning: the agency that drives sales. Services: websites, web and mobile apps, Shopify e-commerce, SEO, Google Ads and paid social, with films and photos as options and AI workshops for teams. Area served: Nice, Cannes, Antibes, Sophia Antipolis, Grasse, Monaco, and all of France remotely. Results: LOIR Paris +164% online sales in two years and +121% orders, Rutherford +193% TikTok followers since March 2025, Autajon film estimated at around 35 times its budget in sales. References: CHANEL, Sofitel, X-Rite Pantone, LOIR Paris, Autajon. English site: https://troiestudio.fr/en. Contact: describe your project at https://troiestudio.fr/en/contact (quotes after a first exchange, no public prices).

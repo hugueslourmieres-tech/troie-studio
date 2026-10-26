@@ -9,7 +9,6 @@ import Image from "next/image";
  * engagements ni Instagram).
  */
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
 const INSTAGRAM_URL = "https://www.instagram.com/hugueslourmieres/";
 
 const COPY = {
@@ -25,7 +24,7 @@ const COPY = {
       "Une proposition écrite avant de commencer.",
       "Une date annoncée est une date tenue.",
     ],
-    book: "Réserver 30 min",
+    book: "Nous écrire",
     path: "Son parcours et ses résultats",
     insta: "Ses photos sur Instagram, @hugueslourmieres",
     compact: {
@@ -46,7 +45,7 @@ const COPY = {
       "A written proposal before we start.",
       "A date we give is a date we keep.",
     ],
-    book: "Book 30 min",
+    book: "Write to us",
     path: "His career and results",
     insta: "His photos on Instagram, @hugueslourmieres",
     compact: {
@@ -127,7 +126,7 @@ export function FounderBlock({ locale, compact }: { locale: string; compact?: bo
                 {c.path}
                 <span aria-hidden="true" className={ARROW_CLS}>→</span>
               </a>
-              <a href={CAL_URL} target="_blank" rel="noreferrer" className={LINK_CLS}>
+              <a href={`/${locale}/contact#ecrire`} className={LINK_CLS}>
                 {c.book}
                 <span aria-hidden="true" className={ARROW_CLS}>→</span>
               </a>

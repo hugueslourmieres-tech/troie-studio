@@ -104,7 +104,7 @@ const COPY = {
       },
       {
         q: "Combien coûte une boutique Shopify ?",
-        a: "C'est sur devis, après un appel de 30 minutes. Le prix dépend du nombre de produits, du design et des fonctions voulues. L'abonnement Shopify se paie à part, directement à Shopify.",
+        a: "C'est sur devis, après un premier échange. Le prix dépend du nombre de produits, du design et des fonctions voulues. L'abonnement Shopify se paie à part, directement à Shopify.",
       },
       {
         q: "D'où vient le chiffre de LOIR Paris ?",
@@ -199,7 +199,7 @@ const COPY = {
       },
       {
         q: "How much does a Shopify store cost?",
-        a: "It is quoted after a 30-minute call. The price depends on the number of products, the design and the features you need. The Shopify subscription is paid separately, directly to Shopify.",
+        a: "It is quoted after a first exchange. The price depends on the number of products, the design and the features you need. The Shopify subscription is paid separately, directly to Shopify.",
       },
       {
         q: "Where does the LOIR Paris figure come from?",
@@ -267,7 +267,7 @@ export default async function ShopifyPage({ params }: { params: Promise<{ locale
       <JsonLd data={breadcrumbJsonLd(locale, PATH, c.crumb)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
-      <PageHero locale={locale} art="meadow" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="site">
+      <PageHero locale={locale} art="meadow" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="boutique">
         {/* La preuve d'abord : LOIR Paris, avant les actions. */}
         <Link
           href={`/${locale}/etudes-de-cas/loir-paris`}
@@ -308,7 +308,7 @@ export default async function ShopifyPage({ params }: { params: Promise<{ locale
           <Body>{c.migrationAudit}</Body>
         </div>
         <div className="mt-4">
-          <ArrowLink href={`/${locale}/contact?besoin=site#projet`}>{c.auditLink}</ArrowLink>
+          <ArrowLink href={`/${locale}/contact?besoin=boutique#projet`}>{c.auditLink}</ArrowLink>
         </div>
       </Block>
 

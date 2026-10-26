@@ -86,7 +86,7 @@ export function AgentIaPmeGuideEn() {
         the data is. With us, it comes after an assessment that maps your
         processes and prioritises the use cases, then monthly supervision
         with no lock-in. Every step gets a written quote. The first step
-        is a 30-minute call:{" "}
+        is a short exchange:{" "}
         <Link href="/ia#tarifs">the steps are detailed here</Link>.
       </p>
 
@@ -112,8 +112,8 @@ export function AgentIaPmeGuideEn() {
         List the five most repetitive tasks in your week. Cross out any that
         touch sensitive decisions. From what remains, pick the most frequent:
         that is your first agent. If you want an outside perspective, we run
-        that exercise with you in{" "}
-        <Link href="/ia">30 minutes</Link>, numbers included.
+        that exercise with you,{" "}
+        <Link href="/en/contact">numbers included</Link>.
       </p>
     </>
   );

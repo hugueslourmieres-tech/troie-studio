@@ -15,7 +15,6 @@ import { pageSocial } from "@/lib/og";
  * une canonique vers /fr (le sitemap ne liste que /fr).
  */
 
-export const CAL_URL = "https://cal.com/troiestudio/30min";
 
 export type Art = "sky" | "orchid" | "meadow" | "dusk";
 
@@ -187,7 +186,7 @@ export function ToolSection({
   );
 }
 
-/** Fin de page commune : l'accompagnement, puis l'appel de 30 minutes. */
+/** Fin de page commune : nous contacter, puis l'accompagnement. */
 export function ToolClosing({ locale }: { locale: string }) {
   const en = isEn(locale);
   return (
@@ -205,10 +204,10 @@ export function ToolClosing({ locale }: { locale: string }) {
                 : "Nous animons des ateliers avec vos équipes sur leurs cas réels, puis nous vous laissons les documents qui restent : charte, registre, trace des séances."}
             </p>
             <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
-              <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_DARK}>
-                {en ? "Book 30 min" : "Réserver 30 min"}
+              <Link href={`/${locale}/contact#projet`} className={BTN_DARK}>
+                {en ? "Contact us" : "Nous contacter"}
                 <Arrow />
-              </a>
+              </Link>
               <ArrowLink href={`/${locale}/accompagnement#ia`}>
                 {en ? "Workshops with your teams" : "Les ateliers avec vos équipes"}
               </ArrowLink>

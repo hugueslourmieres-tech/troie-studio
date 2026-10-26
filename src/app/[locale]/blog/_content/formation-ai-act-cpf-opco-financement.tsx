@@ -332,7 +332,7 @@ export function FormationAiActCpfOpcoFinancement() {
         met tout en ordre. La page <Link href="/ia/ai-act">AI Act</Link>{" "}
         résume les échéances. Pour situer vos obligations réelles avant
         d&apos;engager un budget, TROIE Studio propose un{" "}
-        <Link href="/fr/contact?subject=ai-act">échange de 30 minutes</Link>.
+        <Link href="/fr/contact#projet">premier échange</Link>.
       </p>
 
       <p>

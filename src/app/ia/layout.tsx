@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     url: "https://troiestudio.fr/ia",
     title: "Organisation et outils IA pour PME, TROIE Studio",
     description:
-      "D'abord votre stratégie, ensuite les outils. Diagnostic, ateliers et mise en place, avec un premier échange de 30 minutes.",
+      "D'abord votre stratégie, ensuite les outils. Diagnostic, ateliers et mise en place, avec un premier échange par écrit.",
     siteName: "TROIE Studio",
     locale: "fr_FR",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Organisation et outils IA pour PME, TROIE Studio",
     description:
-      "D'abord votre stratégie, ensuite les outils. Diagnostic, ateliers et mise en place, avec un premier échange de 30 minutes.",
+      "D'abord votre stratégie, ensuite les outils. Diagnostic, ateliers et mise en place, avec un premier échange par écrit.",
     images: ["/images/brand/og-image.png"],
   },
   robots: { index: true, follow: true },

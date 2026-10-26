@@ -77,7 +77,7 @@ const COPY = {
     worksLink: "Voir toutes les réalisations",
     howTitle: "Comment se passe un projet.",
     how: [
-      "Un appel de 30 minutes pour comprendre le besoin, les utilisateurs et les contraintes.",
+      "Un premier échange pour comprendre le besoin, les utilisateurs et les contraintes.",
       "Un cadrage écrit : les écrans, les fonctions, ce qui est dans la première version et ce qui attend.",
       "Un devis avec un prix et un délai fermes, selon le périmètre.",
       "Des maquettes à valider avant le code, pour éviter les surprises.",
@@ -110,7 +110,7 @@ const COPY = {
     faq: [
       {
         q: "Combien coûte une application ?",
-        a: "C'est sur devis. Le prix dépend du nombre d'écrans, des fonctions, des comptes utilisateurs et des liens avec vos autres outils. Après un appel de 30 minutes et un cadrage, vous recevez un prix ferme.",
+        a: "C'est sur devis. Le prix dépend du nombre d'écrans, des fonctions, des comptes utilisateurs et des liens avec vos autres outils. Après un premier échange et un cadrage, vous recevez un prix ferme.",
       },
       {
         q: "Combien de temps faut-il pour la développer ?",
@@ -181,7 +181,7 @@ const COPY = {
     worksLink: "See all our work",
     howTitle: "How a project runs.",
     how: [
-      "A 30-minute call to understand the need, the users and the constraints.",
+      "A first exchange to understand the need, the users and the constraints.",
       "A written scope: screens, features, what goes in the first version and what waits.",
       "A quote with a firm price and timeline, based on the scope.",
       "Mock-ups to approve before code, to avoid surprises.",
@@ -214,7 +214,7 @@ const COPY = {
     faq: [
       {
         q: "How much does an app cost?",
-        a: "It is quoted. The price depends on the number of screens, the features, user accounts and links with your other tools. After a 30-minute call and a scoping step, you get a firm price.",
+        a: "It is quoted. The price depends on the number of screens, the features, user accounts and links with your other tools. After a first exchange and a scoping step, you get a firm price.",
       },
       {
         q: "How long does development take?",
@@ -286,7 +286,7 @@ export default async function CreationApplicationNicePage({ params }: { params: 
       <JsonLd data={breadcrumbJsonLd(locale, PATH, c.crumb)} />
       <div aria-hidden="true" className="h-16 md:h-20" />
 
-      <PageHero locale={locale} art="orchid" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="site" />
+      <PageHero locale={locale} art="orchid" eyebrow={c.eyebrow} title={c.title} intro={c.intro} need="application" />
 
       <Block id="applications" title={c.whatTitle}>
         <Sentences items={c.what} />
@@ -330,7 +330,7 @@ export default async function CreationApplicationNicePage({ params }: { params: 
       <Block id="audit" title={c.auditTitle}>
         <Body>{c.auditBody}</Body>
         <div className="mt-6">
-          <ArrowLink href={`/${locale}/contact?besoin=site#projet`}>{c.auditLink}</ArrowLink>
+          <ArrowLink href={`/${locale}/contact?besoin=application#projet`}>{c.auditLink}</ArrowLink>
         </div>
       </Block>
 

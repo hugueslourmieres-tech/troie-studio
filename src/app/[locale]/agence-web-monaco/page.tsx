@@ -69,7 +69,7 @@ const COPY = {
     ],
     howTitle: "Comment nous travaillons.",
     how: [
-      "Un appel de 30 minutes, en visio ou à Monaco, pour comprendre votre besoin.",
+      "Un premier échange, en visio ou à Monaco, pour comprendre votre besoin.",
       "Une proposition écrite et un devis, avec un délai ferme.",
       "Si votre site existe déjà, un audit : ce qui freine les demandes et les ventes, et les corrections par priorité.",
       "La création ou la refonte, avec un seul interlocuteur du début à la fin.",
@@ -97,7 +97,7 @@ const COPY = {
       },
       {
         q: "Combien coûte un site pour une entreprise monégasque ?",
-        a: "Un site, une boutique ou une application sont sur devis, après un appel de 30 minutes.",
+        a: "Un site, une boutique ou une application sont sur devis, après un premier échange.",
       },
       {
         q: "Travaillez-vous avec des marques de luxe ?",
@@ -151,7 +151,7 @@ const COPY = {
     ],
     howTitle: "How we work.",
     how: [
-      "A 30-minute call, by video or in Monaco, to understand your need.",
+      "A first exchange, by video or in Monaco, to understand your need.",
       "A written proposal and a quote, with a firm timeline.",
       "If your site already exists, an audit: what holds back enquiries and sales, and fixes by priority.",
       "The build or redesign, with a single contact from start to finish.",
@@ -179,7 +179,7 @@ const COPY = {
       },
       {
         q: "How much does a website cost for a Monaco company?",
-        a: "A website, a store or an app is quoted after a 30-minute call.",
+        a: "A website, a store or an app is quoted after a first exchange.",
       },
       {
         q: "Do you work with luxury brands?",
@@ -271,7 +271,7 @@ export default async function AgenceWebMonacoPage({ params }: { params: Promise<
       <Block id="methode" title={c.howTitle}>
         <Sentences items={c.how} />
         <div className="mt-6">
-          <ArrowLink href={`/${locale}/contact?besoin=strategie#projet`}>{c.auditLink}</ArrowLink>
+          <ArrowLink href={`/${locale}/contact?besoin=site#projet`}>{c.auditLink}</ArrowLink>
         </div>
       </Block>
 

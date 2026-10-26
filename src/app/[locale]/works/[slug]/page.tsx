@@ -7,10 +7,9 @@ import { WORKS, findWork } from "@/lib/works";
 import { metaDescription, seoTitle } from "@/lib/seo";
 import { pageSocial } from "@/lib/og";
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
 
-/* Boutons de clôture (règle du 1er/10/2026, fond crème) : « Réserver 30 min »
-   en orange plein, « Décrire mon projet » en lien souligné. La zone cliquable
+/* Boutons de clôture (règle du 1er/10/2026, fond crème) : « Décrire mon projet »
+   en bouton plein, l'audit gratuit du site en contour (26/10/2026). La zone cliquable
    garde 48 px de haut pour le pouce. */
 const BTN_BOOK =
   "group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[var(--ink)] px-6 text-[15px] font-medium text-white transition-[background-color,transform] duration-200 hover:bg-[#2a2e37] active:scale-[0.98]";
@@ -223,7 +222,7 @@ function CaseView({
       {/* Next project, keeps visitors deep in the work */}
       <NextProject locale={locale} nextSlug={nextSlug} nextCover={nextCover} nextCoverPosition={nextCoverPosition} />
 
-      {/* Clôture : réserver un appel ou décrire son projet.
+      {/* Clôture : décrire son projet ou lancer l'audit gratuit.
           [À COMPLÉTER par Hugues] Les blocs « La demande », « Ce que nous
           avons fait » et « Ce que ça a changé » s'ajouteront au-dessus quand
           les textes de chaque fiche seront fournis. */}
@@ -234,19 +233,16 @@ function CaseView({
           </p>
           <h2 className="t-display mt-6 text-3xl text-[var(--fg)] md:text-5xl">
             {locale === "fr"
-              ? "Parlons-en pendant trente minutes."
-              : "Let's talk for thirty minutes."}
+              ? "Parlez-nous de votre projet."
+              : "Tell us about your project."}
           </h2>
           <div className="mt-10 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-center sm:gap-8">
-            <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
-              {locale === "fr" ? "Réserver 30 min" : "Book 30 min"}
+            <Link href={`/${locale}/contact#projet`} className={BTN_BOOK}>
+              {locale === "fr" ? "Décrire mon projet" : "Describe my project"}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-            </a>
-            <Link href={`/${locale}/contact#projet`} className={BTN_PROJECT}>
-              <span className="inline-flex items-center gap-2.5 border-b-2 border-current pb-1.5">
-                {locale === "fr" ? "Décrire mon projet" : "Describe my project"}
-                <span aria-hidden="true" className="transition group-hover:translate-x-1">→</span>
-              </span>
+            </Link>
+            <Link href={`/${locale}/audit-seo-gratuit`} className={BTN_PROJECT}>
+              {locale === "fr" ? "Audit gratuit de votre site" : "Free audit of your website"}
             </Link>
           </div>
         </div>

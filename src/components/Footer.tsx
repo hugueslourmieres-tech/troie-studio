@@ -2,8 +2,6 @@ import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 import { AnimatedWordmark } from "./AnimatedWordmark";
 
-const BOOKING_URL = "https://cal.com/troiestudio/30min";
-
 const linkClass =
   "inline-block py-1.5 text-[var(--fg-2)] transition hover:text-[var(--accent)]";
 
@@ -40,6 +38,7 @@ export async function Footer({ locale }: { locale: string }) {
   const resourceLinks = [
     { href: `/${locale}/creation`, label: tNav("works") },
     { href: `/${locale}/etudes-de-cas`, label: en ? "Case studies" : "Études de cas" },
+    { href: `/${locale}/audit-seo-gratuit`, label: en ? "Free SEO audit" : "Audit SEO gratuit" },
     // Pages locales (25/10/2026) : maillage vers les trois zones servies.
     { href: `/${locale}/agence-web-nice`, label: en ? "Web agency in Nice" : "Agence web à Nice" },
     { href: `/${locale}/agence-web-monaco`, label: en ? "Web agency in Monaco" : "Agence web à Monaco" },
@@ -100,18 +99,13 @@ export async function Footer({ locale }: { locale: string }) {
             <p className="t-eyebrow">{t("contact")}</p>
             <ul className="mt-5 space-y-1 text-sm">
               <li>
-                <a
-                  href={BOOKING_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={linkClass}
-                >
-                  {tNav("book")}
-                </a>
-              </li>
-              <li>
                 <Link href={`/${locale}/contact#projet`} className={linkClass}>
                   {tNav("project")}
+                </Link>
+              </li>
+              <li>
+                <Link href={`/${locale}/contact#ecrire`} className={linkClass}>
+                  {tNav("letsTalk")}
                 </Link>
               </li>
             </ul>

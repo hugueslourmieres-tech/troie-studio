@@ -6,7 +6,6 @@ import Link from "next/link";
  * typographie que le reste. Rien d'inventé : pas de prix, pas de délai chiffré.
  */
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
 const BTN_BOOK =
   "inline-flex h-12 items-center rounded-full bg-[var(--ink)] px-6 text-[15px] font-medium text-white transition-[background-color,transform] duration-200 hover:bg-[#2a2e37] active:scale-[0.98]";
 const BTN_OUTLINE =
@@ -65,11 +64,11 @@ export function HomeCtaBand({ locale }: { locale: string }) {
         <img src="/images/art/dusk.jpg" alt="" aria-hidden="true" className="absolute inset-0 -z-10 h-full w-full object-cover" />
         <div>
           <h2 className="t-display text-3xl text-white md:text-5xl">{E ? "Got a project in mind?" : "Un projet en tête ?"}</h2>
-          <p className="mt-3 text-base text-white/80 md:text-lg">{E ? "Tell us in 30 minutes. No commitment." : "Parlons-en 30 minutes, sans engagement."}</p>
+          <p className="mt-3 text-base text-white/80 md:text-lg">{E ? "Tell us about it in a few lines. No commitment." : "Parlez-nous-en en quelques lignes, sans engagement."}</p>
         </div>
         <div className="flex flex-wrap items-center gap-3">
-          <a href={CAL_URL} target="_blank" rel="noreferrer" className="relative z-10 inline-flex h-12 items-center rounded-full bg-white px-6 text-[15px] font-medium text-[#111318] transition-transform duration-200 active:scale-[0.98]">{E ? "Book 30 min" : "Réserver 30 min"}</a>
-          <Link href={`/${locale}/contact#projet`} className="relative z-10 inline-flex h-12 items-center rounded-full border border-white/50 px-6 text-[15px] font-medium text-white transition-colors duration-200 hover:border-white">{E ? "Describe my project" : "Décrire mon projet"}</Link>
+          <Link href={`/${locale}/contact#projet`} className="relative z-10 inline-flex h-12 items-center rounded-full bg-white px-6 text-[15px] font-medium text-[#111318] transition-transform duration-200 active:scale-[0.98]">{E ? "Describe my project" : "Décrire mon projet"}</Link>
+          <Link href={`/${locale}/audit-seo-gratuit`} className="relative z-10 inline-flex h-12 items-center rounded-full border border-white/50 px-6 text-[15px] font-medium text-white transition-colors duration-200 hover:border-white">{E ? "Free audit" : "Audit gratuit"}</Link>
         </div>
       </div>
     </section>
@@ -80,12 +79,12 @@ export function HomeProcess({ locale }: { locale: string }) {
   const E = en(locale);
   const steps = E
     ? [
-        { t: "A 30-minute call", b: "You explain your goal. We listen and ask the right questions." },
+        { t: "You describe your project", b: "A short form or an email. You explain your goal, we come back with the right questions." },
         { t: "A written proposal", b: "Scope, timing and a quote, in plain words." },
         { t: "We launch", b: "We build, then review the numbers with you every month." },
       ]
     : [
-        { t: "Un appel de 30 minutes", b: "Vous expliquez votre objectif. Nous écoutons et posons les bonnes questions." },
+        { t: "Vous décrivez votre projet", b: "Un formulaire court ou un email. Vous expliquez votre objectif, nous revenons avec les bonnes questions." },
         { t: "Une proposition écrite", b: "Le périmètre, les délais et un devis, en clair." },
         { t: "On lance", b: "Nous réalisons, puis nous suivons les chiffres avec vous chaque mois." },
       ];
@@ -102,9 +101,9 @@ export function HomeProcess({ locale }: { locale: string }) {
             </li>
           ))}
         </ol>
-        <a href={CAL_URL} target="_blank" rel="noreferrer" className={`${BTN_BOOK} mt-12`}>
-          {E ? "Book the first call" : "Réserver le premier appel"}
-        </a>
+        <Link href={`/${locale}/contact#projet`} className={`${BTN_BOOK} mt-12`}>
+          {E ? "Describe my project" : "Décrire mon projet"}
+        </Link>
       </div>
     </section>
   );
@@ -112,14 +111,14 @@ export function HomeProcess({ locale }: { locale: string }) {
 
 export const FAQ = {
   fr: [
-    { q: "Combien ça coûte ?", a: "Chaque projet a son devis. Il vous est remis par écrit après l'appel de 30 minutes." },
-    { q: "Faut-il s'engager ?", a: "Non. L'appel et la proposition ne vous engagent à rien." },
+    { q: "Combien ça coûte ?", a: "Chaque projet a son devis. Il vous est remis par écrit après un premier échange." },
+    { q: "Faut-il s'engager ?", a: "Non. Le premier échange et la proposition ne vous engagent à rien." },
     { q: "Vous travaillez où ?", a: "Nous sommes basés à Nice et travaillons partout en France, sur place ou à distance." },
     { q: "Vous faites tout, ou une seule chose ?", a: "Les deux. Un site seul, une campagne seule, ou tout ensemble avec une seule équipe." },
   ],
   en: [
-    { q: "How much does it cost?", a: "Every project gets its own quote. You receive it in writing after the 30-minute call." },
-    { q: "Do I have to commit?", a: "No. The call and the proposal do not commit you to anything." },
+    { q: "How much does it cost?", a: "Every project gets its own quote. You receive it in writing after a first exchange." },
+    { q: "Do I have to commit?", a: "No. The first exchange and the proposal do not commit you to anything." },
     { q: "Where do you work?", a: "We are based in Nice and work across France, on site or remotely." },
     { q: "Do you do everything, or one thing?", a: "Both. A website alone, a campaign alone, or everything with one team." },
   ],

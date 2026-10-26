@@ -69,7 +69,7 @@ export function CestQuoiUnAgentIa() {
         Pour comprendre et déployer ça sereinement (en équipe, c’est notre
         métier), faites le <Link href="https://troie.app/niveau">QCM gratuit</Link>,
         découvrez <Link href="/ia">TROIE pour les professionnels</Link>, ou{" "}
-        <Link href="/fr/contact">parlons-en 30 minutes</Link>.
+        <Link href="/fr/contact">parlons-en</Link>.
       </p>
     </>
   );

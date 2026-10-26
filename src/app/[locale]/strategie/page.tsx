@@ -7,7 +7,6 @@ import { ProofCase } from "@/components/ProofCase";
 import { pageSocial } from "@/lib/og";
 import { metaDescription, seoTitle } from "@/lib/seo";
 
-const CAL_URL = "https://cal.com/troiestudio/30min";
 
 /**
  * Page « Stratégie » (1er/10/2026). Page dédiée, elle ne recycle plus la
@@ -20,9 +19,9 @@ const CAL_URL = "https://cal.com/troiestudio/30min";
  * L'IA n'apparaît ni dans le H1, ni dans le titre, ni dans la description,
  * ni dans un bouton. Elle n'est citée que dans la FAQ, comme un outil.
  *
- * Boutons (règle du 1er/10/2026, fond crème) : « Réserver 30 min » en orange
- * plein, « Décrire mon projet » en lien souligné, avec le besoin « stratégie »
- * présélectionné dans le formulaire.
+ * Boutons (règle du 1er/10/2026, fond crème) : « Décrire mon projet » en
+ * bouton plein, « Nous écrire » en lien souligné (plus de prise de
+ * rendez-vous depuis le 26/10/2026).
  */
 
 const COPY = {
@@ -34,8 +33,8 @@ const COPY = {
     title: "Le bon message, puis les bons clients.",
     intro:
       "Nous choisissons avec vous quoi dire, à qui et où. Puis nous le faisons : contenus, réseaux sociaux, référencement, campagnes.",
-    book: "Réserver 30 min",
-    project: "Décrire mon projet",
+    book: "Décrire mon projet",
+    project: "Nous écrire",
     problemsTitle: "Ce que nous réglons avec vous.",
     problems: [
       {
@@ -100,7 +99,7 @@ const COPY = {
     faq: [
       {
         q: "Comment démarre-t-on ?",
-        a: "Par un appel de 30 minutes. Ensuite, nous vous envoyons une proposition écrite et un devis.",
+        a: "Par un premier échange : décrivez votre projet sur la page contact. Ensuite, nous vous envoyons une proposition écrite et un devis.",
       },
       {
         q: "Faut-il avoir une équipe marketing ?",
@@ -120,8 +119,8 @@ const COPY = {
     title: "The right message, then the right customers.",
     intro:
       "We choose with you what to say, to whom and where. Then we do it: content, social media, search, campaigns.",
-    book: "Book 30 min",
-    project: "Describe my project",
+    book: "Describe my project",
+    project: "Write to us",
     problemsTitle: "What we solve with you.",
     problems: [
       {
@@ -186,7 +185,7 @@ const COPY = {
     faq: [
       {
         q: "How do we start?",
-        a: "With a 30-minute call. Then we send you a written proposal and a quote.",
+        a: "With a first exchange: describe your project on the contact page. Then we send you a written proposal and a quote.",
       },
       {
         q: "Do I need a marketing team?",
@@ -265,13 +264,13 @@ export default async function StrategiePage({
           {c.intro}
         </p>
         <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
-          <a href={CAL_URL} target="_blank" rel="noreferrer" className={BTN_BOOK}>
+          <Link href={`/${locale}/contact#projet`} className={BTN_BOOK}>
             {c.book}
             <span aria-hidden="true" className="transition group-hover:translate-x-1">
               →
             </span>
-          </a>
-          <Link href={`/${locale}/contact?besoin=strategie#projet`} className={BTN_LINK}>
+          </Link>
+          <Link href={`/${locale}/contact#ecrire`} className={BTN_LINK}>
             <span className="inline-flex items-center gap-2">
               {c.project}
               <span aria-hidden="true" className="transition group-hover:translate-x-1">

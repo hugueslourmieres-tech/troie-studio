@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Brief, Byline, CAL_URL, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
+import { Brief, Byline, DataTable, Ext, Faq, Sources, type QA } from "./_kit";
 
 /**
  * Article : refonte de site, les 7 signes et la méthode pour ne pas perdre
@@ -243,10 +243,10 @@ export function RefonteSiteInternetSansPerdreTrafic() {
       <h2>Refondre, ou corriger d&apos;abord</h2>
       <p>
         Avant de refaire un site, il faut savoir ce qui bloque vraiment. C&apos;est
-        l&apos;objet de notre audit à 890 euros HT : ce qui freine les demandes et
+        l&apos;objet de notre audit : ce qui freine les demandes et
         les ventes, les pages qui portent votre trafic, et les corrections par
         priorité. Vous décidez ensuite, refonte ou non. Vous pouvez aussi{" "}
-        <Ext href={CAL_URL}>réserver un appel de 30 minutes</Ext>. Nos pages{" "}
+        <Link href="/fr/contact#projet">nous décrire votre projet</Link>. Nos pages{" "}
         <Link href="/fr/creation-site-application">création et refonte de site</Link>,{" "}
         <Link href="/fr/agence-web-nice">agence web à Nice</Link> et{" "}
         <Link href="/fr/agence-web-monaco">agence web à Monaco</Link>{" "}

@@ -113,7 +113,7 @@ export function FormationIaObligatoireEntreprise() {
         couvre exactement ce périmètre, avec une trace écrite pour chaque
         participant, et notre page dédiée à l&apos;
         <Link href="/ia/ai-act">AI Act</Link> résume toutes les échéances.
-        Premier pas simple : un échange de 30 minutes pour situer vos
+        Premier pas simple : un premier échange pour situer vos
         obligations réelles.
       </p>
 

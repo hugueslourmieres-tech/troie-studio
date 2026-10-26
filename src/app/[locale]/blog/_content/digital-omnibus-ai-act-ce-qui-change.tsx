@@ -260,7 +260,7 @@ export function DigitalOmnibusAiActCeQuiChange() {
           ce que dit vraiment l&apos;article 4
         </Link>{" "}
         détaille le contenu d&apos;une démarche sérieuse. Premier pas
-        simple : un échange de 30 minutes pour situer vos
+        simple : un premier échange pour situer vos
         obligations réelles.
       </p>
 

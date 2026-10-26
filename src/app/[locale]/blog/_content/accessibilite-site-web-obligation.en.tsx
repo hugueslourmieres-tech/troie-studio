@@ -3,6 +3,7 @@
  * as the hook. SEO entry point for the accessibility side of the
  * compliance offer (/ia/accessibilite).
  */
+import Link from "next/link";
 export function AccessibiliteSiteWebObligationEn() {
   return (
     <>
@@ -127,7 +128,7 @@ export function AccessibiliteSiteWebObligationEn() {
         offer, alongside the AI Act: a first call, a full RGAA
         assessment (quoted upfront), remediation by our developers,
         and ongoing monitoring so every release stays compliant. The
-        first step is a 30-minute call.
+        first step is to <Link href="/en/contact">describe your project</Link>.
       </p>
     </>
   );

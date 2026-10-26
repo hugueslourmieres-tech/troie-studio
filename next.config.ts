@@ -70,8 +70,10 @@ const nextConfig: NextConfig = {
       // Le studio vend ses services, plus de pages d'entrée IA. Chaque
       // ancienne URL renvoie vers la page qui la remplace.
       { source: "/:locale(fr|en)/rentree", destination: "/:locale/strategie", permanent: true },
-      { source: "/:locale(fr|en)/scan-ia", destination: "/:locale/strategie", permanent: true },
-      { source: "/:locale(fr|en)/scan-ia/:path*", destination: "/:locale/strategie", permanent: true },
+      // Le scan IA renaît en audit SEO et GEO gratuit (26/10/2026).
+      { source: "/:locale(fr|en)/scan-ia", destination: "/:locale/audit-seo-gratuit", permanent: true },
+      { source: "/:locale(fr|en)/scan-ia/:path*", destination: "/:locale/audit-seo-gratuit", permanent: true },
+      { source: "/scan-ia", destination: "/fr/audit-seo-gratuit", permanent: true },
       { source: "/:locale(fr|en)/diagnostic-ia", destination: "/:locale/accompagnement", permanent: true },
       { source: "/ia/ai-act", destination: "/fr/blog/ai-act-entreprise-2026", permanent: true },
       { source: "/ia/accessibilite", destination: "/fr/blog/accessibilite-site-web-obligation", permanent: true },

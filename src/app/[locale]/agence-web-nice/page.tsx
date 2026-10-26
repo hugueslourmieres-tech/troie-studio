@@ -85,7 +85,7 @@ const COPY = {
       },
       {
         q: "Comment se passe le premier rendez-vous ?",
-        a: "Un appel de 30 minutes, en visio ou par téléphone. Nous comprenons votre besoin. Ensuite, nous vous envoyons une proposition écrite et un devis.",
+        a: "Un premier échange, par écrit ou en visio. Nous comprenons votre besoin. Ensuite, nous vous envoyons une proposition écrite et un devis.",
       },
       {
         q: "Combien coûte un site internet à Nice ?",
@@ -154,7 +154,7 @@ const COPY = {
       },
       {
         q: "How does the first meeting work?",
-        a: "A 30-minute call, by video or phone. We understand your need. Then we send you a written proposal and a quote.",
+        a: "A first exchange, in writing or by video. We understand your need. Then we send you a written proposal and a quote.",
       },
       {
         q: "How much does a website cost in Nice?",
