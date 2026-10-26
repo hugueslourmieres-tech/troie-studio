@@ -11,7 +11,7 @@ import { LoopRail } from "./LoopRail";
  * son à gauche, le client, le lieu, ce que l'équipe a fait et le résultat
  * à droite, précédent et suivant en bas. Nos fichiers seulement (22/10 :
  * plus de miniatures ni de lecteur YouTube), lancés directement.
- * 26/10/2026 : la rangée défile seule, en boucle (LoopRail), sans flèches
+ * 26/10/2026 : la rangée avance seule, une carte toutes les 2 s (LoopRail), sans flèches
  * ni points ; un clic sur une carte ouvre toujours sa fiche.
  */
 
@@ -176,7 +176,6 @@ export function HomeFilms({ locale }: { locale: string }) {
 
         <LoopRail
           label={c.rail}
-          speed={30}
           className="mx-[calc(50%-50vw)] mt-12 scroll-pl-[calc(50vw-50%)] px-[calc(50vw-50%)] pt-1 pb-6 "
           render={(copy) =>
             STORIES.map((st, i) => (

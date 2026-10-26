@@ -1,73 +1,104 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
- * Rangée qui défile seule, en boucle infinie (26/10/2026, photos et films de
- * l'accueil). Le contenu est rendu deux fois et la piste glisse de 0 à -50 %
- * en animation CSS linéaire (transform seulement, hors du fil principal) :
- * la fin de la première copie rejoint le début de la seconde sans saut.
+ * Rangée qui avance seule, une carte à la fois, en boucle (photos et films de
+ * l'accueil). 26/10/2026, demande de Hugues : plus de défilement continu
+ * (on ne lisait plus les titres), la rangée reste immobile `interval` ms,
+ * puis glisse d'un cran.
+ *
+ * Le contenu est rendu deux fois : arrivé au début de la copie, on revient
+ * sans transition au même endroit dans l'original, ce qui ne se voit pas.
  *
  * - Pause au survol (souris), au focus clavier, au toucher, hors écran et
  *   onglet caché.
- * - On peut tirer la rangée au doigt ou à la souris : on avance alors
- *   l'animation elle-même (currentTime), elle repart de là au relâcher.
- * - Au clavier, l'élément qui reçoit le focus est ramené au bord gauche.
+ * - Glisser au doigt ou à la souris : un cran en avant ou en arrière.
+ * - Au clavier, l'élément qui reçoit le focus vient au bord gauche.
  * - La copie est aria-hidden et inerte (jamais focalisable).
- * - prefers-reduced-motion : pas de défilement automatique, une rangée
- *   normale qui se fait glisser, sans la copie (tout en CSS, globals.css).
+ * - prefers-reduced-motion : pas d'avance automatique, une rangée normale
+ *   qui se fait glisser, sans la copie (CSS, globals.css).
  */
 export function LoopRail({
   label,
-  speed = 32,
+  interval = 2000,
   gapClass = "gap-4 pr-4 md:gap-5 md:pr-5",
   className = "",
   render,
 }: {
   label: string;
-  /** Vitesse en pixels par seconde. */
-  speed?: number;
-  /** Espacement : le même gap en marge droite de chaque copie, pour un -50 % exact. */
+  /** Temps d'arrêt sur chaque position, en millisecondes. */
+  interval?: number;
+  /** Espacement : le même gap en marge droite de chaque copie. */
   gapClass?: string;
   className?: string;
   render: (copy: boolean) => ReactNode;
 }) {
   const root = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLDivElement>(null);
-  const [offscreen, setOffscreen] = useState(false);
+  const idx = useRef(0);
+  const [offscreen, setOffscreen] = useState(true);
   const [hidden, setHidden] = useState(false);
+  const [hover, setHover] = useState(false);
+  const [focused, setFocused] = useState(false);
   const [held, setHeld] = useState(false);
-  const drag = useRef<{ x: number; t: number; moved: boolean; id: number } | null>(null);
+  const drag = useRef<{ x: number; id: number; moved: boolean } | null>(null);
   const suppressClick = useRef(false);
   const resume = useRef<number | undefined>(undefined);
 
-  const anim = () => track.current?.getAnimations()[0] as Animation | undefined;
-  const loop = () => {
-    const el = track.current;
-    const a = anim();
-    if (!el || !a) return null;
-    const timing = a.effect?.getComputedTiming();
-    const T = Number(timing?.duration) || 0;
-    const D = el.scrollWidth / 2;
-    return T && D ? { a, T, D } : null;
-  };
-  const wrap = (t: number, T: number) => ((t % T) + T) % T;
+  const items = () => Array.from(track.current?.querySelectorAll<HTMLLIElement>(":scope > ul > li") ?? []);
+  const count = () => track.current?.querySelector(":scope > ul")?.children.length ?? 0;
+  const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Durée réglée sur la largeur réelle : vitesse constante quel que soit l'écran.
+  /** Place la piste sur l'élément i, avec ou sans glissement. */
+  const place = useCallback((i: number, animate: boolean) => {
+    const el = track.current;
+    const li = items()[i];
+    if (!el || !li) return;
+    idx.current = i;
+    el.style.transition = animate ? "" : "none";
+    el.style.transform = `translate3d(${-li.offsetLeft}px,0,0)`;
+    if (!animate) void el.offsetWidth; // fige la position avant de rendre la transition
+    if (!animate) el.style.transition = "";
+  }, []);
+
+  const step = useCallback(
+    (dir: 1 | -1) => {
+      const n = count();
+      if (!n) return;
+      let i = idx.current;
+      // Recul depuis le premier : on saute d'abord sur sa copie.
+      if (dir === -1 && i === 0) {
+        place(n, false);
+        i = n;
+      }
+      place(i + dir, true);
+    },
+    [place],
+  );
+
+  // Fin du glissement : passé dans la copie, on revient dans l'original.
   useEffect(() => {
     const el = track.current;
     if (!el) return;
-    const set = () => el.style.setProperty("--loop-dur", `${Math.max(el.scrollWidth / 2 / speed, 10).toFixed(1)}s`);
-    set();
-    const ro = new ResizeObserver(set);
+    const onEnd = (e: TransitionEvent) => {
+      if (e.target !== el || e.propertyName !== "transform") return;
+      const n = count();
+      if (n && idx.current >= n) place(idx.current - n, false);
+    };
+    el.addEventListener("transitionend", onEnd);
+    const ro = new ResizeObserver(() => place(idx.current, false));
     ro.observe(el);
-    return () => ro.disconnect();
-  }, [speed]);
+    return () => {
+      el.removeEventListener("transitionend", onEnd);
+      ro.disconnect();
+    };
+  }, [place]);
 
   useEffect(() => {
     const el = root.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => setOffscreen(!e.isIntersecting));
+    const io = new IntersectionObserver(([e]) => setOffscreen(!e.isIntersecting), { threshold: 0.3 });
     io.observe(el);
     const onVis = () => setHidden(document.hidden);
     document.addEventListener("visibilitychange", onVis);
@@ -78,62 +109,60 @@ export function LoopRail({
     };
   }, []);
 
-  const reduced = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const paused = offscreen || hidden || hover || focused || held;
+
+  useEffect(() => {
+    if (paused || reduced()) return;
+    const t = window.setInterval(() => step(1), interval);
+    return () => window.clearInterval(t);
+  }, [paused, interval, step]);
 
   const onPointerDown = (e: React.PointerEvent) => {
     if (reduced() || (e.pointerType === "mouse" && e.button !== 0)) return;
-    const l = loop();
-    if (!l) return;
     window.clearTimeout(resume.current);
-    drag.current = { x: e.clientX, t: Number(l.a.currentTime) || 0, moved: false, id: e.pointerId };
+    drag.current = { x: e.clientX, id: e.pointerId, moved: false };
     suppressClick.current = false;
     if (e.pointerType !== "mouse") setHeld(true);
   };
   const onPointerMove = (e: React.PointerEvent) => {
     const d = drag.current;
-    if (!d || d.id !== e.pointerId) return;
-    const dx = e.clientX - d.x;
-    if (!d.moved && Math.abs(dx) < 6) return;
-    if (!d.moved) {
-      d.moved = true;
-      setHeld(true);
-    }
-    const l = loop();
-    if (l) l.a.currentTime = wrap(d.t - (dx / l.D) * l.T, l.T);
+    if (d && d.id === e.pointerId && Math.abs(e.clientX - d.x) > 6) d.moved = true;
   };
   const end = (e: React.PointerEvent) => {
     const d = drag.current;
     if (!d || d.id !== e.pointerId) return;
+    const dx = e.clientX - d.x;
+    if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
     suppressClick.current = d.moved;
     drag.current = null;
     // Au doigt : petite pause avant de repartir, le temps de lire.
     window.clearTimeout(resume.current);
-    resume.current = window.setTimeout(() => setHeld(false), e.pointerType === "mouse" ? 0 : 1600);
+    resume.current = window.setTimeout(() => setHeld(false), e.pointerType === "mouse" ? 0 : 2400);
   };
 
-  // Clavier : l'élément focalisé vient au bord gauche (la piste est en pause
-  // tant que le focus clavier est dedans, voir globals.css).
+  // Clavier : l'élément focalisé vient au bord gauche.
   const onFocus = (e: React.FocusEvent) => {
     const target = e.target as HTMLElement;
     if (!target.matches(":focus-visible")) return;
-    const item = target.closest("li");
-    const l = loop();
-    if (!item || !l || !track.current?.contains(item)) return;
-    l.a.currentTime = wrap((item.offsetLeft / l.D) * l.T, l.T);
+    setFocused(true);
+    const i = items().findIndex((li) => li.contains(target));
+    if (i >= 0 && !reduced()) place(i, true);
   };
-
-  const paused = offscreen || hidden || held;
 
   return (
     <div
       ref={root}
       className={`t-loop ${className}`}
-      data-paused={paused ? "" : undefined}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
       onPointerUp={end}
       onPointerCancel={end}
-      onPointerLeave={(e) => e.pointerType === "mouse" && end(e)}
+      onPointerEnter={(e) => e.pointerType === "mouse" && setHover(true)}
+      onPointerLeave={(e) => {
+        if (e.pointerType !== "mouse") return;
+        setHover(false);
+        end(e);
+      }}
       onClickCapture={(e) => {
         if (suppressClick.current) {
           e.preventDefault();
@@ -143,6 +172,9 @@ export function LoopRail({
       }}
       onDragStart={(e) => e.preventDefault()}
       onFocus={onFocus}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) setFocused(false);
+      }}
     >
       <div ref={track} className="t-loop-track">
         <ul aria-label={label} className={`t-loop-copy ${gapClass}`}>

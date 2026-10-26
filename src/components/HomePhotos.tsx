@@ -13,7 +13,7 @@ import { LoopRail } from "./LoopRail";
  * séries signées par un autre photographe (CHANEL, Monaco, Wauters) et les
  * photos de Pierre Appert n'y vont jamais.
  *
- * 26/10/2026 : la rangée défile seule, en boucle (LoopRail), sans flèches.
+ * 26/10/2026 : la rangée avance seule, une carte toutes les 2 s (LoopRail), sans flèches.
  */
 type Photo = { src: string; w: number; h: number; fr: string; en: string };
 
@@ -58,7 +58,6 @@ export function HomePhotos({ locale }: { locale: string }) {
 
         <LoopRail
           label={c.rail}
-          speed={34}
           className="mx-[calc(50%-50vw)] mt-12 scroll-pl-[calc(50vw-50%)] px-[calc(50vw-50%)] pb-3 "
           render={(copy) =>
             PHOTOS.map((p) => (
