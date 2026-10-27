@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     images: [
       {
-        url: "/images/brand/og-image.png",
+        url: "/images/brand/og-troie-2026.png",
         width: 1200,
         height: 630,
         alt: "TROIE, Formations IA",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "TROIE, Cours en ligne IA",
     description:
       "Comprendre et intégrer l'IA au quotidien. Pro, perso, famille. QCM gratuits.",
-    images: ["/images/brand/og-image.png"],
+    images: ["/images/brand/og-troie-2026.png"],
   },
   robots: { index: true, follow: true },
 };

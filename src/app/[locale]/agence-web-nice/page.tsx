@@ -195,7 +195,7 @@ export default async function AgenceWebNicePage({ params }: { params: Promise<{ 
     "@id": ORG_ID,
     name: "TROIE Studio",
     url: `${BASE}/${locale}${PATH}`,
-    image: `${BASE}/images/brand/og-image.png`,
+    image: `${BASE}/images/brand/og-troie-2026.png`,
     description: c.metaDesc,
     priceRange: "Sur devis",
     address: {

@@ -5,7 +5,7 @@
  * dans le retour de son generateMetadata.
  */
 export const OG_IMAGE = {
-  url: "/images/brand/og-image.png",
+  url: "/images/brand/og-troie-2026.png",
   width: 1200,
   height: 630,
   alt: "TROIE Studio",

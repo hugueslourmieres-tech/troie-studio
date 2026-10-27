@@ -72,12 +72,12 @@ export async function SeoSchema({ locale }: { locale: string }) {
         logo: {
           "@type": "ImageObject",
           "@id": `${BASE}/#logo`,
-          url: `${BASE}/brand/troie-logotype.png`,
-          width: 1200,
-          height: 420,
+          url: `${BASE}/brand/troie-logo-spartiate.png`,
+          width: 512,
+          height: 512,
           caption: "TROIE Studio",
         },
-        image: `${BASE}/images/brand/og-image.png`,
+        image: `${BASE}/images/brand/og-troie-2026.png`,
         slogan: isFr ? "L'agence qui fait vendre." : "The agency that drives sales.",
         /* Fraîcheur machine : figée au build, rafraîchie à chaque deploy. */
         dateModified: new Date().toISOString().slice(0, 10),

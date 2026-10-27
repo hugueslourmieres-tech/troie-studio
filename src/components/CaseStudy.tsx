@@ -59,7 +59,7 @@ export function caseJsonLd({
     inLanguage: loc(locale),
     datePublished: "2026-10-23",
     dateModified: "2026-10-23",
-    image: `${BASE}/images/brand/og-image.png`,
+    image: `${BASE}/images/brand/og-troie-2026.png`,
     abstract: result,
     author: {
       "@type": "Person",
